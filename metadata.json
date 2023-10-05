@@ -1,0 +1,11 @@
+{
+	"author"      : "Controlled Chaos",
+	"email"       : "santa@north.pole",
+	"website"     : "https://github.com/ControlledChaos/configure-8-settings",
+	"version"     : "3.15.0",
+	"releaseDate" : "",
+	"license"     : "Nope",
+	"compatible"  : "3.15.0",
+	"notes"       : "Settings plugin for the Configure 8 Bludit theme.",
+	"type"        : "theme"
+}

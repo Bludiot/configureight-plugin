@@ -39,6 +39,12 @@
   display: block;
   opacity: 1 !important;
 }
+.tab-content .tab-pane .row {
+  align-items: center;
+}
+.tab-content .tab-pane label {
+  margin: 0 !important;
+}
 
 .screen-reader-text {
   border: 0;

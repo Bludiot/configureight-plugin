@@ -7,7 +7,7 @@
  * @since      1.0.0
  */
 
-class CFE_Settings extends Plugin {
+class configureight extends Plugin {
 
 	/**
 	 * Plugin version
@@ -28,12 +28,15 @@ class CFE_Settings extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
-			'page_loader' => false
+			'page_loader' => false,
+			'loader_text' => ''
 		];
-	}
 
-	public function installed() {
-		return true;
+		if ( ! $this->installed() ) {
+			$Tmp = new dbJSON( $this->filenameDb );
+			$this->db = $Tmp->db;
+			$this->prepare();
+		}
 	}
 
 	public function adminHead() {
@@ -68,5 +71,9 @@ class CFE_Settings extends Plugin {
 
 	public function page_loader() {
 		return $this->getValue( 'page_loader' );
+	}
+
+	public function loader_text() {
+		return $this->getValue( 'loader_text' );
 	}
 }

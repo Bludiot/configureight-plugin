@@ -24,14 +24,19 @@
 			border-top-left-radius: .25rem;
 			border-top-right-radius: .25rem;
 
-			&.active {
-				background-color: #fff;
-				border-color: #dee2e6 #dee2e6 #fff;
+			&.active,
+			&:focus {
+				background-color: #ffffff;
+				border-color: #dee2e6 #dee2e6 #ffffff;
 
-				a {
+				.nav-link {
 					cursor: default;
 					pointer-events: none;
 					color: #495057;
+
+					&:focus {
+						border-bottom-color: #ffffff;
+					}
 				}
 			}
 		}

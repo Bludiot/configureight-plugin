@@ -20,14 +20,17 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
-.tab-content .nav-tabs .nav-item.active {
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+.tab-content .nav-tabs .nav-item.active, .tab-content .nav-tabs .nav-item:focus {
+  background-color: #ffffff;
+  border-color: #dee2e6 #dee2e6 #ffffff;
 }
-.tab-content .nav-tabs .nav-item.active a {
+.tab-content .nav-tabs .nav-item.active .nav-link, .tab-content .nav-tabs .nav-item:focus .nav-link {
   cursor: default;
   pointer-events: none;
   color: #495057;
+}
+.tab-content .nav-tabs .nav-item.active .nav-link:focus, .tab-content .nav-tabs .nav-item:focus .nav-link:focus {
+  border-bottom-color: #ffffff;
 }
 .tab-content .tab-pane {
   display: none;

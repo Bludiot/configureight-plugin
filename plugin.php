@@ -28,8 +28,14 @@ class configureight extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
-			'page_loader' => false,
-			'loader_text' => ''
+			'user_toolbar'      => true,
+			'to_top_button'     => true,
+			'page_loader'       => false,
+			'loader_bg_color'   => '',
+			'loader_text_color' => '',
+			'loader_text'       => '',
+			'color_scheme'      => 'default',
+			'font_scheme'       => 'default'
 		];
 
 		if ( ! $this->installed() ) {
@@ -69,11 +75,35 @@ class configureight extends Plugin {
 		return $html;
 	}
 
+	/**
+	 * General options
+	 */
+	public function user_toolbar() {
+		return $this->getValue( 'user_toolbar' );
+	}
+	public function to_top_button() {
+		return $this->getValue( 'user_toolbar' );
+	}
 	public function page_loader() {
 		return $this->getValue( 'page_loader' );
 	}
-
 	public function loader_text() {
 		return $this->getValue( 'loader_text' );
+	}
+	public function loader_bg_color() {
+		return $this->getValue( 'loader_bg_color' );
+	}
+	public function loader_text_color() {
+		return $this->getValue( 'loader_text_color' );
+	}
+
+	/**
+	 * Appearance options
+	 */
+	public function color_scheme() {
+		return $this->getValue( 'color_scheme' );
+	}
+	public function font_scheme() {
+		return $this->getValue( 'font_scheme' );
 	}
 }

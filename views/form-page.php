@@ -42,6 +42,6 @@ echo $plugin->description();
 		<h3>Footer Options</h3>
 	</div>
 	<div id="styles" class="tab-pane">
-		<h3>Theme Styles</h3>
+		<?php include( $this->phpPath() . '/views/fields-appearance.php' ); ?>
 	</div>
 </div>

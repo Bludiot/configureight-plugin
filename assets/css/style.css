@@ -59,3 +59,14 @@
   width: 1px;
   word-wrap: normal !important;
 }
+
+body:not(.js) .hide-if-no-js {
+  display: none !important;
+}
+body:not(.js) .no-js-message {
+  margin-top: 2rem;
+}
+
+body.js .hide-if-js {
+  display: none !important;
+}

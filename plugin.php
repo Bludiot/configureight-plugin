@@ -34,6 +34,29 @@ class configureight extends Plugin {
 			'loader_bg_color'   => '',
 			'loader_text_color' => '',
 			'loader_text'       => '',
+			'site_title'        => true,
+			'site_slogan'       => true,
+			'main_nav_pos'      => 'right',
+			'max_nav_items'     => 0,
+			'main_nav_loop'     => true,
+			'main_nav_home'     => false,
+			'header_search'     => true,
+			'loop_style'        => 'blog',
+			'content_style'     => 'list',
+			'sidebar_in_loop'   => 'side',
+			'loop_paged'        => 'numerical',
+			'loop_byline'       => true,
+			'loop_date'         => true,
+			'loop_word_count'   => true,
+			'loop_read_time'    => true,
+			'loop_icons'        => true,
+			'sidebar_position'  => 'default',
+			'sidebar_display'   => 'default',
+			'sidebar_sticky '   => false,
+			'sidebar_search'    => false,
+			'copyright'         => true,
+			'copy_date'         => true,
+			'copy_text'         => '',
 			'color_scheme'      => 'default',
 			'font_scheme'       => 'default'
 		];
@@ -77,32 +100,197 @@ class configureight extends Plugin {
 
 	/**
 	 * General options
+	 *
+	 * @since  1.0.0
+	 * @access public
 	 */
+
+	// @return boolean
 	public function user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
 	}
+
+	// @return boolean
 	public function to_top_button() {
 		return $this->getValue( 'user_toolbar' );
 	}
+
+	// @return boolean
 	public function page_loader() {
 		return $this->getValue( 'page_loader' );
 	}
+
+	// @return string
 	public function loader_text() {
 		return $this->getValue( 'loader_text' );
 	}
+
+	// @return string
 	public function loader_bg_color() {
 		return $this->getValue( 'loader_bg_color' );
 	}
+
+	// @return string
 	public function loader_text_color() {
 		return $this->getValue( 'loader_text_color' );
 	}
 
 	/**
-	 * Appearance options
+	 * Header options
+	 *
+	 * @since  1.0.0
+	 * @access public
 	 */
+
+	// @return boolean
+	public function site_title() {
+		return $this->getValue( 'site_title' );
+	}
+
+	// @return boolean
+	public function site_slogan() {
+		return $this->getValue( 'site_slogan' );
+	}
+
+	// @return string
+	public function main_nav_pos() {
+		return $this->getValue( 'main_nav_pos' );
+	}
+
+	// @return integer
+	public function max_nav_items() {
+		return $this->getValue( 'max_nav_items' );
+	}
+
+	// @return boolean
+	public function main_nav_loop() {
+		return $this->getValue( 'main_nav_loop' );
+	}
+
+	// @return boolean
+	public function main_nav_home() {
+		return $this->getValue( 'main_nav_home' );
+	}
+
+	// @return boolean
+	public function header_search() {
+		return $this->getValue( 'header_search' );
+	}
+
+	/**
+	 * Posts loop options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return string
+	public function loop_style() {
+		return $this->getValue( 'loop_style' );
+	}
+
+	// @return string
+	public function content_style() {
+		return $this->getValue( 'content_style' );
+	}
+
+	// @return mixed Returns sidebar position or false.
+	public function sidebar_in_loop() {
+		return $this->getValue( 'sidebar_in_loop' );
+	}
+
+	// @return string
+	public function loop_paged() {
+		return $this->getValue( 'loop_paged' );
+	}
+
+	// @return boolean
+	public function loop_byline() {
+		return $this->getValue( 'loop_byline' );
+	}
+
+	// @return boolean
+	public function loop_date() {
+		return $this->getValue( 'loop_date' );
+	}
+
+	// @return boolean
+	public function loop_word_count() {
+		return $this->getValue( 'loop_word_count' );
+	}
+
+	// @return boolean
+	public function loop_read_time() {
+		return $this->getValue( 'loop_read_time' );
+	}
+
+	// @return boolean
+	public function loop_icons() {
+		return $this->getValue( 'loop_icons' );
+	}
+
+	/**
+	 * Sidebar options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	 // @return boolean
+	public function sidebar_sticky() {
+		return $this->getValue( 'sidebar_sticky' );
+	}
+
+	// @return mixed Returns string `default` or false.
+	public function sidebar_display() {
+		return $this->getValue( 'sidebar_display' );
+	}
+
+	// @return string
+	public function sidebar_position() {
+		return $this->getValue( 'sidebar_position' );
+	}
+
+	// @return boolean
+	public function sidebar_search() {
+		return $this->getValue( 'sidebar_search' );
+	}
+
+	/**
+	 * Footer options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return boolean
+	public function copyright() {
+		return $this->getValue( 'copyright' );
+	}
+
+	// @return boolean
+	public function copy_date() {
+		return $this->getValue( 'copy_date' );
+	}
+
+	// @return boolean
+	public function copy_text() {
+		return $this->getValue( 'copy_text' );
+	}
+
+	/**
+	 * Appearance options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return string
 	public function color_scheme() {
 		return $this->getValue( 'color_scheme' );
 	}
+
+	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
 	}

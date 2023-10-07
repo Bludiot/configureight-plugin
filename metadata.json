@@ -2,11 +2,12 @@
 	"author"      : "Controlled Chaos",
 	"email"       : "santa@north.pole",
 	"website"     : "https://github.com/ControlledChaos/configureight-plugin",
-	"version"     : "3.15.0",
+	"version"     : "1.0.0",
 	"releaseDate" : "",
 	"license"     : "Nope",
 	"compatible"  : "3.15.0",
 	"notes"       : "Options for the Configure 8 Bludit theme.",
 	"type"        : "theme",
-	"theme"       : "configureight"
+	"theme_slug"  : "configureight",
+	"theme_name"  : "Configure 8"
 }

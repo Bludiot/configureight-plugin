@@ -41,6 +41,7 @@ class configureight extends Plugin {
 			'main_nav_loop'     => true,
 			'main_nav_home'     => false,
 			'header_search'     => true,
+			'site_favicon'      => '',
 			'loop_style'        => 'blog',
 			'content_style'     => 'list',
 			'sidebar_in_loop'   => 'side',
@@ -88,7 +89,7 @@ class configureight extends Plugin {
 	public function form() {
 
 		// Access global variables.
-		global $L, $plugin;
+		global $L, $plugin, $site;
 
 		$html  = '';
 		ob_start();
@@ -112,7 +113,7 @@ class configureight extends Plugin {
 
 	// @return boolean
 	public function to_top_button() {
-		return $this->getValue( 'user_toolbar' );
+		return (bool) $this->getValue( 'to_top_button' );
 	}
 
 	// @return boolean
@@ -175,6 +176,18 @@ class configureight extends Plugin {
 	// @return boolean
 	public function header_search() {
 		return $this->getValue( 'header_search' );
+	}
+
+	/**
+	 * Media options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return string
+	public function site_favicon() {
+		return $this->getValue( 'site_favicon' );
 	}
 
 	/**

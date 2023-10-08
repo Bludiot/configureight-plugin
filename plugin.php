@@ -10,16 +10,7 @@
 class configureight extends Plugin {
 
 	/**
-	 * Plugin version
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    string
-	 */
-	public $version = '1.0.0';
-
-	/**
-	 * Initialize plugin.
+	 * Initialize plugin
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -69,13 +60,50 @@ class configureight extends Plugin {
 		}
 	}
 
+	/**
+	 * Load scripts & styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
 	public function adminHead() {
 
-		$assets = '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . 'assets/css/style.css?version=' . $this->version . '">' . PHP_EOL;
+		// Maybe get non-minified assets.
+		$suffix = '';
+		if ( defined( 'DEBUG_MODE' ) && DEBUG_MODE ) {
+			$suffix = '.min';
+		}
 
-		$assets .= '<script type="text/javascript" charset="utf-8" src="' . $this->domainPath() . 'assets/js/tabs.js?ver=' . $this->version . '"></script>' . PHP_EOL;
+		$assets = '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+
+		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/tabs{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		return $assets;
+	}
+
+	/**
+	 * Sidebar link
+	 *
+	 * Link to the options screen in the admin sidebar menu.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L Language class.
+	 * @return string
+	 */
+	public function adminSidebar() {
+
+		global $L;
+
+		$name = strtolower( __CLASS__ );
+		$url  = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $name;
+		$html = sprintf(
+			'<a class="nav-link" href="%s"><span class="fa fa-gear"> %s</a>',
+			$url,
+			$L->get( 'Configure' )
+		);
+		return $html;
 	}
 
 	/**

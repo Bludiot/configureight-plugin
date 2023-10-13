@@ -249,6 +249,8 @@ $(document).ready(function () {
 		$( 'li a.nav-link' ).attr( 'aria-selected', 'false' );
 		$(this).attr( 'aria-selected', 'true' );
 	} );
+
+	$( '.plugin-form' ).addClass( 'tab-content' );
 });
 
 })(jQuery);

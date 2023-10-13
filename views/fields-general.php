@@ -66,7 +66,7 @@
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background Color' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->getValue( 'loader_bg_color' ) ?>" placeholder="<?php $L->p( 'Enter text' ); ?>" />
+			<input type="text" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->getValue( 'loader_bg_color' ) ?>" placeholder="#ffffff" />
 			<small class="form-text text-muted"><?php $L->p( 'Enter a hexadecimal color code or a color name.' ); ?></small>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loader_text_color"><?php $L->p( 'Text Color' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="loader_text_color" name="loader_text_color" value="<?php echo $this->getValue( 'loader_text_color' ) ?>" placeholder="<?php $L->p( 'Enter text' ); ?>" />
+			<input type="text" id="loader_text_color" name="loader_text_color" value="<?php echo $this->getValue( 'loader_text_color' ) ?>" placeholder="#333333" />
 			<small class="form-text text-muted"><?php $L->p( 'Enter a hexadecimal color code or a color name.' ); ?></small>
 		</div>
 	</div>

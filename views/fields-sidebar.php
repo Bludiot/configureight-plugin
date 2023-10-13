@@ -51,8 +51,9 @@
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_search"><?php $L->p( 'Search Form' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_search" name="sidebar_search">
-				<option value="true" <?php echo ( $this->getValue( 'sidebar_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'sidebar_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+				<option value="show" <?php echo ( $this->getValue( 'sidebar_search' ) === 'show' ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="hide" <?php echo ( $this->getValue( 'sidebar_search' ) === 'hide' ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+				<option value="footer" <?php echo ( $this->getValue( 'sidebar_search' ) === 'footer' ? 'selected' : '' ); ?>><?php $L->p( 'In Footer' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'The Search plugin must be activated for the header search bar to work. If search in the header is enabled you may wish to hide search in the sidebar.' ); ?></small>
 		</div>

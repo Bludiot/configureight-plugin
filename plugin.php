@@ -33,6 +33,9 @@ class configureight extends Plugin {
 			'main_nav_home'     => false,
 			'header_search'     => true,
 			'site_favicon'      => '',
+			'cover_bg_color'    => '',
+			'cover_bg_opacity'  => '',
+			'cover_icon'        => 'angle-down-light',
 			'loop_style'        => 'blog',
 			'content_style'     => 'list',
 			'sidebar_in_loop'   => 'side',
@@ -44,8 +47,8 @@ class configureight extends Plugin {
 			'loop_icons'        => true,
 			'sidebar_position'  => 'default',
 			'sidebar_display'   => 'default',
-			'sidebar_sticky '   => false,
-			'sidebar_search'    => false,
+			'sidebar_sticky'    => false,
+			'sidebar_search'    => 'hide',
 			'copyright'         => true,
 			'copy_date'         => true,
 			'copy_text'         => '',
@@ -139,7 +142,7 @@ class configureight extends Plugin {
 	 */
 
 	// @return boolean
-	public function user_toolbar() {
+	public function show_user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
 	}
 
@@ -222,6 +225,21 @@ class configureight extends Plugin {
 		return $this->getValue( 'site_favicon' );
 	}
 
+	// @return string
+	public function cover_bg_color() {
+		return $this->getValue( 'cover_bg_color' );
+	}
+
+	// @return string
+	public function cover_bg_opacity() {
+		return $this->getValue( 'cover_bg_opacity' );
+	}
+
+	// @return string
+	public function cover_icon() {
+		return $this->getValue( 'cover_icon' );
+	}
+
 	/**
 	 * Posts loop options
 	 *
@@ -239,7 +257,7 @@ class configureight extends Plugin {
 		return $this->getValue( 'content_style' );
 	}
 
-	// @return mixed Returns sidebar position or false.
+	// @return string
 	public function sidebar_in_loop() {
 		return $this->getValue( 'sidebar_in_loop' );
 	}

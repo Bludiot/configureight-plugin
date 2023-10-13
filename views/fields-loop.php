@@ -38,7 +38,10 @@
 
 				<option value="full" <?php echo ( $this->getValue( 'content_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Choose the style of post content in the main loop.' ); ?></small>
+			<small class="form-text text-muted">
+				<?php $L->p( 'Choose the style of post content in the main loop.' ); ?>
+				<br /><?php $L->p( 'Go to Settings > General > Advanced to set the number pf articles per page.' ); ?>
+			</small>
 		</div>
 	</div>
 
@@ -51,7 +54,7 @@
 
 				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Posts' ); ?></option>
 
-				<option value="false" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
+				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'When using a static page for the posts loop, a sidebar template, if used, will override this setting.' ); ?></small>
 		</div>

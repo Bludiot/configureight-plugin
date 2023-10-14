@@ -40,7 +40,7 @@
 			</select>
 			<small class="form-text text-muted">
 				<?php $L->p( 'Choose the style of post content in the main loop.' ); ?>
-				<br /><?php $L->p( 'Go to Settings > General > Advanced to set the number pf articles per page.' ); ?>
+				<br /><?php $L->p( 'See Settings > General > Advanced in the admin menu to set the number pf articles per page.' ); ?>
 			</small>
 		</div>
 	</div>

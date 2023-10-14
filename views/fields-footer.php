@@ -7,6 +7,12 @@
  * @since      1.0.0
  */
 
+$copy_text_placeholder = sprintf(
+	'© %s %s. %s',
+	date( 'Y' ),
+	$site->title(),
+	$L->get( 'All rights reserved.' )
+);
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Footer Options' ) ] ); ?>
@@ -39,7 +45,7 @@
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="copy_text"><?php $L->p( 'Copyright Text' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="copy_text" name="copy_text" value="<?php echo $this->getValue( 'copy_text' ) ?>" placeholder="<?php $L->p( 'Enter text' ); ?>" />
+			<input type="text" id="copy_text" name="copy_text" value="<?php echo $this->getValue( 'copy_text' ) ?>" placeholder="<?php echo $copy_text_placeholder; ?>" />
 			<small class="form-text text-muted">
 				<code style="user-select: all;">%copy%</code>
 				<code style="user-select: all;">%year%</code>

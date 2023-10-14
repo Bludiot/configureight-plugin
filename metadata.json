@@ -6,7 +6,7 @@
 	"releaseDate" : "",
 	"license"     : "Nope",
 	"compatible"  : "3.15.0",
-	"notes"       : "Options for the Configure 8 Bludit theme.",
+	"notes"       : "Options for the Configure 8 theme.",
 	"type"        : "theme",
 	"theme_slug"  : "configureight",
 	"theme_name"  : "Configure 8"

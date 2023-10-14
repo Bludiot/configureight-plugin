@@ -32,6 +32,7 @@ class configureight extends Plugin {
 			'main_nav_loop'     => true,
 			'main_nav_home'     => false,
 			'header_search'     => true,
+			'header_social'     => false,
 			'site_favicon'      => '',
 			'cover_bg_color'    => '',
 			'cover_bg_opacity'  => '',
@@ -214,6 +215,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function header_search() {
 		return $this->getValue( 'header_search' );
+	}
+
+	// @return boolean
+	public function header_social() {
+		return $this->getValue( 'header_social' );
 	}
 
 	/**

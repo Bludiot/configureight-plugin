@@ -49,7 +49,9 @@ class configureight extends Plugin {
 			'sidebar_display'   => 'default',
 			'sidebar_sticky'    => false,
 			'sidebar_search'    => 'hide',
-			'social_nav'        => true,
+			'sidebar_social'    => false,
+			'sb_social_heading' => '',
+			'footer_social'     => true,
 			'copyright'         => true,
 			'copy_date'         => true,
 			'copy_text'         => '',
@@ -320,6 +322,16 @@ class configureight extends Plugin {
 		return $this->getValue( 'sidebar_search' );
 	}
 
+	// @return boolean
+	public function sidebar_social() {
+		return $this->getValue( 'sidebar_social' );
+	}
+
+	// @return boolean
+	public function sb_social_heading() {
+		return $this->getValue( 'sb_social_heading' );
+	}
+
 	/**
 	 * Footer options
 	 *
@@ -328,8 +340,8 @@ class configureight extends Plugin {
 	 */
 
 	// @return boolean
-	public function social_nav() {
-		return $this->getValue( 'social_nav' );
+	public function footer_social() {
+		return $this->getValue( 'footer_social' );
 	}
 
 	public function copyright() {

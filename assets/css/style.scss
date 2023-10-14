@@ -96,3 +96,7 @@ body.js {
 		display: none !important;
 	}
 }
+
+code.select {
+	user-select: all;
+}

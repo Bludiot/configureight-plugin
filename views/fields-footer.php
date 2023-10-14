@@ -58,8 +58,8 @@ $copy_text_placeholder = sprintf(
 		<div class="col-sm-10">
 			<input type="text" id="copy_text" name="copy_text" value="<?php echo $this->getValue( 'copy_text' ) ?>" placeholder="<?php echo $copy_text_placeholder; ?>" />
 			<small class="form-text text-muted">
-				<code style="user-select: all;">%copy%</code>
-				<code style="user-select: all;">%year%</code>
+				<code class="select">%copy%</code>
+				<code class="select">%year%</code>
 			</small>
 		</div>
 	</div>

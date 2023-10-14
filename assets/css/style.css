@@ -70,3 +70,9 @@ body:not(.js) .no-js-message {
 body.js .hide-if-js {
   display: none !important;
 }
+
+code.select {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+}

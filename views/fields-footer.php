@@ -21,6 +21,17 @@ $copy_text_placeholder = sprintf(
 	<legend class="screen-reader-text"><?php $L->p( 'Footer' ); ?></legend>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="social_nav"><?php $L->p( 'Social Links' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="social_nav" name="social_nav">
+				<option value="true" <?php echo ( $this->getValue( 'social_nav' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'social_nav' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Display the navigation menu for links to social media sites. See Settings > General > Social Networks in the admin menu to enter links.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="copyright"><?php $L->p( 'Copyright Line' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="copyright" name="copyright">

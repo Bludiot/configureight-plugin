@@ -3,9 +3,14 @@
  * Configure 8 theme settings
  *
  * @package    Configure 8 Settings
- * @subpackage Classes
+ * @subpackage Theme Plugins
  * @since      1.0.0
  */
+
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( $L->get( 'direct-access' ) );
+}
 
 class configureight extends Plugin {
 

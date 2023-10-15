@@ -7,7 +7,58 @@
  * @since      1.0.0
  */
 
+// Cover image background value.
+$loader_bg_default = $this->loader_bg_default();
+$loader_bg_color   = $loader_bg_default;
+if ( ! empty( $this->getValue( 'loader_bg_color' ) ) ) {
+	$loader_bg_color = $this->getValue( 'loader_bg_color' );
+}
+
+// Cover image text value.
+$loader_text_default = $this->loader_text_default();
+$loader_text_color   = $loader_text_default;
+if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
+	$loader_text_color = $this->getValue( 'loader_text_color' );
+}
 ?>
+
+<script>
+// Spectrum color pickers.
+$(document).ready( function () {
+
+	// Cover image background.
+	$( '#loader_bg_color' ).spectrum({
+		type            : "component",
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '#loader_bg_color' ).show();
+
+	$( '#loader_bg_color_default' ).click( function() {
+		$( '#loader_bg_color' ).spectrum( 'set', $( '#loader_bg_default' ).val() );
+	});
+
+	// Cover image text.
+	$( '#loader_text_color' ).spectrum({
+		type            : "component",
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '#loader_text_color' ).show();
+
+	$( '#loader_text_color_default' ).click( function() {
+		$( '#loader_text_color' ).spectrum( 'set', $( '#loader_text_default' ).val() );
+	});
+})( jQuery );
+</script>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Interface Options' ) ] ); ?>
 <fieldset>
@@ -65,17 +116,19 @@
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background Color' ); ?></label>
-		<div class="col-sm-10">
-			<input type="text" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->getValue( 'loader_bg_color' ) ?>" placeholder="#ffffff" />
-			<small class="form-text text-muted"><?php $L->p( 'Enter a hexadecimal color code or a color name.' ); ?></small>
+		<div class="col-sm-10 row">
+			<input class="color-picker" id="loader_bg_color" name="loader_bg_color" value="<?php echo $loader_bg_color; ?>" />
+			<input id="loader_bg_default" type="hidden" value="<?php echo $loader_bg_default; ?>" />
+			<span class="btn btn-secondary btn-sm" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loader_text_color"><?php $L->p( 'Text Color' ); ?></label>
-		<div class="col-sm-10">
-			<input type="text" id="loader_text_color" name="loader_text_color" value="<?php echo $this->getValue( 'loader_text_color' ) ?>" placeholder="#333333" />
-			<small class="form-text text-muted"><?php $L->p( 'Enter a hexadecimal color code or a color name.' ); ?></small>
+		<div class="col-sm-10 row">
+			<input class="color-picker" id="loader_text_color" name="loader_text_color" value="<?php echo $loader_text_color; ?>" />
+			<input id="loader_text_default" type="hidden" value="<?php echo $loader_text_default; ?>" />
+			<span class="btn btn-secondary btn-sm" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 </fieldset>

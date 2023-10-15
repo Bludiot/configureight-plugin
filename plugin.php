@@ -22,8 +22,8 @@ class configureight extends Plugin {
 			'user_toolbar'      => true,
 			'to_top_button'     => true,
 			'page_loader'       => false,
-			'loader_bg_color'   => '',
-			'loader_text_color' => '',
+			'loader_bg_color'   => $this->loader_bg_default(),
+			'loader_text_color' => $this->loader_text_default(),
 			'loader_text'       => '',
 			'site_title'        => true,
 			'site_slogan'       => true,
@@ -34,8 +34,9 @@ class configureight extends Plugin {
 			'header_search'     => true,
 			'header_social'     => false,
 			'site_favicon'      => '',
-			'cover_bg_color'    => '',
-			'cover_bg_opacity'  => '',
+			'cover_bg_color'    => $this->cover_bg_default(),
+			'cover_text_color'  => $this->cover_text_default(),
+			'cover_text_shadow' => true,
 			'cover_icon'        => 'angle-down-light',
 			'loop_style'        => 'blog',
 			'content_style'     => 'list',
@@ -179,6 +180,16 @@ class configureight extends Plugin {
 		return $this->getValue( 'loader_text_color' );
 	}
 
+	// @return string
+	public function loader_bg_default() {
+		return '#ffffff';
+	}
+
+	// @return string
+	public function loader_text_default() {
+		return '#333333';
+	}
+
 	/**
 	 * Header options
 	 *
@@ -244,8 +255,23 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function cover_bg_opacity() {
-		return $this->getValue( 'cover_bg_opacity' );
+	public function cover_text_color() {
+		return $this->getValue( 'cover_text_color' );
+	}
+
+	// @return string
+	public function cover_text_shadow() {
+		return $this->getValue( 'cover_text_shadow' );
+	}
+
+	// @return string
+	public function cover_bg_default() {
+		return 'rgba( 0, 0, 0, 0.625 )';
+	}
+
+	// @return string
+	public function cover_text_default() {
+		return '#ffffff';
 	}
 
 	// @return string

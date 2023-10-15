@@ -143,7 +143,7 @@ class configureight extends Plugin {
 		$html  = '';
 		ob_start();
 		include( $this->phpPath() . '/views/form-page.php' );
-		$html .= ob_get_clean_content();
+		$html .= ob_get_clean();
 
 		return $html;
 	}

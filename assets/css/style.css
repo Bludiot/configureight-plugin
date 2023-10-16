@@ -76,3 +76,9 @@ code.select {
      -moz-user-select: all;
           user-select: all;
 }
+
+@media (max-width: 991px) {
+  .theme-options-icon {
+    display: none;
+  }
+}

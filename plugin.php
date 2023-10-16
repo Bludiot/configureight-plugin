@@ -120,9 +120,9 @@ class configureight extends Plugin {
 		$name = strtolower( __CLASS__ );
 		$url  = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $name;
 		$html = sprintf(
-			'<a class="nav-link" href="%s"><span class="fa fa-gear"> %s</a>',
+			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
 			$url,
-			$L->get( 'Configure' )
+			$L->get( 'Theme Options' )
 		);
 		return $html;
 	}

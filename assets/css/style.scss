@@ -100,3 +100,10 @@ body.js {
 code.select {
 	user-select: all;
 }
+
+// Hide options link icon in mobile menu.
+@media ( max-width: 991px ) {
+	.theme-options-icon {
+		display: none;
+	}
+}

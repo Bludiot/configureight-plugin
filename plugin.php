@@ -43,6 +43,7 @@ class configureight extends Plugin {
 			'cover_text_color'  => $this->cover_text_default(),
 			'cover_text_shadow' => true,
 			'cover_icon'        => 'angle-down-light',
+			'loop_title'        => '',
 			'loop_style'        => 'blog',
 			'content_style'     => 'list',
 			'sidebar_in_loop'   => 'side',
@@ -290,6 +291,11 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return string
+	public function loop_title() {
+		return $this->getValue( 'loop_title' );
+	}
 
 	// @return string
 	public function loop_style() {

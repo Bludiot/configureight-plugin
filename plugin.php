@@ -2,7 +2,7 @@
 /**
  * Configure 8 theme settings
  *
- * @package    Configure 8 Settings
+ * @package    Configure 8 Options
  * @subpackage Theme Plugins
  * @since      1.0.0
  */

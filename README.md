@@ -1,4 +1,4 @@
-# Configure 8 Settings
+# Configure 8 Options
 
 Bludit CMS plugin that provides a settings page for Configure 8 theme options.
 

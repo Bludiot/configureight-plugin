@@ -2,7 +2,7 @@
 /**
  * Loop options fields
  *
- * @package    Configure 8 Settings
+ * @package    Configure 8 Options
  * @subpackage Views
  * @since      1.0.0
  */

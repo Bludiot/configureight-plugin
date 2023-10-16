@@ -119,7 +119,13 @@ class configureight extends Plugin {
 		global $L;
 
 		$name = strtolower( __CLASS__ );
-		$url  = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $name;
+
+		// Theme plugin path is different in Bludit version 4.0.
+		$path = 'configure-plugin/';
+		if ( BLUDIT_VERSION >= 4 ) {
+			$path = 'plugin-settings/';
+		}
+		$url  = HTML_PATH_ADMIN_ROOT . $path . $name;
 		$html = sprintf(
 			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
 			$url,

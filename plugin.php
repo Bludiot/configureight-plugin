@@ -24,49 +24,52 @@ class configureight extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
-			'user_toolbar'      => true,
-			'to_top_button'     => true,
-			'page_loader'       => false,
-			'loader_bg_color'   => $this->loader_bg_default(),
-			'loader_text_color' => $this->loader_text_default(),
-			'loader_text'       => '',
-			'site_title'        => true,
-			'site_slogan'       => true,
-			'logo_width_std'    => $this->logo_width_std_default(),
-			'logo_width_mob'    => $this->logo_width_mob_default(),
-			'main_nav_pos'      => 'right',
-			'max_nav_items'     => 0,
-			'main_nav_loop'     => true,
-			'main_nav_home'     => false,
-			'header_search'     => true,
-			'header_social'     => false,
-			'site_favicon'      => '',
-			'cover_bg_color'    => $this->cover_bg_default(),
-			'cover_text_color'  => $this->cover_text_default(),
-			'cover_text_shadow' => true,
-			'cover_icon'        => 'angle-down-light',
-			'loop_title'        => '',
-			'loop_style'        => 'blog',
-			'content_style'     => 'list',
-			'sidebar_in_loop'   => 'side',
-			'loop_paged'        => 'numerical',
-			'loop_byline'       => true,
-			'loop_date'         => true,
-			'loop_word_count'   => true,
-			'loop_read_time'    => true,
-			'loop_icons'        => true,
-			'sidebar_position'  => 'default',
-			'sidebar_display'   => 'default',
-			'sidebar_sticky'    => false,
-			'sidebar_search'    => 'hide',
-			'sidebar_social'    => false,
-			'sb_social_heading' => '',
-			'footer_social'     => true,
-			'copyright'         => true,
-			'copy_date'         => true,
-			'copy_text'         => '',
-			'color_scheme'      => 'default',
-			'font_scheme'       => 'default'
+			'user_toolbar'       => true,
+			'to_top_button'      => true,
+			'page_loader'        => false,
+			'loader_bg_color'    => $this->loader_bg_default(),
+			'loader_text_color'  => $this->loader_text_default(),
+			'loader_text'        => '',
+			'site_title'         => true,
+			'site_slogan'        => true,
+			'logo_width_std'     => $this->logo_width_std_default(),
+			'logo_width_mob'     => $this->logo_width_mob_default(),
+			'main_nav_pos'       => 'right',
+			'max_nav_items'      => 0,
+			'main_nav_loop'      => true,
+			'main_nav_home'      => false,
+			'header_search'      => true,
+			'header_social'      => false,
+			'site_favicon'       => '',
+			'cover_bg_color'     => $this->cover_bg_default(),
+			'cover_text_color'   => $this->cover_text_default(),
+			'cover_text_shadow'  => true,
+			'cover_icon'         => 'angle-down-light',
+			'loop_title'         => '',
+			'loop_style'         => 'blog',
+			'content_style'      => 'list',
+			'sidebar_in_loop'    => 'side',
+			'loop_paged'         => 'numerical',
+			'loop_byline'        => true,
+			'loop_date'          => true,
+			'loop_word_count'    => true,
+			'loop_read_time'     => true,
+			'loop_icons'         => true,
+			'sidebar_position'   => 'default',
+			'sidebar_display'    => 'default',
+			'sidebar_sticky'     => false,
+			'sidebar_search'     => 'hide',
+			'sidebar_social'     => false,
+			'sb_social_heading'  => '',
+			'footer_social'      => true,
+			'ftr_social_heading' => '',
+			'copyright'          => true,
+			'copy_date'          => true,
+			'copy_text'          => '',
+			'horz_spacing'       => $this->horz_spacing_default(),
+			'vert_spacing'       => $this->vert_spacing_default(),
+			'color_scheme'       => 'default',
+			'font_scheme'        => 'default'
 		];
 
 		if ( ! $this->installed() ) {
@@ -419,6 +422,11 @@ class configureight extends Plugin {
 		return $this->getValue( 'footer_social' );
 	}
 
+	// @return boolean
+	public function ftr__social_heading() {
+		return $this->getValue( 'ftr__social_heading' );
+	}
+
 	public function copyright() {
 		return $this->getValue( 'copyright' );
 	}
@@ -439,6 +447,26 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return string
+	public function horz_spacing() {
+		return $this->getValue( 'horz_spacing' );
+	}
+
+	// @return string
+	public function vert_spacing() {
+		return $this->getValue( 'vert_spacing' );
+	}
+
+	// @return string
+	public function horz_spacing_default() {
+		return '2';
+	}
+
+	// @return string
+	public function vert_spacing_default() {
+		return '2';
+	}
 
 	// @return string
 	public function color_scheme() {

@@ -7,7 +7,9 @@
  * @since      1.0.0
  */
 
-echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Appearance Options' ) ] );
+// Default layout values.
+$horz_spacing_default = $this->horz_spacing_default();
+$vert_spacing_default = $this->vert_spacing_default();
 
 // Color schemes.
 $base_colors = [
@@ -40,6 +42,38 @@ ksort( $more_fonts );
 $fonts = array_merge( $base_fonts, $more_fonts );
 
 ?>
+
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Layout Options' ) ] ); ?>
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Layout' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="horz_spacing"><?php $L->p( 'Horizontal Space' ); ?></label>
+		<div class="col-sm-10 row">
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="horz_spacing_value"><?php echo ( $this->getValue( 'horz_spacing' ) ? $this->getValue( 'horz_spacing' ) : $horz_spacing_default ); ?></span><span id="horz_spacing_units">rem</span></span>
+				<input type="range" class="form-control-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#horz_spacing_value').text('<?php echo $horz_spacing_default; ?>');$('#horz_spacing').val('<?php echo $horz_spacing_default; ?>');">Default</span>
+			</div>
+			<small class="form-text text-muted form-range-small"><?php $L->p( 'General horizontal spacing between elements and areas.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="vert_spacing"><?php $L->p( 'Vertical Spacing' ); ?></label>
+		<div class="col-sm-10 row">
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="vert_spacing_value"><?php echo ( $this->getValue( 'vert_spacing' ) ? $this->getValue( 'vert_spacing' ) : $vert_spacing_default ); ?></span><span id="vert_spacing_units">rem</span></span>
+				<input type="range" class="form-control-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#vert_spacing_value').text('<?php echo $vert_spacing_default; ?>');$('#vert_spacing').val('<?php echo $vert_spacing_default; ?>');">Default</span>
+			</div>
+			<small class="form-text text-muted form-range-small"><?php $L->p( 'General vertical spacing between elements and areas.' ); ?></small>
+		</div>
+	</div>
+</fieldset>
+
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Appearance Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Appearance' ); ?></legend>

@@ -97,7 +97,6 @@ code.select {
 
 .form-range-value {
   display: inline-block;
-  width: 7ch;
   padding: 0.375rem 1ch;
   font-size: 1rem;
   line-height: 1.5;
@@ -106,6 +105,12 @@ code.select {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+}
+.form-range-value.px-range-value {
+  width: 7ch;
+}
+.form-range-value.rem-range-value {
+  width: 10ch;
 }
 
 @media (max-width: 991px) {

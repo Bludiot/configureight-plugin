@@ -117,6 +117,7 @@ code.select {
 }
 @media (min-width: 576px) {
   .col-sm-4 {
+    align-items: center;
     gap: 0.5rem;
   }
 }

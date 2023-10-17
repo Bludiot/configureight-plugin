@@ -32,6 +32,13 @@ $copy_text_placeholder = sprintf(
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="ftr_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="ftr_social_heading" name="ftr_social_heading" value="<?php echo $this->getValue( 'ftr_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="copyright"><?php $L->p( 'Copyright Line' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="copyright" name="copyright">

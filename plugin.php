@@ -32,8 +32,8 @@ class configureight extends Plugin {
 			'loader_text'       => '',
 			'site_title'        => true,
 			'site_slogan'       => true,
-			'logo_width_std'    => 60,
-			'logo_width_mob'    => 80,
+			'logo_width_std'    => $this->logo_width_std_default(),
+			'logo_width_mob'    => $this->logo_width_mob_default(),
 			'main_nav_pos'      => 'right',
 			'max_nav_items'     => 0,
 			'main_nav_loop'     => true,
@@ -229,6 +229,16 @@ class configureight extends Plugin {
 	// @return integer
 	public function logo_width_mob() {
 		return $this->getValue( 'logo_width_mob' );
+	}
+
+	// @return integer
+	public function logo_width_std_default() {
+		return 60;
+	}
+
+	// @return integer
+	public function logo_width_mob_default() {
+		return 80;
 	}
 
 	// @return string

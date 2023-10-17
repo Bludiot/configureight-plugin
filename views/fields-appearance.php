@@ -50,7 +50,7 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="horz_spacing"><?php $L->p( 'Horizontal Space' ); ?></label>
-		<div class="col-sm-10 row">
+		<div class="col-sm-4 row">
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="horz_spacing_value"><?php echo ( $this->getValue( 'horz_spacing' ) ? $this->getValue( 'horz_spacing' ) : $horz_spacing_default ); ?></span><span id="horz_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
@@ -62,7 +62,7 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="vert_spacing"><?php $L->p( 'Vertical Spacing' ); ?></label>
-		<div class="col-sm-10 row">
+		<div class="col-sm-4 row">
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="vert_spacing_value"><?php echo ( $this->getValue( 'vert_spacing' ) ? $this->getValue( 'vert_spacing' ) : $vert_spacing_default ); ?></span><span id="vert_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
@@ -82,7 +82,7 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 
 		<label class="form-label col-sm-2 col-form-label" for="color_scheme"><?php $L->p( 'Color Scheme' ); ?></label>
 
-		<div class="col-sm-10">
+		<div class="col-sm-4">
 			<select class="form-select" id="color_scheme" name="color_scheme">
 				<?php foreach ( $colors as $option => $name ) {
 					printf(
@@ -101,7 +101,7 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 
 		<label class="form-label col-sm-2 col-form-label" for="font_scheme"><?php $L->p( 'Font Scheme' ); ?></label>
 
-		<div class="col-sm-10">
+		<div class="col-sm-4">
 			<select class="form-select" id="font_scheme" name="font_scheme">
 				<?php foreach ( $fonts as $option => $name ) {
 					printf(

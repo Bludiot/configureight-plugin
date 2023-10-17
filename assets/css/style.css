@@ -39,9 +39,6 @@
   display: block;
   opacity: 1 !important;
 }
-.tab-content .tab-pane .row {
-  align-items: center;
-}
 .tab-content .tab-pane label {
   margin: 0 !important;
 }
@@ -116,5 +113,10 @@ code.select {
 @media (max-width: 991px) {
   .theme-options-icon {
     display: none;
+  }
+}
+@media (min-width: 576px) {
+  .col-sm-4 {
+    gap: 0.5rem;
   }
 }

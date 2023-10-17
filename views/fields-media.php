@@ -24,7 +24,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 
 <script>
 // Spectrum color pickers.
-$(document).ready( function () {
+jQuery(document).ready( function($) {
 
 	// Cover image background.
 	$( '#cover_bg_color' ).spectrum({
@@ -57,7 +57,7 @@ $(document).ready( function () {
 	$( '#cover_text_color_default' ).click( function() {
 		$( '#cover_text_color' ).spectrum( 'set', $( '#cover_text_default' ).val() );
 	});
-})( jQuery );
+});
 </script>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>

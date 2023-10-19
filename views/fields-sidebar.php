@@ -9,6 +9,24 @@
 
 ?>
 
+<script>
+jQuery(document).ready( function($) {
+
+	// Sidebar options.
+	$( '#sidebar_social' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#sb_social_heading_wrap" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#sb_social_heading_wrap' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#sb_social_heading_wrap" ).fadeOut( 250 );
+		}
+    });
+});
+</script>
+
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Sidebar Options' ) ] ); ?>
 <fieldset>
 
@@ -50,15 +68,25 @@
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_search"><?php $L->p( 'Search Form' ); ?></label>
 		<div class="col-sm-4">
+			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
 			<select class="form-select" id="sidebar_search" name="sidebar_search">
 				<option value="show" <?php echo ( $this->getValue( 'sidebar_search' ) === 'show' ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="hide" <?php echo ( $this->getValue( 'sidebar_search' ) === 'hide' ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 				<option value="footer" <?php echo ( $this->getValue( 'sidebar_search' ) === 'footer' ? 'selected' : '' ); ?>><?php $L->p( 'In Footer' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'The Search plugin must be activated for the header search bar to work. If search in the header is enabled you may wish to hide search in the sidebar.' ); ?></small>
+			<?php else : ?>
+				<?php printf(
+					'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
+					$L->get( 'Please activate the Search plugin:' ),
+					DOMAIN_ADMIN . '/install-plugin/pluginSearch',
+					DOMAIN_ADMIN . '/install-plugin/pluginSearch'
+				); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 
+	<?php if ( Theme :: socialNetworks() ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_social"><?php $L->p( 'Social Links' ); ?></label>
 		<div class="col-sm-4">
@@ -69,8 +97,9 @@
 			<small class="form-text text-muted"><?php $L->p( 'Display the navigation menu for links to social media sites. See Settings > General > Social Networks in the admin menu to enter links.' ); ?></small>
 		</div>
 	</div>
+	<?php endif; ?>
 
-	<div class="form-field form-group row">
+	<div id="sb_social_heading_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'sidebar_social' ) === true ? 'flex' : 'none' ); ?>;">
 		<label class="form-label col-sm-2 col-form-label" for="sb_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
 		<div class="col-sm-4">
 			<input type="text" id="sb_social_heading" name="sb_social_heading" value="<?php echo $this->getValue( 'sb_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />

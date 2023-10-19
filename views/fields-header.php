@@ -39,6 +39,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 		</div>
 	</div>
 
+	<?php if ( ! empty( $site->logo() ) ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
 		<div class="col-sm-4 row">
@@ -62,6 +63,19 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>
 	</div>
+	<?php else : ?>
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="logo-message"><?php $L->p( 'Logo Options' ); ?></label>
+		<div id="logo-message" class="col-sm-4">
+			<?php printf(
+				'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
+				$L->get( 'No logo uploaded:' ),
+				DOMAIN_ADMIN . '/settings#logo',
+				DOMAIN_ADMIN . '/settings#logo'
+			); ?>
+		</div>
+	</div>
+	<?php endif; ?>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Navigation Options' ) ] ); ?>
@@ -119,11 +133,20 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="header_search"><?php $L->p( 'Search Button' ); ?></label>
 		<div class="col-sm-4">
+			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
 			<select class="form-select" id="header_search" name="header_search">
 				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Display a search icon in the navigation to toggle the header search bar.' ); ?></small>
+			<?php else : ?>
+				<?php printf(
+					'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
+					$L->get( 'Please activate the Search plugin:' ),
+					DOMAIN_ADMIN . '/install-plugin/pluginSearch',
+					DOMAIN_ADMIN . '/install-plugin/pluginSearch'
+				); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 

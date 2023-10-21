@@ -25,6 +25,7 @@ class configureight extends Plugin {
 
 		$this->dbFields = [
 			'user_toolbar'       => true,
+			'related_posts'      => true,
 			'to_top_button'      => true,
 			'page_loader'        => false,
 			'loader_bg_color'    => $this->loader_bg_default(),
@@ -170,6 +171,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function show_user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
+	}
+
+	// @return boolean
+	public function related_posts() {
+		return $this->getValue( 'related_posts' );
 	}
 
 	// @return boolean

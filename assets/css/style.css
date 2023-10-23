@@ -101,10 +101,10 @@ code.select {
   border-radius: 0.25rem;
 }
 .form-range-value.px-range-value {
-  width: 7ch;
+  min-width: 7ch;
 }
 .form-range-value.rem-range-value {
-  width: 10ch;
+  min-width: 10ch;
 }
 
 .image-field-preview {

@@ -125,11 +125,11 @@ code.select {
 	border-radius: .25rem;
 
 	&.px-range-value {
-		width: 7ch;
+		min-width: 7ch;
 	}
 
 	&.rem-range-value {
-		width: 10ch;
+		min-width: 10ch;
 	}
 }
 

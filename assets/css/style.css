@@ -71,6 +71,10 @@ code.select {
           user-select: all;
 }
 
+select[disabled] {
+  cursor: not-allowed;
+}
+
 .form-range-controls {
   display: flex;
   align-items: center;

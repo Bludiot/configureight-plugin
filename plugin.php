@@ -170,6 +170,22 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Debug mode
+	 *
+	 * Checks if the site is in debug mode.
+	 *
+	 * @since  1.0.0
+	 * @return boolean Returns true if in debug mode.
+	 */
+	public function debug_mode() {
+
+		if ( defined( 'DEBUG_MODE' ) && DEBUG_MODE ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * General options
 	 *
 	 * @since  1.0.0
@@ -193,6 +209,10 @@ class configureight extends Plugin {
 
 	// @return boolean
 	public function page_loader() {
+
+		if ( $this->debug_mode() ) {
+			return false;
+		}
 		return $this->getValue( 'page_loader' );
 	}
 

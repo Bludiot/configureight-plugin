@@ -122,11 +122,15 @@ jQuery(document).ready( function($) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="page_loader"><?php $L->p( 'Loading Screen' ); ?></label>
 		<div class="col-sm-4">
-			<select class="form-select" id="page_loader" name="page_loader">
-				<option value="false" <?php echo ( $this->getValue( 'page_loader' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-				<option value="true" <?php echo ( $this->getValue( 'page_loader' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+			<select class="form-select" id="page_loader" name="page_loader" <?php echo ( $this->debug_mode() ? 'disabled' : '' ); ?>>
+				<option value="false" <?php echo ( $this->page_loader() === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( $this->page_loader() === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'A full-screen display that hides the web page until it is fully loaded.' ); ?></small>
+			<?php if ( $this->debug_mode() ) : ?>
+			<small class="form-text text-danger"><?php $L->p( 'Option disabled while site is in debug mode.' ); ?></small>
+			<?php else : ?>
+			<small class="form-text text-muted"><?php $L->p( 'A full-screen display that hides the web page until it is fully loaded. Disabled when site is in debug mode.' ); ?></small>
+			<?php endif; ?>
 		</div>
 	</div>
 

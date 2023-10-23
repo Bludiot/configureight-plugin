@@ -90,6 +90,12 @@ class configureight extends Plugin {
 	 */
 	public function adminHead() {
 
+		// Stop if not on theme options screen.
+		global $url;
+		if ( ! str_contains( $url->slug(), $this->className() ) ) {
+			return '';
+		}
+
 		// Maybe get non-minified assets.
 		$suffix = '';
 		if ( defined( 'DEBUG_MODE' ) && DEBUG_MODE ) {

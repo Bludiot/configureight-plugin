@@ -42,6 +42,7 @@ class configureight extends Plugin {
 			'header_search'      => true,
 			'header_social'      => false,
 			'site_favicon'       => '',
+			'default_cover'      => '',
 			'cover_bg_color'     => $this->cover_bg_default(),
 			'cover_text_color'   => $this->cover_text_default(),
 			'cover_text_shadow'  => true,
@@ -293,6 +294,11 @@ class configureight extends Plugin {
 	}
 
 	// @return string
+	public function default_cover() {
+		return $this->getValue( 'default_cover' );
+	}
+
+	// @return string
 	public function cover_bg_color() {
 		return $this->getValue( 'cover_bg_color' );
 	}
@@ -482,5 +488,59 @@ class configureight extends Plugin {
 	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
+	}
+
+	/**
+	 * Favicon SRC
+	 *
+	 * Gets the URL of the site's bookmark icon.
+	 *
+	 * @since  1.0.0
+	 * @return mixed Returns the URL or null.
+	 */
+	public function favicon_src() {
+
+		// Access global variables.
+		global $site;
+
+		// Get icon field value.
+		$icon = $this->site_favicon();
+
+		// Use icon file in root content/uploads if found & set in options array.
+		if ( $icon && file_exists( PATH_UPLOADS . $icon ) ) {
+			return DOMAIN_UPLOADS . $icon;
+
+		// Use icon file in theme assets/images if found & set in options array.
+		} elseif ( $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $icon ) ) {
+			return DOMAIN_THEME . 'assets/images/' . $icon;
+
+		// Use favicon.png file in theme assets/images if found.
+		} elseif ( ! $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
+			return DOMAIN_THEME . 'assets/images/favicon.png';
+		}
+		return null;
+	}
+
+	public function cover_src() {
+
+		// Access global variables.
+		global $site;
+
+		// Get cover field value.
+		$cover = $this->default_cover();
+
+		// Use cover file in root content/uploads if found & set in options array.
+		if ( $cover && file_exists( PATH_UPLOADS . $cover ) ) {
+			return DOMAIN_UPLOADS . $cover;
+
+		// Use cover file in theme assets/images if found & set in options array.
+		} elseif ( $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {
+			return DOMAIN_THEME . 'assets/images/' . $cover;
+
+		// Use cover.jpg file in theme assets/images if found.
+		} elseif ( ! $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
+			return DOMAIN_THEME . 'assets/images/cover.jpg';
+		}
+		return null;
 	}
 }

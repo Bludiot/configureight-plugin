@@ -64,13 +64,49 @@ jQuery(document).ready( function($) {
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Media' ); ?></legend>
 
-	<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image.' ); ?></p>
+	<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image. For now, the options require you to add the images to the theme\'s assets/images directory or to the bl-content/uploads directory. The theme will look first in the bl-content/uploads directory.' ); ?></p>
+
+	<p><?php $L->p( 'For both the bookmark icon and the default cover fields, simply add the filename & extension (e.g. favicon.png or cover.jpg).' ); ?></p>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Bookmark Icon' ); ?></label>
+		<div class="col-sm-4">
+			<input type="text" id="site_favicon" name="site_favicon" value="<?php echo $this->getValue( 'site_favicon' ); ?>" placeholder="<?php $L->p( 'favicon.png;' ); ?>" />
+			<small class="form-text text-muted"><?php $L->p( 'The image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></small>
+		</div>
+		<?php if ( ! is_null( $this->favicon_src() ) ) : ?>
+		<div class="col-sm-2">
+			<a href="<?php echo $this->favicon_src(); ?>" target="_blank" rel="noopener noreferrer">
+				<img class="image-field-preview" src="<?php echo $this->favicon_src(); ?>" alt="Bookmark Icon" />
+			</a>
+		</div>
+		<?php else : ?>
+		<p class="text-muted"><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
+		<?php endif; ?>
+	</div>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Cover Images' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Cover Images' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="default_cover"><?php $L->p( 'Default Cover' ); ?></label>
+		<div class="col-sm-4">
+			<input type="text" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" placeholder="<?php $L->p( 'cover.jpg' ); ?>" />
+			<small class="form-text text-muted"><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></small>
+		</div>
+		<?php if ( ! is_null( $this->cover_src() ) ) : ?>
+		<div class="col-sm-2">
+			<a href="<?php echo $this->cover_src(); ?>" target="_blank" rel="noopener noreferrer">
+				<img class="image-field-preview" src="<?php echo $this->cover_src(); ?>" alt="Default Cover" />
+			</a>
+		</div>
+		<?php else : ?>
+		<p class="text-muted"><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
+		<?php endif; ?>
+	</div>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background Color' ); ?></label>

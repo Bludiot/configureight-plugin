@@ -13,6 +13,12 @@
 .sp-original-input-container {
   position: relative;
   display: inline-flex;
+  padding: 0 15px;
+}
+@media (min-width: 991px) {
+  .sp-original-input-container {
+    padding: 0;
+  }
 }
 
 .sp-original-input-container input {

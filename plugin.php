@@ -521,6 +521,14 @@ class configureight extends Plugin {
 		return null;
 	}
 
+	/**
+	 * Cover SRC
+	 *
+	 * Gets the URL of the default cover image.
+	 *
+	 * @since  1.0.0
+	 * @return mixed Returns the URL or null.
+	 */
 	public function cover_src() {
 
 		// Access global variables.

@@ -156,5 +156,15 @@ code.select {
 	.col-sm-4 {
 		align-items: center;
 		gap: 0.5rem;
+
+		&.row {
+			margin: 0;
+		}
+
+		.btn-sm {
+
+			// Line height + padding top & bottom.
+			max-height: 2rem;
+		}
 	}
 }

@@ -127,4 +127,10 @@ code.select {
     align-items: center;
     gap: 0.5rem;
   }
+  .col-sm-4.row {
+    margin: 0;
+  }
+  .col-sm-4 .btn-sm {
+    max-height: 2rem;
+  }
 }

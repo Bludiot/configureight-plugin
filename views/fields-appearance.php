@@ -116,3 +116,17 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 		</div>
 	</div>
 </fieldset>
+
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Code' ) ] ); ?>
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Custom' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="custom_css"><?php $L->p( 'CSS Style Block' ); ?></label>
+		<div class="col-sm-6">
+			<textarea id="custom_css" name="custom_css" placeholder="<?php $L->p( 'CSS code only' ); ?>" cols="1" rows="10"><?php echo $this->getValue( 'custom_css' ) ?></textarea>
+			<small class="form-text text-muted"><?php $L->p( 'This will be printed in the <head> element, after enqueued stylesheets.' ); ?></small>
+		</div>
+	</div>
+</fieldset>

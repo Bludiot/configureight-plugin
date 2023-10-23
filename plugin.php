@@ -71,7 +71,8 @@ class configureight extends Plugin {
 			'horz_spacing'       => $this->horz_spacing_default(),
 			'vert_spacing'       => $this->vert_spacing_default(),
 			'color_scheme'       => 'default',
-			'font_scheme'        => 'default'
+			'font_scheme'        => 'default',
+			'custom_css'         => ''
 		];
 
 		if ( ! $this->installed() ) {
@@ -494,6 +495,11 @@ class configureight extends Plugin {
 	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
+	}
+
+	// @return string
+	public function custom_css() {
+		return strip_tags( $this->getValue( 'custom_css' ) );
 	}
 
 	/**

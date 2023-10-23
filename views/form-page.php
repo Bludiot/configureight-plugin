@@ -68,7 +68,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		<?php include( $this->phpPath() . '/views/info.php' ); ?>
 	</div>
 </div>
-<div class="hide-if-js no-js-message">
+<div class="hide-if-js no-js-message" style="margin-top: 2rem;">
 	<h3><?php $L->p( 'Action Required!' ); ?></h3>
 	<p><?php $L->p( 'Please enable JavaScript to display the options form.' ); ?></p>
 </div>

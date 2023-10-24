@@ -181,6 +181,10 @@ h6 {
 			text-decoration: var( --cfe-heading-tertiary--text-decoration );
 	text-transform: var( --cfe-heading-tertiary--text-transform, none );
 	color: var( --cfe-heading-tertiary--text-color, var( --cfe-text-color ) );
+
+	&.text-uppercase {
+		text-transform: var( --cfe-heading-tertiary--text-transform, none ) !important;
+	}
 }
 
 .btn {

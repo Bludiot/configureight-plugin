@@ -93,7 +93,7 @@ class configureight extends Plugin {
 	public function adminHead() {
 
 		// Access global variables.
-		global $url;
+		global $site, $url;
 
 		// Maybe get non-minified assets.
 		$suffix = '';
@@ -120,8 +120,10 @@ class configureight extends Plugin {
 		// End plugin page.
 		endif;
 
-		if ( $this->admin_theme() ) {
+		if ( $this->admin_theme() && 'configureight' === $site->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		} elseif ( $this->admin_theme() && 'booty' === $site->adminTheme() ) {
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		return $assets;
@@ -135,11 +137,17 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
-	 * @return string
+	 * @return mixed
 	 */
 	public function adminSidebar() {
 
-		global $L;
+		// Access global variables.
+		global $L, $site;
+
+		// Configure 8 admin theme has the options link.
+		if ( 'configureight' === $site->adminTheme() ) {
+			return;
+		}
 
 		$name = strtolower( __CLASS__ );
 

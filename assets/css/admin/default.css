@@ -205,6 +205,10 @@ h6 {
   text-transform: var(--cfe-heading-tertiary--text-transform, none);
   color: var(--cfe-heading-tertiary--text-color, var(--cfe-text-color));
 }
+h5.text-uppercase,
+h6.text-uppercase {
+  text-transform: var(--cfe-heading-tertiary--text-transform, none) !important;
+}
 
 .btn {
   border-radius: 0px;

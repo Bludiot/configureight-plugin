@@ -115,6 +115,19 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 			<small class="form-text text-muted"><?php $L->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
 		</div>
 	</div>
+
+	<div class="form-field form-group row">
+
+		<label class="form-label col-sm-2 col-form-label" for="admin_theme"><?php $L->p( 'Admin Theme' ); ?></label>
+
+		<div class="col-sm-4">
+			<select class="form-select" id="admin_theme" name="admin_theme">
+				<option value="false" <?php echo ( $this->admin_theme() === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( $this->admin_theme() === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Use admin styles that align with frontend styles.' ); ?></small>
+		</div>
+	</div>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Code' ) ] ); ?>

@@ -72,6 +72,7 @@ class configureight extends Plugin {
 			'vert_spacing'       => $this->vert_spacing_default(),
 			'color_scheme'       => 'default',
 			'font_scheme'        => 'default',
+			'admin_theme'        => true,
 			'custom_css'         => ''
 		];
 
@@ -91,19 +92,20 @@ class configureight extends Plugin {
 	 */
 	public function adminHead() {
 
-		// Stop if not on theme options screen.
+		// Access global variables.
 		global $url;
-		if ( ! str_contains( $url->slug(), $this->className() ) ) {
-			return '';
-		}
 
 		// Maybe get non-minified assets.
 		$suffix = '';
-		if ( defined( 'DEBUG_MODE' ) && DEBUG_MODE ) {
+		if ( ! $this->debug_mode() ) {
 			$suffix = '.min';
 		}
+		$assets = '';
 
-		$assets = '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		// Load only for this plugin's settings page,.
+		if ( str_contains( $url->slug(), $this->className() ) ) :
+
+		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 
 		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/dropzone.min.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 
@@ -114,6 +116,13 @@ class configureight extends Plugin {
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/dropzone.min.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/color-picker{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+
+		// End plugin page.
+		endif;
+
+		if ( $this->admin_theme() ) {
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		}
 
 		return $assets;
 	}
@@ -515,6 +524,11 @@ class configureight extends Plugin {
 	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
+	}
+
+	// @return boolean
+	public function admin_theme() {
+		return $this->getValue( 'admin_theme' );
 	}
 
 	// @return string

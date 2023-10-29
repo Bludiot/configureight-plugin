@@ -160,7 +160,7 @@ class configureight extends Plugin {
 		$html = sprintf(
 			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
 			$url,
-			$L->get( 'Theme Options' )
+			$L->get( 'Options' )
 		);
 		return $html;
 	}

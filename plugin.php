@@ -15,6 +15,19 @@ if ( ! defined( 'BLUDIT' ) ) {
 class configureight extends Plugin {
 
 	/**
+	 * Prepare plugin
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function prepare() {
+
+		// Get plugin functions.
+		include_once( $this->phpPath() . '/includes/functions.php' );
+	}
+
+	/**
 	 * Initialize plugin
 	 *
 	 * @since  1.0.0
@@ -104,8 +117,6 @@ class configureight extends Plugin {
 
 		// Load only for this plugin's settings page,.
 		if ( str_contains( $url->slug(), $this->className() ) ) :
-
-		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 
 		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/dropzone.min.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 

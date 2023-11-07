@@ -83,6 +83,14 @@ jQuery(document).ready( function($) {
 		<div class="col-sm-4">
 			<select class="form-select" id="user_toolbar" name="user_toolbar">
 				<option value="true" <?php echo ( $this->getValue( 'user_toolbar' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<?php
+
+				// Backend & frontend options only if Configure 8 is the admin theme.
+				if ( 'configureight' == $site->adminTheme() ) : ?>
+				<option value="backend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'backend' ? 'selected' : '' ); ?>><?php $L->p( 'Backend Only' ); ?></option>
+				<option value="frontend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
+				<?php endif; ?>
+
 				<option value="false" <?php echo ( $this->getValue( 'user_toolbar' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Displayed only to logged-in users.' ); ?></small>

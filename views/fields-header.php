@@ -42,7 +42,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<?php if ( ! empty( $site->logo() ) ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
-		<div class="col-sm-4 row">
+		<div class="col-sm-6 row">
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo ( $this->getValue( 'logo_width_std' ) ? $this->getValue( 'logo_width_std' ) : $logo_width_std_default ); ?></span><span id="logo_width_std_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val())" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
@@ -54,7 +54,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
-		<div class="col-sm-4 row">
+		<div class="col-sm-6 row">
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo ( $this->getValue( 'logo_width_mob' ) ? $this->getValue( 'logo_width_mob' ) : $logo_width_mob_default ); ?></span><span id="logo_width_mob_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val())" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />

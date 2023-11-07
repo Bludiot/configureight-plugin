@@ -82,7 +82,7 @@ jQuery(document).ready( function($) {
 		<label class="form-label col-sm-2 col-form-label" for="user_toolbar"><?php $L->p( 'User Toolbar' ); ?></label>
 		<div class="col-sm-4">
 			<select class="form-select" id="user_toolbar" name="user_toolbar">
-				<option value="true" <?php echo ( $this->getValue( 'user_toolbar' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="enabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'enabled' ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<?php
 
 				// Backend & frontend options only if Configure 8 is the admin theme.
@@ -91,7 +91,7 @@ jQuery(document).ready( function($) {
 				<option value="frontend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
 				<?php endif; ?>
 
-				<option value="false" <?php echo ( $this->getValue( 'user_toolbar' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="disabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Displayed only to logged-in users.' ); ?></small>
 		</div>

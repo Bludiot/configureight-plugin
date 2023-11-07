@@ -12,6 +12,12 @@ if ( ! defined( 'BLUDIT' ) ) {
 	die( $L->get( 'direct-access' ) );
 }
 
+use function CFE_Plugin\{
+	change_theme,
+	default_theme,
+	admin_theme
+};
+
 class configureight extends Plugin {
 
 	/**
@@ -37,7 +43,7 @@ class configureight extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
-			'user_toolbar'       => true,
+			'user_toolbar'       => 'enabled',
 			'related_posts'      => true,
 			'to_top_button'      => true,
 			'page_loader'        => false,
@@ -86,7 +92,8 @@ class configureight extends Plugin {
 			'color_scheme'       => 'default',
 			'font_scheme'        => 'default',
 			'admin_theme'        => true,
-			'custom_css'         => ''
+			'custom_css'         => '',
+			'admin_css'          => ''
 		];
 
 		if ( ! $this->installed() ) {
@@ -131,10 +138,8 @@ class configureight extends Plugin {
 		// End plugin page.
 		endif;
 
-		if ( $this->admin_theme() && 'configureight' === $site->adminTheme() ) {
+		if ( $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
-		} elseif ( $this->admin_theme() && 'booty' === $site->adminTheme() ) {
-			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		return $assets;
@@ -195,6 +200,28 @@ class configureight extends Plugin {
 		$html .= ob_get_clean();
 
 		return $html;
+	}
+
+	/**
+	 * Save options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function save() {
+
+		// Switch admin theme on save.
+		if ( admin_theme() && $this->admin_theme() ) {
+			change_theme();
+		} else {
+			default_theme();
+		}
+
+		// Save options to plugin JSON database.
+		$tmp     = new dbJSON( $this->filenameDb );
+		$tmp->db = $this->db;
+		return $tmp->save();
 	}
 
 	/**
@@ -553,6 +580,11 @@ class configureight extends Plugin {
 	// @return string
 	public function custom_css() {
 		return strip_tags( $this->getValue( 'custom_css' ) );
+	}
+
+	// @return string
+	public function admin_css() {
+		return strip_tags( $this->getValue( 'admin_css' ) );
 	}
 
 	/**

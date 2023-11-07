@@ -71,11 +71,36 @@ function default_theme() {
 	file_put_contents ( $db_file, $content );
 }
 
-// @todo Remove if unnecessary.
-function themes_dir_empty( $themesDir ) {
+function is_dir_empty( $themes_dir ) {
 
-	if ( ! is_readable( $themesDir ) ) {
+    if ( ! is_readable( $themes_dir ) ) {
 		return null;
 	}
-	return ( count( scandir( $themesDir ) ) == 2 );
+
+    return ( count( scandir( $themes_dir ) ) == 2 );
+}
+
+// @todo Remove if unnecessary.
+function admin_theme() {
+
+	$themes_dir = PATH_ADMIN_THEMES;
+
+	if ( ! is_readable( $themes_dir ) ) {
+		return false;
+	}
+
+	$themes = [];
+	foreach ( glob( $themes_dir . '*', GLOB_ONLYDIR ) as $theme ) {
+		if ( ! is_dir_empty( $theme ) ) {
+
+			// Truncate the theme path and keep the theme name only.
+			$theme    = str_replace( $themes_dir, '', $theme );
+			$themes[] = $theme;
+		}
+	}
+
+	if ( in_array( 'configureight', $themes ) ) {
+		return true;
+	}
+	return false;
 }

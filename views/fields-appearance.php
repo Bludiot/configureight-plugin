@@ -139,7 +139,14 @@ if ( admin_theme() ) {
 				<option value="theme" <?php echo ( $this->admin_theme() === 'theme' ? 'selected' : '' ); ?>><?php $L->p( 'Full Theme' ); ?></option>
 				<?php endif; ?>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Use admin styles that align with frontend styles.' ); ?></small>
+			<?php if ( ! admin_theme() ) {
+				printf(
+					'<small class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></small>',
+					$L->get( 'Download the Configure 8 admin theme for added features:' ),
+					'https://github.com/ControlledChaos/configureight-admin',
+					'https://github.com/ControlledChaos/configureight-admin'
+				);
+			} ?>
 		</div>
 	</div>
 </fieldset>

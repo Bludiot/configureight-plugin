@@ -92,7 +92,7 @@ class configureight extends Plugin {
 			'vert_spacing'       => $this->vert_spacing_default(),
 			'color_scheme'       => 'default',
 			'font_scheme'        => 'default',
-			'admin_theme'        => 'default',
+			'admin_theme'        => 'css',
 			'custom_css'         => '',
 			'admin_css'          => ''
 		];

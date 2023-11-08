@@ -12,6 +12,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 	die( $L->get( 'direct-access' ) );
 }
 
+// Access namespaced functions.
 use function CFE_Plugin\{
 	change_theme,
 	default_theme,
@@ -91,7 +92,7 @@ class configureight extends Plugin {
 			'vert_spacing'       => $this->vert_spacing_default(),
 			'color_scheme'       => 'default',
 			'font_scheme'        => 'default',
-			'admin_theme'        => true,
+			'admin_theme'        => 'default',
 			'custom_css'         => '',
 			'admin_css'          => ''
 		];
@@ -138,8 +139,8 @@ class configureight extends Plugin {
 		// End plugin page.
 		endif;
 
-		if ( $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
-			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/admin/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		return $assets;
@@ -212,7 +213,7 @@ class configureight extends Plugin {
 	public function save() {
 
 		// Switch admin theme on save.
-		if ( admin_theme() && $this->admin_theme() ) {
+		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
 			change_theme();
 		} else {
 			default_theme();

@@ -7,6 +7,11 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	admin_theme
+};
+
 // Default layout values.
 $horz_spacing_default = $this->horz_spacing_default();
 $vert_spacing_default = $this->vert_spacing_default();
@@ -40,6 +45,12 @@ $more_fonts = [
 ];
 ksort( $more_fonts );
 $fonts = array_merge( $base_fonts, $more_fonts );
+
+// Labels for admin theme options.
+$css_label = $L->get( 'Theme Styles' );
+if ( admin_theme() ) {
+	$css_label = $L->get( 'Styles Only' );
+}
 
 ?>
 
@@ -116,20 +127,21 @@ $fonts = array_merge( $base_fonts, $more_fonts );
 		</div>
 	</div>
 
-	<?php // if ( 'configureight' != $site->adminTheme() ) : ?>
 	<div class="form-field form-group row">
 
 		<label class="form-label col-sm-2 col-form-label" for="admin_theme"><?php $L->p( 'Admin Theme' ); ?></label>
 
 		<div class="col-sm-4">
 			<select class="form-select" id="admin_theme" name="admin_theme">
-				<option value="false" <?php echo ( $this->admin_theme() === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-				<option value="true" <?php echo ( $this->admin_theme() === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="default" <?php echo ( $this->admin_theme() === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default Theme' ); ?></option>
+				<option value="css" <?php echo ( $this->admin_theme() === 'css' ? 'selected' : '' ); ?>><?php echo $css_label; ?></option>
+				<?php if ( admin_theme() ) : ?>
+				<option value="theme" <?php echo ( $this->admin_theme() === 'theme' ? 'selected' : '' ); ?>><?php $L->p( 'Full Theme' ); ?></option>
+				<?php endif; ?>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Use admin styles that align with frontend styles.' ); ?></small>
 		</div>
 	</div>
-	<?php // endif; ?>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Code' ) ] ); ?>

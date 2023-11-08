@@ -4818,6 +4818,7 @@ select option {
           text-decoration: var(--cfe-button--text-decoration, none);
   background-color: var(--cfe-button--bg-color, var(--cfe-bg-color, inherit));
   border: solid 1px var(--cfe-button--border-color, #555555);
+  border-radius: var(--cfe-button--border-radius, 0px);
   color: var(--cfe-button--text-color, var(--cfe-text-color, #333333)) !important;
   transition: var(--cfe-button--transition, all 0.15s ease-in-out);
   cursor: var(--cfe-button--cursor, pointer);

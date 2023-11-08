@@ -45,7 +45,6 @@ function change_theme() {
 	file_put_contents( $db_file, $content );
 }
 
-
 /**
  * Default theme
  *

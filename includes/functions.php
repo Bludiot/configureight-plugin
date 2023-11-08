@@ -26,13 +26,20 @@ function change_theme() {
 	$db_file = DB_SITE;
 
 	// Get current admin theme.
-	$current = $site->adminTheme();
+	$current = '"adminTheme":"' . $site->adminTheme() . '"';
+	if ( DEBUG_MODE ) {
+		$current = '"adminTheme": "' . $site->adminTheme() . '"';
+	}
 
 	// Get database content.
 	$content = file_get_contents( $db_file );
+	$replace = '"adminTheme":"configureight"';
+	if ( DEBUG_MODE ) {
+		$replace = '"adminTheme": "configureight"';
+	}
 
 	// Change admin theme to Configureight.
-	$content = str_replace( $current . "\"", "configureight\"", $content);
+	$content = str_replace( $current, $replace, $content);
 
 	// Write theme into the database file.
 	file_put_contents( $db_file, $content );
@@ -52,20 +59,24 @@ function default_theme() {
 	// Access global variables.
 	global $site;
 
-	// Default admin theme.
-	$default = 'booty';
-
 	// Define database file.
 	$db_file = DB_SITE;
 
 	// Get current admin theme.
-	$current = $site->adminTheme();
+	$current = '"adminTheme":"' . $site->adminTheme() . '"';
+	if ( DEBUG_MODE ) {
+		$current = '"adminTheme": "' . $site->adminTheme() . '"';
+	}
 
 	// Get database content.
 	$content = file_get_contents( $db_file );
+	$replace = '"adminTheme":"booty"';
+	if ( DEBUG_MODE ) {
+		$replace = '"adminTheme": "booty"';
+	}
 
 	// Change admin theme to default.
-	$content = str_replace( $current . "\"", $default . "\"", $content );
+	$content = str_replace( $current, $replace, $content );
 
 	// Write theme into the database file.
 	file_put_contents ( $db_file, $content );

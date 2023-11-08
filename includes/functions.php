@@ -82,16 +82,30 @@ function default_theme() {
 	file_put_contents ( $db_file, $content );
 }
 
+/**
+ * Is admin theme directory empty
+ *
+ * @since  1.0.0
+ * @param  string $themes_dir
+ * @return mixed
+ */
 function is_dir_empty( $themes_dir ) {
 
     if ( ! is_readable( $themes_dir ) ) {
 		return null;
 	}
-
     return ( count( scandir( $themes_dir ) ) == 2 );
 }
 
-// @todo Remove if unnecessary.
+/**
+ * Admin theme
+ *
+ * Checks for the Configure 8 admin theme.
+ *
+ * @since  1.0.0
+ * @return boolean Returns true if the admin theme is
+ *                 in hte admin themes directory.
+ */
 function admin_theme() {
 
 	$themes_dir = PATH_ADMIN_THEMES;

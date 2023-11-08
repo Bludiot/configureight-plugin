@@ -607,3 +607,7 @@ Here are the basic themeable display options (colors, fonts, global widths)
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.plugin-form label {
+  margin: 0 !important;
+}

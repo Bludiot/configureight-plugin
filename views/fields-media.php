@@ -112,7 +112,7 @@ jQuery(document).ready( function($) {
 		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background Color' ); ?></label>
 		<div class="col-sm-4 row">
 			<input class="color-picker" id="cover_bg_color" name="cover_bg_color" value="<?php echo $cover_bg_color; ?>" />
-			<input id="cover_bg_default" type="hidden" value="<?php echo $cover_bg_default; ?>" />
+			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
@@ -121,7 +121,7 @@ jQuery(document).ready( function($) {
 		<label class="form-label col-sm-2 col-form-label" for="cover_text_color"><?php $L->p( 'Text Color' ); ?></label>
 		<div class="col-sm-4 row">
 			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $cover_text_color; ?>" />
-			<input id="cover_text_default" type="hidden" value="<?php echo $cover_text_default; ?>" />
+			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_text_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>

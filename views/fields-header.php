@@ -19,7 +19,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_title"><?php $L->p( 'Website Title' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="site_title" name="site_title">
 				<option value="true" <?php echo ( $this->getValue( 'site_title' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'site_title' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -30,7 +30,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_slogan"><?php $L->p( 'Website Slogan' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="site_slogan" name="site_slogan">
 				<option value="true" <?php echo ( $this->getValue( 'site_slogan' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'site_slogan' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -42,7 +42,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<?php if ( ! empty( $site->logo() ) ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
-		<div class="col-sm-6 row">
+		<div class="col-sm-10 row">
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo ( $this->getValue( 'logo_width_std' ) ? $this->getValue( 'logo_width_std' ) : $logo_width_std_default ); ?></span><span id="logo_width_std_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val())" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
@@ -54,7 +54,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
-		<div class="col-sm-6 row">
+		<div class="col-sm-10 row">
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo ( $this->getValue( 'logo_width_mob' ) ? $this->getValue( 'logo_width_mob' ) : $logo_width_mob_default ); ?></span><span id="logo_width_mob_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val())" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
@@ -66,7 +66,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<?php else : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo-message"><?php $L->p( 'Logo Options' ); ?></label>
-		<div id="logo-message" class="col-sm-4">
+		<div id="logo-message" class="col-sm-10">
 			<?php printf(
 				'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
 				$L->get( 'No logo uploaded:' ),
@@ -85,7 +85,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_pos"><?php $L->p( 'Navigation Position' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="main_nav_pos" name="main_nav_pos">
 
 				<option value="right" <?php echo ( $this->getValue( 'main_nav_pos' ) === 'right' ? 'selected' : '' ); ?>><?php $L->p( 'Right of Site Branding' ); ?></option>
@@ -102,7 +102,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="max_nav_items"><?php $L->p( 'Maximum Items' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<input type="text" id="max_nav_items" name="max_nav_items" value="<?php echo $this->getValue( 'max_nav_items' ) ?>" placeholder="0" />
 			<small class="form-text text-muted"><?php $L->p( 'Enter 0 for no limit to navigation items.' ); ?></small>
 		</div>
@@ -110,7 +110,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_loop"><?php $L->p( 'Loop Nav Link' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="main_nav_loop" name="main_nav_loop">
 				<option value="true" <?php echo ( $this->getValue( 'main_nav_loop' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'main_nav_loop' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -121,7 +121,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_home"><?php $L->p( 'Home Nav Link' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="main_nav_home" name="main_nav_home">
 				<option value="true" <?php echo ( $this->getValue( 'main_nav_home' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'main_nav_home' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -132,7 +132,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="header_search"><?php $L->p( 'Search Button' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
 			<select class="form-select" id="header_search" name="header_search">
 				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
@@ -152,7 +152,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="header_social"><?php $L->p( 'Social Links' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="header_social" name="header_social">
 				<option value="true" <?php echo ( $this->getValue( 'header_social' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_social' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>

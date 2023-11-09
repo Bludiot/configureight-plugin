@@ -54,7 +54,7 @@ jQuery(document).ready( function($) {
 	<?php if ( Theme :: socialNetworks() ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="footer_social"><?php $L->p( 'Social Links' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="footer_social" name="footer_social">
 				<option value="true" <?php echo ( $this->getValue( 'footer_social' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'footer_social' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -65,7 +65,7 @@ jQuery(document).ready( function($) {
 
 	<div id="ftr_social_heading_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'footer_social' ) === true ? 'flex' : 'none' ); ?>;">
 		<label class="form-label col-sm-2 col-form-label" for="ftr_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<input type="text" id="ftr_social_heading" name="ftr_social_heading" value="<?php echo $this->getValue( 'ftr_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />
 		</div>
 	</div>
@@ -73,7 +73,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="copyright"><?php $L->p( 'Copyright Line' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="copyright" name="copyright">
 				<option value="true" <?php echo ( $this->getValue( 'copyright' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'copyright' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -85,7 +85,7 @@ jQuery(document).ready( function($) {
 	<div id="copyright_options" style="display: <?php echo ( $this->getValue( 'copyright' ) === true ? 'block' : 'none' ); ?>;">
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="copy_date"><?php $L->p( 'Copyright Date' ); ?></label>
-			<div class="col-sm-4">
+			<div class="col-sm-10">
 				<select class="form-select" id="copy_date" name="copy_date">
 					<option value="true" <?php echo ( $this->getValue( 'copy_date' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 					<option value="false" <?php echo ( $this->getValue( 'copy_date' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -96,7 +96,7 @@ jQuery(document).ready( function($) {
 
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="copy_text"><?php $L->p( 'Copyright Text' ); ?></label>
-			<div class="col-sm-4">
+			<div class="col-sm-10">
 				<input type="text" id="copy_text" name="copy_text" value="<?php echo $this->getValue( 'copy_text' ) ?>" placeholder="<?php echo $copy_text_placeholder; ?>" />
 				<small class="form-text text-muted">
 					<code class="select">%copy%</code>

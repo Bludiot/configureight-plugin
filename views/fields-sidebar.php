@@ -34,7 +34,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_display"><?php $L->p( 'Sidebar Display' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_display" name="sidebar_display">
 				<option value="default" <?php echo ( $this->getValue( 'sidebar_display' ) === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Use Templates' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'sidebar_display' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Never Display' ); ?></option>
@@ -45,7 +45,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_position"><?php $L->p( 'Sidebar Position' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_position" name="sidebar_position">
 				<option value="default" <?php echo ( $this->getValue( 'sidebar_position' ) === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default' ); ?></option>
 				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_position' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Bottom' ); ?></option>
@@ -56,7 +56,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_sticky"><?php $L->p( 'Sticky Sidebar' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_sticky" name="sidebar_sticky">
 				<option value="true" <?php echo ( $this->getValue( 'sidebar_sticky' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enable' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'sidebar_sticky' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disable' ); ?></option>
@@ -67,7 +67,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_search"><?php $L->p( 'Search Form' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
 			<select class="form-select" id="sidebar_search" name="sidebar_search">
 				<option value="show" <?php echo ( $this->getValue( 'sidebar_search' ) === 'show' ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
@@ -89,7 +89,7 @@ jQuery(document).ready( function($) {
 	<?php if ( Theme :: socialNetworks() ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_social"><?php $L->p( 'Social Links' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_social" name="sidebar_social">
 				<option value="true" <?php echo ( $this->getValue( 'sidebar_social' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'sidebar_social' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -101,7 +101,7 @@ jQuery(document).ready( function($) {
 
 	<div id="sb_social_heading_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'sidebar_social' ) === true ? 'flex' : 'none' ); ?>;">
 		<label class="form-label col-sm-2 col-form-label" for="sb_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<input type="text" id="sb_social_heading" name="sb_social_heading" value="<?php echo $this->getValue( 'sb_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />
 		</div>
 	</div>

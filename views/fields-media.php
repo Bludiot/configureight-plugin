@@ -110,7 +110,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background Color' ); ?></label>
-		<div class="col-sm-4 row">
+		<div class="col-sm-10 row">
 			<input class="color-picker" id="cover_bg_color" name="cover_bg_color" value="<?php echo $cover_bg_color; ?>" />
 			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_bg_color_default"><?php $L->p( 'Default' ); ?></span>
@@ -119,7 +119,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_text_color"><?php $L->p( 'Text Color' ); ?></label>
-		<div class="col-sm-4 row">
+		<div class="col-sm-10 row">
 			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $cover_text_color; ?>" />
 			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_text_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>
@@ -128,7 +128,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_text_shadow"><?php $L->p( 'Text Shadow' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="cover_text_shadow" name="cover_text_shadow">
 				<option value="true" <?php echo ( $this->getValue( 'cover_text_shadow' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'cover_text_shadow' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -139,7 +139,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_icon"><?php $L->p( 'Down Icon' ); ?></label>
-		<div class="col-sm-4">
+		<div class="col-sm-10">
 			<select class="form-select" id="cover_icon" name="cover_icon">
 
 				<option value="angle-down" <?php echo ( $this->getValue( 'cover_icon' ) === 'angle-down' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?></option>

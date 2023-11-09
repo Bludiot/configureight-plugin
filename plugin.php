@@ -141,6 +141,8 @@ class configureight extends Plugin {
 
 		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		} elseif ( 'default' == $this->admin_theme() ) {
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		return $assets;

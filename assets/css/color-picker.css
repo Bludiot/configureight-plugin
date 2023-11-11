@@ -120,15 +120,19 @@ input.spectrum.with-add-on {
 .sp-alpha-handle {
   position: absolute;
   top: -3px;
-  cursor: pointer;
-  height: 16px;
-  border-radius: 50%;
-  width: 16px;
-  margin-right: 5px;
   left: -2px;
   right: 0;
-  background: #f9f9f9;
-  box-shadow: 0 0 2px 0px #3a3a3a;
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+  background: #555555;
+  border: solid 2px #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.58);
+  cursor: pointer;
+}
+.sp-alpha-handle:hover, .sp-alpha-handle:focus {
+  background: var(--cfe-button--primary--bg-color, var(--cfe-link--text-color, #0044aa));
 }
 
 .sp-alpha {
@@ -141,7 +145,7 @@ input.spectrum.with-add-on {
 }
 
 .sp-alpha-inner {
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .sp-clear {
@@ -294,15 +298,19 @@ input.spectrum.with-add-on {
 
 .sp-slider {
   position: absolute;
-  top: 0;
-  cursor: pointer;
-  height: 16px;
-  border-radius: 50%;
-  width: 16px;
+  top: -3px;
   left: -2px;
-  background: #f9f9f9;
-  box-shadow: 0 0 2px 0px #3a3a3a;
+  width: 13px;
+  height: 13px;
   margin-top: 8px;
+  background: #555555;
+  border: solid 2px #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.58);
+  cursor: pointer;
+}
+.sp-slider:hover, .sp-slider:focus {
+  background: var(--cfe-button--primary--bg-color, var(--cfe-link--text-color, #0044aa));
 }
 
 /*
@@ -314,7 +322,6 @@ Here are the basic themeable display options (colors, fonts, global widths)
   border-radius: 0;
   background-color: white;
   padding: 0;
-  border-radius: 4px;
   color: black;
   box-shadow: 0 0 0 1px rgba(99, 114, 130, 0.16), 0 8px 16px rgba(27, 39, 51, 0.08);
 }
@@ -327,10 +334,6 @@ Here are the basic themeable display options (colors, fonts, global widths)
 
 .sp-top {
   margin-bottom: 10px;
-}
-
-.sp-color, .sp-hue, .sp-clear, .sp-val, .sp-sat {
-  border-radius: 3px;
 }
 
 .sp-input-container {
@@ -364,7 +367,6 @@ Here are the basic themeable display options (colors, fonts, global widths)
   height: 100% !important;
   background: transparent;
   color: #3a3a3a;
-  border-radius: 2px !important;
   border: 1px solid #e0e0e0 !important;
   text-align: center;
   font-family: monospace;
@@ -459,7 +461,6 @@ Here are the basic themeable display options (colors, fonts, global widths)
   overflow: hidden;
   cursor: pointer;
   display: inline-block;
-  border-radius: 3px;
   border: 1px solid #aaa;
   color: #666;
   transition: border-color 0.3s;
@@ -509,41 +510,54 @@ Here are the basic themeable display options (colors, fonts, global widths)
   height: 16px;
   margin: 3px;
   border: none;
-  border-radius: 3px;
 }
 
 /* Buttons: http://hellohappy.org/css3-buttons/ */
 .sp-container button {
-  border-radius: 3px;
-  border: none;
-  background: transparent;
-  line-height: 1;
-  padding: 0 8px;
-  height: 25px;
-  text-transform: capitalize;
-  text-align: center;
+  display: var(--cfe-button--display, inline-block);
+  width: var(--cfe-button--width, auto);
+  height: 1.5rem;
+  margin: var(--cfe-button--margin);
+  padding: 0 0.5rem;
   vertical-align: middle;
-  cursor: pointer;
-  color: #606c72;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  line-height: 1;
+  font-family: var(--cfe-button--font-family, var(--cfe-font-stack, var(--cfe-sans-stack, sans-serif)));
+  font-size: var(--cfe-color-picker--button--font-size, var(--cfe-button--font-size, 0.75rem));
+  font-weight: var(--cfe-button--font-weight, 500);
+  font-style: var(--cfe-button--font-style, normal);
+  font-variant: var(--cfe-button--font-variant, normal);
+  letter-spacing: var(--cfe-button--letter-spacing, normal);
+  word-spacing: var(--cfe-button--word-spacing, normal);
+  -webkit-text-decoration: var(--cfe-button--text-decoration, none);
+          text-decoration: var(--cfe-button--text-decoration, none);
+  text-transform: capitalize;
+  background-color: var(--cfe-button--bg-color, var(--cfe-bg-color, #6c757d));
+  border: solid 1px var(--cfe-button--border-color, #6c757d);
+  border-radius: var(--cfe-button--border-radius, 4px);
+  color: var(--cfe-button--text-color, var(--cfe-text-color, #ffffff)) !important;
+  transition: var(--cfe-button--transition, all 0.15s ease-in-out);
+  cursor: var(--cfe-button--cursor, pointer);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sp-container button {
+    transition: none;
+  }
+}
+.sp-container button:hover, .sp-container button:focus {
+  background-color: var(--cfe-button--action--bg-color, #5a6268);
+  border-color: var(--cfe-button--action--border-color, #545b62);
+  color: var(--cfe-button--action--text-color, #ffffff) !important;
 }
 .sp-container button.sp-choose {
-  background-color: #0078d4;
-  color: #fff;
   margin-left: 5px;
+  background-color: var(--cfe-button--primary--bg-color, var(--cfe-link--text-color, #0078d4));
+  border-color: var(--cfe-button--primary--border-color, var(--cfe-link--text-color, #0078d4));
+  color: var(--cfe-button--primary--text-color, #ffffff) !important;
 }
-.sp-container button.sp-choose:hover {
-  background-color: #4585CF;
-  border-color: #4a90e2;
-}
-.sp-container button.sp-cancel {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-.sp-container button.sp-cancel:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
+.sp-container button.sp-choose:hover, .sp-container button.sp-choose:focus {
+  background-color: var(--cfe-button--primary--action--bg-color, var(--cfe-link--action--text-color, #4585cf));
+  border-color: var(--cfe-button--primary--action--border-color, var(--cfe-link--action--text-color, #4a90e2));
+  color: var(--cfe-button--primary--action--text-color, #ffffff) !important;
 }
 
 .sp-container button.sp-palette-toggle {
@@ -594,17 +608,23 @@ Here are the basic themeable display options (colors, fonts, global widths)
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='14' height='14'%3E%3Cpath d='M12 20.016q3.281 0 5.648-2.367t2.367-5.648q0-2.672-1.734-4.922l-11.203 11.203q2.25 1.734 4.922 1.734zM3.984 12q0 2.672 1.734 4.922l11.203-11.203q-2.25-1.734-4.922-1.734-3.281 0-5.648 2.367t-2.367 5.648zM12 2.016q4.125 0 7.055 2.93t2.93 7.055-2.93 7.055-7.055 2.93-7.055-2.93-2.93-7.055 2.93-7.055 7.055-2.93z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
 }
 
+.color-picker-wrap {
+  height: 2rem;
+  margin: 0.5rem 0;
+  gap: 0.25rem;
+}
+
 .color-picker {
   display: block;
   width: 100%;
+  height: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: var(--cfe-form-element--border);
+  border-radius: 0px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 

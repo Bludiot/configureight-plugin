@@ -132,9 +132,9 @@ class configureight extends Plugin {
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/tabs{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
-		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/dropzone.min.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
-
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/color-picker{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+
+		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/fields{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		// End plugin page.
 		endif;

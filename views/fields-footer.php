@@ -13,39 +13,8 @@ $copy_text_placeholder = sprintf(
 	$site->title(),
 	$L->get( 'All rights reserved.' )
 );
+
 ?>
-
-<script>
-jQuery(document).ready( function($) {
-
-	// Sidebar options.
-	$( '#footer_social' ).on( 'change', function() {
-    	var showLoader = $(this).val();
-		if ( showLoader == 'true' ) {
-			$( "#ftr_social_heading_wrap" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#ftr_social_heading_wrap' ).offset().top
-			}, 1000 );
-		} else if ( showLoader == 'false' ) {
-			$( "#ftr_social_heading_wrap" ).fadeOut( 250 );
-		}
-    });
-
-	// Copyright options.
-	$( '#copyright' ).on( 'change', function() {
-    	var showLoader = $(this).val();
-		if ( showLoader == 'true' ) {
-			$( "#copyright_options" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#copy_date' ).offset().top
-			}, 1000 );
-		} else if ( showLoader == 'false' ) {
-			$( "#copyright_options" ).fadeOut( 250 );
-		}
-    });
-});
-</script>
-
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Footer Options' ) ] ); ?>
 <fieldset>
 

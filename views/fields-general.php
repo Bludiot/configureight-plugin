@@ -20,59 +20,8 @@ $loader_text_color   = $loader_text_default;
 if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 	$loader_text_color = $this->getValue( 'loader_text_color' );
 }
+
 ?>
-
-<script>
-// Spectrum color pickers.
-jQuery(document).ready( function($) {
-
-	// Page loader options.
-	$( '#page_loader' ).on( 'change', function() {
-    	var showLoader = $(this).val();
-		if ( showLoader == 'true' ) {
-			$( "#loader_options" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#loader_options' ).offset().top
-			}, 1000 );
-		} else if ( showLoader == 'false' ) {
-			$( "#loader_options" ).fadeOut( 250 );
-		}
-    });
-
-	// Cover image background.
-	$( '#loader_bg_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#loader_bg_color' ).show();
-
-	$( '#loader_bg_color_default' ).click( function() {
-		$( '#loader_bg_color' ).spectrum( 'set', $( '#loader_bg_default' ).val() );
-	});
-
-	// Cover image text.
-	$( '#loader_text_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#loader_text_color' ).show();
-
-	$( '#loader_text_color_default' ).click( function() {
-		$( '#loader_text_color' ).spectrum( 'set', $( '#loader_text_default' ).val() );
-	});
-});
-</script>
-
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Interface Options' ) ] ); ?>
 <fieldset>
 
@@ -153,7 +102,7 @@ jQuery(document).ready( function($) {
 
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background Color' ); ?></label>
-			<div class="col-sm-10 row">
+			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_bg_color" name="loader_bg_color" value="<?php echo $loader_bg_color; ?>" />
 				<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $loader_bg_default; ?>" />
 				<span class="btn btn-secondary btn-sm" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
@@ -162,7 +111,7 @@ jQuery(document).ready( function($) {
 
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="loader_text_color"><?php $L->p( 'Text Color' ); ?></label>
-			<div class="col-sm-10 row">
+			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_text_color" name="loader_text_color" value="<?php echo $loader_text_color; ?>" />
 				<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $loader_text_default; ?>" />
 				<span class="btn btn-secondary btn-sm" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>

@@ -8,25 +8,6 @@
  */
 
 ?>
-
-<script>
-jQuery(document).ready( function($) {
-
-	// Sidebar options.
-	$( '#sidebar_social' ).on( 'change', function() {
-    	var showLoader = $(this).val();
-		if ( showLoader == 'true' ) {
-			$( "#sb_social_heading_wrap" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#sb_social_heading_wrap' ).offset().top
-			}, 1000 );
-		} else if ( showLoader == 'false' ) {
-			$( "#sb_social_heading_wrap" ).fadeOut( 250 );
-		}
-    });
-});
-</script>
-
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Sidebar Options' ) ] ); ?>
 <fieldset>
 

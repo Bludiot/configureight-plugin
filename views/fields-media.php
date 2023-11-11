@@ -20,46 +20,8 @@ $cover_text_color   = $cover_text_default;
 if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	$cover_text_color = $this->getValue( 'cover_text_color' );
 }
+
 ?>
-
-<script>
-// Spectrum color pickers.
-jQuery(document).ready( function($) {
-
-	// Cover image background.
-	$( '#cover_bg_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "rgb",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#cover_bg_color' ).show();
-
-	$( '#cover_bg_color_default' ).click( function() {
-		$( '#cover_bg_color' ).spectrum( 'set', $( '#cover_bg_default' ).val() );
-	});
-
-	// Cover image text.
-	$( '#cover_text_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#cover_text_color' ).show();
-
-	$( '#cover_text_color_default' ).click( function() {
-		$( '#cover_text_color' ).spectrum( 'set', $( '#cover_text_default' ).val() );
-	});
-});
-</script>
-
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Media' ); ?></legend>
@@ -110,7 +72,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background Color' ); ?></label>
-		<div class="col-sm-10 row">
+		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_bg_color" name="cover_bg_color" value="<?php echo $cover_bg_color; ?>" />
 			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_bg_color_default"><?php $L->p( 'Default' ); ?></span>
@@ -119,7 +81,7 @@ jQuery(document).ready( function($) {
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_text_color"><?php $L->p( 'Text Color' ); ?></label>
-		<div class="col-sm-10 row">
+		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $cover_text_color; ?>" />
 			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_text_default; ?>" />
 			<span class="btn btn-secondary btn-sm" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>

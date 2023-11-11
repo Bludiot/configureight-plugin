@@ -331,8 +331,7 @@
 				var addOn = $(["<div class='sp-colorize-container sp-add-on'>",
 					"<div class='sp-colorize'></div> ",
 				"</div>"].join(''));
-				addOn.width(boundElement.outerHeight() + 'px')
-					 .css('border-radius', boundElement.css('border-radius'))
+				addOn.css('border-radius', boundElement.css('border-radius'))
 					 .css('border', boundElement.css('border'));
 				boundElement.addClass('with-add-on').before(addOn);
 			}

@@ -10,6 +10,7 @@
 // Default values.
 $logo_width_std_default = $this->logo_width_std_default();
 $logo_width_mob_default = $this->logo_width_mob_default();
+
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Header Options' ) ] ); ?>
@@ -133,18 +134,34 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="header_search"><?php $L->p( 'Search Button' ); ?></label>
 		<div class="col-sm-10">
-			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
+			<?php
+
+			// If the Search plugin is installed and activated.
+			if ( getPlugin( 'pluginSearch' ) ) : ?>
 			<select class="form-select" id="header_search" name="header_search">
 				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Display a search icon in the navigation to toggle the header search bar.' ); ?></small>
-			<?php else : ?>
+			<?php
+
+			// If the Search plugin is installed and not activated.
+			elseif ( class_exists( 'pluginSearch' ) ) : ?>
 				<?php printf(
-					'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
+					'<p class="form-text">%s<br /><a href="%s">%s</a></p>',
 					$L->get( 'Please activate the Search plugin:' ),
-					DOMAIN_ADMIN . '/install-plugin/pluginSearch',
-					DOMAIN_ADMIN . '/install-plugin/pluginSearch'
+					DOMAIN_ADMIN . 'install-plugin/pluginSearch',
+					DOMAIN_ADMIN . 'install-plugin/pluginSearch'
+				); ?>
+			<?php
+
+			// If the Search plugin is not installed in bl-plugins.
+			else : ?>
+				<?php printf(
+					'<p class="form-text">%s<br /><a href="%s">%s</a></p>',
+					$L->get( 'Please download, install, and activate the Search plugin:' ),
+					'https://github.com/bludit/bludit/tree/v3.0/pl-plugins/search',
+					$L->get( 'GitHub Repository' )
 				); ?>
 			<?php endif; ?>
 		</div>

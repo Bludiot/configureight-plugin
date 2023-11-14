@@ -4965,11 +4965,6 @@ div.sidebar ul .nav-item h4:first-of-type {
 div.sidebar ul .nav-item h4:not(:first-of-type) {
   border-top: solid 1px rgba(255, 255, 255, 0.125);
 }
-div.sidebar ul .nav-item h4 h3 {
-  width: 100%;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
 div.sidebar ul .nav-item h4 a {
   padding: 0.5rem 1rem;
 }

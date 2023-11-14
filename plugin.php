@@ -116,6 +116,10 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $site, $url;
 
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
 		// Maybe get non-minified assets.
 		$suffix = '';
 		if ( ! $this->debug_mode() ) {

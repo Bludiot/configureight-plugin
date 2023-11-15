@@ -101,7 +101,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 		</div>
 
 		<div class="form-field form-group row">
-			<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background Color' ); ?></label>
+			<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background' ); ?></label>
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_bg_color" name="loader_bg_color" value="<?php echo $loader_bg_color; ?>" />
 				<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $loader_bg_default; ?>" />

@@ -71,7 +71,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background Color' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_bg_color" name="cover_bg_color" value="<?php echo $cover_bg_color; ?>" />
 			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />

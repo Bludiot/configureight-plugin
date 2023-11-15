@@ -102,6 +102,21 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="main_nav_icon"><?php $L->p( 'Menu Icon' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="main_nav_icon" name="main_nav_icon">
+
+				<option value="bars" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'bars' ? 'selected' : '' ); ?>><?php $L->p( 'Bars' ); ?></option>
+
+				<option value="dots" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'dots' ? 'selected' : '' ); ?>><?php $L->p( 'Dots' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None (Text)' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'The icon to toggle the mobile menu.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="max_nav_items"><?php $L->p( 'Maximum Items' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="max_nav_items" name="max_nav_items" value="<?php echo $this->getValue( 'max_nav_items' ) ?>" placeholder="0" />

@@ -56,6 +56,7 @@ class configureight extends Plugin {
 			'logo_width_std'     => $this->logo_width_std_default(),
 			'logo_width_mob'     => $this->logo_width_mob_default(),
 			'main_nav_pos'       => 'right',
+			'main_nav_icon'      => 'bars',
 			'max_nav_items'      => 0,
 			'main_nav_loop'      => true,
 			'main_nav_home'      => false,
@@ -343,6 +344,11 @@ class configureight extends Plugin {
 	// @return string
 	public function main_nav_pos() {
 		return $this->getValue( 'main_nav_pos' );
+	}
+
+	// @return string
+	public function main_nav_icon() {
+		return $this->getValue( 'main_nav_icon' );
 	}
 
 	// @return integer

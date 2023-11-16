@@ -1,0 +1,74 @@
+///
+/// Login styles
+///
+
+html {
+	height: 100% !important;
+	margin: 0 !important;
+}
+
+.login {
+	height: 100% !important;
+	padding: var( --cfe-spacing--vert ) var( --cfe-spacing--horz ) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	color: var( --cfe-text-color );
+
+	.shadow-sm {
+		border: none !important;
+		border-radius: 0px !important;
+		box-shadow: none !important;
+	}
+
+	h1 {
+		margin: 0 !important;
+		text-align: center !important;
+		font-family: var( --cfe-heading-primary--font-family ) !important;
+		font-size: var( --cfe-heading-primary--font-size ) !important;
+		font-weight: var( --cfe-heading-primary--font-weight, 700 ) !important;
+		font-style: var( --cfe-heading-primary--font-style ) !important;
+		font-variant: var( --cfe-heading-primary--font-variant ) !important;
+		line-height: var( --cfe-heading-primary--line-height ) !important;
+		letter-spacing: var( --cfe-heading-primary--letter-spacing ) !important;
+		word-spacing: var( --cfe-heading-primary--word-spacing ) !important;
+		-webkit-text-decoration: var( --cfe-heading-primary--text-decoration ) !important;
+				text-decoration: var( --cfe-heading-primary--text-decoration ) !important;
+		text-transform: var( --cfe-heading-primary--text-transform ) !important;
+		color: var( --cfe-heading-primary--text-color, var( --cfe-text-color ) ) !important;
+	}
+
+	.form-control {
+		border-radius: 0px;
+		color: var( --cfe-text-color );
+
+		&.form-control-lg {
+			border-radius: 0px;
+		}
+	}
+
+	form + p {
+		display: none !important;
+	}
+
+	.btn,
+	.button {
+
+		&.btn-primary,
+		&.button-primary {
+			width: var( --cfe-button--width, auto ) !important;
+		}
+	}
+
+	.site-logo {
+		display: flex !important;
+		justify-content: center !important;
+	}
+
+	.form-check {
+		label {
+			text-transform: capitalize !important;
+		}
+	}
+}

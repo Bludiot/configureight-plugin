@@ -106,6 +106,31 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Load login scripts & styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function loginHead() {
+
+		// Access global variables.
+		global $site, $url;
+
+		// Maybe get non-minified assets.
+		$suffix = '';
+		if ( ! $this->debug_mode() ) {
+			$suffix = '.min';
+		}
+		$assets = '';
+
+		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/login{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		}
+		return $assets;
+	}
+
+	/**
 	 * Load scripts & styles
 	 *
 	 * @since  1.0.0

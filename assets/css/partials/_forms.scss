@@ -152,7 +152,11 @@ input[type="button"].btn-block {
 }
 
 .form-group {
-	margin: 1rem 0;
+	margin: 2rem 0;
+
+	&.row {
+		gap: 0 2rem;
+	}
 }
 
 .form-text {
@@ -885,7 +889,7 @@ border-bottom-right-radius: 0;
 	display: inline-block;
 	width: 100%;
 	max-width: 640px;
-	padding: var( --cfe-form-element--padding );
+	// padding: var( --cfe-form-element--padding );
 	vertical-align: middle;
 	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
 	border: var( --cfe-form-element--border );
@@ -1175,14 +1179,10 @@ select[disabled] {
 	display: flex;
 	align-items: center;
 	flex-wrap: nowrap;
-	gap: 1em;
+	gap: 2em;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-
-	.form-control-range {
-		max-width: 320px;
-	}
 }
 
 .form-range-small {
@@ -1222,6 +1222,7 @@ select[disabled] {
 
 	label {
 		display: block;
+		margin: 0 !important;
 	}
 
 	input[type="text"],
@@ -1270,7 +1271,7 @@ select[disabled] {
 
 		.select2-selection__rendered {
 			display: block;
-			padding: var( --cfe-form-element--padding );
+			// padding: var( --cfe-form-element--padding );
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;

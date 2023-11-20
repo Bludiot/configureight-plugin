@@ -119,7 +119,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="max_nav_items"><?php $L->p( 'Maximum Items' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="max_nav_items" name="max_nav_items" value="<?php echo $this->getValue( 'max_nav_items' ) ?>" placeholder="0" />
+			<input type="text" id="max_nav_items" name="max_nav_items" value="<?php echo $this->getValue( 'max_nav_items' ); ?>" placeholder="0" />
 			<small class="form-text text-muted"><?php $L->p( 'Enter 0 for no limit to navigation items.' ); ?></small>
 		</div>
 	</div>

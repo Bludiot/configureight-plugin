@@ -244,14 +244,23 @@ class configureight extends Plugin {
 	 * Database settings for thumbnail images.
 	 *
 	 * @since  1.0.0
-	 * @return
+	 * @global object $site The Site class.
+	 * @return function editSettings()
 	 */
 	public function thumbnail_settings() {
 
+		// Access global variables.
+		global $site;
+
+		// Get the site database.
+		$args = $site->get();
+
+		// Modify settings in the database array.
 		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
 		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
 		$args['thumbnailQuality'] = $this->getValue( 'thumb_quality' );
 
+		// Return modified array.
 		return editSettings( $args );
 	}
 

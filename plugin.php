@@ -68,6 +68,9 @@ class configureight extends Plugin {
 			'cover_text_color'   => $this->cover_text_default(),
 			'cover_text_shadow'  => true,
 			'cover_icon'         => 'angle-down-light',
+			'thumb_width'        => $this->thumb_width_default(),
+			'thumb_height'       => $this->thumb_height_default(),
+			'thumb_quality'      => $this->thumb_quality_default(),
 			'loop_title'         => '',
 			'loop_style'         => 'blog',
 			'content_style'      => 'list',
@@ -236,6 +239,23 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Thumbnails
+	 *
+	 * Database settings for thumbnail images.
+	 *
+	 * @since  1.0.0
+	 * @return
+	 */
+	public function thumbnail_settings() {
+
+		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
+		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
+		$args['thumbnailQuality'] = $this->getValue( 'thumb_quality' );
+
+		return editSettings( $args );
+	}
+
+	/**
 	 * Save options
 	 *
 	 * @since  1.0.0
@@ -250,6 +270,7 @@ class configureight extends Plugin {
 		} else {
 			default_theme();
 		}
+		$this->thumbnail_settings();
 
 		// Save options to plugin JSON database.
 		$tmp     = new dbJSON( $this->filenameDb );
@@ -446,6 +467,108 @@ class configureight extends Plugin {
 	// @return string
 	public function cover_icon() {
 		return $this->getValue( 'cover_icon' );
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_width_default() {
+
+		// Access global variables.
+		global $site;
+
+		$width = $site->thumbnailWidth();
+		if ( empty( $site->thumbnailWidth() ) ) {
+			$width = '320';
+		}
+		return $width;
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_height_default() {
+
+		// Access global variables.
+		global $site;
+
+		$height = $site->thumbnailHeight();
+		if ( empty( $site->thumbnailHeight() ) ) {
+			$height = '240';
+		}
+		return $height;
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_quality_default() {
+
+		// Access global variables.
+		global $site;
+
+		$quality = $site->thumbnailQuality();
+		if ( empty( $site->thumbnailQuality() ) ) {
+			$quality = '100';
+		}
+		return $quality;
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_width() {
+
+		// Access global variables.
+		global $site;
+
+		$width = $this->getValue( 'thumb_width' );
+		if ( empty( $site->thumbnailWidth() ) ) {
+			$width = $this->thumb_width_default();
+		} elseif ( $site->thumbnailWidth() != $this->getValue( 'thumb_width' ) ) {
+			$width = $site->thumbnailWidth();
+		}
+		return $width;
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_height() {
+
+		// Access global variables.
+		global $site;
+
+		$height = $this->getValue( 'thumb_height' );
+		if ( empty( $site->thumbnailHeight() ) ) {
+			$height = $this->thumb_height_default();
+		} elseif ( $site->thumbnailHeight() != $this->getValue( 'thumb_height' ) ) {
+			$height = $site->thumbnailHeight();
+		}
+		return $height;
+	}
+
+	/**
+	 * @global $site
+	 * @return string
+	 */
+	public function thumb_quality() {
+
+		// Access global variables.
+		global $site;
+
+		$quality = $this->getValue( 'thumb_quality' );
+		if ( empty( $site->thumbnailQuality() ) ) {
+			$quality = $this->thumb_quality_default();
+		} elseif ( $site->thumbnailQuality() != $this->getValue( 'thumb_quality' ) ) {
+			$quality = $site->thumbnailQuality();
+		}
+		return $quality;
 	}
 
 	/**

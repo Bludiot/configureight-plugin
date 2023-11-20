@@ -122,3 +122,36 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		</div>
 	</div>
 </fieldset>
+
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Thumbnail Images' ) ] ); ?>
+<p><?php $L->p( 'Duplicate of the thumbnail options under Settings > Images.' ); ?></p>
+
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Thumbnail Images' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="thumb_width"><?php $L->p( 'Width' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
+			<small class="form-text text-muted"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="thumb_height"><?php $L->p( 'Height' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
+			<small class="form-text text-muted"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="thumb_quality"><?php $L->p( 'Quality' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
+			<small class="form-text text-muted"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
+		</div>
+	</div>
+
+</fieldset>

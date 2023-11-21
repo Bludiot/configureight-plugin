@@ -676,6 +676,14 @@ class configureight extends Plugin {
 
 	// @return boolean
 	public function admin_menu() {
+
+		// Do not hide the menu if toolbar is disabled.
+		if (
+			'frontend' == $this->show_user_toolbar() ||
+			'disabled' == $this->show_user_toolbar()
+		) {
+			return true;
+		}
 		return $this->getValue( 'admin_menu' );
 	}
 

@@ -112,8 +112,8 @@ if (
 		<label class="form-label col-sm-2 col-form-label" for="admin_menu"><?php $L->p( ' Menu Display' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="admin_menu" name="admin_menu">
-				<option value="true" <?php echo ( $this->getValue( 'admin_menu' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'admin_menu' ) === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Hide' ); ?></option>
+				<option value="true" <?php echo ( $this->admin_menu() === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( $this->admin_menu() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Menu can only be disabled if the user toolbar is enabled on the back end.' ); ?></small>
 		</div>

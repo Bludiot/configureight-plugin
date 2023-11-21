@@ -513,12 +513,12 @@ class configureight extends Plugin {
 
 	// @return string
 	public function thumb_width_default() {
-		return '320';
+		return '480';
 	}
 
 	// @return string
 	public function thumb_height_default() {
-		return '240';
+		return '360';
 	}
 
 	// @return string

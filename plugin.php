@@ -87,6 +87,7 @@ class configureight extends Plugin {
 			'sidebar_search'     => 'hide',
 			'sidebar_social'     => false,
 			'sb_social_heading'  => '',
+			'admin_menu'         => true,
 			'footer_social'      => true,
 			'ftr_social_heading' => '',
 			'copyright'          => true,
@@ -671,6 +672,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function sb_social_heading() {
 		return $this->getValue( 'sb_social_heading' );
+	}
+
+	// @return boolean
+	public function admin_menu() {
+		return $this->getValue( 'admin_menu' );
 	}
 
 	/**

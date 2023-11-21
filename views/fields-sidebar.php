@@ -7,6 +7,20 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	admin_theme
+};
+
+// User toolbar option.
+$show_toolbar = true;
+if (
+	'frontend' == $this->show_user_toolbar() ||
+	'disabled' == $this->show_user_toolbar()
+) {
+	$show_toolbar = false;
+}
+
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Sidebar Options' ) ] ); ?>
 <fieldset>
@@ -87,3 +101,22 @@
 		</div>
 	</div>
 </fieldset>
+
+<?php if ( admin_theme() && 'theme' == $this->admin_theme() ) : ?>
+	<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Admin Sidebar' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="admin_menu"><?php $L->p( ' Menu Display' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="admin_menu" name="admin_menu">
+				<option value="true" <?php echo ( $this->getValue( 'admin_menu' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'admin_menu' ) === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Hide' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Menu can only be disabled if the user toolbar is enabled on the back end.' ); ?></small>
+		</div>
+	</div>
+</fieldset>
+<?php endif; ?>

@@ -510,52 +510,19 @@ class configureight extends Plugin {
 		return $this->getValue( 'cover_icon' );
 	}
 
-	/**
-	 * @global $site
-	 * @return string
-	 */
+	// @return string
 	public function thumb_width_default() {
-
-		// Access global variables.
-		global $site;
-
-		$width = $site->thumbnailWidth();
-		if ( empty( $site->thumbnailWidth() ) ) {
-			$width = '320';
-		}
-		return $width;
+		return '320';
 	}
 
-	/**
-	 * @global $site
-	 * @return string
-	 */
+	// @return string
 	public function thumb_height_default() {
-
-		// Access global variables.
-		global $site;
-
-		$height = $site->thumbnailHeight();
-		if ( empty( $site->thumbnailHeight() ) ) {
-			$height = '240';
-		}
-		return $height;
+		return '240';
 	}
 
-	/**
-	 * @global $site
-	 * @return string
-	 */
+	// @return string
 	public function thumb_quality_default() {
-
-		// Access global variables.
-		global $site;
-
-		$quality = $site->thumbnailQuality();
-		if ( empty( $site->thumbnailQuality() ) ) {
-			$quality = '100';
-		}
-		return $quality;
+		return '100';
 	}
 
 	/**

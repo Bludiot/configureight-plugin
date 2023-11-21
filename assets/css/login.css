@@ -2701,6 +2701,12 @@ select option {
   background-color: var(--cfe-bg-color) !important;
 }
 
+.field-has-buttons {
+  display: flex;
+  gap: 0 0.25rem;
+  flex-wrap: nowrap;
+}
+
 .btn-group {
   position: relative;
   display: inline-flex;

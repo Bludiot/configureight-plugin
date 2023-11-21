@@ -133,7 +133,10 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="thumb_width"><?php $L->p( 'Width' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
+			<div class="field-has-buttons">
+				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_width').val('<?php echo $this->thumb_width_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
 		</div>
 	</div>
@@ -141,7 +144,10 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="thumb_height"><?php $L->p( 'Height' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
+			<div class="field-has-buttons">
+				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_height').val('<?php echo $this->thumb_height_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
 		</div>
 	</div>
@@ -149,7 +155,10 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="thumb_quality"><?php $L->p( 'Quality' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
+			<div class="field-has-buttons">
+				<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_quality').val('<?php echo $this->thumb_quality_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
 		</div>
 	</div>

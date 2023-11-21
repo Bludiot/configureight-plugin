@@ -47,7 +47,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo ( $this->getValue( 'logo_width_std' ) ? $this->getValue( 'logo_width_std' ) : $logo_width_std_default ); ?></span><span id="logo_width_std_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val())" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#logo_width_std_value').text('<?php echo $logo_width_std_default; ?>');$('#logo_width_std').val('<?php echo $logo_width_std_default; ?>');">Default</span>
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#logo_width_std_value').text('<?php echo $logo_width_std_default; ?>');$('#logo_width_std').val('<?php echo $logo_width_std_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>
@@ -59,7 +59,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo ( $this->getValue( 'logo_width_mob' ) ? $this->getValue( 'logo_width_mob' ) : $logo_width_mob_default ); ?></span><span id="logo_width_mob_units">px</span></span>
 				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val())" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#logo_width_mob_value').text('<?php echo $logo_width_mob_default; ?>');$('#logo_width_mob').val('<?php echo $logo_width_mob_default; ?>');">Default</span>
+				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#logo_width_mob_value').text('<?php echo $logo_width_mob_default; ?>');$('#logo_width_mob').val('<?php echo $logo_width_mob_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>

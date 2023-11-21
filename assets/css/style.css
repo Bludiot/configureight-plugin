@@ -778,7 +778,7 @@ code.select {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding: 0 1rem;
+  padding: 0;
   margin: 0 auto;
 }
 

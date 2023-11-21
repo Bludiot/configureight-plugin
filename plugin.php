@@ -239,9 +239,40 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Thumbnails: not working
+	 *
+	 * Database settings for thumbnail images.
+	 *
+	 * @todo Get this to work or remove.
+	 *
+	 * @since  1.0.0
+	 * @global object $site The Site class.
+	 * @return function editSettings()
+	 */
+	public function failing_thumbnail_settings() {
+
+		// Access global variables.
+		global $site;
+
+		$args   = $site->get();
+		$thumbs = [
+			'thumbnailWidth'   => $this->getValue( 'thumb_width' ),
+			'thumbnailHeight'  => $this->getValue( 'thumb_height' ),
+			'thumbnailQuality' => $this->getValue( 'thumb_quality' )
+		];
+
+		// Return modified array.
+		return array_replace( $args, $thumbs );
+	}
+
+	/**
 	 * Thumbnails
 	 *
 	 * Database settings for thumbnail images.
+	 * Hacky but working.
+	 *
+	 * @todo Get the preferred method above to work or
+	 * remove consider removing duplicate thumbnail fields.
 	 *
 	 * @since  1.0.0
 	 * @global object $site The Site class.
@@ -252,10 +283,10 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $site;
 
-		// Get the site database.
-		$args = $site->get();
+		$args['homepage']     = $site->homepage();
+		$args['uriBlog']      = $site->getField( 'uriBlog' );
+		$args['pageNotFound'] = $site->pageNotFound();
 
-		// Modify settings in the database array.
 		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
 		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
 		$args['thumbnailQuality'] = $this->getValue( 'thumb_quality' );

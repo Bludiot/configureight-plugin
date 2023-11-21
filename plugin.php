@@ -304,13 +304,14 @@ class configureight extends Plugin {
 	 */
 	public function save() {
 
+		$this->thumbnail_settings();
+
 		// Switch admin theme on save.
 		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
 			change_theme();
 		} else {
 			default_theme();
 		}
-		$this->thumbnail_settings();
 
 		// Save options to plugin JSON database.
 		$tmp     = new dbJSON( $this->filenameDb );

@@ -133,11 +133,14 @@ if ( admin_theme() ) {
 
 		<div class="col-sm-10">
 			<select class="form-select" id="admin_theme" name="admin_theme">
-				<option value="default" <?php echo ( $this->admin_theme() === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default Theme' ); ?></option>
-				<option value="css" <?php echo ( $this->admin_theme() === 'css' ? 'selected' : '' ); ?>><?php echo $css_label; ?></option>
+
 				<?php if ( admin_theme() ) : ?>
 				<option value="theme" <?php echo ( $this->admin_theme() === 'theme' ? 'selected' : '' ); ?>><?php $L->p( 'Full Theme' ); ?></option>
 				<?php endif; ?>
+
+				<option value="css" <?php echo ( $this->admin_theme() === 'css' ? 'selected' : '' ); ?>><?php echo $css_label; ?></option>
+
+				<option value="default" <?php echo ( $this->admin_theme() === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default Theme' ); ?></option>
 			</select>
 			<?php if ( ! admin_theme() ) {
 				printf(

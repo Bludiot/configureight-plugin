@@ -29,6 +29,7 @@
 	--cfe-box--border-width: 1px;
 	--cfe-box--border-color: #{$pale_gray};
 	--cfe-box--border: var( --cfe-box--border-style  ) var( --cfe-box--border-width  ) var( --cfe-box--border-color  );
+	--cfe-separator--inline--bg-color: #{lighten( $color: $text_color, $amount: 37.5% )};
 
 	// Forms & buttons.
 	--cfe-fieldset--margin: 1em 0 0;
@@ -72,7 +73,7 @@
 	--cfe-toolbar--font-weight: 400;
 	--cfe-toolbar--bg-color: #{$dark_gray};
 	--cfe-toolbar--text-color: #{$white};
-	--cfe-toolbar--link--padding: 0 0.5rem;
+	--cfe-toolbar--link--padding: 0 0.75rem;
 	--cfe-toolbar--link--bg-color: inherit;
 	--cfe-toolbar--link--text-color: #{$white};
 	--cfe-toolbar--link--action--bg-color: #{$medium_gray};

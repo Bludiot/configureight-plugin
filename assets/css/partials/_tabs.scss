@@ -55,6 +55,11 @@
 		background-color: #ffffff;
 		color: #333333;
 		cursor: default;
+
+		&:hover,
+		&:focus {
+			border-bottom-color: #ffffff;
+		}
 	}
 
 	.dropdown-menu {

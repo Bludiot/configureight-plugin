@@ -7,6 +7,13 @@
  * @since      1.0.0
  */
 
+// Modal window background value.
+$modal_bg_default = $this->modal_bg_default();
+$modal_bg_color   = $modal_bg_default;
+if ( ! empty( $this->getValue( 'modal_bg_color' ) ) ) {
+	$modal_bg_color = $this->getValue( 'modal_bg_color' );
+}
+
 // Cover image background value.
 $cover_bg_default = $this->cover_bg_default();
 $cover_bg_color   = $cover_bg_default;
@@ -45,6 +52,18 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<?php else : ?>
 		<p class="text-muted"><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
 		<?php endif; ?>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="modal_bg_color"><?php $L->p( 'Modal Background' ); ?></label>
+		<div class="col-sm-10">
+			<div class="row color-picker-wrap">
+				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $modal_bg_color; ?>" />
+				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $modal_bg_default; ?>" />
+				<span class="btn btn-secondary btn-sm" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<p><small class="form-text text-muted"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
+		</div>
 	</div>
 </fieldset>
 

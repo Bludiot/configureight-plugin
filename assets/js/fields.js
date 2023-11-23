@@ -22,7 +22,7 @@ jQuery(document).ready( function($) {
 		}
     });
 
-	// Cover image background.
+	// Loader background.
 	$( '#loader_bg_color' ).spectrum({
 		type            : "component",
 		showPalette     : true,
@@ -39,7 +39,7 @@ jQuery(document).ready( function($) {
 		$( '#loader_bg_color' ).spectrum( 'set', $( '#loader_bg_default' ).val() );
 	});
 
-	// Cover image text.
+	// Loader text.
 	$( '#loader_text_color' ).spectrum({
 		type            : "component",
 		showPalette     : true,
@@ -54,6 +54,22 @@ jQuery(document).ready( function($) {
 
 	$( '#loader_text_color_default' ).click( function() {
 		$( '#loader_text_color' ).spectrum( 'set', $( '#loader_text_default' ).val() );
+	});
+
+	// Modal window background.
+	$( '#modal_bg_color' ).spectrum({
+		type            : "component",
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "rgb",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '#modal_bg_color' ).show();
+
+	$( '#modal_bg_color_default' ).click( function() {
+		$( '#modal_bg_color' ).spectrum( 'set', $( '#modal_bg_default' ).val() );
 	});
 
 	// Cover image background.

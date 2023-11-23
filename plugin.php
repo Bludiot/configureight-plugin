@@ -63,6 +63,7 @@ class configureight extends Plugin {
 			'header_search'      => true,
 			'header_social'      => false,
 			'site_favicon'       => '',
+			'modal_bg_color'     => $this->modal_bg_default(),
 			'default_cover'      => '',
 			'cover_bg_color'     => $this->cover_bg_default(),
 			'cover_text_color'   => $this->cover_text_default(),
@@ -474,6 +475,16 @@ class configureight extends Plugin {
 	// @return string
 	public function site_favicon() {
 		return $this->getValue( 'site_favicon' );
+	}
+
+	// @return string
+	public function modal_bg_color() {
+		return $this->getValue( 'modal_bg_color' );
+	}
+
+	// @return string
+	public function modal_bg_default() {
+		return 'rgba( 0, 0, 0, 0.625 )';
 	}
 
 	// @return string

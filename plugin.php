@@ -1,6 +1,6 @@
 <?php
 /**
- * Configure 8 theme settings
+ * Configure 8 theme options plugin
  *
  * @package    Configure 8 Options
  * @subpackage Theme Plugins

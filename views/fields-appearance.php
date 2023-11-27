@@ -18,30 +18,30 @@ $vert_spacing_default = $this->vert_spacing_default();
 
 // Color schemes.
 $base_colors = [
-	'default' => 'Default',
-	'dark'    => 'Dark'
+	'default' => $L->get( 'Default' ),
+	'dark'    => $L->get( 'Dark' )
 ];
 $more_colors = [
-	'apricot' => 'Apricot',
-	'bronze'  => 'Bronze',
-	'flat'    => 'Flat UI',
-	'ocean'   => 'Ocean',
-	'rose'    => 'Rose'
+	'apricot' => $L->get( 'Apricot' ),
+	'bronze'  => $L->get( 'Bronze' ),
+	'flat'    => $L->get( 'Flat UI' ),
+	'ocean'   => $L->get( 'Ocean' ),
+	'rose'    => $L->get( 'Rose' )
 ];
 ksort( $more_colors );
 $colors = array_merge( $base_colors, $more_colors );
 
 // Font schemes.
 $base_fonts = [
-	'default' => 'System Default',
-	'sans'    => 'Sans Serif',
-	'serif'   => 'Serif'
+	'default' => $L->get( 'System Default' ),
+	'sans'    => $L->get( 'Sans Serif' ),
+	'serif'   => $L->get( 'Serif' )
 ];
 $more_fonts = [
-	'code'   => 'Code',
-	'cosmo'  => 'Cosmopolitan',
-	'modern' => 'Modern',
-	'slab'   => 'Slab Serif'
+	'code'   => $L->get( 'Code' ),
+	'cosmo'  => $L->get( 'Cosmopolitan' ),
+	'modern' => $L->get( 'Modern' ),
+	'slab'   => $L->get( 'Slab Serif' )
 ];
 ksort( $more_fonts );
 $fonts = array_merge( $base_fonts, $more_fonts );

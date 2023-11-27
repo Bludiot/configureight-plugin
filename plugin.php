@@ -268,7 +268,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Thumbnails
+	 * Edit settings
 	 *
 	 * Database settings for thumbnail images.
 	 * Hacky but working.
@@ -280,7 +280,7 @@ class configureight extends Plugin {
 	 * @global object $site The Site class.
 	 * @return function editSettings()
 	 */
-	public function thumbnail_settings() {
+	public function edit_settings() {
 
 		// Access global variables.
 		global $site;
@@ -306,7 +306,7 @@ class configureight extends Plugin {
 	 */
 	public function save() {
 
-		$this->thumbnail_settings();
+		$this->edit_settings();
 
 		// Switch admin theme on save.
 		if ( admin_theme() && 'theme' == $this->admin_theme() ) {

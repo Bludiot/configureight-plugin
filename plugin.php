@@ -225,6 +225,27 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin body begin
+	 *
+	 * Conditionally prints a modal window notice
+	 * on the Themes admin screen,
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function adminBodyBegin() {
+
+		// Access global variables.
+		global $L, $url;
+
+		// Admin theme notice.
+		if ( 'themes' == $url->slug() && 'theme' == $this->admin_theme() ) {
+			include( $this->phpPath() . '/views/notice-admin-theme.php' );
+		}
+	}
+
+	/**
 	 * Admin settings form
 	 *
 	 * @since  1.0.0

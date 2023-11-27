@@ -32,6 +32,11 @@ class configureight extends Plugin {
 
 		// Get plugin functions.
 		include_once( $this->phpPath() . '/includes/functions.php' );
+
+		// Change admin theme if set in database.
+		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
+			change_theme();
+		}
 	}
 
 	/**

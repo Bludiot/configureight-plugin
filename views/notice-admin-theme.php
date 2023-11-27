@@ -18,7 +18,8 @@ $close_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><pa
 <script>
 jQuery(document).ready( function($) {
 	$( 'html, body' ).scrollTop( 0 );
-	$( '#close-admin-theme-notice' ).click( function() {
+	$( '.admin-theme-notice .close-modal' ).click( function(e) {
+		e.preventDefault();
 		$( 'html' ).removeClass( 'no-scroll' );
 		$( '.admin-theme-notice-modal' ).removeClass( 'show' );
 	});
@@ -70,13 +71,13 @@ html.js.no-scroll {
 </style>
 <div id="jsshadow" class="admin-theme-notice-modal show">
 	<div class="admin-theme-notice">
-		<button id="close-admin-theme-notice" class="button close svg-icon" role="image"><?php echo $close_icon; ?></button><span class="screen-reader-text"><?php $L->p( 'Close Notice Window' ); ?></span>
+		<button id="close-admin-theme-notice" class="button close close-modal svg-icon" role="image"><?php echo $close_icon; ?></button><span class="screen-reader-text"><?php $L->p( 'Close Notice Window' ); ?></span>
 		<h3><?php $L->p( 'Notice' ); ?></h3>
 		<p><?php $L->p( 'Please change the admin theme option to Default Theme or Styles Only before activating another theme.' ); ?></p>
 
 		<?php
 		if ( checkRole( [ 'admin' ], false ) ) : ?>
-		<p><a href="<?php echo HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className() . '#styles'; ?>"><?php $L->p( 'See Options' ); ?></a></p>
+		<p><a href="<?php echo HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className() . '#styles'; ?>"><?php $L->p( 'See Options' ); ?></a> | <a href="#" class="close-modal"><?php $L->p( 'Close' ); ?></a> </p>
 		<?php endif; ?>
 	</div>
 </div>

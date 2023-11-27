@@ -322,6 +322,21 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Uninstall
+	 *
+	 * Return null to prevent database resetting
+	 * when theme is deactivated and plugin is
+	 * automatically uninstalled.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function uninstall() {
+		return null;
+	}
+
+	/**
 	 * Debug mode
 	 *
 	 * Checks if the site is in debug mode.

@@ -16,9 +16,9 @@ if ( ! empty( $this->getValue( 'modal_bg_color' ) ) ) {
 
 // Cover image background value.
 $cover_bg_default = $this->cover_bg_default();
-$cover_bg_color   = $cover_bg_default;
-if ( ! empty( $this->getValue( 'cover_bg_color' ) ) ) {
-	$cover_bg_color = $this->getValue( 'cover_bg_color' );
+$cover_overlay   = $cover_bg_default;
+if ( ! empty( $this->getValue( 'cover_overlay' ) ) ) {
+	$cover_overlay = $this->getValue( 'cover_overlay' );
 }
 
 // Cover image text value.
@@ -90,11 +90,11 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="cover_bg_color"><?php $L->p( 'Background' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="cover_overlay"><?php $L->p( 'Overlay Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
-			<input class="color-picker" id="cover_bg_color" name="cover_bg_color" value="<?php echo $cover_bg_color; ?>" />
+			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $cover_overlay; ?>" />
 			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />
-			<span class="btn btn-secondary btn-sm" id="cover_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+			<span class="btn btn-secondary btn-sm" id="cover_overlay_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 

@@ -46,7 +46,7 @@ class configureight extends Plugin {
 		$this->dbFields = [
 			'user_toolbar'       => 'enabled',
 			'related_posts'      => true,
-			'max_related'        => 3,
+			'max_related'        => $this->max_related_default(),
 			'related_heading'    => '',
 			'related_heading_el' => 'h3',
 			'related_style'      => 'list',
@@ -69,7 +69,7 @@ class configureight extends Plugin {
 			'site_favicon'       => '',
 			'modal_bg_color'     => $this->modal_bg_default(),
 			'default_cover'      => '',
-			'cover_bg_color'     => $this->cover_bg_default(),
+			'cover_overlay'     => $this->cover_bg_default(),
 			'cover_text_color'   => $this->cover_text_default(),
 			'cover_text_shadow'  => true,
 			'cover_icon'         => 'angle-down-light',
@@ -528,8 +528,8 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function cover_bg_color() {
-		return $this->getValue( 'cover_bg_color' );
+	public function cover_overlay() {
+		return $this->getValue( 'cover_overlay' );
 	}
 
 	// @return string
@@ -693,6 +693,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function related_posts() {
 		return $this->getValue( 'related_posts' );
+	}
+
+	// @return integer
+	public function max_related_default() {
+		return 3;
 	}
 
 	// @return integer

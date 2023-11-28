@@ -73,7 +73,7 @@ jQuery(document).ready( function($) {
 	});
 
 	// Cover image background.
-	$( '#cover_bg_color' ).spectrum({
+	$( '#cover_overlay' ).spectrum({
 		type            : "component",
 		showPalette     : true,
 		palette         : [],
@@ -82,10 +82,10 @@ jQuery(document).ready( function($) {
 		allowEmpty      : false,
 		showSelectionPalette : false
 	});
-	$( '#cover_bg_color' ).show();
+	$( '#cover_overlay' ).show();
 
-	$( '#cover_bg_color_default' ).click( function() {
-		$( '#cover_bg_color' ).spectrum( 'set', $( '#cover_bg_default' ).val() );
+	$( '#cover_overlay_default' ).click( function() {
+		$( '#cover_overlay' ).spectrum( 'set', $( '#cover_bg_default' ).val() );
 	});
 
 	// Cover image text.

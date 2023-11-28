@@ -104,6 +104,19 @@ jQuery(document).ready( function($) {
 		$( '#cover_text_color' ).spectrum( 'set', $( '#cover_text_default' ).val() );
 	});
 
+	// Related posts options.
+	$( '#related_posts' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#related_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#related_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#related_options" ).fadeOut( 250 );
+		}
+    });
+
 	// Sidebar options.
 	$( '#sidebar_social' ).on( 'change', function() {
 		var showLoader = $(this).val();

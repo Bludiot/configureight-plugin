@@ -32,11 +32,6 @@ class configureight extends Plugin {
 
 		// Get plugin functions.
 		include_once( $this->phpPath() . '/includes/functions.php' );
-
-		// Change admin theme if set in database.
-		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
-			change_theme();
-		}
 	}
 
 	/**
@@ -51,6 +46,9 @@ class configureight extends Plugin {
 		$this->dbFields = [
 			'user_toolbar'       => 'enabled',
 			'related_posts'      => true,
+			'max_related'        => 3,
+			'related_heading'    => '',
+			'related_heading_el' => 'h3',
 			'to_top_button'      => true,
 			'page_loader'        => false,
 			'loader_bg_color'    => $this->loader_bg_default(),
@@ -393,6 +391,21 @@ class configureight extends Plugin {
 	// @return boolean
 	public function related_posts() {
 		return $this->getValue( 'related_posts' );
+	}
+
+	// @return integer
+	public function max_related() {
+		return $this->getValue( 'max_related' );
+	}
+
+	// @return string
+	public function related_heading() {
+		return $this->getValue( 'related_heading' );
+	}
+
+	// @return string
+	public function related_heading_el() {
+		return $this->getValue( 'related_heading_el' );
 	}
 
 	// @return boolean

@@ -30,6 +30,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#page"><?php $L->p( 'Page' ); ?></a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="sidebar" aria-selected="false" href="#sidebar"><?php $L->p( 'Sidebar' ); ?></a>
 		</li>
 		<li class="nav-item">
@@ -54,6 +57,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	</div>
 	<div id="loop" class="tab-pane" role="tabpanel" aria-labelledby="loop">
 		<?php include( $this->phpPath() . '/views/fields-loop.php' ); ?>
+	</div>
+	<div id="page" class="tab-pane" role="tabpanel" aria-labelledby="page">
+		<?php include( $this->phpPath() . '/views/fields-page.php' ); ?>
 	</div>
 	<div id="sidebar" class="tab-pane" role="tabpanel" aria-labelledby="sidebar">
 		<?php include( $this->phpPath() . '/views/fields-sidebar.php' ); ?>

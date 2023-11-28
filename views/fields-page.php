@@ -50,6 +50,19 @@
 				<small class="form-text text-muted"><?php $L->p( 'The heading element to use for related posts.' ); ?></small>
 			</div>
 		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="related_style"><?php $L->p( 'Related Style' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="related_style" name="related_style">
+
+					<option value="list" <?php echo ( $this->getValue( 'related_style' ) === 'list' ? 'selected' : '' ); ?>><?php $L->p( 'List' ); ?></option>
+
+					<option value="grid" <?php echo ( $this->getValue( 'related_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'Presentation style for related posts.' ); ?></small>
+			</div>
+		</div>
 	</div>
 
 </fieldset>

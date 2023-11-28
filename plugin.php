@@ -49,6 +49,7 @@ class configureight extends Plugin {
 			'max_related'        => 3,
 			'related_heading'    => '',
 			'related_heading_el' => 'h3',
+			'related_style'      => 'list',
 			'to_top_button'      => true,
 			'page_loader'        => false,
 			'loader_bg_color'    => $this->loader_bg_default(),
@@ -389,26 +390,6 @@ class configureight extends Plugin {
 	}
 
 	// @return boolean
-	public function related_posts() {
-		return $this->getValue( 'related_posts' );
-	}
-
-	// @return integer
-	public function max_related() {
-		return $this->getValue( 'max_related' );
-	}
-
-	// @return string
-	public function related_heading() {
-		return $this->getValue( 'related_heading' );
-	}
-
-	// @return string
-	public function related_heading_el() {
-		return $this->getValue( 'related_heading_el' );
-	}
-
-	// @return boolean
 	public function to_top_button() {
 		return (bool) $this->getValue( 'to_top_button' );
 	}
@@ -700,6 +681,38 @@ class configureight extends Plugin {
 	// @return boolean
 	public function loop_icons() {
 		return $this->getValue( 'loop_icons' );
+	}
+
+	/**
+	 * Page options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return boolean
+	public function related_posts() {
+		return $this->getValue( 'related_posts' );
+	}
+
+	// @return integer
+	public function max_related() {
+		return $this->getValue( 'max_related' );
+	}
+
+	// @return string
+	public function related_heading() {
+		return $this->getValue( 'related_heading' );
+	}
+
+	// @return string
+	public function related_heading_el() {
+		return $this->getValue( 'related_heading_el' );
+	}
+
+	// @return string
+	public function related_style() {
+		return $this->getValue( 'related_style' );
 	}
 
 	/**

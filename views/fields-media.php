@@ -15,8 +15,8 @@ if ( ! empty( $this->getValue( 'modal_bg_color' ) ) ) {
 }
 
 // Cover image background value.
-$cover_bg_default = $this->cover_bg_default();
-$cover_overlay   = $cover_bg_default;
+$cover_overlay_default = $this->cover_overlay_default();
+$cover_overlay   = $cover_overlay_default;
 if ( ! empty( $this->getValue( 'cover_overlay' ) ) ) {
 	$cover_overlay = $this->getValue( 'cover_overlay' );
 }
@@ -93,8 +93,8 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<label class="form-label col-sm-2 col-form-label" for="cover_overlay"><?php $L->p( 'Overlay Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $cover_overlay; ?>" />
-			<input id="cover_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_bg_default; ?>" />
-			<span class="btn btn-secondary btn-sm" id="cover_overlay_default"><?php $L->p( 'Default' ); ?></span>
+			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_overlay_default; ?>" />
+			<span class="btn btn-secondary btn-sm" id="cover_overlay_default_button"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 

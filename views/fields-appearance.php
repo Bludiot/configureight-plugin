@@ -16,6 +16,13 @@ use function CFE_Plugin\{
 $horz_spacing_default = $this->horz_spacing_default();
 $vert_spacing_default = $this->vert_spacing_default();
 
+// Body color value.
+$body_bg_color_default = $this->body_bg_color_default();
+$body_bg_color   = $body_bg_color_default;
+if ( ! empty( $this->getValue( 'body_bg_color' ) ) ) {
+	$body_bg_color = $this->getValue( 'body_bg_color' );
+}
+
 // Color schemes.
 $base_colors = [
 	'default' => $L->get( 'Default' ),
@@ -88,6 +95,18 @@ if ( admin_theme() ) {
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Appearance' ); ?></legend>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="body_bg_color"><?php $L->p( 'Body Color' ); ?></label>
+			<div class="col-sm-10">
+				<div class="row color-picker-wrap">
+					<input class="color-picker" id="body_bg_color" name="body_bg_color" value="<?php echo $body_bg_color; ?>" />
+					<input id="body_bg_color_default" class="screen-reader-text" type="hidden" value="<?php echo $body_bg_color_default; ?>" />
+					<span class="btn btn-secondary btn-sm" id="body_bg_color_default_button"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<p><small class="form-text text-muted"><?php $L->p( 'This will override color scheme body colors and will not affect dark modes.' ); ?></small></p>
+			</div>
+		</div>
 
 	<div class="form-field form-group row">
 

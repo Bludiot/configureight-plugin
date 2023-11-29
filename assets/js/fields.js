@@ -84,8 +84,8 @@ jQuery(document).ready( function($) {
 	});
 	$( '#cover_overlay' ).show();
 
-	$( '#cover_overlay_default' ).click( function() {
-		$( '#cover_overlay' ).spectrum( 'set', $( '#cover_bg_default' ).val() );
+	$( '#cover_overlay_default_button' ).click( function() {
+		$( '#cover_overlay' ).spectrum( 'set', $( '#cover_overlay_default' ).val() );
 	});
 
 	// Cover image text.
@@ -154,5 +154,21 @@ jQuery(document).ready( function($) {
 		} else if ( showLoader == 'false' ) {
 			$( "#copyright_options" ).fadeOut( 250 );
 		}
+	});
+
+	// Appearance options.
+	$( '#body_bg_color' ).spectrum({
+		type            : "component",
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '#body_bg_color' ).show();
+
+	$( '#body_bg_color_default_button' ).click( function() {
+		$( '#body_bg_color' ).spectrum( 'set', $( '#body_bg_color_default' ).val() );
 	});
 });

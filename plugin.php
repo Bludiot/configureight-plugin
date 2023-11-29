@@ -44,6 +44,7 @@ class configureight extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
+			'body_bg_color'      => $this->body_bg_color_default(),
 			'user_toolbar'       => 'enabled',
 			'related_posts'      => true,
 			'max_related'        => $this->max_related_default(),
@@ -69,7 +70,7 @@ class configureight extends Plugin {
 			'site_favicon'       => '',
 			'modal_bg_color'     => $this->modal_bg_default(),
 			'default_cover'      => '',
-			'cover_overlay'     => $this->cover_bg_default(),
+			'cover_overlay'      => $this->cover_overlay_default(),
 			'cover_text_color'   => $this->cover_text_default(),
 			'cover_text_shadow'  => true,
 			'cover_icon'         => 'angle-down-light',
@@ -543,7 +544,7 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function cover_bg_default() {
+	public function cover_overlay_default() {
 		return 'rgba( 0, 0, 0, 0.625 )';
 	}
 
@@ -826,6 +827,16 @@ class configureight extends Plugin {
 	// @return string
 	public function vert_spacing_default() {
 		return '2';
+	}
+
+	// @return string
+	public function body_bg_color() {
+		return $this->getValue( 'body_bg_color' );
+	}
+
+	// @return string
+	public function body_bg_color_default() {
+		return '#ffffff';
 	}
 
 	// @return string

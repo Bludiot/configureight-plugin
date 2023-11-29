@@ -78,6 +78,7 @@ class configureight extends Plugin {
 			'thumb_height'       => $this->thumb_height_default(),
 			'thumb_quality'      => $this->thumb_quality_default(),
 			'loop_title'         => '',
+			'loop_description'    => '',
 			'loop_style'         => 'blog',
 			'content_style'      => 'list',
 			'sidebar_in_loop'    => 'side',
@@ -637,6 +638,11 @@ class configureight extends Plugin {
 	// @return string
 	public function loop_title() {
 		return $this->getValue( 'loop_title' );
+	}
+
+	// @return string
+	public function loop_description() {
+		return $this->getValue( 'loop_description' );
 	}
 
 	// @return string

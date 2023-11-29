@@ -27,6 +27,18 @@
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="loop_description"><?php $L->p( 'Loop description' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="loop_description" name="loop_description" value="<?php echo $this->getValue( 'loop_description' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_style' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
+			<small class="form-text text-muted">
+				<?php $L->p( 'The description of posts loop pages.' ); ?>
+				<br />
+				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
+			</small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Style' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="loop_style" name="loop_style">

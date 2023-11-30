@@ -128,11 +128,6 @@ class configureight extends Plugin {
 	 */
 	public function dashboard_options() {
 
-		// Stop if option not enabled.
-		if ( ! $this->show_options() ) {
-			return null;
-		}
-
 		// Access global variables.
 		global $L;
 
@@ -192,7 +187,11 @@ class configureight extends Plugin {
 	 * @return void
 	 */
 	public function dashboard() {
-		echo $this->dashboard_options();
+
+		// Show options on dashboard if enabled.
+		if ( $this->show_options() ) {
+			echo $this->dashboard_options();
+		}
 	}
 
 	/**

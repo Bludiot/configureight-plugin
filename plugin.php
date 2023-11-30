@@ -205,6 +205,24 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin style block
+	 *
+	 * Prints custom admin CSS in the admin head.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns a CSS style block or null.
+	 */
+	public function admin_style_block() {
+
+		$style  = '<style>';
+		$style .= $this->admin_css();
+		$style .= '</style>';
+
+		return $style;
+	}
+
+	/**
 	 * Load scripts & styles
 	 *
 	 * @since  1.0.0
@@ -247,6 +265,11 @@ class configureight extends Plugin {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		} elseif ( 'default' == $this->admin_theme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		}
+
+		// Custom admin CSS for default the with theme styles.
+		if ( ! empty( $this->admin_css() ) && 'css' == $this->admin_theme() ) {
+			$assets .= $this->admin_style_block();
 		}
 
 		return $assets;

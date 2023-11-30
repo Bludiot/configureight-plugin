@@ -5101,6 +5101,10 @@ h2 .fa {
   display: none;
 }
 
+.tab-content h4 {
+  font-size: 1rem;
+}
+
 .tab-pane ul,
 .tab-pane ol {
   padding: 0 0 0 1em;

@@ -165,8 +165,8 @@ if ( admin_theme() ) {
 				printf(
 					'<small class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></small>',
 					$L->get( 'Download the Configure 8 admin theme for added features:' ),
-					'https://github.com/ControlledChaos/configureight-admin',
-					'https://github.com/ControlledChaos/configureight-admin'
+					'https://github.com/Bludiot/configureight-admin',
+					'https://github.com/Bludiot/configureight-admin'
 				);
 			} ?>
 		</div>

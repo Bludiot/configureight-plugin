@@ -180,21 +180,6 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Dashboard hook
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function dashboard() {
-
-		// Show options on dashboard if enabled.
-		if ( $this->show_options() ) {
-			echo $this->dashboard_options();
-		}
-	}
-
-	/**
 	 * Load login scripts & styles
 	 *
 	 * @since  1.0.0
@@ -268,6 +253,27 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin body begin
+	 *
+	 * Conditionally prints a modal window notice
+	 * on the Themes admin screen,
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function adminBodyBegin() {
+
+		// Access global variables.
+		global $L, $url;
+
+		// Admin theme notice.
+		if ( 'themes' == $url->slug() && 'theme' == $this->admin_theme() ) {
+			include( $this->phpPath() . '/views/notice-admin-theme.php' );
+		}
+	}
+
+	/**
 	 * Sidebar link
 	 *
 	 * Link to the options screen in the admin sidebar menu.
@@ -304,23 +310,19 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Admin body begin
+	 * Dashboard hook
 	 *
-	 * Conditionally prints a modal window notice
-	 * on the Themes admin screen,
+	 * Uses the core hook to add content to the dashboard.
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
-	public function adminBodyBegin() {
+	public function dashboard() {
 
-		// Access global variables.
-		global $L, $url;
-
-		// Admin theme notice.
-		if ( 'themes' == $url->slug() && 'theme' == $this->admin_theme() ) {
-			include( $this->phpPath() . '/views/notice-admin-theme.php' );
+		// Show options on dashboard if enabled.
+		if ( $this->show_options() ) {
+			echo $this->dashboard_options();
 		}
 	}
 

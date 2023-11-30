@@ -2,6 +2,64 @@
 /// Necessary styles if default theme is used.
 ///
 
+@import 'modules/_utility';
+@import 'modules/_root';
+
+///
+/// Screen reader text
+///
+/// Use when text needs to be hidden for
+/// display purposes but needs to be in
+/// the DOM for visually impaired/blind
+/// people and for search engines.
+///
+/// No variables because this class does
+/// not need to/ought not change.
+.screen-reader-text {
+	border: 0;
+	clip: rect( 1px, 1px, 1px, 1px );
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+// JavaScript helper classes.
+.no-js {
+	.hide-if-no-js {
+		display: none !important;
+	}
+}
+
+.js {
+	.hide-if-js {
+		display: none !important;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+*.semi-bold {
+	font-weight: 600;
+}
+
+.tab-pane h2 {
+	margin: 1.5rem  0 0.5rem 0;
+	padding: 0 0 0.5rem 0;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.2;
+	text-transform: uppercase;
+	border-bottom: 1px solid #dee2e6;
+}
+
 form {
 	.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
 		max-width: 640px;
@@ -20,4 +78,104 @@ form {
 
 .image-field-preview {
 	max-width: 80px;
+}
+
+// Dashboard.
+#dashboard {
+	.list-group.list-group-striped {
+		list-style: none;
+
+		li {
+			&:first-of-type {
+				margin: 0 0 1rem 0;
+			}
+
+			&:not( :first-of-type ) {
+				padding: 0.5rem 1rem;
+			}
+
+			&:nth-of-type( even ) {
+				background-color: var( --cfe-striped--bg-color, #eeeeee );
+			}
+		}
+	}
+
+	#hello-message {
+		text-transform: capitalize;
+
+		.fa {
+			display: none !important;
+		}
+	}
+
+	#jsclippyContainer {
+		padding: 0 0 3rem 0;
+
+		div {
+			padding: 0;
+		}
+	}
+
+	.search-suggestion-options {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.quick-links-icons {
+		font-size: 3em;
+		width: 100%;
+	}
+
+	.dashboard-options {
+		margin: 2rem 0;
+
+		h2 {
+			margin: 0;
+			font-family: var( --cfe-heading-secondary--font-family );
+			font-size: var( --cfe-heading-secondary--font-size );
+			font-weight: var( --cfe-heading-secondary--font-weight );
+			font-style: var( --cfe-heading-secondary--font-style );
+			font-variant: var( --cfe-heading-secondary--font-variant );
+			line-height: var( --cfe-heading-secondary--line-height );
+			letter-spacing: var( --cfe-heading-secondary--letter-spacing );
+			word-spacing: var( --cfe-heading-secondary--word-spacing );
+			-webkit-text-decoration: var( --cfe-heading-secondary--text-decoration );
+					text-decoration: var( --cfe-heading-secondary--text-decoration );
+			text-transform: var( --cfe-heading-secondary--text-transform );
+			color: var( --cfe-heading-secondary--text-color, var( --cfe-text-color ) );
+		}
+
+		p {
+			margin: 0;
+		}
+
+		ul {
+			list-style: none;
+			max-width: max-content;
+			margin: 1em 0 0 0;
+			padding: 0;
+
+			li {
+				padding: 0.25em 0.5em;
+
+				&:nth-of-type(odd) {
+					background-color: $off_white;
+				}
+			}
+
+			span {
+				display: inline-block;
+			}
+		}
+
+		.option-name {
+			font-family: $monospace_stack;
+			font-weight: 500;
+		}
+
+		.option-value {
+			font-weight: 600;
+		}
+	}
 }

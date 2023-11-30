@@ -4,6 +4,7 @@
 /// Gets SCSS partials to compile.
 ///
 
+@import 'modules/_utility';
 @import 'modules/_root';
 @import 'modules/_reset';
 @import 'partials/_setup';

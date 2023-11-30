@@ -32,6 +32,22 @@ h2 {
 	}
 }
 
+.tab-pane {
+	ul,
+	ol {
+		padding: 0 0 0 1em;
+	}
+}
+
+.rtl {
+	.tab-pane {
+		ul,
+		ol {
+			padding: 0 1em 0 0;
+		}
+	}
+}
+
 .search-suggestion {
 	padding: 5px;
 }

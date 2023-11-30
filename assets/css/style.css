@@ -431,6 +431,10 @@ body.toolbar-active {
   display: none !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .wrapper-general {
   display: var(--cfe-wrapper--general--display, block);
   position: var(--cfe-wrapper--general--position, static);
@@ -5091,6 +5095,16 @@ h2 {
 h1 .fa,
 h2 .fa {
   display: none;
+}
+
+.tab-pane ul,
+.tab-pane ol {
+  padding: 0 0 0 1em;
+}
+
+.rtl .tab-pane ul,
+.rtl .tab-pane ol {
+  padding: 0 1em 0 0;
 }
 
 .search-suggestion {

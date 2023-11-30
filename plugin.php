@@ -44,13 +44,8 @@ class configureight extends Plugin {
 	public function init() {
 
 		$this->dbFields = [
-			'body_bg_color'      => $this->body_bg_color_default(),
 			'user_toolbar'       => 'enabled',
-			'related_posts'      => true,
-			'max_related'        => $this->max_related_default(),
-			'related_heading'    => '',
-			'related_heading_el' => 'h3',
-			'related_style'      => 'list',
+			'show_options'       => false,
 			'to_top_button'      => true,
 			'page_loader'        => false,
 			'loader_bg_color'    => $this->loader_bg_default(),
@@ -88,6 +83,11 @@ class configureight extends Plugin {
 			'loop_word_count'    => true,
 			'loop_read_time'     => true,
 			'loop_icons'         => true,
+			'related_posts'      => true,
+			'max_related'        => $this->max_related_default(),
+			'related_heading'    => '',
+			'related_heading_el' => 'h3',
+			'related_style'      => 'list',
 			'sidebar_position'   => 'default',
 			'sidebar_display'    => 'default',
 			'sidebar_sticky'     => false,
@@ -102,6 +102,7 @@ class configureight extends Plugin {
 			'copy_text'          => '',
 			'horz_spacing'       => $this->horz_spacing_default(),
 			'vert_spacing'       => $this->vert_spacing_default(),
+			'body_bg_color'      => $this->body_bg_color_default(),
 			'color_scheme'       => 'default',
 			'font_scheme'        => 'default',
 			'admin_theme'        => 'css',
@@ -114,6 +115,84 @@ class configureight extends Plugin {
 			$this->db = $Tmp->db;
 			$this->prepare();
 		}
+	}
+
+	/**
+	 * Dashboard options
+	 *
+	 * Displays a list of options and their values for the dashboard.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns the widget markup or null.
+	 */
+	public function dashboard_options() {
+
+		// Stop if option not enabled.
+		if ( ! $this->show_options() ) {
+			return null;
+		}
+
+		// Access global variables.
+		global $L;
+
+		// Get the plugin database.
+		$db  = new dbJSON( $this->filenameDb );
+		$get = $db->getDB();
+
+		// Stop if the plugin database is empty.
+		if ( empty( $get ) ) {
+			return null;
+		}
+
+		// Options list markup.
+		$options = '<ul class="dashboard-options-list">';
+		foreach ( $get as $key => $value ) {
+
+			// Convert boolean values to "true" or "false" text.
+			if ( is_bool( $value ) ) {
+				if ( 0 == $value ) {
+					$value = $L->get( 'false' );
+				}
+
+				if ( 1 == $value ) {
+					$value = $L->get( 'true' );
+				}
+			}
+
+			// Convert empty string values to "empty" text.
+			if ( is_string( $value ) && empty( $value ) ) {
+				$value = $L->get( 'empty' );
+			}
+
+			// Option list item.
+			$options .= sprintf(
+				'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
+				$key,
+				$value
+			);
+		}
+		$options .= '</ul>';
+
+		// Final widget markup.
+		$html = sprintf(
+			'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
+			$L->get( 'Configure 8 Options' ),
+			$L->get( 'List of current theme option values.' ),
+			$options
+		);
+		return $html;
+	}
+
+	/**
+	 * Dashboard hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function dashboard() {
+		echo $this->dashboard_options();
 	}
 
 	/**
@@ -389,6 +468,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function show_user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
+	}
+
+	// @return boolean
+	public function show_options() {
+		return $this->getValue( 'show_options' );
 	}
 
 	// @return boolean

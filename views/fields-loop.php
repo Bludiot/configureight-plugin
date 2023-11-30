@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Style' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Type' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="loop_style" name="loop_style">
 

@@ -6,4 +6,4 @@ Bludit CMS plugin that provides a settings page for Configure 8 theme options.
 ![Minimum PHP version is 7.4](https://img.shields.io/badge/PHP_Min-7.4-8892bf.svg?style=flat-square "Minimum PHP version is 7.4")
 ![Tested on PHP version 8.2.4](https://img.shields.io/badge/PHP_Test-8.2.4-8892bf.svg?style=flat-square "Tested on PHP version 8.2.4")
 
-![Configure 8 theme cover image](https://github.com/Bludiot/bs-bludit/raw/main/assets/images/cover.jpg)
+![Configure 8 theme cover image](https://github.com/Bludiot/configureight-plugin/blob/main/assets/images/cover.jpg?raw=true)

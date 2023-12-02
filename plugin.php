@@ -110,11 +110,27 @@ class configureight extends Plugin {
 			'admin_css'          => ''
 		];
 
+		// Array of custom hooks.
+		$this->customHooks = [
+            'url_not_found'
+        ];
+
 		if ( ! $this->installed() ) {
 			$Tmp = new dbJSON( $this->filenameDb );
 			$this->db = $Tmp->db;
 			$this->prepare();
 		}
+	}
+
+	/**
+	 * URL not found hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed
+	 */
+	public function url_not_found() {
+		return null;
 	}
 
 	/**

@@ -10,6 +10,27 @@
 namespace CFE_Plugin;
 
 /**
+ * Plugin object
+ *
+ * Gets this plugin's core class.
+ *
+ * @since  1.0.0
+ * @global object $site The Site class.
+ * @return mixed Returns the class object or false.
+ */
+function plugin() {
+
+	// Access global variables.
+	global $site;
+
+	if ( getPlugin( $site->theme() ) ) {
+		return getPlugin( $site->theme() );
+	} else {
+		return false;
+	}
+}
+
+/**
  * Change theme
  *
  * Replaces admin theme value in the site database.
@@ -127,4 +148,393 @@ function admin_theme() {
 		return true;
 	}
 	return false;
+}
+
+/**
+ * Static pages list
+ *
+ * @since  1.0.0
+ * @param  array $args Arguments to be passed.
+ * @param  array $defaults Default arguments.
+ * @global object $site The Site class.
+ * @return string
+ */
+function static_list( $args = null, $defaults = [] ) {
+
+	// Access global variables.
+	global $site;
+
+	// Default arguments.
+	$defaults = [
+		'wrap'      => false,
+		'direction' => 'vert',
+		'title'     => false,
+		'heading'   => 'h3',
+		'links'     => true
+	];
+
+	// Maybe override defaults.
+	if ( is_array( $args ) && $args ) {
+		$args = array_merge( $defaults, $args );
+	} else {
+		$args = $defaults;
+	}
+
+	// List classes.
+	$classes   = [];
+	$classes[] = 'static-list';
+	if ( 'vert' == $args['direction'] ) {
+		$classes[] = 'static-list-vertical';
+	} else {
+		$classes[] = 'static-list-horizontal';
+	}
+	$classes = implode( ' ', $classes );
+
+	// List markup.
+	$html = '';
+	if ( $args['wrap'] ) {
+		$html = '<div class="static-list-wrap">';
+	}
+
+	if ( $args['title'] ) {
+		$html .= sprintf(
+			'<%s>%s</%s>',
+			$args['heading'],
+			$args['title'],
+			$args['heading']
+		);
+	}
+
+	$html .= sprintf(
+		'<ul class="%s">',
+		$classes
+	);
+
+	$static = buildStaticPages();
+	foreach ( $static as $page ) {
+
+		// Item class.
+		$classes = [ 'static-page' ];
+		if ( $page->hasChildren() ) {
+			$classes[] = 'parent-page';
+		} elseif ( $page->isChild() ) {
+			$classes[] = 'child-page';
+		}
+		$classes = implode( ' ', $classes );
+
+		if (
+			$page->key() != $site->homepage() &&
+			$page->key() != $site->pageNotFound()
+		) {
+			$html .= "<li class='{$classes}'>";
+
+			if ( $args['links'] ) {
+				$html .= '<a href="' . $page->permalink() . '">';
+			}
+			$html .= $page->title();
+			if ( $args['links'] ) {
+				$html .= '</a>';
+			}
+			$html .= '</li>';
+		}
+	}
+	$html .= '</ul>';
+
+	if ( $args['wrap'] ) {
+		$html  .= '</div>';
+	}
+	return $html;
+}
+
+/**
+ * Categories list
+ *
+ * @since  1.0.0
+ * @param  array $args Arguments to be passed.
+ * @param  array $defaults Default arguments.
+ * @global object $categories The Categories class.
+ * @return string
+ */
+function categories_list( $args = null, $defaults = [] ) {
+
+	// Access global variables.
+	global $categories;
+
+	// Default arguments.
+	$defaults = [
+		'wrap'      => false,
+		'direction' => 'horz',
+		'buttons'   => false,
+		'title'     => false,
+		'heading'   => 'h3',
+		'links'     => true,
+		'count'     => false
+	];
+
+	// Maybe override defaults.
+	if ( is_array( $args ) && $args ) {
+		$args = array_merge( $defaults, $args );
+	} else {
+		$args = $defaults;
+	}
+
+	// List classes.
+	$classes   = [];
+	$classes[] = 'categories-list';
+	if ( 'vert' == $args['direction'] ) {
+		$classes[] = 'categories-list-vertical';
+	} else {
+		$classes[] = 'categories-list-horizontal';
+	}
+	if ( $args['buttons'] ) {
+		$classes[] = 'categories-list-buttons';
+	}
+	$classes = implode( ' ', $classes );
+
+	// List markup.
+	$html = '';
+	if ( $args['wrap'] ) {
+		$html = '<div class="categories-list-wrap">';
+	}
+
+	if ( $args['title'] ) {
+		$html .= sprintf(
+			'<%s>%s</%s>',
+			$args['heading'],
+			$args['title'],
+			$args['heading']
+		);
+	}
+	$html .= sprintf(
+		'<ul class="%s">',
+		$classes
+	);
+
+	// By default the database of categories are alphanumeric sorted.
+	foreach ( $categories->db as $key => $fields ) {
+
+		$get_count = count( $fields['list'] );
+		$get_name  = $fields['name'];
+
+		$name = $get_name;
+		if ( $args['count'] ) {
+			$name = sprintf(
+				'%s (%s)',
+				$get_name,
+				$get_count
+			);
+		}
+
+		if ( $get_count > 0 ) {
+			$html .= '<li>';
+			if ( $args['links'] ) {
+				$html .= '<a href="' . DOMAIN_CATEGORIES . $key . '">';
+			}
+			$html .= $name;
+			if ( $args['links'] ) {
+				$html .= '</a>';
+			}
+			$html .= '</li>';
+		}
+	}
+	$html .= '</ul>';
+
+	if ( $args['wrap'] ) {
+		$html  .= '</div>';
+	}
+
+	return $html;
+}
+
+/**
+ * Tags list
+ *
+ * @since  1.0.0
+ * @param  array $args Arguments to be passed.
+ * @param  array $defaults Default arguments.
+ * @global object $tags The Tags class.
+ * @return string
+ */
+function tags_list( $args = null, $defaults = [] ) {
+
+	// Access global variables.
+	global $tags;
+
+	// Default arguments.
+	$defaults = [
+		'wrap'      => false,
+		'direction' => 'horz',
+		'buttons'   => false,
+		'title'     => false,
+		'heading'   => 'h3',
+		'links'     => true,
+		'count'     => false
+	];
+
+	// Maybe override defaults.
+	if ( is_array( $args ) && $args ) {
+		$args = array_merge( $defaults, $args );
+	} else {
+		$args = $defaults;
+	}
+
+	// List classes.
+	$classes   = [];
+	$classes[] = 'tags-list';
+	if ( 'vert' == $args['direction'] ) {
+		$classes[] = 'tags-list-vertical';
+	} else {
+		$classes[] = 'tags-list-horizontal';
+	}
+	if ( $args['buttons'] ) {
+		$classes[] = 'tags-list-buttons';
+	}
+	$classes = implode( ' ', $classes );
+
+	// List markup.
+	$html = '';
+	if ( $args['wrap'] ) {
+		$html = '<div class="tags-list-wrap">';
+	}
+
+	if ( $args['title'] ) {
+		$html .= sprintf(
+			'<%s>%s</%s>',
+			$args['heading'],
+			$args['title'],
+			$args['heading']
+		);
+	}
+	$html .= sprintf(
+		'<ul class="%s">',
+		$classes
+	);
+
+	// By default the database of tags are alphanumeric sorted.
+	foreach ( $tags->db as $key => $fields ) {
+
+		$get_count = $tags->numberOfPages( $key );
+		$get_name  = $fields['name'];
+
+		$name = $get_name;
+		if ( $args['count'] ) {
+			$name = sprintf(
+				'%s (%s)',
+				$get_name,
+				$get_count
+			);
+		}
+		$html .= '<li>';
+		if ( $args['links'] ) {
+			$html .= '<a href="' . DOMAIN_TAGS . $key . '">';
+		}
+		$html .= $name;
+		if ( $args['links'] ) {
+			$html .= '</a>';
+		}
+		$html .= '</li>';
+	}
+	$html .= '</ul>';
+
+	if ( $args['wrap'] ) {
+		$html  .= '</div>';
+	}
+	return $html;
+}
+
+/**
+ * Search error display
+ *
+ * @since  1.0.0
+ * @return string
+ */
+function error_search_display() {
+
+}
+
+/**
+ * Static pages error display
+ *
+ * @since  1.0.0
+ * @return string
+ */
+function error_static_display() {
+
+	// Set up arguments array.
+	$args = [];
+	$args['wrap'] = true;
+
+	// List heading element.
+	if ( plugin()->error_static_heading() ) {
+		$args['heading'] = plugin()->error_static_heading();
+	}
+
+	// List heading text.
+	if ( plugin()->error_static_title() ) {
+		$args['title'] = plugin()->error_static_title();
+	}
+
+	// List direction.
+	if ( plugin()->error_static_dir() ) {
+		$args['direction'] = plugin()->error_static_dir();
+	}
+	return $args;
+}
+
+/**
+ * Categories error display
+ *
+ * @since  1.0.0
+ * @return string
+ */
+function error_cats_display() {
+
+	// Set up arguments array.
+	$args = [];
+	$args['wrap'] = true;
+
+	// List heading element.
+	if ( plugin()->error_cats_heading() ) {
+		$args['heading'] = plugin()->error_cats_heading();
+	}
+
+	// List heading text.
+	if ( plugin()->error_cats_title() ) {
+		$args['title'] = plugin()->error_cats_title();
+	}
+
+	// List direction.
+	if ( plugin()->error_cats_dir() ) {
+		$args['direction'] = plugin()->error_cats_dir();
+	}
+	return $args;
+}
+
+/**
+ * Tags error display
+ *
+ * @since  1.0.0
+ * @return string
+ */
+function error_tags_display() {
+
+	// Set up arguments array.
+	$args = [];
+	$args['wrap'] = true;
+
+	// List heading element.
+	if ( plugin()->error_tags_heading() ) {
+		$args['heading'] = plugin()->error_tags_heading();
+	}
+
+	// List heading text.
+	if ( plugin()->error_tags_title() ) {
+		$args['title'] = plugin()->error_tags_title();
+	}
+
+	// List direction.
+	if ( plugin()->error_tags_dir() ) {
+		$args['direction'] = plugin()->error_tags_dir();
+	}
+	return $args;
 }

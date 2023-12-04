@@ -16,7 +16,13 @@ if ( ! defined( 'BLUDIT' ) ) {
 use function CFE_Plugin\{
 	change_theme,
 	default_theme,
-	admin_theme
+	admin_theme,
+	static_list,
+	categories_list,
+	tags_list,
+	error_static_display,
+	error_cats_display,
+	error_tags_display
 };
 
 class configureight extends Plugin {
@@ -39,75 +45,96 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $L The Language class.
 	 * @return void
 	 */
 	public function init() {
 
+		// Access global variables.
+		global $L;
+
 		$this->dbFields = [
-			'user_toolbar'       => 'enabled',
-			'show_options'       => false,
-			'to_top_button'      => true,
-			'page_loader'        => false,
-			'loader_bg_color'    => $this->loader_bg_default(),
-			'loader_text_color'  => $this->loader_text_default(),
-			'loader_text'        => '',
-			'site_title'         => true,
-			'site_slogan'        => true,
-			'logo_width_std'     => $this->logo_width_std_default(),
-			'logo_width_mob'     => $this->logo_width_mob_default(),
-			'main_nav_pos'       => 'right',
-			'main_nav_icon'      => 'bars',
-			'max_nav_items'      => 0,
-			'main_nav_loop'      => true,
-			'main_nav_home'      => false,
-			'header_search'      => true,
-			'header_social'      => false,
-			'site_favicon'       => '',
-			'modal_bg_color'     => $this->modal_bg_default(),
-			'default_cover'      => '',
-			'cover_overlay'      => $this->cover_overlay_default(),
-			'cover_text_color'   => $this->cover_text_default(),
-			'cover_text_shadow'  => true,
-			'cover_icon'         => 'angle-down-light',
-			'thumb_width'        => $this->thumb_width_default(),
-			'thumb_height'       => $this->thumb_height_default(),
-			'thumb_quality'      => $this->thumb_quality_default(),
-			'loop_title'         => '',
-			'loop_description'    => '',
-			'loop_style'         => 'blog',
-			'content_style'      => 'list',
-			'sidebar_in_loop'    => 'side',
-			'loop_paged'         => 'numerical',
-			'loop_byline'        => true,
-			'loop_date'          => true,
-			'loop_word_count'    => true,
-			'loop_read_time'     => true,
-			'loop_icons'         => true,
-			'related_posts'      => true,
-			'max_related'        => $this->max_related_default(),
-			'related_heading'    => '',
-			'related_heading_el' => 'h3',
-			'related_style'      => 'list',
-			'sidebar_position'   => 'default',
-			'sidebar_display'    => 'default',
-			'sidebar_sticky'     => false,
-			'sidebar_search'     => 'hide',
-			'sidebar_social'     => false,
-			'sb_social_heading'  => '',
-			'admin_menu'         => true,
-			'footer_social'      => true,
-			'ftr_social_heading' => '',
-			'copyright'          => true,
-			'copy_date'          => true,
-			'copy_text'          => '',
-			'horz_spacing'       => $this->horz_spacing_default(),
-			'vert_spacing'       => $this->vert_spacing_default(),
-			'body_bg_color'      => $this->body_bg_color_default(),
-			'color_scheme'       => 'default',
-			'font_scheme'        => 'default',
-			'admin_theme'        => 'css',
-			'custom_css'         => '',
-			'admin_css'          => ''
+			'user_toolbar'         => 'enabled',
+			'show_options'         => false,
+			'to_top_button'        => true,
+			'page_loader'          => false,
+			'loader_bg_color'      => $this->loader_bg_default(),
+			'loader_text_color'    => $this->loader_text_default(),
+			'loader_text'          => '',
+			'site_title'           => true,
+			'site_slogan'          => true,
+			'logo_width_std'       => $this->logo_width_std_default(),
+			'logo_width_mob'       => $this->logo_width_mob_default(),
+			'main_nav_pos'         => 'right',
+			'main_nav_icon'        => 'bars',
+			'max_nav_items'        => 0,
+			'main_nav_loop'        => true,
+			'main_nav_home'        => false,
+			'header_search'        => true,
+			'header_social'        => false,
+			'site_favicon'         => '',
+			'modal_bg_color'       => $this->modal_bg_default(),
+			'default_cover'        => '',
+			'cover_overlay'        => $this->cover_overlay_default(),
+			'cover_text_color'     => $this->cover_text_default(),
+			'cover_text_shadow'    => true,
+			'cover_icon'           => 'angle-down-light',
+			'thumb_width'          => $this->thumb_width_default(),
+			'thumb_height'         => $this->thumb_height_default(),
+			'thumb_quality'        => $this->thumb_quality_default(),
+			'loop_title'           => '',
+			'loop_description'     => '',
+			'loop_style'           => 'blog',
+			'content_style'        => 'list',
+			'sidebar_in_loop'      => 'side',
+			'loop_paged'           => 'numerical',
+			'loop_byline'          => true,
+			'loop_date'            => true,
+			'loop_word_count'      => true,
+			'loop_read_time'       => true,
+			'loop_icons'           => true,
+			'related_posts'        => true,
+			'max_related'          => $this->max_related_default(),
+			'related_heading'      => '',
+			'related_heading_el'   => 'h3',
+			'related_style'        => 'list',
+			'error_widgets'        => 'content',
+			'error_search'         => true,
+			'error_static'         => true,
+			'error_cats'           => true,
+			'error_tags'           => true,
+			'error_search_title'   => '',
+			'error_static_title'   => $L->get( 'Pages' ),
+			'error_cats_title'     => $L->get( 'Categories' ),
+			'error_tags_title'     => $L->get( 'Post Tags' ),
+			'error_search_heading' => 'h2',
+			'error_static_heading' => 'h2',
+			'error_cats_heading'   => 'h2',
+			'error_tags_heading'   => 'h2',
+			'error_search_btn  '   => true,
+			'error_static_dir'     => 'horz',
+			'error_cats_dir'       => 'horz',
+			'error_tags_dir'       => 'horz',
+			'sidebar_position'     => 'default',
+			'sidebar_display'      => 'default',
+			'sidebar_sticky'       => false,
+			'sidebar_search'       => 'hide',
+			'sidebar_social'       => false,
+			'sb_social_heading'    => '',
+			'admin_menu'           => true,
+			'footer_social'        => true,
+			'ftr_social_heading'   => '',
+			'copyright'            => true,
+			'copy_date'            => true,
+			'copy_text'            => '',
+			'horz_spacing'         => $this->horz_spacing_default(),
+			'vert_spacing'         => $this->vert_spacing_default(),
+			'body_bg_color'        => $this->body_bg_color_default(),
+			'color_scheme'         => 'default',
+			'font_scheme'          => 'default',
+			'admin_theme'          => 'css',
+			'custom_css'           => '',
+			'admin_css'            => ''
 		];
 
 		// Array of custom hooks.
@@ -127,10 +154,40 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return mixed
+	 * @global object $site The Site class.
+	 * @return mixed Returns the widgets markup or null.
 	 */
 	public function url_not_found() {
-		return null;
+
+		// Access global variables.
+		global $site;
+
+		/**
+		 * Stop if no error page is set or error widgets
+		 * are disabled (content only).
+		 */
+		if ( ! $site->pageNotFound() || 'content' == $this->error_widgets() ) {
+			return null;
+		}
+
+		// Widgets markup.
+		$html = '';
+
+		// Static pages list.
+		if ( $this->error_static() ) {
+			$html .= static_list( error_static_display() );
+		}
+
+		// Categories list.
+		if ( $this->error_cats() ) {
+			$html .= categories_list( error_cats_display() );
+		}
+
+		// Tags list.
+		if ( $this->error_tags() ) {
+			$html .= tags_list( error_tags_display() );
+		}
+		return $html;
 	}
 
 	/**
@@ -851,6 +908,91 @@ class configureight extends Plugin {
 		return $this->getValue( 'related_style' );
 	}
 
+	// @return string
+	public function error_widgets() {
+		return $this->getValue( 'error_widgets' );
+	}
+
+	// @return boolean
+	public function error_search() {
+		return $this->getValue( 'error_search' );
+	}
+
+	// @return boolean
+	public function error_static() {
+		return $this->getValue( 'error_static' );
+	}
+
+	// @return boolean
+	public function error_cats() {
+		return $this->getValue( 'error_cats' );
+	}
+
+	// @return boolean
+	public function error_tags() {
+		return $this->getValue( 'error_tags' );
+	}
+
+	// @return string
+	public function error_search_title() {
+		return $this->getValue( 'error_search_title' );
+	}
+
+	// @return string
+	public function error_static_title() {
+		return $this->getValue( 'error_static_title' );
+	}
+
+	// @return string
+	public function error_cats_title() {
+		return $this->getValue( 'error_cats_title' );
+	}
+
+	// @return string
+	public function error_tags_title() {
+		return $this->getValue( 'error_tags_title' );
+	}
+
+	// @return string
+	public function error_search_heading() {
+		return $this->getValue( 'error_search_heading' );
+	}
+
+	// @return string
+	public function error_static_heading() {
+		return $this->getValue( 'error_static_heading' );
+	}
+
+	// @return string
+	public function error_cats_heading() {
+		return $this->getValue( 'error_cats_heading' );
+	}
+
+	// @return string
+	public function error_tags_heading() {
+		return $this->getValue( 'error_tags_heading' );
+	}
+
+	// @return boolean
+	public function error_search_btn() {
+		return $this->getValue( 'error_search_btn' );
+	}
+
+	// @return string
+	public function error_static_dir() {
+		return $this->getValue( 'error_static_dir' );
+	}
+
+	// @return string
+	public function error_cats_dir() {
+		return $this->getValue( 'error_cats_dir' );
+	}
+
+	// @return string
+	public function error_tags_dir() {
+		return $this->getValue( 'error_tags_dir' );
+	}
+
 	/**
 	 * Sidebar options
 	 *
@@ -858,7 +1000,7 @@ class configureight extends Plugin {
 	 * @access public
 	 */
 
-	 // @return boolean
+	// @return boolean
 	public function sidebar_sticky() {
 		return $this->getValue( 'sidebar_sticky' );
 	}

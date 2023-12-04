@@ -117,6 +117,67 @@ jQuery(document).ready( function($) {
 		}
     });
 
+	// Error template.
+	$( '#error_widgets' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader != 'content' ) {
+			$( "#error_widget_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#error_widget_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'content' ) {
+			$( "#error_widget_options" ).fadeOut( 250 );
+		}
+    });
+
+	$( '#error_search' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#error_search_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#error_search_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#error_search_options" ).fadeOut( 250 );
+		}
+    });
+
+	$( '#error_static' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#error_static_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#error_static_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#error_static_options" ).fadeOut( 250 );
+		}
+    });
+
+	$( '#error_cats' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#error_cats_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#error_cats_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#error_cats_options" ).fadeOut( 250 );
+		}
+    });
+
+	$( '#error_tags' ).on( 'change', function() {
+    	var showLoader = $(this).val();
+		if ( showLoader == 'true' ) {
+			$( "#error_tags_options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#error_tags_options' ).offset().top
+			}, 1000 );
+		} else if ( showLoader == 'false' ) {
+			$( "#error_tags_options" ).fadeOut( 250 );
+		}
+    });
+
 	// Sidebar options.
 	$( '#sidebar_social' ).on( 'change', function() {
 		var showLoader = $(this).val();

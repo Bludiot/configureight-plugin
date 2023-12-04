@@ -9,7 +9,7 @@
 
 // Stop if accessed directly.
 if ( ! defined( 'BLUDIT' ) ) {
-	die( $L->get( 'direct-access' ) );
+	die( 'You are not allowed direct access to this file.' );
 }
 
 // Access namespaced functions.
@@ -17,9 +17,11 @@ use function CFE_Plugin\{
 	change_theme,
 	default_theme,
 	admin_theme,
+	search_form,
 	static_list,
 	categories_list,
 	tags_list,
+	error_search_display,
 	error_static_display,
 	error_cats_display,
 	error_tags_display
@@ -103,7 +105,7 @@ class configureight extends Plugin {
 			'error_static'         => true,
 			'error_cats'           => true,
 			'error_tags'           => true,
-			'error_search_title'   => '',
+			'error_search_title'   => $L->get( 'Search' ),
 			'error_static_title'   => $L->get( 'Pages' ),
 			'error_cats_title'     => $L->get( 'Categories' ),
 			'error_tags_title'     => $L->get( 'Post Tags' ),
@@ -111,7 +113,7 @@ class configureight extends Plugin {
 			'error_static_heading' => 'h2',
 			'error_cats_heading'   => 'h2',
 			'error_tags_heading'   => 'h2',
-			'error_search_btn  '   => true,
+			'error_search_btn'     => true,
 			'error_static_dir'     => 'horz',
 			'error_cats_dir'       => 'horz',
 			'error_tags_dir'       => 'horz',
@@ -172,6 +174,11 @@ class configureight extends Plugin {
 
 		// Widgets markup.
 		$html = '';
+
+		// Search form.
+		if ( $this->error_search() ) {
+			$html .= search_form( error_search_display() );
+		}
 
 		// Static pages list.
 		if ( $this->error_static() ) {

@@ -156,9 +156,15 @@ function admin_theme() {
  * @since  1.0.0
  * @param  mixed $args Arguments to be passed.
  * @param  array $defaults Default arguments.
- * @return string
+ * @return mixed Returns the search form markup
+ *               or null;
  */
 function search_form( $args = null, $defaults = [] ) {
+
+	// Return null if the Search plugin is not installed and activated.
+	if ( ! getPlugin( 'pluginSearch' ) ) {
+		return null;
+	}
 
 	// Access global variables.
 	global $L;
@@ -195,7 +201,7 @@ function search_form( $args = null, $defaults = [] ) {
 	}
 	$html .= '<form class="form search-form" role="search">';
 	$html .= sprintf(
-		'<input type="search" id="%s" name="%s" placeholder="%s" onKeyPress="%s" />',
+		'<input type="search" id="%s" name="%s" placeholder="%s" onkeypress="%s" />',
 		'error_search_text',
 		'error_search_text',
 		$L->get( 'Search&hellip;' ),
@@ -244,7 +250,7 @@ function search_script() {
 		 */
 		function error_plugin_search() {
 			var text = document.getElementById( 'error_search_text' ).value;
-			window.open( '<?php echo DOMAIN_BASE; ?>' + 'search/' + text, '_top' );
+			window.open( '<?php echo DOMAIN_BASE; ?>' + 'search/' + text, '_blank' );
 			return false;
 		}
 	</script>
@@ -258,7 +264,7 @@ function search_script() {
  * @param  mixed $args Arguments to be passed.
  * @param  array $defaults Default arguments.
  * @global object $site The Site class.
- * @return string
+ * @return string Returns the list markup.
  */
 function static_list( $args = null, $defaults = [] ) {
 
@@ -354,7 +360,7 @@ function static_list( $args = null, $defaults = [] ) {
  * @param  mixed $args Arguments to be passed.
  * @param  array $defaults Default arguments.
  * @global object $categories The Categories class.
- * @return string
+ * @return string Returns the list markup.
  */
 function categories_list( $args = null, $defaults = [] ) {
 
@@ -454,7 +460,7 @@ function categories_list( $args = null, $defaults = [] ) {
  * @param  mixed $args Arguments to be passed.
  * @param  array $defaults Default arguments.
  * @global object $tags The Tags class.
- * @return string
+ * @return string Returns the list markup.
  */
 function tags_list( $args = null, $defaults = [] ) {
 
@@ -547,7 +553,7 @@ function tags_list( $args = null, $defaults = [] ) {
  * Search error display
  *
  * @since  1.0.0
- * @return string
+ * @return array Returns an array of modified arguments.
  */
 function error_search_display() {
 
@@ -574,7 +580,7 @@ function error_search_display() {
  * Static pages error display
  *
  * @since  1.0.0
- * @return string
+ * @return array Returns an array of modified arguments.
  */
 function error_static_display() {
 
@@ -603,7 +609,7 @@ function error_static_display() {
  * Categories error display
  *
  * @since  1.0.0
- * @return string
+ * @return array Returns an array of modified arguments.
  */
 function error_cats_display() {
 
@@ -632,7 +638,7 @@ function error_cats_display() {
  * Tags error display
  *
  * @since  1.0.0
- * @return string
+ * @return array Returns an array of modified arguments.
  */
 function error_tags_display() {
 

@@ -176,22 +176,26 @@ class configureight extends Plugin {
 		$html = '';
 
 		// Search form.
-		if ( $this->error_search() ) {
+		if (
+			! is_null( search_form() ) &&
+			$this->error_search() &&
+			is_array( error_search_display() )
+		) {
 			$html .= search_form( error_search_display() );
 		}
 
 		// Static pages list.
-		if ( $this->error_static() ) {
+		if ( is_array( error_static_display() ) && $this->error_static() ) {
 			$html .= static_list( error_static_display() );
 		}
 
 		// Categories list.
-		if ( $this->error_cats() ) {
+		if ( is_array( error_cats_display() ) && $this->error_cats() ) {
 			$html .= categories_list( error_cats_display() );
 		}
 
 		// Tags list.
-		if ( $this->error_tags() ) {
+		if ( is_array( error_tags_display() ) && $this->error_tags() ) {
 			$html .= tags_list( error_tags_display() );
 		}
 		return $html;

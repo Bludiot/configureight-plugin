@@ -156,28 +156,28 @@ if ( $site->pageNotFound() ) :
 							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
-				</div>
 
-				<div class="form-field form-group row">
-					<label class="form-label col-sm-2 col-form-label" for="error_search_heading"><?php $L->p( 'Heading Element' ); ?></label>
-					<div class="col-sm-10">
-						<select class="form-select" id="error_search_heading" name="error_search_heading">
-							<option value="h2" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h2' ? 'selected' : '' ); ?>><?php $L->p( 'H2' ); ?></option>
-							<option value="h3" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
-							<option value="h4" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
-						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+					<div class="form-field form-group row">
+						<label class="form-label col-sm-2 col-form-label" for="error_search_heading"><?php $L->p( 'Heading Element' ); ?></label>
+						<div class="col-sm-10">
+							<select class="form-select" id="error_search_heading" name="error_search_heading">
+								<option value="h2" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h2' ? 'selected' : '' ); ?>><?php $L->p( 'H2' ); ?></option>
+								<option value="h3" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
+								<option value="h4" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
+							</select>
+							<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+						</div>
 					</div>
-				</div>
 
-				<div class="form-field form-group row">
-					<label class="form-label col-sm-2 col-form-label" for="error_search_btn"><?php $L->p( 'Form Button' ); ?></label>
-					<div class="col-sm-10">
-						<select class="form-select" id="error_search_btn" name="error_search_btn">
-							<option value="true" <?php echo ( $this->getValue( 'error_search_btn' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-							<option value="false" <?php echo ( $this->getValue( 'error_search_btn' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Display the search submit button.' ); ?></small>
+					<div class="form-field form-group row">
+						<label class="form-label col-sm-2 col-form-label" for="error_search_btn"><?php $L->p( 'Form Button' ); ?></label>
+						<div class="col-sm-10">
+							<select class="form-select" id="error_search_btn" name="error_search_btn">
+								<option value="true" <?php echo ( $this->getValue( 'error_search_btn' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+								<option value="false" <?php echo ( $this->getValue( 'error_search_btn' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+							</select>
+							<small class="form-text text-muted"><?php $L->p( 'Display the search submit button.' ); ?></small>
+						</div>
 					</div>
 				</div>
 			</div>

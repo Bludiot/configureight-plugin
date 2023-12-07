@@ -152,7 +152,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			<?php
 
 			// If the Search plugin is installed and activated.
-			if ( getPlugin( 'pluginSearch' ) ) : ?>
+			if ( getPlugin( 'Search_Forms' ) ) : ?>
 			<select class="form-select" id="header_search" name="header_search">
 				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
@@ -161,12 +161,12 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			<?php
 
 			// If the Search plugin is installed and not activated.
-			elseif ( class_exists( 'pluginSearch' ) ) : ?>
+			elseif ( class_exists( 'Search_Forms' ) ) : ?>
 				<?php printf(
 					'<p class="form-text">%s<br /><a href="%s">%s</a></p>',
-					$L->get( 'Please activate the Search plugin:' ),
-					DOMAIN_ADMIN . 'install-plugin/pluginSearch',
-					DOMAIN_ADMIN . 'install-plugin/pluginSearch'
+					$L->get( 'Please activate the Search Forms plugin:' ),
+					DOMAIN_ADMIN . 'install-plugin/Search_Forms',
+					DOMAIN_ADMIN . 'install-plugin/Search_Forms'
 				); ?>
 			<?php
 
@@ -174,8 +174,8 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 			else : ?>
 				<?php printf(
 					'<p class="form-text">%s<br /><a href="%s">%s</a></p>',
-					$L->get( 'Please download, install, and activate the Search plugin:' ),
-					'https://github.com/bludit/bludit/tree/v3.0/pl-plugins/search',
+					$L->get( 'Please download, install, and activate the Search Forms plugin:' ),
+					'https://github.com/Bludiot/searchforms',
 					$L->get( 'GitHub Repository' )
 				); ?>
 			<?php endif; ?>

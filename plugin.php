@@ -56,87 +56,89 @@ class configureight extends Plugin {
 		global $L;
 
 		$this->dbFields = [
-			'user_toolbar'         => 'enabled',
-			'show_options'         => false,
-			'to_top_button'        => true,
-			'page_loader'          => false,
-			'loader_bg_color'      => $this->loader_bg_default(),
-			'loader_text_color'    => $this->loader_text_default(),
-			'loader_text'          => '',
-			'site_title'           => true,
-			'site_slogan'          => true,
-			'logo_width_std'       => $this->logo_width_std_default(),
-			'logo_width_mob'       => $this->logo_width_mob_default(),
-			'main_nav_pos'         => 'right',
-			'main_nav_icon'        => 'bars',
-			'max_nav_items'        => 0,
-			'main_nav_loop'        => true,
-			'main_nav_home'        => false,
-			'header_search'        => true,
-			'header_social'        => false,
-			'site_favicon'         => '',
-			'modal_bg_color'       => $this->modal_bg_default(),
-			'default_cover'        => '',
-			'cover_overlay'        => $this->cover_overlay_default(),
-			'cover_text_color'     => $this->cover_text_default(),
-			'cover_text_shadow'    => true,
-			'cover_icon'           => 'angle-down-light',
-			'thumb_width'          => $this->thumb_width_default(),
-			'thumb_height'         => $this->thumb_height_default(),
-			'thumb_quality'        => $this->thumb_quality_default(),
-			'loop_title'           => '',
-			'loop_description'     => '',
-			'loop_style'           => 'blog',
-			'content_style'        => 'list',
-			'sidebar_in_loop'      => 'side',
-			'loop_paged'           => 'numerical',
-			'loop_byline'          => true,
-			'loop_date'            => true,
-			'loop_word_count'      => true,
-			'loop_read_time'       => true,
-			'loop_icons'           => true,
-			'related_posts'        => true,
-			'max_related'          => $this->max_related_default(),
-			'related_heading'      => '',
-			'related_heading_el'   => 'h3',
-			'related_style'        => 'list',
-			'error_widgets'        => 'content',
-			'error_search'         => true,
-			'error_static'         => true,
-			'error_cats'           => true,
-			'error_tags'           => true,
-			'error_search_title'   => $L->get( 'Search' ),
-			'error_static_title'   => $L->get( 'Pages' ),
-			'error_cats_title'     => $L->get( 'Categories' ),
-			'error_tags_title'     => $L->get( 'Post Tags' ),
-			'error_search_heading' => 'h2',
-			'error_static_heading' => 'h2',
-			'error_cats_heading'   => 'h2',
-			'error_tags_heading'   => 'h2',
-			'error_search_btn'     => true,
-			'error_static_dir'     => 'horz',
-			'error_cats_dir'       => 'horz',
-			'error_tags_dir'       => 'horz',
-			'sidebar_position'     => 'default',
-			'sidebar_display'      => 'default',
-			'sidebar_sticky'       => false,
-			'sidebar_search'       => 'hide',
-			'sidebar_social'       => false,
-			'sb_social_heading'    => '',
-			'admin_menu'           => true,
-			'footer_social'        => true,
-			'ftr_social_heading'   => '',
-			'copyright'            => true,
-			'copy_date'            => true,
-			'copy_text'            => '',
-			'horz_spacing'         => $this->horz_spacing_default(),
-			'vert_spacing'         => $this->vert_spacing_default(),
-			'body_bg_color'        => $this->body_bg_color_default(),
-			'color_scheme'         => 'default',
-			'font_scheme'          => 'default',
-			'admin_theme'          => 'css',
-			'custom_css'           => '',
-			'admin_css'            => ''
+			'user_toolbar'          => 'enabled',
+			'show_options'          => false,
+			'to_top_button'         => true,
+			'page_loader'           => false,
+			'loader_bg_color'       => $this->loader_bg_default(),
+			'loader_text_color'     => $this->loader_text_default(),
+			'loader_text'           => '',
+			'site_title'            => true,
+			'site_slogan'           => true,
+			'logo_width_std'        => $this->logo_width_std_default(),
+			'logo_width_mob'        => $this->logo_width_mob_default(),
+			'main_nav_pos'          => 'right',
+			'main_nav_icon'         => 'bars',
+			'max_nav_items'         => 0,
+			'main_nav_loop'         => true,
+			'main_nav_home'         => false,
+			'header_search'         => true,
+			'header_social'         => false,
+			'site_favicon'          => '',
+			'modal_bg_color'        => $this->modal_bg_default(),
+			'default_cover'         => '',
+			'cover_overlay'         => $this->cover_overlay_default(),
+			'cover_text_color'      => $this->cover_text_default(),
+			'cover_text_shadow'     => true,
+			'cover_icon'            => 'angle-down-light',
+			'thumb_width'           => $this->thumb_width_default(),
+			'thumb_height'          => $this->thumb_height_default(),
+			'thumb_quality'         => $this->thumb_quality_default(),
+			'loop_title'            => '',
+			'loop_description'      => '',
+			'loop_style'            => 'blog',
+			'content_style'         => 'list',
+			'sidebar_in_loop'       => 'side',
+			'loop_paged'            => 'numerical',
+			'loop_byline'           => true,
+			'loop_date'             => true,
+			'loop_word_count'       => true,
+			'loop_read_time'        => true,
+			'loop_icons'            => true,
+			'related_posts'         => true,
+			'max_related'           => $this->max_related_default(),
+			'related_heading'       => '',
+			'related_heading_el'    => 'h3',
+			'related_style'         => 'list',
+			'error_widgets'         => 'content',
+			'error_search'          => true,
+			'error_static'          => true,
+			'error_cats'            => true,
+			'error_tags'            => true,
+			'error_search_label'    => $L->get( 'Search' ),
+			'error_static_title'    => $L->get( 'Pages' ),
+			'error_cats_title'      => $L->get( 'Categories' ),
+			'error_tags_title'      => $L->get( 'Post Tags' ),
+			'error_search_heading'  => 'h2',
+			'error_static_heading'  => 'h2',
+			'error_cats_heading'    => 'h2',
+			'error_tags_heading'    => 'h2',
+			'error_search_holder'   => $L->get( 'Search' ),
+			'error_search_btn'      => true,
+			'error_search_btn_text' => $L->get( 'Submit' ),
+			'error_static_dir'      => 'horz',
+			'error_cats_dir'        => 'horz',
+			'error_tags_dir'        => 'horz',
+			'sidebar_position'      => 'default',
+			'sidebar_display'       => 'default',
+			'sidebar_sticky'        => false,
+			'sidebar_search'        => 'hide',
+			'sidebar_social'        => false,
+			'sb_social_heading'     => '',
+			'admin_menu'            => true,
+			'footer_social'         => true,
+			'ftr_social_heading'    => '',
+			'copyright'             => true,
+			'copy_date'             => true,
+			'copy_text'             => '',
+			'horz_spacing'          => $this->horz_spacing_default(),
+			'vert_spacing'          => $this->vert_spacing_default(),
+			'body_bg_color'         => $this->body_bg_color_default(),
+			'color_scheme'          => 'default',
+			'font_scheme'           => 'default',
+			'admin_theme'           => 'css',
+			'custom_css'            => '',
+			'admin_css'             => ''
 		];
 
 		// Array of custom hooks.
@@ -177,11 +179,11 @@ class configureight extends Plugin {
 
 		// Search form.
 		if (
-			! is_null( search_form() ) &&
+			getPlugin( 'Search_Forms' ) &&
 			$this->error_search() &&
 			is_array( error_search_display() )
 		) {
-			$html .= search_form( error_search_display() );
+			$html .= SearchForms\form( error_search_display() );
 		}
 
 		// Static pages list.
@@ -329,7 +331,7 @@ class configureight extends Plugin {
 		}
 		$assets = '';
 
-		// Load only for this plugin's settings page,.
+		// Load only for this plugin's settings page.
 		if ( str_contains( $url->slug(), $this->className() ) ) :
 
 		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/dropzone.min.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
@@ -439,6 +441,8 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $plugin Plugin class.
+	 * @global object $site Site class.
 	 * @return string Returns the markup of the form.
 	 */
 	public function form() {
@@ -945,8 +949,8 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function error_search_title() {
-		return $this->getValue( 'error_search_title' );
+	public function error_search_label() {
+		return $this->getValue( 'error_search_label' );
 	}
 
 	// @return string
@@ -984,9 +988,19 @@ class configureight extends Plugin {
 		return $this->getValue( 'error_tags_heading' );
 	}
 
+	// @return string
+	public function error_search_holder() {
+		return $this->getValue( 'error_search_holder' );
+	}
+
 	// @return boolean
 	public function error_search_btn() {
 		return $this->getValue( 'error_search_btn' );
+	}
+
+	// @return string
+	public function error_search_btn_text() {
+		return $this->getValue( 'error_search_btn_text' );
 	}
 
 	// @return string

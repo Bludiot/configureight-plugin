@@ -12,6 +12,14 @@
 // Default related posts values.
 $max_related_default = $this->max_related_default();
 
+// Get the search plugin object.
+$placeholder = $this->error_search_holder();
+if ( getPlugin( 'Search_Forms' ) ) {
+	$search      = new Search_Forms;
+	$min_chars   = $search->min_chars();
+	$placeholder = $L->get( "Enter at least {$min_chars} characters." );
+}
+
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Post/Page Options' ) ] ); ?>
@@ -150,9 +158,9 @@ if ( $site->pageNotFound() ) :
 
 				<div id="error_search_options">
 					<div class="form-field form-group row">
-						<label class="form-label col-sm-2 col-form-label" for="error_search_title"><?php $L->p( 'Heading Text' ); ?></label>
+						<label class="form-label col-sm-2 col-form-label" for="error_search_label"><?php $L->p( 'Heading Text' ); ?></label>
 						<div class="col-sm-10">
-							<input type="text" id="error_search_title" name="error_search_title" value="<?php echo $this->getValue( 'error_search_title' ); ?>" placeholder="<?php $L->p( 'Search' ); ?>" />
+							<input type="text" id="error_search_label" name="error_search_label" value="<?php echo $this->getValue( 'error_search_label' ); ?>" placeholder="<?php $L->p( 'Search' ); ?>" />
 							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
@@ -170,6 +178,14 @@ if ( $site->pageNotFound() ) :
 					</div>
 
 					<div class="form-field form-group row">
+						<label class="form-label col-sm-2 col-form-label" for="error_search_holder"><?php $L->p( 'Placeholder' ); ?></label>
+						<div class="col-sm-10">
+							<input type="text" id="error_search_holder" name="error_search_holder" value="<?php echo $this->getValue( 'error_search_holder' ); ?>" placeholder="<?php echo $placeholder; ?>" />
+							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no placeholder.' ); ?></small>
+						</div>
+					</div>
+
+					<div class="form-field form-group row">
 						<label class="form-label col-sm-2 col-form-label" for="error_search_btn"><?php $L->p( 'Form Button' ); ?></label>
 						<div class="col-sm-10">
 							<select class="form-select" id="error_search_btn" name="error_search_btn">
@@ -177,6 +193,13 @@ if ( $site->pageNotFound() ) :
 								<option value="false" <?php echo ( $this->getValue( 'error_search_btn' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 							</select>
 							<small class="form-text text-muted"><?php $L->p( 'Display the search submit button.' ); ?></small>
+						</div>
+					</div>
+
+					<div id="error_search_btn_text_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'error_search_btn' ) === true ? 'flex' : 'none' ); ?>;">
+						<label class="form-label col-sm-2 col-form-label" for="error_search_btn_text"><?php $L->p( 'Button Text' ); ?></label>
+						<div class="col-sm-10">
+							<input type="text" id="error_search_btn_text" name="error_search_btn_text" value="<?php echo $this->getValue( 'error_search_btn_text' ); ?>" placeholder="<?php $L->p( 'Submit' ); ?>" />
 						</div>
 					</div>
 				</div>

@@ -1,19 +1,24 @@
 <?php
 /**
- * Settings form template
+ * Configure 8 Options page
  *
  * @package    Configure 8 Options
  * @subpackage Views
  * @since      1.0.0
  */
 
-// Page description from JSON metadata.
-// echo $plugin->description();
+// Guide page URL.
+$guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
 
 // Add class class to 'js' to `<body>` if JavaScript is enabled.
 echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
 
 ?>
+
+<div class="alert alert-primary alert-search-forms" role="alert">
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page." ); ?></p>
+</div>
+
 <div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="true" data-animation="true">
 
 	<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
@@ -41,9 +46,6 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="styles" aria-selected="false" href="#styles"><?php $L->p( 'Styles' ); ?></a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="info" aria-selected="false" href="#info"><?php $L->p( 'Info' ); ?></a>
-		</li>
 	</ul>
 
 	<div id="general" class="tab-pane" role="tabpanel" aria-labelledby="general">
@@ -69,9 +71,6 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	</div>
 	<div id="styles" class="tab-pane" role="tabpanel" aria-labelledby="styles">
 		<?php include( $this->phpPath() . '/views/fields-appearance.php' ); ?>
-	</div>
-	<div id="info" class="tab-pane" role="tabpanel" aria-labelledby="info">
-		<?php include( $this->phpPath() . '/views/info.php' ); ?>
 	</div>
 </div>
 <?php if ( 'default' != $this->admin_theme() ) : ?>

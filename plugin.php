@@ -154,56 +154,6 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * URL not found hook
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global object $site The Site class.
-	 * @return mixed Returns the widgets markup or null.
-	 */
-	public function url_not_found() {
-
-		// Access global variables.
-		global $site;
-
-		/**
-		 * Stop if no error page is set or error widgets
-		 * are disabled (content only).
-		 */
-		if ( ! $site->pageNotFound() || 'content' == $this->error_widgets() ) {
-			return null;
-		}
-
-		// Widgets markup.
-		$html = '';
-
-		// Search form.
-		if (
-			getPlugin( 'Search_Forms' ) &&
-			$this->error_search() &&
-			is_array( error_search_display() )
-		) {
-			$html .= SearchForms\form( error_search_display() );
-		}
-
-		// Static pages list.
-		if ( is_array( error_static_display() ) && $this->error_static() ) {
-			$html .= static_list( error_static_display() );
-		}
-
-		// Categories list.
-		if ( is_array( error_cats_display() ) && $this->error_cats() ) {
-			$html .= categories_list( error_cats_display() );
-		}
-
-		// Tags list.
-		if ( is_array( error_tags_display() ) && $this->error_tags() ) {
-			$html .= tags_list( error_tags_display() );
-		}
-		return $html;
-	}
-
-	/**
 	 * Dashboard options
 	 *
 	 * Displays a list of options and their values for the dashboard.
@@ -459,30 +409,74 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Thumbnails: not working
-	 *
-	 * Database settings for thumbnail images.
-	 *
-	 * @todo Get this to work or remove.
+	 * Admin info page
 	 *
 	 * @since  1.0.0
-	 * @global object $site The Site class.
-	 * @return function editSettings()
+	 * @access public
+	 * @global object $L Language class.
+	 * @return string Returns the markup of the page.
 	 */
-	public function failing_thumbnail_settings() {
+	public function adminView() {
+
+		// Access global variables.
+		global $L;
+
+		$html  = '';
+		ob_start();
+		include( $this->phpPath() . '/views/guide-page.php' );
+		$html .= ob_get_clean();
+
+		return $html;
+	}
+
+	/**
+	 * URL not found hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $site The Site class.
+	 * @return mixed Returns the widgets markup or null.
+	 */
+	public function url_not_found() {
 
 		// Access global variables.
 		global $site;
 
-		$args   = $site->get();
-		$thumbs = [
-			'thumbnailWidth'   => $this->getValue( 'thumb_width' ),
-			'thumbnailHeight'  => $this->getValue( 'thumb_height' ),
-			'thumbnailQuality' => $this->getValue( 'thumb_quality' )
-		];
+		/**
+		 * Stop if no error page is set or error widgets
+		 * are disabled (content only).
+		 */
+		if ( ! $site->pageNotFound() || 'content' == $this->error_widgets() ) {
+			return null;
+		}
 
-		// Return modified array.
-		return array_replace( $args, $thumbs );
+		// Widgets markup.
+		$html = '';
+
+		// Search form.
+		if (
+			getPlugin( 'Search_Forms' ) &&
+			$this->error_search() &&
+			is_array( error_search_display() )
+		) {
+			$html .= SearchForms\form( error_search_display() );
+		}
+
+		// Static pages list.
+		if ( is_array( error_static_display() ) && $this->error_static() ) {
+			$html .= static_list( error_static_display() );
+		}
+
+		// Categories list.
+		if ( is_array( error_cats_display() ) && $this->error_cats() ) {
+			$html .= categories_list( error_cats_display() );
+		}
+
+		// Tags list.
+		if ( is_array( error_tags_display() ) && $this->error_tags() ) {
+			$html .= tags_list( error_tags_display() );
+		}
+		return $html;
 	}
 
 	/**
@@ -490,9 +484,6 @@ class configureight extends Plugin {
 	 *
 	 * Database settings for thumbnail images.
 	 * Hacky but working.
-	 *
-	 * @todo Get the preferred method above to work or
-	 * remove consider removing duplicate thumbnail fields.
 	 *
 	 * @since  1.0.0
 	 * @global object $site The Site class.
@@ -524,7 +515,7 @@ class configureight extends Plugin {
 	 */
 	public function save() {
 
-		$this->edit_settings();
+		$this->thumbnail_settings();
 
 		// Switch admin theme on save.
 		if ( admin_theme() && 'theme' == $this->admin_theme() ) {

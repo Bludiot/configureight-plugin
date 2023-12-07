@@ -1,17 +1,25 @@
 <?php
 /**
- * Theme information
+ * Configure 8 Guide page
  *
  * @package    Configure 8 Options
  * @subpackage Views
  * @since      1.0.0
  */
 
+// Settings page URL.
+$settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
+
+// Add class class to 'js' to `<body>` if JavaScript is enabled.
+echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
+
 ?>
 
-<h2 id="info-heading" class="form-heading" style="display: none;"><?php $L->p( 'Using the Configure 8 Suite' ); ?></h2>
+<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
 
-<p id="info-message" style="display: none;"><?php $L->p( 'The following tabs provide tips and instructions on using the Configure 8 theme, plugin, and admin theme.' ); ?></p>
+<div class="alert alert-primary alert-search-forms" role="alert">
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
+</div>
 
 <button id="preamble-dismiss" class="button hide-if-no-js" style="float: right;"><?php $L->p( 'Dismiss' ); ?></button>
 
@@ -153,14 +161,10 @@
 
 <script>
 // Dismiss the intro content.
-const heading  = document.querySelector( '#info-heading' );
-const message  = document.querySelector( '#info-message' );
 const preamble = document.querySelector( '#preamble' );
 const dismiss  = document.querySelector( '#preamble-dismiss' );
 
 if ( localStorage.getItem( 'preambleDismiss' ) ) {
-	heading.style.display  = 'block';
-	message.style.display  = 'block';
 	preamble.style.display = 'none';
 	dismiss.style.display  = 'none';
 }
@@ -168,8 +172,6 @@ if ( localStorage.getItem( 'preambleDismiss' ) ) {
 if ( dismiss ) {
 	dismiss.addEventListener( 'click', event => {
 		event.preventDefault();
-		heading.style.display = 'block';
-		message.style.display = 'block';
 		dismiss.classList.add( 'hidden' );
 		preamble.classList.add( 'hidden' );
 		localStorage.setItem( 'preambleDismiss', true );

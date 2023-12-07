@@ -95,7 +95,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="loader_text"><?php $L->p( 'Loading Text' ); ?></label>
 			<div class="col-sm-10">
-				<input type="text" id="loader_text" name="loader_text" value="<?php echo $this->getValue( 'loader_text' ); ?>" placeholder="<?php $L->p( 'Loading&hellip;' ); ?>" />
+				<input type="text" id="loader_text" name="loader_text" value="<?php echo $this->getValue( 'loader_text' ); ?>" placeholder="<?php echo $this->dbFields['loader_text']; ?>" />
 				<small class="form-text text-muted"><?php $L->p( 'The text to display on the loading screen.' ); ?></small>
 			</div>
 		</div>

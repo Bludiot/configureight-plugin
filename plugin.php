@@ -160,6 +160,7 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $L The Language class.
 	 * @return mixed Returns the widget markup or null.
 	 */
 	public function dashboard_options() {
@@ -208,8 +209,8 @@ class configureight extends Plugin {
 		// Final widget markup.
 		$html = sprintf(
 			'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
-			$L->get( 'Configure 8 Options' ),
-			$L->get( 'List of current theme option values.' ),
+			$L->get( 'Theme Options' ),
+			$L->get( 'List of current theme options values.' ),
 			$options
 		);
 		return $html;
@@ -515,7 +516,7 @@ class configureight extends Plugin {
 	 */
 	public function save() {
 
-		$this->thumbnail_settings();
+		$this->edit_settings();
 
 		// Switch admin theme on save.
 		if ( admin_theme() && 'theme' == $this->admin_theme() ) {

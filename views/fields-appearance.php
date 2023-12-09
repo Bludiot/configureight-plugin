@@ -36,7 +36,12 @@ $more_colors = [
 	'rose'    => $L->get( 'Rose' )
 ];
 ksort( $more_colors );
-$colors = array_merge( $base_colors, $more_colors );
+$scheme_colors = array_merge( $base_colors, $more_colors );
+
+$custom_colors = [
+	'custom' => $L->get( 'Custom' )
+];
+$colors = array_merge( $scheme_colors, $custom_colors );
 
 // Font schemes.
 $base_fonts = [
@@ -127,6 +132,109 @@ if ( admin_theme() ) {
 		</div>
 	</div>
 
+	<div id="custom_color_scheme_fields" style="display: <?php echo ( $this->getValue( 'color_scheme' ) === 'custom' ? 'block' : 'none' ); ?>;">
+
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Colors' ) ] ); ?>
+
+		<p><?php $L->p( 'Custom colors will override colors for basic elements in the default light and dark color schemes. If you wish to use these colors for further customization then a CSS variable is provided for each color. Simply add your CSS rules with these variables to the custom code fields below.' ); ?></p>
+
+		<div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+
+			<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link" role="tab" aria-controls="light-colors" aria-selected="false" href="#light-colors"><?php $L->p( 'Light' ); ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" role="tab" aria-controls="dark-colors" aria-selected="false" href="#dark-colors"><?php $L->p( 'Dark' ); ?></a>
+				</li>
+			</ul>
+
+			<div id="light-colors">
+
+				<p><?php $L->p( 'These colors are used with default browser/device settings and when the user/device prefers a light color scheme.' ); ?></p>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_one"><?php $L->p( 'Color One' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_one" name="color_one" value="<?php echo ( $this->getValue( 'color_one' ) ? $this->getValue( 'color_one' ) : '#333333' ); ?>" />
+							<input id="color_one_default" class="screen-reader-text" type="hidden" value="#333333" />
+							<span class="btn btn-secondary btn-sm" id="color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_two"><?php $L->p( 'Color Two' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_two" name="color_two" value="<?php echo ( $this->getValue( 'color_two' ) ? $this->getValue( 'color_two' ) : '#0044aa' ); ?>" />
+							<input id="color_two_default" class="screen-reader-text" type="hidden" value="#0044aa" />
+							<span class="btn btn-secondary btn-sm" id="color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_three"><?php $L->p( 'Color Three' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_three" name="color_three" value="<?php echo ( $this->getValue( 'color_three' ) ? $this->getValue( 'color_three' ) : '#005ce7' ); ?>" />
+							<input id="color_three_default" class="screen-reader-text" type="hidden" value="#005ce7" />
+							<span class="btn btn-secondary btn-sm" id="color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three</code>' ); ?></small></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="dark-colors">
+
+				<p><?php $L->p( 'These colors are used when the user/device prefers a dark color scheme.' ); ?></p>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="dark_color_one"><?php $L->p( 'Dark Color One' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="dark_color_one" name="dark_color_one" value="<?php echo ( $this->getValue( 'dark_color_one' ) ? $this->getValue( 'dark_color_one' ) : '#eeeeee' ); ?>" />
+							<input id="dark_color_one_default" class="screen-reader-text" type="hidden" value="#eeeeee" />
+							<span class="btn btn-secondary btn-sm" id="dark_color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one--dark</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="dark_color_two"><?php $L->p( 'Dark Color Two' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="dark_color_two" name="dark_color_two" value="<?php echo ( $this->getValue( 'dark_color_two' ) ? $this->getValue( 'dark_color_two' ) : '#555555' ); ?>" />
+							<input id="dark_color_two_default" class="screen-reader-text" type="hidden" value="#555555" />
+							<span class="btn btn-secondary btn-sm" id="dark_color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two--dark</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="dark_color_three"><?php $L->p( 'Dark Color Three' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="dark_color_three" name="dark_color_three" value="<?php echo ( $this->getValue( 'dark_color_three' ) ? $this->getValue( 'dark_color_three' ) : '#888888' ); ?>" />
+							<input id="dark_color_three_default" class="screen-reader-text" type="hidden" value="#888888" />
+							<span class="btn btn-secondary btn-sm" id="dark_color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three--dark</code>' ); ?></small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Typography' ) ] ); ?>
+
 	<div class="form-field form-group row">
 
 		<label class="form-label col-sm-2 col-form-label" for="font_scheme"><?php $L->p( 'Font Scheme' ); ?></label>
@@ -145,6 +253,8 @@ if ( admin_theme() ) {
 			<small class="form-text text-muted"><?php $L->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
 		</div>
 	</div>
+
+	<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Theme' ) ] ); ?>
 
 	<div class="form-field form-group row">
 

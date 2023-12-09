@@ -138,7 +138,13 @@ class configureight extends Plugin {
 			'font_scheme'           => 'default',
 			'admin_theme'           => 'css',
 			'custom_css'            => '',
-			'admin_css'             => ''
+			'admin_css'             => '',
+			'color_one'             => '',
+			'color_two'             => '',
+			'color_three'           => '',
+			'dark_color_one'        => '',
+			'dark_color_two'        => '',
+			'dark_color_three'      => ''
 		];
 
 		// Array of custom hooks.

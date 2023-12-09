@@ -244,4 +244,49 @@ jQuery(document).ready( function($) {
 	$( '#body_bg_color_default_button' ).click( function() {
 		$( '#body_bg_color' ).spectrum( 'set', $( '#body_bg_color_default' ).val() );
 	});
+
+	// Custom colors.
+	$( '#color_scheme' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show == 'custom' ) {
+			$( "#custom_color_scheme_fields" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#color_scheme' ).offset().top
+			}, 1000 );
+		} else if ( show != 'custom' ) {
+			$( "#custom_color_scheme_fields" ).fadeOut( 250 );
+		}
+	});
+
+	$( '.custom-color' ).spectrum({
+		type            : "component",
+		showAlpha       : false,
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '.custom-color' ).show();
+
+	$( '#color_one_default_button' ).click( function() {
+		$( '#color_one' ).spectrum( 'set', $( '#color_one_default' ).val() );
+	});
+	$( '#color_two_default_button' ).click( function() {
+		$( '#color_two' ).spectrum( 'set', $( '#color_two_default' ).val() );
+	});
+	$( '#color_three_default_button' ).click( function() {
+		$( '#color_three' ).spectrum( 'set', $( '#color_three_default' ).val() );
+	});
+
+	$( '#dark_color_one_default_button' ).click( function() {
+		$( '#dark_color_one' ).spectrum( 'set', $( '#dark_color_one_default' ).val() );
+	});
+	$( '#dark_color_two_default_button' ).click( function() {
+		$( '#dark_color_two' ).spectrum( 'set', $( '#dark_color_two_default' ).val() );
+	});
+	$( '#dark_color_three_default_button' ).click( function() {
+		$( '#dark_color_three' ).spectrum( 'set', $( '#dark_color_three_default' ).val() );
+	});
 });

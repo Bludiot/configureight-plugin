@@ -46,6 +46,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="styles" aria-selected="false" href="#styles"><?php $L->p( 'Styles' ); ?></a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="meta" aria-selected="false" href="#meta"><?php $L->p( 'Meta' ); ?></a>
+		</li>
 	</ul>
 
 	<div id="general" class="tab-pane" role="tabpanel" aria-labelledby="general">
@@ -71,6 +74,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	</div>
 	<div id="styles" class="tab-pane" role="tabpanel" aria-labelledby="styles">
 		<?php include( $this->phpPath() . '/views/fields-appearance.php' ); ?>
+	</div>
+	<div id="meta" class="tab-pane" role="tabpanel" aria-labelledby="meta">
+		<?php include( $this->phpPath() . '/views/fields-meta.php' ); ?>
 	</div>
 </div>
 <?php if ( 'default' != $this->admin_theme() ) : ?>

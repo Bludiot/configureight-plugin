@@ -44,6 +44,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="schemes" aria-selected="false" href="#schemes"><?php $L->p( 'Schemes' ); ?></a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="support" aria-selected="false" href="#support"><?php $L->p( 'Support' ); ?></a>
 		</li>
 	</ul>
@@ -138,6 +141,11 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<div id="schemes" class="tab-pane" role="tabpanel" aria-labelledby="schemes">
 
 		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Design Schemes' ) ] ); ?>
+	</div>
+
+	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">
+
+		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Themes' ) ] ); ?>
 	</div>
 
 	<div id="support" class="tab-pane" role="tabpanel" aria-labelledby="support">

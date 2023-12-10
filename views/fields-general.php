@@ -105,7 +105,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_bg_color" name="loader_bg_color" value="<?php echo $loader_bg_color; ?>" />
 				<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $loader_bg_default; ?>" />
-				<span class="btn btn-secondary btn-sm" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 
@@ -114,7 +114,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_text_color" name="loader_text_color" value="<?php echo $loader_text_color; ?>" />
 				<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $loader_text_default; ?>" />
-				<span class="btn btn-secondary btn-sm" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 	</div>

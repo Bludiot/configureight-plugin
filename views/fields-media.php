@@ -60,7 +60,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 			<div class="row color-picker-wrap">
 				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $modal_bg_color; ?>" />
 				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $modal_bg_default; ?>" />
-				<span class="btn btn-secondary btn-sm" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<p><small class="form-text text-muted"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
 		</div>
@@ -94,7 +94,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $cover_overlay; ?>" />
 			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_overlay_default; ?>" />
-			<span class="btn btn-secondary btn-sm" id="cover_overlay_default_button"><?php $L->p( 'Default' ); ?></span>
+			<span class="btn btn-secondary btn-md" id="cover_overlay_default_button"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 
@@ -103,7 +103,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $cover_text_color; ?>" />
 			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_text_default; ?>" />
-			<span class="btn btn-secondary btn-sm" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>
+			<span class="btn btn-secondary btn-md" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
 
@@ -154,7 +154,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_width').val('<?php echo $this->thumb_width_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button" onClick="$('#thumb_width').val('<?php echo $this->thumb_width_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
 		</div>
@@ -165,7 +165,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_height').val('<?php echo $this->thumb_height_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button" onClick="$('#thumb_height').val('<?php echo $this->thumb_height_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
 		</div>
@@ -176,7 +176,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#thumb_quality').val('<?php echo $this->thumb_quality_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button" onClick="$('#thumb_quality').val('<?php echo $this->thumb_quality_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
 		</div>

@@ -77,7 +77,7 @@ if ( admin_theme() ) {
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="horz_spacing_value"><?php echo ( $this->getValue( 'horz_spacing' ) ? $this->getValue( 'horz_spacing' ) : $horz_spacing_default ); ?></span><span id="horz_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#horz_spacing_value').text('<?php echo $horz_spacing_default; ?>');$('#horz_spacing').val('<?php echo $horz_spacing_default; ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button" onClick="$('#horz_spacing_value').text('<?php echo $horz_spacing_default; ?>');$('#horz_spacing').val('<?php echo $horz_spacing_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'General horizontal spacing between elements and areas.' ); ?></small>
 		</div>
@@ -89,7 +89,7 @@ if ( admin_theme() ) {
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="vert_spacing_value"><?php echo ( $this->getValue( 'vert_spacing' ) ? $this->getValue( 'vert_spacing' ) : $vert_spacing_default ); ?></span><span id="vert_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
-				<span class="btn btn-secondary btn-sm form-range-button" onClick="$('#vert_spacing_value').text('<?php echo $vert_spacing_default; ?>');$('#vert_spacing').val('<?php echo $vert_spacing_default; ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button" onClick="$('#vert_spacing_value').text('<?php echo $vert_spacing_default; ?>');$('#vert_spacing').val('<?php echo $vert_spacing_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'General vertical spacing between elements and areas.' ); ?></small>
 		</div>
@@ -107,7 +107,7 @@ if ( admin_theme() ) {
 				<div class="row color-picker-wrap">
 					<input class="color-picker" id="body_bg_color" name="body_bg_color" value="<?php echo $body_bg_color; ?>" />
 					<input id="body_bg_color_default" class="screen-reader-text" type="hidden" value="<?php echo $body_bg_color_default; ?>" />
-					<span class="btn btn-secondary btn-sm" id="body_bg_color_default_button"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md" id="body_bg_color_default_button"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<p><small class="form-text text-muted"><?php $L->p( 'This will override color scheme body colors and will not affect dark modes.' ); ?></small></p>
 			</div>
@@ -159,7 +159,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_one" name="color_one" value="<?php echo ( $this->getValue( 'color_one' ) ? $this->getValue( 'color_one' ) : '#333333' ); ?>" />
 							<input id="color_one_default" class="screen-reader-text" type="hidden" value="#333333" />
-							<span class="btn btn-secondary btn-sm" id="color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one</code>' ); ?></small></p>
 					</div>
@@ -171,7 +171,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_two" name="color_two" value="<?php echo ( $this->getValue( 'color_two' ) ? $this->getValue( 'color_two' ) : '#0044aa' ); ?>" />
 							<input id="color_two_default" class="screen-reader-text" type="hidden" value="#0044aa" />
-							<span class="btn btn-secondary btn-sm" id="color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two</code>' ); ?></small></p>
 					</div>
@@ -183,7 +183,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_three" name="color_three" value="<?php echo ( $this->getValue( 'color_three' ) ? $this->getValue( 'color_three' ) : '#005ce7' ); ?>" />
 							<input id="color_three_default" class="screen-reader-text" type="hidden" value="#005ce7" />
-							<span class="btn btn-secondary btn-sm" id="color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three</code>' ); ?></small></p>
 					</div>
@@ -200,7 +200,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="dark_color_one" name="dark_color_one" value="<?php echo ( $this->getValue( 'dark_color_one' ) ? $this->getValue( 'dark_color_one' ) : '#eeeeee' ); ?>" />
 							<input id="dark_color_one_default" class="screen-reader-text" type="hidden" value="#eeeeee" />
-							<span class="btn btn-secondary btn-sm" id="dark_color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="dark_color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one--dark</code>' ); ?></small></p>
 					</div>
@@ -212,7 +212,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="dark_color_two" name="dark_color_two" value="<?php echo ( $this->getValue( 'dark_color_two' ) ? $this->getValue( 'dark_color_two' ) : '#555555' ); ?>" />
 							<input id="dark_color_two_default" class="screen-reader-text" type="hidden" value="#555555" />
-							<span class="btn btn-secondary btn-sm" id="dark_color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="dark_color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two--dark</code>' ); ?></small></p>
 					</div>
@@ -224,7 +224,7 @@ if ( admin_theme() ) {
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="dark_color_three" name="dark_color_three" value="<?php echo ( $this->getValue( 'dark_color_three' ) ? $this->getValue( 'dark_color_three' ) : '#888888' ); ?>" />
 							<input id="dark_color_three_default" class="screen-reader-text" type="hidden" value="#888888" />
-							<span class="btn btn-secondary btn-sm" id="dark_color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
+							<span class="btn btn-secondary btn-md" id="dark_color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three--dark</code>' ); ?></small></p>
 					</div>

@@ -131,20 +131,25 @@ class configureight extends Plugin {
 			'copyright'             => true,
 			'copy_date'             => true,
 			'copy_text'             => '',
-			'horz_spacing'          => $this->horz_spacing_default(),
-			'vert_spacing'          => $this->vert_spacing_default(),
-			'body_bg_color'         => $this->body_bg_color_default(),
+			'horz_spacing'          => '2',
+			'vert_spacing'          => '2',
 			'color_scheme'          => 'default',
+			'color_body'            => '#ffffff',
+			'color_body_dark'       => '#1e1e1e',
+			'color_text'            => '#333333',
+			'color_text_dark'       => '#eeeeee',
+			'color_one'             => '#0044aa',
+			'color_two'             => '#005ce7',
+			'color_three'           => '',
+			'color_four'            => '',
+			'color_one_dark'        => '',
+			'color_two_dark'        => '',
+			'color_three_dark'      => '',
+			'color_four_dark'       => '',
 			'font_scheme'           => 'default',
 			'admin_theme'           => 'css',
 			'custom_css'            => '',
-			'admin_css'             => '',
-			'color_one'             => '',
-			'color_two'             => '',
-			'color_three'           => '',
-			'dark_color_one'        => '',
-			'dark_color_two'        => '',
-			'dark_color_three'      => ''
+			'admin_css'             => ''
 		];
 
 		// Array of custom hooks.
@@ -157,69 +162,6 @@ class configureight extends Plugin {
 			$this->db = $Tmp->db;
 			$this->prepare();
 		}
-	}
-
-	/**
-	 * Dashboard options
-	 *
-	 * Displays a list of options and their values for the dashboard.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global object $L The Language class.
-	 * @return mixed Returns the widget markup or null.
-	 */
-	public function dashboard_options() {
-
-		// Access global variables.
-		global $L;
-
-		// Get the plugin database.
-		$db  = new dbJSON( $this->filenameDb );
-		$get = $db->getDB();
-
-		// Stop if the plugin database is empty.
-		if ( empty( $get ) ) {
-			return null;
-		}
-
-		// Options list markup.
-		$options = '<ul class="dashboard-options-list">';
-		foreach ( $get as $key => $value ) {
-
-			// Convert boolean values to "true" or "false" text.
-			if ( is_bool( $value ) ) {
-				if ( 0 == $value ) {
-					$value = $L->get( 'false' );
-				}
-
-				if ( 1 == $value ) {
-					$value = $L->get( 'true' );
-				}
-			}
-
-			// Convert empty string values to "empty" text.
-			if ( is_string( $value ) && empty( $value ) ) {
-				$value = $L->get( 'empty' );
-			}
-
-			// Option list item.
-			$options .= sprintf(
-				'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
-				$key,
-				$value
-			);
-		}
-		$options .= '</ul>';
-
-		// Final widget markup.
-		$html = sprintf(
-			'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
-			$L->get( 'Theme Options' ),
-			$L->get( 'List of current theme options values.' ),
-			$options
-		);
-		return $html;
 	}
 
 	/**
@@ -376,23 +318,6 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Dashboard hook
-	 *
-	 * Uses the core hook to add content to the dashboard.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function dashboard() {
-
-		// Show options on dashboard if enabled.
-		if ( $this->show_options() ) {
-			echo $this->dashboard_options();
-		}
-	}
-
-	/**
 	 * Admin settings form
 	 *
 	 * @since  1.0.0
@@ -433,6 +358,86 @@ class configureight extends Plugin {
 		include( $this->phpPath() . '/views/guide-page.php' );
 		$html .= ob_get_clean();
 
+		return $html;
+	}
+
+	/**
+	 * Dashboard hook
+	 *
+	 * Uses the core hook to add content to the dashboard.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function dashboard() {
+
+		// Show options on dashboard if enabled.
+		if ( $this->show_options() ) {
+			echo $this->dashboard_options();
+		}
+	}
+
+	/**
+	 * Dashboard options
+	 *
+	 * Displays a list of options and their values for the dashboard.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L The Language class.
+	 * @return mixed Returns the widget markup or null.
+	 */
+	public function dashboard_options() {
+
+		// Access global variables.
+		global $L;
+
+		// Get the plugin database.
+		$db  = new dbJSON( $this->filenameDb );
+		$get = $db->getDB();
+
+		// Stop if the plugin database is empty.
+		if ( empty( $get ) ) {
+			return null;
+		}
+
+		// Options list markup.
+		$options = '<ul class="dashboard-options-list">';
+		foreach ( $get as $key => $value ) {
+
+			// Convert boolean values to "true" or "false" text.
+			if ( is_bool( $value ) ) {
+				if ( 0 == $value ) {
+					$value = $L->get( 'false' );
+				}
+
+				if ( 1 == $value ) {
+					$value = $L->get( 'true' );
+				}
+			}
+
+			// Convert empty string values to "empty" text.
+			if ( is_string( $value ) && empty( $value ) ) {
+				$value = $L->get( 'empty' );
+			}
+
+			// Option list item.
+			$options .= sprintf(
+				'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
+				$key,
+				$value
+			);
+		}
+		$options .= '</ul>';
+
+		// Final widget markup.
+		$html = sprintf(
+			'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
+			$L->get( 'Theme Options' ),
+			$L->get( 'List of current theme options values.' ),
+			$options
+		);
 		return $html;
 	}
 
@@ -1115,28 +1120,48 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function horz_spacing_default() {
-		return '2';
-	}
-
-	// @return string
-	public function vert_spacing_default() {
-		return '2';
-	}
-
-	// @return string
-	public function body_bg_color() {
-		return $this->getValue( 'body_bg_color' );
-	}
-
-	// @return string
-	public function body_bg_color_default() {
-		return '#ffffff';
-	}
-
-	// @return string
 	public function color_scheme() {
 		return $this->getValue( 'color_scheme' );
+	}
+
+	// @return string
+	public function color_body() {
+		return $this->getValue( 'color_body' );
+	}
+
+	// @return string
+	public function color_body_dark() {
+		return $this->getValue( 'color_body_dark' );
+	}
+
+	// @return string
+	public function color_text() {
+		return $this->getValue( 'color_text' );
+	}
+
+	// @return string
+	public function color_text_dark() {
+		return $this->getValue( 'color_text_dark' );
+	}
+
+	// @return string
+	public function color_one() {
+		return $this->getValue( 'color_one' );
+	}
+
+	// @return string
+	public function color_two() {
+		return $this->getValue( 'color_two' );
+	}
+
+	// @return string
+	public function color_three() {
+		return $this->getValue( 'color_three' );
+	}
+
+	// @return string
+	public function color_four() {
+		return $this->getValue( 'color_four' );
 	}
 
 	// @return string

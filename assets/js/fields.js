@@ -292,4 +292,17 @@ jQuery(document).ready( function($) {
 	$( '#color_four_dark_default_button' ).click( function() {
 		$( '#color_four_dark' ).spectrum( 'set', $( '#color_four_dark_default' ).val() );
 	});
+
+	// Meta options.
+	$( '#title_sep' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show == 'custom' ) {
+			$( "#custom_sep_wrap" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#title_sep' ).offset().top
+			}, 1000 );
+		} else if ( show != 'custom' ) {
+			$( "#custom_sep_wrap" ).fadeOut( 250 );
+		}
+	});
 });

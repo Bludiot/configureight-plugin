@@ -14,6 +14,8 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	is_rtl,
+	title_tag,
 	change_theme,
 	default_theme,
 	admin_theme,
@@ -122,7 +124,6 @@ class configureight extends Plugin {
 			'sidebar_position'      => 'default',
 			'sidebar_display'       => 'default',
 			'sidebar_sticky'        => false,
-			'sidebar_search'        => 'hide',
 			'sidebar_social'        => false,
 			'sb_social_heading'     => '',
 			'admin_menu'            => true,
@@ -149,11 +150,30 @@ class configureight extends Plugin {
 			'font_scheme'           => 'default',
 			'admin_theme'           => 'css',
 			'custom_css'            => '',
-			'admin_css'             => ''
+			'admin_css'             => '',
+			'title_sep'             => '|',
+			'custom_sep'            => '',
+			'default_ttag' => '',
+			'loop_ttag' => '',
+			'post_ttag' => '',
+			'page_ttag' => '',
+			'cat_ttag' => '',
+			'tag_ttag' => '',
+			'search_ttag' => '',
+			'error_ttag' => '',
+			'default_ttag_rtl' => '',
+			'loop_ttag_rtl' => '',
+			'post_ttag_rtl' => '',
+			'page_ttag_rtl' => '',
+			'cat_ttag_rtl' => '',
+			'tag_ttag_rtl' => '',
+			'search_ttag_rtl' => '',
+			'error_ttag_rtl' => ''
 		];
 
 		// Array of custom hooks.
 		$this->customHooks = [
+			'meta_tags',
             'url_not_found'
         ];
 
@@ -256,6 +276,14 @@ class configureight extends Plugin {
 		if ( ! empty( $this->admin_css() ) && 'css' == $this->admin_theme() ) {
 			$assets .= $this->admin_style_block();
 		}
+
+		// Style block for settings screen.
+		if ( str_contains( $url->slug(), 'settings' ) ) :
+		$assets .= '<style>';
+		$assets .= '#seo.tab-pane h2:not( :first-of-type ) { display: none !important; }';
+		$assets .= '#seo.tab-pane div:not( :first-of-type ) { display: none !important; }';
+		$assets .= '</style>';
+		endif;
 
 		return $assets;
 	}
@@ -439,6 +467,18 @@ class configureight extends Plugin {
 			$options
 		);
 		return $html;
+	}
+
+
+	/**
+	 * Meta tags hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function meta_tags() {
+		return title_tag();
 	}
 
 	/**
@@ -1044,11 +1084,6 @@ class configureight extends Plugin {
 	}
 
 	// @return boolean
-	public function sidebar_search() {
-		return $this->getValue( 'sidebar_search' );
-	}
-
-	// @return boolean
 	public function sidebar_social() {
 		return $this->getValue( 'sidebar_social' );
 	}
@@ -1182,6 +1217,119 @@ class configureight extends Plugin {
 	// @return string
 	public function admin_css() {
 		return strip_tags( $this->getValue( 'admin_css' ) );
+	}
+
+	/**
+	 * Meta options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return string
+	public function title_sep() {
+
+		// Get field value;
+		$sep = $this->getValue( 'title_sep' );
+
+		// Reverse some for RTL languages.
+		if ( is_rtl() ) {
+			if ( '&gt;' === $sep ) {
+				$sep = '&lt;';
+			}
+			if ( '→' === $sep ) {
+				$sep = '←';
+			}
+			if ( '≫' === $sep ) {
+				$sep = '≪';
+			}
+		}
+		return $sep;
+	}
+
+	// @return string
+	public function custom_sep() {
+		return $this->getValue( 'custom_sep' );
+	}
+
+	// @return string
+	public function default_ttag() {
+		return $this->getValue( 'default_ttag' );
+	}
+
+	// @return string
+	public function loop_ttag() {
+		return $this->getValue( 'loop_ttag' );
+	}
+
+	// @return string
+	public function post_ttag() {
+		return $this->getValue( 'post_ttag' );
+	}
+
+	// @return string
+	public function page_ttag() {
+		return $this->getValue( 'page_ttag' );
+	}
+
+	// @return string
+	public function cat_ttag() {
+		return $this->getValue( 'cat_ttag' );
+	}
+
+	// @return string
+	public function tag_ttag() {
+		return $this->getValue( 'tag_ttag' );
+	}
+
+	// @return string
+	public function search_ttag() {
+		return $this->getValue( 'search_ttag' );
+	}
+
+	// @return string
+	public function error_ttag() {
+		return $this->getValue( 'error_ttag' );
+	}
+
+	// @return string
+	public function default_ttag_rtl() {
+		return $this->getValue( 'default_ttag_rtl' );
+	}
+
+	// @return string
+	public function loop_ttag_rtl() {
+		return $this->getValue( 'loop_ttag_rtl' );
+	}
+
+	// @return string
+	public function post_ttag_rtl() {
+		return $this->getValue( 'post_ttag_rtl' );
+	}
+
+	// @return string
+	public function page_ttag_rtl() {
+		return $this->getValue( 'page_ttag_rtl' );
+	}
+
+	// @return string
+	public function cat_ttag_rtl() {
+		return $this->getValue( 'cat_ttag_rtl' );
+	}
+
+	// @return string
+	public function tag_ttag_rtl() {
+		return $this->getValue( 'tag_ttag_rtl' );
+	}
+
+	// @return string
+	public function search_ttag_rtl() {
+		return $this->getValue( 'search_ttag_rtl' );
+	}
+
+	// @return string
+	public function error_ttag_rtl() {
+		return $this->getValue( 'error_ttag_rtl' );
 	}
 
 	/**

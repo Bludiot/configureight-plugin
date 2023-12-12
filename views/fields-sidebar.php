@@ -50,6 +50,21 @@ if (
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="sidebar_in_loop"><?php $L->p( 'Sidebar in Loop' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="sidebar_in_loop" name="sidebar_in_loop">
+
+				<option value="side" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'side' ? 'selected' : '' ); ?>><?php $L->p( 'Aside Posts' ); ?></option>
+
+				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Posts' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'When using a static page for the posts loop, a sidebar template, if used, will override this setting.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="sidebar_sticky"><?php $L->p( 'Sticky Sidebar' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="sidebar_sticky" name="sidebar_sticky">
@@ -57,27 +72,6 @@ if (
 				<option value="false" <?php echo ( $this->getValue( 'sidebar_sticky' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Makes the sidebar stick to the top of the page until pushed up by content/footer below. Does not affect the sidebar in the bottom position.' ); ?></small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="sidebar_search"><?php $L->p( 'Search Form' ); ?></label>
-		<div class="col-sm-10">
-			<?php if ( getPlugin( 'pluginSearch' ) ) : ?>
-			<select class="form-select" id="sidebar_search" name="sidebar_search">
-				<option value="show" <?php echo ( $this->getValue( 'sidebar_search' ) === 'show' ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="hide" <?php echo ( $this->getValue( 'sidebar_search' ) === 'hide' ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
-				<option value="footer" <?php echo ( $this->getValue( 'sidebar_search' ) === 'footer' ? 'selected' : '' ); ?>><?php $L->p( 'In Footer' ); ?></option>
-			</select>
-			<small class="form-text text-muted"><?php $L->p( 'The Search plugin must be activated for the header search bar to work. If search in the header is enabled you may wish to hide search in the sidebar.' ); ?></small>
-			<?php else : ?>
-				<?php printf(
-					'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
-					$L->get( 'Please activate the Search plugin:' ),
-					DOMAIN_ADMIN . '/install-plugin/pluginSearch',
-					DOMAIN_ADMIN . '/install-plugin/pluginSearch'
-				); ?>
-			<?php endif; ?>
 		</div>
 	</div>
 

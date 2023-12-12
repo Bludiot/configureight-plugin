@@ -70,21 +70,6 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="sidebar_in_loop"><?php $L->p( 'Sidebar in Loop' ); ?></label>
-		<div class="col-sm-10">
-			<select class="form-select" id="sidebar_in_loop" name="sidebar_in_loop">
-
-				<option value="side" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'side' ? 'selected' : '' ); ?>><?php $L->p( 'Aside Posts' ); ?></option>
-
-				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Posts' ); ?></option>
-
-				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
-			</select>
-			<small class="form-text text-muted"><?php $L->p( 'When using a static page for the posts loop, a sidebar template, if used, will override this setting.' ); ?></small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_paged"><?php $L->p( 'Loop Pagination' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="loop_paged" name="loop_paged">

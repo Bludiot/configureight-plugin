@@ -31,6 +31,351 @@ function plugin() {
 }
 
 /**
+ * Is RTL language
+ *
+ * @since  1.0.0
+ * @param  mixed $langs Arguments to be passed.
+ * @param  array $rtl Default arguments.
+ * @global object $L The Language class.
+ * @return boolean Returns true if site is in RTL language.
+ */
+function is_rtl( $langs = null, $rtl = [] ) {
+
+	// Access global variables.
+	global $L;
+
+	$rtl = [
+		'ar',
+		'fa',
+		'he',
+		'ks',
+		'ku',
+		'pa',
+		'ps',
+		'sd',
+		'ug',
+		'ur'
+	];
+
+	// Maybe override defaults.
+	if ( is_array( $langs ) && $langs ) {
+		$langs = array_merge( $rtl, $langs );
+	} else {
+		$langs = $rtl;
+	}
+
+	$current = $L->currentLanguageShortVersion();
+
+	if ( in_array( $current, $rtl ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * System can search
+ *
+ * Checks if the system has search functionality.
+ *
+ * @since  1.0.0
+ * @return boolean Returns true if a search plugin is activated.
+ */
+function can_search() {
+	if (
+		getPlugin( 'Search_Forms' ) ||
+		getPlugin( 'pluginSearch' )
+	) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Frontend title tag
+ *
+ * @since  1.0.0
+ * @global object $categories The Categories class.
+ * @global object $L The Language class.
+ * @global object $page The Page class.
+ * @global object $site The Site class.
+ * @global object $tags The Tags class.
+ * @global object $url The Url class.
+ * @return string Returns the meta tag.
+ */
+function title_tag() {
+
+	global $categories, $L, $page, $site, $tags, $url;
+
+	// Title separator.
+	$sep = plugin()->dbFields['title_sep'];
+	if ( 'custom' == plugin()->title_sep() && plugin()->custom_sep() ) {
+		$sep = plugin()->custom_sep();
+	} elseif ( 'custom' != plugin()->title_sep() ) {
+		$sep = plugin()->title_sep();
+	}
+
+	// Loop page.
+	$loop_page = '';
+	$loop_sep  = '>';
+	if ( is_rtl() ) {
+		$loop_sep  = '<';
+	}
+	if ( isset( $_GET['page'] ) && $_GET['page'] > 1 ) {
+		$loop_page = sprintf(
+			' %s %s %s',
+			$loop_sep,
+			$L->get( 'Page' ),
+			$_GET['page']
+		);
+		if ( is_rtl() ) {
+			$loop_page = sprintf(
+				'%s %s %s ',
+				$_GET['page'],
+				$L->get( 'Page' ),
+				$loop_sep
+			);
+		}
+	}
+
+	// Default title.
+	if ( is_rtl() && plugin()->default_ttag_rtl() ) {
+		$format = plugin()->default_ttag_rtl();
+	} elseif ( plugin()->default_ttag() ) {
+		$format = plugin()->default_ttag();
+	} else {
+		$format = sprintf(
+			'%s %s %s',
+			$site->title(),
+			$site->slogan() ? $sep : '',
+			$site->slogan()
+		);
+		if ( is_rtl() ) {
+			$format = sprintf(
+				'%s %s %s',
+				$site->slogan(),
+				$site->slogan() ? $sep : '',
+				$site->title()
+			);
+		}
+	}
+
+	// Default 404 page.
+	if ( $url->notFound() && ! $site->pageNotFound() ) {
+
+		if ( is_rtl() && plugin()->error_ttag_rtl() ) {
+			$format = plugin()->error_ttag_rtl();
+		} elseif ( plugin()->error_ttag() ) {
+			$format = plugin()->error_ttag();
+		} else {
+			$format = sprintf(
+				'%s %s %s',
+				$L->get( 'URL Error: Page Not Found' ),
+				$sep,
+				$site->title()
+			);
+			if ( is_rtl() ) {
+				$format = sprintf(
+					'%s %s %s',
+					$site->title(),
+					$sep,
+					$L->get( 'URL Error: Page Not Found' )
+				);
+			}
+		}
+
+	// Posts loop.
+	} elseif ( 'blog' == $url->whereAmI() ) {
+
+		if ( is_rtl() && plugin()->loop_ttag_rtl() ) {
+			$format = plugin()->loop_ttag_rtl();
+		} elseif ( plugin()->loop_ttag() ) {
+				$format = plugin()->loop_ttag();
+		} else {
+			$format = sprintf(
+				'%s%s %s %s',
+				ucwords( plugin()->loop_style() ),
+				$loop_page,
+				$sep,
+				$site->title()
+			);
+			if ( is_rtl() ) {
+				$format = sprintf(
+					'%s %s %s%s',
+					$site->title(),
+					$sep,
+					$loop_page,
+					ucwords( plugin()->loop_style() )
+				);
+			}
+		}
+
+	// Post or page.
+	} elseif ( 'page' == $url->whereAmI() ) {
+
+		// Page (static).
+		if ( $page->isStatic() ) {
+			if ( is_rtl() && plugin()->page_ttag_rtl() ) {
+				$format = plugin()->page_ttag_rtl();
+			} elseif ( plugin()->page_ttag() ) {
+					$format = plugin()->page_ttag();
+			} else {
+				$format = sprintf(
+					'%s %s %s',
+					$page->title(),
+					$sep,
+					$site->title()
+				);
+				if ( is_rtl() ) {
+					$format = sprintf(
+						'%s %s %s',
+						$site->title(),
+						$sep,
+						$page->title()
+					);
+				}
+			}
+		} else {
+			if ( is_rtl() && plugin()->post_ttag_rtl() ) {
+				$format = plugin()->post_ttag_rtl();
+			} elseif ( plugin()->post_ttag() ) {
+					$format = plugin()->post_ttag();
+			} else {
+				$format = sprintf(
+					'%s %s %s %s %s',
+					$page->title(),
+					$sep,
+					$page->date(),
+					$sep,
+					$site->title()
+				);
+				if ( is_rtl() ) {
+					$format = sprintf(
+						'%s %s %s %s %s',
+						$site->title(),
+						$sep,
+						$page->date(),
+						$sep,
+						$page->title()
+					);
+				}
+			}
+		}
+		$format = str_replace( '{{page-title}}', $page->title(), $format );
+		$format = str_replace( '{{page-description}}', $page->description(), $format );
+		$format = str_replace( '{{published}}', $page->date(), $format );
+
+	// Category loop.
+	} elseif ( 'category' == $url->whereAmI() ) {
+		try {
+			$key    = $url->slug();
+			$cat    = new \Category( $key );
+
+			if ( is_rtl() && plugin()->cat_ttag_rtl() ) {
+				$format = plugin()->cat_ttag_rtl();
+			} elseif ( plugin()->cat_ttag() ) {
+					$format = plugin()->cat_ttag();
+			} else {
+				$format = sprintf(
+					'%s %s %s',
+					$cat->name(),
+					$sep,
+					$site->title()
+				);
+				if ( is_rtl() ) {
+					$format = sprintf(
+						'%s %s %s',
+						$site->title(),
+						$sep,
+						$cat->name()
+					);
+				}
+			}
+			$format = str_replace( '{{category-name}}', $cat->name(), $format );
+		} catch ( \Exception $e ) {
+			// Category doesn't exist.
+		}
+
+	// Tag loop.
+	} elseif ( 'tag' == $url->whereAmI() ) {
+		try {
+			$key    = $url->slug();
+			$tag    = new \Tag( $key );
+
+			if ( is_rtl() && plugin()->tag_ttag_rtl() ) {
+				$format = plugin()->tag_ttag_rtl();
+			} elseif ( plugin()->tag_ttag() ) {
+					$format = plugin()->tag_ttag();
+			} else {
+				$format = sprintf(
+					'%s %s %s',
+					$tag->name(),
+					$sep,
+					$site->title()
+				);
+				if ( is_rtl() ) {
+					$format = sprintf(
+						'%s %s %s',
+						$site->title(),
+						$sep,
+						$tag->name()
+					);
+				}
+			}
+			$format = str_replace( '{{tag-name}}', $tag->name(), $format );
+		} catch ( \Exception $e ) {
+			// Tag doesn't exist.
+		}
+
+	} elseif ( 'search' == $url->whereAmI() ) {
+
+		$slug  = $url->slug();
+		$terms = '';
+		if ( str_contains( $slug, 'search/' ) ) {
+			$terms = str_replace( 'search/', '', $slug );
+			$terms = str_replace( '+', ' ', $terms );
+		}
+
+		if ( is_rtl() && plugin()->search_ttag_rtl() ) {
+			$format = plugin()->search_ttag_rtl();
+		} elseif ( plugin()->search_ttag() ) {
+				$format = plugin()->search_ttag();
+		} else {
+			$format = sprintf(
+				'%s "%s" %s %s',
+				$L->get( 'Searching' ),
+				$terms,
+				$sep,
+				$site->title()
+			);
+			if ( is_rtl() ) {
+				$format = sprintf(
+					'%s %s "%s" %s',
+					$site->title(),
+					$sep,
+					$terms,
+					$L->get( 'Searching' )
+				);
+			}
+		}
+		$format = str_replace( '{{search-terms}}', $terms, $format );
+	}
+
+	$format = str_replace( '{{separator}}', $sep, $format );
+	$format = str_replace( '{{site-title}}', $site->title(), $format );
+	$format = str_replace( '{{site-slogan}}', $site->slogan(), $format );
+	$format = str_replace( '{{site-description}}', $site->description(), $format );
+	$format = str_replace( '{{loop-type}}', ucwords( plugin()->loop_style() ), $format );
+	$format = str_replace( '{{page-number}}', $loop_page, $format );
+
+	$title = sprintf(
+		'<title dir="%s">%s</title>',
+		is_rtl() ? 'rtl' : 'ltr',
+		$format
+	);
+	return $title;
+}
+
+/**
  * Change theme
  *
  * Replaces admin theme value in the site database.
@@ -60,7 +405,7 @@ function change_theme() {
 	}
 
 	// Change admin theme to Configureight.
-	$content = str_replace( $current, $replace, $content);
+	$content = str_replace( $current, $replace, $content );
 
 	// Write theme into the database file.
 	file_put_contents( $db_file, $content );

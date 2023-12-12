@@ -127,6 +127,7 @@ class configureight extends Plugin {
 			'sidebar_social'        => false,
 			'sb_social_heading'     => '',
 			'admin_menu'            => true,
+			'footer_search'         => false,
 			'footer_social'         => true,
 			'ftr_social_heading'    => '',
 			'copyright'             => true,
@@ -1112,6 +1113,11 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return boolean
+	public function footer_search() {
+		return $this->getValue( 'footer_search' );
+	}
 
 	// @return boolean
 	public function footer_social() {

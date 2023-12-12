@@ -7,6 +7,11 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	can_search
+};
+
 $copy_text_placeholder = sprintf(
 	'© %s %s. %s',
 	date( 'Y' ),
@@ -19,6 +24,19 @@ $copy_text_placeholder = sprintf(
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Footer' ); ?></legend>
+
+	<?php if ( can_search() ) : ?>
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="footer_search"><?php $L->p( 'Search form' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="footer_search" name="footer_search">
+				<option value="true" <?php echo ( $this->getValue( 'footer_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'footer_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Display a search form at the page bottom.' ); ?></small>
+		</div>
+	</div>
+	<?php endif; ?>
 
 	<?php if ( Theme :: socialNetworks() ) : ?>
 	<div class="form-field form-group row">

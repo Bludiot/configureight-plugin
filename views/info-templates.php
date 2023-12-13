@@ -92,4 +92,4 @@
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">404</code></p>
 
-<p><?php $L->p( 'The 404 error template displays a search form below the content. This template is available to static pages only.' ); ?></p>
+<p><?php $L->p( 'The 404 error template optionally displays a search form and navigation lists as suggested user actions. This template is available to a static page that has been set in Settings > Advanced > Page not found.' ); ?></p>

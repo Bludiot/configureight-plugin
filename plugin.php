@@ -175,8 +175,8 @@ class configureight extends Plugin {
 		// Array of custom hooks.
 		$this->customHooks = [
 			'meta_tags',
-            'url_not_found'
-        ];
+			'url_not_found'
+		];
 
 		if ( ! $this->installed() ) {
 			$Tmp = new dbJSON( $this->filenameDb );
@@ -375,12 +375,13 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $site Site class.
 	 * @return string Returns the markup of the page.
 	 */
 	public function adminView() {
 
 		// Access global variables.
-		global $L;
+		global $L, $site;
 
 		$html  = '';
 		ob_start();
@@ -479,7 +480,11 @@ class configureight extends Plugin {
 	 * @return void
 	 */
 	public function meta_tags() {
-		return title_tag();
+
+		$html  = '';
+		$html .= title_tag();
+
+		return $html;
 	}
 
 	/**

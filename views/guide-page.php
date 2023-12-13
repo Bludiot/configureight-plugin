@@ -35,7 +35,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<p class="cite">Greg Sweet, Controlled Chaos Design/Bludiot</p>
 </div>
 
-<div class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+<div class="tab-content" data-toggle="tabslet" data-deeplinking="true" data-animation="true">
 
 	<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
 		<li class="nav-item">

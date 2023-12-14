@@ -37,7 +37,9 @@ if (
 				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Content' ); ?></option>
 
 				<?php if ( $site->homepage() ) : ?>
-				<option value="no_front" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'no_front' ? 'selected' : '' ); ?>><?php $L->p( 'Exclude Front Page' ); ?></option>
+				<option value="side_no_front" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'side_no_front' ? 'selected' : '' ); ?>><?php $L->p( 'Aside, Exclude Front Page' ); ?></option>
+
+				<option value="bottom_no_front" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'bottom_no_front' ? 'selected' : '' ); ?>><?php $L->p( 'Below, Exclude Front Page' ); ?></option>
 				<?php endif; ?>
 
 				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
@@ -55,7 +57,9 @@ if (
 
 				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Posts' ); ?></option>
 
-				<option value="no_first" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'no_first' ? 'selected' : '' ); ?>><?php $L->p( 'Exclude First Page' ); ?></option>
+				<option value="side_no_first" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'side_no_first' ? 'selected' : '' ); ?>><?php $L->p( 'Aside, Exclude First Page' ); ?></option>
+
+				<option value="bottom_no_first" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom_no_first' ? 'selected' : '' ); ?>><?php $L->p( 'Below, Exclude First Page' ); ?></option>
 
 				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
 			</select>

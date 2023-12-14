@@ -28,24 +28,21 @@ if (
 	<legend class="screen-reader-text"><?php $L->p( 'Sidebar' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="sidebar_display"><?php $L->p( 'Sidebar Display' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="sidebar_in_page"><?php $L->p( 'Sidebar in Pages' ); ?></label>
 		<div class="col-sm-10">
-			<select class="form-select" id="sidebar_display" name="sidebar_display">
-				<option value="default" <?php echo ( $this->getValue( 'sidebar_display' ) === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Use Templates' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'sidebar_display' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Never Display' ); ?></option>
-			</select>
-			<small class="form-text text-muted"><?php $L->p( 'The Never Display setting will override default display, sidebar page templates, and the Sidebar Position setting.' ); ?></small>
-		</div>
-	</div>
+			<select class="form-select" id="sidebar_in_page" name="sidebar_in_page">
 
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="sidebar_position"><?php $L->p( 'Sidebar Position' ); ?></label>
-		<div class="col-sm-10">
-			<select class="form-select" id="sidebar_position" name="sidebar_position">
-				<option value="default" <?php echo ( $this->getValue( 'sidebar_position' ) === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default' ); ?></option>
-				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_position' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Bottom' ); ?></option>
+				<option value="side" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'side' ? 'selected' : '' ); ?>><?php $L->p( 'Aside Content' ); ?></option>
+
+				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Content' ); ?></option>
+
+				<?php if ( $site->homepage() ) : ?>
+				<option value="no_front" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'no_front' ? 'selected' : '' ); ?>><?php $L->p( 'Exclude Front Page' ); ?></option>
+				<?php endif; ?>
+
+				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_page' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'This setting will override sidebar page templates but not the Sidebar in Loop setting.' ); ?></small>
+			<small class="form-text text-muted"><?php $L->p( 'The default sidebar layout for posts & pages. Sidebar templates can override this setting on a per-page basis.' ); ?></small>
 		</div>
 	</div>
 
@@ -58,9 +55,24 @@ if (
 
 				<option value="bottom" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'bottom' ? 'selected' : '' ); ?>><?php $L->p( 'Below Posts' ); ?></option>
 
+				<option value="no_first" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'no_first' ? 'selected' : '' ); ?>><?php $L->p( 'Exclude First Page' ); ?></option>
+
 				<option value="none" <?php echo ( $this->getValue( 'sidebar_in_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Sidebar' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'When using a static page for the posts loop, a sidebar template, if used, will override this setting.' ); ?></small>
+			<small class="form-text text-muted"><?php $L->p( 'When using a static page for the posts loop, a sidebar template, if used, will override this setting. Only applies to the main posts index, not to taxonomy and search loops.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="sidebar_position"><?php $L->p( 'Sidebar Position' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="sidebar_position" name="sidebar_position">
+
+				<option value="left" <?php echo ( $this->getValue( 'sidebar_position' ) === 'left' ? 'selected' : '' ); ?>><?php $L->p( 'Left Side' ); ?></option>
+
+				<option value="right" <?php echo ( $this->getValue( 'sidebar_position' ) === 'right' ? 'selected' : '' ); ?>><?php $L->p( 'Right Side' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Where a sidebar is displayed aside page or loop content, display it to the right or to the left of the content.' ); ?></small>
 		</div>
 	</div>
 

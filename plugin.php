@@ -90,7 +90,6 @@ class configureight extends Plugin {
 			'loop_description'      => '',
 			'loop_style'            => 'blog',
 			'content_style'         => 'list',
-			'sidebar_in_loop'       => 'side',
 			'loop_paged'            => 'numerical',
 			'loop_byline'           => true,
 			'loop_date'             => true,
@@ -121,8 +120,9 @@ class configureight extends Plugin {
 			'error_static_dir'      => 'horz',
 			'error_cats_dir'        => 'horz',
 			'error_tags_dir'        => 'horz',
-			'sidebar_position'      => 'default',
-			'sidebar_display'       => 'default',
+			'sidebar_in_page'       => 'side',
+			'sidebar_in_loop'       => 'side',
+			'sidebar_position'      => 'right',
 			'sidebar_sticky'        => false,
 			'sidebar_social'        => false,
 			'sb_social_heading'     => '',
@@ -901,11 +901,6 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function sidebar_in_loop() {
-		return $this->getValue( 'sidebar_in_loop' );
-	}
-
-	// @return string
 	public function loop_paged() {
 		return $this->getValue( 'loop_paged' );
 	}
@@ -1079,9 +1074,14 @@ class configureight extends Plugin {
 		return $this->getValue( 'sidebar_sticky' );
 	}
 
-	// @return mixed Returns string `default` or false.
-	public function sidebar_display() {
-		return $this->getValue( 'sidebar_display' );
+	// @return string
+	public function sidebar_in_page() {
+		return $this->getValue( 'sidebar_in_page' );
+	}
+
+	// @return string
+	public function sidebar_in_loop() {
+		return $this->getValue( 'sidebar_in_loop' );
 	}
 
 	// @return string

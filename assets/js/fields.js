@@ -203,7 +203,7 @@ jQuery(document).ready( function($) {
 		}
 	});
 
-	// Sidebar options.
+	// Footer options.
 	$( '#footer_social' ).on( 'change', function() {
 		var show = $(this).val();
 		if ( show == 'true' ) {
@@ -303,6 +303,16 @@ jQuery(document).ready( function($) {
 			}, 1000 );
 		} else if ( show != 'custom' ) {
 			$( "#custom_sep_wrap" ).fadeOut( 250 );
+		}
+	});
+
+	// Admin options.
+	$( '#admin_menu' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show == 'true' ) {
+			$( "#admin-menu" ).fadeIn( 250 );
+		} else if ( show != 'admin-menu' ) {
+			$( "#admin-menu" ).fadeOut( 250 );
 		}
 	});
 });

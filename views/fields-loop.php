@@ -12,6 +12,8 @@
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Posts Loop Options' ) ] ); ?>
 <fieldset>
 
+<p><?php $L->p( 'The posts loop is serialized, non-static content; the blog/news feature of the website. This includes the main posts index as well as posts filtered by category or tag. Search pages are also a loop but not all of these options apply to site search.' ); ?></p>
+
 	<legend class="screen-reader-text"><?php $L->p( 'Posts Loop' ); ?></legend>
 
 	<div class="form-field form-group row">

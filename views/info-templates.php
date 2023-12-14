@@ -8,23 +8,30 @@
  * @since      1.0.0
  */
 
+// Settings page URL.
+$settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
+
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Available Page Templates' ) ] ); ?>
 
 <p><?php $L->p( 'Several template options are built into the theme, which can be employed in the page edit screen under Options > Advanced. These are available for posts in the loop as well as for static pages. More than one template may be used at once, with space between each template slug, depending on the template type.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Static Front Page' ) ] ); ?>
+<hr />
 
-<p><?php $L->p( 'The front page template is used automatically when a page is set in Settings > Advanced > Homepage. So no template slug is needed for this template.' ); ?></p>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Front Page' ) ] ); ?>
+
+<p><?php $L->p( 'The front page template is used automatically when a page or post is set in Settings > Advanced > Homepage. So no template slug is needed for this template.' ); ?></p>
 
 <p><?php $L->p( 'Out of the box, the front page template is identical to the static page template. It is provided so that developers only need to edit one file to create a distinct layout for the front page.' ); ?></p>
 
 <p><?php $L->p( 'However, the page used as the front page accepts the optional templates so, for example, without editing the front page template you can set the page to have a full-screen cover image and no sidebar ( <code class="select">full-cover no-sidebar</code> ).' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Loop Templates' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Posts Loop' ) ] ); ?>
 
-<p><?php $L->p( 'There are several templates used automatically based on the loop type and content style options.' ); ?></p>
+<p><?php $L->p( 'There are several templates used automatically based on the default sidebar layout and the loop content style options.' ); ?></p>
+
+<p><?php $L->p( 'When using a static page for the posts loop, a sidebar template sidebar template can be used to override the default sidebar layout. Only applies to the main posts index, not to taxonomy and search loops.' ); ?></p>
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Post Page' ) ] ); ?>
 
@@ -34,7 +41,7 @@
 
 <p><?php $L->p( 'Posts accept the template options for cover image and sidebar on an individual basis.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sticky Page' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sticky Post' ) ] ); ?>
 
 <p><?php $L->p( 'No slug needed. The sticky template is used automatically for any standard post that has been set to sticky.' ); ?></p>
 
@@ -56,11 +63,19 @@
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'No Sidebar' ) ] ); ?>
+<hr />
 
-<p><?php $L->p( 'Template slug:' ); ?> <code class="select">no-sidebar</code></p>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sidebar Templates' ) ] ); ?>
 
-<p><?php $L->p( 'The no sidebar template does not load any sidebar widgets and sets the main content to full width.' ); ?></p>
+<p><?php $L->p( 'Sidebar templates are available to posts, sticky posts, and static pages on an individual basis. They have no associated file, using body classes and CSS to affect when and where to display the sidebar.' ); ?></p>
+
+<p><?php $L->p( "The <a href='{$settings_page}#sidebar'>Sidebar in Pages</a> option can be overridden by a sidebar template. For instance, if the default is set to display the sidebar below the content, a page with the <code class='select'>sidebar-side</code> template will move the sidebar to the side of the content." ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Standard Sidebar' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">sidebar-side</code></p>
+
+<p><?php $L->p( 'The standard sidebar template displays sidebar widgets to the side of the main content. This will override the default sidebar layout option.' ); ?></p>
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
@@ -68,9 +83,19 @@
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">sidebar-bottom</code></p>
 
-<p><?php $L->p( 'The bottom sidebar template moves the sidebar widgets to below the content and sets the main content to full width. Widgets display as a grid.' ); ?></p>
+<p><?php $L->p( 'The bottom sidebar template moves the sidebar widgets to below the main content and sets the main content to full width. Widgets display as a grid. This will override the default sidebar layout option.' ); ?></p>
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'No Sidebar' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">no-sidebar</code></p>
+
+<p><?php $L->p( 'The no sidebar template does not load any sidebar widgets and sets the main content to full width. This will override the default sidebar layout option.' ); ?></p>
+
+<p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
+
+<hr />
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'About Page' ) ] ); ?>
 

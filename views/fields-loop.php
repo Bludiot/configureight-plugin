@@ -72,6 +72,44 @@
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cat_style"><?php $L->p( 'Category Style' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cat_style" name="cat_style">
+
+				<option value="inherit" <?php echo ( $this->getValue( 'cat_style' ) === 'inherit' ? 'selected' : '' ); ?>><?php $L->p( 'Inherit from Loop' ); ?></option>
+
+				<option value="list" <?php echo ( $this->getValue( 'cat_style' ) === 'list' ? 'selected' : '' ); ?>><?php $L->p( 'List' ); ?></option>
+
+				<option value="grid" <?php echo ( $this->getValue( 'cat_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
+
+				<option value="full" <?php echo ( $this->getValue( 'cat_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
+			</select>
+			<small class="form-text text-muted">
+				<?php $L->p( 'Choose the style of post content in category loops.' ); ?>
+			</small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="tag_style"><?php $L->p( 'Tag Style' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="tag_style" name="tag_style">
+
+				<option value="inherit" <?php echo ( $this->getValue( 'tag_style' ) === 'inherit' ? 'selected' : '' ); ?>><?php $L->p( 'Inherit from Loop' ); ?></option>
+
+				<option value="list" <?php echo ( $this->getValue( 'tag_style' ) === 'list' ? 'selected' : '' ); ?>><?php $L->p( 'List' ); ?></option>
+
+				<option value="grid" <?php echo ( $this->getValue( 'tag_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
+
+				<option value="full" <?php echo ( $this->getValue( 'tag_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
+			</select>
+			<small class="form-text text-muted">
+				<?php $L->p( 'Choose the style of post content in tag loops.' ); ?>
+			</small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_paged"><?php $L->p( 'Loop Pagination' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="loop_paged" name="loop_paged">

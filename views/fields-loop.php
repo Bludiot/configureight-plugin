@@ -19,7 +19,7 @@
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_title"><?php $L->p( 'Loop Title' ); ?></label>
 		<div class="col-sm-10">
-			<input type="text" id="loop_title" name="loop_title" value="<?php echo $this->getValue( 'loop_title' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_style' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
+			<input type="text" id="loop_title" name="loop_title" value="<?php echo $this->getValue( 'loop_title' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_type' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
 			<small class="form-text text-muted">
 				<?php $L->p( 'The title of posts loop pages. Defaults to the style of loop, Blog or News.' ); ?>
 				<br />
@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_description"><?php $L->p( 'Loop description' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="loop_description"><?php $L->p( 'Loop Description' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="loop_description" name="loop_description" value="<?php echo $this->getValue( 'loop_description' ); ?>" placeholder="" />
 			<small class="form-text text-muted">
@@ -41,28 +41,28 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Type' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="loop_type"><?php $L->p( 'Loop Type' ); ?></label>
 		<div class="col-sm-10">
-			<select class="form-select" id="loop_style" name="loop_style">
+			<select class="form-select" id="loop_type" name="loop_type">
 
-				<option value="blog" <?php echo ( $this->getValue( 'loop_style' ) === 'blog' ? 'selected' : '' ); ?>><?php $L->p( 'Blog' ); ?></option>
+				<option value="blog" <?php echo ( $this->getValue( 'loop_type' ) === 'blog' ? 'selected' : '' ); ?>><?php $L->p( 'Blog' ); ?></option>
 
-				<option value="news" <?php echo ( $this->getValue( 'loop_style' ) === 'news' ? 'selected' : '' ); ?>><?php $L->p( 'News' ); ?></option>
+				<option value="news" <?php echo ( $this->getValue( 'loop_type' ) === 'news' ? 'selected' : '' ); ?>><?php $L->p( 'News' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Choose the style of posts in the main loop.' ); ?></small>
 		</div>
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="content_style"><?php $L->p( 'Content Style' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Style' ); ?></label>
 		<div class="col-sm-10">
-			<select class="form-select" id="content_style" name="content_style">
+			<select class="form-select" id="loop_style" name="loop_style">
 
-				<option value="list" <?php echo ( $this->getValue( 'content_style' ) === 'list' ? 'selected' : '' ); ?>><?php $L->p( 'List' ); ?></option>
+				<option value="list" <?php echo ( $this->getValue( 'loop_style' ) === 'list' ? 'selected' : '' ); ?>><?php $L->p( 'List' ); ?></option>
 
-				<option value="grid" <?php echo ( $this->getValue( 'content_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
+				<option value="grid" <?php echo ( $this->getValue( 'loop_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
 
-				<option value="full" <?php echo ( $this->getValue( 'content_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
+				<option value="full" <?php echo ( $this->getValue( 'loop_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
 			</select>
 			<small class="form-text text-muted">
 				<?php $L->p( 'Choose the style of post content in the main loop.' ); ?>

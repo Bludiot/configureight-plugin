@@ -193,7 +193,7 @@ function title_tag() {
 		} else {
 			$format = sprintf(
 				'%s%s %s %s',
-				ucwords( plugin()->loop_style() ),
+				ucwords( plugin()->loop_type() ),
 				$loop_page,
 				$sep,
 				$site->title()
@@ -204,7 +204,7 @@ function title_tag() {
 					$site->title(),
 					$sep,
 					$loop_page,
-					ucwords( plugin()->loop_style() )
+					ucwords( plugin()->loop_type() )
 				);
 			}
 		}
@@ -364,7 +364,7 @@ function title_tag() {
 	$format = str_replace( '{{site-title}}', $site->title(), $format );
 	$format = str_replace( '{{site-slogan}}', $site->slogan(), $format );
 	$format = str_replace( '{{site-description}}', $site->description(), $format );
-	$format = str_replace( '{{loop-type}}', ucwords( plugin()->loop_style() ), $format );
+	$format = str_replace( '{{loop-type}}', ucwords( plugin()->loop_type() ), $format );
 	$format = str_replace( '{{page-number}}', $loop_page, $format );
 
 	$title = sprintf(

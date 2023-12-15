@@ -88,8 +88,8 @@ class configureight extends Plugin {
 			'thumb_quality'         => $this->thumb_quality_default(),
 			'loop_title'            => $L->get( 'Blog' ),
 			'loop_description'      => '',
-			'loop_style'            => 'blog',
-			'content_style'         => 'list',
+			'loop_type'            => 'blog',
+			'loop_style'         => 'list',
 			'loop_paged'            => 'numerical',
 			'loop_byline'           => true,
 			'loop_date'             => true,
@@ -891,13 +891,13 @@ class configureight extends Plugin {
 	}
 
 	// @return string
-	public function loop_style() {
-		return $this->getValue( 'loop_style' );
+	public function loop_type() {
+		return $this->getValue( 'loop_type' );
 	}
 
 	// @return string
-	public function content_style() {
-		return $this->getValue( 'content_style' );
+	public function loop_style() {
+		return $this->getValue( 'loop_style' );
 	}
 
 	// @return string

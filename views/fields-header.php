@@ -77,6 +77,17 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 		</div>
 	</div>
 	<?php endif; ?>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="header_sticky"><?php $L->p( 'Sticky Header' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="header_sticky" name="header_sticky">
+				<option value="true" <?php echo ( $this->getValue( 'header_sticky' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'header_sticky' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Makes the branding and navigation stick to the top of the viewport.' ); ?></small>
+		</div>
+	</div>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Navigation Options' ) ] ); ?>

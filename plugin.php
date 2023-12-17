@@ -69,6 +69,7 @@ class configureight extends Plugin {
 			'site_slogan'           => true,
 			'logo_width_std'        => $this->logo_width_std_default(),
 			'logo_width_mob'        => $this->logo_width_mob_default(),
+			'header_sticky'         => false,
 			'main_nav_pos'          => 'right',
 			'main_nav_icon'         => 'bars',
 			'max_nav_items'         => 0,
@@ -716,6 +717,11 @@ class configureight extends Plugin {
 		return 80;
 	}
 
+	// @return boolean
+	public function header_sticky() {
+		return $this->getValue( 'header_sticky' );
+	}
+
 	// @return string
 	public function main_nav_pos() {
 		return $this->getValue( 'main_nav_pos' );
@@ -805,7 +811,7 @@ class configureight extends Plugin {
 
 	// @return string
 	public function cover_blend_default() {
-		return '#333333';
+		return '#3e6caf';
 	}
 
 	// @return string

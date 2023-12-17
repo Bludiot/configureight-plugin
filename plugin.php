@@ -79,6 +79,8 @@ class configureight extends Plugin {
 			'site_favicon'          => '',
 			'modal_bg_color'        => $this->modal_bg_default(),
 			'default_cover'         => '',
+			'cover_style'           => 'overlay',
+			'cover_blend'           => $this->cover_blend_default(),
 			'cover_overlay'         => $this->cover_overlay_default(),
 			'cover_text_color'      => $this->cover_text_default(),
 			'cover_text_shadow'     => true,
@@ -777,6 +779,16 @@ class configureight extends Plugin {
 	}
 
 	// @return string
+	public function cover_style() {
+		return $this->getValue( 'cover_style' );
+	}
+
+	// @return string
+	public function cover_blend() {
+		return $this->getValue( 'cover_blend' );
+	}
+
+	// @return string
 	public function cover_overlay() {
 		return $this->getValue( 'cover_overlay' );
 	}
@@ -789,6 +801,11 @@ class configureight extends Plugin {
 	// @return string
 	public function cover_text_shadow() {
 		return $this->getValue( 'cover_text_shadow' );
+	}
+
+	// @return string
+	public function cover_blend_default() {
+		return '#333333';
 	}
 
 	// @return string

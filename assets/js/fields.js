@@ -72,7 +72,19 @@ jQuery(document).ready( function($) {
 		$( '#modal_bg_color' ).spectrum( 'set', $( '#modal_bg_default' ).val() );
 	});
 
-	// Cover image background.
+	// Cover image style.
+	$( '#cover_style' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show == 'overlay' ) {
+			$( "#cover_blend_wrap" ).css( 'display', 'none' );
+			$( "#cover_overlay_wrap" ).css( 'display', 'flex' );
+		} else if ( show == 'blend' ) {
+			$( "#cover_overlay_wrap" ).css( 'display', 'none' );
+			$( "#cover_blend_wrap" ).css( 'display', 'flex' );
+		}
+    });
+
+	// Cover image overlay.
 	$( '#cover_overlay' ).spectrum({
 		type            : "component",
 		showPalette     : true,
@@ -86,6 +98,22 @@ jQuery(document).ready( function($) {
 
 	$( '#cover_overlay_default_button' ).click( function() {
 		$( '#cover_overlay' ).spectrum( 'set', $( '#cover_overlay_default' ).val() );
+	});
+
+	// Cover image blend.
+	$( '#cover_blend' ).spectrum({
+		type            : "component",
+		showPalette     : true,
+		palette         : [],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : false
+	});
+	$( '#cover_blend' ).show();
+
+	$( '#cover_blend_default_button' ).click( function() {
+		$( '#cover_blend' ).spectrum( 'set', $( '#cover_blend_default' ).val() );
 	});
 
 	// Cover image text.

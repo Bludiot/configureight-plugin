@@ -146,7 +146,7 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 				<option value="none" <?php echo ( $this->getValue( 'main_nav_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Link' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Display a link to the posts loop (blog or news) when loop is not on the home page.' ); ?></small>
+			<small class="form-text text-muted"><?php $L->p( 'Display a link to the posts loop, blog or news.' ); ?></small>
 		</div>
 	</div>
 

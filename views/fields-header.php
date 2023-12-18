@@ -139,8 +139,12 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_loop"><?php $L->p( 'Loop Nav Link' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="main_nav_loop" name="main_nav_loop">
-				<option value="true" <?php echo ( $this->getValue( 'main_nav_loop' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'main_nav_loop' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+
+				<option value="before" <?php echo ( $this->getValue( 'main_nav_loop' ) === 'before' ? 'selected' : '' ); ?>><?php $L->p( 'Before Pages' ); ?></option>
+
+				<option value="after" <?php echo ( $this->getValue( 'main_nav_loop' ) === 'after' ? 'selected' : '' ); ?>><?php $L->p( 'After Pages' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'main_nav_loop' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Link' ); ?></option>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Display a link to the posts loop (blog or news) when loop is not on the home page.' ); ?></small>
 		</div>

@@ -73,7 +73,7 @@ class configureight extends Plugin {
 			'main_nav_pos'          => 'right',
 			'main_nav_icon'         => 'bars',
 			'max_nav_items'         => 0,
-			'main_nav_loop'         => true,
+			'main_nav_loop'         => 'after',
 			'main_nav_home'         => false,
 			'header_search'         => true,
 			'header_social'         => false,
@@ -737,7 +737,7 @@ class configureight extends Plugin {
 		return $this->getValue( 'max_nav_items' );
 	}
 
-	// @return boolean
+	// @return string
 	public function main_nav_loop() {
 		return $this->getValue( 'main_nav_loop' );
 	}

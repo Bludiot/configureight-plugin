@@ -63,6 +63,14 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'No Cover' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">no-cover</code></p>
+
+<p><?php $L->p( 'The no cover template will hide the cover image of a post or a page when viewing the singular template. The cover image remains intact for loops and meta data.' ); ?></p>
+
+<p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
+
 <hr />
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sidebar Templates' ) ] ); ?>

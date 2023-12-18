@@ -10,13 +10,16 @@
 // Guide page URL.
 $guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
 
+// Database page URL.
+$database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
+
 // Add class class to 'js' to `<body>` if JavaScript is enabled.
 echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
 
 ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$database_page}'>options database</a> page." ); ?></p>
 </div>
 
 <div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="true" data-animation="true">

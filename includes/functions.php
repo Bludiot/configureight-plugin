@@ -381,10 +381,11 @@ function title_tag() {
  * Displays a list of options and their values for the dashboard.
  *
  * @since  1.0.0
+ * @param  boolean $list_only Whether to only print the list markup.
  * @global object $L The Language class.
  * @return mixed Returns the widget markup or null.
  */
-function dashboard_options() {
+function dashboard_options( $list_only = false ) {
 
 	// Access global variables.
 	global $L;
@@ -427,13 +428,17 @@ function dashboard_options() {
 	}
 	$options .= '</ul>';
 
-	// Final widget markup.
-	$html = sprintf(
-		'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
-		$L->get( 'Theme Options' ),
-		$L->get( 'List of current theme options values.' ),
-		$options
-	);
+	// Widget markup.
+	if ( $list_only ) {
+		$html = $options;
+	} else {
+		$html = sprintf(
+			'<div id="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
+			$L->get( 'Theme Options' ),
+			$L->get( 'List of current theme options values.' ),
+			$options
+		);
+	}
 	return $html;
 }
 

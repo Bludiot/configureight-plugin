@@ -200,10 +200,13 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   font-size: 3em;
   width: 100%;
 }
-#dashboard .dashboard-options {
+
+#dashboard-options,
+#database-list {
   margin: 2rem 0;
 }
-#dashboard .dashboard-options h2 {
+#dashboard-options h2,
+#database-list h2 {
   margin: 0;
   font-family: var(--cfe-heading-secondary--font-family);
   font-size: var(--cfe-heading-secondary--font-size);
@@ -218,29 +221,36 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   text-transform: var(--cfe-heading-secondary--text-transform);
   color: var(--cfe-heading-secondary--text-color, var(--cfe-text-color));
 }
-#dashboard .dashboard-options p {
+#dashboard-options p,
+#database-list p {
   margin: 0;
 }
-#dashboard .dashboard-options ul {
+#dashboard-options ul,
+#database-list ul {
   list-style: none;
   max-width: -moz-max-content;
   max-width: max-content;
   margin: 1em 0 0 0;
   padding: 0;
 }
-#dashboard .dashboard-options ul li {
+#dashboard-options ul li,
+#database-list ul li {
   padding: 0.25em 0.5em;
 }
-#dashboard .dashboard-options ul li:nth-of-type(odd) {
+#dashboard-options ul li:nth-of-type(odd),
+#database-list ul li:nth-of-type(odd) {
   background-color: #eeeeee;
 }
-#dashboard .dashboard-options ul span {
+#dashboard-options ul span,
+#database-list ul span {
   display: inline-block;
 }
-#dashboard .dashboard-options .option-name {
+#dashboard-options .option-name,
+#database-list .option-name {
   font-family: "Source Code Pro", "Roboto Mono", "Fira Code", "Liberation Mono", Inconsolata, Menlo, Monaco, Consolas, "Cascadia Mono", "Segoe UI Mono", "Oxygen Mono", "Ubuntu Monospace", "Fira Mono", "Droid Sans Mono", "Courier New", Courier, ui-monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 500;
 }
-#dashboard .dashboard-options .option-value {
+#dashboard-options .option-value,
+#database-list .option-value {
   font-weight: 600;
 }

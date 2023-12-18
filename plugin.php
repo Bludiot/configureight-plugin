@@ -370,7 +370,7 @@ class configureight extends Plugin {
 
 		$html  = '';
 		ob_start();
-		include( $this->phpPath() . '/views/form-page.php' );
+		include( $this->phpPath() . '/views/page-form.php' );
 		$html .= ob_get_clean();
 
 		return $html;
@@ -392,7 +392,11 @@ class configureight extends Plugin {
 
 		$html  = '';
 		ob_start();
-		include( $this->phpPath() . '/views/guide-page.php' );
+		if ( isset( $_GET['page'] ) && 'database' == $_GET['page'] ) {
+			include( $this->phpPath() . '/views/page-database.php' );
+		} else {
+			include( $this->phpPath() . '/views/page-guide.php' );
+		}
 		$html .= ob_get_clean();
 
 		return $html;

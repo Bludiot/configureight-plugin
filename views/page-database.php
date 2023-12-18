@@ -1,0 +1,34 @@
+<?php
+/**
+ * Theme Options page
+ *
+ * @package    Configure 8 Options
+ * @subpackage Views
+ * @category   Guide page
+ * @since      1.0.0
+ */
+
+// Access namespaced functions.
+use function CFE_Plugin\{
+	dashboard_options
+};
+
+// Settings page URL.
+$settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
+
+// Add class class to 'js' to `<body>` if JavaScript is enabled.
+echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
+
+?>
+
+<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Options Database' ), 'icon' => 'cog' ] ); ?>
+
+<div class="alert alert-primary alert-search-forms" role="alert">
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
+</div>
+
+<?php $L->p( 'List of current theme options values.' ); ?></p>
+
+<div id="database-list">
+	<?php echo dashboard_options( true ); ?>
+</div>

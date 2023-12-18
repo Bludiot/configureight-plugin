@@ -14,20 +14,6 @@ if ( ! empty( $this->getValue( 'modal_bg_color' ) ) ) {
 	$modal_bg_color = $this->getValue( 'modal_bg_color' );
 }
 
-// Cover image blend value.
-$cover_blend_default = $this->cover_blend_default();
-$cover_blend   = $cover_blend_default;
-if ( ! empty( $this->getValue( 'cover_blend' ) ) ) {
-	$cover_blend = $this->getValue( 'cover_blend' );
-}
-
-// Cover image background value.
-$cover_overlay_default = $this->cover_overlay_default();
-$cover_overlay   = $cover_overlay_default;
-if ( ! empty( $this->getValue( 'cover_overlay' ) ) ) {
-	$cover_overlay = $this->getValue( 'cover_overlay' );
-}
-
 // Cover image text value.
 $cover_text_default = $this->cover_text_default();
 $cover_text_color   = $cover_text_default;
@@ -110,8 +96,8 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div id="cover_overlay_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'overlay' ? 'flex' : 'none' ); ?>;">
 		<label class="form-label col-sm-2 col-form-label" for="cover_overlay"><?php $L->p( 'Overlay Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
-			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $cover_overlay; ?>" />
-			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_overlay_default; ?>" />
+			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $this->cover_overlay(); ?>" />
+			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_overlay_default(); ?>" />
 			<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_overlay_default_button"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
@@ -119,8 +105,8 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div id="cover_blend_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'blend' ? 'flex' : 'none' ); ?>;">
 		<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
-			<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $cover_blend; ?>" />
-			<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_blend_default; ?>" />
+			<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
+			<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_blend_default(); ?>" />
 			<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>

@@ -21,7 +21,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 
 ?>
 
-<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Options Database' ), 'icon' => 'cog' ] ); ?>
+<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Options Database' ), 'icon' => 'cog' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>

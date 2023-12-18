@@ -180,7 +180,8 @@ class configureight extends Plugin {
 		// Array of custom hooks.
 		$this->customHooks = [
 			'meta_tags',
-			'url_not_found'
+			'url_not_found',
+			'front_page'
 		];
 
 		if ( ! $this->installed() ) {

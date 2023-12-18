@@ -56,6 +56,16 @@ jQuery(document).ready( function($) {
 		$( '#loader_text_color' ).spectrum( 'set', $( '#loader_text_default' ).val() );
 	});
 
+	// Loop nav label option..
+	$( '#main_nav_loop' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show != 'none' ) {
+			$( "#main_nav_loop_label_wrap" ).fadeIn( 250 );
+		} else if ( show == 'none' ) {
+			$( "#main_nav_loop_label_wrap" ).fadeOut( 250 );
+		}
+    });
+
 	// Modal window background.
 	$( '#modal_bg_color' ).spectrum({
 		type            : "component",

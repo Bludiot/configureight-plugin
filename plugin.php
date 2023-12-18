@@ -75,6 +75,7 @@ class configureight extends Plugin {
 			'main_nav_icon'         => 'bars',
 			'max_nav_items'         => 0,
 			'main_nav_loop'         => 'after',
+			'main_nav_loop_label'   => '',
 			'main_nav_home'         => false,
 			'header_search'         => true,
 			'header_social'         => false,
@@ -682,6 +683,11 @@ class configureight extends Plugin {
 	// @return string
 	public function main_nav_loop() {
 		return $this->getValue( 'main_nav_loop' );
+	}
+
+	// @return string
+	public function main_nav_loop_label() {
+		return $this->getValue( 'main_nav_loop_label' );
 	}
 
 	// @return boolean

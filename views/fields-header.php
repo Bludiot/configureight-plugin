@@ -150,6 +150,14 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 		</div>
 	</div>
 
+	<div id="main_nav_loop_label_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'main_nav_loop' ) != 'none' ? 'flex' : 'none' ); ?>;">
+		<label class="form-label col-sm-2 col-form-label" for="main_nav_loop_label"><?php $L->p( 'Loop Link Label' ); ?></label>
+		<div class="col-sm-10">
+			<input type="text" id="main_nav_loop_label" name="main_nav_loop_label" value="<?php echo $this->getValue( 'main_nav_loop_label' ); ?>" placeholder="<?php echo $this->dbFields['main_nav_loop_label']; ?>" />
+			<small class="form-text text-muted"><?php $L->p( 'The label for the loop link in the main navigation.' ); ?></small>
+		</div>
+	</div>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_home"><?php $L->p( 'Home Nav Link' ); ?></label>
 		<div class="col-sm-10">

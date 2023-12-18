@@ -376,6 +376,68 @@ function title_tag() {
 }
 
 /**
+ * Dashboard options
+ *
+ * Displays a list of options and their values for the dashboard.
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return mixed Returns the widget markup or null.
+ */
+function dashboard_options() {
+
+	// Access global variables.
+	global $L;
+
+	// Get the plugin database.
+	$db  = new \dbJSON( plugin()->filenameDb );
+	$get = $db->getDB();
+
+	// Stop if the plugin database is empty.
+	if ( empty( $get ) ) {
+		return null;
+	}
+
+	// Options list markup.
+	$options = '<ul class="dashboard-options-list">';
+	foreach ( $get as $key => $value ) {
+
+		// Convert boolean values to "true" or "false" text.
+		if ( is_bool( $value ) ) {
+			if ( 0 == $value ) {
+				$value = $L->get( 'false' );
+			}
+
+			if ( 1 == $value ) {
+				$value = $L->get( 'true' );
+			}
+		}
+
+		// Convert empty string values to "empty" text.
+		if ( is_string( $value ) && empty( $value ) ) {
+			$value = $L->get( 'empty' );
+		}
+
+		// Option list item.
+		$options .= sprintf(
+			'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
+			$key,
+			$value
+		);
+	}
+	$options .= '</ul>';
+
+	// Final widget markup.
+	$html = sprintf(
+		'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
+		$L->get( 'Theme Options' ),
+		$L->get( 'List of current theme options values.' ),
+		$options
+	);
+	return $html;
+}
+
+/**
  * Change theme
  *
  * Replaces admin theme value in the site database.

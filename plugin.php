@@ -16,9 +16,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 use function CFE_Plugin\{
 	is_rtl,
 	title_tag,
-	change_theme,
-	default_theme,
-	admin_theme,
+	dashboard_options,
 	search_form,
 	static_list,
 	categories_list,
@@ -26,7 +24,10 @@ use function CFE_Plugin\{
 	error_search_display,
 	error_static_display,
 	error_cats_display,
-	error_tags_display
+	error_tags_display,
+	change_theme,
+	default_theme,
+	admin_theme
 };
 
 class configureight extends Plugin {
@@ -410,73 +411,9 @@ class configureight extends Plugin {
 
 		// Show options on dashboard if enabled.
 		if ( $this->show_options() ) {
-			echo $this->dashboard_options();
+			echo dashboard_options();
 		}
 	}
-
-	/**
-	 * Dashboard options
-	 *
-	 * Displays a list of options and their values for the dashboard.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global object $L The Language class.
-	 * @return mixed Returns the widget markup or null.
-	 */
-	public function dashboard_options() {
-
-		// Access global variables.
-		global $L;
-
-		// Get the plugin database.
-		$db  = new dbJSON( $this->filenameDb );
-		$get = $db->getDB();
-
-		// Stop if the plugin database is empty.
-		if ( empty( $get ) ) {
-			return null;
-		}
-
-		// Options list markup.
-		$options = '<ul class="dashboard-options-list">';
-		foreach ( $get as $key => $value ) {
-
-			// Convert boolean values to "true" or "false" text.
-			if ( is_bool( $value ) ) {
-				if ( 0 == $value ) {
-					$value = $L->get( 'false' );
-				}
-
-				if ( 1 == $value ) {
-					$value = $L->get( 'true' );
-				}
-			}
-
-			// Convert empty string values to "empty" text.
-			if ( is_string( $value ) && empty( $value ) ) {
-				$value = $L->get( 'empty' );
-			}
-
-			// Option list item.
-			$options .= sprintf(
-				'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
-				$key,
-				$value
-			);
-		}
-		$options .= '</ul>';
-
-		// Final widget markup.
-		$html = sprintf(
-			'<div class="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
-			$L->get( 'Theme Options' ),
-			$L->get( 'List of current theme options values.' ),
-			$options
-		);
-		return $html;
-	}
-
 
 	/**
 	 * Meta tags hook

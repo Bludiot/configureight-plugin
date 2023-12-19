@@ -84,6 +84,7 @@ class configureight extends Plugin {
 			'default_cover'         => '',
 			'cover_style'           => 'overlay',
 			'cover_blend'           => $this->cover_blend_default(),
+			'cover_blend_use'       => [ 'covers' ],
 			'cover_overlay'         => $this->cover_overlay_default(),
 			'cover_text_color'      => $this->cover_text_default(),
 			'cover_text_shadow'     => true,
@@ -191,6 +192,40 @@ class configureight extends Plugin {
 			$this->db = $Tmp->db;
 			$this->prepare();
 		}
+	}
+
+	/**
+	 * Form post
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function post() {
+
+		$args = $_POST;
+
+		foreach ( $this->dbFields as $field => $value ) {
+
+			if ( isset( $args[$field] ) ) {
+
+				if ( is_array( $args[$field] ) ) {
+					$final_value = $args[$field];
+				} else {
+					$final_value = Sanitize :: html( $args[$field] );
+				}
+
+				if ( $final_value === 'false' ) {
+					$final_value = false;
+				} elseif ( $final_value === 'true' ) {
+					$final_value = true;
+				}
+
+				settype( $final_value, gettype( $value ) );
+				$this->db[$field] = $final_value;
+			}
+		}
+		return $this->save();
 	}
 
 	/**
@@ -740,6 +775,11 @@ class configureight extends Plugin {
 	// @return string
 	public function cover_blend() {
 		return $this->getValue( 'cover_blend' );
+	}
+
+	// @return array
+	public function cover_blend_use() {
+		return $this->getValue( 'cover_blend_use' );
 	}
 
 	// @return string

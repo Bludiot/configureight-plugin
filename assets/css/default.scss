@@ -90,6 +90,20 @@ form {
 	padding: 0;
 }
 
+.plugin-form {
+	.multi-check-wrap {
+		margin-top: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em 1em;
+
+		label {
+			margin: 0 !important;
+			display: inline-block;
+		}
+	}
+}
+
 .image-field-preview {
 	max-width: 80px;
 }

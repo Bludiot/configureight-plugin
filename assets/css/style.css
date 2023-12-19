@@ -4035,6 +4035,21 @@ select[disabled] {
   min-width: 10ch;
 }
 
+.plugin-form .multi-check-wrap {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125em 1em;
+}
+.plugin-form .multi-check-wrap label {
+  margin: 0;
+  display: inline-block;
+}
+
+p + .multi-check-wrap {
+  margin-top: 1rem;
+}
+
 .image-field-preview {
   display: block;
   width: 100%;

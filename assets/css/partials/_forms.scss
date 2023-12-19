@@ -1220,6 +1220,24 @@ select[disabled] {
 	}
 }
 
+.plugin-form {
+	.multi-check-wrap {
+		margin-top: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.125em 1em;
+
+		label {
+			margin: 0;
+			display: inline-block;
+		}
+	}
+}
+
+p + .multi-check-wrap {
+	margin-top: 1rem;
+}
+
 // Image fields.
 .image-field-preview {
 	display: block;

@@ -90,7 +90,7 @@ jQuery(document).ready( function($) {
 			$( "#cover_overlay_wrap" ).css( 'display', 'flex' );
 		} else if ( show == 'blend' ) {
 			$( "#cover_overlay_wrap" ).css( 'display', 'none' );
-			$( "#cover_blend_wrap" ).css( 'display', 'flex' );
+			$( "#cover_blend_wrap" ).fadeIn( 250 );
 		}
     });
 

@@ -102,12 +102,35 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		</div>
 	</div>
 
-	<div id="cover_blend_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'blend' ? 'flex' : 'none' ); ?>;">
-		<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
-		<div class="col-sm-10 row color-picker-wrap">
-			<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
-			<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_blend_default(); ?>" />
-			<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
+	<div id="cover_blend_wrap" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'blend' ? 'block' : 'none' ); ?>;">
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
+			<div class="col-sm-10 row color-picker-wrap">
+				<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
+				<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_blend_default(); ?>" />
+				<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="cover_blend_use"><?php $L->p( 'Color Blend Usage' ); ?></label>
+			<div class="col-sm-10">
+				<small class="form-text"><?php $L->p( 'Where to apply color blend to cover images.' ); ?></small>
+
+				<div id="cover-blend_use-wrap" class="multi-check-wrap">
+					<label class="check-label-wrap" for="blend_covers"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_covers" value="covers" <?php echo ( in_array( 'covers', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Page Covers' ); ?></label>
+
+					<label class="check-label-wrap" for="blend_loop"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_loop" value="loop" <?php echo ( in_array( 'loop', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Main Loop' ); ?></label>
+
+					<label class="check-label-wrap" for="blend_cat"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_cat" value="cat" <?php echo ( in_array( 'cat', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Category Loop' ); ?></label>
+
+					<label class="check-label-wrap" for="blend_tag"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_tag" value="tag" <?php echo ( in_array( 'tag', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Tag Loop' ); ?></label>
+
+					<label class="check-label-wrap" for="blend_search"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_search" value="search" <?php echo ( in_array( 'search', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Search Loop' ); ?></label>
+
+					<label class="check-label-wrap" for="blend_related"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_related" value="related" <?php echo ( in_array( 'related', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
+				</div>
+			</div>
 		</div>
 	</div>
 

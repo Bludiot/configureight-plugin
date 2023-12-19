@@ -197,6 +197,16 @@ class configureight extends Plugin {
 	/**
 	 * Form post
 	 *
+	 * The form `$_POST` method.
+	 *
+	 * Essentially the same as the parent method
+	 * except that it allows for array field values.
+	 *
+	 * This was implemented to handle multi-checkbox
+	 * and radio button fields. If strings are used
+	 * in an array option then be sure to sanitize
+	 * the string values.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
@@ -209,6 +219,7 @@ class configureight extends Plugin {
 
 			if ( isset( $args[$field] ) ) {
 
+				// @todo Look into sanitizing array values.
 				if ( is_array( $args[$field] ) ) {
 					$final_value = $args[$field];
 				} else {

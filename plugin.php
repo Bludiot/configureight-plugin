@@ -337,6 +337,10 @@ class configureight extends Plugin {
 		$assets .= '<style>';
 		$assets .= '#seo.tab-pane h2:not( :first-of-type ) { display: none !important; }';
 		$assets .= '#seo.tab-pane div:not( :first-of-type ) { display: none !important; }';
+		$assets .= '#nav-images-tab.nav-item { display: none !important; }';
+		$assets .= '#images.tab-pane { display: none !important; }';
+		$assets .= '#nav-logo-tab.nav-item { display: none !important; }';
+		$assets .= '#logo.tab-pane { display: none !important; }';
 		$assets .= '</style>';
 		endif;
 

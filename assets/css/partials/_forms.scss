@@ -1251,6 +1251,12 @@ p + .multi-check-wrap {
 	height: auto;
 }
 
+.image-field-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 0.25rem;
+}
+
 .plugin-form {
 
 	label {

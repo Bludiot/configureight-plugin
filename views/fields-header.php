@@ -10,6 +10,10 @@
 // Default values.
 $logo_width_std_default = $this->logo_width_std_default();
 $logo_width_mob_default = $this->logo_width_mob_default();
+$logo_filename = '';
+if ( $site->logo() ) {
+	$logo_filename = str_replace( DOMAIN_UPLOADS, '', $site->logo() );
+}
 
 ?>
 
@@ -40,14 +44,68 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 		</div>
 	</div>
 
-	<?php if ( ! empty( $site->logo() ) ) : ?>
+	<div class="form-field form-group row">
+		<div class="form-label col-sm-2 col-form-label"><?php $L->p( 'Logo Image' ); ?></div>
+		<div class="col-sm-10 row image-field-buttons">
+			<label id="logo_upload_button" for="logo_upload" class="btn <?php echo ( $site->logo() ? 'btn-light' : 'btn-primary' ) ?> btn-md button"><span id="logo_upload_button_text"><?php echo ( $site->logo() ? $logo_filename : $L->get( 'Upload&nbsp;Image' ) ); ?></span><input id="logo_upload" class="screen-reader-text" type="file" name="inputFile"></label>
+			<button id="remove_logo" type="button" class="btn <?php echo ( $site->logo() ? 'btn-danger' : 'btn-light' ) ?> btn-md button" <?php echo ( $site->logo() ? '' : 'disabled' ); ?>><?php $L->p( 'Remove&nbsp;Image' ); ?></button>
+		</div>
+		<script>
+			$( '#remove_logo' ).on( 'click', function() {
+
+				// Stop if confirmation is cancelled.
+				if ( ! confirm( '<?php $L->p( 'Are you sure you want to remove the logo?' ); ?>' ) ) { return; };
+
+				// AJAX remove the image file and reset the database value.
+				bluditAjax.removeLogo();
+
+				// Modify field markup.
+				$(this).removeClass( 'btn-danger' ).addClass( 'btn-light' ).attr( 'disabled', 'disabled' );
+				$( '#logo_upload_button' ).removeClass( 'btn-light' ).addClass( 'btn-primary' );
+				$( '#logo_upload_button_text' ).html( '<?php $L->p( 'Upload&nbsp;Image' ); ?>' );
+				$( '#logo_preview_desktop' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
+				$( '#logo_preview_mobile' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
+			});
+
+			$( '#logo_upload' ).on( 'change', function() {
+
+				var formData = new FormData();
+
+				formData.append( 'tokenCSRF', tokenCSRF );
+				formData.append( 'inputFile', $(this)[0] . files[0] );
+				$.ajax( {
+					url   : HTML_PATH_ADMIN_ROOT + "ajax/logo-upload",
+					type  : "POST",
+					data  : formData,
+					cache : false,
+					contentType : false,
+					processData : false
+				} ).done( function(data) {
+
+					if ( data.status == 0 ) {
+						$( '#remove_logo' ).removeClass( 'btn-light' ).addClass( 'btn-danger' ).removeAttr( 'disabled' );
+						$( '#logo_upload_button' ).removeClass( 'btn-primary' ).addClass( 'btn-light' );
+						$( '#logo_upload_button_text' ).html( data.filename );
+						$( '#logo_preview_desktop' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Desktop logo preview' ); ?>' );
+						$( '#logo_preview_mobile' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Mobile logo preview' ); ?>' );
+					} else {
+						showAlert( data.message );
+					}
+				});
+			});
+		</script>
+	</div>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
-		<div class="col-sm-10 row">
-			<div class="form-range-controls">
+		<div class="col-sm-10">
+			<figure>
+				<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
+			</figure>
+			<div class="form-range-controls row">
 				<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo $this->getValue( 'logo_width_std' ); ?></span><span id="logo_width_std_units">px</span></span>
-				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val())" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_std_value').text('<?php echo $logo_width_std_default; ?>');$('#logo_width_std').val('<?php echo $logo_width_std_default; ?>');"><?php $L->p( 'Default' ); ?></span>
+				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val());$('#logo_preview_desktop').css('width',$(this).val()+'px');" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_std_value').text('<?php echo $logo_width_std_default; ?>');$('#logo_width_std').val('<?php echo $logo_width_std_default; ?>');$('#logo_preview_desktop').css('width','<?php echo $logo_width_std_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>
@@ -55,28 +113,18 @@ $logo_width_mob_default = $this->logo_width_mob_default();
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
-		<div class="col-sm-10 row">
-			<div class="form-range-controls">
+		<div class="col-sm-10">
+			<figure>
+				<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
+			</figure>
+			<div class="form-range-controls row">
 				<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo $this->getValue( 'logo_width_mob' ); ?></span><span id="logo_width_mob_units">px</span></span>
-				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val())" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_mob_value').text('<?php echo $logo_width_mob_default; ?>');$('#logo_width_mob').val('<?php echo $logo_width_mob_default; ?>');"><?php $L->p( 'Default' ); ?></span>
+				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val());$('#logo_preview_mobile').css('width',$(this).val()+'px');" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_mob_value').text('<?php echo $logo_width_mob_default; ?>');$('#logo_width_mob').val('<?php echo $logo_width_mob_default; ?>');$('#logo_preview_mobile').css('width','<?php echo $logo_width_mob_default; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>
 	</div>
-	<?php else : ?>
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="logo-message"><?php $L->p( 'Logo Options' ); ?></label>
-		<div id="logo-message" class="col-sm-10">
-			<?php printf(
-				'<p class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
-				$L->get( 'No logo uploaded:' ),
-				DOMAIN_ADMIN . '/settings#logo',
-				DOMAIN_ADMIN . '/settings#logo'
-			); ?>
-		</div>
-	</div>
-	<?php endif; ?>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="header_sticky"><?php $L->p( 'Sticky Header' ); ?></label>

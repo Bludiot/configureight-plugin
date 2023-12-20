@@ -4061,6 +4061,12 @@ p + .multi-check-wrap {
   height: auto;
 }
 
+.image-field-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.25rem;
+}
+
 .plugin-form label {
   display: block;
   margin: 0 !important;
@@ -4961,6 +4967,15 @@ select option {
 .button.btn-lg {
   padding: 0.75rem 1rem;
   font-size: 1.25rem;
+}
+.btn.btn-danger,
+.button.btn-danger {
+  background-color: #dd0000;
+  color: #ffffff !important;
+}
+.btn.btn-danger:hover,
+.button.btn-danger:hover {
+  background-color: #ff0000;
 }
 
 a.btn.disabled,

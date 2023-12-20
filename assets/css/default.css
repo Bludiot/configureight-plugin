@@ -182,6 +182,15 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   max-width: 80px;
 }
 
+.image-field-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.25rem;
+}
+.image-field-buttons label {
+  margin: 0 !important;
+}
+
 #dashboard .list-group.list-group-striped {
   list-style: none;
 }

@@ -419,6 +419,21 @@ function options_list( $list_only = false ) {
 			$value = $L->get( 'empty' );
 		}
 
+		// Convert empty array to visual array.
+		if ( is_array( $value ) && 0 === count( $value ) ) {
+			$value = '[ ]';
+		} elseif ( is_array( $value ) ) {
+			$array = [];
+			foreach( $value as $k ) {
+				$array[] = sprintf(
+					'"%s"',
+					$k
+				);
+			}
+			$array = implode( ', ', $array );
+			$value = "[{$array}]";
+		}
+
 		// Option list item.
 		$options .= sprintf(
 			'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',

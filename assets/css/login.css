@@ -1933,6 +1933,10 @@ select[disabled] {
 .plugin-form .multi-check-wrap label {
   margin: 0;
   display: inline-block;
+  cursor: pointer;
+}
+.plugin-form .multi-check-wrap label input {
+  cursor: pointer;
 }
 
 p + .multi-check-wrap {

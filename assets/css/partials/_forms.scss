@@ -1230,6 +1230,11 @@ select[disabled] {
 		label {
 			margin: 0;
 			display: inline-block;
+			cursor: pointer;
+
+			input {
+				cursor: pointer;
+			}
 		}
 	}
 }

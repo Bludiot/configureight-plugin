@@ -172,6 +172,10 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
 .plugin-form .multi-check-wrap label {
   margin: 0 !important;
   display: inline-block;
+  cursor: pointer;
+}
+.plugin-form .multi-check-wrap label input {
+  cursor: pointer;
 }
 
 .image-field-preview {

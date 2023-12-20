@@ -130,6 +130,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 
 					<label class="check-label-wrap" for="blend_related"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_related" value="related" <?php echo ( in_array( 'related', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
 				</div>
+				<small class="form-text text-muted"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
 			</div>
 		</div>
 	</div>

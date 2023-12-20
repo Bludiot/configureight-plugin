@@ -376,7 +376,7 @@ function title_tag() {
 }
 
 /**
- * Dashboard options
+ * Options list
  *
  * Displays a list of options and their values for the dashboard.
  *
@@ -385,7 +385,7 @@ function title_tag() {
  * @global object $L The Language class.
  * @return mixed Returns the widget markup or null.
  */
-function dashboard_options( $list_only = false ) {
+function options_list( $list_only = false ) {
 
 	// Access global variables.
 	global $L;

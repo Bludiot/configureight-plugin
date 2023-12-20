@@ -16,7 +16,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 use function CFE_Plugin\{
 	is_rtl,
 	title_tag,
-	dashboard_options,
+	options_list,
 	search_form,
 	static_list,
 	categories_list,
@@ -466,7 +466,7 @@ class configureight extends Plugin {
 
 		// Show options on dashboard if enabled.
 		if ( $this->show_options() ) {
-			echo dashboard_options();
+			echo options_list();
 		}
 	}
 

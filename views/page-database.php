@@ -10,7 +10,7 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	dashboard_options
+	options_list
 };
 
 // Settings page URL.
@@ -30,5 +30,5 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 <?php $L->p( 'List of current theme options values.' ); ?></p>
 
 <div id="database-list">
-	<?php echo dashboard_options( true ); ?>
+	<?php echo options_list( true ); ?>
 </div>

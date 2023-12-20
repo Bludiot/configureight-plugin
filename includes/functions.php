@@ -450,7 +450,7 @@ function options_list( $list_only = false ) {
 		$html = sprintf(
 			'<div id="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
 			$L->get( 'Theme Options' ),
-			$L->get( 'List of current theme options values.' ),
+			$L->get( 'List of current theme options and their values.' ),
 			$options
 		);
 	}

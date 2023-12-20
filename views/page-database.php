@@ -27,7 +27,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
 </div>
 
-<?php $L->p( 'List of current theme options values.' ); ?></p>
+<?php $L->p( 'List of current theme options and their values.' ); ?></p>
 
 <div id="database-list">
 	<?php echo options_list( true ); ?>

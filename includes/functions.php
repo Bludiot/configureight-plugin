@@ -66,7 +66,7 @@ function is_rtl( $langs = null, $rtl = [] ) {
 
 	$current = $L->currentLanguageShortVersion();
 
-	if ( in_array( $current, $rtl ) ) {
+	if ( is_array( $rtl ) && in_array( $current, $rtl ) ) {
 		return true;
 	}
 	return false;
@@ -571,7 +571,7 @@ function admin_theme() {
 		}
 	}
 
-	if ( in_array( 'configureight', $themes ) ) {
+	if ( is_array( $themes ) && in_array( 'configureight', $themes ) ) {
 		return true;
 	}
 	return false;

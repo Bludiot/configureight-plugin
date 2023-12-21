@@ -106,7 +106,7 @@ class configureight extends Plugin {
 			'loop_icons'            => true,
 			'posts_nav'             => true,
 			'posts_nav_type'        => 'buttons',
-			'posts_nav_icon'        => 'none',
+			'posts_nav_icon'        => 'arrow',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',

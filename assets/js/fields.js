@@ -142,6 +142,19 @@ jQuery(document).ready( function($) {
 		$( '#cover_text_color' ).spectrum( 'set', $( '#cover_text_default' ).val() );
 	});
 
+	// Posts navigation options.
+	$( '#posts_nav' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show == 'true' ) {
+			$( "#posts_nav_wrap" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#posts_nav_wrap' ).offset().top + -120
+			}, 1000 );
+		} else if ( show == 'false' ) {
+			$( "#posts_nav_wrap" ).fadeOut( 250 );
+		}
+    });
+
 	// Related posts options.
 	$( '#related_posts' ).on( 'change', function() {
     	var show = $(this).val();

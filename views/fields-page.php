@@ -25,7 +25,40 @@ if ( getPlugin( 'Search_Forms' ) ) {
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Post/Page Options' ) ] ); ?>
 <fieldset>
 
-	<legend class="screen-reader-text"><?php $L->p( 'Pages' ); ?></legend>
+	<legend class="screen-reader-text"><?php $L->p( 'Post/Page Options' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="posts_nav"><?php $L->p( 'Posts Navigation' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="posts_nav" name="posts_nav">
+				<option value="true" <?php echo ( $this->getValue( 'posts_nav' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'posts_nav' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Show the previous/next post navigation. Not available on static pages.' ); ?></small>
+		</div>
+	</div>
+
+	<div id="posts_nav_wrap" style="display: <?php echo ( $this->getValue( 'posts_nav' ) === true ? 'block' : 'none' ); ?>;">
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="posts_nav_type"><?php $L->p( 'Posts Nav Type' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="posts_nav_type" name="posts_nav_type">
+					<option value="buttons" <?php echo ( $this->getValue( 'posts_nav_type' ) === 'buttons' ? 'selected' : '' ); ?>><?php $L->p( 'Buttons' ); ?></option>
+					<option value="titles" <?php echo ( $this->getValue( 'posts_nav_type' ) === 'titles' ? 'selected' : '' ); ?>><?php $L->p( 'Titles' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'The style of posts navigation.' ); ?></small>
+			</div>
+		</div>
+	</div>
+</fieldset>
+
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Related Posts' ) ] ); ?>
+
+<p><?php $L->p( 'The related posts section is not displayed on static pages.' ); ?></p>
+
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Show Related' ); ?></legend>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="related_posts"><?php $L->p( 'Related Posts' ); ?></label>

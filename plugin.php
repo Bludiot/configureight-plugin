@@ -104,6 +104,8 @@ class configureight extends Plugin {
 			'loop_word_count'       => true,
 			'loop_read_time'        => true,
 			'loop_icons'            => true,
+			'posts_nav'             => true,
+			'posts_nav_type'        => 'buttons',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -1022,6 +1024,16 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return boolean
+	public function posts_nav() {
+		return $this->getValue( 'posts_nav' );
+	}
+
+	// @return string
+	public function posts_nav_type() {
+		return $this->getValue( 'posts_nav_type' );
+	}
 
 	// @return boolean
 	public function related_posts() {

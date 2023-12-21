@@ -9,6 +9,11 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	plugin
+};
+
 // Default related posts values.
 $max_related_default = $this->max_related_default();
 
@@ -47,6 +52,26 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="titles" <?php echo ( $this->getValue( 'posts_nav_type' ) === 'titles' ? 'selected' : '' ); ?>><?php $L->p( 'Titles' ); ?></option>
 				</select>
 				<small class="form-text text-muted"><?php $L->p( 'The style of posts navigation.' ); ?></small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="posts_nav_icon"><?php $L->p( 'Navigation Icon' ); ?></label>
+			<div class="col-sm-10">
+				<div class="field-has-buttons">
+					<select class="form-select" id="posts_nav_icon" name="posts_nav_icon">
+
+						<option value="none" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
+
+						<option value="arrow" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'arrow' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?> →</option>
+
+						<option value="angle" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angle' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?> ></option>
+
+						<option value="angles" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?> &#8811;</option>
+					</select>
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#posts_nav_icon').val('none');"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 			</div>
 		</div>
 	</div>

@@ -106,6 +106,7 @@ class configureight extends Plugin {
 			'loop_icons'            => true,
 			'posts_nav'             => true,
 			'posts_nav_type'        => 'buttons',
+			'posts_nav_icon'        => 'none',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -1033,6 +1034,11 @@ class configureight extends Plugin {
 	// @return string
 	public function posts_nav_type() {
 		return $this->getValue( 'posts_nav_type' );
+	}
+
+	// @return string
+	public function posts_nav_icon() {
+		return $this->getValue( 'posts_nav_icon' );
 	}
 
 	// @return boolean

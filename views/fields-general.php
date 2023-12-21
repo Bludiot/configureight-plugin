@@ -8,14 +8,14 @@
  */
 
 // Cover image background value.
-$loader_bg_default = $this->loader_bg_default();
+$loader_bg_default = $this->dbFields['loader_bg_color'];
 $loader_bg_color   = $loader_bg_default;
 if ( ! empty( $this->getValue( 'loader_bg_color' ) ) ) {
 	$loader_bg_color = $this->getValue( 'loader_bg_color' );
 }
 
 // Cover image text value.
-$loader_text_default = $this->loader_text_default();
+$loader_text_default = $this->dbFields['loader_text_color'];
 $loader_text_color   = $loader_text_default;
 if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 	$loader_text_color = $this->getValue( 'loader_text_color' );

@@ -14,9 +14,6 @@ use function CFE_Plugin\{
 	plugin
 };
 
-// Default related posts values.
-$max_related_default = $this->max_related_default();
-
 // Get the search plugin object.
 $placeholder = $this->error_search_holder();
 if ( getPlugin( 'Search_Forms' ) ) {
@@ -69,7 +66,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 						<option value="angles" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?> &#8811;</option>
 					</select>
-					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#posts_nav_icon').val('none');"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#posts_nav_icon').val('<?php echo $this->dbFields['posts_nav_icon']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 			</div>
@@ -102,9 +99,9 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="max_related"><?php $L->p( 'Maximum Posts' ); ?></label>
 			<div class="col-sm-10 row">
 				<div class="form-range-controls">
-					<span class="form-range-value"><span id="max_related_value"><?php echo ( $this->getValue( 'max_related' ) ? $this->getValue( 'max_related' ) : $max_related_default ); ?></span></span>
+					<span class="form-range-value"><span id="max_related_value"><?php echo ( $this->getValue( 'max_related' ) ? $this->getValue( 'max_related' ) : $this->dbFields['max_related'] ); ?></span></span>
 					<input type="range" class="form-control-range" onInput="$('#max_related_value').html($(this).val())" id="max_related" name="max_related" value="<?php echo $this->getValue( 'max_related' ); ?>" min="1" max="9" step="1" />
-					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#max_related_value').text('<?php echo $max_related_default; ?>');$('#max_related').val('<?php echo $max_related_default; ?>');"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#max_related_value').text('<?php echo $this->dbFields['max_related']; ?>');$('#max_related').val('<?php echo $this->dbFields['max_related']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text text-muted form-range-small"><?php $L->p( 'The number of related posts to display.' ); ?></small>
 			</div>

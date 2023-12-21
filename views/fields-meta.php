@@ -38,7 +38,7 @@ use function CFE_Plugin\{
 
 					<option value="custom" <?php echo ( $this->getValue( 'title_sep' ) === 'custom' ? 'selected' : '' ); ?>><?php $L->p( 'Custom' ); ?></option>
 				</select>
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#title_sep').val('|');$( '#custom_sep' ).val('');$( '#custom_sep_wrap' ).fadeOut( 250 );"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#title_sep').val('<?php echo $this->dbFields['title_sep']; ?>');$( '#custom_sep' ).val('');$( '#custom_sep_wrap' ).fadeOut( 250 );"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 		</div>

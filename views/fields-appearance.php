@@ -66,7 +66,7 @@ if ( admin_theme() ) {
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="horz_spacing_value"><?php echo ( $this->getValue( 'horz_spacing' ) ? $this->getValue( 'horz_spacing' ) : '2' ); ?></span><span id="horz_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#horz_spacing_value').text('2');$('#horz_spacing').val('2');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#horz_spacing_value').text('<?php echo $this->dbFields['horz_spacing']; ?>');$('#horz_spacing').val('<?php echo $this->dbFields['horz_spacing']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'General horizontal spacing between elements and areas.' ); ?></small>
 		</div>
@@ -78,7 +78,7 @@ if ( admin_theme() ) {
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="vert_spacing_value"><?php echo ( $this->getValue( 'vert_spacing' ) ? $this->getValue( 'vert_spacing' ) : '2' ); ?></span><span id="vert_spacing_units">rem</span></span>
 				<input type="range" class="form-control-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#vert_spacing_value').text('2');$('#vert_spacing').val('2');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#vert_spacing_value').text('<?php echo $this->dbFields['vert_spacing']; ?>');$('#vert_spacing').val('<?php echo $this->dbFields['vert_spacing']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted form-range-small"><?php $L->p( 'General vertical spacing between elements and areas.' ); ?></small>
 		</div>

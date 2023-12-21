@@ -7,20 +7,6 @@
  * @since      1.0.0
  */
 
-// Modal window background value.
-$modal_bg_default = $this->modal_bg_default();
-$modal_bg_color   = $modal_bg_default;
-if ( ! empty( $this->getValue( 'modal_bg_color' ) ) ) {
-	$modal_bg_color = $this->getValue( 'modal_bg_color' );
-}
-
-// Cover image text value.
-$cover_text_default = $this->cover_text_default();
-$cover_text_color   = $cover_text_default;
-if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
-	$cover_text_color = $this->getValue( 'cover_text_color' );
-}
-
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
 <fieldset>
@@ -51,8 +37,8 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<label class="form-label col-sm-2 col-form-label" for="modal_bg_color"><?php $L->p( 'Modal Background' ); ?></label>
 		<div class="col-sm-10">
 			<div class="row color-picker-wrap">
-				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $modal_bg_color; ?>" />
-				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $modal_bg_default; ?>" />
+				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $this->modal_bg_color(); ?>" />
+				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['modal_bg_color']; ?>" />
 				<span class="btn btn-secondary btn-md hide-if-no-js" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<p><small class="form-text text-muted"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
@@ -97,7 +83,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<label class="form-label col-sm-2 col-form-label" for="cover_overlay"><?php $L->p( 'Overlay Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
 			<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $this->cover_overlay(); ?>" />
-			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_overlay_default(); ?>" />
+			<input id="cover_overlay_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_overlay']; ?>" />
 			<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_overlay_default_button"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
@@ -107,7 +93,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
-				<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->cover_blend_default(); ?>" />
+				<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_blend']; ?>" />
 				<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
@@ -138,8 +124,8 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_text_color"><?php $L->p( 'Text Color' ); ?></label>
 		<div class="col-sm-10 row color-picker-wrap">
-			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $cover_text_color; ?>" />
-			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $cover_text_default; ?>" />
+			<input class="color-picker" id="cover_text_color" name="cover_text_color" value="<?php echo $this->cover_text_color(); ?>" />
+			<input id="cover_text_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_text_color']; ?>" />
 			<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_text_color_default"><?php $L->p( 'Default' ); ?></span>
 		</div>
 	</div>
@@ -191,7 +177,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_width').val('<?php echo $this->thumb_width_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_width').val('<?php echo $this->dbFields['thumb_width']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
 		</div>
@@ -202,7 +188,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_height').val('<?php echo $this->thumb_height_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_height').val('<?php echo $this->dbFields['thumb_height']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
 		</div>
@@ -213,7 +199,7 @@ if ( ! empty( $this->getValue( 'cover_text_color' ) ) ) {
 		<div class="col-sm-10">
 			<div class="field-has-buttons">
 				<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_quality').val('<?php echo $this->thumb_quality_default(); ?>');"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_quality').val('<?php echo $this->dbFields['thumb_quality']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text text-muted"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
 		</div>

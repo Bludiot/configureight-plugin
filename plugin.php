@@ -70,6 +70,7 @@ class configureight extends Plugin {
 			'site_slogan'           => true,
 			'logo_width_std'        => $this->logo_width_std_default(),
 			'logo_width_mob'        => $this->logo_width_mob_default(),
+			'logo_location'         => 'before',
 			'header_sticky'         => false,
 			'main_nav_pos'          => 'right',
 			'main_nav_icon'         => 'bars',
@@ -751,6 +752,11 @@ class configureight extends Plugin {
 	// @return integer
 	public function logo_width_mob_default() {
 		return 80;
+	}
+
+	// @return string
+	public function logo_location() {
+		return $this->getValue( 'logo_location' );
 	}
 
 	// @return boolean

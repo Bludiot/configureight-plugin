@@ -61,6 +61,7 @@ if ( $site->logo() ) {
 				$(this).removeClass( 'btn-danger' ).addClass( 'btn-light' ).attr( 'disabled', 'disabled' );
 				$( '#logo_upload_button' ).removeClass( 'btn-light' ).addClass( 'btn-primary' );
 				$( '#logo_upload_button_text' ).html( '<?php $L->p( 'Upload&nbsp;Image' ); ?>' );
+				$( '#logo_fields' ).fadeOut( 250 );
 				$( '#logo_preview_desktop' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
 				$( '#logo_preview_mobile' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
 			});
@@ -84,6 +85,7 @@ if ( $site->logo() ) {
 						$( '#remove_logo' ).removeClass( 'btn-light' ).addClass( 'btn-danger' ).removeAttr( 'disabled' );
 						$( '#logo_upload_button' ).removeClass( 'btn-primary' ).addClass( 'btn-light' );
 						$( '#logo_upload_button_text' ).html( data.filename );
+						$( '#logo_fields' ).fadeIn( 250 );
 						$( '#logo_preview_desktop' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Desktop logo preview' ); ?>' );
 						$( '#logo_preview_mobile' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Mobile logo preview' ); ?>' );
 					} else {
@@ -94,33 +96,49 @@ if ( $site->logo() ) {
 		</script>
 	</div>
 
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
-		<div class="col-sm-10">
-			<figure>
-				<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
-			</figure>
-			<div class="form-range-controls row">
-				<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo $this->getValue( 'logo_width_std' ); ?></span><span id="logo_width_std_units">px</span></span>
-				<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val());$('#logo_preview_desktop').css('width',$(this).val()+'px');" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_std_value').text('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_width_std').val('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_preview_desktop').css('width','<?php echo $this->dbFields['logo_width_std']; ?>');"><?php $L->p( 'Default' ); ?></span>
+	<div id="logo_fields" style="display: <?php echo ( $site->logo() ? 'block' : 'none' ); ?>;">
+		<div id="logo_width_std_wrap" class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
+			<div class="col-sm-10">
+				<figure>
+					<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
+				</figure>
+				<div class="form-range-controls row">
+					<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo $this->getValue( 'logo_width_std' ); ?></span><span id="logo_width_std_units">px</span></span>
+					<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val());$('#logo_preview_desktop').css('width',$(this).val()+'px');" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_std_value').text('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_width_std').val('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_preview_desktop').css('width','<?php echo $this->dbFields['logo_width_std']; ?>');"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 			</div>
-			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 		</div>
-	</div>
 
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
-		<div class="col-sm-10">
-			<figure>
-				<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
-			</figure>
-			<div class="form-range-controls row">
-				<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo $this->getValue( 'logo_width_mob' ); ?></span><span id="logo_width_mob_units">px</span></span>
-				<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val());$('#logo_preview_mobile').css('width',$(this).val()+'px');" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_mob_value').text('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_width_mob').val('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_preview_mobile').css('width','<?php echo $this->dbFields['logo_width_mob']; ?>');"><?php $L->p( 'Default' ); ?></span>
+		<div id="logo_width_mob_wrap" class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
+			<div class="col-sm-10">
+				<figure>
+					<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
+				</figure>
+				<div class="form-range-controls row">
+					<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo $this->getValue( 'logo_width_mob' ); ?></span><span id="logo_width_mob_units">px</span></span>
+					<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val());$('#logo_preview_mobile').css('width',$(this).val()+'px');" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_mob_value').text('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_width_mob').val('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_preview_mobile').css('width','<?php echo $this->dbFields['logo_width_mob']; ?>');"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 			</div>
-			<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="logo_location"><?php $L->p( 'Logo Placement' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="logo_location" name="logo_location">
+					<option value="before" <?php echo ( $this->getValue( 'logo_location' ) === 'before' ? 'selected' : '' ); ?>><?php $L->p( 'Before Text' ); ?></option>
+
+					<option value="above" <?php echo ( $this->getValue( 'logo_location' ) === 'above' ? 'selected' : '' ); ?>><?php $L->p( 'Above Text' ); ?></option>
+
+					<option value="below" <?php echo ( $this->getValue( 'logo_location' ) === 'below' ? 'selected' : '' ); ?>><?php $L->p( 'Below Text' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'Where to place the logo in the header branding section.' ); ?></small>
+			</div>
 		</div>
 	</div>
 

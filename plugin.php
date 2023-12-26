@@ -30,7 +30,8 @@ use function CFE_Plugin\{
 	admin_theme
 };
 use function CFE_Colors\{
-	define_color_scheme
+	define_color_scheme,
+	default_color_scheme
 };
 
 class configureight extends Plugin {
@@ -157,17 +158,17 @@ class configureight extends Plugin {
 			'color_text'            => '#333333',
 			'color_text_dark'       => '#eeeeee',
 			'color_one'             => '#0044aa',
-			'color_two'             => '#005ce7',
-			'color_three'           => '',
-			'color_four'            => '',
-			'color_five'            => '',
-			'color_six'             => '',
-			'color_one_dark'        => '',
-			'color_two_dark'        => '',
-			'color_three_dark'      => '',
-			'color_four_dark'       => '',
-			'color_five_dark'       => '',
-			'color_six_dark'        => '',
+			'color_two'             => '#0066cc',
+			'color_three'           => '#333333',
+			'color_four'            => '#555555',
+			'color_five'            => '#888888',
+			'color_six'             => '#cccccc',
+			'color_one_dark'        => '#ffffff',
+			'color_two_dark'        => '#eeeeee',
+			'color_three_dark'      => '#333333',
+			'color_four_dark'       => '#555555',
+			'color_five_dark'       => '#888888',
+			'color_six_dark'        => '#cccccc',
 			'font_scheme'           => 'default',
 			'admin_theme'           => 'css',
 			'custom_css'            => '',

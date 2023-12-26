@@ -21,7 +21,7 @@ use function CFE_Plugin\{
  * an associative RGB array.
  *
  * @param  string $color The color in hex format.
- * @param  boolean $opacity Whether to return the RGB color is opaque.
+ * @param  boolean $opacity Whether to return the RGB color as opaque.
  * @return string Returns the rgb(a) value.
  */
 function hex_to_rgb( $color, $opacity = false ) {
@@ -55,22 +55,81 @@ function hex_to_rgb( $color, $opacity = false ) {
 }
 
 /**
+ * Custom color value
+ *
+ * @since  1.0.0
+ * @param  string $color
+ * @return string
+ */
+function color( $color ) {
+	$value = 'color_' . $color;
+	return plugin()->getValue( $value );
+}
+
+/**
+ * Custom color scheme
+ *
+ * Array to be passed into the primary
+ * array of color schemes.
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array
+ */
+function custom_scheme() {
+
+	// Access global variables.
+	global $L;
+
+	$scheme = [
+		'custom' => [
+			'slug'   => 'custom',
+			'name'   => $L->get( 'Custom' ),
+			'thumbs' => [
+				color( 'one' ),
+				color( 'two' ),
+				color( 'three' ),
+				color( 'four' )
+			],
+			'light'  => [
+				'body'  => color( 'body' ),
+				'text'  => color( 'text' ),
+				'one'   => color( 'one' ),
+				'two'   => color( 'two' ),
+				'three' => color( 'three' ),
+				'four'  => color( 'four' ),
+				'five'  => color( 'five' ),
+				'six'   => color( 'six' )
+			],
+			'dark' => [
+				'body'  => color( 'body_dark' ),
+				'text'  => color( 'text_dark' ),
+				'one'   => color( 'one_dark' ),
+				'two'   => color( 'two_dark' ),
+				'three' => color( 'three_dark' ),
+				'four'  => color( 'four_dark' ),
+				'five'  => color( 'five_dark' ),
+				'six'   => color( 'six_dark' )
+			]
+		]
+	];
+	return $scheme;
+}
+
+/**
  * Color schemes
  *
  * @since  1.0.0
- * @param  mixed $args Arguments to be passed.
- * @param  array $defaults Default arguments.
  * @global object $L The Language class.
- * @return string Returns array.
+ * @return array Returns array of color schemes data.
  */
-function color_schemes( $args = null, $defaults = [] ) {
+function color_schemes() {
 
 	// Access global variables.
 	global $L;
 
 	// Built-in color schemes.
-	$defaults = [
-		'schemes' => [
+	$schemes = [
 			'default' => [
 				'slug'   => 'default',
 				'name'   => $L->get( 'Default' ),
@@ -166,17 +225,17 @@ function color_schemes( $args = null, $defaults = [] ) {
 				'name'   => $L->get( 'Brick' ),
 				'thumbs' => [
 					'#87200e',
-					'#242611',
+					'#ca2205',
 					'#f9f2ef',
-					''
+					'#242611'
 				],
 				'light' => [
 					'body'  => '#ffffff',
 					'text'  => '#333333',
 					'one'   => '#87200e',
-					'two'   => '#242611',
+					'two'   => '#ca2205',
 					'three' => '#f9f2ef',
-					'four'  => '',
+					'four'  => '#242611',
 					'five'  => '',
 					'six'   => ''
 				],
@@ -257,8 +316,8 @@ function color_schemes( $args = null, $defaults = [] ) {
 				'thumbs' => [
 					'#254d88',
 					'#467ac7',
-					'#f8fafd',
-					'#122544'
+					'#122544',
+					'#08101d'
 				],
 				'light' => [
 					'body'  => '#ffffff',
@@ -371,15 +430,11 @@ function color_schemes( $args = null, $defaults = [] ) {
 					'six'   => ''
 				]
 			]
-		]
 	];
 
-	// Maybe override defaults.
-	if ( is_array( $args ) && $args ) {
-		$schemes = array_merge( $defaults['schemes'], $args );
-	} else {
-		$schemes = $defaults;
-	}
+	// Merge custom scheme if selected.
+	$custom  = custom_scheme();
+	$schemes = array_merge( $schemes, $custom );
 	return $schemes;
 }
 
@@ -393,7 +448,7 @@ function color_schemes( $args = null, $defaults = [] ) {
  */
 function default_color_scheme() {
 	$colors = color_schemes();
-	return $colors['schemes']['default'];
+	return $colors['default'];
 }
 
 /**
@@ -419,7 +474,7 @@ function current_color_scheme() {
 	$name = null;
 
 	// Get all schemes.
-	foreach ( $schemes['schemes'] as $scheme => $option ) {
+	foreach ( $schemes as $scheme => $option ) {
 
 		// Filter out all but the selected option.
 		if ( $data == $option['slug'] ) {

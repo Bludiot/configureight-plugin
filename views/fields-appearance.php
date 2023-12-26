@@ -12,7 +12,8 @@ use function CFE_Plugin\{
 	admin_theme
 };
 use function CFE_Colors\{
-	color_schemes
+	color_schemes,
+	hex_to_rgb
 };
 
 // Color schemes.
@@ -80,7 +81,7 @@ if ( admin_theme() ) {
 		<label class="form-label col-sm-2 col-form-label" for="color_scheme"><?php $L->p( 'Color Scheme' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="color_scheme" name="color_scheme">
-				<?php foreach ( $colors['schemes'] as $color => $option ) {
+				<?php foreach ( $colors as $color => $option ) {
 					printf(
 						'<option value="%s" %s>%s</option>',
 						$option['slug'],
@@ -91,7 +92,7 @@ if ( admin_theme() ) {
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
 			<ul id="form-color-thumbs-list">
-			<?php foreach ( $colors['schemes'] as $color => $option ) {
+			<?php foreach ( $colors as $color => $option ) {
 				printf(
 					'<ul id="scheme_thumbs_%s" style="display: %s;">',
 					$option['slug'],
@@ -413,7 +414,7 @@ jQuery(document).ready( function($) {
 	$( '#color_scheme' ).on( 'change', function() {
 		var show = $(this).val();
 
-		<?php foreach ( $colors['schemes'] as $color => $option ) : ?>
+		<?php foreach ( $colors as $color => $option ) : ?>
 		if ( show == '<?php echo $option['slug']; ?>' ) {
 			$( '#scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
 		} else {

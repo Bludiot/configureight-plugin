@@ -29,6 +29,9 @@ use function CFE_Plugin\{
 	default_theme,
 	admin_theme
 };
+use function CFE_Colors\{
+	define_color_scheme
+};
 
 class configureight extends Plugin {
 
@@ -43,6 +46,7 @@ class configureight extends Plugin {
 
 		// Get plugin functions.
 		include_once( $this->phpPath() . '/includes/functions.php' );
+		include_once( $this->phpPath() . '/includes/colors.php' );
 	}
 
 	/**
@@ -156,10 +160,14 @@ class configureight extends Plugin {
 			'color_two'             => '#005ce7',
 			'color_three'           => '',
 			'color_four'            => '',
+			'color_five'            => '',
+			'color_six'             => '',
 			'color_one_dark'        => '',
 			'color_two_dark'        => '',
 			'color_three_dark'      => '',
 			'color_four_dark'       => '',
+			'color_five_dark'       => '',
+			'color_six_dark'        => '',
 			'font_scheme'           => 'default',
 			'admin_theme'           => 'css',
 			'custom_css'            => '',
@@ -187,6 +195,7 @@ class configureight extends Plugin {
 		// Array of custom hooks.
 		$this->customHooks = [
 			'meta_tags',
+			'color_scheme_vars',
 			'url_not_found',
 			'front_page'
 		];
@@ -527,6 +536,17 @@ class configureight extends Plugin {
 		$html .= title_tag();
 
 		return $html;
+	}
+
+	/**
+	 * Color scheme variables hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function color_scheme_vars() {
+		echo define_color_scheme();
 	}
 
 	/**
@@ -1280,6 +1300,27 @@ class configureight extends Plugin {
 		return $this->getValue( 'color_scheme' );
 	}
 
+	/**
+	 * Get color scheme
+	 *
+	 * Gets the data of the requested color scheme or
+	 * of the current color scheme option.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $scheme The name of the requested color scheme.
+	 * @return array
+	 */
+	public function get_color_scheme( $scheme = null ) {
+
+		$name = $this->color_scheme();
+		if ( $scheme ) {
+			$name = $scheme;
+		}
+
+		return $data;
+	}
+
 	// @return string
 	public function color_body() {
 		return $this->getValue( 'color_body' );
@@ -1318,6 +1359,46 @@ class configureight extends Plugin {
 	// @return string
 	public function color_four() {
 		return $this->getValue( 'color_four' );
+	}
+
+	// @return string
+	public function color_five() {
+		return $this->getValue( 'color_five' );
+	}
+
+	// @return string
+	public function color_six() {
+		return $this->getValue( 'color_six' );
+	}
+
+	// @return string
+	public function color_one_dark() {
+		return $this->getValue( 'color_one_dark' );
+	}
+
+	// @return string
+	public function color_two_dark() {
+		return $this->getValue( 'color_two_dark' );
+	}
+
+	// @return string
+	public function color_three_dark() {
+		return $this->getValue( 'color_three_dark' );
+	}
+
+	// @return string
+	public function color_four_dark() {
+		return $this->getValue( 'color_four_dark' );
+	}
+
+	// @return string
+	public function color_five_dark() {
+		return $this->getValue( 'color_five_dark' );
+	}
+
+	// @return string
+	public function color_six_dark() {
+		return $this->getValue( 'color_six_dark' );
 	}
 
 	// @return string

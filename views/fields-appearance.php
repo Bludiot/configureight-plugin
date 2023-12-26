@@ -11,26 +11,12 @@
 use function CFE_Plugin\{
 	admin_theme
 };
+use function CFE_Colors\{
+	color_schemes
+};
 
 // Color schemes.
-$base_colors = [
-	'default' => $L->get( 'Default' ),
-	'dark'    => $L->get( 'Dark' )
-];
-$more_colors = [
-	'apricot' => $L->get( 'Apricot' ),
-	'bronze'  => $L->get( 'Bronze' ),
-	'flat'    => $L->get( 'Flat UI' ),
-	'ocean'   => $L->get( 'Ocean' ),
-	'rose'    => $L->get( 'Rose' )
-];
-ksort( $more_colors );
-$scheme_colors = array_merge( $base_colors, $more_colors );
-
-$custom_colors = [
-	'custom' => $L->get( 'Custom' )
-];
-$colors = array_merge( $scheme_colors, $custom_colors );
+$colors = color_schemes();
 
 // Font schemes.
 $base_fonts = [
@@ -94,16 +80,35 @@ if ( admin_theme() ) {
 		<label class="form-label col-sm-2 col-form-label" for="color_scheme"><?php $L->p( 'Color Scheme' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="color_scheme" name="color_scheme">
-				<?php foreach ( $colors as $option => $name ) {
+				<?php foreach ( $colors['schemes'] as $color => $option ) {
 					printf(
 						'<option value="%s" %s>%s</option>',
-						$option,
-						( $this->getValue( 'color_scheme' ) === $option ? 'selected' : '' ),
-						$name
+						$option['slug'],
+						( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'selected' : '' ),
+						$option['name']
 					);
 				} ?>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
+			<ul id="form-color-thumbs-list">
+			<?php foreach ( $colors['schemes'] as $color => $option ) {
+				printf(
+					'<ul id="scheme_thumbs_%s" style="display: %s;">',
+					$option['slug'],
+					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' )
+				);
+				foreach ( $option['thumbs'] as $thumbs => $thumb ) {
+					if ( ! empty( $thumb ) ) {
+						printf(
+							'<li style="background-color: %s"><span class="screen-reader-text">%s</span></li>',
+							$thumb,
+							$thumb
+						);
+					}
+				}
+				echo '</ul>';
+			} ?>
+			</ul>
 		</div>
 	</div>
 
@@ -160,7 +165,7 @@ if ( admin_theme() ) {
 							<input id="color_one_default" class="screen-reader-text" type="hidden" value="#0044aa" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--one</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -172,7 +177,7 @@ if ( admin_theme() ) {
 							<input id="color_two_default" class="screen-reader-text" type="hidden" value="#0044aa" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--two</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -184,7 +189,7 @@ if ( admin_theme() ) {
 							<input id="color_three_default" class="screen-reader-text" type="hidden" value="#005ce7" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--three</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -196,7 +201,31 @@ if ( admin_theme() ) {
 							<input id="color_four_default" class="screen-reader-text" type="hidden" value="#005ce7" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--four</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--four</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_five"><?php $L->p( 'Color Four' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_five" name="color_five" value="<?php echo $this->getValue( 'color_five' ); ?>" />
+							<input id="color_five_default" class="screen-reader-text" type="hidden" value="#005ce7" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--five</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_six"><?php $L->p( 'Color Four' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_six" name="color_six" value="<?php echo $this->getValue( 'color_six' ); ?>" />
+							<input id="color_six_default" class="screen-reader-text" type="hidden" value="#005ce7" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--six</code>' ); ?></small></p>
 					</div>
 				</div>
 			</div>
@@ -237,7 +266,7 @@ if ( admin_theme() ) {
 							<input id="color_one_dark_default" class="screen-reader-text" type="hidden" value="#eeeeee" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--one--dark</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--one--dark</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -249,7 +278,7 @@ if ( admin_theme() ) {
 							<input id="color_two_dark_default" class="screen-reader-text" type="hidden" value="#555555" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--two--dark</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--two--dark</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -261,7 +290,7 @@ if ( admin_theme() ) {
 							<input id="color_three_dark_default" class="screen-reader-text" type="hidden" value="#888888" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--three--dark</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--three--dark</code>' ); ?></small></p>
 					</div>
 				</div>
 
@@ -273,7 +302,31 @@ if ( admin_theme() ) {
 							<input id="color_four_dark_default" class="screen-reader-text" type="hidden" value="#888888" />
 							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
-						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-color--four--dark</code>' ); ?></small></p>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--four--dark</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_five_dark"><?php $L->p( 'Dark Color Four' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_five_dark" name="color_five_dark" value="<?php echo $this->getValue( 'color_five_dark' ); ?>" />
+							<input id="color_five_dark_default" class="screen-reader-text" type="hidden" value="#888888" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--five--dark</code>' ); ?></small></p>
+					</div>
+				</div>
+
+				<div class="form-field form-group row">
+					<label class="form-label col-sm-2 col-form-label" for="color_six_dark"><?php $L->p( 'Dark Color Four' ); ?></label>
+					<div class="col-sm-10">
+						<div class="row color-picker-wrap">
+							<input class="color-picker custom-color" id="color_six_dark" name="color_six_dark" value="<?php echo $this->getValue( 'color_six_dark' ); ?>" />
+							<input id="color_six_dark_default" class="screen-reader-text" type="hidden" value="#888888" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
+						</div>
+						<p><small class="form-text text-muted"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--six--dark</code>' ); ?></small></p>
 					</div>
 				</div>
 			</div>
@@ -354,3 +407,19 @@ if ( admin_theme() ) {
 	</div>
 	<?php endif; ?>
 </fieldset>
+
+<script>
+jQuery(document).ready( function($) {
+	$( '#color_scheme' ).on( 'change', function() {
+		var show = $(this).val();
+
+		<?php foreach ( $colors['schemes'] as $color => $option ) : ?>
+		if ( show == '<?php echo $option['slug']; ?>' ) {
+			$( '#scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
+		} else {
+			$( '#scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+		}
+		<?php endforeach; ?>
+	});
+});
+</script>

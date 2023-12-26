@@ -4026,7 +4026,7 @@ select[disabled] {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--cfe-form-element--border);
 }
 .form-range-value.px-range-value {
   min-width: 7ch;
@@ -4065,6 +4065,29 @@ p + .multi-check-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 0.25rem;
+}
+
+#form-color-thumbs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#form-color-thumbs-list ul {
+  list-style: none;
+  margin: 0.5em 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+#form-color-thumbs-list ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: var(--cfe-form-element--border);
+  border-radius: 50%;
 }
 
 .plugin-form label {

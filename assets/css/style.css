@@ -5638,6 +5638,7 @@ img.profilePicture {
   display: block;
   margin: 0;
   padding: 0.5rem 1rem;
+  font-family: var(--cfe-tabs--nav-link--font-family);
   font-size: var(--cfe-tabs--nav-link--font-size);
   font-weight: var(--cfe-tabs--nav-link--font-weight, 600);
   -webkit-text-decoration: var(--cfe-tabs--nav-link--text-decoration, none);

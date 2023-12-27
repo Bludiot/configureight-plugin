@@ -24,6 +24,7 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 
 	// General.
 	--cfe-font-stack: #{$inter_stack};
+	--cfe-font-size: 0.9375rem;
 	--cfe-site-title--font-size: 2rem;
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 800;
@@ -32,22 +33,9 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 	--cfe-loader--text--font-size: 1.5rem;
 	--cfe-loader--text--font-weight: 600;
 
-	// Header.
-	--cfe-site-title--font-size: 1.75rem;
-	--cfe-site-title--font-weight: 800;
-	--cfe-site-title--letter-spacing: normal;
-	--cfe-cover--description--font-size: 1.325rem;
-
 	// Navigation.
-	--cfe-site-nav--item--font-weight: 550;
 
-	// Content.
-	--cfe-page-header--heading--font-size: 2rem;
-	--cfe-page-summary--page-header--heading--font-size: 1.75rem;
-	--cfe-page-header--heading--link--font-weight: 800;
-	--cfe-pagination-list--numeric--link--font-weight: 550;
-	--cfe-pagination-list--numeric--link--active--font-weight: 750;
-
-	// Aside.
-	--cfe-sidebar--link--font-weight: 525;
+	// Tabbed content.
+	--cfe-tabs--nav-link--font-size: 0.9375rem;
+	--cfe-tabs--nav-link--font-weight: 525;
 }

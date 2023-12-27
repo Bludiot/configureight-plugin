@@ -45,18 +45,37 @@ use function CFE_Fonts\{
 class configureight extends Plugin {
 
 	/**
-	 * Prepare plugin
+	 * Constructor method
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return self
+	 */
+	public function __construct() {
+
+		// Run parent constructor.
+		parent :: __construct();
+
+		// Include functionality.
+		$this->get_files();
+	}
+
+	/**
+	 * Include functionality
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
-	public function prepare() {
+	public function get_files() {
+
+		// Plugin path.
+		$path = PATH_PLUGINS . __CLASS__ . DS;
 
 		// Get plugin functions.
-		require_once( $this->phpPath() . '/includes/functions.php' );
-		require_once( $this->phpPath() . '/includes/fonts.php' );
-		require_once( $this->phpPath() . '/includes/colors.php' );
+		require_once( $path . 'includes/functions.php' );
+		require_once( $path . 'includes/fonts.php' );
+		require_once( $path . 'includes/colors.php' );
 	}
 
 	/**

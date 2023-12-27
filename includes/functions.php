@@ -31,6 +31,25 @@ function plugin() {
 }
 
 /**
+ * Asset file suffix
+ *
+ * Gets minified file if not in debug mode.
+ * Third party (e.g. jQuery) may be exempted.
+ *
+ * @since  1.0.0
+ * @return string Returns an empty string or
+ *                `.min` string.
+ */
+function asset_min() {
+
+	// Get non-minified file if in debug mode.
+	if ( defined( 'DEBUG_MODE' ) && DEBUG_MODE ) {
+		return '';
+	}
+	return '.min';
+}
+
+/**
  * Plugin domain
  *
  * @since  1.0.0
@@ -56,6 +75,35 @@ function domain( $dir = '/' ) {
 		$dir = '/assets/fonts/';
 	}
 	return DOMAIN_PLUGINS . plugin()->className() . $dir;
+}
+
+function css( $files, $base = '' ) {
+
+	if ( ! is_array( $files ) ) {
+		$files = [ $files ];
+	}
+	$base = domain();
+
+	$links = '';
+	foreach ( $files as $file ) {
+		$links .= '<link rel="stylesheet" type="text/css" href="' . $base . $file . '?version=' . BLUDIT_VERSION . '">' . PHP_EOL;
+	}
+	return $links;
+}
+
+function js( $files, $base = '', $attributes = '' ) {
+
+	if ( ! is_array( $files ) ) {
+		$files = [ $files ];
+	}
+	$base = domain();
+
+	$scripts = '';
+	foreach ( $files as $file ) {
+		$scripts .= '<script ' . $attributes . ' src="' . $base . $file . '?version=' . BLUDIT_VERSION . '"></script>' . PHP_EOL;
+	}
+
+	return $scripts;
 }
 
 /**

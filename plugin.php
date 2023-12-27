@@ -14,7 +14,11 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	helper,
 	domain,
+	css,
+	js,
+	asset_min,
 	is_rtl,
 	title_tag,
 	options_list,
@@ -678,6 +682,7 @@ class configureight extends Plugin {
 	 * Checks if the site is in debug mode.
 	 *
 	 * @since  1.0.0
+	 * @access public
 	 * @return boolean Returns true if in debug mode.
 	 */
 	public function debug_mode() {
@@ -686,6 +691,40 @@ class configureight extends Plugin {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Load scheme stylesheet
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns a link tag for the `<head>`.
+	 */
+	public function scheme_stylesheet( $type = '' ) {
+
+		// Stop if no scheme type.
+		if ( empty( $type ) ) {
+			return null;
+		}
+
+		// Get options from the theme plugin.
+		$colors = $this->color_scheme();
+		$fonts  = $this->font_scheme();
+		$html   = '';
+
+		// Get minified if not in debug mode.
+		$suffix = asset_min();
+
+		// Color scheme stylesheet.
+		if ( 'colors' === $type ) {
+			$html = css( "assets/css/schemes/colors/{$colors}/style{$suffix}.css" );
+		}
+
+		// Typography scheme stylesheet.
+		if ( 'fonts' == $type && 'default' != $fonts ) {
+			$html .= css( "assets/css/schemes/fonts/{$fonts}/style{$suffix}.css" );
+		}
+		return $html;
 	}
 
 	/**

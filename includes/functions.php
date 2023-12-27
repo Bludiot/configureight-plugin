@@ -31,6 +31,34 @@ function plugin() {
 }
 
 /**
+ * Plugin domain
+ *
+ * @since  1.0.0
+ * @param  string $dir The URL directory.
+ * @return string Returns the URL.
+ */
+function domain( $dir = '/' ) {
+
+	// Prepared directory variables.
+	if ( 'css' === $dir ) {
+		$dir = '/assets/css/';
+	} elseif ( 'schemes' === $dir ) {
+		$dir = '/assets/css/schemes/';
+	} elseif ( 'css_colors' === $dir ) {
+		$dir = '/assets/css/schemes/colors/';
+	} elseif ( 'css_fonts' === $dir ) {
+		$dir = '/assets/css/schemes/fonts/';
+	} elseif ( 'js' === $dir ) {
+		$dir = '/assets/js/';
+	} elseif ( 'images' === $dir ) {
+		$dir = '/assets/images/';
+	} elseif ( 'fonts' === $dir ) {
+		$dir = '/assets/fonts/';
+	}
+	return DOMAIN_PLUGINS . plugin()->className() . $dir;
+}
+
+/**
  * Is RTL language
  *
  * @since  1.0.0

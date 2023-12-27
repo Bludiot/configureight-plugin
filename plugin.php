@@ -199,7 +199,8 @@ class configureight extends Plugin {
 			'meta_tags',
 			'color_scheme_vars',
 			'url_not_found',
-			'front_page'
+			'front_page',
+			'comment_form'
 		];
 
 		if ( ! $this->installed() ) {

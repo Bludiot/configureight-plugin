@@ -280,6 +280,66 @@ function color_schemes() {
 					'six'   => ''
 				]
 			],
+			'citrus' => [
+				'slug'   => 'citrus',
+				'name'   => $L->get( 'Citrus' ),
+				'thumbs' => [
+					'#87200e',
+					'#ca2205',
+					'#f9f2ef',
+					'#242611'
+				],
+				'light' => [
+					'body'  => '#ffffff',
+					'text'  => '#333333',
+					'one'   => '#87200e',
+					'two'   => '#ca2205',
+					'three' => '#f9f2ef',
+					'four'  => '#242611',
+					'five'  => '',
+					'six'   => ''
+				],
+				'dark' => [
+					'body'  => '',
+					'text'  => '',
+					'one'   => '',
+					'two'   => '',
+					'three' => '',
+					'four'  => '',
+					'five'  => '',
+					'six'   => ''
+				]
+			],
+			'deco' => [
+				'slug'   => 'deco',
+				'name'   => $L->get( 'Deco' ),
+				'thumbs' => [
+					'#87200e',
+					'#ca2205',
+					'#f9f2ef',
+					'#242611'
+				],
+				'light' => [
+					'body'  => '#ffffff',
+					'text'  => '#333333',
+					'one'   => '#87200e',
+					'two'   => '#ca2205',
+					'three' => '#f9f2ef',
+					'four'  => '#242611',
+					'five'  => '',
+					'six'   => ''
+				],
+				'dark' => [
+					'body'  => '',
+					'text'  => '',
+					'one'   => '',
+					'two'   => '',
+					'three' => '',
+					'four'  => '',
+					'five'  => '',
+					'six'   => ''
+				]
+			],
 			'forest' => [
 				'slug'   => 'forest',
 				'name'   => $L->get( 'Forest' ),
@@ -429,7 +489,37 @@ function color_schemes() {
 					'five'  => '',
 					'six'   => ''
 				]
-			]
+			],
+			'wood' => [
+				'slug'   => 'wood',
+				'name'   => $L->get( 'Wood' ),
+				'thumbs' => [
+					'#87200e',
+					'#ca2205',
+					'#f9f2ef',
+					'#242611'
+				],
+				'light' => [
+					'body'  => '#ffffff',
+					'text'  => '#333333',
+					'one'   => '#87200e',
+					'two'   => '#ca2205',
+					'three' => '#f9f2ef',
+					'four'  => '#242611',
+					'five'  => '',
+					'six'   => ''
+				],
+				'dark' => [
+					'body'  => '',
+					'text'  => '',
+					'one'   => '',
+					'two'   => '',
+					'three' => '',
+					'four'  => '',
+					'five'  => '',
+					'six'   => ''
+				]
+			],
 	];
 
 	// Merge custom scheme if selected.

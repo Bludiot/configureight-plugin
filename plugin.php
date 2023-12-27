@@ -408,6 +408,10 @@ class configureight extends Plugin {
 		$assets .= '</style>';
 		endif;
 
+		// Scheme stylesheets.
+		$assets .= $this->scheme_stylesheet( 'colors', 'admin' );
+		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
+
 		return $assets;
 	}
 
@@ -700,7 +704,7 @@ class configureight extends Plugin {
 	 * @access public
 	 * @return string Returns a link tag for the `<head>`.
 	 */
-	public function scheme_stylesheet( $type = '' ) {
+	public function scheme_stylesheet( $type = '', $filename = 'style' ) {
 
 		// Stop if no scheme type.
 		if ( empty( $type ) ) {
@@ -717,12 +721,12 @@ class configureight extends Plugin {
 
 		// Color scheme stylesheet.
 		if ( 'colors' === $type ) {
-			$html = css( "assets/css/schemes/colors/{$colors}/style{$suffix}.css" );
+			$html = css( "assets/css/schemes/colors/{$colors}/{$filename}{$suffix}.css" );
 		}
 
 		// Typography scheme stylesheet.
 		if ( 'fonts' == $type && 'default' != $fonts ) {
-			$html .= css( "assets/css/schemes/fonts/{$fonts}/style{$suffix}.css" );
+			$html .= css( "assets/css/schemes/fonts/{$fonts}/{$filename}{$suffix}.css" );
 		}
 		return $html;
 	}

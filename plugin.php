@@ -14,6 +14,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	domain,
 	is_rtl,
 	title_tag,
 	options_list,
@@ -32,6 +33,9 @@ use function CFE_Plugin\{
 use function CFE_Colors\{
 	define_color_scheme,
 	default_color_scheme
+};
+use function CFE_Fonts\{
+	load_font_files
 };
 
 class configureight extends Plugin {
@@ -1407,6 +1411,11 @@ class configureight extends Plugin {
 	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
+	}
+
+	// @return string
+	public function load_font_files() {
+		return load_font_files();
 	}
 
 	// @return boolean

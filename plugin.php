@@ -46,8 +46,9 @@ class configureight extends Plugin {
 	public function prepare() {
 
 		// Get plugin functions.
-		include_once( $this->phpPath() . '/includes/functions.php' );
-		include_once( $this->phpPath() . '/includes/colors.php' );
+		require_once( $this->phpPath() . '/includes/functions.php' );
+		require_once( $this->phpPath() . '/includes/fonts.php' );
+		require_once( $this->phpPath() . '/includes/colors.php' );
 	}
 
 	/**

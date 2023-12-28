@@ -83,7 +83,8 @@ if ( admin_theme() ) {
 			<select class="form-select" id="color_scheme" name="color_scheme">
 				<?php
 
-				// Sort schemes by category.
+				// Sort schemes alphabetically then by category.
+				asort( $colors );
 				usort( $colors, function( $one_thing, $another ) {
 					return strcmp( $one_thing['category'], $another['category'] );
 				} );

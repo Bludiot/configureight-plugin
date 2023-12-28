@@ -130,564 +130,776 @@ function color_schemes() {
 
 	// Built-in color schemes.
 	$schemes = [
-			'default' => [
-				'slug'     => 'default',
-				'name'     => $L->get( 'Default' ),
-				'category' => 'basic',
-				'thumbs'   => [
-					'#0044aa',
-					'#0066cc',
-					'#555555',
-					'#888888'
-				],
-				'light'  => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#0044aa',
-					'two'   => '#0066cc',
-					'three' => '#333333',
-					'four'  => '#555555',
-					'five'  => '#888888',
-					'six'   => '#cccccc'
-				],
-				'dark' => [
-					'body'  => '#1e1e1e',
-					'text'  => '#eeeeee',
-					'one'   => '#ffffff',
-					'two'   => '#eeeeee',
-					'three' => '#333333',
-					'four'  => '#555555',
-					'five'  => '#888888',
-					'six'   => '#cccccc'
-				]
+		'default' => [
+			'slug'     => 'default',
+			'name'     => $L->get( 'Default' ),
+			'category' => 'basic',
+			'thumbs'   => [
+				'#0044aa',
+				'#0066cc',
+				'#333333',
+				'#555555',
+				'#888888',
+				'#cccccc'
+			],
+			'light'  => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#0044aa',
+				'two'   => '#0066cc',
+				'three' => '#333333',
+				'four'  => '#555555',
+				'five'  => '#888888',
+				'six'   => '#cccccc'
 			],
 			'dark' => [
-				'slug'     => 'dark',
-				'name'     => $L->get( 'Dark' ),
-				'category' => 'basic',
-				'thumbs'   => [
-					'#1e1e1e',
-					'#333333',
-					'#555555',
-					'#888888'
-				],
-				'light' => [
-					'body'  => '#1e1e1e',
-					'text'  => '#eeeeee',
-					'one'   => '#ffffff',
-					'two'   => '#eeeeee',
-					'three' => '#333333',
-					'four'  => '#555555',
-					'five'  => '#888888',
-					'six'   => '#cccccc'
-				],
-				'dark' => [
-					'body'  => '#1e1e1e',
-					'text'  => '#eeeeee',
-					'one'   => '#ffffff',
-					'two'   => '#eeeeee',
-					'three' => '#333333',
-					'four'  => '#555555',
-					'five'  => '#888888',
-					'six'   => '#cccccc'
-				]
+				'body'  => '#1e1e1e',
+				'text'  => '#eeeeee',
+				'one'   => '#ffffff',
+				'two'   => '#eeeeee',
+				'three' => '#333333',
+				'four'  => '#555555',
+				'five'  => '#888888',
+				'six'   => '#cccccc'
+			]
+		],
+		'dark' => [
+			'slug'     => 'dark',
+			'name'     => $L->get( 'Dark' ),
+			'category' => 'basic',
+			'thumbs'   => [
+				'#1e1e1e',
+				'#333333',
+				'#555555',
+				'#888888',
+				'#cccccc',
+				'#eeeeee'
 			],
-			'copper' => [
-				'slug'     => 'copper',
-				'name'     => $L->get( 'Copper' ),
-				'category' => 'metallic',
-				'thumbs'   => [
-					'#c76919',
-					'#f37e1a',
-					'#e6211c',
-					'#122538'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#c76919',
-					'two'   => '#f37e1a',
-					'three' => '#122538',
-					'four'  => '#cfd2d4',
-					'five'  => '#e6211c',
-					'six'   => '#f64117'
-				],
-				'dark' => [
-					'body'  => '#051b21',
-					'text'  => '#eeeeee',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#1e1e1e',
+				'text'  => '#eeeeee',
+				'one'   => '#ffffff',
+				'two'   => '#eeeeee',
+				'three' => '#333333',
+				'four'  => '#555555',
+				'five'  => '#888888',
+				'six'   => '#cccccc'
 			],
-			'brick' => [
-				'slug'     => 'brick',
-				'name'     => $L->get( 'Brick' ),
-				'category' => 'default',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '#1e1e1e',
+				'text'  => '#eeeeee',
+				'one'   => '#ffffff',
+				'two'   => '#eeeeee',
+				'three' => '#333333',
+				'four'  => '#555555',
+				'five'  => '#888888',
+				'six'   => '#cccccc'
+			]
+		],
+
+		// Design.
+		'club' => [
+			'slug'     => 'club',
+			'name'     => $L->get( '1930s Club' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#2ea65e',
+				'#4dce81',
+				'#f37709',
+				'#ff9f39',
+				'#f83d5c',
+				'#fa8072'
 			],
-			'bronze' => [
-				'slug'     => 'bronze',
-				'name'     => $L->get( 'Bronze' ),
-				'category' => 'metallic',
-				'thumbs'   => [
-					'#a88548',
-					'#c19b57',
-					'#cfd2d4',
-					'#122538'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#a88548',
-					'two'   => '#c19b57',
-					'three' => '#122538',
-					'four'  => '#cfd2d4',
-					'five'  => '#e6211c',
-					'six'   => '#f64117'
-				],
-				'dark' => [
-					'body'  => '#051b21',
-					'text'  => '#eeeeee',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#2ea65e',
+				'two'   => '#4dce81',
+				'three' => '#f37709',
+				'four'  => '#ff9f39',
+				'five'  => '#f83d5c',
+				'six'   => '#fa8072'
 			],
-			'citrus' => [
-				'slug'     => 'citrus',
-				'name'     => $L->get( 'Citrus' ),
-				'category' => 'nature',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'deco' => [
+			'slug'     => 'deco',
+			'name'     => $L->get( '1940s Hotel' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#1d683b',
+				'#2da45d',
+				'#937e28',
+				'#c8ab37',
+				'#8a2b26',
+				'#c32323'
 			],
-			'hotel' => [
-				'slug'     => 'hotel',
-				'name'     => $L->get( '1940s Hotel' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#1d683b',
+				'two'   => '#2da45d',
+				'three' => '#937e28',
+				'four'  => '#c8ab37',
+				'five'  => '#8a2b26',
+				'six'   => '#c32323'
 			],
-			'diner' => [
-				'slug'     => 'diner',
-				'name'     => $L->get( '1950s Diner' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'diner' => [
+			'slug'     => 'diner',
+			'name'     => $L->get( '1950s Diner' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#c90a00',
+				'#ff0000',
+				'#00a1c9',
+				'#4cc8e6',
+				'#ff126f',
+				'#ff6f94'
 			],
-			'dress' => [
-				'slug'     => 'dress',
-				'name'     => $L->get( '1960s Dress' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#c90a00',
+				'two'   => '#ff0000',
+				'three' => '#00a1c9',
+				'four'  => '#4cc8e6',
+				'five'  => '#ff126f',
+				'six'   => '#ff6f94'
 			],
-			'kitchen' => [
-				'slug'     => 'kitchen',
-				'name'     => $L->get( '1970s Kitchen' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'dress' => [
+			'slug'     => 'dress',
+			'name'     => $L->get( '1960s Dress' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#0f3571',
+				'#004fc6',
+				'#44aa00',
+				'#4eff00',
+				'#ff1d76',
+				'#ff5599'
 			],
-			'video' => [
-				'slug'     => 'video',
-				'name'     => $L->get( '1980s Video' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#0f3571',
+				'two'   => '#004fc6',
+				'three' => '#44aa00',
+				'four'  => '#4eff00',
+				'five'  => '#ff1d76',
+				'six'   => '#ff5599'
 			],
-			'wedding' => [
-				'slug'     => 'wedding',
-				'name'     => $L->get( '1990s Wedding' ),
-				'category' => 'design',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'kitchen' => [
+			'slug'     => 'kitchen',
+			'name'     => $L->get( '1970s Kitchen' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#84200f',
+				'#b02b14',
+				'#df7b0b',
+				'#ffb400',
+				'#677d08',
+				'#93ad00'
 			],
-			'forest' => [
-				'slug'     => 'forest',
-				'name'     => $L->get( 'Forest' ),
-				'category' => 'nature',
-				'thumbs'   => [
-					'#165144',
-					'#01332e',
-					'',
-					''
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#165144',
-					'two'   => '#01332e',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#84200f',
+				'two'   => '#b02b14',
+				'three' => '#df7b0b',
+				'four'  => '#ffb400',
+				'five'  => '#677d08',
+				'six'   => '#93ad00'
 			],
-			'ocean' => [
-				'slug'     => 'ocean',
-				'name'     => $L->get( 'Ocean' ),
-				'category' => 'nature',
-				'thumbs'   => [
-					'#254d88',
-					'#467ac7',
-					'#122544',
-					'#08101d'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#254d88',
-					'two'   => '#467ac7',
-					'three' => '#122544',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '#08101d',
-					'text'  => '#f8fafd',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'video' => [
+			'slug'     => 'video',
+			'name'     => $L->get( '1980s Video' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#d40055',
+				'#ff297d',
+				'#750093',
+				'#a900d2',
+				'#0eab8c',
+				'#00e0b4'
 			],
-			'pewter' => [
-				'slug'     => 'pewter',
-				'name'     => $L->get( 'Pewter' ),
-				'category' => 'metallic',
-				'thumbs'   => [
-					'#9d9fa3',
-					'#cacbce',
-					'#e6211c',
-					'#122538'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#9d9fa3',
-					'two'   => '#cacbce',
-					'three' => '#122538',
-					'four'  => '#cfd2d4',
-					'five'  => '#e6211c',
-					'six'   => '#f64117'
-				],
-				'dark' => [
-					'body'  => '#051b21',
-					'text'  => '#eeeeee',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#d40055',
+				'two'   => '#ff297d',
+				'three' => '#750093',
+				'four'  => '#a900d2',
+				'five'  => '#0eab8c',
+				'six'   => '#00e0b4'
 			],
-			'rose' => [
-				'slug'     => 'rose',
-				'name'     => $L->get( 'Rose' ),
-				'category' => 'nature',
-				'thumbs'   => [
-					'#f5487f',
-					'#f879a1',
-					'#401225',
-					'#1b0209'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#f5487f',
-					'two'   => '#f879a1',
-					'three' => '#401225',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '#1b0209',
-					'text'  => '#f3f3f3',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'wedding' => [
+			'slug'     => 'wedding',
+			'name'     => $L->get( '1990s Wedding' ),
+			'category' => 'design',
+			'thumbs'   => [
+				'#502d16',
+				'#a05a2c',
+				'#0081a1',
+				'#50b0c9',
+				'#f93c5a',
+				'#ff8080'
 			],
-			'violet' => [
-				'slug'     => 'violet',
-				'name'     => $L->get( 'Violet' ),
-				'category' => 'nature',
-				'thumbs'   => [
-					'#4d0859',
-					'#890e9f',
-					'',
-					''
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#4d0859',
-					'two'   => '#890e9f',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#502d16',
+				'two'   => '#a05a2c',
+				'three' => '#0081a1',
+				'four'  => '#50b0c9',
+				'five'  => '#f93c5a',
+				'six'   => '#ff8080'
 			],
-			'wood' => [
-				'slug'     => 'wood',
-				'name'     => $L->get( 'Wood' ),
-				'category' => 'default',
-				'thumbs'   => [
-					'#87200e',
-					'#ca2205',
-					'#f9f2ef',
-					'#242611'
-				],
-				'light' => [
-					'body'  => '#ffffff',
-					'text'  => '#333333',
-					'one'   => '#87200e',
-					'two'   => '#ca2205',
-					'three' => '#f9f2ef',
-					'four'  => '#242611',
-					'five'  => '',
-					'six'   => ''
-				],
-				'dark' => [
-					'body'  => '',
-					'text'  => '',
-					'one'   => '',
-					'two'   => '',
-					'three' => '',
-					'four'  => '',
-					'five'  => '',
-					'six'   => ''
-				]
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+
+		// Materials.
+		'brick' => [
+			'slug'     => 'brick',
+			'name'     => $L->get( 'Brick' ),
+			'category' => 'materials',
+			'thumbs'   => [
+				'#87200e',
+				'#ca2205',
+				'#f9f2ef',
+				'#242611'
 			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#87200e',
+				'two'   => '#ca2205',
+				'three' => '#f9f2ef',
+				'four'  => '#242611',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'concrete' => [
+			'slug'     => 'concrete',
+			'name'     => $L->get( 'Concrete' ),
+			'category' => 'materials',
+			'thumbs'   => [
+				'#87200e',
+				'#ca2205',
+				'#f9f2ef',
+				'#242611'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#87200e',
+				'two'   => '#ca2205',
+				'three' => '#f9f2ef',
+				'four'  => '#242611',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'wood' => [
+			'slug'     => 'wood',
+			'name'     => $L->get( 'Wood' ),
+			'category' => 'materials',
+			'thumbs'   => [
+				'#87200e',
+				'#ca2205',
+				'#f9f2ef',
+				'#242611'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#87200e',
+				'two'   => '#ca2205',
+				'three' => '#f9f2ef',
+				'four'  => '#242611',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+
+		// Metallic.
+		'bronze' => [
+			'slug'     => 'bronze',
+			'name'     => $L->get( 'Bronze' ),
+			'category' => 'metallic',
+			'thumbs'   => [
+				'#a88548',
+				'#c19b57',
+				'#cfd2d4',
+				'#122538'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#a88548',
+				'two'   => '#c19b57',
+				'three' => '#122538',
+				'four'  => '#cfd2d4',
+				'five'  => '#e6211c',
+				'six'   => '#f64117'
+			],
+			'dark' => [
+				'body'  => '#051b21',
+				'text'  => '#eeeeee',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'copper' => [
+			'slug'     => 'copper',
+			'name'     => $L->get( 'Copper' ),
+			'category' => 'metallic',
+			'thumbs'   => [
+				'#c76919',
+				'#f37e1a',
+				'#e6211c',
+				'#122538'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#c76919',
+				'two'   => '#f37e1a',
+				'three' => '#122538',
+				'four'  => '#cfd2d4',
+				'five'  => '#e6211c',
+				'six'   => '#f64117'
+			],
+			'dark' => [
+				'body'  => '#051b21',
+				'text'  => '#eeeeee',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'gold' => [
+			'slug'     => 'gold',
+			'name'     => $L->get( 'Gold' ),
+			'category' => 'metallic',
+			'thumbs'   => [
+				'#c76919',
+				'#f37e1a',
+				'#e6211c',
+				'#122538'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#c76919',
+				'two'   => '#f37e1a',
+				'three' => '#122538',
+				'four'  => '#cfd2d4',
+				'five'  => '#e6211c',
+				'six'   => '#f64117'
+			],
+			'dark' => [
+				'body'  => '#051b21',
+				'text'  => '#eeeeee',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'pewter' => [
+			'slug'     => 'pewter',
+			'name'     => $L->get( 'Pewter' ),
+			'category' => 'metallic',
+			'thumbs'   => [
+				'#9d9fa3',
+				'#cacbce',
+				'#e6211c',
+				'#122538'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#9d9fa3',
+				'two'   => '#cacbce',
+				'three' => '#122538',
+				'four'  => '#cfd2d4',
+				'five'  => '#e6211c',
+				'six'   => '#f64117'
+			],
+			'dark' => [
+				'body'  => '#051b21',
+				'text'  => '#eeeeee',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+
+		// Nature.
+		'citrus' => [
+			'slug'     => 'citrus',
+			'name'     => $L->get( 'Citrus' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#87200e',
+				'#ca2205',
+				'#f9f2ef',
+				'#242611'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#87200e',
+				'two'   => '#ca2205',
+				'three' => '#f9f2ef',
+				'four'  => '#242611',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'forest' => [
+			'slug'     => 'forest',
+			'name'     => $L->get( 'Forest' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#165144',
+				'#01332e',
+				'',
+				''
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#165144',
+				'two'   => '#01332e',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'ocean' => [
+			'slug'     => 'ocean',
+			'name'     => $L->get( 'Ocean' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#254d88',
+				'#467ac7',
+				'#122544',
+				'#08101d'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#254d88',
+				'two'   => '#467ac7',
+				'three' => '#122544',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '#08101d',
+				'text'  => '#f8fafd',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'orchid' => [
+			'slug'     => 'orchid',
+			'name'     => $L->get( 'Orchid' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#4d0859',
+				'#890e9f',
+				'',
+				''
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#4d0859',
+				'two'   => '#890e9f',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'rose' => [
+			'slug'     => 'rose',
+			'name'     => $L->get( 'Rose' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#f5487f',
+				'#f879a1',
+				'#401225',
+				'#1b0209'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#f5487f',
+				'two'   => '#f879a1',
+				'three' => '#401225',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '#1b0209',
+				'text'  => '#f3f3f3',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'violet' => [
+			'slug'     => 'violet',
+			'name'     => $L->get( 'Violet' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#4d0859',
+				'#890e9f',
+				'',
+				''
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#4d0859',
+				'two'   => '#890e9f',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '',
+				'text'  => '',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'sunrise' => [
+			'slug'     => 'sunrise',
+			'name'     => $L->get( 'Sunrise' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#f5487f',
+				'#f879a1',
+				'#401225',
+				'#1b0209'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#f5487f',
+				'two'   => '#f879a1',
+				'three' => '#401225',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '#1b0209',
+				'text'  => '#f3f3f3',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		],
+		'sunset' => [
+			'slug'     => 'sunset',
+			'name'     => $L->get( 'Sunset' ),
+			'category' => 'nature',
+			'thumbs'   => [
+				'#f5487f',
+				'#f879a1',
+				'#401225',
+				'#1b0209'
+			],
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#f5487f',
+				'two'   => '#f879a1',
+				'three' => '#401225',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			],
+			'dark' => [
+				'body'  => '#1b0209',
+				'text'  => '#f3f3f3',
+				'one'   => '',
+				'two'   => '',
+				'three' => '',
+				'four'  => '',
+				'five'  => '',
+				'six'   => ''
+			]
+		]
 	];
 
 	// Merge custom scheme if selected.

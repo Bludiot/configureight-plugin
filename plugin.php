@@ -57,6 +57,19 @@ class configureight extends Plugin {
 		parent :: __construct();
 
 		// Include functionality.
+		if ( $this->installed() ) {
+			$this->get_files();
+		}
+	}
+
+	/**
+	 * Prepare plugin for installation
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function prepare() {
 		$this->get_files();
 	}
 

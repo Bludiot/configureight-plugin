@@ -81,14 +81,60 @@ if ( admin_theme() ) {
 		<label class="form-label col-sm-2 col-form-label" for="color_scheme"><?php $L->p( 'Color Scheme' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="color_scheme" name="color_scheme">
-				<?php foreach ( $colors as $color => $option ) {
-					printf(
-						'<option value="%s" %s>%s</option>',
-						$option['slug'],
-						( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'selected' : '' ),
-						$option['name']
-					);
-				} ?>
+				<?php
+
+				// Sort schemes by category.
+				usort( $colors, function( $one_thing, $another ) {
+					return strcmp( $one_thing['category'], $another['category'] );
+				} );
+
+				// Category used for option groups.
+				$category = '';
+
+				// Exclude some schemes from loop.
+				$exclude = [ 'default', 'dark', 'custom' ];
+
+				// Basic schemes.
+				printf(
+					'<optgroup label="%s"><option value="default" %s>%s</option><option value="dark" %s>%s</option></optgroup>',
+					$L->get( 'Basic' ),
+					( $this->getValue( 'color_scheme' ) === 'default' ? 'selected' : '' ),
+					$L->get( 'Default' ),
+					( $this->getValue( 'color_scheme' ) === 'dark' ? 'selected' : '' ),
+					$L->get( 'Dark' )
+				);
+
+				foreach ( $colors as $color => $option ) {
+
+					if ( $category != $option['category'] && 'basic' != $option['category'] ) {
+						if ( $category != '' ) {
+							echo '</optgroup>';
+						}
+						printf(
+							'<optgroup label="%s">',
+							ucwords( $option['category'] )
+						);
+					}
+					if ( ! in_array( $option['slug'], $exclude ) ) {
+						printf(
+							'<option value="%s" %s>%s</option>',
+							$option['slug'],
+							( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'selected' : '' ),
+							$option['name']
+						);
+					}
+					$category = $option['category'];
+				}
+				if ( $category != '' ) {
+					echo '</optgroup>';
+				}
+
+				printf(
+					'<optgroup label="%s"><option value="custom" %s>%s</option></optgroup>',
+					$L->get( 'Build Your Own' ),
+					( $this->getValue( 'color_scheme' ) === 'custom' ? 'selected' : '' ),
+					$L->get( 'Custom' )
+				); ?>
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
 			<ul id="form-color-thumbs-list">

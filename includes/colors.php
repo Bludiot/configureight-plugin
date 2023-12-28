@@ -749,12 +749,22 @@ function current_color_scheme() {
  * color scheme values to color variables.
  *
  * @since  1.0.0
- * @return string Returns a style block.
+ * @return mixed Returns a style block or null.
  */
 function define_color_scheme() {
 
 	// Get the scheme selected in the option.
 	$current = current_color_scheme();
+
+	/**
+	 * Exclude default scheme
+	 *
+	 * Default scheme is defined in the theme,
+	 * including dark mode variables.
+	 */
+	if ( 'default' == $current['slug'] ) {
+		return null;
+	}
 
 	// Begin style block.
 	$style = "\n" . '<style>:root{';

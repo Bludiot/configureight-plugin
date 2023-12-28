@@ -739,13 +739,17 @@ class configureight extends Plugin {
 		$suffix = asset_min();
 
 		// Color scheme stylesheet.
-		if ( 'colors' === $type ) {
-			$html = css( "assets/css/schemes/colors/{$colors}/{$filename}{$suffix}.css" );
+		if ( 'default' != $colors ) {
+			if ( 'colors' === $type ) {
+				$html = css( "assets/css/schemes/colors/{$colors}/{$filename}{$suffix}.css" );
+			}
 		}
 
 		// Typography scheme stylesheet.
-		if ( 'fonts' == $type && 'default' != $fonts ) {
-			$html .= css( "assets/css/schemes/fonts/{$fonts}/{$filename}{$suffix}.css" );
+		if ( 'default' != $fonts ) {
+			if ( 'fonts' == $type && 'default' != $fonts ) {
+				$html .= css( "assets/css/schemes/fonts/{$fonts}/{$filename}{$suffix}.css" );
+			}
 		}
 		return $html;
 	}

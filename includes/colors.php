@@ -89,7 +89,9 @@ function custom_scheme() {
 				color( 'one' ),
 				color( 'two' ),
 				color( 'three' ),
-				color( 'four' )
+				color( 'four' ),
+				color( 'five' ),
+				color( 'six' )
 			],
 			'light'  => [
 				'body'  => color( 'body' ),
@@ -134,7 +136,12 @@ function color_schemes() {
 			'slug'     => 'default',
 			'name'     => $L->get( 'Default' ),
 			'category' => 'basic',
-			'thumbs'   => [
+			'fonts'    => [
+				$L->get( 'Default' ),
+				$L->get( 'Sans-Serif' ),
+				$L->get( 'Serif' )
+			],
+			'thumbs' => [
 				'#0044aa',
 				'#0066cc',
 				'#333333',
@@ -142,7 +149,7 @@ function color_schemes() {
 				'#888888',
 				'#cccccc'
 			],
-			'light'  => [
+			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#333333',
 				'one'   => '#0044aa',
@@ -167,7 +174,10 @@ function color_schemes() {
 			'slug'     => 'dark',
 			'name'     => $L->get( 'Dark' ),
 			'category' => 'basic',
-			'thumbs'   => [
+			'fonts'    => [
+				$L->get( 'Default' )
+			],
+			'thumbs' => [
 				'#1e1e1e',
 				'#333333',
 				'#555555',
@@ -202,6 +212,7 @@ function color_schemes() {
 			'slug'     => 'club',
 			'name'     => $L->get( '1930s Club' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#2ea65e',
 				'#4dce81',
@@ -235,6 +246,7 @@ function color_schemes() {
 			'slug'     => 'deco',
 			'name'     => $L->get( '1940s Hotel' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#1d683b',
 				'#2da45d',
@@ -268,6 +280,7 @@ function color_schemes() {
 			'slug'     => 'diner',
 			'name'     => $L->get( '1950s Diner' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#c90a00',
 				'#ff0000',
@@ -301,6 +314,7 @@ function color_schemes() {
 			'slug'     => 'dress',
 			'name'     => $L->get( '1960s Dress' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#0f3571',
 				'#004fc6',
@@ -334,6 +348,7 @@ function color_schemes() {
 			'slug'     => 'kitchen',
 			'name'     => $L->get( '1970s Kitchen' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#84200f',
 				'#b02b14',
@@ -367,6 +382,7 @@ function color_schemes() {
 			'slug'     => 'video',
 			'name'     => $L->get( '1980s Video' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#d40055',
 				'#ff297d',
@@ -400,8 +416,9 @@ function color_schemes() {
 			'slug'     => 'wedding',
 			'name'     => $L->get( '1990s Wedding' ),
 			'category' => 'design',
+			'fonts'    => '',
 			'thumbs'   => [
-				'#502d16',
+				'#65391c',
 				'#a05a2c',
 				'#0081a1',
 				'#50b0c9',
@@ -411,7 +428,7 @@ function color_schemes() {
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#333333',
-				'one'   => '#502d16',
+				'one'   => '#65391c',
 				'two'   => '#a05a2c',
 				'three' => '#0081a1',
 				'four'  => '#50b0c9',
@@ -435,6 +452,7 @@ function color_schemes() {
 			'slug'     => 'brick',
 			'name'     => $L->get( 'Brick' ),
 			'category' => 'materials',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#87200e',
 				'#ca2205',
@@ -466,6 +484,7 @@ function color_schemes() {
 			'slug'     => 'concrete',
 			'name'     => $L->get( 'Concrete' ),
 			'category' => 'materials',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#87200e',
 				'#ca2205',
@@ -497,6 +516,7 @@ function color_schemes() {
 			'slug'     => 'wood',
 			'name'     => $L->get( 'Wood' ),
 			'category' => 'materials',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#87200e',
 				'#ca2205',
@@ -530,6 +550,7 @@ function color_schemes() {
 			'slug'     => 'bronze',
 			'name'     => $L->get( 'Bronze' ),
 			'category' => 'metallic',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#a88548',
 				'#c19b57',
@@ -561,6 +582,7 @@ function color_schemes() {
 			'slug'     => 'copper',
 			'name'     => $L->get( 'Copper' ),
 			'category' => 'metallic',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#c76919',
 				'#f37e1a',
@@ -592,6 +614,7 @@ function color_schemes() {
 			'slug'     => 'gold',
 			'name'     => $L->get( 'Gold' ),
 			'category' => 'metallic',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#c76919',
 				'#f37e1a',
@@ -623,6 +646,7 @@ function color_schemes() {
 			'slug'     => 'pewter',
 			'name'     => $L->get( 'Pewter' ),
 			'category' => 'metallic',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#9d9fa3',
 				'#cacbce',
@@ -656,6 +680,7 @@ function color_schemes() {
 			'slug'     => 'citrus',
 			'name'     => $L->get( 'Citrus' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#87200e',
 				'#ca2205',
@@ -687,6 +712,7 @@ function color_schemes() {
 			'slug'     => 'forest',
 			'name'     => $L->get( 'Forest' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#165144',
 				'#01332e',
@@ -718,6 +744,7 @@ function color_schemes() {
 			'slug'     => 'ocean',
 			'name'     => $L->get( 'Ocean' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#254d88',
 				'#467ac7',
@@ -749,6 +776,7 @@ function color_schemes() {
 			'slug'     => 'orchid',
 			'name'     => $L->get( 'Orchid' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#4d0859',
 				'#890e9f',
@@ -780,6 +808,7 @@ function color_schemes() {
 			'slug'     => 'rose',
 			'name'     => $L->get( 'Rose' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#f5487f',
 				'#f879a1',
@@ -811,6 +840,7 @@ function color_schemes() {
 			'slug'     => 'violet',
 			'name'     => $L->get( 'Violet' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#4d0859',
 				'#890e9f',
@@ -842,6 +872,7 @@ function color_schemes() {
 			'slug'     => 'sunrise',
 			'name'     => $L->get( 'Sunrise' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#f5487f',
 				'#f879a1',
@@ -873,6 +904,7 @@ function color_schemes() {
 			'slug'     => 'sunset',
 			'name'     => $L->get( 'Sunset' ),
 			'category' => 'nature',
+			'fonts'    => '',
 			'thumbs'   => [
 				'#f5487f',
 				'#f879a1',

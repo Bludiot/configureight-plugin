@@ -118,9 +118,11 @@ class configureight extends Plugin {
 			'logo_width_mob'        => $this->logo_width_mob_default(),
 			'logo_location'         => 'before',
 			'header_sticky'         => false,
+			'main_nav_pages'        => [ 'home' ],
+			'main_nav_labels'       => 'slug',
+			'main_nav_children'     => 'secondary',
 			'main_nav_pos'          => 'right',
 			'main_nav_icon'         => 'bars',
-			'max_nav_items'         => 0,
 			'main_nav_loop'         => 'after',
 			'main_nav_loop_label'   => '',
 			'main_nav_home'         => false,
@@ -870,6 +872,28 @@ class configureight extends Plugin {
 		return $this->getValue( 'header_sticky' );
 	}
 
+	/**
+	 * Navigation options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return array
+	public function main_nav_pages() {
+		return $this->getValue( 'main_nav_pages' );
+	}
+
+	// @return string
+	public function main_nav_labels() {
+		return $this->getValue( 'main_nav_labels' );
+	}
+
+	// @return string
+	public function main_nav_children() {
+		return $this->getValue( 'main_nav_children' );
+	}
+
 	// @return string
 	public function main_nav_pos() {
 		return $this->getValue( 'main_nav_pos' );
@@ -878,11 +902,6 @@ class configureight extends Plugin {
 	// @return string
 	public function main_nav_icon() {
 		return $this->getValue( 'main_nav_icon' );
-	}
-
-	// @return integer
-	public function max_nav_items() {
-		return $this->getValue( 'max_nav_items' );
 	}
 
 	// @return string

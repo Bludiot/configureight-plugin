@@ -75,16 +75,14 @@
 					}
 				endforeach; endif;
 
-				$title = $L->get( 'Posts loop index' );
 				if ( $site->homepage() ) {
-					$title = $L->get( 'Static front page' );
-				}
-				printf(
-					'<label class="check-label-wrap" for="page-home" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-home" value="home" %s> %s</label>',
-					$title,
-					( is_array( $this->main_nav_pages() ) && in_array( 'home', $this->main_nav_pages() ) ? 'checked' : '' ),
-					$L->get( 'Home' )
-				); ?>
+					printf(
+						'<label class="check-label-wrap" for="page-home" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-home" value="home" %s> %s</label>',
+						$L->get( 'Static front page' ),
+						( is_array( $this->main_nav_pages() ) && in_array( 'home', $this->main_nav_pages() ) ? 'checked' : '' ),
+						$L->get( 'Home' )
+					);
+				} ?>
 			</div>
 			<?php if ( $count_p > 0 || $count_c > 0 ) : ?>
 			<small class="form-text text-muted"><?php $L->p( 'Hover parent pages (p) and child pages (c) to view the page relationship.' ); ?></small>

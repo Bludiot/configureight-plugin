@@ -50,7 +50,7 @@
 					} elseif ( $page->isChild() ) {
 
 						$count_c++;
-						$parent = new \Page( $page->key() );
+						$parent   = new \Page( $page->parentKey() );
 						$relation = ' ' . $L->get( '(c)' );
 						$title    = $L->get( 'Child of ' . $parent->title() );
 					}

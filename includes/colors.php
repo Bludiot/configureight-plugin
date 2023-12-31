@@ -216,20 +216,20 @@ function color_schemes() {
 			'thumbs'   => [
 				'#2ea65e',
 				'#4dce81',
-				'#f37709',
-				'#ff9f39',
 				'#f83d5c',
-				'#fa8072'
+				'#f9657d',
+				'#f37709',
+				'#ff901a'
 			],
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
+				'text'  => '#2a180c',
 				'one'   => '#2ea65e',
 				'two'   => '#4dce81',
-				'three' => '#f37709',
-				'four'  => '#ff9f39',
-				'five'  => '#f83d5c',
-				'six'   => '#fa8072'
+				'three' => '#f83d5c',
+				'four'  => '#f9657d',
+				'five'  => '#f37709',
+				'six'   => '#ff901a'
 			],
 			'dark' => [
 				'body'  => '',

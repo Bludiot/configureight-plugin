@@ -13,12 +13,12 @@
 	--cfe-scheme-color--body--dark: #{$white};
 	--cfe-scheme-color--text--dark: #{$dark_gray};
 
-	--cfe-scheme-color--one: #{$blue};
-	--cfe-scheme-color--two: #{lighten( $blue, 12% )};
-	--cfe-scheme-color--three: #{$dark_gray};
-	--cfe-scheme-color--four: #{$medium_gray};
-	--cfe-scheme-color--five: #{$light_gray};
-	--cfe-scheme-color--six: #{$pale_gray};
+	--cfe-scheme-color--one: #c90a00;
+	--cfe-scheme-color--two: #ff0000;
+	--cfe-scheme-color--three: #00a1c9;
+	--cfe-scheme-color--four: #4cc8e6;
+	--cfe-scheme-color--five: #ff126f;
+	--cfe-scheme-color--six: #ff6f94;
 
 	--cfe-scheme-color--one--dark: #{$blue};
 	--cfe-scheme-color--two--dark: #{lighten( $blue, 12% )};

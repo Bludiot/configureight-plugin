@@ -63,7 +63,7 @@
 						echo '';
 					} else {
 						printf(
-							'<label class="check-label-wrap" for="page-%s" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-%s" value="%s" %s> %s%s</label>',
+							'<label class="check-label-wrap form-tooltip" for="page-%s" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-%s" value="%s" %s> %s%s</label>',
 							$page->key(),
 							$title,
 							$page->key(),
@@ -77,7 +77,7 @@
 
 				if ( $site->homepage() ) {
 					printf(
-						'<label class="check-label-wrap" for="page-home" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-home" value="home" %s> %s</label>',
+						'<label class="check-label-wrap form-tooltip" for="page-home" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-home" value="home" %s> %s</label>',
 						$L->get( 'Static front page' ),
 						( is_array( $this->main_nav_pages() ) && in_array( 'home', $this->main_nav_pages() ) ? 'checked' : '' ),
 						$L->get( 'Home' )

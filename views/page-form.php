@@ -94,3 +94,13 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<p><?php $L->p( 'Please enable JavaScript to display the options form.' ); ?></p>
 </div>
 <?php endif; ?>
+
+<script>
+jQuery(document).ready( function($) {
+	$( '.form-tooltip' ).tooltipster({
+		delay : 150,
+		animationDuration : 150,
+		theme : 'cfe-tooltips'
+	});
+});
+</script>

@@ -490,6 +490,11 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $site;
 
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
 		// Configure 8 admin theme has the options link.
 		if ( 'configureight' === $site->adminTheme() ) {
 			return;
@@ -548,6 +553,11 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $site;
 
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
 		$html  = '';
 		ob_start();
 		if ( isset( $_GET['page'] ) && 'database' == $_GET['page'] ) {
@@ -570,6 +580,14 @@ class configureight extends Plugin {
 	 * @return void
 	 */
 	public function dashboard() {
+
+		// Access global variables.
+		global $L, $site;
+
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
 
 		// Show options on dashboard if enabled.
 		if ( $this->show_options() ) {

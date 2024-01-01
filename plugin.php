@@ -112,6 +112,7 @@ class configureight extends Plugin {
 			'loader_bg_color'       => $this->loader_bg_default(),
 			'loader_text_color'     => $this->loader_text_default(),
 			'loader_text'           => $L->get( 'Loading&hellip;' ),
+			'loader_icon'           => 'spinner-dots',
 			'site_title'            => true,
 			'site_slogan'           => true,
 			'logo_width_std'        => $this->logo_width_std_default(),
@@ -826,6 +827,11 @@ class configureight extends Plugin {
 	// @return string
 	public function loader_text() {
 		return $this->getValue( 'loader_text' );
+	}
+
+	// @return string
+	public function loader_icon() {
+		return $this->getValue( 'loader_icon' );
 	}
 
 	// @return string

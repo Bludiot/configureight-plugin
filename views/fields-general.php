@@ -101,6 +101,25 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 		</div>
 
 		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="loader_icon"><?php $L->p( 'Loading Icon' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="loader_icon" name="loader_icon">
+
+					<option value="spinner-dots" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-dots' ? 'selected' : '' ); ?>><?php $L->p( 'Dots Circle' ); ?></option>
+
+					<option value="spinner-dashes" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-dashes' ? 'selected' : '' ); ?>><?php $L->p( 'Dashes Circle' ); ?></option>
+
+					<option value="spinner-third" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-third' ? 'selected' : '' ); ?>><?php $L->p( 'Third Circle' ); ?></option>
+
+					<option value="none" <?php echo ( $this->getValue( 'loader_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Icon' ); ?></option>
+				</select>
+				<small class="form-text text-muted">
+					<?php $L->p( 'Choose the style of icon to display below the text.' ); ?>
+				</small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="loader_bg_color"><?php $L->p( 'Background' ); ?></label>
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="loader_bg_color" name="loader_bg_color" value="<?php echo $loader_bg_color; ?>" />

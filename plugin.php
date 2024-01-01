@@ -143,6 +143,7 @@ class configureight extends Plugin {
 			'thumb_quality'         => $this->thumb_quality_default(),
 			'loop_title'            => $L->get( 'Blog' ),
 			'loop_description'      => '',
+			'loop_cover'            => 'full_first',
 			'loop_type'             => 'blog',
 			'loop_style'            => 'list',
 			'cat_style'             => 'list',
@@ -1094,6 +1095,11 @@ class configureight extends Plugin {
 	// @return string
 	public function loop_description() {
 		return $this->getValue( 'loop_description' );
+	}
+
+	// @return string
+	public function loop_cover() {
+		return $this->getValue( 'loop_cover' );
 	}
 
 	// @return string

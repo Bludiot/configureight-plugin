@@ -40,6 +40,27 @@
 		</div>
 	</div>
 
+	<?php if ( $this->cover_src() ) : ?>
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="loop_cover"><?php $L->p( 'Cover Image' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="loop_cover" name="loop_cover">
+
+				<option value="standard" <?php echo ( $this->getValue( 'loop_cover' ) === 'standard' ? 'selected' : '' ); ?>><?php $L->p( 'Standard Cover Each Page' ); ?></option>
+
+				<option value="full_first" <?php echo ( $this->getValue( 'loop_cover' ) === 'full_first' ? 'selected' : '' ); ?>><?php $L->p( 'Full Cover First Page' ); ?></option>
+
+				<option value="first" <?php echo ( $this->getValue( 'loop_cover' ) === 'first' ? 'selected' : '' ); ?>><?php $L->p( 'Standard Cover First Page' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'loop_cover' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover Image' ); ?></option>
+			</select>
+			<small class="form-text text-muted">
+				<?php $L->p( 'Choose how the cover image is displayed in loop pages.' ); ?>
+			</small>
+		</div>
+	</div>
+	<?php endif; ?>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_type"><?php $L->p( 'Loop Type' ); ?></label>
 		<div class="col-sm-10">

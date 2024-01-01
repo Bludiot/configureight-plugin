@@ -149,6 +149,50 @@ function is_rtl( $langs = null, $rtl = [] ) {
 }
 
 /**
+ * Is static loop
+ *
+ * If a static page has the same slug as the loop slug.
+ *
+ * @since  1.0.0
+ * @return boolean Return whether that page exists.
+ */
+function is_static_loop() {
+
+	if ( static_loop_page() ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Static loop page
+ *
+ * @since  1.0.0
+ * @return mixed Returns the static loop page object or
+ *               returns false if the page doesn't exist.
+ */
+function static_loop_page() {
+
+	// Access global variables.
+	global $site;
+
+	// Get the blog slug setting.
+	$loop_field = $site->getField( 'uriBlog' );
+
+	// Remove slashes from field value, if set.
+	$loop_key   = str_replace( '/', '', $loop_field );
+
+	// Build a page using blog slug setting.
+	$loop_page  = buildPage( $loop_key );
+
+	// Return whether that page exists (could be built).
+	if ( $loop_page ) {
+		return $loop_page;
+	}
+	return false;
+}
+
+/**
  * System can search
  *
  * Checks if the system has search functionality.
@@ -265,7 +309,26 @@ function title_tag() {
 		if ( is_rtl() && plugin()->loop_ttag_rtl() ) {
 			$format = plugin()->loop_ttag_rtl();
 		} elseif ( plugin()->loop_ttag() ) {
-				$format = plugin()->loop_ttag();
+			$format = plugin()->loop_ttag();
+
+		} elseif ( is_static_loop() ) {
+			$static_loop = static_loop_page();
+			$format = sprintf(
+				'%s%s %s %s',
+				ucwords( $static_loop->title() ),
+				$loop_page,
+				$sep,
+				$site->title()
+			);
+			if ( is_rtl() ) {
+				$format = sprintf(
+					'%s %s %s%s',
+					$site->title(),
+					$sep,
+					$loop_page,
+					ucwords( $static_loop->title() )
+				);
+			}
 		} else {
 			$format = sprintf(
 				'%s%s %s %s',

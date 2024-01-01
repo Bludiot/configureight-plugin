@@ -48,14 +48,16 @@
 
 				<option value="standard" <?php echo ( $this->getValue( 'loop_cover' ) === 'standard' ? 'selected' : '' ); ?>><?php $L->p( 'Standard Cover Each Page' ); ?></option>
 
-				<option value="full_first" <?php echo ( $this->getValue( 'loop_cover' ) === 'full_first' ? 'selected' : '' ); ?>><?php $L->p( 'Full Cover First Page' ); ?></option>
+				<option value="full_first" <?php echo ( $this->getValue( 'loop_cover' ) === 'full_first' ? 'selected' : '' ); ?>><?php $L->p( 'Full Cover First Page, Standard After' ); ?></option>
+
+				<option value="full_first_none" <?php echo ( $this->getValue( 'loop_cover' ) === 'full_first_none' ? 'selected' : '' ); ?>><?php $L->p( 'Full Cover First Page, None After' ); ?></option>
 
 				<option value="first" <?php echo ( $this->getValue( 'loop_cover' ) === 'first' ? 'selected' : '' ); ?>><?php $L->p( 'Standard Cover First Page' ); ?></option>
 
 				<option value="none" <?php echo ( $this->getValue( 'loop_cover' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover Image' ); ?></option>
 			</select>
 			<small class="form-text text-muted">
-				<?php $L->p( 'Choose how the cover image is displayed in loop pages.' ); ?>
+				<?php $L->p( 'Choose how the cover image is displayed in posts loop pages. Does not apply to taxonomy & search pages.' ); ?>
 			</small>
 		</div>
 	</div>

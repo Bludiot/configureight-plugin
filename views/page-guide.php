@@ -45,7 +45,10 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="templates" aria-selected="false" href="#templates"><?php $L->p( 'Templates' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="schemes" aria-selected="false" href="#schemes"><?php $L->p( 'Schemes' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="nav" aria-selected="false" href="#nav"><?php $L->p( 'Menu' ); ?></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
@@ -63,9 +66,14 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		<?php include( $this->phpPath() . '/views/info-templates.php' ); ?>
 	</div>
 
-	<div id="schemes" class="tab-pane" role="tabpanel" aria-labelledby="schemes">
+	<div id="nav" class="tab-pane" role="tabpanel" aria-labelledby="nav">
 
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Design Schemes' ) ] ); ?>
+		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Site Navigation' ) ] ); ?>
+	</div>
+
+	<div id="loop" class="tab-pane" role="tabpanel" aria-labelledby="loop">
+
+		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Posts Loop, Taxonomy, & Search' ) ] ); ?>
 	</div>
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">

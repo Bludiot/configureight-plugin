@@ -98,6 +98,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 <script>
 jQuery(document).ready( function($) {
 	$( '.form-tooltip' ).tooltipster({
+		distance : 0,
 		delay : 150,
 		animationDuration : 150,
 		theme : 'cfe-tooltips'

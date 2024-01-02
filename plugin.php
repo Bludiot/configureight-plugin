@@ -295,6 +295,30 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Save options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function save() {
+
+		$this->edit_settings();
+
+		// Switch admin theme on save.
+		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
+			change_theme();
+		} else {
+			default_theme();
+		}
+
+		// Save options to plugin JSON database.
+		$tmp     = new dbJSON( $this->filenameDb );
+		$tmp->db = $this->db;
+		return $tmp->save();
+	}
+
+	/**
 	 * Form post
 	 *
 	 * The form `$_POST` method.
@@ -387,6 +411,8 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $site Site class.
+	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function adminHead() {
@@ -697,30 +723,6 @@ class configureight extends Plugin {
 
 		// Return modified array.
 		return editSettings( $args );
-	}
-
-	/**
-	 * Save options
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function save() {
-
-		$this->edit_settings();
-
-		// Switch admin theme on save.
-		if ( admin_theme() && 'theme' == $this->admin_theme() ) {
-			change_theme();
-		} else {
-			default_theme();
-		}
-
-		// Save options to plugin JSON database.
-		$tmp     = new dbJSON( $this->filenameDb );
-		$tmp->db = $this->db;
-		return $tmp->save();
 	}
 
 	/**

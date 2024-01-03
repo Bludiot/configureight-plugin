@@ -195,6 +195,7 @@ class configureight extends Plugin {
 			'copyright'             => true,
 			'copy_date'             => true,
 			'copy_text'             => '',
+			'content_width'         => '1280',
 			'horz_spacing'          => '2',
 			'vert_spacing'          => '2',
 			'color_scheme'          => 'default',
@@ -477,6 +478,7 @@ class configureight extends Plugin {
 		// Scheme stylesheets.
 		$assets .= $this->scheme_stylesheet( 'colors', 'admin' );
 		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
+		$assets .= define_color_scheme();
 
 		return $assets;
 	}
@@ -1425,6 +1427,11 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return string
+	public function content_width() {
+		return $this->getValue( 'content_width' );
+	}
 
 	// @return string
 	public function horz_spacing() {

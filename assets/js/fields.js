@@ -305,81 +305,128 @@ jQuery(document).ready( function($) {
 	});
 	$( '.custom-color' ).show();
 
-	// Custom scheme thumbnails.
-	$( '#color_one' ).on( 'change', function() {
+	/**
+	 * Custom scheme thumbnails
+	 *
+	 * Thumbnail ID numbers do not match color field numbers
+	 * because the count starts with body & text colors, so
+	 * the numbers are skewed by two.
+	 */
+	$( '#color_body' ).on( 'change', function() {
 		$( '#custom_thumb_1' ).css( 'background-color', $(this).val() );
 	});
-	$( '#color_two' ).on( 'change', function() {
+	$( '#color_text' ).on( 'change', function() {
 		$( '#custom_thumb_2' ).css( 'background-color', $(this).val() );
 	});
-	$( '#color_three' ).on( 'change', function() {
+	$( '#color_one' ).on( 'change', function() {
 		$( '#custom_thumb_3' ).css( 'background-color', $(this).val() );
 	});
-	$( '#color_four' ).on( 'change', function() {
+	$( '#color_two' ).on( 'change', function() {
 		$( '#custom_thumb_4' ).css( 'background-color', $(this).val() );
 	});
-	$( '#color_five' ).on( 'change', function() {
+	$( '#color_three' ).on( 'change', function() {
 		$( '#custom_thumb_5' ).css( 'background-color', $(this).val() );
 	});
-	$( '#color_six' ).on( 'change', function() {
+	$( '#color_four' ).on( 'change', function() {
 		$( '#custom_thumb_6' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_five' ).on( 'change', function() {
+		$( '#custom_thumb_7' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_six' ).on( 'change', function() {
+		$( '#custom_thumb_8' ).css( 'background-color', $(this).val() );
+	});
+
+	$( '#color_body_dark' ).on( 'change', function() {
+		$( '#custom_thumb_1_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_text_dark' ).on( 'change', function() {
+		$( '#custom_thumb_2_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_one_dark' ).on( 'change', function() {
+		$( '#custom_thumb_3_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_two_dark' ).on( 'change', function() {
+		$( '#custom_thumb_4_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_three_dark' ).on( 'change', function() {
+		$( '#custom_thumb_5_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_four_dark' ).on( 'change', function() {
+		$( '#custom_thumb_6_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_five_dark' ).on( 'change', function() {
+		$( '#custom_thumb_7_dark' ).css( 'background-color', $(this).val() );
+	});
+	$( '#color_six_dark' ).on( 'change', function() {
+		$( '#custom_thumb_8_dark' ).css( 'background-color', $(this).val() );
 	});
 
 	$( '#color_body_default_button' ).click( function() {
 		$( '#color_body' ).spectrum( 'set', $( '#color_body_default' ).val() );
+		$( '#custom_thumb_1' ).css( 'background-color', $( '#color_body_default' ).val() );
 	});
 	$( '#color_body_dark_default_button' ).click( function() {
 		$( '#color_body_dark' ).spectrum( 'set', $( '#color_body_dark_default' ).val() );
+		$( '#custom_thumb_2_dark' ).css( 'background-color', $( '#color_body_dark_default' ).val() );
 	});
 	$( '#color_text_default_button' ).click( function() {
 		$( '#color_text' ).spectrum( 'set', $( '#color_text_default' ).val() );
+		$( '#custom_thumb_1' ).css( 'background-color', $( '#color_text_default' ).val() );
 	});
 	$( '#color_text_dark_default_button' ).click( function() {
 		$( '#color_text_dark' ).spectrum( 'set', $( '#color_text_dark_default' ).val() );
+		$( '#custom_thumb_2_dark' ).css( 'background-color', $( '#color_text_dark_default' ).val() );
 	});
 
 	$( '#color_one_default_button' ).click( function() {
 		$( '#color_one' ).spectrum( 'set', $( '#color_one_default' ).val() );
-		$( '#custom_thumb_1' ).css( 'background-color', $( '#color_one_default' ).val() );
+		$( '#custom_thumb_3' ).css( 'background-color', $( '#color_one_default' ).val() );
 	});
 	$( '#color_two_default_button' ).click( function() {
 		$( '#color_two' ).spectrum( 'set', $( '#color_two_default' ).val() );
-		$( '#custom_thumb_2' ).css( 'background-color', $( '#color_two_default' ).val() );
+		$( '#custom_thumb_4' ).css( 'background-color', $( '#color_two_default' ).val() );
 	});
 	$( '#color_three_default_button' ).click( function() {
 		$( '#color_three' ).spectrum( 'set', $( '#color_three_default' ).val() );
-		$( '#custom_thumb_3' ).css( 'background-color', $( '#color_three_default' ).val() );
+		$( '#custom_thumb_5' ).css( 'background-color', $( '#color_three_default' ).val() );
 	});
 	$( '#color_four_default_button' ).click( function() {
 		$( '#color_four' ).spectrum( 'set', $( '#color_four_default' ).val() );
-		$( '#custom_thumb_4' ).css( 'background-color', $( '#color_four_default' ).val() );
+		$( '#custom_thumb_6' ).css( 'background-color', $( '#color_four_default' ).val() );
 	});
 	$( '#color_five_default_button' ).click( function() {
 		$( '#color_five' ).spectrum( 'set', $( '#color_five_default' ).val() );
-		$( '#custom_thumb_5' ).css( 'background-color', $( '#color_five_default' ).val() );
+		$( '#custom_thumb_7' ).css( 'background-color', $( '#color_five_default' ).val() );
 	});
 	$( '#color_six_default_button' ).click( function() {
 		$( '#color_six' ).spectrum( 'set', $( '#color_six_default' ).val() );
-		$( '#custom_thumb_6' ).css( 'background-color', $( '#color_six_default' ).val() );
+		$( '#custom_thumb_8' ).css( 'background-color', $( '#color_six_default' ).val() );
 	});
 
 	$( '#color_one_dark_default_button' ).click( function() {
 		$( '#color_one_dark' ).spectrum( 'set', $( '#color_one_dark_default' ).val() );
+		$( '#custom_thumb_3_dark' ).css( 'background-color', $( '#color_one_dark_default' ).val() );
 	});
 	$( '#color_two_dark_default_button' ).click( function() {
 		$( '#color_two_dark' ).spectrum( 'set', $( '#color_two_dark_default' ).val() );
+		$( '#custom_thumb_4_dark' ).css( 'background-color', $( '#color_two_dark_default' ).val() );
 	});
 	$( '#color_three_dark_default_button' ).click( function() {
 		$( '#color_three_dark' ).spectrum( 'set', $( '#color_three_dark_default' ).val() );
+		$( '#custom_thumb_5_dark' ).css( 'background-color', $( '#color_three_dark_default' ).val() );
 	});
 	$( '#color_four_dark_default_button' ).click( function() {
 		$( '#color_four_dark' ).spectrum( 'set', $( '#color_four_dark_default' ).val() );
+		$( '#custom_thumb_6_dark' ).css( 'background-color', $( '#color_four_dark_default' ).val() );
 	});
 	$( '#color_five_dark_default_button' ).click( function() {
 		$( '#color_five_dark' ).spectrum( 'set', $( '#color_five_dark_default' ).val() );
+		$( '#custom_thumb_7_dark' ).css( 'background-color', $( '#color_five_dark_default' ).val() );
 	});
 	$( '#color_six_dark_default_button' ).click( function() {
 		$( '#color_six_dark' ).spectrum( 'set', $( '#color_six_dark_default' ).val() );
+		$( '#custom_thumb_8_dark' ).css( 'background-color', $( '#color_six_dark_default' ).val() );
 	});
 
 	// Meta options.

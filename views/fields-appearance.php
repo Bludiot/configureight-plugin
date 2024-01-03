@@ -139,22 +139,55 @@ if ( admin_theme() ) {
 			</select>
 			<small class="form-text text-muted"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
 
-			<p><?php $L->p( 'Scheme colors:' ); ?></p>
 			<ul id="form-color-thumbs-list">
 			<?php foreach ( $colors as $color => $option ) {
 				printf(
-					'<ul id="scheme_thumbs_%s" style="display: %s;">',
+					'<p id="light_scheme_label_%s" style="display: %s;">%s</p>',
+					$option['slug'],
+					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' ),
+					$L->get( 'Light mode colors:' )
+				);
+				printf(
+					'<ul id="light_scheme_thumbs_%s" style="display: %s;">',
 					$option['slug'],
 					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' )
 				);
 				$count = 0;
-				foreach ( $option['thumbs'] as $thumb ) {
+				foreach ( $option['light'] as $thumb ) {
 					$count++;
 					if ( ! empty( $thumb ) ) {
 						printf(
-							'<li id="%s_thumb_%s" style="background-color: %s"><span class="screen-reader-text">%s</span></li>',
+							'<li id="%s_thumb_%s" class="form-tooltip" style="background-color: %s" title="%s"><span class="screen-reader-text">%s</span></li>',
 							$option['slug'],
 							$count,
+							$thumb,
+							$thumb,
+							$thumb
+						);
+					}
+				}
+				echo '</ul>';
+
+				printf(
+					'<p id="dark_scheme_label_%s" style="display: %s;">%s</p>',
+					$option['slug'],
+					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' ),
+					$L->get( 'Dark mode colors:' )
+				);
+				printf(
+					'<ul id="dark_scheme_thumbs_%s" style="display: %s;">',
+					$option['slug'],
+					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' )
+				);
+				$count = 0;
+				foreach ( $option['dark'] as $thumb ) {
+					$count++;
+					if ( ! empty( $thumb ) ) {
+						printf(
+							'<li id="%s_thumb_%s_dark" class="form-tooltip" style="background-color: %s" title="%s"><span class="screen-reader-text">%s</span></li>',
+							$option['slug'],
+							$count,
+							$thumb,
 							$thumb,
 							$thumb
 						);
@@ -469,9 +502,15 @@ jQuery(document).ready( function($) {
 
 		<?php foreach ( $colors as $color => $option ) : ?>
 		if ( show == '<?php echo $option['slug']; ?>' ) {
-			$( '#scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
+			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'block' );
+			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'block' );
+			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
+			$( '#dark_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
 		} else {
-			$( '#scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+			$( '#dark_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 		}
 		<?php endforeach; ?>
 	});

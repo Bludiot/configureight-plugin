@@ -64,7 +64,7 @@ body {
 	}
 
 	&.toolbar-active {
-		margin-top: var( --cfe-toolbar--height );
+		padding-top: var( --cfe-toolbar--height );
 	}
 }
 

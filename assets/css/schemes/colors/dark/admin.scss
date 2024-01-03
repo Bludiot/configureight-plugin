@@ -2,27 +2,7 @@
 /// Color Scheme: Dark
 ///
 
-// General colors.
-$white       : #ffffff !default;
-$off_white   : #eeeeee !default;
-$black       : #000000 !default;
-$near_black  : #1e1e1e !default;
-$dark_gray   : #333333 !default;
-$medium_gray : #555555 !default;
-$light_gray  : #888888 !default;
-$pale_gray   : #cccccc !default;
-$red         : #dd0000 !default;
-$orange      : #ee6600 !default;
-$yellow      : #f8ce30 !default;
-$green       : #4b9960 !default;
-$blue        : #0044aa !default;
-$violet      :  #551a8b !default;
-$error       : $red !default;
-$notify      : $orange !default;
-$warning     : $yellow !default;
-$success     : $green !default;
-
-// Scheme colors.
+@import '../../../modules/_utility';
 
 // SVG icon colors.
 @function svg_icon_color() {
@@ -61,64 +41,4 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 .page-sidebar .plugin.plugin-search input[type=button]:hover,
 .page-sidebar .plugin.plugin-search input[type=button]:focus {
 	background-image: url( '#{$search_icon_action_bg}' );
-}
-
-:root {
-
-	// General.
-	--cfe-scheme-color--body: #{$near_black};
-	--cfe-scheme-color--text: #{$off_white};
-	--cfe-scheme-color--body--dark: #{$white};
-	--cfe-scheme-color--text--dark: #{$dark_gray};
-
-	--cfe-scheme-color--one: #{$blue};
-	--cfe-scheme-color--two: #{lighten( $blue, 12% )};
-	--cfe-scheme-color--three: #{$dark_gray};
-	--cfe-scheme-color--four: #{$medium_gray};
-	--cfe-scheme-color--five: #{$light_gray};
-	--cfe-scheme-color--six: #{$pale_gray};
-
-	--cfe-scheme-color--one--dark: #{$blue};
-	--cfe-scheme-color--two--dark: #{lighten( $blue, 12% )};
-	--cfe-scheme-color--three--dark: #{$dark_gray};
-	--cfe-scheme-color--four--dark: #{$medium_gray};
-	--cfe-scheme-color--five--dark: #{$light_gray};
-	--cfe-scheme-color--six--dark: #{$pale_gray};
-
-	--cfe-scheme-color--body: #{$near_black};
-	--cfe-scheme-color--text: #{$off_white};
-	--cfe-link--text-color: #{$white};
-	--cfe-link--action--text-color: #{$off_white};
-	--cfe-heading-primary--text-color: #{$off_white};
-	--cfe-heading-primary--link--text-color: #{$off_white};
-	--cfe-heading-primary--link--action--text-color: #{$white};
-	--cfe-box-border-color: #{$dark_gray};
-
-	// Forms & buttons.
-	--cfe-form--border-color: #{$medium_gray};
-	--cfe-form--action--border-color: #{$light_gray};
-	--cfe-form--placeholder-color: #{$light_gray};
-	--cfe-button--bg-color: #{$dark_gray};
-	--cfe-button--action--bg-color: #{$medium_gray};
-	--cfe-button--text-color: #{$off_white};
-
-	// Navigation.
-	--cfe-site-nav--sub-list--bg-color: #{$dark_gray};
-	--cfe-site-nav--sub-list--action--bg-color: #{$medium_gray};
-	--cfe-site-nav--sub-list--text-color: #{$white};
-	--cfe-site-nav--sub-list--action--text-color: #{$white};
-
-	// Content.
-	--cfe-tags-list--buttons--link--bg-color: #{$medium_gray};
-	--cfe-tags-list--buttons--link--text-color: #{$off_white};
-
-	--cfe-tags-list--buttons--link--action--bg-color: #{$medium_gray};
-	--cfe-tags-list--buttons--link--action--text-color: #{$white};
-	--cfe-tags-list--buttons--link--bg-color: var( --cfe-button--bg-color );
-	--cfe-tags-list--buttons--link--border-color: var( --cfe-button--border-color );
-	--cfe-tags-list--buttons--link--text-color: var( --cfe-button--text-color );
-
-	--cfe-tags-list--buttons--link--action--bg-color: var( --cfe-button--action--bg-color );
-	--cfe-tags-list--buttons--link--action--border-color: var( --cfe-button--border-color );
-	--cfe-tags-list--buttons--link--action--text-color: var( --cfe-button--action--text-color );
 }

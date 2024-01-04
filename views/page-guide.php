@@ -11,6 +11,9 @@
 // Settings page URL.
 $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
+// Color schemes page URL.
+$colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
+
 // Add class class to 'js' to `<body>` if JavaScript is enabled.
 echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
 
@@ -49,6 +52,9 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" role="tab" href="<?php echo $colors_page; ?>"><?php $L->p( 'Colors' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>

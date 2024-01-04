@@ -40,6 +40,9 @@ if ( admin_theme() ) {
 	$css_label = $L->get( 'Styles Only' );
 }
 
+// Color schemes page URL.
+$colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
+
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Layout Options' ) ] ); ?>
@@ -208,6 +211,7 @@ if ( admin_theme() ) {
 				echo '</ul>';
 			} ?>
 			</ul>
+			<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page." ); ?></p>
 		</div>
 	</div>
 

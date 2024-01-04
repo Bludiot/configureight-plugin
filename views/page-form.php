@@ -50,7 +50,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="footer" aria-selected="false" href="#footer"><?php $L->p( 'Footer' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="styles" aria-selected="false" href="#styles"><?php $L->p( 'Styles' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Style' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="meta" aria-selected="false" href="#meta"><?php $L->p( 'Meta' ); ?></a>
@@ -81,15 +81,15 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<div id="footer" class="tab-pane" role="tabpanel" aria-labelledby="footer">
 		<?php include( $this->phpPath() . '/views/fields-footer.php' ); ?>
 	</div>
-	<div id="styles" class="tab-pane" role="tabpanel" aria-labelledby="styles">
-		<?php include( $this->phpPath() . '/views/fields-appearance.php' ); ?>
+	<div id="style" class="tab-pane" role="tabpanel" aria-labelledby="style">
+		<?php include( $this->phpPath() . '/views/fields-style.php' ); ?>
 	</div>
 	<div id="meta" class="tab-pane" role="tabpanel" aria-labelledby="meta">
 		<?php include( $this->phpPath() . '/views/fields-meta.php' ); ?>
 	</div>
 </div>
 <?php if ( 'default' != $this->admin_theme() ) : ?>
-<div class="hide-if-js no-js-message" style="margin-top: 2rem;">
+<div class="hide-if-js no-js-message" style="padding-top: 2rem;">
 	<h3><?php $L->p( 'Action Required!' ); ?></h3>
 	<p><?php $L->p( 'Please enable JavaScript to display the options form.' ); ?></p>
 </div>

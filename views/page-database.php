@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme Options page
+ * Options Database page
  *
  * @package    Configure 8 Options
  * @subpackage Views

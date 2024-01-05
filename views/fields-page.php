@@ -74,6 +74,77 @@ if ( getPlugin( 'Search_Forms' ) ) {
 	</div>
 </fieldset>
 
+<?php if ( $site->homepage() ) : ?>
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Front Page Slider' ) ] ); ?>
+
+<p><?php $L->p( 'Display a slider/carousel of select posts at the top of the static front page.' ); ?></p>
+
+<fieldset>
+
+	<legend class="screen-reader-text"><?php $L->p( 'Posts Slider' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="posts_slider"><?php $L->p( 'Posts Slider' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="posts_slider" name="posts_slider">
+				<option value="true" <?php echo ( $this->getValue( 'posts_slider' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'posts_slider' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+		</div>
+	</div>
+
+	<div id="slider_options" style="display: <?php echo ( $this->getValue( 'posts_slider' ) === true ? 'block' : 'none' ); ?>;">
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_content"><?php $L->p( 'Slider Content' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="slider_content" name="slider_content">
+
+					<option value="recent" <?php echo ( $this->getValue( 'slider_content' ) === 'recent' ? 'selected' : '' ); ?>><?php $L->p( 'Recent Posts' ); ?></option>
+
+					<option value="static" <?php echo ( $this->getValue( 'slider_content' ) === 'static' ? 'selected' : '' ); ?>><?php $L->p( 'Static Pages' ); ?></option>
+
+					<option value="id" <?php echo ( $this->getValue( 'slider_content' ) === 'id' ? 'selected' : '' ); ?>><?php $L->p( 'Content ID' ); ?></option>
+				</select>
+			</div>
+		</div>
+
+		<div id="slider_pages_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'static' ? 'flex' : 'none' ); ?>;">
+			<label class="form-label col-sm-2 col-form-label" for="slider_pages"><?php $L->p( 'Pages in Slider' ); ?></label>
+			<div class="col-sm-10">
+				<small class="form-text"><?php $L->p( 'Which static pages shall display in the front page slider. At least one page is required.' ); ?></small>
+
+				<div id="slider-pages" class="multi-check-wrap">
+
+					<?php
+
+					$static  = buildStaticPages();
+					if ( $static ) : foreach ( $static as $page ) :
+
+						if ( $page->key() === $site->homepage() ) {
+							echo '';
+						} elseif ( $page->slug() === str_replace( '/', '', $site->getField( 'uriBlog' ) ) ) {
+							echo '';
+						} elseif ( $page->slug() === $site->pageNotFound() ) {
+							echo '';
+						} else {
+							printf(
+								'<label class="check-label-wrap" for="page-%s"><input type="checkbox" name="slider_pages[]" id="page-%s" value="%s" %s> %s</label>',
+								$page->key(),
+								$page->key(),
+								$page->key(),
+								( is_array( $this->slider_pages() ) && in_array( $page->key(), $this->slider_pages() ) ? 'checked' : '' ),
+								$page->title()
+							);
+						}
+					endforeach; endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</fieldset>
+<?php endif; ?>
+
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Related Posts' ) ] ); ?>
 
 <p><?php $L->p( 'The related posts section is not displayed on static pages.' ); ?></p>

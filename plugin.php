@@ -158,6 +158,9 @@ class configureight extends Plugin {
 			'posts_nav'             => true,
 			'posts_nav_type'        => 'buttons',
 			'posts_nav_icon'        => 'arrow',
+			'posts_slider'          => false,
+			'slider_content'        => 'recent',
+			'slider_pages'          => [ '' ],
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -369,6 +372,8 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $site Site class.
+	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function loginHead() {
@@ -491,6 +496,8 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $L Language class.
+	 * @global object $url Url class.
 	 * @return void
 	 */
 	public function adminBodyBegin() {
@@ -512,6 +519,7 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $site Site class.
 	 * @return mixed
 	 */
 	public function adminSidebar() {
@@ -569,7 +577,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Admin info page
+	 * Admin info pages
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -602,12 +610,42 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin body end
+	 *
+	 * Used for adding scripts.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L Language class.
+	 * @global object $url Url class.
+	 * @return string
+	 */
+	public function adminBodyEnd() {
+
+		// Access global variables.
+		global $L, $url;
+
+		$content = '';
+
+		// Content ID on page edit screen.
+		if ( ! getPlugin( 'pluginContentID' ) && str_contains( $url->slug(), 'edit-content' ) ) {
+			$content = sprintf(
+				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
+				$L->get( 'Content ID:' )
+			);
+		}
+		return $content;
+   }
+
+	/**
 	 * Dashboard hook
 	 *
 	 * Uses the core hook to add content to the dashboard.
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $L Language class.
+	 * @global object $site Site class.
 	 * @return void
 	 */
 	public function dashboard() {
@@ -1057,7 +1095,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * @global $site
+	 * @global $site Site class.
 	 * @return string
 	 */
 	public function thumb_width() {
@@ -1075,7 +1113,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * @global $site
+	 * @global $site Site class.
 	 * @return string
 	 */
 	public function thumb_height() {
@@ -1093,7 +1131,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * @global $site
+	 * @global $site Site class.
 	 * @return string
 	 */
 	public function thumb_quality() {
@@ -1210,6 +1248,21 @@ class configureight extends Plugin {
 	// @return string
 	public function posts_nav_icon() {
 		return $this->getValue( 'posts_nav_icon' );
+	}
+
+	// @return boolean
+	public function posts_slider() {
+		return $this->getValue( 'posts_slider' );
+	}
+
+	// @return string
+	public function slider_content() {
+		return $this->getValue( 'slider_content' );
+	}
+
+	// @return array
+	public function slider_pages() {
+		return $this->getValue( 'slider_pages' );
 	}
 
 	// @return boolean
@@ -1695,6 +1748,8 @@ class configureight extends Plugin {
 	 * Gets the URL of the site's bookmark icon.
 	 *
 	 * @since  1.0.0
+	 * @access public
+	 * @global $site Site class.
 	 * @return mixed Returns the URL or null.
 	 */
 	public function favicon_src() {
@@ -1726,6 +1781,8 @@ class configureight extends Plugin {
 	 * Gets the URL of the default cover image.
 	 *
 	 * @since  1.0.0
+	 * @access public
+	 * @global $site Site class.
 	 * @return mixed Returns the URL or null.
 	 */
 	public function cover_src() {

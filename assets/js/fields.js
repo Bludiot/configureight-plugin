@@ -155,6 +155,26 @@ jQuery(document).ready( function($) {
 		}
     });
 
+	// Front page slider options.
+	$( '#posts_slider' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show == 'true' ) {
+			$( "#slider_options" ).fadeIn( 250 );
+		} else if ( show == 'false' ) {
+			$( "#slider_options" ).fadeOut( 250 );
+		}
+    });
+
+	// Slider pages.
+	$( '#slider_content' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show == 'static' ) {
+			$( "#slider_pages_wrap" ).fadeIn( 250 );
+		} else if ( show != 'static' ) {
+			$( "#slider_pages_wrap" ).fadeOut( 250 );
+		}
+	});
+
 	// Related posts options.
 	$( '#related_posts' ).on( 'change', function() {
     	var show = $(this).val();

@@ -160,7 +160,9 @@ class configureight extends Plugin {
 			'posts_nav_icon'        => 'arrow',
 			'posts_slider'          => false,
 			'slider_content'        => 'recent',
+			'slider_number'         => 5,
 			'slider_pages'          => [ '' ],
+			'slider_ids'            => '',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -1260,9 +1262,19 @@ class configureight extends Plugin {
 		return $this->getValue( 'slider_content' );
 	}
 
+	// @return integer
+	public function slider_number() {
+		return $this->getValue( 'slider_number' );
+	}
+
 	// @return array
 	public function slider_pages() {
 		return $this->getValue( 'slider_pages' );
+	}
+
+	// @return string
+	public function slider_ids() {
+		return $this->getValue( 'ids' );
 	}
 
 	// @return boolean

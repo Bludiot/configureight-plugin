@@ -66,7 +66,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 						<option value="angles" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?> &#8811;</option>
 					</select>
-					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#posts_nav_icon').val('<?php echo $this->dbFields['posts_nav_icon']; ?>');"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" onClick="$('#posts_nav_icon').val('<?php echo $this->dbFields['posts_nav_icon']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 			</div>
@@ -109,6 +109,18 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			</div>
 		</div>
 
+		<div id="slider_number_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'recent' ? 'flex' : 'none' ); ?>;">
+			<label class="form-label col-sm-2 col-form-label" for="slider_number"><?php $L->p( 'Number of Posts' ); ?></label>
+			<div class="col-sm-10 row">
+				<div class="form-range-controls">
+					<span class="form-range-value"><span id="slider_number_value"><?php echo ( $this->getValue( 'slider_number' ) ? $this->getValue( 'slider_number' ) : $this->dbFields['slider_number'] ); ?></span></span>
+					<input type="range" class="form-control-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_number_value').text('<?php echo $this->dbFields['slider_number']; ?>');$('#slider_number').val('<?php echo $this->dbFields['slider_number']; ?>');"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<small class="form-text text-muted form-range-small"><?php $L->p( 'General vertical spacing between elements and areas. A fraction of this setting may be used where the full amount would not be appealing.' ); ?></small>
+			</div>
+		</div>
+
 		<div id="slider_pages_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'static' ? 'flex' : 'none' ); ?>;">
 			<label class="form-label col-sm-2 col-form-label" for="slider_pages"><?php $L->p( 'Pages in Slider' ); ?></label>
 			<div class="col-sm-10">
@@ -139,6 +151,14 @@ if ( getPlugin( 'Search_Forms' ) ) {
 						}
 					endforeach; endif; ?>
 				</div>
+			</div>
+		</div>
+
+		<div id="slider_ids_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'id' ? 'flex' : 'none' ); ?>;">
+			<label class="form-label col-sm-2 col-form-label" for="slider_ids"><?php $L->p( 'Slider Pages IDs' ); ?></label>
+			<div class="col-sm-10">
+				<p><small class="form-text text-muted"><?php $L->p( 'Enter the content IDs of the pages and posts to be displayed in the slider, one ID per line.' ); ?></small></p>
+				<textarea id="slider_ids" name="slider_ids" placeholder="<?php $L->p( 'One ID per line' ); ?>" cols="1" rows="5"><?php echo $this->getValue( 'slider_ids' ) ?></textarea>
 			</div>
 		</div>
 	</div>

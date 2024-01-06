@@ -168,10 +168,30 @@ jQuery(document).ready( function($) {
 	// Slider pages.
 	$( '#slider_content' ).on( 'change', function() {
 		var show = $(this).val();
+		if ( show == 'recent' ) {
+			$( "#slider_number_wrap" ).fadeIn( 250 );
+		} else if ( show != 'recent' ) {
+			$( "#slider_number_wrap" ).fadeOut( 250 );
+		}
+	});
+
+	// Slider pages.
+	$( '#slider_content' ).on( 'change', function() {
+		var show = $(this).val();
 		if ( show == 'static' ) {
 			$( "#slider_pages_wrap" ).fadeIn( 250 );
 		} else if ( show != 'static' ) {
 			$( "#slider_pages_wrap" ).fadeOut( 250 );
+		}
+	});
+
+	// Slider pages.
+	$( '#slider_content' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show == 'id' ) {
+			$( "#slider_ids_wrap" ).fadeIn( 250 );
+		} else if ( show != 'id' ) {
+			$( "#slider_ids_wrap" ).fadeOut( 250 );
 		}
 	});
 

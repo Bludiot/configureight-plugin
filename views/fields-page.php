@@ -90,6 +90,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'posts_slider' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'posts_slider' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
+			<small class="form-text text-muted"><?php $L->p( 'Content without a cover image will be skipped.' ); ?></small>
 		</div>
 	</div>
 
@@ -103,8 +104,6 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="recent" <?php echo ( $this->getValue( 'slider_content' ) === 'recent' ? 'selected' : '' ); ?>><?php $L->p( 'Recent Posts' ); ?></option>
 
 					<option value="static" <?php echo ( $this->getValue( 'slider_content' ) === 'static' ? 'selected' : '' ); ?>><?php $L->p( 'Static Pages' ); ?></option>
-
-					<option value="id" <?php echo ( $this->getValue( 'slider_content' ) === 'id' ? 'selected' : '' ); ?>><?php $L->p( 'Content ID' ); ?></option>
 				</select>
 			</div>
 		</div>
@@ -151,14 +150,6 @@ if ( getPlugin( 'Search_Forms' ) ) {
 						}
 					endforeach; endif; ?>
 				</div>
-			</div>
-		</div>
-
-		<div id="slider_ids_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'id' ? 'flex' : 'none' ); ?>;">
-			<label class="form-label col-sm-2 col-form-label" for="slider_ids"><?php $L->p( 'Slider Pages IDs' ); ?></label>
-			<div class="col-sm-10">
-				<p><small class="form-text text-muted"><?php $L->p( 'Enter the content IDs of the pages and posts to be displayed in the slider, one ID per line.' ); ?></small></p>
-				<textarea id="slider_ids" name="slider_ids" placeholder="<?php $L->p( 'One ID per line' ); ?>" cols="1" rows="5"><?php echo $this->getValue( 'slider_ids' ) ?></textarea>
 			</div>
 		</div>
 

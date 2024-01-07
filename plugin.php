@@ -162,7 +162,6 @@ class configureight extends Plugin {
 			'slider_content'        => 'recent',
 			'slider_number'         => 5,
 			'slider_pages'          => [ '' ],
-			'slider_ids'            => '',
 			'slider_arrows'         => 'arrow',
 			'slider_dots'           => false,
 			'slider_animate'        => 'fade',
@@ -1275,11 +1274,6 @@ class configureight extends Plugin {
 	// @return array
 	public function slider_pages() {
 		return $this->getValue( 'slider_pages' );
-	}
-
-	// @return string
-	public function slider_ids() {
-		return $this->getValue( 'slider_ids' );
 	}
 
 	// @return boolean

@@ -185,16 +185,6 @@ jQuery(document).ready( function($) {
 		}
 	});
 
-	// Slider pages.
-	$( '#slider_content' ).on( 'change', function() {
-		var show = $(this).val();
-		if ( show == 'id' ) {
-			$( "#slider_ids_wrap" ).fadeIn( 250 );
-		} else if ( show != 'id' ) {
-			$( "#slider_ids_wrap" ).fadeOut( 250 );
-		}
-	});
-
 	// Related posts options.
 	$( '#related_posts' ).on( 'change', function() {
     	var show = $(this).val();

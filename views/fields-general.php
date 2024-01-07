@@ -138,3 +138,14 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 		</div>
 	</div>
 </fieldset>
+
+<?php if ( getPlugin( 'Search_Forms' ) ) :
+
+// Search settings page URL.
+$search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
+
+?>
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Search Forms' ) ] ); ?>
+
+<p><?php $L->p( "The Search Form plugin, developed for the Configure 8 theme, is installed. To manage the sidebar search form, go to the <a href='{$search_settings}'>search form settings</a> page." ); ?></p>
+<?php endif; ?>

@@ -123,14 +123,19 @@ if ( getPlugin( 'Search_Forms' ) ) {
 		<div id="slider_pages_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'slider_content' ) === 'static' ? 'flex' : 'none' ); ?>;">
 			<label class="form-label col-sm-2 col-form-label" for="slider_pages"><?php $L->p( 'Pages in Slider' ); ?></label>
 			<div class="col-sm-10">
-				<small class="form-text"><?php $L->p( 'Which static pages shall display in the front page slider. At least one page is required.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Which static pages shall display in the front page slider. Only pages with a cover image set are eligible for the slider. At least one page is required.' ); ?></small>
 
 				<div id="slider-pages" class="multi-check-wrap">
 
 					<?php
 
 					$static  = buildStaticPages();
-					if ( $static ) : foreach ( $static as $page ) :
+					if ( $static[0] ) : foreach ( $static as $page ) :
+
+						// Skip pages with no cover image.
+						if ( ! $page->coverImage() ) {
+							continue;
+						}
 
 						if ( $page->key() === $site->homepage() ) {
 							echo '';

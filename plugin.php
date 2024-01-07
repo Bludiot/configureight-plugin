@@ -163,6 +163,10 @@ class configureight extends Plugin {
 			'slider_number'         => 5,
 			'slider_pages'          => [ '' ],
 			'slider_ids'            => '',
+			'slider_arrows'         => 'arrow',
+			'slider_dots'           => false,
+			'slider_animate'        => 'fade',
+			'slider_duration'       => '3',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -1274,7 +1278,27 @@ class configureight extends Plugin {
 
 	// @return string
 	public function slider_ids() {
-		return $this->getValue( 'ids' );
+		return $this->getValue( 'slider_ids' );
+	}
+
+	// @return boolean
+	public function slider_arrows() {
+		return $this->getValue( 'slider_arrows' );
+	}
+
+	// @return boolean
+	public function slider_dots() {
+		return $this->getValue( 'slider_dots' );
+	}
+
+	// @return string
+	public function slider_animate() {
+		return $this->getValue( 'slider_animate' );
+	}
+
+	// @return string
+	public function slider_duration() {
+		return $this->getValue( 'slider_duration' );
 	}
 
 	// @return boolean

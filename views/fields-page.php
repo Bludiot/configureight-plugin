@@ -60,11 +60,11 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 						<option value="none" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
 
-						<option value="arrow" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'arrow' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?> →</option>
+						<option value="arrow" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'arrow' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?></option>
 
-						<option value="angle" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angle' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?> ></option>
+						<option value="angle" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angle' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?></option>
 
-						<option value="angles" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?> &#8811;</option>
+						<option value="angles" <?php echo ( $this->getValue( 'posts_nav_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?></option>
 					</select>
 					<span class="btn btn-secondary btn-md hide-if-no-js" onClick="$('#posts_nav_icon').val('<?php echo $this->dbFields['posts_nav_icon']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
@@ -117,7 +117,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_number_value').text('<?php echo $this->dbFields['slider_number']; ?>');$('#slider_number').val('<?php echo $this->dbFields['slider_number']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'General vertical spacing between elements and areas. A fraction of this setting may be used where the full amount would not be appealing.' ); ?></small>
+				<small class="form-text text-muted form-range-small"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
 			</div>
 		</div>
 
@@ -159,6 +159,57 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<div class="col-sm-10">
 				<p><small class="form-text text-muted"><?php $L->p( 'Enter the content IDs of the pages and posts to be displayed in the slider, one ID per line.' ); ?></small></p>
 				<textarea id="slider_ids" name="slider_ids" placeholder="<?php $L->p( 'One ID per line' ); ?>" cols="1" rows="5"><?php echo $this->getValue( 'slider_ids' ) ?></textarea>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_animate"><?php $L->p( 'Animation' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="slider_animate" name="slider_animate">
+					<option value="fade" <?php echo ( $this->getValue( 'slider_animate' ) === 'fade' ? 'selected' : '' ); ?>><?php $L->p( 'Fade' ); ?></option>
+					<option value="slide" <?php echo ( $this->getValue( 'slider_animate' ) === 'slide' ? 'selected' : '' ); ?>><?php $L->p( 'Slide' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'The transition between slides.' ); ?></small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_duration"><?php $L->p( 'Duration' ); ?></label>
+			<div class="col-sm-10 row">
+				<div class="form-range-controls">
+					<span class="form-range-value"><span id="slider_duration_value"><?php echo ( $this->getValue( 'slider_duration' ) ? $this->getValue( 'slider_duration' ) : $this->dbFields['slider_duration'] ); ?></span><span id="slider_duration_units">s</span></span>
+					<input type="range" class="form-control-range" onInput="$('#slider_duration_value').html($(this).val())" id="slider_duration" name="slider_duration" value="<?php echo $this->getValue( 'slider_duration' ); ?>" min="1" max="6" step="0.5" />
+					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_duration_value').text('<?php echo $this->dbFields['slider_duration']; ?>');$('#slider_duration').val('<?php echo $this->dbFields['slider_duration']; ?>');"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<small class="form-text text-muted form-range-small"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_arrows"><?php $L->p( 'Previous/Next Icons' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="slider_arrows" name="slider_arrows">
+
+					<option value="arrow" <?php echo ( $this->getValue( 'slider_arrows' ) === 'arrow' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?></option>
+
+					<option value="angle" <?php echo ( $this->getValue( 'slider_arrows' ) === 'angle' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?></option>
+
+					<option value="angles" <?php echo ( $this->getValue( 'slider_arrows' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?></option>
+
+					<option value="none" <?php echo ( $this->getValue( 'slider_arrows' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'Display directional icons to navigate slides.' ); ?></small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_dots"><?php $L->p( 'Slide Dots' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="slider_dots" name="slider_dots">
+					<option value="true" <?php echo ( $this->getValue( 'slider_dots' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+					<option value="false" <?php echo ( $this->getValue( 'slider_dots' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				</select>
+				<small class="form-text text-muted"><?php $L->p( 'Display a row of dots to navigate slides.' ); ?></small>
 			</div>
 		</div>
 	</div>

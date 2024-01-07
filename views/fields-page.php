@@ -212,6 +212,14 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<small class="form-text text-muted"><?php $L->p( 'Display a row of dots to navigate slides.' ); ?></small>
 			</div>
 		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_link_text"><?php $L->p( 'Link Text' ); ?></label>
+			<div class="col-sm-10">
+				<input type="text" id="slider_link_text" name="slider_link_text" value="<?php echo $this->getValue( 'slider_link_text' ); ?>" placeholder="<?php $L->p( 'Read More' ); ?>" />
+				<small class="form-text text-muted"><?php $L->p( 'The slide text to display for the link to the content.' ); ?></small>
+			</div>
+		</div>
 	</div>
 </fieldset>
 <?php endif; ?>

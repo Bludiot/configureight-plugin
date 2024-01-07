@@ -167,6 +167,7 @@ class configureight extends Plugin {
 			'slider_dots'           => false,
 			'slider_animate'        => 'fade',
 			'slider_duration'       => '3',
+			'slider_link_text'      => '',
 			'related_posts'         => true,
 			'max_related'           => $this->max_related_default(),
 			'related_heading'       => '',
@@ -1299,6 +1300,11 @@ class configureight extends Plugin {
 	// @return string
 	public function slider_duration() {
 		return $this->getValue( 'slider_duration' );
+	}
+
+	// @return string
+	public function slider_link_text() {
+		return $this->getValue( 'slider_link_text' );
 	}
 
 	// @return boolean

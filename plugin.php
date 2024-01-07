@@ -245,7 +245,11 @@ class configureight extends Plugin {
 			'cat_ttag_rtl'          => '',
 			'tag_ttag_rtl'          => '',
 			'search_ttag_rtl'       => '',
-			'error_ttag_rtl'        => ''
+			'error_ttag_rtl'        => '',
+			'meta_use_schema'       => true,
+			'meta_use_og'           => true,
+			'meta_use_twitter'      => true,
+			'meta_use_dublin'       => false
 		];
 
 		// Array of custom hooks.
@@ -1776,6 +1780,26 @@ class configureight extends Plugin {
 	// @return string
 	public function error_ttag_rtl() {
 		return $this->getValue( 'error_ttag_rtl' );
+	}
+
+	// @return boolean
+	public function meta_use_schema() {
+		return $this->getValue( 'meta_use_schema' );
+	}
+
+	// @return boolean
+	public function meta_use_og() {
+		return $this->getValue( 'meta_use_og' );
+	}
+
+	// @return boolean
+	public function meta_use_twitter() {
+		return $this->getValue( 'meta_use_twitter' );
+	}
+
+	// @return boolean
+	public function meta_use_dublin() {
+		return $this->getValue( 'meta_use_dublin' );
 	}
 
 	/**

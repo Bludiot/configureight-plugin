@@ -418,7 +418,7 @@ use function CFE_Plugin\{
 				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>
 				<div class="col-sm-10">
 					<p><small class="form-text text-muted"><?php $L->p( 'Add one keyword or phrase per line.' ); ?></small></p>
-					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="6"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
+					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="4"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
 				</div>
 			</div>
 

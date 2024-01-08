@@ -77,7 +77,7 @@ html.js.no-scroll {
 
 		<?php
 		if ( checkRole( [ 'admin' ], false ) ) : ?>
-		<p><a href="<?php echo HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className() . '#styles'; ?>"><?php $L->p( 'See Options' ); ?></a> | <a href="#" class="close-modal"><?php $L->p( 'Close' ); ?></a> </p>
+		<p><a href="<?php echo HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className() . '#style'; ?>"><?php $L->p( 'See Options' ); ?></a> | <a href="#" class="close-modal"><?php $L->p( 'Close' ); ?></a> </p>
 		<?php endif; ?>
 	</div>
 </div>

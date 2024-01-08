@@ -234,6 +234,20 @@ function title_tag() {
 		$sep = plugin()->title_sep();
 	}
 
+	// Loop name.
+	$loop_name = '';
+	if ( 'blog' == $url->whereAmI() ) {
+		if ( ! is_static_loop() ) {
+			if ( plugin()->loop_title() ) {
+				$loop_name = ucwords( plugin()->loop_title() );
+			} elseif ( $site->uriBlog() ) {
+				$loop_name = ucwords( str_replace( [ '/', '-', '_' ], '', $site->uriBlog() ) );
+			} else {
+				$loop_name = ucwords( plugin()->loop_type() );
+			}
+		}
+	}
+
 	// Loop page.
 	$loop_page = '';
 	$loop_sep  = '>';
@@ -332,7 +346,7 @@ function title_tag() {
 		} else {
 			$format = sprintf(
 				'%s%s %s %s',
-				ucwords( plugin()->loop_type() ),
+				$loop_name,
 				$loop_page,
 				$sep,
 				$site->title()
@@ -343,7 +357,7 @@ function title_tag() {
 					$site->title(),
 					$sep,
 					$loop_page,
-					ucwords( plugin()->loop_type() )
+					$loop_name
 				);
 			}
 		}

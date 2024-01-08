@@ -415,6 +415,14 @@ use function CFE_Plugin\{
 			<legend class="screen-reader-text"><?php $L->p( 'Meta Tags' ); ?></legend>
 
 			<div class="form-field form-group row">
+				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>
+				<div class="col-sm-10">
+					<p><small class="form-text text-muted"><?php $L->p( 'Add one keyword or phrase per line.' ); ?></small></p>
+					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="6"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
+				</div>
+			</div>
+
+			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_use_schema"><?php $L->p( 'Schema Data' ); ?></label>
 				<div class="col-sm-10">
 					<select class="form-select" id="meta_use_schema" name="meta_use_schema">

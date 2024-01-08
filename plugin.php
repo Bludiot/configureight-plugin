@@ -246,6 +246,7 @@ class configureight extends Plugin {
 			'tag_ttag_rtl'          => '',
 			'search_ttag_rtl'       => '',
 			'error_ttag_rtl'        => '',
+			'meta_keywords'         => '',
 			'meta_use_schema'       => true,
 			'meta_use_og'           => true,
 			'meta_use_twitter'      => true,
@@ -1780,6 +1781,11 @@ class configureight extends Plugin {
 	// @return string
 	public function error_ttag_rtl() {
 		return $this->getValue( 'error_ttag_rtl' );
+	}
+
+	// @return string
+	public function meta_keywords() {
+		return $this->getValue( 'meta_keywords' );
 	}
 
 	// @return boolean

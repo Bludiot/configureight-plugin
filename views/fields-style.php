@@ -338,7 +338,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				<p><?php $L->p( 'These colors are used when the user/device prefers a dark color scheme.' ); ?></p>
 
 				<div class="form-field form-group row">
-					<label class="form-label col-sm-2 col-form-label" for="color_body_dark"><?php $L->p( 'Body Color' ); ?></label>
+					<label class="form-label col-sm-2 col-form-label" for="color_body_dark"><?php $L->p( 'Dark Body Color' ); ?></label>
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_body_dark" name="color_body_dark" value="<?php echo $this->getValue( 'color_body_dark' ); ?>" />
@@ -350,7 +350,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				</div>
 
 				<div class="form-field form-group row">
-					<label class="form-label col-sm-2 col-form-label" for="color_text_dark"><?php $L->p( 'Text Color' ); ?></label>
+					<label class="form-label col-sm-2 col-form-label" for="color_text_dark"><?php $L->p( 'Dark Text Color' ); ?></label>
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_text_dark" name="color_text_dark" value="<?php echo $this->getValue( 'color_text_dark' ); ?>" />

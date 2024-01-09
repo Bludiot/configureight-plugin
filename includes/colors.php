@@ -461,23 +461,23 @@ function color_schemes() {
 			],
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#87200e',
-				'two'   => '#ca2205',
-				'three' => '#f9f2ef',
-				'four'  => '#242611',
-				'five'  => '',
-				'six'   => ''
+				'text'  => '#242611',
+				'one'   => '#ba2d15',
+				'two'   => '#e33619',
+				'three' => '#84200f',
+				'four'  => '#ab2913',
+				'five'  => '#bca443',
+				'six'   => '#cbb86d'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#241514',
+				'text'  => '#eeeeee',
+				'one'   => '#cbb86d',
+				'two'   => '#bca443',
+				'three' => '#ba2d15',
+				'four'  => '#e33619',
+				'five'  => '#84200f',
+				'six'   => '#ab2913'
 			]
 		],
 		'concrete' => [

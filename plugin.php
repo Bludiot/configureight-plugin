@@ -857,7 +857,7 @@ class configureight extends Plugin {
 	 */
 
 	// @return boolean
-	public function show_user_toolbar() {
+	public function user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
 	}
 
@@ -1479,8 +1479,8 @@ class configureight extends Plugin {
 
 		// Do not hide the menu if toolbar is disabled.
 		if (
-			'frontend' == $this->show_user_toolbar() ||
-			'disabled' == $this->show_user_toolbar()
+			'frontend' == $this->user_toolbar() ||
+			'disabled' == $this->user_toolbar()
 		) {
 			return true;
 		}

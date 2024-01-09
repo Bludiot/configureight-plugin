@@ -15,8 +15,8 @@ use function CFE_Plugin\{
 // User toolbar option.
 $show_toolbar = true;
 if (
-	'frontend' == $this->show_user_toolbar() ||
-	'disabled' == $this->show_user_toolbar()
+	'frontend' == $this->user_toolbar() ||
+	'disabled' == $this->user_toolbar()
 ) {
 	$show_toolbar = false;
 }

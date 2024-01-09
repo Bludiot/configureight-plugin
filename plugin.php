@@ -1836,6 +1836,10 @@ class configureight extends Plugin {
 		if ( $icon && file_exists( PATH_UPLOADS . $icon ) ) {
 			return DOMAIN_UPLOADS . $icon;
 
+		// Use the external URL.
+		} elseif ( filter_var( $cover, FILTER_VALIDATE_URL ) ) {
+			return $icon;
+
 		// Use icon file in theme assets/images if found & set in options array.
 		} elseif ( $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $icon ) ) {
 			return DOMAIN_THEME . 'assets/images/' . $icon;
@@ -1868,6 +1872,10 @@ class configureight extends Plugin {
 		// Use cover file in root content/uploads if found & set in options array.
 		if ( $cover && file_exists( PATH_UPLOADS . $cover ) ) {
 			return DOMAIN_UPLOADS . $cover;
+
+		// Use the external URL.
+		} elseif ( filter_var( $cover, FILTER_VALIDATE_URL ) ) {
+			return $cover;
 
 		// Use cover file in theme assets/images if found & set in options array.
 		} elseif ( $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {

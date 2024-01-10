@@ -25,7 +25,7 @@
 		<div class="col-sm-10">
 			<input type="text" id="loop_title" name="loop_title" value="<?php echo $this->getValue( 'loop_title' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_type' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
 			<small class="form-text text-muted">
-				<?php $L->p( 'The title of posts loop pages. Defaults to the style of loop, Blog or News.' ); ?>
+				<?php $L->p( 'The title of posts loop pages. Defaults to the type of loop, Blog or News.' ); ?>
 				<br />
 				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
 			</small>

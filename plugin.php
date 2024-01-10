@@ -4,6 +4,7 @@
  *
  * @package    Configure 8 Options
  * @subpackage Theme Plugins
+ * @version    1.0.0
  * @since      1.0.0
  */
 

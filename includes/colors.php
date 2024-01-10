@@ -113,6 +113,11 @@ function custom_scheme() {
 /**
  * Color schemes
  *
+ * Color scheme SCSS files contain color variables for
+ * use in CSS properties. If a color hex value is changed
+ * here then it is recommended to change the corresponding
+ * variable in the relevant file.
+ *
  * @since  1.0.0
  * @global object $L The Language class.
  * @return array Returns array of color schemes data.

@@ -22,11 +22,6 @@ $notify      : $orange !default;
 $warning     : $yellow !default;
 $success     : $green !default;
 
-// Scheme colors.
-$apr_orange : #c76919;
-$apr_blush  : #e6211c;
-$apr_blue   : #122538;
-
 // SVG icon colors.
 @function svg_icon_color() {
 	@return '%23' + str-slice( '#{$white}', 2, -1 );
@@ -66,54 +61,4 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 	background-image: url( '#{$search_icon_action_bg}' );
 }
 
-:root {
-
-	// General.
-	--cfe-link--text-color: #{$apr_orange};
-	--cfe-link--action--text-color: #{$apr_blush};
-	--cfe-heading-primary--text-color: #{$apr_blue};
-	--cfe-heading-primary--link--text-color: #{$apr_blue};
-	--cfe-heading-primary--link--action--text-color: #{$apr_orange};
-	--cfe-box-border-color: #{$apr_orange};
-	--cfe-selection--bg-color: #{$apr_orange};
-	--cfe-selection--text-color: #{$white};
-
-	// Forms & buttons.
-	--cfe-form--border-color: #{$apr_orange};
-	--cfe-form--action--border-color: #{$apr_blush};
-	--cfe-button--bg-color: #{$apr_orange};
-	--cfe-button--action--bg-color: #{$apr_blue};
-	--cfe-button--action-border-color: #{$apr_blue};
-	--cfe-button--text-color: #{$white};
-
-	// Navigation.
-	--cfe-site-nav--list--link--action--text-color: #{$apr_blush};
-	--cfe-site-nav--sub-list--bg-color: #{$apr_blue};
-	--cfe-site-nav--sub-list--action--bg-color: #{$apr_orange};
-	--cfe-site-nav--sub-list--text-color: #{$white};
-	--cfe-site-nav--sub-list--action--text-color: #{$white};
-
-	// Content.
-	--cfe-tags-list--buttons--link--bg-color: #{$apr_orange};
-	--cfe-tags-list--buttons--link--text-color: #{$white};
-
-	--cfe-tags-list--buttons--link--action--bg-color: #{$apr_blush};
-	--cfe-tags-list--buttons--link--action--text-color: #{$white};
-}
-
-@media ( prefers-color-scheme: dark ) {
-	:root {
-		--cfe-scheme-color--body: #051b21;
-		--cfe-scheme-color--text: #{$white};
-		--cfe-link--action--text-color: #{$white};
-		--cfe-heading-primary--text-color: #{$white};
-		--cfe-heading-primary--link--text-color: #{$white};
-		--cfe-heading-primary--link--action--text-color: #{$apr_orange};
-		--cfe-site-header--bg-color: var( --cfe-scheme-color--body );
-		--cfe-site-nav--list--link--action--text-color: #{$white};
-		--cfe-form--action--border-color: #{$apr_blush};
-		--cfe-button--action--bg-color: #{$apr_blush};
-		--cfe-button--action-border-color: #{$apr_blush};
-		--cfe-tags-list--buttons--link--action--bg-color: #{$apr_blush};
-	}
-}
+:root {}

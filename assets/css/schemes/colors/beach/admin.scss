@@ -5,19 +5,12 @@
 // Get general colors.
 @import '../../../modules/_utility';
 
-// Scheme colors.
-$ocn_white : #f8fafd;
-$ocn_blue  : #254d88;
-$ocn_light : #467ac7;
-$ocn_dark  : #122544;
-$ocn_black : #08101d;
-
 // SVG icon colors.
 @function svg_icon_color() {
-	@return '%23' + str-slice( '#{$ocn_white}', 2, -1 );
+	@return '%23' + str-slice( '#{$white}', 2, -1 );
 }
 @function svg_icon_action_color() {
-	@return '%23' + str-slice( '#{$ocn_white}', 2, -1 );
+	@return '%23' + str-slice( '#{$white}', 2, -1 );
 }
 
 // Search icons.
@@ -51,56 +44,4 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 	background-image: url( '#{$search_icon_action_bg}' );
 }
 
-:root {
-
-	// General.
-	--cfe-scheme-color--text: #{$ocn_black};
-	--cfe-link--text-color: #{$ocn_blue};
-	--cfe-link--action--text-color: #{$ocn_light};
-	--cfe-heading-primary--text-color: #{$ocn_dark};
-	--cfe-heading-primary--link--text-color: #{$ocn_dark};
-	--cfe-heading-primary--link--action--text-color: #{$ocn_blue};
-	--cfe-box-border-color: #{$ocn_blue};
-	--cfe-selection--bg-color: #{$ocn_blue};
-	--cfe-selection--text-color: #{$ocn_white};
-
-	// Forms & buttons.
-	--cfe-form--border-color: #{$ocn_blue};
-	--cfe-form--action--border-color: #{$ocn_light};
-	--cfe-button--bg-color: #{$ocn_blue};
-	--cfe-button--action--bg-color: #{$ocn_light};
-	--cfe-button--action-border-color: #{$ocn_light};
-	--cfe-button--text-color: #{$ocn_white};
-
-	// Navigation.
-	--cfe-site-nav--list--link--action--text-color: #{$ocn_dark};
-	--cfe-site-nav--sub-list--bg-color: #{$ocn_dark};
-	--cfe-site-nav--sub-list--action--bg-color: #{$ocn_blue};
-	--cfe-site-nav--sub-list--text-color: #{$ocn_white};
-	--cfe-site-nav--sub-list--action--text-color: #{$ocn_white};
-
-	// Content.
-	--cfe-tags-list--buttons--link--bg-color: #{$ocn_blue};
-	--cfe-tags-list--buttons--link--text-color: #{$ocn_white};
-
-	--cfe-tags-list--buttons--link--action--bg-color: #{$ocn_light};
-	--cfe-tags-list--buttons--link--action--text-color: #{$ocn_white};
-}
-
-@media ( prefers-color-scheme: dark ) {
-	:root {
-		--cfe-scheme-color--body: #{$ocn_black};
-		--cfe-scheme-color--text: #{$ocn_white};
-		--cfe-link--text-color: #{$ocn_light};
-		--cfe-link--action--text-color: #{$ocn_white};
-		--cfe-heading-primary--text-color: #{$ocn_white};
-		--cfe-heading-primary--link--text-color: #{$ocn_white};
-		--cfe-heading-primary--link--action--text-color: #{$ocn_light};
-		--cfe-site-header--bg-color: var( --cfe-scheme-color--body );
-		--cfe-site-nav--list--link--action--text-color: #{$ocn_white};
-		--cfe-form--action--border-color: #{$ocn_light};
-		--cfe-button--action--bg-color: #{$ocn_light};
-		--cfe-button--action-border-color: #{$ocn_light};
-		--cfe-tags-list--buttons--link--action--bg-color: #{$ocn_light};
-	}
-}
+:root {}

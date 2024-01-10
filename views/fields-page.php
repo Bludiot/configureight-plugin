@@ -257,7 +257,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="related_heading"><?php $L->p( 'Related Heading' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="related_heading" name="related_heading" value="<?php echo $this->getValue( 'related_heading' ); ?>" placeholder="<?php $L->p( 'Related Posts' ); ?>" />
-				<small class="form-text text-muted"><?php $L->p( 'The text of the related posts heading.' ); ?></small>
+				<small class="form-text text-muted"><?php $L->p( 'The text of the related posts heading. Save as empty for no heading.' ); ?></small>
 			</div>
 		</div>
 

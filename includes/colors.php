@@ -243,23 +243,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
+				'text'  => '#000000',
 				'one'   => '#008aad',
 				'two'   => '#1fb4d8',
-				'three' => '#c90a00',
+				'three' => '#cc0000',
 				'four'  => '#ff0000',
 				'five'  => '#ff126f',
-				'six'   => '#ff6f94'
+				'six'   => '#ff4c93'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#000000',
+				'text'  => '#ffffff',
+				'one'   => '#1fb4d8',
+				'two'   => '#008aad',
+				'three' => '#ff126f',
+				'four'  => '#ff4c93',
+				'five'  => '#cc0000',
+				'six'   => '#ff0000'
 			]
 		],
 		'dress' => [
@@ -295,23 +295,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#84200f',
-				'two'   => '#b02b14',
+				'text'  => '#381f0f',
+				'one'   => '#b02b14',
+				'two'   => '#e03214',
 				'three' => '#df7b0b',
 				'four'  => '#ffb400',
 				'five'  => '#677d08',
 				'six'   => '#93ad00'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#1e1108',
+				'text'  => '#eeeeee',
+				'one'   => '#ffb400',
+				'two'   => '#df7b0b',
+				'three' => '#677d08',
+				'four'  => '#93ad00',
+				'five'  => '#b02b14',
+				'six'   => '#e03214'
 			]
 		],
 		'video' => [
@@ -321,7 +321,7 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
+				'text'  => '#1b2025',
 				'one'   => '#d40055',
 				'two'   => '#ff297d',
 				'three' => '#750093',
@@ -330,14 +330,14 @@ function color_schemes() {
 				'six'   => '#00e0b4'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#1b2025',
+				'text'  => '#ffffff',
+				'one'   => '#ff297d',
+				'two'   => '#d40055',
+				'three' => '#a900d2',
+				'four'  => '#750093',
+				'five'  => '#0eab8c',
+				'six'   => '#00e0b4'
 			]
 		],
 		'wedding' => [
@@ -347,23 +347,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#65391c',
+				'text'  => '#28170b',
 				'one'   => '#65391c',
 				'two'   => '#a05a2c',
 				'three' => '#0081a1',
-				'four'  => '#50b0c9',
+				'four'  => '#21aed3',
 				'five'  => '#f93c5a',
-				'six'   => '#ff8080'
+				'six'   => '#ff7575'
 			],
 			'dark' => [
-				'body'  => '#65391c',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#28170b',
+				'text'  => '#eeeeee',
+				'one'   => '#c59653',
+				'two'   => '#ab602f',
+				'three' => '#0081a1',
+				'four'  => '#21aed3',
+				'five'  => '#f93c5a',
+				'six'   => '#ff7575'
 			]
 		],
 
@@ -400,24 +400,24 @@ function color_schemes() {
 			'category' => 'materials',
 			'fonts'    => '',
 			'light' => [
-				'body'  => '#ffffff',
+				'body'  => '#f3f3f3',
 				'text'  => '#333333',
-				'one'   => '#87200e',
-				'two'   => '#ca2205',
-				'three' => '#f9f2ef',
-				'four'  => '#242611',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#666666',
+				'two'   => '#888888',
+				'three' => '#9299a2',
+				'four'  => '#a3a9b1',
+				'five'  => '#9299a2',
+				'six'   => '#a3a9b1'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#222222',
+				'text'  => '#eeeeee',
+				'one'   => '#eeeeee',
+				'two'   => '#ffffff',
+				'three' => '#9299a2',
+				'four'  => '#a3a9b1',
+				'five'  => '#9299a2',
+				'six'   => '#a3a9b1'
 			]
 		],
 		'wood' => [
@@ -426,24 +426,24 @@ function color_schemes() {
 			'category' => 'materials',
 			'fonts'    => '',
 			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#87200e',
-				'two'   => '#ca2205',
-				'three' => '#f9f2ef',
-				'four'  => '#242611',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#fcfcf6',
+				'text'  => '#261e18',
+				'one'   => '#743020',
+				'two'   => '#894229',
+				'three' => '#c8ab37',
+				'four'  => '#d3bc5f',
+				'five'  => '#502d16',
+				'six'   => '#784421'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#261e18',
+				'text'  => '#fcfcf6',
+				'one'   => '#d3bc5f',
+				'two'   => '#c8ab37',
+				'three' => '#784421',
+				'four'  => '#502d16',
+				'five'  => '#894229',
+				'six'   => '#743020'
 			]
 		],
 
@@ -455,23 +455,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
+				'text'  => '#2e2c31',
 				'one'   => '#a88548',
 				'two'   => '#c19b57',
-				'three' => '#122538',
-				'four'  => '#cfd2d4',
-				'five'  => '#e6211c',
-				'six'   => '#f64117'
+				'three' => '#a88548',
+				'four'  => '#c19b57',
+				'five'  => '#2e2c31',
+				'six'   => '#a88548'
 			],
 			'dark' => [
-				'body'  => '#051b21',
+				'body'  => '#20190d',
 				'text'  => '#eeeeee',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#a88548',
+				'two'   => '#c19b57',
+				'three' => '#a88548',
+				'four'  => '#c19b57',
+				'five'  => '#503f21',
+				'six'   => '#a88548'
 			]
 		],
 		'copper' => [
@@ -481,23 +481,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#c76919',
-				'two'   => '#f37e1a',
-				'three' => '#122538',
-				'four'  => '#cfd2d4',
-				'five'  => '#e6211c',
-				'six'   => '#f64117'
+				'text'  => '#381a0c',
+				'one'   => '#cb6c07',
+				'two'   => '#e88a0f',
+				'three' => '#cb6c07',
+				'four'  => '#e88a0f',
+				'five'  => '#237944',
+				'six'   => '#2ca05a'
 			],
 			'dark' => [
-				'body'  => '#051b21',
+				'body'  => '#211813',
 				'text'  => '#eeeeee',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#e87e0f',
+				'two'   => '#bc6407',
+				'three' => '#e87e0f',
+				'four'  => '#bc6407',
+				'five'  => '#237944',
+				'six'   => '#2ca05a'
 			]
 		],
 		'gold' => [
@@ -507,23 +507,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#c76919',
-				'two'   => '#f37e1a',
-				'three' => '#122538',
-				'four'  => '#cfd2d4',
-				'five'  => '#e6211c',
-				'six'   => '#f64117'
+				'text'  => '#2b2200',
+				'one'   => '#b88014',
+				'two'   => '#e7a21e',
+				'three' => '#b88014',
+				'four'  => '#e7a21e',
+				'five'  => '#402c07',
+				'six'   => '#b88014'
 			],
 			'dark' => [
 				'body'  => '#051b21',
 				'text'  => '#eeeeee',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#b88014',
+				'two'   => '#e7a21e',
+				'three' => '#b88014',
+				'four'  => '#e7a21e',
+				'five'  => '#402c07',
+				'six'   => '#b88014'
 			]
 		],
 		'pewter' => [
@@ -533,51 +533,77 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#9d9fa3',
-				'two'   => '#cacbce',
-				'three' => '#122538',
-				'four'  => '#cfd2d4',
-				'five'  => '#e6211c',
-				'six'   => '#f64117'
+				'text'  => '#1c2224',
+				'one'   => '#433d3d',
+				'two'   => '#625a5a',
+				'three' => '#625a5a',
+				'four'  => '#7b7f85',
+				'five'  => '#625a5a',
+				'six'   => '#7b7f85'
 			],
 			'dark' => [
-				'body'  => '#051b21',
+				'body'  => '#1c2224',
 				'text'  => '#eeeeee',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#c3c6ca',
+				'two'   => '#eeeeee',
+				'three' => '#625a5a',
+				'four'  => '#7b7f85',
+				'five'  => '#625a5a',
+				'six'   => '#7b7f85'
 			]
 		],
 
 		// Nature.
+		'beach' => [
+			'slug'     => 'beach',
+			'name'     => $L->get( 'Beach' ),
+			'category' => 'nature',
+			'fonts'    => '',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#101e36',
+				'one'   => '#254d88',
+				'two'   => '#467ac7',
+				'three' => '#254d88',
+				'four'  => '#d3b857',
+				'five'  => '#204170',
+				'six'   => '#d3b857'
+			],
+			'dark' => [
+				'body'  => '#050b14',
+				'text'  => '#f8fafd',
+				'one'   => '#467ac7',
+				'two'   => '#d3b857',
+				'three' => '#254d88',
+				'four'  => '#d3b857',
+				'five'  => '#204170',
+				'six'   => '#d3b857'
+			]
+		],
 		'citrus' => [
 			'slug'     => 'citrus',
 			'name'     => $L->get( 'Citrus' ),
 			'category' => 'nature',
 			'fonts'    => '',
 			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#87200e',
-				'two'   => '#ca2205',
-				'three' => '#f9f2ef',
-				'four'  => '#242611',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#fffffe',
+				'text'  => '#111a0b',
+				'one'   => '#ff7700',
+				'two'   => '#ff5500',
+				'three' => '#ffbb00',
+				'four'  => '#ffdd11',
+				'five'  => '#ff7700',
+				'six'   => '#ffcc00'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#111a0b',
+				'text'  => '#fffffe',
+				'one'   => '#ffdd11',
+				'two'   => '#ffbb00',
+				'three' => '#ff7700',
+				'four'  => '#ff5500',
+				'five'  => '#ff7700',
+				'six'   => '#ffcc00'
 			]
 		],
 		'forest' => [
@@ -587,49 +613,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#165144',
-				'two'   => '#01332e',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'text'  => '#1e110a',
+				'one'   => '#6d3d1d',
+				'two'   => '#ff6600',
+				'three' => '#3e721a',
+				'four'  => '#46a109',
+				'five'  => '#3e721a',
+				'six'   => '#f5a313'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
-			]
-		],
-		'ocean' => [
-			'slug'     => 'ocean',
-			'name'     => $L->get( 'Ocean' ),
-			'category' => 'nature',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#254d88',
-				'two'   => '#467ac7',
-				'three' => '#122544',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
-			],
-			'dark' => [
-				'body'  => '#08101d',
-				'text'  => '#f8fafd',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#1e110a',
+				'text'  => '#eeeeee',
+				'one'   => '#55d400',
+				'two'   => '#46a109',
+				'three' => '#6d3d1d',
+				'four'  => '#ff6600',
+				'five'  => '#46a109',
+				'six'   => '#f5a313'
 			]
 		],
 		'orchid' => [
@@ -639,23 +639,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#4d0859',
-				'two'   => '#890e9f',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'text'  => '#28081c',
+				'one'   => '#b800b1',
+				'two'   => '#ff00f6',
+				'three' => '#e20093',
+				'four'  => '#ff2db8',
+				'five'  => '#e20093',
+				'six'   => '#ff2db8'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#28081c',
+				'text'  => '#fbf3f6',
+				'one'   => '#ff00f6',
+				'two'   => '#b800b1',
+				'three' => '#e20093',
+				'four'  => '#ff2db8',
+				'five'  => '#e20093',
+				'six'   => '#ff2db8'
 			]
 		],
 		'rose' => [
@@ -665,23 +665,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#f5487f',
-				'two'   => '#f879a1',
-				'three' => '#401225',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'text'  => '#1b0209',
+				'one'   => '#ff1a40',
+				'two'   => '#e00020',
+				'three' => '#f7417c',
+				'four'  => '#ff6797',
+				'five'  => '#f7417c',
+				'six'   => '#ff6797'
 			],
 			'dark' => [
 				'body'  => '#1b0209',
 				'text'  => '#f3f3f3',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'one'   => '#ff6797',
+				'two'   => '#f7417c',
+				'three' => '#e00020',
+				'four'  => '#ff1a40',
+				'five'  => '#f7417c',
+				'six'   => '#ff6797'
 			]
 		],
 		'violet' => [
@@ -691,23 +691,23 @@ function color_schemes() {
 			'fonts'    => '',
 			'light' => [
 				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#4d0859',
-				'two'   => '#890e9f',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'text'  => '#220b28',
+				'one'   => '#a400aa',
+				'two'   => '#dd00e5',
+				'three' => '#672178',
+				'four'  => '#8f2ea7',
+				'five'  => '#672178',
+				'six'   => '#8f2ea7'
 			],
 			'dark' => [
-				'body'  => '',
-				'text'  => '',
-				'one'   => '',
-				'two'   => '',
-				'three' => '',
-				'four'  => '',
-				'five'  => '',
-				'six'   => ''
+				'body'  => '#220b28',
+				'text'  => '#eeeeee',
+				'one'   => '#dd00e5',
+				'two'   => '#a400aa',
+				'three' => '#672178',
+				'four'  => '#8f2ea7',
+				'five'  => '#672178',
+				'six'   => '#8f2ea7'
 			]
 		],
 		'sunrise' => [

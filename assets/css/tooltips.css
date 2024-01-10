@@ -322,7 +322,7 @@ corresponds to the arrow we want to display */
 
 .tooltipster-sidetip.cfe-tooltips .tooltipster-content,
 .tooltipster-follower.cfe-tooltips .tooltipster-content {
-  background: #333333;
+  background-color: var(--cfe-tooltip--bg-color, var(--cfe-body--bg-color--dark, #333333));
   color: #ffffff;
   border-radius: 0px;
   padding: 0.5em 0.625em;
@@ -370,17 +370,17 @@ corresponds to the arrow we want to display */
 }
 
 .tooltipster-sidetip.cfe-tooltips.tooltipster-bottom .tooltipster-arrow-background {
-  border-bottom-color: #333333;
+  border-bottom-color: var(--cfe-tooltip--bg-color, var(--cfe-body--bg-color--dark, #333333));
 }
 
 .tooltipster-sidetip.cfe-tooltips.tooltipster-left .tooltipster-arrow-background {
-  border-left-color: #333333;
+  border-left-color: var(--cfe-tooltip--bg-color, var(--cfe-body--bg-color--dark, #333333));
 }
 
 .tooltipster-sidetip.cfe-tooltips.tooltipster-right .tooltipster-arrow-background {
-  border-right-color: #333333;
+  border-right-color: var(--cfe-tooltip--bg-color, var(--cfe-body--bg-color--dark, #333333));
 }
 
 .tooltipster-sidetip.cfe-tooltips.tooltipster-top .tooltipster-arrow-background {
-  border-top-color: #333333;
+  border-top-color: var(--cfe-tooltip--bg-color, var(--cfe-body--bg-color--dark, #333333));
 }

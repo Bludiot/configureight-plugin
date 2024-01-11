@@ -5,6 +5,25 @@
 // Get general colors.
 @import '../../../modules/_utility';
 
+// Scheme colors.
+$color_body: #ffffff;
+$color_text: #2a180c;
+$color_one: #f83d5c;
+$color_two: #f9657d;
+$color_three: #2ea65e;
+$color_four: #4dce81;
+$color_five: #ed7409;
+$color_six: #ff8a0d;
+
+$color_body_dark: #180e07;
+$color_text_dark: #eeeeee;
+$color_one_dark: #f9657d;
+$color_two_dark: #f83d5c;
+$color_three_dark: #2ea65e;
+$color_four_dark: #4dce81;
+$color_five_dark: #ed7409;
+$color_six_dark: #ff8a0d;
+
 // SVG icon colors.
 @function svg_icon_color() {
 	@return '%23' + str-slice( '#{$white}', 2, -1 );

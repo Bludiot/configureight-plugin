@@ -2,25 +2,27 @@
 /// Color Scheme: Copper
 ///
 
-// General colors.
-$white       : #ffffff !default;
-$off_white   : #eeeeee !default;
-$black       : #000000 !default;
-$near_black  : #1e1e1e !default;
-$dark_gray   : #333333 !default;
-$medium_gray : #555555 !default;
-$light_gray  : #888888 !default;
-$pale_gray   : #cccccc !default;
-$red         : #dd0000 !default;
-$orange      : #ee6600 !default;
-$yellow      : #f8ce30 !default;
-$green       : #4b9960 !default;
-$blue        : #0044aa !default;
-$violet      :  #551a8b !default;
-$error       : $red !default;
-$notify      : $orange !default;
-$warning     : $yellow !default;
-$success     : $green !default;
+// Get general colors.
+@import '../../../modules/_utility';
+
+// Scheme colors.
+$color_body: #ffffff;
+$color_text: #381a0c;
+$color_one: #cb6c07;
+$color_two: #e88a0f;
+$color_three: #cb6c07;
+$color_four: #e88a0f;
+$color_five: #237944;
+$color_six: #2ca05a;
+
+$color_body_dark: #211813;
+$color_text_dark: #eeeeee;
+$color_one_dark: #e87e0f;
+$color_two_dark: #bc6407;
+$color_three_dark: #e87e0f;
+$color_four_dark: #bc6407;
+$color_five_dark: #237944;
+$color_six_dark: #2ca05a;
 
 // SVG icon colors.
 @function svg_icon_color() {

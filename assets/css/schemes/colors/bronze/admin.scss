@@ -2,25 +2,27 @@
 /// Color Scheme: Bronze
 ///
 
-// General colors.
-$white       : #ffffff !default;
-$off_white   : #eeeeee !default;
-$black       : #000000 !default;
-$near_black  : #1e1e1e !default;
-$dark_gray   : #333333 !default;
-$medium_gray : #555555 !default;
-$light_gray  : #888888 !default;
-$pale_gray   : #cccccc !default;
-$red         : #dd0000 !default;
-$orange      : #ee6600 !default;
-$yellow      : #f8ce30 !default;
-$green       : #4b9960 !default;
-$blue        : #0044aa !default;
-$violet      :  #551a8b !default;
-$error       : $red !default;
-$notify      : $orange !default;
-$warning     : $yellow !default;
-$success     : $green !default;
+// Get general colors.
+@import '../../../modules/_utility';
+
+// Scheme colors.
+$color_body: #ffffff;
+$color_text: #2e2c31;
+$color_one: #a88548;
+$color_two: #c19b57;
+$color_three: #a88548;
+$color_four: #c19b57;
+$color_five: #2e2c31;
+$color_six: #a88548;
+
+$color_body_dark: #20190d;
+$color_text_dark: #eeeeee;
+$color_one_dark: #c19b57;
+$color_two_dark: #a88548;
+$color_three_dark: #a88548;
+$color_four_dark: #c19b57;
+$color_five_dark: #503f21;
+$color_six_dark: #a88548;
 
 // SVG icon colors.
 @function svg_icon_color() {

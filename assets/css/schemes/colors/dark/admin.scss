@@ -4,6 +4,25 @@
 
 @import '../../../modules/_utility';
 
+// Scheme colors.
+$color_body: #1e1e1e;
+$color_text: #eeeeee;
+$color_one: #ffffff;
+$color_two: #ffdd00;
+$color_three: #333333;
+$color_four: #555555;
+$color_five: #333333;
+$color_six: #555555;
+
+$color_body_dark: #1e1e1e;
+$color_text_dark: #eeeeee;
+$color_one_dark: #ffffff;
+$color_two_dark: #ffdd00;
+$color_three_dark: #333333;
+$color_four_dark: #555555;
+$color_five_dark: #333333;
+$color_six_dark: #555555;
+
 // SVG icon colors.
 @function svg_icon_color() {
 	@return '%23' + str-slice( '#{$off_white}', 2, -1 );

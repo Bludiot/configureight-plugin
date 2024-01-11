@@ -76,7 +76,7 @@
 
 				<option value="news" <?php echo ( $this->getValue( 'loop_type' ) === 'news' ? 'selected' : '' ); ?>><?php $L->p( 'News' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Choose the style of posts in the main loop.' ); ?></small>
+			<small class="form-text text-muted"><?php $L->p( 'Choose the type of posts. Used in Schema tags for SEO.' ); ?></small>
 		</div>
 	</div>
 

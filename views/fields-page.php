@@ -130,7 +130,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<?php
 
 					$static  = buildStaticPages();
-					if ( $static[0] ) : foreach ( $static as $page ) :
+					if ( isset( $static[0] ) ) : foreach ( $static as $page ) :
 
 						// Skip pages with no cover image.
 						if ( ! $page->coverImage() ) {

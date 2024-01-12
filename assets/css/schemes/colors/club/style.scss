@@ -68,4 +68,6 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 	// Default override.
 	--cfe-heading-primary--link--text-color: var( --cfe-scheme-color--three );
 	--cfe-heading-primary--link--action--text-color: var( --cfe-scheme-color--four );
+	--cfe-tabs--list--link--bg-color: #{darken( $color: $color_body, $amount: 6.666% )};
+	--cfe-tabs--list--link--bg-color--dark: #{lighten( $color: $color_body_dark, $amount: 6.666% )};
 }

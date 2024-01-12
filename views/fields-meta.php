@@ -58,7 +58,7 @@ use function CFE_Plugin\{
 						</select>
 						<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#title_sep').val('<?php echo $this->dbFields['title_sep']; ?>');$( '#custom_sep' ).val('');$( '#custom_sep_wrap' ).fadeOut( 250 );"><?php $L->p( 'Default' ); ?></span>
 					</div>
-					<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
+					<small class="form-text"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 				</div>
 			</div>
 
@@ -67,7 +67,7 @@ use function CFE_Plugin\{
 					<label class="form-label col-sm-2 col-form-label" for="custom_sep"><?php $L->p( 'Custom Separator' ); ?></label>
 					<div class="col-sm-10">
 						<input type="text" id="custom_sep" name="custom_sep" value="<?php echo $this->getValue( 'custom_sep' ); ?>" placeholder="<?php echo $this->dbFields['custom_sep']; ?>" />
-						<small class="form-text text-muted"><?php $L->p( 'Paste or type in the custom separator character.' ); ?></small>
+						<small class="form-text"><?php $L->p( 'Paste or type in the custom separator character.' ); ?></small>
 					</div>
 				</div>
 			</div>
@@ -101,7 +101,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#default_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -118,7 +118,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#loop_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -137,7 +137,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#post_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -157,7 +157,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#page_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -176,7 +176,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#cat_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -195,7 +195,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#tag_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -215,7 +215,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#search_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -236,7 +236,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#error_ttag').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -259,7 +259,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#default_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -276,7 +276,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#loop_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -295,7 +295,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#post_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -315,7 +315,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#page_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -334,7 +334,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#cat_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -353,7 +353,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#tag_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -373,7 +373,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#search_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -393,7 +393,7 @@ use function CFE_Plugin\{
 								<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#error_ttag_rtl').val('');"><?php $L->p( 'Clear' ); ?></span>
 							</div>
 							<small class="form-text">
-								<span class="text-muted"><?php $L->p( 'Placeholders:' ); ?> </span>
+								<span class=""><?php $L->p( 'Placeholders:' ); ?> </span>
 								<code class="select">{{separator}}</code>
 								<code class="select">{{site-title}}</code>
 								<code class="select">{{site-slogan}}</code>
@@ -417,7 +417,7 @@ use function CFE_Plugin\{
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>
 				<div class="col-sm-10">
-					<p><small class="form-text text-muted"><?php $L->p( 'Add one keyword or phrase per line.' ); ?></small></p>
+					<p><small class="form-text"><?php $L->p( 'Add one keyword or phrase per line.' ); ?></small></p>
 					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="4"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
 				</div>
 			</div>
@@ -429,7 +429,7 @@ use function CFE_Plugin\{
 						<option value="true" <?php echo ( $this->getValue( 'meta_use_schema' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 						<option value="false" <?php echo ( $this->getValue( 'meta_use_schema' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 					</select>
-					<small class="form-text text-muted"><?php $L->p( 'Used in conjunction with other Schema data throughout the theme.' ); ?></small>
+					<small class="form-text"><?php $L->p( 'Used in conjunction with other Schema data throughout the theme.' ); ?></small>
 				</div>
 			</div>
 
@@ -440,7 +440,7 @@ use function CFE_Plugin\{
 						<option value="true" <?php echo ( $this->getValue( 'meta_use_og' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 						<option value="false" <?php echo ( $this->getValue( 'meta_use_og' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 					</select>
-					<small class="form-text text-muted"><?php $L->p( 'Used primarily for embedding URLs; includes Facebook.' ); ?></small>
+					<small class="form-text"><?php $L->p( 'Used primarily for embedding URLs; includes Facebook.' ); ?></small>
 				</div>
 			</div>
 
@@ -451,7 +451,7 @@ use function CFE_Plugin\{
 						<option value="true" <?php echo ( $this->getValue( 'meta_use_twitter' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 						<option value="false" <?php echo ( $this->getValue( 'meta_use_twitter' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 					</select>
-					<small class="form-text text-muted"><?php $L->p( 'Used specifically for embedding URLs in X/Twitter.' ); ?></small>
+					<small class="form-text"><?php $L->p( 'Used specifically for embedding URLs in X/Twitter.' ); ?></small>
 				</div>
 			</div>
 

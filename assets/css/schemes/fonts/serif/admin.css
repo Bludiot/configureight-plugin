@@ -27,7 +27,7 @@
   --cfe-loader--text--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-loader--text--font-size: 1.75rem;
   --cfe-loader--text--font-weight: 600;
-  --cfe-tabs--nav-link--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-tabs--nav-link--font-size: 1.0625rem;
-  --cfe-tabs--nav-link--font-weight: 525;
+  --cfe-tabs--list--link--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --cfe-tabs--list--link--font-size: 1.0625rem;
+  --cfe-tabs--list--link--font-weight: 525;
 }

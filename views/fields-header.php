@@ -27,7 +27,7 @@ if ( $site->logo() ) {
 				<option value="true" <?php echo ( $this->getValue( 'site_title' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'site_title' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Title will not be hidden from search engines and screen readers.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Title will not be hidden from search engines and screen readers.' ); ?></small>
 		</div>
 	</div>
 
@@ -38,7 +38,7 @@ if ( $site->logo() ) {
 				<option value="true" <?php echo ( $this->getValue( 'site_slogan' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'site_slogan' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Slogan will not be hidden from search engines and screen readers.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Slogan will not be hidden from search engines and screen readers.' ); ?></small>
 		</div>
 	</div>
 
@@ -108,7 +108,7 @@ if ( $site->logo() ) {
 					<input type="range" class="form-control-range" onInput="$('#logo_width_std_value').html($(this).val());$('#logo_preview_desktop').css('width',$(this).val()+'px');" id="logo_width_std" name="logo_width_std" value="<?php echo $this->getValue( 'logo_width_std' ); ?>" min="0" max="320" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_std_value').text('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_width_std').val('<?php echo $this->dbFields['logo_width_std']; ?>');$('#logo_preview_desktop').css('width','<?php echo $this->dbFields['logo_width_std']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
+				<small class="form-text form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 			</div>
 		</div>
 
@@ -123,7 +123,7 @@ if ( $site->logo() ) {
 					<input type="range" class="form-control-range" onInput="$('#logo_width_mob_value').html($(this).val());$('#logo_preview_mobile').css('width',$(this).val()+'px');" id="logo_width_mob" name="logo_width_mob" value="<?php echo $this->getValue( 'logo_width_mob' ); ?>" min="0" max="320" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#logo_width_mob_value').text('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_width_mob').val('<?php echo $this->dbFields['logo_width_mob']; ?>');$('#logo_preview_mobile').css('width','<?php echo $this->dbFields['logo_width_mob']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
+				<small class="form-text form-range-small"><?php $L->p( 'This is a maximum width in pixels.' ); ?></small>
 			</div>
 		</div>
 
@@ -137,7 +137,7 @@ if ( $site->logo() ) {
 
 					<option value="below" <?php echo ( $this->getValue( 'logo_location' ) === 'below' ? 'selected' : '' ); ?>><?php $L->p( 'Below Text' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'Where to place the logo in the header branding section.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Where to place the logo in the header branding section.' ); ?></small>
 			</div>
 		</div>
 	</div>
@@ -149,7 +149,7 @@ if ( $site->logo() ) {
 				<option value="true" <?php echo ( $this->getValue( 'header_sticky' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_sticky' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Makes the branding and navigation stick to the top of the viewport.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Makes the branding and navigation stick to the top of the viewport.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

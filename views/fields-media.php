@@ -20,7 +20,7 @@
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Bookmark Icon' ); ?></label>
 		<div class="col-sm-4">
 			<input type="text" id="site_favicon" name="site_favicon" value="<?php echo $this->getValue( 'site_favicon' ); ?>" placeholder="<?php $L->p( 'favicon.png;' ); ?>" />
-			<small class="form-text text-muted"><?php $L->p( 'The image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'The image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></small>
 		</div>
 		<?php if ( ! is_null( $this->favicon_src() ) ) : ?>
 		<div class="col-sm-2">
@@ -29,7 +29,7 @@
 			</a>
 		</div>
 		<?php else : ?>
-		<p class="text-muted"><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
+		<p class=""><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
 		<?php endif; ?>
 	</div>
 
@@ -41,7 +41,7 @@
 				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['modal_bg_color']; ?>" />
 				<span class="btn btn-secondary btn-md hide-if-no-js" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 			</div>
-			<p><small class="form-text text-muted"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
+			<p><small class="form-text"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
 		</div>
 	</div>
 </fieldset>
@@ -55,7 +55,7 @@
 		<label class="form-label col-sm-2 col-form-label" for="default_cover"><?php $L->p( 'Default Cover' ); ?></label>
 		<div class="col-sm-4">
 			<input type="text" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" placeholder="<?php $L->p( 'cover.jpg' ); ?>" />
-			<small class="form-text text-muted"><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></small>
 		</div>
 		<?php if ( ! is_null( $this->cover_src() ) ) : ?>
 		<div class="col-sm-2">
@@ -64,7 +64,7 @@
 			</a>
 		</div>
 		<?php else : ?>
-		<p class="text-muted"><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
+		<p class=""><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
 		<?php endif; ?>
 	</div>
 
@@ -75,7 +75,7 @@
 				<option value="overlay" <?php echo ( $this->getValue( 'cover_style' ) === 'overlay' ? 'selected' : '' ); ?>><?php $L->p( 'Color Overlay' ); ?></option>
 				<option value="blend" <?php echo ( $this->getValue( 'cover_style' ) === 'blend' ? 'selected' : '' ); ?>><?php $L->p( 'Color Blend' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Cover images can have a simple overlay or blend with a color.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Cover images can have a simple overlay or blend with a color.' ); ?></small>
 		</div>
 	</div>
 
@@ -120,7 +120,7 @@
 
 					<label class="check-label-wrap" for="blend_related"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_related" value="related" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'related', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
 				</div>
-				<small class="form-text text-muted"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
 			</div>
 		</div>
 	</div>
@@ -141,7 +141,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'cover_text_shadow' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'cover_text_shadow' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Shadow behind overlay text can provide needed contrast.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Shadow behind overlay text can provide needed contrast.' ); ?></small>
 		</div>
 	</div>
 
@@ -162,7 +162,7 @@
 
 				<option value="arrow-down-light" <?php echo ( $this->getValue( 'cover_icon' ) === 'arrow-down-light' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow Light' ); ?></option>
 			</select>
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'Choose the style of icon to scroll to content. For full-screen covers only.' ); ?>
 			</small>
 		</div>
@@ -183,7 +183,7 @@
 				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_width').val('<?php echo $this->dbFields['thumb_width']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
-			<small class="form-text text-muted"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
 		</div>
 	</div>
 
@@ -194,7 +194,7 @@
 				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_height').val('<?php echo $this->dbFields['thumb_height']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
-			<small class="form-text text-muted"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
 		</div>
 	</div>
 
@@ -205,7 +205,7 @@
 				<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_quality').val('<?php echo $this->dbFields['thumb_quality']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
-			<small class="form-text text-muted"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
 		</div>
 	</div>
 

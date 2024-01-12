@@ -41,7 +41,7 @@ $serif_stack: Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 
 	--cfe-loader--text--font-weight: 600;
 
 	// Tabbed content.
-	--cfe-tabs--nav-link--font-family: #{$crimson_stack};
-	--cfe-tabs--nav-link--font-size: 1.0625rem;
-	--cfe-tabs--nav-link--font-weight: 525;
+	--cfe-tabs--list--link--font-family: #{$crimson_stack};
+	--cfe-tabs--list--link--font-size: 1.0625rem;
+	--cfe-tabs--list--link--font-weight: 525;
 }

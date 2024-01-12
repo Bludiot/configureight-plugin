@@ -22,6 +22,6 @@
   --cfe-loader--text--font-family: Inter, Helvetica Neue, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-loader--text--font-size: 1.5rem;
   --cfe-loader--text--font-weight: 600;
-  --cfe-tabs--nav-link--font-size: 0.9375rem;
-  --cfe-tabs--nav-link--font-weight: 525;
+  --cfe-tabs--list--link--font-size: 0.9375rem;
+  --cfe-tabs--list--link--font-weight: 525;
 }

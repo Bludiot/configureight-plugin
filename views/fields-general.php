@@ -42,7 +42,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 
 				<option value="disabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Displayed only to logged-in users.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Displayed only to logged-in users.' ); ?></small>
 		</div>
 	</div>
 
@@ -53,7 +53,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'to_top_button' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'to_top_button' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Display a button to scroll to the top of the page.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Display a button to scroll to the top of the page.' ); ?></small>
 		</div>
 	</div>
 
@@ -64,7 +64,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'show_options' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'show_options' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Display a list of options and their values on the dashboard.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Display a list of options and their values on the dashboard.' ); ?></small>
 		</div>
 	</div>
 
@@ -86,7 +86,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 			<?php if ( $this->debug_mode() ) : ?>
 			<small class="form-text text-danger"><?php $L->p( 'Option disabled while site is in debug mode.' ); ?></small>
 			<?php else : ?>
-			<small class="form-text text-muted"><?php $L->p( 'A full-screen display that hides the web page until it is fully loaded. Disabled when site is in debug mode.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'A full-screen display that hides the web page until it is fully loaded. Disabled when site is in debug mode.' ); ?></small>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -96,7 +96,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="loader_text"><?php $L->p( 'Loading Text' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="loader_text" name="loader_text" value="<?php echo $this->getValue( 'loader_text' ); ?>" placeholder="<?php echo $this->dbFields['loader_text']; ?>" />
-				<small class="form-text text-muted"><?php $L->p( 'The text to display on the loading screen.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The text to display on the loading screen.' ); ?></small>
 			</div>
 		</div>
 
@@ -113,7 +113,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 
 					<option value="none" <?php echo ( $this->getValue( 'loader_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Icon' ); ?></option>
 				</select>
-				<small class="form-text text-muted">
+				<small class="form-text">
 					<?php $L->p( 'Choose the style of icon to display below the text.' ); ?>
 				</small>
 			</div>
@@ -167,7 +167,7 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 				<option value="true" <?php echo ( $this->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Replace the search form submit text with a search icon.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Replace the search form submit text with a search icon.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

@@ -36,7 +36,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'posts_nav' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'posts_nav' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Show the previous/next post navigation. Not available on static pages.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Show the previous/next post navigation. Not available on static pages.' ); ?></small>
 		</div>
 	</div>
 
@@ -48,7 +48,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="buttons" <?php echo ( $this->getValue( 'posts_nav_type' ) === 'buttons' ? 'selected' : '' ); ?>><?php $L->p( 'Buttons' ); ?></option>
 					<option value="titles" <?php echo ( $this->getValue( 'posts_nav_type' ) === 'titles' ? 'selected' : '' ); ?>><?php $L->p( 'Titles' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'The style of posts navigation.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The style of posts navigation.' ); ?></small>
 			</div>
 		</div>
 
@@ -68,7 +68,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					</select>
 					<span class="btn btn-secondary btn-md hide-if-no-js" onClick="$('#posts_nav_icon').val('<?php echo $this->dbFields['posts_nav_icon']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
 			</div>
 		</div>
 	</div>
@@ -90,7 +90,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'posts_slider' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'posts_slider' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Content without a cover image will be skipped.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Content without a cover image will be skipped.' ); ?></small>
 		</div>
 	</div>
 
@@ -116,7 +116,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_number_value').text('<?php echo $this->dbFields['slider_number']; ?>');$('#slider_number').val('<?php echo $this->dbFields['slider_number']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
+				<small class="form-text form-range-small"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
 			</div>
 		</div>
 
@@ -165,7 +165,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="fade" <?php echo ( $this->getValue( 'slider_animate' ) === 'fade' ? 'selected' : '' ); ?>><?php $L->p( 'Fade' ); ?></option>
 					<option value="slide" <?php echo ( $this->getValue( 'slider_animate' ) === 'slide' ? 'selected' : '' ); ?>><?php $L->p( 'Slide' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'The transition between slides.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The transition between slides.' ); ?></small>
 			</div>
 		</div>
 
@@ -177,7 +177,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#slider_duration_value').html($(this).val())" id="slider_duration" name="slider_duration" value="<?php echo $this->getValue( 'slider_duration' ); ?>" min="1" max="6" step="0.5" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_duration_value').text('<?php echo $this->dbFields['slider_duration']; ?>');$('#slider_duration').val('<?php echo $this->dbFields['slider_duration']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
+				<small class="form-text form-range-small"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
 			</div>
 		</div>
 
@@ -194,7 +194,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 					<option value="none" <?php echo ( $this->getValue( 'slider_arrows' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'Display directional icons to navigate slides.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Display directional icons to navigate slides.' ); ?></small>
 			</div>
 		</div>
 
@@ -205,7 +205,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="true" <?php echo ( $this->getValue( 'slider_dots' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 					<option value="false" <?php echo ( $this->getValue( 'slider_dots' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'Display a row of dots to navigate slides.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Display a row of dots to navigate slides.' ); ?></small>
 			</div>
 		</div>
 
@@ -213,7 +213,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="slider_link_text"><?php $L->p( 'Link Text' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="slider_link_text" name="slider_link_text" value="<?php echo $this->getValue( 'slider_link_text' ); ?>" placeholder="<?php $L->p( 'Read More' ); ?>" />
-				<small class="form-text text-muted"><?php $L->p( 'The slide text to display for the link to the content.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The slide text to display for the link to the content.' ); ?></small>
 			</div>
 		</div>
 	</div>
@@ -235,7 +235,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<option value="true" <?php echo ( $this->getValue( 'related_posts' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'related_posts' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Show related posts on singular post pages.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Show related posts on singular post pages.' ); ?></small>
 		</div>
 	</div>
 
@@ -249,7 +249,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#max_related_value').html($(this).val())" id="max_related" name="max_related" value="<?php echo $this->getValue( 'max_related' ); ?>" min="1" max="9" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#max_related_value').text('<?php echo $this->dbFields['max_related']; ?>');$('#max_related').val('<?php echo $this->dbFields['max_related']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text text-muted form-range-small"><?php $L->p( 'The number of related posts to display.' ); ?></small>
+				<small class="form-text form-range-small"><?php $L->p( 'The number of related posts to display.' ); ?></small>
 			</div>
 		</div>
 
@@ -257,7 +257,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="related_heading"><?php $L->p( 'Related Heading' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="related_heading" name="related_heading" value="<?php echo $this->getValue( 'related_heading' ); ?>" placeholder="<?php $L->p( 'Related Posts' ); ?>" />
-				<small class="form-text text-muted"><?php $L->p( 'The text of the related posts heading. Save as empty for no heading.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The text of the related posts heading. Save as empty for no heading.' ); ?></small>
 			</div>
 		</div>
 
@@ -272,7 +272,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 					<option value="h4" <?php echo ( $this->getValue( 'related_heading_el' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'The heading element to use for related posts.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The heading element to use for related posts.' ); ?></small>
 			</div>
 		</div>
 
@@ -285,7 +285,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 					<option value="grid" <?php echo ( $this->getValue( 'related_style' ) === 'grid' ? 'selected' : '' ); ?>><?php $L->p( 'Grid' ); ?></option>
 				</select>
-				<small class="form-text text-muted"><?php $L->p( 'Presentation style for related posts.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'Presentation style for related posts.' ); ?></small>
 			</div>
 		</div>
 	</div>
@@ -312,7 +312,7 @@ if ( $site->pageNotFound() ) :
 				<option value="no_content" <?php echo ( $this->getValue( 'error_widgets' ) === 'no_content' ? 'selected' : '' ); ?>><?php $L->p( 'No Content' ); ?></option>
 				<option value="content" <?php echo ( $this->getValue( 'error_widgets' ) === 'content' ? 'selected' : '' ); ?>><?php $L->p( 'Content Only' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Whether and where to display user suggestion widgets on the custom 404 error page.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Whether and where to display user suggestion widgets on the custom 404 error page.' ); ?></small>
 		</div>
 	</div>
 
@@ -353,7 +353,7 @@ if ( $site->pageNotFound() ) :
 							<option value="true" <?php echo ( $this->getValue( 'error_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 							<option value="false" <?php echo ( $this->getValue( 'error_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Display a search form on the error page.' ); ?></small>
+						<small class="form-text"><?php $L->p( 'Display a search form on the error page.' ); ?></small>
 					</div>
 				</div>
 
@@ -362,7 +362,7 @@ if ( $site->pageNotFound() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_search_label"><?php $L->p( 'Heading Text' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_search_label" name="error_search_label" value="<?php echo $this->getValue( 'error_search_label' ); ?>" placeholder="<?php $L->p( 'Search' ); ?>" />
-							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -374,7 +374,7 @@ if ( $site->pageNotFound() ) :
 								<option value="h3" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
 								<option value="h4" <?php echo ( $this->getValue( 'error_search_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -382,7 +382,7 @@ if ( $site->pageNotFound() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_search_holder"><?php $L->p( 'Placeholder' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_search_holder" name="error_search_holder" value="<?php echo $this->getValue( 'error_search_holder' ); ?>" placeholder="<?php echo $placeholder; ?>" />
-							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no placeholder.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Save as blank for no placeholder.' ); ?></small>
 						</div>
 					</div>
 
@@ -393,7 +393,7 @@ if ( $site->pageNotFound() ) :
 								<option value="true" <?php echo ( $this->getValue( 'error_search_btn' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 								<option value="false" <?php echo ( $this->getValue( 'error_search_btn' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Display the search submit button.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Display the search submit button.' ); ?></small>
 						</div>
 					</div>
 
@@ -417,7 +417,7 @@ if ( $site->pageNotFound() ) :
 							<option value="true" <?php echo ( $this->getValue( 'error_static' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 							<option value="false" <?php echo ( $this->getValue( 'error_static' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Display a linked list of pages on the error page.' ); ?></small>
+						<small class="form-text"><?php $L->p( 'Display a linked list of pages on the error page.' ); ?></small>
 					</div>
 				</div>
 
@@ -427,7 +427,7 @@ if ( $site->pageNotFound() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_static_title"><?php $L->p( 'Heading Text' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_static_title" name="error_static_title" value="<?php echo $this->getValue( 'error_static_title' ); ?>" placeholder="<?php $L->p( 'Pages' ); ?>" />
-							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -439,7 +439,7 @@ if ( $site->pageNotFound() ) :
 								<option value="h3" <?php echo ( $this->getValue( 'error_static_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
 								<option value="h4" <?php echo ( $this->getValue( 'error_static_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -450,7 +450,7 @@ if ( $site->pageNotFound() ) :
 								<option value="horz" <?php echo ( $this->getValue( 'error_static_dir' ) === 'horz' ? 'selected' : '' ); ?>><?php $L->p( 'Horizontal' ); ?></option>
 								<option value="vert" <?php echo ( $this->getValue( 'error_static_dir' ) === 'vert' ? 'selected' : '' ); ?>><?php $L->p( 'Vertical' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Direction to display the list.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Direction to display the list.' ); ?></small>
 						</div>
 					</div>
 				</div>
@@ -467,7 +467,7 @@ if ( $site->pageNotFound() ) :
 							<option value="true" <?php echo ( $this->getValue( 'error_cats' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 							<option value="false" <?php echo ( $this->getValue( 'error_cats' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Display a linked list of categories on the error page.' ); ?></small>
+						<small class="form-text"><?php $L->p( 'Display a linked list of categories on the error page.' ); ?></small>
 					</div>
 				</div>
 
@@ -477,7 +477,7 @@ if ( $site->pageNotFound() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_cats_title"><?php $L->p( 'Heading Text' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_cats_title" name="error_cats_title" value="<?php echo $this->getValue( 'error_cats_title' ); ?>" placeholder="<?php $L->p( 'Categories' ); ?>" />
-							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -489,7 +489,7 @@ if ( $site->pageNotFound() ) :
 								<option value="h3" <?php echo ( $this->getValue( 'error_cats_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
 								<option value="h4" <?php echo ( $this->getValue( 'error_cats_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -500,7 +500,7 @@ if ( $site->pageNotFound() ) :
 								<option value="horz" <?php echo ( $this->getValue( 'error_cats_dir' ) === 'horz' ? 'selected' : '' ); ?>><?php $L->p( 'Horizontal' ); ?></option>
 								<option value="vert" <?php echo ( $this->getValue( 'error_cats_dir' ) === 'vert' ? 'selected' : '' ); ?>><?php $L->p( 'Vertical' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Direction to display the list.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Direction to display the list.' ); ?></small>
 						</div>
 					</div>
 				</div>
@@ -517,7 +517,7 @@ if ( $site->pageNotFound() ) :
 							<option value="true" <?php echo ( $this->getValue( 'error_tags' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 							<option value="false" <?php echo ( $this->getValue( 'error_tags' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 						</select>
-						<small class="form-text text-muted"><?php $L->p( 'Display a linked list of tags on the error page.' ); ?></small>
+						<small class="form-text"><?php $L->p( 'Display a linked list of tags on the error page.' ); ?></small>
 					</div>
 				</div>
 
@@ -527,7 +527,7 @@ if ( $site->pageNotFound() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_tags_title"><?php $L->p( 'Heading Text' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_tags_title" name="error_tags_title" value="<?php echo $this->getValue( 'error_tags_title' ); ?>" placeholder="<?php $L->p( 'Post Tags' ); ?>" />
-							<small class="form-text text-muted"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Save as blank for no heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -539,7 +539,7 @@ if ( $site->pageNotFound() ) :
 								<option value="h3" <?php echo ( $this->getValue( 'error_tags_heading' ) === 'h3' ? 'selected' : '' ); ?>><?php $L->p( 'H3' ); ?></option>
 								<option value="h4" <?php echo ( $this->getValue( 'error_tags_heading' ) === 'h4' ? 'selected' : '' ); ?>><?php $L->p( 'H4' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Choose the heading level for the widget heading.' ); ?></small>
 						</div>
 					</div>
 
@@ -550,7 +550,7 @@ if ( $site->pageNotFound() ) :
 								<option value="horz" <?php echo ( $this->getValue( 'error_tags_dir' ) === 'horz' ? 'selected' : '' ); ?>><?php $L->p( 'Horizontal' ); ?></option>
 								<option value="vert" <?php echo ( $this->getValue( 'error_tags_dir' ) === 'vert' ? 'selected' : '' ); ?>><?php $L->p( 'Vertical' ); ?></option>
 							</select>
-							<small class="form-text text-muted"><?php $L->p( 'Direction to display the list.' ); ?></small>
+							<small class="form-text"><?php $L->p( 'Direction to display the list.' ); ?></small>
 						</div>
 					</div>
 				</div>

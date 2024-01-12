@@ -9,9 +9,17 @@
 	// height: calc(1.5em + 0.75rem + 2px);
 	padding: var( --cfe-form-element--padding );
 	background-clip: padding-box;
-	background-color: var( --cfe-bg-color );
+	background-color: var( --cfe-body--bg-color );
+	color: var( --cfe-body--text-color );
 	border: var( --cfe-form-element--border );
+	border-radius: 0px;
 	transition: all 0.25s ease-in-out;
+
+	@media ( prefers-color-scheme: dark ) {
+		background-color: var( --cfe-body--bg-color--dark );
+		color: var( --cfe-body--text-color--dark );
+		border: var( --cfe-form-element--border--dark );
+	}
 }
 
 form {
@@ -891,11 +899,18 @@ border-bottom-right-radius: 0;
 	max-width: 640px;
 	// padding: var( --cfe-form-element--padding );
 	vertical-align: middle;
-	background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
+	background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
 	border: var( --cfe-form-element--border );
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	background-color: var( --cfe-body--bg-color );
+	color: var( --cfe-body--text-color );
+
+	@media ( prefers-color-scheme: dark ) {
+		background-color: var( --cfe-body--bg-color--dark );
+		color: var( --cfe-body--text-color--dark );
+	}
 }
 
 .custom-select[multiple], .custom-select[size]:not([size="1"]) {
@@ -1206,15 +1221,10 @@ select[disabled] {
 	padding: .375rem 1ch;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
 	background-clip: padding-box;
-	border: 1px solid var( --cfe-form-element--border );
+	border: var( --cfe-form-element--border );
 
-	&.px-range-value {
-		min-width: 7ch;
-	}
-
+	&.px-range-value,
 	&.rem-range-value {
 		min-width: 10ch;
 	}
@@ -1298,9 +1308,17 @@ p + .multi-check-wrap {
 		// height: calc(1.5em + 0.75rem + 2px);
 		padding: var( --cfe-form-element--padding );
 		background-clip: padding-box;
-		background-color: var( --cfe-bg-color );
+		background-color: var( --cfe-body--bg-color );
+		color: var( --cfe-body--text-color );
 		border: var( --cfe-form-element--border );
+		border-radius: 0px;
 		transition: all 0.25s ease-in-out;
+
+		@media ( prefers-color-scheme: dark ) {
+			background-color: var( --cfe-body--bg-color--dark );
+			color: var( --cfe-body--text-color--dark );
+			border: var( --cfe-form-element--border--dark );
+		}
 	}
 
 	textarea {
@@ -1382,7 +1400,7 @@ p + .multi-check-wrap {
 .select2-dropdown {
 	background-color: white;
 	border: 1px solid #aaa;
-	border-radius: 4px;
+	border-radius: 0px;
 	box-sizing: border-box;
 	display: block;
 	position: absolute;
@@ -1466,7 +1484,6 @@ p + .multi-check-wrap {
 .select2-container--default .select2-selection--single {
 	background-color: #fff;
 	border: 1px solid #aaa;
-	border-radius: 4px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
 	color: #444;
@@ -1520,7 +1537,6 @@ p + .multi-check-wrap {
 .select2-container--default .select2-selection--multiple {
 	background-color: white;
 	border: 1px solid #aaa;
-	border-radius: 4px;
 	cursor: text;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
@@ -1544,7 +1560,6 @@ p + .multi-check-wrap {
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
 	background-color: #e4e4e4;
 	border: 1px solid #aaa;
-	border-radius: 4px;
 	cursor: default;
 	float: left;
 	margin-right: 5px;
@@ -1654,7 +1669,7 @@ p + .multi-check-wrap {
 .select2-container--classic .select2-selection--single {
 	background-color: #f7f7f7;
 	border: 1px solid #aaa;
-	border-radius: 4px;
+	border-radius: 0px;
 	outline: 0;
 	background-image: -webkit-linear-gradient(top, #fff 50%, #eee 100%);
 	background-image: -o-linear-gradient(top, #fff 50%, #eee 100%);
@@ -1713,7 +1728,7 @@ p + .multi-check-wrap {
 .select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__arrow {
 	border: none;
 	border-right: 1px solid #aaa;
-	border-radius: 0;
+	border-radius: 0px;
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 	left: 1px;
@@ -1753,7 +1768,6 @@ p + .multi-check-wrap {
 .select2-container--classic .select2-selection--multiple {
 	background-color: white;
 	border: 1px solid #aaa;
-	border-radius: 4px;
 	cursor: text;
 	outline: 0;
 }
@@ -1771,7 +1785,7 @@ p + .multi-check-wrap {
 .select2-container--classic .select2-selection--multiple .select2-selection__choice {
 	background-color: #e4e4e4;
 	border: 1px solid #aaa;
-	border-radius: 4px;
+	border-radius: 0px;
 	cursor: default;
 	float: left;
 	margin-right: 5px;
@@ -1934,10 +1948,17 @@ p + .multi-check-wrap {
 .input-group-prepend ~ .select2-container--bootstrap4 .select2-selection {}
 .input-group > .select2-container--bootstrap4:not(:last-child) .select2-selection {}
 .select2-container--bootstrap4 .select2-selection {
-	background-color: #fff;
-	border: var( --cfe-form-element--border );
 	width: 100%;
 	max-width: 640px;
+	border: var( --cfe-form-element--border );
+	background-color: var( --cfe-body--bg-color );
+	color: var( --cfe-body--text-color );
+
+	@media ( prefers-color-scheme: dark ) {
+		border: var( --cfe-form-element--border--dark );
+		background-color: var( --cfe-body--bg-color--dark );
+		color: var( --cfe-body--text-color--dark );
+	}
 }
 @media (prefers-reduced-motion: reduce) {
 	.select2-container--bootstrap4 .select2-selection {
@@ -1963,7 +1984,7 @@ select.is-invalid ~ .select2-container--bootstrap4 .select2-selection {}
 form.was-validated select:valid ~ .select2-container--bootstrap4 .select2-selection,
 select.is-valid ~ .select2-container--bootstrap4 .select2-selection {}
 .select2-container--bootstrap4 .select2-dropdown {
-	border-radius: 0;
+	border-radius: 0px;
 }
 .select2-container--bootstrap4 .select2-dropdown.select2-dropdown--below {
 	border-top: none;
@@ -2012,8 +2033,13 @@ select.is-valid ~ .select2-container--bootstrap4 .select2-selection {}
 }
 
 select {
+	optgroup,
 	option {
-		background-color: var( --cfe-bg-color ) !important;
+		background-color: var( --cfe-body--bg-color ) !important;
+
+		@media ( prefers-color-scheme: dark ) {
+			background-color: var( --cfe-body--bg-color--dark ) !important;
+		}
 	}
 }
 

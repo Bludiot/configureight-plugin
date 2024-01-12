@@ -530,7 +530,7 @@ Here are the basic themeable display options (colors, fonts, global widths)
   -webkit-text-decoration: var(--cfe-button--text-decoration, none);
           text-decoration: var(--cfe-button--text-decoration, none);
   text-transform: capitalize;
-  background-color: var(--cfe-button--bg-color, var(--cfe-bg-color, #6c757d));
+  background-color: var(--cfe-button--bg-color, var(--cfe-body--bg-color, #6c757d));
   border: solid 1px var(--cfe-button--border-color, #6c757d);
   border-radius: var(--cfe-button--border-radius, 4px);
   color: var(--cfe-button--text-color, var(--cfe-text-color, #ffffff)) !important;

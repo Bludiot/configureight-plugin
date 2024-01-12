@@ -24,7 +24,7 @@
 		<label class="form-label col-sm-2 col-form-label" for="loop_title"><?php $L->p( 'Loop Title' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="loop_title" name="loop_title" value="<?php echo $this->getValue( 'loop_title' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_type' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'The title of posts loop pages. Defaults to the type of loop, Blog or News.' ); ?>
 				<br />
 				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
@@ -36,7 +36,7 @@
 		<label class="form-label col-sm-2 col-form-label" for="loop_description"><?php $L->p( 'Loop Description' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="loop_description" name="loop_description" value="<?php echo $this->getValue( 'loop_description' ); ?>" placeholder="" />
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'The description of posts loop pages.' ); ?>
 				<br />
 				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
@@ -60,7 +60,7 @@
 
 				<option value="none" <?php echo ( $this->getValue( 'loop_cover' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover Image' ); ?></option>
 			</select>
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'Choose how the cover image is displayed in posts loop pages. Does not apply to taxonomy & search pages.' ); ?>
 			</small>
 		</div>
@@ -76,7 +76,7 @@
 
 				<option value="news" <?php echo ( $this->getValue( 'loop_type' ) === 'news' ? 'selected' : '' ); ?>><?php $L->p( 'News' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Choose the type of posts. Used in Schema tags for SEO.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Choose the type of posts. Used in Schema tags for SEO.' ); ?></small>
 		</div>
 	</div>
 
@@ -91,7 +91,7 @@
 
 				<option value="full" <?php echo ( $this->getValue( 'loop_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
 			</select>
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'Choose the style of post content in the main loop.' ); ?>
 				<br /><?php $L->p( 'See Settings > General > Advanced in the admin menu to set the number pf articles per page.' ); ?>
 			</small>
@@ -111,7 +111,7 @@
 
 				<option value="full" <?php echo ( $this->getValue( 'cat_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
 			</select>
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'Choose the style of post content in category loops.' ); ?>
 			</small>
 		</div>
@@ -130,7 +130,7 @@
 
 				<option value="full" <?php echo ( $this->getValue( 'tag_style' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full' ); ?></option>
 			</select>
-			<small class="form-text text-muted">
+			<small class="form-text">
 				<?php $L->p( 'Choose the style of post content in tag loops.' ); ?>
 			</small>
 		</div>
@@ -145,7 +145,7 @@
 
 				<option value="prev_next" <?php echo ( $this->getValue( 'loop_paged' ) === 'prev_next' ? 'selected' : '' ); ?>><?php $L->p( 'Previous/Next' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( 'Choose the style of navigation between pages loops.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Choose the style of navigation between pages loops.' ); ?></small>
 		</div>
 	</div>
 </fieldset>
@@ -155,7 +155,7 @@
 
 	<legend class="screen-reader-text"><?php $L->p( 'Loop Details' ); ?></legend>
 
-	<p class="form-text text-muted"><?php $L->p( 'These options only affect posts in the main loop. Display may vary by loop style when viewing a single page.' ); ?></p>
+	<p class="form-text"><?php $L->p( 'These options only affect posts in the main loop. Display may vary by loop style when viewing a single page.' ); ?></p>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_byline"><?php $L->p( 'Author Byline' ); ?></label>
@@ -164,7 +164,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_byline' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_byline' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( '' ); ?></small>
 		</div>
 	</div>
 
@@ -175,7 +175,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_date' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_date' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( '' ); ?></small>
 		</div>
 	</div>
 
@@ -186,7 +186,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_word_count' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_word_count' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( '' ); ?></small>
 		</div>
 	</div>
 
@@ -197,7 +197,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_read_time' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_read_time' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( '' ); ?></small>
 		</div>
 	</div>
 
@@ -208,7 +208,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_icons' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_icons' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text text-muted"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( '' ); ?></small>
 		</div>
 	</div>
 

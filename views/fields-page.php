@@ -182,6 +182,25 @@ if ( getPlugin( 'Search_Forms' ) ) {
 		</div>
 
 		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="slider_icon"><?php $L->p( 'Loading Icon' ); ?></label>
+			<div class="col-sm-10">
+				<select class="form-select" id="slider_icon" name="slider_icon">
+
+					<option value="spinner-dots" <?php echo ( $this->getValue( 'slider_icon' ) === 'spinner-dots' ? 'selected' : '' ); ?>><?php $L->p( 'Dots Circle' ); ?></option>
+
+					<option value="spinner-dashes" <?php echo ( $this->getValue( 'slider_icon' ) === 'spinner-dashes' ? 'selected' : '' ); ?>><?php $L->p( 'Dashes Circle' ); ?></option>
+
+					<option value="spinner-third" <?php echo ( $this->getValue( 'slider_icon' ) === 'spinner-third' ? 'selected' : '' ); ?>><?php $L->p( 'Third Circle' ); ?></option>
+
+					<option value="none" <?php echo ( $this->getValue( 'slider_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Icon' ); ?></option>
+				</select>
+				<small class="form-text">
+					<?php $L->p( 'Choose the style of icon to display below the text.' ); ?>
+				</small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="slider_arrows"><?php $L->p( 'Previous/Next Icons' ); ?></label>
 			<div class="col-sm-10">
 				<select class="form-select" id="slider_arrows" name="slider_arrows">

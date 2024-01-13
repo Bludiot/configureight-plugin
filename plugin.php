@@ -476,11 +476,6 @@ class configureight extends Plugin {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
-		// Custom admin CSS for default the with theme styles.
-		if ( ! empty( $this->admin_css() ) && 'css' == $this->admin_theme() ) {
-			$assets .= $this->admin_style_block();
-		}
-
 		// Style block for settings screen.
 		if ( str_contains( $url->slug(), 'settings' ) ) :
 		$assets .= '<style>';
@@ -497,6 +492,11 @@ class configureight extends Plugin {
 		$assets .= $this->scheme_stylesheet( 'colors', 'admin' );
 		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
 		$assets .= define_color_scheme();
+
+		// Custom admin CSS for default the with theme styles.
+		if ( ! empty( $this->admin_css() ) && 'css' == $this->admin_theme() ) {
+			$assets .= $this->admin_style_block();
+		}
 
 		return $assets;
 	}

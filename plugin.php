@@ -1092,7 +1092,7 @@ class configureight extends Plugin {
 
 	// @return string
 	public function cover_blend_default() {
-		return '#3e6caf';
+		return '#355e9a';
 	}
 
 	// @return string

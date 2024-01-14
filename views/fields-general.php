@@ -7,12 +7,14 @@
  * @since      1.0.0
  */
 
-// Loader text values.
-$loader_text_default = $this->dbFields['loader_text_color'];
-$loader_text_color   = $loader_text_default;
-if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
-	$loader_text_color = $this->getValue( 'loader_text_color' );
-}
+// Access namespaced functions.
+use function CFE_Colors\{
+	color_schemes
+};
+
+// Color schemes.
+$colors = color_schemes();
+$custom_from = $this->custom_scheme_from();
 
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Interface Options' ) ] ); ?>
@@ -119,7 +121,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<p><?php $L->p( 'Light Mode' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->loader_bg_color(); ?>" />
-					<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['loader_bg_color']; ?>" />
+					<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['body']; ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
@@ -127,7 +129,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<p><?php $L->p( 'Dark Mode' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color_dark" name="loader_bg_color_dark" value="<?php echo $this->loader_bg_color_dark(); ?>" />
-					<input id="loader_bg_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['loader_bg_color_dark']; ?>" />
+					<input id="loader_bg_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['body']; ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default_dark"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>
@@ -141,7 +143,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<p><?php $L->p( 'Light Mode' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color" name="loader_text_color" value="<?php echo $this->loader_text_color(); ?>" />
-					<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['loader_text_color']; ?>" />
+					<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['text']; ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
@@ -149,7 +151,7 @@ if ( ! empty( $this->getValue( 'loader_text_color' ) ) ) {
 				<p><?php $L->p( 'Dark Mode' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color_dark" name="loader_text_color_dark" value="<?php echo $this->loader_text_color_dark(); ?>" />
-					<input id="loader_text_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['loader_text_color_dark']; ?>" />
+					<input id="loader_text_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['text']; ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default_dark"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>

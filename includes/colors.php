@@ -138,6 +138,7 @@ function color_schemes() {
 				$L->get( 'Sans-Serif' ),
 				$L->get( 'Serif' )
 			],
+			'cover' => '#355e9a',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#333333',
@@ -166,6 +167,7 @@ function color_schemes() {
 			'fonts'    => [
 				$L->get( 'Default' )
 			],
+			'cover' => '#355e9a',
 			'light' => [
 				'body'  => '#1e1e1e',
 				'text'  => '#eeeeee',
@@ -194,6 +196,7 @@ function color_schemes() {
 			'name'     => $L->get( '1930s Club' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#2ea65e',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#2a180c',
@@ -220,6 +223,7 @@ function color_schemes() {
 			'name'     => $L->get( '1940s Hotel' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#1d683b',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#3b291d',
@@ -246,6 +250,7 @@ function color_schemes() {
 			'name'     => $L->get( '1950s Diner' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#cc0000',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#000000',
@@ -272,6 +277,7 @@ function color_schemes() {
 			'name'     => $L->get( '1960s Dress' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#0d3b85',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#1b1b21',
@@ -298,15 +304,16 @@ function color_schemes() {
 			'name'     => $L->get( '1970s Kitchen' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#536212',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#381f0f',
 				'one'   => '#b02b14',
 				'two'   => '#e03214',
-				'three' => '#df7b0b',
-				'four'  => '#ffb400',
-				'five'  => '#677d08',
-				'six'   => '#93ad00'
+				'three' => '#677d08',
+				'four'  => '#93ad00',
+				'five'  => '#4c330b',
+				'six'   => '#df7b0b'
 			],
 			'dark' => [
 				'body'  => '#1e1108',
@@ -324,6 +331,7 @@ function color_schemes() {
 			'name'     => $L->get( '1980s Video' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#58146a',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#1b2025',
@@ -350,6 +358,7 @@ function color_schemes() {
 			'name'     => $L->get( '1990s Wedding' ),
 			'category' => 'design',
 			'fonts'    => '',
+			'cover'    => '#0b687f',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#28170b',
@@ -372,12 +381,285 @@ function color_schemes() {
 			]
 		],
 
+		// Gemstones.
+		'amber' => [
+			'slug'     => 'amber',
+			'name'     => $L->get( 'Amber' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#e58700',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#e58700',
+				'two'   => '#f99200',
+				'three' => '#f99200',
+				'four'  => '#ffb70b',
+				'five'  => '#f99200',
+				'six'   => '#ffb70b'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#ffb70b',
+				'two'   => '#f99200',
+				'three' => '#f99200',
+				'four'  => '#ffb70b',
+				'five'  => '#f99200',
+				'six'   => '#ffb70b'
+			]
+		],
+		'amethyst' => [
+			'slug'     => 'amethyst',
+			'name'     => $L->get( 'Amethyst' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#4b0776',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#380756',
+				'two'   => '#4b0776',
+				'three' => '#4b0776',
+				'four'  => '#64099e',
+				'five'  => '#4b0776',
+				'six'   => '#64099e'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#830cce',
+				'two'   => '#64099e',
+				'three' => '#4b0776',
+				'four'  => '#64099e',
+				'five'  => '#4b0776',
+				'six'   => '#64099e'
+			]
+		],
+		'aquamarine' => [
+			'slug'     => 'aquamarine',
+			'name'     => $L->get( 'Aquamarine' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#2996b2',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#2094b1',
+				'two'   => '#2eb6d9',
+				'three' => '#2eb6d9',
+				'four'  => '#6fcde5',
+				'five'  => '#2eb6d9',
+				'six'   => '#6fcde5'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#2eb6d9',
+				'two'   => '#6fcde5',
+				'three' => '#2eb6d9',
+				'four'  => '#6fcde5',
+				'five'  => '#2eb6d9',
+				'six'   => '#6fcde5'
+			]
+		],
+		'emerald' => [
+			'slug'     => 'emerald',
+			'name'     => $L->get( 'Emerald' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#11892c',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#00801b',
+				'two'   => '#00a024',
+				'three' => '#00a024',
+				'four'  => '#00c62a',
+				'five'  => '#00a024',
+				'six'   => '#00c62a'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#00c62a',
+				'two'   => '#00a024',
+				'three' => '#00a024',
+				'four'  => '#00c62a',
+				'five'  => '#00a024',
+				'six'   => '#00c62a'
+			]
+		],
+		'garnet' => [
+			'slug'     => 'garnet',
+			'name'     => $L->get( 'Garnet' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#c10909',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#d40000',
+				'two'   => '#ff0000',
+				'three' => '#d40000',
+				'four'  => '#ff0000',
+				'five'  => '#d40000',
+				'six'   => '#ff0000'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#ff2222',
+				'two'   => '#d40000',
+				'three' => '#d40000',
+				'four'  => '#ff0000',
+				'five'  => '#d40000',
+				'six'   => '#ff0000'
+			]
+		],
+		'jade' => [
+			'slug'     => 'jade',
+			'name'     => $L->get( 'Jade' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#0baf4d',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#079742',
+				'two'   => '#09ba51',
+				'three' => '#09ba51',
+				'four'  => '#0ce865',
+				'five'  => '#09ba51',
+				'six'   => '#0ce865'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#0ce865',
+				'two'   => '#09ba51',
+				'three' => '#09ba51',
+				'four'  => '#0ce865',
+				'five'  => '#09ba51',
+				'six'   => '#0ce865'
+			]
+		],
+		'ruby' => [
+			'slug'     => 'ruby',
+			'name'     => $L->get( 'Ruby' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#eb0027',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#c30020',
+				'two'   => '#eb0027',
+				'three' => '#eb0027',
+				'four'  => '#ff1a40',
+				'five'  => '#eb0027',
+				'six'   => '#ff1a40'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#ff1a40',
+				'two'   => '#eb0027',
+				'three' => '#eb0027',
+				'four'  => '#ff1a40',
+				'five'  => '#eb0027',
+				'six'   => '#ff1a40'
+			]
+		],
+		'sapphire' => [
+			'slug'     => 'sapphire',
+			'name'     => $L->get( 'Sapphire' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#0c2d95',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#162d50',
+				'two'   => '#092271',
+				'three' => '#092271',
+				'four'  => '#0c2d95',
+				'five'  => '#092271',
+				'six'   => '#0c2d95'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#103cc7',
+				'two'   => '#0c2d95',
+				'three' => '#092271',
+				'four'  => '#0c2d95',
+				'five'  => '#092271',
+				'six'   => '#0c2d95'
+			]
+		],
+		'topaz' => [
+			'slug'     => 'topaz',
+			'name'     => $L->get( 'Topaz' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#bb621a',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#a35c17',
+				'two'   => '#bb621a',
+				'three' => '#bb621a',
+				'four'  => '#e08022',
+				'five'  => '#bb621a',
+				'six'   => '#e08022'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#e08022',
+				'two'   => '#bb621a',
+				'three' => '#bb621a',
+				'four'  => '#e08022',
+				'five'  => '#bb621a',
+				'six'   => '#e08022'
+			]
+		],
+		'turquoise' => [
+			'slug'     => 'turquoise',
+			'name'     => $L->get( 'Turquoise' ),
+			'category' => 'gemstones',
+			'fonts'    => '',
+			'cover'    => '#00a77a',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#009c72',
+				'two'   => '#00a77a',
+				'three' => '#00a77a',
+				'four'  => '#00d299',
+				'five'  => '#00a77a',
+				'six'   => '#00d299'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#00d299',
+				'two'   => '#00a77a',
+				'three' => '#00a77a',
+				'four'  => '#00d299',
+				'five'  => '#00a77a',
+				'six'   => '#00d299'
+			]
+		],
+
 		// Materials.
 		'brick' => [
 			'slug'     => 'brick',
 			'name'     => $L->get( 'Brick' ),
 			'category' => 'materials',
 			'fonts'    => '',
+			'cover'    => '#84200f',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#242611',
@@ -404,6 +686,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Concrete' ),
 			'category' => 'materials',
 			'fonts'    => '',
+			'cover'    => '#808fa1',
 			'light' => [
 				'body'  => '#f3f3f3',
 				'text'  => '#333333',
@@ -430,6 +713,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Wood' ),
 			'category' => 'materials',
 			'fonts'    => '',
+			'cover'    => '#733c18',
 			'light' => [
 				'body'  => '#fcfcf6',
 				'text'  => '#261e18',
@@ -458,6 +742,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Bronze' ),
 			'category' => 'metallic',
 			'fonts'    => '',
+			'cover'    => '#765824',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#2e2c31',
@@ -484,6 +769,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Copper' ),
 			'category' => 'metallic',
 			'fonts'    => '',
+			'cover'    => '#ac5f0d',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#381a0c',
@@ -510,6 +796,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Gold' ),
 			'category' => 'metallic',
 			'fonts'    => '',
+			'cover'    => '#a37110',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#2b2200',
@@ -536,14 +823,15 @@ function color_schemes() {
 			'name'     => $L->get( 'Pewter' ),
 			'category' => 'metallic',
 			'fonts'    => '',
+			'cover'    => '#625a5a',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#1c2224',
 				'one'   => '#433d3d',
-				'two'   => '#625a5a',
-				'three' => '#625a5a',
+				'two'   => '#514d62',
+				'three' => '#514d62',
 				'four'  => '#7b7f85',
-				'five'  => '#625a5a',
+				'five'  => '#514d62',
 				'six'   => '#7b7f85'
 			],
 			'dark' => [
@@ -558,274 +846,13 @@ function color_schemes() {
 			]
 		],
 
-		// Gemstones.
-		'amber' => [
-			'slug'     => 'amber',
-			'name'     => $L->get( 'Amber' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#e58700',
-				'two'   => '#f99200',
-				'three' => '#f99200',
-				'four'  => '#ffb70b',
-				'five'  => '#f99200',
-				'six'   => '#ffb70b'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#ffb70b',
-				'two'   => '#f99200',
-				'three' => '#f99200',
-				'four'  => '#ffb70b',
-				'five'  => '#f99200',
-				'six'   => '#ffb70b'
-			]
-		],
-		'amethyst' => [
-			'slug'     => 'amethyst',
-			'name'     => $L->get( 'Amethyst' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#380756',
-				'two'   => '#4b0776',
-				'three' => '#4b0776',
-				'four'  => '#64099e',
-				'five'  => '#4b0776',
-				'six'   => '#64099e'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#830cce',
-				'two'   => '#64099e',
-				'three' => '#4b0776',
-				'four'  => '#64099e',
-				'five'  => '#4b0776',
-				'six'   => '#64099e'
-			]
-		],
-		'aquamarine' => [
-			'slug'     => 'aquamarine',
-			'name'     => $L->get( 'Aquamarine' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#2094b1',
-				'two'   => '#2eb6d9',
-				'three' => '#2eb6d9',
-				'four'  => '#6fcde5',
-				'five'  => '#2eb6d9',
-				'six'   => '#6fcde5'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#2eb6d9',
-				'two'   => '#6fcde5',
-				'three' => '#2eb6d9',
-				'four'  => '#6fcde5',
-				'five'  => '#2eb6d9',
-				'six'   => '#6fcde5'
-			]
-		],
-		'emerald' => [
-			'slug'     => 'emerald',
-			'name'     => $L->get( 'Emerald' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#00801b',
-				'two'   => '#00a024',
-				'three' => '#00a024',
-				'four'  => '#00c62a',
-				'five'  => '#00a024',
-				'six'   => '#00c62a'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#00c62a',
-				'two'   => '#00a024',
-				'three' => '#00a024',
-				'four'  => '#00c62a',
-				'five'  => '#00a024',
-				'six'   => '#00c62a'
-			]
-		],
-		'garnet' => [
-			'slug'     => 'garnet',
-			'name'     => $L->get( 'Garnet' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#d40000',
-				'two'   => '#ff0000',
-				'three' => '#d40000',
-				'four'  => '#ff0000',
-				'five'  => '#d40000',
-				'six'   => '#ff0000'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#ff2222',
-				'two'   => '#d40000',
-				'three' => '#d40000',
-				'four'  => '#ff0000',
-				'five'  => '#d40000',
-				'six'   => '#ff0000'
-			]
-		],
-		'jade' => [
-			'slug'     => 'jade',
-			'name'     => $L->get( 'Jade' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#079742',
-				'two'   => '#09ba51',
-				'three' => '#09ba51',
-				'four'  => '#0ce865',
-				'five'  => '#09ba51',
-				'six'   => '#0ce865'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#0ce865',
-				'two'   => '#09ba51',
-				'three' => '#09ba51',
-				'four'  => '#0ce865',
-				'five'  => '#09ba51',
-				'six'   => '#0ce865'
-			]
-		],
-		'ruby' => [
-			'slug'     => 'ruby',
-			'name'     => $L->get( 'Ruby' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#c30020',
-				'two'   => '#eb0027',
-				'three' => '#eb0027',
-				'four'  => '#ff1a40',
-				'five'  => '#eb0027',
-				'six'   => '#ff1a40'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#ff1a40',
-				'two'   => '#eb0027',
-				'three' => '#eb0027',
-				'four'  => '#ff1a40',
-				'five'  => '#eb0027',
-				'six'   => '#ff1a40'
-			]
-		],
-		'sapphire' => [
-			'slug'     => 'sapphire',
-			'name'     => $L->get( 'Sapphire' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#162d50',
-				'two'   => '#092271',
-				'three' => '#092271',
-				'four'  => '#0c2d95',
-				'five'  => '#092271',
-				'six'   => '#0c2d95'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#103cc7',
-				'two'   => '#0c2d95',
-				'three' => '#092271',
-				'four'  => '#0c2d95',
-				'five'  => '#092271',
-				'six'   => '#0c2d95'
-			]
-		],
-		'topaz' => [
-			'slug'     => 'topaz',
-			'name'     => $L->get( 'Topaz' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#a35c17',
-				'two'   => '#bb621a',
-				'three' => '#bb621a',
-				'four'  => '#e08022',
-				'five'  => '#bb621a',
-				'six'   => '#e08022'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#e08022',
-				'two'   => '#bb621a',
-				'three' => '#bb621a',
-				'four'  => '#e08022',
-				'five'  => '#bb621a',
-				'six'   => '#e08022'
-			]
-		],
-		'turquoise' => [
-			'slug'     => 'turquoise',
-			'name'     => $L->get( 'Turquoise' ),
-			'category' => 'gemstones',
-			'fonts'    => '',
-			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#333333',
-				'one'   => '#009c72',
-				'two'   => '#00a77a',
-				'three' => '#00a77a',
-				'four'  => '#00d299',
-				'five'  => '#00a77a',
-				'six'   => '#00d299'
-			],
-			'dark' => [
-				'body'  => '#111111',
-				'text'  => '#eeeeee',
-				'one'   => '#00d299',
-				'two'   => '#00a77a',
-				'three' => '#00a77a',
-				'four'  => '#00d299',
-				'five'  => '#00a77a',
-				'six'   => '#00d299'
-			]
-		],
-
 		// Nature.
 		'beach' => [
 			'slug'     => 'beach',
 			'name'     => $L->get( 'Beach' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#254d88',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#101e36',
@@ -852,6 +879,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Citrus' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#ebad03',
 			'light' => [
 				'body'  => '#fffffe',
 				'text'  => '#111a0b',
@@ -878,6 +906,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Forest' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#3e721a',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#1e110a',
@@ -904,6 +933,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Orchid' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#b91881',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#28081c',
@@ -930,6 +960,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Rose' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#dd3e71',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#1b0209',
@@ -956,6 +987,7 @@ function color_schemes() {
 			'name'     => $L->get( 'Violet' ),
 			'category' => 'nature',
 			'fonts'    => '',
+			'cover'    => '#672178',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#220b28',

@@ -542,7 +542,7 @@ jQuery(document).ready( function($) {
 			$( '#color_six_dark' ).val( '<?php echo $option['dark']['six']; ?>' );
 
 			if ( 'default' != show ) {
-				$( '#cover_blend' ).val( '<?php echo $option['light']['three']; ?>' );
+				$( '#cover_blend' ).val( '<?php echo ( isset( $option['cover'] ) ? $option['cover'] : $option['light']['three'] ); ?>' );
 			} else {
 				$( '#cover_blend' ).val( '<?php echo $this->dbFields['cover_blend']; ?>' );
 			}

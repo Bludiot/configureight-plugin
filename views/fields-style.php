@@ -541,7 +541,6 @@ jQuery(document).ready( function($) {
 			$( '#color_five_dark' ).val( '<?php echo $option['dark']['five']; ?>' );
 			$( '#color_six_dark' ).val( '<?php echo $option['dark']['six']; ?>' );
 
-			// S( '#cover_blend' ).val( '<?php echo $option['light']['three']; ?>' );
 			if ( 'default' != show ) {
 				$( '#cover_blend' ).val( '<?php echo $option['light']['three']; ?>' );
 			} else {

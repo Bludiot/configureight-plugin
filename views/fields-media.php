@@ -7,6 +7,9 @@
  * @since      1.0.0
  */
 
+// Color schemes page URL.
+$colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
+
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
 <fieldset>
@@ -131,10 +134,13 @@
 	<div id="cover_blend_wrap" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'blend' ? 'block' : 'none' ); ?>;">
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
-			<div class="col-sm-10 row color-picker-wrap">
-				<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
-				<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_blend']; ?>" />
-				<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
+			<div class="col-sm-10">
+				<div class="row color-picker-wrap">
+					<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
+					<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_blend']; ?>" />
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
+				</div>
+				<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page for more colors from the current scheme." ); ?></p>
 			</div>
 		</div>
 

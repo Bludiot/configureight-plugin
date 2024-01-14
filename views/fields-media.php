@@ -12,7 +12,7 @@
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Media' ); ?></legend>
 
-	<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image. For now, the options require you to use complete URLs, such as to CDN images, add the images to the theme\'s assets/images directory, or add to the bl-content/uploads directory. The theme will look first in the bl-content/uploads directory.' ); ?></p>
+	<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image. For now, the options require you to use complete URLs, such as to CDN images, add the images to the theme\'s assets/images directory, or add to the bl-content/uploads directory. The theme will look first in the bl-content/uploads directory if not using an external image.' ); ?></p>
 
 	<p><?php $L->p( 'For both the bookmark icon and the default cover fields, simply add the URL, or add filename & extension (e.g. favicon.png or cover.jpg).' ); ?></p>
 

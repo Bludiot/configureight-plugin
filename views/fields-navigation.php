@@ -172,17 +172,17 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="header_search"><?php $L->p( 'Search Button' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="header_search"><?php $L->p( 'Search Form' ); ?></label>
 		<div class="col-sm-10">
 			<?php
 
 			// If the Search plugin is installed and activated.
 			if ( getPlugin( 'Search_Forms' ) ) : ?>
 			<select class="form-select" id="header_search" name="header_search">
-				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'header_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+				<option value="true" <?php echo ( $this->getValue( 'header_search' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'header_search' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Display a search icon in the navigation to toggle the header search bar.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Display a search icon in the navigation to toggle the header search bar. Also enables the search form in mobile navigation.' ); ?></small>
 			<?php
 
 			// If the Search plugin is installed and not activated.

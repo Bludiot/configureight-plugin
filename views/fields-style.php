@@ -16,7 +16,7 @@ use function CFE_Colors\{
 };
 
 // Color schemes.
-$colors  = color_schemes();
+$colors = color_schemes();
 $custom_from = $this->custom_scheme_from();
 
 // Font schemes.
@@ -522,7 +522,10 @@ jQuery(document).ready( function($) {
 	$( '#color_scheme' ).on( 'change', function() {
 		var show = $(this).val();
 
-		<?php foreach ( $colors as $color => $option ) : ?>
+		<?php foreach ( $colors as $color => $option ) :
+
+			$slug = $option['slug'];
+		?>
 		if ( show == '<?php echo $slug; ?>' ) {
 
 			if ( 'custom' != show ) {

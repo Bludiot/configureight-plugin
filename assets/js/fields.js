@@ -23,37 +23,19 @@ jQuery(document).ready( function($) {
     });
 
 	// Loader background.
-	$( '#loader_bg_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		showAlpha       : false,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#loader_bg_color' ).show();
-
 	$( '#loader_bg_color_default' ).click( function() {
 		$( '#loader_bg_color' ).spectrum( 'set', $( '#loader_bg_default' ).val() );
 	});
+	$( '#loader_bg_color_default_dark' ).click( function() {
+		$( '#loader_bg_color_dark' ).spectrum( 'set', $( '#loader_bg_default_dark' ).val() );
+	});
 
 	// Loader text.
-	$( '#loader_text_color' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		showAlpha       : false,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#loader_text_color' ).show();
-
 	$( '#loader_text_color_default' ).click( function() {
 		$( '#loader_text_color' ).spectrum( 'set', $( '#loader_text_default' ).val() );
+	});
+	$( '#loader_text_color_default_dark' ).click( function() {
+		$( '#loader_text_color_dark' ).spectrum( 'set', $( '#loader_text_default_dark' ).val() );
 	});
 
 	// Loop nav label option..

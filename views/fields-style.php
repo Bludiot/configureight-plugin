@@ -522,13 +522,7 @@ jQuery(document).ready( function($) {
 	$( '#color_scheme' ).on( 'change', function() {
 		var show = $(this).val();
 
-		<?php foreach ( $colors as $color => $option ) :
-
-			$slug = $option['slug'];
-			if ( 'custom' === $slug ) {
-				// continue;
-			}
-		?>
+		<?php foreach ( $colors as $color => $option ) : ?>
 		if ( show == '<?php echo $slug; ?>' ) {
 
 			if ( 'custom' != show ) {
@@ -549,6 +543,9 @@ jQuery(document).ready( function($) {
 			$( '#color_five' ).val( '<?php echo $option['light']['five']; ?>' );
 			$( '#color_six' ).val( '<?php echo $option['light']['six']; ?>' );
 
+			$( '#loader_bg_color' ).val( '<?php echo $option['light']['body']; ?>' );
+			$( '#loader_text_color' ).val( '<?php echo $option['light']['text']; ?>' );
+
 			$( '#color_body_dark' ).val( '<?php echo $option['dark']['body']; ?>' );
 			$( '#color_text_dark' ).val( '<?php echo $option['dark']['text']; ?>' );
 			$( '#color_one_dark' ).val( '<?php echo $option['dark']['one']; ?>' );
@@ -557,6 +554,9 @@ jQuery(document).ready( function($) {
 			$( '#color_four_dark' ).val( '<?php echo $option['dark']['four']; ?>' );
 			$( '#color_five_dark' ).val( '<?php echo $option['dark']['five']; ?>' );
 			$( '#color_six_dark' ).val( '<?php echo $option['dark']['six']; ?>' );
+
+			$( '#loader_bg_color_dark' ).val( '<?php echo $option['dark']['body']; ?>' );
+			$( '#loader_text_color_dark' ).val( '<?php echo $option['dark']['text']; ?>' );
 
 			if ( 'default' != show ) {
 				$( '#cover_blend' ).val( '<?php echo ( isset( $option['cover'] ) ? $option['cover'] : $option['light']['three'] ); ?>' );

@@ -54,7 +54,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" href="<?php echo $colors_page; ?>"><?php $L->p( 'Colors' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="schemes" aria-selected="false" href="#schemes"><?php $L->p( 'Schemes' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
@@ -80,6 +80,11 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<div id="loop" class="tab-pane" role="tabpanel" aria-labelledby="loop">
 
 		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Posts Loop, Taxonomy, & Search' ) ] ); ?>
+	</div>
+
+	<div id="schemes" class="tab-pane" role="tabpanel" aria-labelledby="schemes">
+
+		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Color & Font Schemes' ) ] ); ?>
 	</div>
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">

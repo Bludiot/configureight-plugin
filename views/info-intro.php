@@ -43,18 +43,6 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <hr />
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Comment Functionality' ) ] ); ?>
-
-<p><?php $L->p( '' ); ?></p>
-
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Languages' ) ] ); ?>
-
-<p><?php $L->p( '' ); ?></p>
-
-
-
-
-
-
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Languages' ) ] ); ?>
 
 <p><?php $L->p( '' ); ?></p>

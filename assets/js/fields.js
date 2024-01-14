@@ -87,7 +87,7 @@ jQuery(document).ready( function($) {
     	var show = $(this).val();
 		if ( show == 'overlay' ) {
 			$( "#cover_blend_wrap" ).css( 'display', 'none' );
-			$( "#cover_overlay_wrap" ).css( 'display', 'flex' );
+			$( "#cover_overlay_wrap" ).css( 'display', 'block' );
 		} else if ( show == 'blend' ) {
 			$( "#cover_overlay_wrap" ).css( 'display', 'none' );
 			$( "#cover_blend_wrap" ).fadeIn( 250 );

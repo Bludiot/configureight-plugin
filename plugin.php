@@ -140,6 +140,8 @@ class configureight extends Plugin {
 			'cover_overlay'         => $this->cover_overlay_default(),
 			'cover_text_color'      => $this->cover_text_default(),
 			'cover_text_shadow'     => true,
+			'cover_desaturate'      => 0,
+			'cover_desaturate_use'  =>  [ 'covers' ],
 			'cover_icon'            => 'angle-down-light',
 			'thumb_width'           => $this->thumb_width_default(),
 			'thumb_height'          => $this->thumb_height_default(),
@@ -1076,6 +1078,16 @@ class configureight extends Plugin {
 	// @return string
 	public function cover_text_shadow() {
 		return $this->getValue( 'cover_text_shadow' );
+	}
+
+	// @return integer
+	public function cover_desaturate() {
+		return $this->getValue( 'cover_desaturate' );
+	}
+
+	// @return integer
+	public function cover_desaturate_use() {
+		return $this->getValue( 'cover_desaturate_use' );
 	}
 
 	// @return string

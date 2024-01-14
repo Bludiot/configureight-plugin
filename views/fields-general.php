@@ -118,7 +118,7 @@ $custom_from = $this->custom_scheme_from();
 			<label class="form-label col-sm-2 col-form-label" for="loader-background-colors"><?php $L->p( 'Background' ); ?></label>
 			<div id="loader-background-colors" class="col-sm-10">
 
-				<p><?php $L->p( 'Light Mode' ); ?></p>
+				<p><?php $L->p( 'Light Mode Background' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->loader_bg_color(); ?>" />
 					<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['body']; ?>" />
@@ -126,7 +126,7 @@ $custom_from = $this->custom_scheme_from();
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
-				<p><?php $L->p( 'Dark Mode' ); ?></p>
+				<p><?php $L->p( 'Dark Mode Background' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color_dark" name="loader_bg_color_dark" value="<?php echo $this->loader_bg_color_dark(); ?>" />
 					<input id="loader_bg_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['body']; ?>" />
@@ -140,7 +140,7 @@ $custom_from = $this->custom_scheme_from();
 			<label class="form-label col-sm-2 col-form-label" for="loader-text-colors"><?php $L->p( 'Text Color' ); ?></label>
 			<div id="loader-text-colors" class="col-sm-10">
 
-				<p><?php $L->p( 'Light Mode' ); ?></p>
+				<p><?php $L->p( 'Light Mode Text Color' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color" name="loader_text_color" value="<?php echo $this->loader_text_color(); ?>" />
 					<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['text']; ?>" />
@@ -148,7 +148,7 @@ $custom_from = $this->custom_scheme_from();
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
-				<p><?php $L->p( 'Dark Mode' ); ?></p>
+				<p><?php $L->p( 'Dark Mode Text Color' ); ?></p>
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color_dark" name="loader_text_color_dark" value="<?php echo $this->loader_text_color_dark(); ?>" />
 					<input id="loader_text_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['text']; ?>" />

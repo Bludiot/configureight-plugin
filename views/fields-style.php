@@ -12,12 +12,12 @@ use function CFE_Plugin\{
 	admin_theme
 };
 use function CFE_Colors\{
-	color_schemes,
-	hex_to_rgb
+	color_schemes
 };
 
 // Color schemes.
-$colors = color_schemes();
+$colors  = color_schemes();
+$custom_from = $this->custom_scheme_from();
 
 // Font schemes.
 $base_fonts = [
@@ -152,6 +152,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					$L->get( 'Custom' )
 				); ?>
 			</select>
+			<input type="hidden" id="custom_scheme_from" name="custom_scheme_from" value="<?php echo $this->custom_scheme_from(); ?>" />
 			<small class="form-text"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
 
 			<ul id="form-color-thumbs-list">
@@ -215,6 +216,11 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		</div>
 	</div>
 
+	<?php
+	// Redefine `$colors` variable after sorting.
+	$colors = color_schemes();
+
+	?>
 	<div id="custom_color_scheme_fields" style="display: <?php echo ( $this->getValue( 'color_scheme' ) === 'custom' ? 'block' : 'none' ); ?>;">
 
 		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Colors' ) ] ); ?>
@@ -241,8 +247,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_body" name="color_body" value="<?php echo $this->getValue( 'color_body' ); ?>" />
-							<input id="color_body_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_body']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_body_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_body_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['body']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_body_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-bg-color</code>' ); ?></small></p>
 					</div>
@@ -253,8 +259,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_text" name="color_text" value="<?php echo $this->getValue( 'color_text' ); ?>" />
-							<input id="color_text_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_text']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_text_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_text_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['text']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_text_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-bg-color</code>' ); ?></small></p>
 					</div>
@@ -265,8 +271,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_one" name="color_one" value="<?php echo $this->getValue( 'color_one' ); ?>" />
-							<input id="color_one_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_one']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_one_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['one']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--one</code>' ); ?></small></p>
 					</div>
@@ -277,8 +283,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_two" name="color_two" value="<?php echo $this->getValue( 'color_two' ); ?>" />
-							<input id="color_two_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_two']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_two_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['two']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--two</code>' ); ?></small></p>
 					</div>
@@ -289,8 +295,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_three" name="color_three" value="<?php echo $this->getValue( 'color_three' ); ?>" />
-							<input id="color_three_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_three']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_three_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['three']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--three</code>' ); ?></small></p>
 					</div>
@@ -301,8 +307,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_four" name="color_four" value="<?php echo $this->getValue( 'color_four' ); ?>" />
-							<input id="color_four_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_four']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_four_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['four']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--four</code>' ); ?></small></p>
 					</div>
@@ -313,8 +319,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_five" name="color_five" value="<?php echo $this->getValue( 'color_five' ); ?>" />
-							<input id="color_five_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_five']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_five_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['five']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--five</code>' ); ?></small></p>
 					</div>
@@ -325,8 +331,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_six" name="color_six" value="<?php echo $this->getValue( 'color_six' ); ?>" />
-							<input id="color_six_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_six']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_six_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['six']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--six</code>' ); ?></small></p>
 					</div>
@@ -342,8 +348,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_body_dark" name="color_body_dark" value="<?php echo $this->getValue( 'color_body_dark' ); ?>" />
-							<input id="color_body_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_body_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_body_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_body_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['body']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_body_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-bg-color--dark</code>' ); ?></small></p>
 					</div>
@@ -354,8 +360,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_text_dark" name="color_text_dark" value="<?php echo $this->getValue( 'color_text_dark' ); ?>" />
-							<input id="color_text_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_text_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_text_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_text_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['text']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_text_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-bg-color--dark</code>' ); ?></small></p>
 					</div>
@@ -366,8 +372,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_one_dark" name="color_one_dark" value="<?php echo $this->getValue( 'color_one_dark' ); ?>" />
-							<input id="color_one_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_one_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_one_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['one']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_one_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--one--dark</code>' ); ?></small></p>
 					</div>
@@ -378,8 +384,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_two_dark" name="color_two_dark" value="<?php echo $this->getValue( 'color_two_dark' ); ?>" />
-							<input id="color_two_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_two_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_two_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['two']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_two_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--two--dark</code>' ); ?></small></p>
 					</div>
@@ -390,8 +396,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_three_dark" name="color_three_dark" value="<?php echo $this->getValue( 'color_three_dark' ); ?>" />
-							<input id="color_three_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_three_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_three_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['three']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_three_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--three--dark</code>' ); ?></small></p>
 					</div>
@@ -402,8 +408,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_four_dark" name="color_four_dark" value="<?php echo $this->getValue( 'color_four_dark' ); ?>" />
-							<input id="color_four_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_four_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_four_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['four']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_four_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--four--dark</code>' ); ?></small></p>
 					</div>
@@ -414,8 +420,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_five_dark" name="color_five_dark" value="<?php echo $this->getValue( 'color_five_dark' ); ?>" />
-							<input id="color_five_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_five_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_five_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['five']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_five_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--five--dark</code>' ); ?></small></p>
 					</div>
@@ -426,8 +432,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<div class="col-sm-10">
 						<div class="row color-picker-wrap">
 							<input class="color-picker custom-color" id="color_six_dark" name="color_six_dark" value="<?php echo $this->getValue( 'color_six_dark' ); ?>" />
-							<input id="color_six_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['color_six_dark']; ?>" />
-							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_dark_default_button"><?php $L->p( 'Default' ); ?></span>
+							<input id="color_six_dark_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['six']; ?>" />
+							<span class="btn btn-secondary btn-md hide-if-no-js" id="color_six_dark_default_button"><?php $L->p( 'Reset' ); ?></span>
 						</div>
 						<p><small class="form-text"><?php $L->p( 'CSS variable: <code class="select">--cfe-scheme-color--six--dark</code>' ); ?></small></p>
 					</div>
@@ -516,12 +522,23 @@ jQuery(document).ready( function($) {
 	$( '#color_scheme' ).on( 'change', function() {
 		var show = $(this).val();
 
-		<?php foreach ( $colors as $color => $option ) : ?>
-		if ( show == '<?php echo $option['slug']; ?>' ) {
-			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'block' );
-			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'block' );
-			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
-			$( '#dark_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'flex' );
+		<?php foreach ( $colors as $color => $option ) :
+
+			$slug = $option['slug'];
+			if ( 'custom' === $slug ) {
+				// continue;
+			}
+		?>
+		if ( show == '<?php echo $slug; ?>' ) {
+
+			if ( 'custom' != show ) {
+				$( '#custom_scheme_from' ).val( '<?php echo $slug; ?>' );
+			}
+
+			$( '#light_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
+			$( '#dark_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
+			$( '#light_scheme_thumbs_<?php echo $slug; ?>' ).css( 'display', 'flex' );
+			$( '#dark_scheme_thumbs_<?php echo $slug; ?>' ).css( 'display', 'flex' );
 
 			$( '#color_body' ).val( '<?php echo $option['light']['body']; ?>' );
 			$( '#color_text' ).val( '<?php echo $option['light']['text']; ?>' );

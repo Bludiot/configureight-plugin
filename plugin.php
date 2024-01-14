@@ -213,6 +213,7 @@ class configureight extends Plugin {
 			'horz_spacing'          => '2',
 			'vert_spacing'          => '2',
 			'color_scheme'          => 'default',
+			'custom_scheme_from'    => 'default',
 			'color_body'            => '#ffffff',
 			'color_body_dark'       => '#1e1e1e',
 			'color_text'            => '#333333',
@@ -1567,6 +1568,11 @@ class configureight extends Plugin {
 	// @return string
 	public function color_scheme() {
 		return $this->getValue( 'color_scheme' );
+	}
+
+	// @return string
+	public function custom_scheme_from() {
+		return $this->getValue( 'custom_scheme_from' );
 	}
 
 	/**

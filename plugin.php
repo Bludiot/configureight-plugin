@@ -138,7 +138,7 @@ class configureight extends Plugin {
 			'default_cover'          => '',
 			'cover_style'            => 'overlay',
 			'cover_blend'            => $this->cover_blend_default(),
-			'cover_blend_use'        => [ 'covers' ],
+			'cover_blend_use'        => [ 'covers', 'slider' ],
 			'cover_overlay'          => $this->cover_overlay_default(),
 			'cover_text_color'       => $this->cover_text_default(),
 			'cover_text_shadow'      => true,

@@ -142,8 +142,10 @@ jQuery(document).ready( function($) {
     	var show = $(this).val();
 		if ( show == 'true' ) {
 			$( "#slider_options" ).fadeIn( 250 );
+			$( "#blend_slider_label" ).show();
 		} else if ( show == 'false' ) {
 			$( "#slider_options" ).fadeOut( 250 );
+			$( "#blend_slider_label" ).hide();
 		}
     });
 

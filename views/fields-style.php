@@ -541,6 +541,13 @@ jQuery(document).ready( function($) {
 			$( '#color_five_dark' ).val( '<?php echo $option['dark']['five']; ?>' );
 			$( '#color_six_dark' ).val( '<?php echo $option['dark']['six']; ?>' );
 
+			// S( '#cover_blend' ).val( '<?php echo $option['light']['three']; ?>' );
+			if ( 'default' != show ) {
+				$( '#cover_blend' ).val( '<?php echo $option['light']['three']; ?>' );
+			} else {
+				$( '#cover_blend' ).val( '<?php echo $this->dbFields['cover_blend']; ?>' );
+			}
+
 		} else {
 			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );

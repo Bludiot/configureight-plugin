@@ -122,7 +122,7 @@ $custom_from = $this->custom_scheme_from();
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->loader_bg_color(); ?>" />
 					<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['body']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default"><?php $L->p( 'Reset' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
@@ -130,7 +130,7 @@ $custom_from = $this->custom_scheme_from();
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_bg_color_dark" name="loader_bg_color_dark" value="<?php echo $this->loader_bg_color_dark(); ?>" />
 					<input id="loader_bg_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['body']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default_dark"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default_dark"><?php $L->p( 'Reset' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>
 			</div>
@@ -144,7 +144,7 @@ $custom_from = $this->custom_scheme_from();
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color" name="loader_text_color" value="<?php echo $this->loader_text_color(); ?>" />
 					<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['text']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default"><?php $L->p( 'Reset' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
@@ -152,7 +152,7 @@ $custom_from = $this->custom_scheme_from();
 				<div class="row color-picker-wrap">
 					<input class="color-picker custom-color" id="loader_text_color_dark" name="loader_text_color_dark" value="<?php echo $this->loader_text_color_dark(); ?>" />
 					<input id="loader_text_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['text']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default_dark"><?php $L->p( 'Default' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default_dark"><?php $L->p( 'Reset' ); ?></span>
 				</div>
 				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>
 			</div>

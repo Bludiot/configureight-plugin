@@ -79,7 +79,7 @@
 		</div>
 	</div>
 
-	<div id="cover_overlay_wrap">
+	<div id="cover_overlay_wrap" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'overlay' ? 'block' : 'none' ); ?>;">
 		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="cover_desaturate"><?php $L->p( 'Desaturate' ); ?></label>
 			<div class="col-sm-10 row">
@@ -118,7 +118,7 @@
 			</div>
 		</div>
 
-		<div class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'cover_style' ) === 'overlay' ? 'flex' : 'none' ); ?>;">
+		<div class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="cover_overlay"><?php $L->p( 'Overlay Color' ); ?></label>
 			<div class="col-sm-10 row color-picker-wrap">
 				<input class="color-picker" id="cover_overlay" name="cover_overlay" value="<?php echo $this->cover_overlay(); ?>" />

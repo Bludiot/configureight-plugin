@@ -143,7 +143,7 @@ class configureight extends Plugin {
 			'cover_text_color'       => $this->cover_text_default(),
 			'cover_text_shadow'      => true,
 			'cover_desaturate'       => 0,
-			'cover_desaturate_use'   =>  [ 'covers' ],
+			'cover_desaturate_use'   =>  [ 'none' ],
 			'cover_icon'             => 'angle-down-light',
 			'thumb_width'            => $this->thumb_width_default(),
 			'thumb_height'           => $this->thumb_height_default(),

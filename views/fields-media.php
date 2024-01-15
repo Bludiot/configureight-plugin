@@ -95,29 +95,30 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			</div>
 		</div>
 
-		<div class="form-field form-group row">
+		<div id="cover-desaturate-use-wrap" class="form-field form-group row" style="display: <?php echo ( $this->cover_desaturate() > 0 ? 'flex' : 'none' ); ?>">
 			<label class="form-label col-sm-2 col-form-label" for="cover_desaturate_use"><?php $L->p( 'Desaturate Usage' ); ?></label>
 			<div class="col-sm-10">
 				<small class="form-text"><?php $L->p( 'Where to apply desaturation to cover images.' ); ?></small>
 
-				<div id="cover-blend-use-wrap" class="multi-check-wrap">
-					<label class="check-label-wrap" for="desaturate_covers"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_covers" value="covers" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'covers', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Page Covers' ); ?></label>
+				<div id="cover-desaturate-use" class="multi-check-wrap">
+
+					<label class="check-label-wrap" for="desaturate_covers"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_covers" value="covers" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'covers', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Page Covers' ); ?></label>
 
 					<?php if ( $this->posts_slider() ) : ?>
-					<label class="check-label-wrap" for="desaturate_slider"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_slider" value="slider" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'slider', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Front Page Slider' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_slider"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_slider" value="slider" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'slider', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Front Page Slider' ); ?></label>
 					<?php endif; ?>
 
-					<label class="check-label-wrap" for="desaturate_loop"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_loop" value="loop" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'loop', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Main Loop' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_loop"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_loop" value="loop" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'loop', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Main Loop' ); ?></label>
 
-					<label class="check-label-wrap" for="desaturate_cat"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_cat" value="cat" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'cat', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Category Loop' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_cat"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_cat" value="cat" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'cat', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Category Loop' ); ?></label>
 
-					<label class="check-label-wrap" for="desaturate_tag"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_tag" value="tag" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'tag', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Tag Loop' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_tag"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_tag" value="tag" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'tag', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Tag Loop' ); ?></label>
 
-					<label class="check-label-wrap" for="desaturate_search"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_search" value="search" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'search', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Search Loop' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_search"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_search" value="search" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'search', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Search Loop' ); ?></label>
 
-					<label class="check-label-wrap" for="desaturate_related"><input class="cover-blend" type="checkbox" name="cover_desaturate_use[]" id="desaturate_related" value="related" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'related', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
+					<label class="check-label-wrap" for="desaturate_related"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_related" value="related" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'related', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
 				</div>
-				<small class="form-text"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
+				<small class="form-text"><?php $L->p( '' ); ?></small>
 			</div>
 		</div>
 

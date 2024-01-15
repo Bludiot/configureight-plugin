@@ -92,6 +92,15 @@ jQuery(document).ready( function($) {
 		$( '#cover_overlay' ).spectrum( 'set', $( '#cover_overlay_default' ).val() );
 	});
 
+	$( '#cover_desaturate' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show > 0 ) {
+			$( '#cover-desaturate-use-wrap' ).css( 'display', 'flex' );
+		} else if ( show == 0 ) {
+			$( '#cover-desaturate-use-wrap' ).css( 'display', 'none' );
+		}
+	});
+
 	// Cover image blend.
 	$( '#cover_blend' ).spectrum({
 		type            : "component",

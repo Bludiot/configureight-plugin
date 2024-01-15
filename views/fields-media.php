@@ -7,8 +7,18 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Colors\{
+	color_schemes,
+	hex_to_rgb
+};
+
 // Color schemes page URL.
 $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
+
+// Color schemes.
+$colors = color_schemes();
+$custom_from = $this->custom_scheme_from();
 
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
@@ -138,8 +148,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			<div class="col-sm-10">
 				<div class="row color-picker-wrap">
 					<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
-					<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['cover_blend']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Default' ); ?></span>
+					<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo ( isset( $colors[$custom_from]['cover'] ) ? $colors[$custom_from]['cover'] : $colors[$custom_from]['light']['three'] ); ?>" />
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Reset' ); ?></span>
 				</div>
 				<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page for more colors from the current scheme." ); ?></p>
 			</div>

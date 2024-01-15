@@ -12,7 +12,8 @@ use function CFE_Plugin\{
 	admin_theme
 };
 use function CFE_Colors\{
-	color_schemes
+	color_schemes,
+	hex_to_rgb
 };
 
 // Color schemes.

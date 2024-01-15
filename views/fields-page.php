@@ -116,7 +116,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_number_value').text('<?php echo $this->dbFields['slider_number']; ?>');$('#slider_number').val('<?php echo $this->dbFields['slider_number']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text form-range-small"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
 			</div>
 		</div>
 
@@ -177,7 +177,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#slider_duration_value').html($(this).val())" id="slider_duration" name="slider_duration" value="<?php echo $this->getValue( 'slider_duration' ); ?>" min="1" max="6" step="0.5" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_duration_value').text('<?php echo $this->dbFields['slider_duration']; ?>');$('#slider_duration').val('<?php echo $this->dbFields['slider_duration']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text form-range-small"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
 			</div>
 		</div>
 
@@ -268,7 +268,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<input type="range" class="form-control-range" onInput="$('#max_related_value').html($(this).val())" id="max_related" name="max_related" value="<?php echo $this->getValue( 'max_related' ); ?>" min="1" max="9" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#max_related_value').text('<?php echo $this->dbFields['max_related']; ?>');$('#max_related').val('<?php echo $this->dbFields['max_related']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
-				<small class="form-text form-range-small"><?php $L->p( 'The number of related posts to display.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The number of related posts to display.' ); ?></small>
 			</div>
 		</div>
 

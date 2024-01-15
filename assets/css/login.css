@@ -2053,11 +2053,6 @@ select[disabled] {
   padding: 0;
 }
 
-.form-range-small {
-  display: inline-block;
-  padding: 0 15px;
-}
-
 .form-range-value {
   display: inline-block;
   padding: 0.375rem 1ch;

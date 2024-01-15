@@ -22,7 +22,7 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 <?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page. Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
 </div>
 
 <button id="preamble-dismiss" class="button hide-if-no-js" style="float: right;"><?php $L->p( 'Dismiss' ); ?></button>

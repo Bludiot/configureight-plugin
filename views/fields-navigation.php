@@ -11,6 +11,9 @@
 	static_for_nav
  };
 
+ // Get static pages, not posts.
+ $static = buildStaticPages();
+
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Navigation Options' ) ] ); ?>
 <fieldset>
@@ -19,14 +22,13 @@
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_pages"><?php $L->p( 'Pages in Menu' ); ?></label>
+
+		<?php if ( isset( $static[0] ) ) : ?>
 		<div class="col-sm-10">
 			<small class="form-text"><?php $L->p( 'Which static pages shall display in the main navigation menu. Use the page position feature on page edit screens to set the menu order. At least one page is required.' ); ?></small>
 
 			<div id="main-nav-pages-wrap" class="multi-check-wrap">
-
  				<?php
-
-				$static  = buildStaticPages();
 				$count_p = 0;
 				$count_c = 0;
 				if ( $static ) : foreach ( $static as $page ) :
@@ -88,6 +90,11 @@
 			<small class="form-text"><?php $L->p( 'Hover parent pages (p) and child pages (c) to view the page relationship.' ); ?></small>
 			<?php endif; ?>
 		</div>
+		<?php else : ?>
+		<div class="col-sm-10">
+			<p><?php $L->p( 'Create at least one static page to display the page selection option.' ); ?></p>
+		</div>
+		<?php endif; ?>
 	</div>
 
 	<div class="form-field form-group row">

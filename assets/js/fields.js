@@ -125,7 +125,7 @@ jQuery(document).ready( function($) {
 		type            : "component",
 		showPalette     : true,
 		palette         : [],
-		preferredFormat : "rgb",
+		preferredFormat : "hex",
 		showInitial     : true,
 		allowEmpty      : false,
 		showSelectionPalette : false

@@ -23,6 +23,9 @@ $schemes = color_schemes();
 $default = default_color_scheme();
 $current = current_color_scheme();
 
+// Guide page URL.
+$guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
+
 // Settings page URL.
 $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
@@ -66,7 +69,7 @@ code.select {
 <?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Color Scheme Reference' ), 'element' => 'h1', 'icon' => 'eyedropper' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}#style'>theme options</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$settings_page}#style'>theme options</a> page." ); ?></p>
 </div>
 
 <p><?php $L->p( 'Click any code value to select for copy.' ); ?></p>

@@ -104,6 +104,8 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 
 		<p><strong class="semi-bold"><?php $L->p( 'Admin:' ); ?></strong> <a href="https://github.com/Bludiot/configureight-admin" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight-admin</a></p>
 
+		<p><strong class="semi-bold"><?php $L->p( 'Search:' ); ?></strong> <a href="https://github.com/Bludiot/searchforms" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/searchforms</a></p>
+
 		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Support Bludiot' ) ] ); ?>
 
 		<p><?php $L->p( 'Let me know if you need me to develop a custom version of Configure 8 for you.' ); ?></p>

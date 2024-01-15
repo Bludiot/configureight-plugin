@@ -124,15 +124,71 @@ printf(
 echo '<ul class="color-list color-list-dark">';
 foreach ( $default['dark'] as $name => $color ) {
 	printf(
-		'<li><span class="color-list-label">%s %s:</span> <code class="select">%s</code></li>',
+		'<li><span class="color-list-label">%s %s</span> <code class="select">%s</code></li>',
 		ucwords( $name ),
 		$L->get( 'variable:' ),
 		"--cfe-scheme-color--{$name}--dark"
 	);
 }
-?>
 
-<?php printf(
+echo '<hr />';
+
+printf(
+	'<h2 class="color-heading">%s</h2>',
+	$L->get( 'Scheme Slugs' )
+);
+
+printf(
+	'<p>%s</p>',
+	$L->get( 'Color scheme page/post templates require use of the scheme slug. To apply a color scheme template use the name <code>color-scheme-$slug</code> where <code>$slug</code> is one of the color scheme slugs listed below.' )
+);
+
+printf(
+	'<p><span class="color-list-label">%s</span> %s</p>',
+	$L->get( 'Example:' ),
+	$L->get( 'the template <code>color-scheme-forest</code> will apply the Forest color scheme to that page or post.' )
+);
+
+// Sort schemes alphabetically then by category.
+asort( $schemes );
+usort( $schemes, function( $one_thing, $another ) {
+	return strcmp( $one_thing['category'], $another['category'] );
+} );
+
+// Category used for option groups.
+$category = '';
+
+echo '<ul id="schemes-list" class="color-list">';
+foreach ( $schemes as $scheme => $option ) {
+
+	// Skip custom scheme.
+	if ( 'custom' == $option['slug'] ) {
+		continue;
+	}
+
+	if ( $category != $option['category'] ) {
+		printf(
+			'<li><h3>%s</h3></li>',
+			$option['category']
+		);
+	}
+
+	printf(
+		'<li><span class="color-list-label">%s:</span> <code class="select">%s</code></li>',
+		ucwords( $option['name'] ),
+		$option['slug']
+	);
+
+	$category = $option['category'];
+}
+echo '</ul>';
+
+// Redefine after sorting;
+$schemes = color_schemes();
+
+echo '<hr />';
+
+printf(
 	'<h2 class="color-heading">%s %s</h2>',
 	$L->get( 'Current Scheme:' ),
 	$current['name']
@@ -201,17 +257,17 @@ foreach ( $current['dark'] as $name => $color ) {
 }
 echo '</ul>';
 
-?>
-
-<?php
 foreach ( $schemes as $scheme => $option ) {
 
 	if ( $this->color_scheme() == $option['slug'] ) {
 		continue;
 	}
 
+	echo '<hr />';
+
 	printf(
-		'<h2 class="color-heading">%s</h2>',
+		'<h2 class="color-heading">%s %s</h2>',
+		$L->get( 'Scheme:' ),
 		$option['name']
 	);
 

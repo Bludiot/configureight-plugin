@@ -1044,23 +1044,58 @@ function default_color_scheme() {
 function current_color_scheme() {
 
 	// Option from database.
-	$data = plugin()->color_scheme();
+	$slug = plugin()->color_scheme();
+
+	// Maybe get color scheme template.
+	$template = color_scheme_template();
+	if ( $template ) {
+		$slug = $template;
+	}
 
 	// Get color schemes.
 	$schemes = color_schemes();
-
-	// Fallback variable.
-	$name = null;
+	$name    = false;
 
 	// Get all schemes.
-	foreach ( $schemes as $scheme => $option ) {
+	foreach ( $schemes as $option => $scheme ) {
 
 		// Filter out all but the selected option.
-		if ( $data == $option['slug'] ) {
-			$name = $option;
+		if ( $slug == $scheme['slug'] ) {
+			$name = $scheme;
 		}
 	}
 	return $name;
+}
+
+/**
+ * Color scheme template
+ *
+ * Gets the slug of the color scheme
+ * in the page template.
+ *
+ * @since  1.0.0
+ * @global object $page Page class.
+ * @global object $url Url class.
+ * @return mixed Returns the color scheme slug or false.
+ */
+function color_scheme_template() {
+
+	// Access global variables.
+	global $page, $url;
+
+	// Get color schemes.
+	$colors = color_schemes();
+	$scheme = false;
+
+	if ( 'page' == $url->whereAmI() ) {
+		foreach ( $colors as $color => $key ) {
+			$template = 'color-scheme-' . $key['slug'];
+			if ( str_contains( $page->template(), $template ) ) {
+				$scheme = $key['slug'];
+			}
+		}
+	}
+	return $scheme;
 }
 
 /**

@@ -520,7 +520,7 @@ Here are the basic themeable display options (colors, fonts, global widths)
   padding: 0 0.5rem;
   vertical-align: middle;
   line-height: 1;
-  font-family: var(--cfe-button--font-family, var(--cfe-font-stack, var(--cfe-sans-stack, sans-serif)));
+  font-family: var(--cfe-button--font-family, var(--cfe-body--font-family, var(--cfe-sans-stack, sans-serif)));
   font-size: var(--cfe-color-picker--button--font-size, var(--cfe-button--font-size, 0.75rem));
   font-weight: var(--cfe-button--font-weight, 500);
   font-style: var(--cfe-button--font-style, normal);

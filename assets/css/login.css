@@ -2995,7 +2995,7 @@ select option {
   margin: var(--cfe-button--margin);
   padding: var(--cfe-button--padding, 0.5rem);
   line-height: var(--cfe-button--line-height, 1);
-  font-family: var(--cfe-button--font-family, var(--cfe-font-stack, var(--cfe-sans-stack, sans-serif)));
+  font-family: var(--cfe-button--font-family, var(--cfe-body--font-family, var(--cfe-sans-stack, sans-serif)));
   font-size: var(--cfe-button--font-size, 1rem);
   font-weight: var(--cfe-button--font-weight, 600);
   font-style: var(--cfe-button--font-style, normal);

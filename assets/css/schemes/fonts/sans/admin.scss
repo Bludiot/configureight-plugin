@@ -22,18 +22,16 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 
 :root {
 
-	// General.
-	--cfe-font-stack: #{$inter_stack};
-	--cfe-font-size: 0.9375rem;
-	--cfe-site-title--font-size: 2rem;
+	// Body & general text.
+	--cfe-body--font-family: #{$inter_stack};
+	--cfe-loader--text--font-size: 1.5rem;
+	--cfe-loader--text--font-weight: 700;
+
+	// Headings.
+	--cfe-heading-primary--font-family: #{$inter_stack};
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 800;
 	--cfe-heading-primary--letter-spacing: -0.025em;
-	--cfe-loader--text--font-family: #{$inter_stack};
-	--cfe-loader--text--font-size: 1.5rem;
-	--cfe-loader--text--font-weight: 600;
-
-	// Navigation.
 
 	// Tabbed content.
 	--cfe-tabs--list--link--font-size: 0.9375rem;

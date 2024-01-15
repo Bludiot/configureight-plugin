@@ -41,6 +41,28 @@ $close_icon_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'
 
 $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{svg_icon_action_color()}' d='M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z'/></svg>";
 
+.search-has-icon {
+	.search-form {
+		input[type="button"] {
+			text-indent: -999em;
+			position: var( --cfe-search--button--position );
+			display: var( --cfe-search--button--display, inline-block );
+			width: var( --cfe-search--button--width, 1.5em );
+			height: var( --cfe-search--button--height, 1.5em );
+			padding: var( --cfe-search--button--padding, 1.5em );
+			background-repeat: var( --cfe-search--button--background-repeat, no-repeat );
+			background-size: var( --cfe-search--button--background-size, 1.25em );
+			background-position: var( --cfe-search--button--background-position, center center );
+			background-image: var( --cfe-search--button--background-image, url( '#{$search_icon_bg}' ) );
+
+			&:hover,
+			&:focus {
+				background-image: var( --cfe-search--button--action--background-image, url( '#{$search_icon_action_bg}' ) );
+			}
+		}
+	}
+}
+
 .site-header #search-bar button[data-search-toggle-close] {
 	background-image: url( '#{$close_icon_bg}' );
 }
@@ -48,18 +70,6 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 .site-header #search-bar button[data-search-toggle-close]:hover,
 .site-header #search-bar button[data-search-toggle-close]:focus {
 	background-image: url( '#{$close_icon_action_bg}' );
-}
-
-.site-header .search-form-wrap input[type="button"],
-.page-sidebar .plugin.plugin-search input[type=button] {
-	background-image: url( '#{$search_icon_bg}' );
-}
-
-.site-header .search-form-wrap input[type="button"]:hover,
-.site-header .search-form-wrap input[type="button"]:focus,
-.page-sidebar .plugin.plugin-search input[type=button]:hover,
-.page-sidebar .plugin.plugin-search input[type=button]:focus {
-	background-image: url( '#{$search_icon_action_bg}' );
 }
 
 :root {

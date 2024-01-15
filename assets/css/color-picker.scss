@@ -607,9 +607,15 @@ Here are the basic themeable display options (colors, fonts, global widths)
 	padding: .375rem .75rem;
 	font-size: 1rem;
 	line-height: 1.5;
-	background-color: #ffffff;
+	background-color: var( --cfe-scheme-color--body );
+	color: var( --cfe-body--text-color );
 	background-clip: padding-box;
 	border: var( --cfe-form-element--border );
 	border-radius: 0px;
 	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+	@media ( prefers-color-scheme: dark ) {
+		background-color: var( --cfe-scheme-color--body--dark );
+		color: var( --cfe-body--text-color--dark );
+	}
 }

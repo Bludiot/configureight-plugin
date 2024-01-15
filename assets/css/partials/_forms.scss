@@ -1341,8 +1341,7 @@ p + .multi-check-wrap {
 	box-sizing: border-box;
 	display: inline-block;
 	max-width: 640px;
-	margin: 0;
-	position: relative;
+	margin: 0;	position: relative;
 	vertical-align: middle;
 
 	.select2-selection--single {
@@ -1354,7 +1353,7 @@ p + .multi-check-wrap {
 
 		.select2-selection__rendered {
 			display: block;
-			// padding: var( --cfe-form-element--padding );
+			padding: var( --cfe-form-element--padding );
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -1398,8 +1397,6 @@ p + .multi-check-wrap {
 	-webkit-appearance: none;
 }
 .select2-dropdown {
-	background-color: white;
-	border: 1px solid #aaa;
 	border-radius: 0px;
 	box-sizing: border-box;
 	display: block;
@@ -1407,6 +1404,15 @@ p + .multi-check-wrap {
 	left: -100000px;
 	width: 100%;
 	z-index: 1051;
+	border: solid 1px var( --cfe-form-element--border-color );
+	background-color: var( --cfe-body--bg-color );
+	color: var( --cfe-body--text-color );
+
+	@media ( prefers-color-scheme: dark ) {
+		border: solid 1px var( --cfe-form-element--border-color--dark );
+		background-color: var( --cfe-body--bg-color--dark );
+		color: var( --cfe-body--text-color--dark );
+	}
 }
 .select2-results {
 	display: block;

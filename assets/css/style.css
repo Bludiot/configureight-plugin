@@ -4305,6 +4305,7 @@ p + .multi-check-wrap {
 }
 .select2-container .select2-selection--single .select2-selection__rendered {
   display: block;
+  padding: var(--cfe-form-element--padding);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4352,8 +4353,6 @@ p + .multi-check-wrap {
 }
 
 .select2-dropdown {
-  background-color: white;
-  border: 1px solid #aaa;
   border-radius: 0px;
   box-sizing: border-box;
   display: block;
@@ -4361,6 +4360,16 @@ p + .multi-check-wrap {
   left: -100000px;
   width: 100%;
   z-index: 1051;
+  border: solid 1px var(--cfe-form-element--border-color);
+  background-color: var(--cfe-body--bg-color);
+  color: var(--cfe-body--text-color);
+}
+@media (prefers-color-scheme: dark) {
+  .select2-dropdown {
+    border: solid 1px var(--cfe-form-element--border-color--dark);
+    background-color: var(--cfe-body--bg-color--dark);
+    color: var(--cfe-body--text-color--dark);
+  }
 }
 
 .select2-results {

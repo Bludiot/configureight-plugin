@@ -71,6 +71,14 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Color Scheme' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">color-scheme-$slug</code></p>
+
+<p><?php $L->p( 'The color scheme template overrides the current color scheme to allow for color schemes on a per page basis. Simply add the template slug where <code>$slug</code> is the slug of the color scheme.' ); ?></p>
+
+<p><?php $L->p( 'Example: the template <code>color-scheme-forest</code> will apply the Forest color scheme to that page or post.' ); ?></p>
+
 <hr />
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sidebar Templates' ) ] ); ?>

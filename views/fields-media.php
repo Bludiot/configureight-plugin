@@ -89,7 +89,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				<div class="form-range-controls">
 					<span class="form-range-value px-range-value"><span id="cover_desaturate_value"><?php echo ( $this->getValue( 'cover_desaturate' ) ? $this->getValue( 'cover_desaturate' ) : $this->dbFields['cover_desaturate'] ); ?></span><span id="cover_desaturate_units">%</span></span>
 					<input type="range" class="form-control-range" onInput="$('#cover_desaturate_value').html($(this).val())" id="cover_desaturate" name="cover_desaturate" value="<?php echo $this->getValue( 'cover_desaturate' ); ?>" min="0" max="100" step="1" />
-					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#cover_desaturate_value').text('<?php echo $this->dbFields['cover_desaturate']; ?>');$('#cover_desaturate').val('<?php echo $this->dbFields['cover_desaturate']; ?>');"><?php $L->p( 'Default' ); ?></span>
+					<span id="cover_desaturate_reset" class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#cover_desaturate_value').text('<?php echo $this->dbFields['cover_desaturate']; ?>');$('#cover_desaturate').val('<?php echo $this->dbFields['cover_desaturate']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text form-range-small"><?php $L->p( 'Percentage to desaturate images. Set 100% for full grayscale (black & white).' ); ?></small>
 			</div>

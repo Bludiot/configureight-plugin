@@ -100,6 +100,9 @@ jQuery(document).ready( function($) {
 			$( '#cover-desaturate-use-wrap' ).css( 'display', 'none' );
 		}
 	});
+	$( '#cover_desaturate_reset' ).click( function() {
+		$( '#cover-desaturate-use-wrap' ).css( 'display', 'none' );
+	});
 
 	// Cover image blend.
 	$( '#cover_blend' ).spectrum({

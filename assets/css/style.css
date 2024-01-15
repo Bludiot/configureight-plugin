@@ -105,7 +105,7 @@
   --cfe-textarea--padding: 1em;
   --cfe-select--margin: 1em 0 0;
   --cfe-select--padding: 0.5em 1em;
-  --cfe-button--padding: 0.75em 1em;
+  --cfe-button--padding: 0.75rem 1rem;
   --cfe-button--font-weight: 700;
   --cfe-button--bg-color: var( --cfe-scheme-color--three );
   --cfe-button--bg-color--dark: var( --cfe-scheme-color--three--dark );

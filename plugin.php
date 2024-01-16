@@ -467,11 +467,15 @@ class configureight extends Plugin {
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/tabs{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
+		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/dropzone{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/color-picker{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/tooltips{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/fields{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+
+		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/dropzone{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 
 		// End plugin page.
 		endif;

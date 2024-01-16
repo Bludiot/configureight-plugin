@@ -6,6 +6,8 @@
  * @subpackage Views
  * @category   Guide page
  * @since      1.0.0
+ *
+ * @todo Monitor accuracy of translation message.
  */
 
 // Theme name.
@@ -35,7 +37,7 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <?php else : ?>
 
-<p><?php $L->p( "<strong>Good news!</strong> You have the Search Forms plugin installed." ); ?></p>
+<p><?php $L->p( '<strong>Good news!</strong> You have the Search Forms plugin installed.' ); ?></p>
 
 <p><?php $L->p( "Go to the <a href='{$s_settings}'>search settings</a> page. Developers, go to the <a href='{$s_guide}'>search guide</a> page." ); ?></p>
 
@@ -45,4 +47,6 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Languages' ) ] ); ?>
 
-<p><?php $L->p( '' ); ?></p>
+<p><?php $L->p( 'The public theme and the admin theme are both ready for RTL languages. Layout direction is automatically reversed where appropriate. Some are not flipped automatically due to layout options. For example, the main navigation position option includes left and right. Since this refers to the left and right sides of the screen, not the flow of the language, it is up to administrators to adjust the option for the target language.' ); ?></p>
+
+<p><?php $L->p( 'Translation of hard-coded text is not complete. We welcome the submission of translations.' ); ?></p>

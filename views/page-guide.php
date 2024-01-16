@@ -38,10 +38,10 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 			<a class="nav-link" role="tab" aria-controls="nav" aria-selected="false" href="#nav"><?php $L->p( 'Menu' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="content" aria-selected="false" href="#content"><?php $L->p( 'Content' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="schemes" aria-selected="false" href="#schemes"><?php $L->p( 'Schemes' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Style' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
@@ -60,18 +60,15 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	</div>
 
 	<div id="nav" class="tab-pane" role="tabpanel" aria-labelledby="nav">
-
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Site Navigation' ) ] ); ?>
+		<?php include( $this->phpPath() . '/views/info-nav-menu.php' ); ?>
 	</div>
 
-	<div id="loop" class="tab-pane" role="tabpanel" aria-labelledby="loop">
-
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Posts Loop, Taxonomy, & Search' ) ] ); ?>
+	<div id="content" class="tab-pane" role="tabpanel" aria-labelledby="content">
+		<?php include( $this->phpPath() . '/views/info-content.php' ); ?>
 	</div>
 
-	<div id="schemes" class="tab-pane" role="tabpanel" aria-labelledby="schemes">
-
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Color & Font Schemes' ) ] ); ?>
+	<div id="style" class="tab-pane" role="tabpanel" aria-labelledby="style">
+		<?php include( $this->phpPath() . '/views/info-style.php' ); ?>
 	</div>
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">

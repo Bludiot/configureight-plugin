@@ -25,19 +25,6 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page. Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
 </div>
 
-<button id="preamble-dismiss" class="button hide-if-no-js" style="float: right;"><?php $L->p( 'Dismiss' ); ?></button>
-
-<div id="preamble">
-
-	<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'About the Configure 8 Suite' ) ] ); ?>
-
-	<p><?php $L->p( 'The Configure 8 began as a simple starter theme under a different name, a boilerplate for developing themes for Bludit CMS. I still considered it to be a starter theme however it now has many presentation options, available via its companion plugin, and a companion admin theme is also available for a cohesive website experience.' ); ?></p>
-
-	<p><?php $L->p( 'The theme can be used as it is for a simple yet attractive blog, or a small brochure site. And if you want to develop a unique theme for your needs then the Configure 8 suite gives you a good head start.' ); ?></p>
-
-	<p class="cite">Greg Sweet, Controlled Chaos Design/Bludiot</p>
-</div>
-
 <div class="tab-content" data-toggle="tabslet" data-deeplinking="true" data-animation="true">
 
 	<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
@@ -113,23 +100,3 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 		<p class="cite">Greg Sweet, Controlled Chaos Design/Bludiot</p>
 	</div>
 </div>
-
-<script>
-// Dismiss the intro content.
-const preamble = document.querySelector( '#preamble' );
-const dismiss  = document.querySelector( '#preamble-dismiss' );
-
-if ( localStorage.getItem( 'preambleDismiss' ) ) {
-	preamble.style.display = 'none';
-	dismiss.style.display  = 'none';
-}
-
-if ( dismiss ) {
-	dismiss.addEventListener( 'click', event => {
-		event.preventDefault();
-		dismiss.classList.add( 'hidden' );
-		preamble.classList.add( 'hidden' );
-		localStorage.setItem( 'preambleDismiss', true );
-	} )
-}
-</script>

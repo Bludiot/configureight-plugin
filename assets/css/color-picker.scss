@@ -594,6 +594,7 @@ Here are the basic themeable display options (colors, fonts, global widths)
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='14' height='14'%3E%3Cpath d='M12 20.016q3.281 0 5.648-2.367t2.367-5.648q0-2.672-1.734-4.922l-11.203 11.203q2.25 1.734 4.922 1.734zM3.984 12q0 2.672 1.734 4.922l11.203-11.203q-2.25-1.734-4.922-1.734-3.281 0-5.648 2.367t-2.367 5.648zM12 2.016q4.125 0 7.055 2.93t2.93 7.055-2.93 7.055-7.055 2.93-7.055-2.93-2.93-7.055 2.93-7.055 7.055-2.93z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
 }
 
+// Theme mods.
 .color-picker-wrap {
 	height: 2rem;
 	margin: 0.5rem 0;
@@ -617,5 +618,17 @@ Here are the basic themeable display options (colors, fonts, global widths)
 	@media ( prefers-color-scheme: dark ) {
 		background-color: var( --cfe-scheme-color--body--dark );
 		color: var( --cfe-body--text-color--dark );
+	}
+}
+
+.sp-palette-row {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 134px;
+}
+
+.sp-palette {
+	.sp-thumb-inner {
+		border: var( --cfe-form-element--border );
 	}
 }

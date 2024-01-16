@@ -634,3 +634,13 @@ Here are the basic themeable display options (colors, fonts, global widths)
     color: var(--cfe-body--text-color--dark);
   }
 }
+
+.sp-palette-row {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 134px;
+}
+
+.sp-palette .sp-thumb-inner {
+  border: var(--cfe-form-element--border);
+}

@@ -1126,6 +1126,28 @@ function color_scheme_template() {
 }
 
 /**
+ * Current scheme cover color
+ *
+ * @since  1.0.0
+ * @return mixed Returns a hex value or false.
+ */
+function current_cover_color() {
+
+	// Color schemes.
+	$color   = false;
+	$colors  = color_schemes();
+	$current = current_color_scheme();
+	$custom_from = plugin()->custom_scheme_from();
+
+	if ( isset( $colors[$custom_from] ) ) {
+		$color = $colors[$custom_from]['cover'];
+	} elseif ( isset( $current['cover'] ) ) {
+		$color = $current['cover'];
+	}
+	return $color;
+}
+
+/**
  * All current colors
  *
  * Returns a simple array of all colors,
@@ -1165,10 +1187,10 @@ function picker_colors_light() {
 
 	$current = current_color_scheme();
 	$light   = [];
-	$cover   = false;
+	$cover   = current_cover_color();
 
-	if ( isset( $current['cover'] ) ) {
-		$cover = [ $current['cover'] ];
+	if ( $cover ) {
+		$cover = [ $cover ];
 	}
 	foreach ( $current['light'] as $name => $color ) {
 

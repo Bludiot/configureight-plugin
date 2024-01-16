@@ -7,6 +7,12 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Colors\{
+	picker_colors_light,
+	picker_colors_dark
+};
+
 // Guide page URL.
 $guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
 
@@ -103,5 +109,20 @@ jQuery(document).ready( function($) {
 		animationDuration : 150,
 		theme : 'cfe-tooltips'
 	});
+
+	$( '.custom-color' ).spectrum({
+		type            : "component",
+		showAlpha       : false,
+		showPalette     : true,
+		palette         : [
+			['<?php echo implode( "', '", picker_colors_light() ); ?>'],
+			['<?php echo implode( "', '", picker_colors_dark() ); ?>']
+		],
+		preferredFormat : "hex",
+		showInitial     : true,
+		allowEmpty      : false,
+		showSelectionPalette : true,
+	});
+	$( '.custom-color' ).show();
 });
 </script>

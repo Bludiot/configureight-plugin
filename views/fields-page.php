@@ -113,7 +113,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<div class="col-sm-10 row">
 				<div class="form-range-controls">
 					<span class="form-range-value"><span id="slider_number_value"><?php echo ( $this->getValue( 'slider_number' ) ? $this->getValue( 'slider_number' ) : $this->dbFields['slider_number'] ); ?></span></span>
-					<input type="range" class="form-control-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
+					<input type="range" class="form-control-range custom-range custom-range" onInput="$('#slider_number_value').html($(this).val())" id="slider_number" name="slider_number" value="<?php echo $this->getValue( 'slider_number' ); ?>" min="1" max="12" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_number_value').text('<?php echo $this->dbFields['slider_number']; ?>');$('#slider_number').val('<?php echo $this->dbFields['slider_number']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text"><?php $L->p( 'The maximum number of posts to display, starting with the most recent.' ); ?></small>
@@ -174,7 +174,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<div class="col-sm-10 row">
 				<div class="form-range-controls">
 					<span class="form-range-value"><span id="slider_duration_value"><?php echo ( $this->getValue( 'slider_duration' ) ? $this->getValue( 'slider_duration' ) : $this->dbFields['slider_duration'] ); ?></span><span id="slider_duration_units">s</span></span>
-					<input type="range" class="form-control-range" onInput="$('#slider_duration_value').html($(this).val())" id="slider_duration" name="slider_duration" value="<?php echo $this->getValue( 'slider_duration' ); ?>" min="1" max="6" step="0.5" />
+					<input type="range" class="form-control-range custom-range" onInput="$('#slider_duration_value').html($(this).val())" id="slider_duration" name="slider_duration" value="<?php echo $this->getValue( 'slider_duration' ); ?>" min="1" max="6" step="0.5" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#slider_duration_value').text('<?php echo $this->dbFields['slider_duration']; ?>');$('#slider_duration').val('<?php echo $this->dbFields['slider_duration']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text"><?php $L->p( 'The duration in seconds for which each slide displays.' ); ?></small>
@@ -265,7 +265,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<div class="col-sm-10 row">
 				<div class="form-range-controls">
 					<span class="form-range-value"><span id="max_related_value"><?php echo ( $this->getValue( 'max_related' ) ? $this->getValue( 'max_related' ) : $this->dbFields['max_related'] ); ?></span></span>
-					<input type="range" class="form-control-range" onInput="$('#max_related_value').html($(this).val())" id="max_related" name="max_related" value="<?php echo $this->getValue( 'max_related' ); ?>" min="1" max="9" step="1" />
+					<input type="range" class="form-control-range custom-range" onInput="$('#max_related_value').html($(this).val())" id="max_related" name="max_related" value="<?php echo $this->getValue( 'max_related' ); ?>" min="1" max="9" step="1" />
 					<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#max_related_value').text('<?php echo $this->dbFields['max_related']; ?>');$('#max_related').val('<?php echo $this->dbFields['max_related']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text"><?php $L->p( 'The number of related posts to display.' ); ?></small>

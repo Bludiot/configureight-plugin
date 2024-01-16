@@ -56,7 +56,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		<div class="col-sm-10 row">
 			<div class="form-range-controls">
 				<span class="form-range-value px-range-value"><span id="content_width_value"><?php echo ( $this->getValue( 'content_width' ) ? $this->getValue( 'content_width' ) : $this->dbFields['content_width'] ); ?></span><span id="content_width_units">px</span></span>
-				<input type="range" class="form-control-range" onInput="$('#content_width_value').html($(this).val())" id="content_width" name="content_width" value="<?php echo $this->getValue( 'content_width' ); ?>" min="300" max="2050" step="10" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#content_width_value').html($(this).val())" id="content_width" name="content_width" value="<?php echo $this->getValue( 'content_width' ); ?>" min="300" max="2050" step="10" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#content_width_value').text('<?php echo $this->dbFields['content_width']; ?>');$('#content_width').val('<?php echo $this->dbFields['content_width']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text"><?php $L->p( 'Sets a maximum width on the wrapper around the page content and the sidebar. Viewport breakpoints apply. ' ); ?></small>
@@ -68,7 +68,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		<div class="col-sm-10 row">
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="horz_spacing_value"><?php echo ( $this->getValue( 'horz_spacing' ) ? $this->getValue( 'horz_spacing' ) : $this->dbFields['horz_spacing'] ); ?></span><span id="horz_spacing_units">rem</span></span>
-				<input type="range" class="form-control-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#horz_spacing_value').html($(this).val())" id="horz_spacing" name="horz_spacing" value="<?php echo $this->getValue( 'horz_spacing' ); ?>" min="0.5" max="4" step="0.025" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#horz_spacing_value').text('<?php echo $this->dbFields['horz_spacing']; ?>');$('#horz_spacing').val('<?php echo $this->dbFields['horz_spacing']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text"><?php $L->p( 'General horizontal spacing between elements and areas. A fraction of this setting may be used where the full amount would not be appealing.' ); ?></small>
@@ -80,7 +80,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		<div class="col-sm-10 row">
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="vert_spacing_value"><?php echo ( $this->getValue( 'vert_spacing' ) ? $this->getValue( 'vert_spacing' ) : $this->dbFields['vert_spacing'] ); ?></span><span id="vert_spacing_units">rem</span></span>
-				<input type="range" class="form-control-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#vert_spacing_value').html($(this).val())" id="vert_spacing" name="vert_spacing" value="<?php echo $this->getValue( 'vert_spacing' ); ?>" min="0.5" max="4" step="0.025" />
 				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#vert_spacing_value').text('<?php echo $this->dbFields['vert_spacing']; ?>');$('#vert_spacing').val('<?php echo $this->dbFields['vert_spacing']; ?>');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small class="form-text"><?php $L->p( 'General vertical spacing between elements and areas. A fraction of this setting may be used where the full amount would not be appealing.' ); ?></small>

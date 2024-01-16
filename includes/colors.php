@@ -1126,6 +1126,87 @@ function color_scheme_template() {
 }
 
 /**
+ * All current colors
+ *
+ * Returns a simple array of all colors,
+ * light and dark, in the current scheme.
+ *
+ * @since  1.0.0
+ * @return array
+ */
+function all_current_colors() {
+
+	$current = current_color_scheme();
+	$light   = [];
+	$dark    = [];
+
+	foreach ( $current['light'] as $name => $color ) {
+		$light[] = $color;
+	}
+	foreach ( $current['dark'] as $name => $color ) {
+		$dark[] = $color;
+	}
+	$colors = array_merge( $light, $dark );
+	if ( isset( $current['cover'] ) ) {
+		$colors = array_merge( $current['cover'], $colors );
+	}
+	return $colors;
+}
+
+/**
+ * Color picker: light colors
+ *
+ * Also includes the cover image color.
+ *
+ * @since  1.0.0
+ * @return array Returns an array of hex values.
+ */
+function picker_colors_light() {
+
+	$current = current_color_scheme();
+	$light   = [];
+	$cover   = false;
+
+	if ( isset( $current['cover'] ) ) {
+		$cover = [ $current['cover'] ];
+	}
+	foreach ( $current['light'] as $name => $color ) {
+
+		// Filter duplicates.
+		if ( ! in_array( $color, $light ) ) {
+			$light[] = $color;
+		}
+	}
+
+	// If cover color is set.
+	if ( is_array( $cover ) ) {
+		$light = array_merge( $cover, $light );
+	}
+	return $light;
+}
+
+/**
+ * Color picker: dark colors
+ *
+ * @since  1.0.0
+ * @return array Returns an array of hex values.
+ */
+function picker_colors_dark() {
+
+	$current = current_color_scheme();
+	$dark    = [];
+
+	foreach ( $current['dark'] as $name => $color ) {
+
+		// Filter duplicates.
+		if ( ! in_array( $color, $dark ) ) {
+			$dark[] = $color;
+		}
+	}
+	return $dark;
+}
+
+/**
  * Define color scheme variables
  *
  * Used in the `<head>` section to assign current

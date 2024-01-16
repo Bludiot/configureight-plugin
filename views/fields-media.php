@@ -98,7 +98,7 @@ $custom_from = $this->custom_scheme_from();
 			<div class="col-sm-10 row">
 				<div class="form-range-controls">
 					<span class="form-range-value px-range-value"><span id="cover_desaturate_value"><?php echo ( $this->getValue( 'cover_desaturate' ) ? $this->getValue( 'cover_desaturate' ) : $this->dbFields['cover_desaturate'] ); ?></span><span id="cover_desaturate_units">%</span></span>
-					<input type="range" class="form-control-range" onInput="$('#cover_desaturate_value').html($(this).val())" id="cover_desaturate" name="cover_desaturate" value="<?php echo $this->getValue( 'cover_desaturate' ); ?>" min="0" max="100" step="1" />
+					<input type="range" class="form-control-range custom-range" onInput="$('#cover_desaturate_value').html($(this).val())" id="cover_desaturate" name="cover_desaturate" value="<?php echo $this->getValue( 'cover_desaturate' ); ?>" min="0" max="100" step="1" />
 					<span id="cover_desaturate_reset" class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#cover_desaturate_value').text('<?php echo $this->dbFields['cover_desaturate']; ?>');$('#cover_desaturate').val('<?php echo $this->dbFields['cover_desaturate']; ?>');"><?php $L->p( 'Default' ); ?></span>
 				</div>
 				<small class="form-text"><?php $L->p( 'Percentage to desaturate images. Set 100% for full grayscale (black & white).' ); ?></small>
@@ -147,7 +147,7 @@ $custom_from = $this->custom_scheme_from();
 			<label class="form-label col-sm-2 col-form-label" for="cover_blend"><?php $L->p( 'Blend Color' ); ?></label>
 			<div class="col-sm-10">
 				<div class="row color-picker-wrap">
-					<input class="color-picker" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
+					<input class="color-picker custom-color" id="cover_blend" name="cover_blend" value="<?php echo $this->cover_blend(); ?>" />
 					<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo ( isset( $colors[$custom_from]['cover'] ) ? $colors[$custom_from]['cover'] : $colors[$custom_from]['light']['three'] ); ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php $L->p( 'Reset' ); ?></span>
 				</div>

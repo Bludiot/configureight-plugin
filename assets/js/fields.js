@@ -105,17 +105,6 @@ jQuery(document).ready( function($) {
 	});
 
 	// Cover image blend.
-	$( '#cover_blend' ).spectrum({
-		type            : "component",
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '#cover_blend' ).show();
-
 	$( '#cover_blend_default_button' ).click( function() {
 		$( '#cover_blend' ).spectrum( 'set', $( '#cover_blend_default' ).val() );
 	});
@@ -318,18 +307,6 @@ jQuery(document).ready( function($) {
 			$( "#custom_color_scheme_fields" ).fadeOut( 250 );
 		}
 	});
-
-	$( '.custom-color' ).spectrum({
-		type            : "component",
-		showAlpha       : false,
-		showPalette     : true,
-		palette         : [],
-		preferredFormat : "hex",
-		showInitial     : true,
-		allowEmpty      : false,
-		showSelectionPalette : false
-	});
-	$( '.custom-color' ).show();
 
 	/**
 	 * Custom scheme thumbnails

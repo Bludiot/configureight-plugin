@@ -654,29 +654,56 @@ function color_schemes() {
 		],
 
 		// Materials.
+		'bamboo' => [
+			'slug'     => 'bamboo',
+			'name'     => $L->get( 'Bamboo' ),
+			'category' => 'materials',
+			'fonts'    => '',
+			'cover'    => '#607414',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#262c10',
+				'one'   => '#668000',
+				'two'   => '#88aa00',
+				'three' => '#668000',
+				'four'  => '#c8ab37',
+				'five'  => '#668000',
+				'six'   => '#c8ab37'
+			],
+			'dark' => [
+				'body'  => '#262c10',
+				'text'  => '#eeeeee',
+				'one'   => '#d8bc4c',
+				'two'   => '#88aa00',
+				'three' => '#789200',
+				'four'  => '#c8ab37',
+				'five'  => '#668000',
+				'six'   => '#90a505'
+			]
+		],
 		'brick' => [
 			'slug'     => 'brick',
 			'name'     => $L->get( 'Brick' ),
 			'category' => 'materials',
 			'fonts'    => '',
-			'cover'    => '#84200f',
+			'cover'    => '#bc3a24',
 			'light' => [
-				'body'  => '#ffffff',
-				'text'  => '#242611',
+				'body'  => '#fdfcf3',
+				'text'  => '#261a19',
 				'one'   => '#ba2d15',
 				'two'   => '#e33619',
-				'three' => '#84200f',
-				'four'  => '#ab2913',
-				'five'  => '#bca443',
-				'six'   => '#cbb86d'
+				'three' => '#ab2913',
+				'four'  => '#c63d1d',
+				'five'  => '#ab2913',
+				'six'   => '#bca443'
 			],
 			'dark' => [
-				'body'  => '#241514',
-				'text'  => '#eeeeee',
+				'body'  => '#261a19',
+				'text'  => '#fdfcf3',
 				'one'   => '#cbb86d',
 				'two'   => '#bca443',
-				'three' => '#ba2d15',
-				'four'  => '#e33619',
+				'three' => '#84200f',
+				'four'  => '#ab2913',
 				'five'  => '#84200f',
 				'six'   => '#ab2913'
 			]

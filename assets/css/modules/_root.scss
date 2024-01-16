@@ -176,6 +176,6 @@ $color_six_dark:   $medium_gray;
 	--cfe-tabs--list--link--border-width: 1px;
 	--cfe-tabs--list--link--border-color: var( --cfe-box--border-color );
 	--cfe-tabs--list--link--border-color--dark: var( --cfe-box--border-color--dark );
-	--cfe-tabs--list--link--bg-color: #{darken( $color: $color_body, $amount: 6.666% )};
-	--cfe-tabs--list--link--bg-color--dark: #{lighten( $color: $color_body_dark, $amount: 6.666% )};
+	--cfe-tabs--list--link--bg-color: #{rgba( $color: black, $alpha: 8% )};
+	--cfe-tabs--list--link--bg-color--dark: #{rgba( $color: white, $alpha: 8% )};
 }

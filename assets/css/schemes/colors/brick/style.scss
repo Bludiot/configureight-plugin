@@ -6,21 +6,21 @@
 @import '../../../modules/_utility';
 
 // Scheme colors.
-$color_body: #ffffff;
-$color_text: #242611;
+$color_body: #fdfcf3;
+$color_text: #261a19;
 $color_one: #ba2d15;
 $color_two: #e33619;
-$color_three: #84200f;
-$color_four: #ab2913;
-$color_five: #bca443;
-$color_six: #cbb86d;
+$color_three: #ab2913;
+$color_four: #c63d1d;
+$color_five: #ab2913;
+$color_six: #bca443;
 
-$color_body_dark: #241514;
-$color_text_dark: #eeeeee;
+$color_body_dark: #261a19;
+$color_text_dark: #fdfcf3;
 $color_one_dark: #cbb86d;
 $color_two_dark: #bca443;
-$color_three_dark: #ba2d15;
-$color_four_dark: #e33619;
+$color_three_dark: #84200f;
+$color_four_dark: #ab2913;
 $color_five_dark: #84200f;
 $color_six_dark: #ab2913;
 
@@ -73,7 +73,4 @@ $close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/20
 	background-image: url( '#{$close_icon_action_bg}' );
 }
 
-:root {
-	--cfe-tabs--list--link--bg-color: #{darken( $color: $color_body, $amount: 6.666% )};
-	--cfe-tabs--list--link--bg-color--dark: #{lighten( $color: $color_body_dark, $amount: 6.666% )};
-}
+:root {}

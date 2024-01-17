@@ -328,7 +328,7 @@ class configureight extends Plugin {
 			// Load ImageGallery album admin.
 			$html = 'ImageGallery Admin Content';
 
-			$album = 'album';
+			$album = 'cover';
 			$domainPath = $this->domainPath();
 
 			// Get helper object.
@@ -355,7 +355,7 @@ class configureight extends Plugin {
 		if ( $url->slug() != $this->pluginSlug() ) {
 			return false;
 		}
-		$album = 'album';
+		$album = 'cover';
 		$domainPath = $this->domainPath();
 
 		// Get helper object.
@@ -696,7 +696,7 @@ class configureight extends Plugin {
 		require_once( 'includes/classes/novaGallery.php' );
 		require_once( 'includes/classes/BluditImageGallery.php' );
 		require_once( 'includes/classes/BluditImageGalleryAdmin.php' );
-		$album = 'album';
+		$album = 'cover';
 		$config['imagesSort'] = 'a-z';
 
 		// load gallery
@@ -706,7 +706,7 @@ class configureight extends Plugin {
 		$html .= '<div class="imagegallery-form">';
 
 		/*** Images ***/
-		$album = 'album';
+		$album = 'cover';
 
 		// Upload
 		$html .= '<div class="dropzone mb-2" id="imagegallery-upload" style="border-style:dotted;"></div>';

@@ -217,7 +217,7 @@
 	margin: var( --cfe-spacing--vert ) 0 0 0;
 	padding: var( --cfe-spacing--vert ) var( --cfe-spacing--horz );
 	min-height: 160px;
-	border: dashed 3px var( --cfe-form--border-color );
+	border: dashed 2px var( --cfe-form--border-color );
 	background-color: var( --cfe-body--bg-color );
 
 	@media ( prefers-color-scheme: dark ) {

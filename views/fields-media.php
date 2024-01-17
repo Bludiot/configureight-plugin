@@ -62,6 +62,32 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	<legend class="screen-reader-text"><?php $L->p( 'Cover Images' ); ?></legend>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for=""><?php $L->p( 'Default Cover' ); ?></label>
+
+		<div class="col-sm-10 imagegallery-form">
+
+			<div id="cover-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+
+				<ul class="nav nav-tabs" id="cover-nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="cover-upload" aria-selected="false" href="#cover-upload"><?php $L->p( 'Upload' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?></a>
+					</li>
+				</ul>
+				<div id="cover-upload" class="tab-pane" role="tabpanel" aria-labelledby="cover-upload">
+					<div class="dropzone mb-2" id="imagegallery-upload"></div>
+					<div class="w-100 text-center mb-5"><a href="<?php $_SERVER['REQUEST_URI']; ?>" class="d-none btn btn-primary px-4" id="imagegallery-reload-button"><?php $L->p( 'Reload page' ); ?></a></div>
+				</div>
+				<div id="cover-album" class="tab-pane" role="tabpanel" aria-labelledby="cover-album">
+					<?php echo $gallery->outputImagesAdmin( $album ); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="default_cover"><?php $L->p( 'Default Cover' ); ?></label>
 		<div class="col-sm-4">
 			<input type="text" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" placeholder="<?php $L->p( 'cover.jpg' ); ?>" />

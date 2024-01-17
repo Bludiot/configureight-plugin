@@ -690,39 +690,21 @@ class configureight extends Plugin {
 	 */
 	public function form() {
 
-		global $L, $staticPages;
+		// Access global variables.
+		global $L, $plugin, $site;
 
 		// Load Settings
 		require_once( 'includes/classes/novaGallery.php' );
 		require_once( 'includes/classes/BluditImageGallery.php' );
 		require_once( 'includes/classes/BluditImageGalleryAdmin.php' );
+
 		$album = 'cover';
 		$config['imagesSort'] = 'a-z';
-
-		// load gallery
 		$gallery = new novafacile\BluditImageGalleryAdmin( $config, true );
 
-		/*** tab navi ***/
-		$html .= '<div class="imagegallery-form">';
-
-		/*** Images ***/
-		$album = 'cover';
-
-		// Upload
-		$html .= '<div class="dropzone mb-2" id="imagegallery-upload" style="border-style:dotted;"></div>';
-		$html .= '<div class="w-100 text-center mb-5"><a href="'.$_SERVER['REQUEST_URI'].'" class="d-none btn btn-primary px-4" id="imagegallery-reload-button">'.$L->get('Reload page').'</a></div>';
-
-		$html .= $gallery->outputImagesAdmin($album);
-
-		/*** form end ***/
-		$html .= '</div>';
-
-		// Access global variables.
-		global $L, $plugin, $site;
-
-		$html  .= '';
+		$html = '';
 		// ob_start();
-		include( $this->phpPath() . '/views/page-form.php' );
+		$html .= include( $this->phpPath() . '/views/page-form.php' );
 		// $html .= ob_get_clean();
 
 		return $html;

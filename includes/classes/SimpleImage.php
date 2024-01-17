@@ -4,16 +4,16 @@
 //
 //  A PHP class that makes working with images as simple as possible.
 //
-//  Developed and maintained by Cory LaViska <https://github.com/claviska>.
+//  Developed and maintained by Cory LaViska <https://github.com/CFE_Images>.
 //
 //  Copyright A Beautiful Site, LLC.
 //
-//  Source: https://github.com/claviska/SimpleImage
+//  Source: https://github.com/CFE_Images/SimpleImage
 //
 //  Licensed under the MIT license <http://opensource.org/licenses/MIT>
 //
 
-namespace claviska;
+namespace CFE_Images;
 
 /**
  * A PHP class that makes working with images as simple as possible.
@@ -86,7 +86,7 @@ class SimpleImage {
    *
    * @param string $uri A data URI.
    * @throws \Exception Thrown if URI or image data is invalid.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fromDataUri($uri) {
     // Basic formatting check
@@ -119,7 +119,7 @@ class SimpleImage {
    *
    * @param string $file The image file to load.
    * @throws \Exception Thrown if file or image data is invalid.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fromFile($file) {
     // Check if the file exists and is readable. We're using fopen() instead of file_exists()
@@ -191,7 +191,7 @@ class SimpleImage {
    * @param integer $width The width of the image.
    * @param integer $height The height of the image.
    * @param string|array $color Optional fill color for the new image (default 'transparent').
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fromNew($width, $height, $color = 'transparent') {
     $this->image = imagecreatetruecolor((int) $width, (int) $height);
@@ -211,7 +211,7 @@ class SimpleImage {
    * @param string $string The raw image data as a string.
    * @example
    *    $string = file_get_contents('image.jpg');
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fromString($string) {
     return $this->fromFile('data://;base64,' . base64_encode($string));
@@ -312,7 +312,7 @@ class SimpleImage {
    * @param string $filename The filename (without path) to send to the client (e.g. 'image.jpeg').
    * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
    * @param integer $quality Image quality as a percentage (default 100).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function toDownload($filename, $mimeType = null, $quality = 100) {
     $image = $this->generate($mimeType, $quality);
@@ -337,7 +337,7 @@ class SimpleImage {
    * @param string $mimeType Image quality as a percentage (default 100).
    * @param integer $quality Image quality as a percentage (default 100).
    * @throws \Exception Thrown if failed write to file.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function toFile($file, $mimeType = null, $quality = 100) {
     $image = $this->generate($mimeType, $quality);
@@ -355,7 +355,7 @@ class SimpleImage {
    *
    * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
    * @param integer $quality Image quality as a percentage (default 100).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function toScreen($mimeType = null, $quality = 100) {
     $image = $this->generate($mimeType, $quality);
@@ -499,7 +499,7 @@ class SimpleImage {
    * Rotates an image so the orientation will be correct based on its exif data. It is safe to call
    * this method on images that don't have exif data (no changes will be made).
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function autoOrient() {
     $exif = $this->getExif();
@@ -542,7 +542,7 @@ class SimpleImage {
    *
    * @param integer $maxWidth The maximum width the image can be.
    * @param integer $maxHeight The maximum height the image can be.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function bestFit($maxWidth, $maxHeight) {
     // If the image already fits, there's nothing to do
@@ -581,7 +581,7 @@ class SimpleImage {
    * @param integer|float $y1 Top left y coordinate.
    * @param integer|float $x2 Bottom right x coordinate.
    * @param integer|float $y2 Bottom right x coordinate.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function crop($x1, $y1, $x2, $y2) {
     // Keep crop within image dimensions
@@ -620,7 +620,7 @@ class SimpleImage {
    *
    * @param string|array $lightColor The lightest color in the duotone.
    * @param string|array $darkColor The darkest color in the duotone.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   function duotone($lightColor, $darkColor) {
     $lightColor = self::normalizeColor($lightColor);
@@ -663,7 +663,7 @@ class SimpleImage {
    *    This method was deprecated in version 3.2.2 and will be removed in version 4.0.
    *    Please use `resize(null, $height)` instead.
    * @param integer $height
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fitToHeight($height) {
     return $this->resize(null, $height);
@@ -676,7 +676,7 @@ class SimpleImage {
    *    This method was deprecated in version 3.2.2 and will be removed in version 4.0.
    *    Please use `resize(null, $height)` instead.
    * @param integer $width The width to resize the image to.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fitToWidth($width) {
     return $this->resize($width, null);
@@ -686,7 +686,7 @@ class SimpleImage {
    * Flip the image horizontally or vertically.
    *
    * @param string $direction The direction to flip: x|y|both.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function flip($direction) {
     switch($direction) {
@@ -709,7 +709,7 @@ class SimpleImage {
    *
    * @param integer $max The maximum number of colors to use.
    * @param boolean $dither Whether or not to use a dithering effect (default true).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function maxColors($max, $dither = true) {
     imagetruecolortopalette($this->image, $dither, max(1, $max));
@@ -726,7 +726,7 @@ class SimpleImage {
    * @param integer $xOffset Horizontal offset in pixels (default 0).
    * @param integer $yOffset Vertical offset in pixels (default 0).
    * @param bool $calculateOffsetFromEdge Calculate Offset referring to the edges of the image (default false).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function overlay($overlay, $anchor = 'center', $opacity = 1, $xOffset = 0, $yOffset = 0, $calculateOffsetFromEdge = false) {
     // Load overlay image
@@ -776,7 +776,7 @@ class SimpleImage {
    *
    * @param integer $width The new image width.
    * @param integer $height The new image height.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function resize($width = null, $height = null) {
     // No dimentions specified
@@ -827,7 +827,7 @@ class SimpleImage {
    *
    * @param integer $res_x The horizontal resolution in DPI.
    * @param integer $res_y The vertical resolution in DPI
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function resolution($res_x, $res_y = null) {
     if(is_null($res_y)) {
@@ -844,7 +844,7 @@ class SimpleImage {
    *
    * @param integer $angle The angle of rotation (-360 - 360).
    * @param string|array $backgroundColor The background color to use for the uncovered zone area after rotation (default 'transparent').
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function rotate($angle, $backgroundColor = 'transparent') {
     // Rotate the image on a canvas with the desired background color
@@ -882,7 +882,7 @@ class SimpleImage {
    *    If passed, this variable will contain an array with coordinates that surround the text: [x1, y1, x2, y2, width, height].
    *    This can be used for calculating the text's position after it gets added to the image.
    * @throws \Exception
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function text($text, $options, &$boundary = null) {
     // Check for freetype support
@@ -927,7 +927,7 @@ class SimpleImage {
     // that the font used can occupy. Based on this, we can adjust the text vertically so that it
     // appears inside the box with a good consistency.
     //
-    // See: https://github.com/claviska/SimpleImage/issues/165
+    // See: https://github.com/CFE_Images/SimpleImage/issues/165
     //
 
     $boxText = imagettfbbox($size, $angle, $fontFile, $text);
@@ -1062,7 +1062,7 @@ class SimpleImage {
   *     - leading (float) - Increase/decrease spacing between lines of text (default 0).
   *     - opacity (float) - The opacity level of the text 0-1 (default 1).
   * @throws \Exception
-  * @return \claviska\SimpleImage
+  * @return \CFE_Images\SimpleImage
   */
   public function textBox($text, $options) {
     // default width of image
@@ -1264,7 +1264,7 @@ class SimpleImage {
    * @param integer $width The thumbnail width.
    * @param integer $height The thumbnail height.
    * @param string $anchor The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right' (default 'center').
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function thumbnail($width, $height, $anchor = 'center') {
     // Determine aspect ratios
@@ -1354,7 +1354,7 @@ class SimpleImage {
    * @param integer $end The end of the arc in degrees.
    * @param string|array $color The arc color.
    * @param integer|string $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function arc($x, $y, $width, $height, $start, $end, $color, $thickness = 1) {
     // Allocate the color
@@ -1397,7 +1397,7 @@ class SimpleImage {
    *
    * @param string|array $color The border color.
    * @param integer $thickness The thickness of the border (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function border($color, $thickness = 1) {
     $x1 = -1;
@@ -1418,7 +1418,7 @@ class SimpleImage {
    * @param integer $x The x coordinate of the dot.
    * @param integer $y The y coordinate of the dot.
    * @param string|array $color The dot color.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function dot($x, $y, $color) {
     $color = $this->allocateColor($color);
@@ -1436,7 +1436,7 @@ class SimpleImage {
    * @param integer $height The ellipse height.
    * @param string|array $color The ellipse color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function ellipse($x, $y, $width, $height, $color, $thickness = 1) {
     // Allocate the color
@@ -1478,7 +1478,7 @@ class SimpleImage {
    * Fills the image with a solid color.
    *
    * @param string|array $color The fill color.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function fill($color) {
     // Draw a filled rectangle over the entire image
@@ -1500,7 +1500,7 @@ class SimpleImage {
    * @param integer $y2 The y coordinate for the second point.
    * @param string|array $color The line color.
    * @param integer $thickness The line thickness (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function line($x1, $y1, $x2, $y2, $color, $thickness = 1) {
     // Allocate the color
@@ -1526,7 +1526,7 @@ class SimpleImage {
    *        ]
    * @param string|array $color The polygon color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function polygon($vertices, $color, $thickness = 1) {
     // Allocate the color
@@ -1560,7 +1560,7 @@ class SimpleImage {
    * @param integer $y2 The bottom right y coordinate.
    * @param string|array $color The rectangle color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function rectangle($x1, $y1, $x2, $y2, $color, $thickness = 1) {
     // Allocate the color
@@ -1588,7 +1588,7 @@ class SimpleImage {
    * @param integer $radius The border radius in pixels.
    * @param string|array $color The rectangle color.
    * @param integer|array $thickness Line thickness in pixels or 'filled' (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function roundedRectangle($x1, $y1, $x2, $y2, $radius, $color, $thickness = 1) {
     if($thickness === 'filled') {
@@ -1667,7 +1667,7 @@ class SimpleImage {
    *
    * @param string $type The blur algorithm to use: 'selective', 'gaussian' (default 'gaussian').
    * @param number $passes The number of time to apply the filter, enhancing the effect (default 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function blur($type = 'selective', $passes = 1) {
     $filter = $type === 'gaussian' ? IMG_FILTER_GAUSSIAN_BLUR : IMG_FILTER_SELECTIVE_BLUR;
@@ -1683,7 +1683,7 @@ class SimpleImage {
    * Applies the brightness filter to brighten the image.
    *
    * @param integer $percentage Percentage to brighten the image (0 - 100).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function brighten($percentage) {
     $percentage = self::keepWithin(255 * $percentage / 100, 0, 255);
@@ -1697,7 +1697,7 @@ class SimpleImage {
    * Applies the colorize filter.
    *
    * @param string|array $color The filter color.
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function colorize($color) {
     $color = self::normalizeColor($color);
@@ -1718,7 +1718,7 @@ class SimpleImage {
    * Applies the contrast filter.
    *
    * @param integer $percentage Percentage to adjust (-100 - 100).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function contrast($percentage) {
     imagefilter($this->image, IMG_FILTER_CONTRAST, self::keepWithin($percentage, -100, 100));
@@ -1730,7 +1730,7 @@ class SimpleImage {
    * Applies the brightness filter to darken the image.
    *
    * @param integer $percentage Percentage to darken the image (0 - 100).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function darken($percentage) {
     $percentage = self::keepWithin(255 * $percentage / 100, 0, 255);
@@ -1743,7 +1743,7 @@ class SimpleImage {
   /**
    * Applies the desaturate (grayscale) filter.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function desaturate() {
     imagefilter($this->image, IMG_FILTER_GRAYSCALE);
@@ -1754,7 +1754,7 @@ class SimpleImage {
   /**
    * Applies the edge detect filter.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function edgeDetect() {
     imagefilter($this->image, IMG_FILTER_EDGEDETECT);
@@ -1765,7 +1765,7 @@ class SimpleImage {
   /**
    * Applies the emboss filter.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function emboss() {
     imagefilter($this->image, IMG_FILTER_EMBOSS);
@@ -1776,7 +1776,7 @@ class SimpleImage {
   /**
    * Inverts the image's colors.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function invert() {
     imagefilter($this->image, IMG_FILTER_NEGATE);
@@ -1788,7 +1788,7 @@ class SimpleImage {
    * Changes the image's opacity level.
    *
    * @param float $opacity The desired opacity level (0 - 1).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function opacity($opacity) {
     // Create a transparent image
@@ -1813,7 +1813,7 @@ class SimpleImage {
    * Applies the pixelate filter.
    *
    * @param integer $size The size of the blocks in pixels (default 10).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function pixelate($size = 10) {
     imagefilter($this->image, IMG_FILTER_PIXELATE, $size, true);
@@ -1824,7 +1824,7 @@ class SimpleImage {
   /**
    * Simulates a sepia effect by desaturating the image and applying a sepia tone.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function sepia() {
     imagefilter($this->image, IMG_FILTER_GRAYSCALE);
@@ -1837,7 +1837,7 @@ class SimpleImage {
    * Sharpens the image.
    *
    * @param integer $amount Sharpening amount (default 50).
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function sharpen($amount = 50) {
     // Normalize amount
@@ -1858,7 +1858,7 @@ class SimpleImage {
   /**
    * Applies the mean remove filter to produce a sketch effect.
    *
-   * @return \claviska\SimpleImage
+   * @return \CFE_Images\SimpleImage
    */
   public function sketch() {
     imagefilter($this->image, IMG_FILTER_MEAN_REMOVAL);

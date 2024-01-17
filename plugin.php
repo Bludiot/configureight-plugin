@@ -115,7 +115,7 @@ class configureight extends Plugin {
 			'img-thumb-quality'      => 90,
 			'img-large-size'         => 1920,
 			'img-large-quality'      => 90,
-			'gallery_sort'           => 'a-z', // 'newest', 'oldest', 'a-z'
+			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
 			'user_toolbar'           => 'enabled',
 			'show_options'           => false,
 			'to_top_button'          => true,
@@ -332,8 +332,8 @@ class configureight extends Plugin {
 			$domainPath = $this->domainPath();
 
 			// Get helper object.
-			require_once( 'includes/classes/BluditImageGalleryHelper.php' );
-			$helper = new \novafacile\BluditImageGalleryHelper();
+			require_once( 'includes/classes/class-cover-images-helper.php' );
+			$helper = new \CFE_AJAX\Cover_Images_Helper();
 
 			// Load required JS.
 			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
@@ -359,8 +359,8 @@ class configureight extends Plugin {
 		$domainPath = $this->domainPath();
 
 		// Get helper object.
-		require_once( 'includes/classes/BluditImageGalleryHelper.php' );
-		$helper = new \novafacile\BluditImageGalleryHelper();
+		require_once( 'includes/classes/class-cover-images-helper.php' );
+		$helper = new \CFE_AJAX\Cover_Images_Helper();
 
 		// load required JS
 		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
@@ -695,12 +695,12 @@ class configureight extends Plugin {
 
 		// Load Settings
 		require_once( 'includes/classes/novaGallery.php' );
-		require_once( 'includes/classes/BluditImageGallery.php' );
-		require_once( 'includes/classes/BluditImageGalleryAdmin.php' );
+		require_once( 'includes/classes/class-cover-images.php' );
+		require_once( 'includes/classes/class-cover-album-manage.php' );
 
 		$album = 'cover';
-		$config['imagesSort'] = 'a-z';
-		$gallery = new novafacile\BluditImageGalleryAdmin( $config, true );
+		$config['imagesSort'] = 'newest';
+		$gallery = new CFE_AJAX\Cover_Album_Manage( $config, true );
 
 		$html = '';
 		// ob_start();

@@ -3,16 +3,16 @@
  * Image Gallery Lite - Image Gallery for Bludit3
  * Helper object
  *
- * @author     novafacile OÜ
- * @copyright  2022 by novafacile OÜ
+ * @author     CFE_AJAX OÜ
+ * @copyright  2022 by CFE_AJAX OÜ
  * @license    AGPL-3.0
  * @see        https://bludit-plugins.com
  * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
-namespace novafacile;
+namespace CFE_AJAX;
 
-class BluditImageGalleryHelper {
+class Cover_Images_Helper {
 
 	public function adminJSData( $domainPath ) {
 
@@ -20,8 +20,7 @@ class BluditImageGalleryHelper {
 		return '<script>
 				var imageGallery = {
 				config: {
-					ajaxUrl: "'.$domainPath.'ajax/request.php",
-					ajaxPagesUrl: "'.HTML_PATH_ADMIN_ROOT.'ajax/get-published"
+					ajaxUrl: "'.$domainPath.'ajax/request.php"
 				},
 				L: {
 					startTypingPlaceholder: "'.$L->get('Start typing to see a list of suggestions.').'",

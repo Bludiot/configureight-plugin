@@ -1,8 +1,8 @@
 <?php defined('BLUDIT') or die('Bludit CMS.');
 /**
- * Config helper for novafacile Bludit Plugins
- * @author    novafacile OÜ
- * @copyright 2022 by novafacile OÜ
+ * Config helper for CFE_AJAX Bludit Plugins
+ * @author    CFE_AJAX OÜ
+ * @copyright 2022 by CFE_AJAX OÜ
  * @license   MIT
  * @see       https://bludit-plugins.com
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.

@@ -1,13 +1,13 @@
 <?php
 /**
  * novaGallery - List Images and Albums
- * @author novafacile OÜ
- * @copyright Copyright (c) 2021 by novafacile OÜ
+ * @author CFE_AJAX OÜ
+ * @copyright Copyright (c) 2021 by CFE_AJAX OÜ
  * @license AGPL-3.0
  * @link https://novagallery.org
  * to disable cache just set maxCacheAge to 'false' on initialization
  **/
-namespace novafacile;
+namespace CFE_AJAX;
 class novaGallery {
   
   protected $dir = '';

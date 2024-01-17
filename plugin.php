@@ -310,6 +310,12 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $url;
 
+		// Maybe get non-minified assets.
+		$suffix = '';
+		if ( ! $this->debug_mode() ) {
+			$suffix = '.min';
+		}
+
 		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT."configureight";
 		$currentPath = strtok($_SERVER["REQUEST_URI"],'?');
 
@@ -330,14 +336,13 @@ class configureight extends Plugin {
 			$helper = new \novafacile\BluditImageGalleryHelper();
 
 			// Load required JS.
-			$html .= $this->includeJS( 'simple-lightbox.min.js' );
-			$html .= $this->includeJS( 'jquery-confirm.min.js' );
+			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 			$html .= $helper->adminJSData( $domainPath );
 			if ( $album ) {
 				$html .= $this->includeJS( 'dropzone.min.js' );
 				$html .= $helper->dropzoneJSData( $album );
 			}
-			$html .= $this->includeJS( 'imagegallery-admin.js' );
+			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/imagegallery-admin{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 			// remove old admin content (error message)
 			$regexp  = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
@@ -358,14 +363,13 @@ class configureight extends Plugin {
 		$helper = new \novafacile\BluditImageGalleryHelper();
 
 		// load required JS
-		$html  = $this->includeJS( 'simple-lightbox.min.js' );
-		$html .= $this->includeJS( 'jquery-confirm.min.js' );
+		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 		$html .= $helper->adminJSData( $domainPath );
 		if ( $album ) {
 			$html .= $this->includeJS( 'dropzone.min.js' );
 			$html .= $helper->dropzoneJSData( $album );
 		}
-		$html .= $this->includeJS( 'imagegallery-admin.js' );
+		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/imagegallery-admin{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		return $html;
 	}

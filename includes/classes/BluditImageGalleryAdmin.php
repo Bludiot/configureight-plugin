@@ -2,7 +2,7 @@
 /**
  * Image Gallery Lite - Image Gallery for Bludit3
  * Image gallery object for admin
- * 
+ *
  * @author     novafacile OÜ
  * @copyright  2022 by novafacile OÜ
  * @license    AGPL-3.0
@@ -14,34 +14,55 @@ namespace novafacile;
 
 class BluditImageGalleryAdmin extends BluditImageGalleryLite {
 
-  public function outputImagesAdmin($album){
-    global $L;
-    $this->loadGallery($album);
+	public function outputImagesAdmin( $album ) {
 
-    $imagesSort = $this->config['imagesSort'];
+		global $L;
 
-    // get images
-    $images = $this->images($album, $imagesSort);
-    
-    // generate html output
-    $html = '<div class="row w-100 text-left">';
-    $i = 0;
-    foreach ($images as $image => $timestamp) {
-      $html .= '<div class="col-6 col-md-3 mb-5 text-break imagegallery-images text-center" id="imagegallery-image-'.++$i.'">
-                  <a href="'.$this->urlPath($album).$this->pathLarge.$image.'" class="image">
-                    <img src="'.$this->urlPath($album).$this->pathThumbnail.$image.'" style="max-width: 100%;max-height:300px;">
-                  </a>
-                  <div class="text-left">'.$image.'<br>
-                    <i class="fa fa-trash imagegallery-del-file" style="cursor:pointer"
-                      data-album="'.$album.'" 
-                      data-file="'.$image.'"
-                      data-number="'.$i.'"
-                      title="'.$L->get('Delete Image').'"></i>
-                  </div>
-                </div>';
-      }
-    $html .= '</div>';
-    return $html;
-  }
+		$this->loadGallery( $album );
 
+		$imagesSort = $this->config['imagesSort'];
+
+		// Get images.
+		$images = $this->images( $album, $imagesSort );
+		$count  = 0;
+
+		// Generate HTML output.
+		$html = '<div class="row w-100">';
+
+		foreach ( $images as $image => $timestamp ) {
+
+			$html .= sprintf(
+				'<div class="col-6 col-md-3 mb-5 text-break imagegallery-images text-center" id="imagegallery-image-%s">',
+				++$count
+			);
+
+			$html .= sprintf(
+				'<a href="%s%s%s" class="image" title="%s">',
+				$this->urlPath( $album ),
+				$this->pathLarge,
+				$image,
+				$image
+			);
+
+			$html .= sprintf(
+				'<img src="%s%s%s" style="max-height: 320px;" />',
+				$this->urlPath( $album ),
+				$this->pathThumbnail,
+				$image
+			);
+			$html .= '</a>';
+			$html .= sprintf(
+				'<p>%s<br /><span class="fa fa-trash"> <a href="javascript: void;" class="delete-image" data-album="%s" data-file="%s" data-number="%s">%s</a></p>',
+				$image,
+				$album,
+				$image,
+				$count,
+				$L->get( 'Delete Image' )
+			);
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
 }

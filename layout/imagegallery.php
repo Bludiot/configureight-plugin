@@ -12,15 +12,12 @@
   *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
 ?>
-<?php if($this->getValue('gallery-title')): ?>
-  <h3><?php echo $this->getValue('gallery-title'); ?></h3>
-<?php endif; ?>
-  <div class="imagegallery">
-    <?php foreach ($images as $image): ?>
-    <div class="imagegallery-image">
-      <a href="<?= $image['large'] ?>" class="imagegallery-image-link">
-        <img src="<?= $image['thumbnail'] ?>">
-      </a>
-    </div>
-    <?php endforeach; ?>
+<div class="imagegallery">
+  <?php foreach ($images as $image): ?>
+  <div class="imagegallery-image">
+    <a href="<?= $image['large'] ?>" class="imagegallery-image-link">
+      <img src="<?= $image['thumbnail'] ?>">
+    </a>
   </div>
+  <?php endforeach; ?>
+</div>

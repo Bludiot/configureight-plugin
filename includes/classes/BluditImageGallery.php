@@ -15,7 +15,7 @@ namespace novafacile;
 class BluditImageGalleryLite {
 
   protected $gallery = null;
-  protected $storageRoot = 'imagegallery';
+  protected $storageRoot = 'configureight';
   protected $maxCacheAge = 360;
   protected $onlyWithImages = true;
   protected $pathThumbnail = 'cache'.DS.'thumb'.DS;

@@ -85,8 +85,8 @@ function uploadImage($pluginPath, $albumDir, $config){
   }
 
   // create thumb & large
-  require $pluginPath.DS.'vendors'.DS.'SimpleImage.php';
-  require $pluginPath.DS.'vendors'.DS.'novaImage.php';
+  require $pluginPath.DS.'includes/classes'.DS.'SimpleImage.php';
+  require $pluginPath.DS.'includes/classes'.DS.'novaImage.php';
 
   foreach ($imageSettings as $value) {
     $cacheName = $value['cacheName'];

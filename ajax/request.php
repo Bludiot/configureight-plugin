@@ -39,7 +39,7 @@ $action = $_POST['action']; // Todo: some protection
 $success = false;
 $pluginPath = dirname(pathinfo(__FILE__, PATHINFO_DIRNAME));
 $basePath = dirname( __FILE__, 4); // Bludit3 Base
-$storageRoot = 'imagegallery';
+$storageRoot = 'configureight';
 $storage = $basePath.DS.'bl-content'.DS.$storageRoot;
 $configFile = $basePath.DS.'bl-content'.DS.'databases'.DS.'plugins'.DS.'configureight'.DS.'db.php';
 

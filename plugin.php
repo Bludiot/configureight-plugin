@@ -45,7 +45,7 @@ use function CFE_Fonts\{
 
 class configureight extends Plugin {
 
-	private $storageRoot = 'imagegallery';
+	private $storageRoot = 'configureight';
 	private $gallery = false;
 	private $maxCacheAge = 86400;
 
@@ -384,7 +384,7 @@ class configureight extends Plugin {
 	public function install( $position = 1 ) {
 
 		if ( $this->installed() ) {
-			return false;
+			// return false;
 		}
 
 		// Create workspace.
@@ -689,7 +689,7 @@ class configureight extends Plugin {
 		global $L, $staticPages;
 
 		// Load Settings
-		require_once( 'vendors/novaGallery.php' );
+		require_once( 'includes/classes/novaGallery.php' );
 		require_once( 'includes/classes/BluditImageGallery.php' );
 		require_once( 'includes/classes/BluditImageGalleryAdmin.php' );
 		$album = 'album';

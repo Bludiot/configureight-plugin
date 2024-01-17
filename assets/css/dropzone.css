@@ -39,8 +39,8 @@
 }
 
 .dropzone {
-  margin: var(--cfe-spacing--vert) 0 0 0;
-  padding: var(--cfe-spacing--vert) var(--cfe-spacing--horz);
+  margin: 0;
+  padding: calc(var(--cfe-spacing--vert) / 2) calc(var(--cfe-spacing--horz) / 2);
   min-height: 160px;
   border: dashed 2px var(--cfe-form--border-color);
   background-color: var(--cfe-body--bg-color);

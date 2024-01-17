@@ -27,33 +27,38 @@ class Cover_Album_Manage extends Cover_Images {
 		$count  = 0;
 
 		// Generate HTML output.
-		$html = '<div class="row w-100">';
+		$html = '';
 
 		foreach ( $images as $image => $timestamp ) {
 
 			$html .= sprintf(
-				'<div class="col-6 col-md-3 mb-5 text-break imagegallery-images text-center" id="imagegallery-image-%s">',
+				'<div class="upload-form-album imagegallery-images" id="imagegallery-image-%s">',
 				++$count
 			);
 
 			$html .= sprintf(
-				'<a href="%s%s%s" class="image" title="%s">',
+				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox>',
 				$this->urlPath( $album ),
 				$this->pathLarge,
 				$image,
-				$image
+				$L->get( 'View Full Size' )
 			);
 
 			$html .= sprintf(
-				'<img src="%s%s%s" style="max-height: 320px;" />',
+				'<img src="%s%s%s" width="80" height="80" />',
 				$this->urlPath( $album ),
 				$this->pathThumbnail,
 				$image
 			);
-			$html .= '</a>';
+			$html .= '</a></div>';
 			$html .= sprintf(
-				'<p>%s<br /><span class="fa fa-trash"> <a href="javascript: void;" class="delete-image" data-album="%s" data-file="%s" data-number="%s">%s</a></p>',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small set-cover" id="set-cover-%s" data-album="%s" data-file="%s" data-number="%s">%s</span> <span class="button button-small btn-danger delete-image" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
+				$count,
+				$album,
+				$image,
+				$count,
+				$L->get( 'Set Cover' ),
 				$album,
 				$image,
 				$count,
@@ -61,7 +66,13 @@ class Cover_Album_Manage extends Cover_Images {
 			);
 			$html .= '</div>';
 		}
-		$html .= '</div>';
+
+		if ( 0 == $count ) {
+			$html = sprintf(
+				'<div class="upload-album-empty"><p>%s</p></div>',
+				$L->get( 'No images uploaded' )
+			);
+		}
 
 		return $html;
 	}

@@ -217,6 +217,9 @@
 	margin: 0;
 	padding: calc( var( --cfe-spacing--vert ) / 2 ) calc( var( --cfe-spacing--horz ) / 2 );
 	min-height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	border: dashed 2px var( --cfe-form--border-color );
 	background-color: var( --cfe-body--bg-color );
 
@@ -252,7 +255,6 @@
 
 .dropzone .dz-message {
 	text-align: center;
-	margin: var( --cfe-spacing--vert ) 0;
 }
 
 .dropzone .dz-message .dz-button{
@@ -270,7 +272,6 @@
 	display: inline-block;
 	vertical-align: top;
 	margin: 1rem;
-	min-height: 160px;
 }
 
 .dropzone .dz-preview:hover {
@@ -319,8 +320,7 @@
 	left: 0;
 	opacity: 0;
 	font-size: 0.875rem;
-	min-width: 100%;
-	max-width: 100%;
+	width: 100%;
 	padding: var( --cfe-spacing--vert ) var( --cfe-spacing--horz );
 	text-align: center;
 }
@@ -354,20 +354,8 @@
 	padding: 0 0.5em;
 }
 
-.dropzone .dz-preview:hover .dz-image img {
-	-webkit-transform: scale( 1.05, 1.05 );
-	-moz-transform: scale( 1.05, 1.05 );
-	-ms-transform: scale( 1.05, 1.05 );
-	-o-transform: scale( 1.05, 1.05 );
-	transform: scale( 1.05, 1.05 );
-	-webkit-filter: blur(8px);
-	filter: blur(8px);
-}
-
 .dropzone .dz-preview .dz-image {
 	overflow: hidden;
-	width: 160px;
-	height: 160px;
 	position: relative;
 	display: block;
 	z-index: 10;
@@ -375,6 +363,8 @@
 
 .dropzone .dz-preview .dz-image img {
 	display: block;
+	width: 80px;
+	height: 80px;
 }
 
 .dropzone .dz-preview.dz-success .dz-success-mark {

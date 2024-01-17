@@ -35,7 +35,7 @@ class Cover_Images_Helper {
 
 		global $security, $L;
 
-		$upload = "<strong>{$L->get( 'Drag & drop images or click to browse' )}</strong>";
+		$upload = "<strong>{$L->get( 'Upload images here' )}</strong>";
 
 		return '<script>
 			  Dropzone.options.imagegalleryUpload = {
@@ -51,13 +51,14 @@ class Cover_Images_Helper {
 				dictFileTooBig : "' . $L->get( 'File is to big. Max. file size:' ) . ' {{maxFilesize}} MiB",
 				dictInvalidFileType : "' . $L->get( 'This is not a JPEG or PNG.' ) . '",
 				dictResponseError : "{{statusCode}} ' . $L->get( 'Server error during upload.' ) . '",
-				dictCancelUpload : "' . $L->get( 'Cancel upload' ) . '",
-				dictUploadCanceled : "' . $L->get( 'Upload canceled' ) . '",
-				dictCancelUploadConfirmation : "' . $L->get( 'Cancel upload?' ) . '",
+				dictCancelUpload : "' . $L->get( 'Cancel' ) . '",
+				dictUploadCanceled : "' . $L->get( 'Canceled' ) . '",
+				dictCancelUploadConfirmation : "' . $L->get( 'Cancel?' ) . '",
 				dictRemoveFile : "' . $L->get( 'Remove' ) . '",
 				init : function(){
-				  this.on("queuecomplete", function() { $("#imagegallery-reload-button").removeClass("d-none"); });
-				  this.on("addedfile", function(file) { $("#imagegallery-reload-button").addClass("d-none"); });
+				  this.on("queuecomplete", function() { $("#uploaded-images").load( location.href + " #uploaded-images" );
+				});
+				  this.on("addedfile", function(file) { $(".refresh-after-upload").fadeIn( 250 ); });
 				}
 			  };
 			</script>

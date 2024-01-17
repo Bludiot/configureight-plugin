@@ -342,7 +342,6 @@ class configureight extends Plugin {
 				$html .= $this->includeJS( 'dropzone.min.js' );
 				$html .= $helper->dropzoneJSData( $album );
 			}
-			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/imagegallery-admin{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 			// remove old admin content (error message)
 			$regexp  = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
@@ -369,7 +368,6 @@ class configureight extends Plugin {
 			$html .= $this->includeJS( 'dropzone.min.js' );
 			$html .= $helper->dropzoneJSData( $album );
 		}
-		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/imagegallery-admin{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		return $html;
 	}

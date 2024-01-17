@@ -66,6 +66,12 @@
 		}
 	}
 
+	&.button-small {
+		padding: var( --cfe-button--small--padding, 0.5rem );
+		font-size: var( --cfe-button--small--font-size, 0.8125rem );
+		font-weight: var( --cfe-button--small--font-weight, var( --cfe-button--font-weight, 600 ) );
+	}
+
 	&.btn-lg {
 		padding: 0.75rem 1rem;
 		font-size: 1.25rem;

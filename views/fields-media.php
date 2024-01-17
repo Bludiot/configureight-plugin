@@ -78,32 +78,21 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?></a>
 					</li>
 				</ul>
-				<div id="cover-upload" class="tab-pane" role="tabpanel" aria-labelledby="cover-upload">
+				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
+					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
 					<div class="dropzone mb-2" id="imagegallery-upload"></div>
-					<div class="w-100 text-center mb-5"><a href="<?php $_SERVER['REQUEST_URI']; ?>" class="d-none btn btn-primary px-4" id="imagegallery-reload-button"><?php $L->p( 'Reload page' ); ?></a></div>
+					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>"" />
+					<div class="refresh-after-upload" style="display: none;">
+						<small class="form-text"><?php $L->p( 'To manage new images, this page needs to be refreshed after upload.' ); ?></small><br />
+						<a href="<?php $_SERVER['REQUEST_URI']; ?>" class="button btn-primary"><?php $L->p( 'Refresh Page' ); ?></a>
+					</div>
 				</div>
-				<div id="cover-album" class="tab-pane" role="tabpanel" aria-labelledby="cover-album">
+				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
+					<p><?php $L->p( 'Previously uploaded cover images.' ); ?></p>
 					<?php echo $gallery->outputImagesAdmin( $album ); ?>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="default_cover"><?php $L->p( 'Default Cover' ); ?></label>
-		<div class="col-sm-4">
-			<input type="text" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" placeholder="<?php $L->p( 'cover.jpg' ); ?>" />
-			<small class="form-text"><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></small>
-		</div>
-		<?php if ( ! is_null( $this->cover_src() ) ) : ?>
-		<div class="col-sm-2">
-			<a href="<?php echo $this->cover_src(); ?>" target="_blank" rel="noopener noreferrer">
-				<img class="image-field-preview" src="<?php echo $this->cover_src(); ?>" alt="Default Cover" />
-			</a>
-		</div>
-		<?php else : ?>
-		<p class=""><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
-		<?php endif; ?>
 	</div>
 
 	<div class="form-field form-group row">
@@ -290,3 +279,55 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	</div>
 
 </fieldset>
+
+<script>
+$( function() {
+
+	$( '.set-cover' ).bind( 'click', function() {
+		setCover(this);
+	});
+
+	$( '.delete-image' ).bind( 'click', function() {
+		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		deleteImage(this);
+	});
+});
+
+function setCover(el) {
+
+	let selector = '#imagegallery-image-' + $(el).data( 'number' ) + ' .image-album-preview';
+	let others   = '.imagegallery-images .image-album-preview';
+
+	$( others ).removeClass( 'cover-selected' );
+	$( selector ).addClass( 'cover-selected' );
+	$( '#default_cover' ).val( $(el).data( 'file' ) );
+}
+
+function deleteImage(el) {
+	$.post( imageGallery.config.ajaxUrl, {
+		tokenCSRF : $( '#jstokenCSRF' ).val(),
+		action    : 'deleteImage',
+		album     : $(el).data( 'album' ),
+		file      : $(el).data( 'file' )
+	},
+	function() {
+		let selector = '#imagegallery-image-' + $(el).data( 'number' );
+		$( selector ).fadeOut( 450 );
+
+	}).fail( function() {
+		$.alert({
+			title   : imageGallery.L.error,
+			content : imageGallery.L.deleteImageError
+		});
+	});
+}
+
+jQuery(document).ready( function($) {
+	$( '.image-in-album' ).tooltipster({
+		distance : 5,
+		delay : 150,
+		animationDuration : 150,
+		theme : 'cfe-tooltips'
+	});
+});
+</script>

@@ -69,7 +69,7 @@ class Cover_Images {
 
 		$this->loadGallery( $album );
 		$imagesList = $this->gallery->images( $sort );
-		$images = [];
+		$images     = [];
 
 		foreach ( $imagesList as $image => $timestamp ) {
 			$images[$image]['filename']  = $image;

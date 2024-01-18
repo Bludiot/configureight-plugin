@@ -66,7 +66,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 		<div class="col-sm-10 imagegallery-form">
 
-			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></p>
+			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set. Multiple images may be uploaded to the cover images album but only one may be selected as the default cover.' ); ?></p>
 
 			<div id="cover-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
@@ -81,7 +81,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
 					<div class="dropzone mb-2" id="imagegallery-upload"></div>
-					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>"" />
+					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" />
 					<div class="refresh-after-upload" style="display: none;">
 						<small class="form-text"><?php $L->p( 'To manage new images, this page needs to be refreshed after upload.' ); ?></small><br />
 						<a href="<?php $_SERVER['REQUEST_URI']; ?>" class="button btn-primary"><?php $L->p( 'Refresh Page' ); ?></a>

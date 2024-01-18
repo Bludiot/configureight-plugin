@@ -1,25 +1,31 @@
 <?php
 /**
- * Image Gallery Lite - Image Gallery for Bludit3
- * Image gallery object for admin
+ * Cover image album
  *
- * @author     CFE_CLASS OÜ
- * @copyright  2022 by CFE_CLASS OÜ
- * @license    AGPL-3.0
- * @see        https://bludit-plugins.com
- * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
- * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
+ * @package    Configure 8 Options
+ * @subpackage Classes
+ * @since      1.0.0
  */
+
 namespace CFE_CLASS;
 
 class Cover_Album extends Cover_Images {
 
+	/**
+	 * Album markup
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $album
+	 * @global object $L The Language class.
+	 * @return string Returns the album markup.
+	 */
 	public function outputImagesAdmin( $album ) {
 
+		// Access global variables.
 		global $L;
 
 		$this->loadGallery( $album );
-
 		$imagesSort = $this->config['imagesSort'];
 
 		// Get images.
@@ -28,20 +34,22 @@ class Cover_Album extends Cover_Images {
 
 		// Generate HTML output.
 		$html = '';
-
 		foreach ( $images as $image => $timestamp ) {
+
+			$count++;
 
 			$html .= sprintf(
 				'<div class="upload-form-album imagegallery-images" id="imagegallery-image-%s">',
-				++$count
+				$count
 			);
 
 			$html .= sprintf(
-				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox>',
+				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox data-caption="%s">',
 				$this->urlPath( $album ),
 				$this->pathLarge,
 				$image,
-				$L->get( 'View Full Size' )
+				$L->get( 'View Full Size' ),
+				$image
 			);
 
 			$html .= sprintf(

@@ -22,10 +22,6 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Media' ); ?></legend>
 
-	<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image. For now, the options require you to use complete URLs, such as to CDN images, add the images to the theme\'s assets/images directory, or add to the bl-content/uploads directory. The theme will look first in the bl-content/uploads directory if not using an external image.' ); ?></p>
-
-	<p><?php $L->p( 'For both the bookmark icon and the default cover fields, simply add the URL, or add filename & extension (e.g. favicon.png or cover.jpg).' ); ?></p>
-
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Bookmark Icon' ); ?></label>
 		<div class="col-sm-4">
@@ -62,11 +58,11 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	<legend class="screen-reader-text"><?php $L->p( 'Cover Images' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for=""><?php $L->p( 'Default Cover' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for=""><?php $L->p( 'Default Covers' ); ?></label>
 
 		<div class="col-sm-10 imagegallery-form">
 
-			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set. Multiple images may be uploaded to the cover images album but only one may be selected as the default cover.' ); ?></p>
+			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></p>
 
 			<div id="cover-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
@@ -80,7 +76,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				</ul>
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
-					<div class="dropzone mb-2" id="imagegallery-upload"></div>
+					<div class="dropzone" id="imagegallery-upload"></div>
 					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" />
 					<div class="refresh-after-upload" style="display: none;">
 						<small class="form-text"><?php $L->p( 'To manage new images, this page needs to be refreshed after upload.' ); ?></small><br />
@@ -88,8 +84,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					</div>
 				</div>
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
-					<p><?php $L->p( 'Previously uploaded cover images.' ); ?></p>
-					<?php echo $gallery->outputImagesAdmin( $album ); ?>
+					<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
+					<div id="cover-album-wrap"><?php echo $gallery->outputImagesAdmin( $album ); ?></div>
 				</div>
 			</div>
 		</div>
@@ -296,7 +292,7 @@ $( function() {
 function setCover(el) {
 
 	let selector = '#imagegallery-image-' + $(el).data( 'number' ) + ' .image-album-preview';
-	let others   = '.imagegallery-images .image-album-preview';
+	let others   = '.image-upload-item .image-album-preview';
 
 	$( others ).removeClass( 'cover-selected' );
 	$( selector ).addClass( 'cover-selected' );

@@ -9,6 +9,11 @@
 
 namespace CFE_CLASS;
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	plugin
+};
+
 class Cover_Album extends Cover_Images {
 
 	/**
@@ -33,13 +38,14 @@ class Cover_Album extends Cover_Images {
 		$count  = 0;
 
 		// Generate HTML output.
-		$html = '';
+		$html = '<ul id="image-upload-list">';
 		foreach ( $images as $image => $timestamp ) {
 
 			$count++;
 
 			$html .= sprintf(
-				'<div class="upload-form-album imagegallery-images" id="imagegallery-image-%s">',
+				'<li class="%s image-upload-item" id="imagegallery-image-%s">',
+				( $image == plugin()->default_cover() ? 'upload-form-album current' : 'upload-form-album' ),
 				$count
 			);
 
@@ -60,20 +66,22 @@ class Cover_Album extends Cover_Images {
 			);
 			$html .= '</a></div>';
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small set-cover" id="set-cover-%s" data-album="%s" data-file="%s" data-number="%s">%s</span> <span class="button button-small btn-danger delete-image" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm %s" id="set-cover-%s" data-album="%s" data-file="%s" data-number="%s">%s</span> <span class="button button-small btn btn-secondary btn-sm btn-danger delete-image" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
+				( $image == plugin()->default_cover() ? 'current-cover' : 'set-cover' ),
 				$count,
 				$album,
 				$image,
 				$count,
-				$L->get( 'Set Cover' ),
+				( $image == plugin()->default_cover() ? $L->get( 'Current Cover' ) : $L->get( 'Set Cover' ) ),
 				$album,
 				$image,
 				$count,
-				$L->get( 'Delete Image' )
+				$L->get( 'Delete' )
 			);
-			$html .= '</div>';
+			$html .= '</li>';
 		}
+		$html .= '</ul>';
 
 		if ( 0 == $count ) {
 			$html = sprintf(

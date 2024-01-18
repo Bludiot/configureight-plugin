@@ -1,6 +1,6 @@
 <?php
 /**
- * Create image based on SimpleImage
+ * Create image based on Simple_Image
  *
  * @package    Configure 8 Options
  * @subpackage Classes
@@ -10,20 +10,62 @@
 namespace CFE_CLASS;
 
 // Access namespaced classes.
-use \CFE_Images\SimpleImage;
+use \CFE_Images\Simple_Image;
 
 class Image_Upload {
 
+	/**
+	 * Image
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    string
+	 */
 	private $image;
+
+	/**
+	 * MIME type
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    array
+	 */
 	private $mimeType;
+
+	/**
+	 * Crop error
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    boolean
+	 */
 	private $error = false;
 
-	function __construct( $file ) {
-		$this->image = new SimpleImage( $file );
+	/**
+	 * Constructor method
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $file
+	 * @return self
+	 */
+	public function __construct( $file ) {
+
+		$this->image = new Simple_Image( $file );
 		$this->image->autoOrient();
 		$this->mimeType = $this->image->getMimeType();
 	}
 
+	/**
+	 * Resize images
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  integer $width
+	 * @param  integer $height
+	 * @param  mixed $format
+	 * @return void
+	 */
 	public function resize( $width, $height, $format = null ) {
 
 		switch ( $format ) {
@@ -37,10 +79,27 @@ class Image_Upload {
 		}
 	}
 
+	/**
+	 * File quality
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $file
+	 * @param  integer $quality
+	 * @return object
+	 */
 	public function toFile( $file, $quality = 100 ) {
 		return $this->image->toFile( $file, $this->mimeType, $quality );
 	}
 
+	/**
+	 * Screen quality
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  integer $quality
+	 * @return object
+	 */
 	public function toScreen( $quality = 100 ) {
 		$this->image->toScreen( $this->mimeType, $quality );
 	}

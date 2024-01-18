@@ -1,29 +1,35 @@
 <?php
 /**
- * Image Gallery Lite - Image Gallery for Bludit3
- * Helper object
+ * Cover images helper
  *
- * @author     CFE_CLASS OÜ
- * @copyright  2022 by CFE_CLASS OÜ
- * @license    AGPL-3.0
- * @see        https://bludit-plugins.com
- * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
- * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
+ * @package    Configure 8 Options
+ * @subpackage Classes
+ * @since      1.0.0
  */
 
 namespace CFE_CLASS;
 
 class Cover_Images_Helper {
 
+	/**
+	 * Undocumented function
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $domainPath
+	 * @global object $L The Language class.
+	 * @return string
+	 */
 	public function adminJSData( $domainPath ) {
 
+		// Access global variables.
 		global $L;
 
 		return '
 		<script>
 			var imageGallery = {
 			config : {
-				ajaxUrl : "' . $domainPath . 'ajax/request.php"
+				ajaxUrl : "' . $domainPath . 'ajax/request-handler.php"
 			},
 			L: {
 				deleteImageError : "' . $L->get( 'Error: Image could not be deleted.' ) . '"
@@ -33,6 +39,15 @@ class Cover_Images_Helper {
 		';
 	}
 
+	/**
+	 * Dropzone options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $album
+	 * @global object $L The Language class.
+	 * @return string Returns a script tag.
+	 */
 	public function dropzoneJSData( $album ) {
 
 		global $security, $L;
@@ -50,7 +65,7 @@ class Cover_Images_Helper {
 				album : "' . $album . '"
 			},
 			addRemoveLinks : false,
-			acceptedFiles : ".jpg,.jpeg,.png",
+			acceptedFiles : ".jpg,.jpeg,.png,webp",
 			dictDefaultMessage : "' . $upload . '",
 			dictFileTooBig : "' . $L->get( 'File is too big. Max size:' ) . ' {{maxFilesize}} MiB",
 			dictInvalidFileType : "' . $L->get( 'File format not accepted' ) . '",

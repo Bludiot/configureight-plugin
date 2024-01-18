@@ -115,10 +115,10 @@ class configureight extends Plugin {
 
 		// Array of namespaced classes & filenames.
 		$classes = [
-			'CFE_CLASS\Image_Upload' => $path . 'includes/classes/class-image-upload.php',
-			'CFE_CLASS\Cover_Images' => $path . 'includes/classes/class-cover-images.php',
-			'CFE_CLASS\Cover_Album'  => $path . 'includes/classes/class-cover-album.php',
-			'CFE_CLASS\novaGallery'  => $path . 'includes/classes/class-nova-gallery.php'
+			'CFE_CLASS\Image_Upload'  => $path . 'includes/classes/class-image-upload.php',
+			'CFE_CLASS\Cover_Images'  => $path . 'includes/classes/class-cover-images.php',
+			'CFE_CLASS\Cover_Album'   => $path . 'includes/classes/class-cover-album.php',
+			'CFE_CLASS\Image_Gallery' => $path . 'includes/classes/class-image-gallery.php',
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {

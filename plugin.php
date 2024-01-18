@@ -15,8 +15,6 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	helper,
-	domain,
 	css,
 	js,
 	asset_min,
@@ -45,8 +43,31 @@ use function CFE_Fonts\{
 
 class configureight extends Plugin {
 
+	/**
+	 * Storage root
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    string
+	 */
 	private $storageRoot = 'configureight';
+
+	/**
+	 * Gallery
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    boolean
+	 */
 	private $gallery = false;
+
+	/**
+	 * Cache age
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    integer
+	 */
 	private $maxCacheAge = 86400;
 
 	/**
@@ -81,7 +102,7 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * Core classes
+	 * Autoload classes
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -369,11 +390,10 @@ class configureight extends Plugin {
 			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 			$html .= $helper->adminJSData( $domainPath );
 			if ( $album ) {
-				$html .= $this->includeJS( 'dropzone.min.js' );
 				$html .= $helper->dropzoneJSData( $album );
 			}
 
-			// remove old admin content (error message)
+			// Remove old admin content (error message)
 			$regexp  = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
 			$content = preg_replace( $regexp, "$1{$html}$3", $content );
 			echo $content;
@@ -391,11 +411,10 @@ class configureight extends Plugin {
 		require_once( 'includes/classes/class-cover-images-helper.php' );
 		$helper = new \CFE_CLASS\Cover_Images_Helper();
 
-		// load required JS
+		// Load required JS
 		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 		$html .= $helper->adminJSData( $domainPath );
 		if ( $album ) {
-			$html .= $this->includeJS( 'dropzone.min.js' );
 			$html .= $helper->dropzoneJSData( $album );
 		}
 
@@ -416,7 +435,7 @@ class configureight extends Plugin {
 	public function install( $position = 1 ) {
 
 		if ( $this->installed() ) {
-			// return false;
+			return false;
 		}
 
 		// Create workspace.
@@ -2056,10 +2075,15 @@ class configureight extends Plugin {
 		global $site;
 
 		// Get cover field value.
-		$cover = $this->default_cover();
+		$cover  = $this->default_cover();
+		$album  = PATH_CONTENT . $this->storageRoot . DS . 'cover' . DS . $cover;
+		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
+
+		if ( $cover && file_exists( $album ) ) {
+			return $option;
 
 		// Use cover file in root content/uploads if found & set in options array.
-		if ( $cover && file_exists( PATH_UPLOADS . $cover ) ) {
+		} elseif ( $cover && file_exists( PATH_UPLOADS . $cover ) ) {
 			return DOMAIN_UPLOADS . $cover;
 
 		// Use the external URL.

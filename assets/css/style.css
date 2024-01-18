@@ -5137,11 +5137,20 @@ select option {
   margin: 1rem 0 0 0;
 }
 
+#cover-album-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .upload-form-album {
   width: 100%;
   margin: 1rem 0 0 0;
   display: flex;
   gap: 1rem;
+  order: 2;
+}
+.upload-form-album.current {
+  order: 1;
 }
 
 .image-in-album {

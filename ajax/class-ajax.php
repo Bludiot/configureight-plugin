@@ -1,8 +1,8 @@
 <?php defined('BLUDIT') or die('Bludit CMS.');
 /**
- * AJAX helper for CFE_AJAX Bludit Plugins
- * @author    CFE_AJAX OÜ
- * @copyright 2022 by CFE_AJAX OÜ
+ * AJAX helper for CFE_CLASS Bludit Plugins
+ * @author    CFE_CLASS OÜ
+ * @copyright 2022 by CFE_CLASS OÜ
  * @license   MIT
  * @see       https://bludit-plugins.com
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.

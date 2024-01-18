@@ -97,7 +97,7 @@ function uploadImage($pluginPath, $albumDir, $config){
 			mkdir($cacheDir, 0755);
 		}
 
-		$image = new \CFE_AJAX\Image_Upload($file);
+		$image = new \CFE_CLASS\Image_Upload($file);
 		$image->resize($value['size'],$value['size'],$value['format']);
 		$image->toFile($cacheFile, $value['quality']);
 	}

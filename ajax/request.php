@@ -1,8 +1,8 @@
 <?php
 /**
  * AJAX request handler for Bludit Image Gallery Lite
- * @author    CFE_AJAX OÜ
- * @copyright 2022 by CFE_AJAX OÜ
+ * @author    CFE_CLASS OÜ
+ * @copyright 2022 by CFE_CLASS OÜ
  * @license   AGPL-3.0
  * @see       https://bludit-plugins.com
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
@@ -12,7 +12,7 @@ define('BLUDIT', true);
 define('DS', DIRECTORY_SEPARATOR);
 
 // Load AJAX Helper Object
-require 'AJAX.php';
+require 'class-ajax.php';
 
 // set JSON Header
 AJAX::setHeader();

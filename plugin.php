@@ -63,6 +63,7 @@ class configureight extends Plugin {
 
 		// Include functionality.
 		if ( $this->installed() ) {
+			$this->autoload();
 			$this->get_files();
 		}
 	}
@@ -75,7 +76,36 @@ class configureight extends Plugin {
 	 * @return void
 	 */
 	public function prepare() {
+		$this->autoload();
 		$this->get_files();
+	}
+
+	/**
+	 * Core classes
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function autoload() {
+
+		// Plugin path.
+		$path = PATH_PLUGINS . __CLASS__ . DS;
+
+		// Array of namespaced classes & filenames.
+		$classes = [
+			'CFE_CLASS\Image_Upload' => $path . 'includes/classes/class-image-upload.php',
+			'CFE_CLASS\Cover_Images' => $path . 'includes/classes/class-cover-images.php',
+			'CFE_CLASS\Cover_Album'  => $path . 'includes/classes/class-cover-album.php',
+			'CFE_CLASS\novaGallery'  => $path . 'includes/classes/class-nova-gallery.php'
+		];
+		spl_autoload_register(
+			function ( string $class ) use ( $classes ) {
+				if ( isset( $classes[ $class ] ) ) {
+					require $classes[ $class ];
+				}
+			}
+		);
 	}
 
 	/**
@@ -333,7 +363,7 @@ class configureight extends Plugin {
 
 			// Get helper object.
 			require_once( 'includes/classes/class-cover-images-helper.php' );
-			$helper = new \CFE_AJAX\Cover_Images_Helper();
+			$helper = new \CFE_CLASS\Cover_Images_Helper();
 
 			// Load required JS.
 			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
@@ -359,7 +389,7 @@ class configureight extends Plugin {
 
 		// Get helper object.
 		require_once( 'includes/classes/class-cover-images-helper.php' );
-		$helper = new \CFE_AJAX\Cover_Images_Helper();
+		$helper = new \CFE_CLASS\Cover_Images_Helper();
 
 		// load required JS
 		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
@@ -695,14 +725,9 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $plugin, $site;
 
-		// Load Settings
-		require_once( 'includes/classes/novaGallery.php' );
-		require_once( 'includes/classes/class-cover-images.php' );
-		require_once( 'includes/classes/class-cover-album-manage.php' );
-
 		$album = 'cover';
 		$config['imagesSort'] = 'newest';
-		$gallery = new CFE_AJAX\Cover_Album_Manage( $config, true );
+		$gallery = new CFE_CLASS\Cover_Album( $config, true );
 
 		$html = '';
 		// ob_start();

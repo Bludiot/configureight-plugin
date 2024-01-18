@@ -7,7 +7,7 @@
  * @since      1.0.0
  */
 
-namespace CFE_AJAX;
+namespace CFE_CLASS;
 
 // Access namespaced classes.
 use \CFE_Images\SimpleImage;

@@ -3,14 +3,14 @@
  * Image Gallery Lite - Image Gallery for Bludit3
  * Helper object
  *
- * @author     CFE_AJAX OÜ
- * @copyright  2022 by CFE_AJAX OÜ
+ * @author     CFE_CLASS OÜ
+ * @copyright  2022 by CFE_CLASS OÜ
  * @license    AGPL-3.0
  * @see        https://bludit-plugins.com
  * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
-namespace CFE_AJAX;
+namespace CFE_CLASS;
 
 class Cover_Images_Helper {
 

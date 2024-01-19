@@ -71,6 +71,9 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<a class="nav-link" role="tab" aria-controls="cover-upload" aria-selected="false" href="#cover-upload"><?php $L->p( 'Upload' ); ?></a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="cover-select" aria-selected="false" href="#cover-select"><?php $L->p( 'Select' ); ?></a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?></a>
 					</li>
 				</ul>
@@ -83,6 +86,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<a href="<?php $_SERVER['REQUEST_URI']; ?>" class="button btn-primary"><?php $L->p( 'Refresh Page' ); ?></a>
 					</div>
 				</div>
+				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select"></div>
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
 					<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
 					<div id="cover-album-wrap"><?php echo $gallery->outputImagesAdmin( $album ); ?></div>

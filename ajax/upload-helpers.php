@@ -86,15 +86,17 @@ function uploadImage( $pluginPath, $albumDir, $config ) {
 	$imageSettings = [
 		'thumb' => [
 			'cacheName' => 'thumb',
-			'size'      => $config->getField( 'img-thumb-size' ),
+			'width'     => $config->getField( 'cover_thumb_width' ),
+			'height'    => $config->getField( 'cover_thumb_height' ),
 			'format'    => 'crop',
-			'quality'   => $config->getField( 'img-thumb-quality' )
+			'quality'   => $config->getField( 'cover_thumb_quality' )
 		],
 		'large' => [
 			'cacheName' => 'large',
-			'size'      => $config->getField( 'img-large-size' ),
-			'format'    => 'auto',
-			'quality'   => $config->getField( 'img-large-quality' )
+			'width'     => $config->getField( 'cover_large_width' ),
+			'height'    => $config->getField( 'cover_large_height' ),
+			'format'    => 'crop',
+			'quality'   => $config->getField( 'cover_large_quality' )
 		]
 	];
 
@@ -132,7 +134,7 @@ function uploadImage( $pluginPath, $albumDir, $config ) {
 		}
 
 		$image = new \CFE_CLASS\Image_Upload( $file );
-		$image->resize( $value['size'],$value['size'],$value['format'] );
+		$image->resize( $value['width'], $value['height'], $value['format'] );
 		$image->toFile( $cacheFile, $value['quality'] );
 	}
 	return true;

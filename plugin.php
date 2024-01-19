@@ -161,12 +161,6 @@ class configureight extends Plugin {
 		global $L;
 
 		$this->dbFields = [
-			'protect_storage'        => true,
-			'img-thumb-size'         => 320,
-			'img-thumb-quality'      => 90,
-			'img-large-size'         => 1920,
-			'img-large-quality'      => 90,
-			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
 			'user_toolbar'           => 'enabled',
 			'show_options'           => false,
 			'to_top_button'          => true,
@@ -197,6 +191,13 @@ class configureight extends Plugin {
 			'site_favicon'           => '',
 			'modal_bg_color'         => $this->modal_bg_default(),
 			'default_cover'          => '',
+			'cover_thumb_width'      => 320,
+			'cover_thumb_height'     => 320,
+			'cover_thumb_quality'    => 90,
+			'cover_large_width'      => 1920,
+			'cover_large_height'     => 1080,
+			'cover_large_quality'    => 90,
+			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
 			'cover_style'            => 'overlay',
 			'cover_blend'            => $this->cover_blend_default(),
 			'cover_blend_use'        => [ 'covers', 'slider' ],
@@ -338,11 +339,11 @@ class configureight extends Plugin {
 		}
 	}
 
-	private function pluginUrl(){
+	private function pluginUrl() {
 		return HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className();
 	}
 
-	private function pluginSlug(){
+	private function pluginSlug() {
 		return 'configure-plugin/' . $this->className();
 	}
 
@@ -367,8 +368,8 @@ class configureight extends Plugin {
 			$suffix = '.min';
 		}
 
-		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT."configureight";
-		$currentPath = strtok($_SERVER["REQUEST_URI"],'?');
+		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$currentPath = strtok( $_SERVER['REQUEST_URI'], '?' );
 
 		if ( $currentPath == $imageGalleryAdminPath ) {
 
@@ -377,7 +378,7 @@ class configureight extends Plugin {
 			ob_end_clean();
 
 			// Load ImageGallery album admin.
-			$html = 'ImageGallery Admin Content';
+			$html = 'Cover Images';
 
 			$album = 'cover';
 			$domainPath = $this->domainPath();
@@ -434,10 +435,6 @@ class configureight extends Plugin {
 	 */
 	public function install( $position = 1 ) {
 
-		if ( $this->installed() ) {
-			return false;
-		}
-
 		// Create workspace.
 		$workspace = $this->workspace();
 		mkdir( $workspace, DIR_PERMISSIONS, true );
@@ -458,9 +455,7 @@ class configureight extends Plugin {
 		}
 
 		$storage = PATH_CONTENT . $this->storageRoot . DS;
-		if ( file_exists( $storage ) ) {
-			$this->db['protect_storage'] = true;
-		} else {
+		if ( ! file_exists( $storage ) ) {
 			Filesystem :: mkdir( $storage, true );
 		}
 
@@ -959,7 +954,7 @@ class configureight extends Plugin {
 	 * @return void
 	 */
 	public function uninstall() {
-		return null;
+		return true;
 	}
 
 	/**

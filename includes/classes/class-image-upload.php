@@ -7,10 +7,12 @@
  * @since      1.0.0
  */
 
-namespace CFE_CLASS;
+namespace CFE_Classes;
 
-// Access namespaced classes.
-use \CFE_Images\Simple_Image;
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( 'You are not allowed direct access to this file.' );
+}
 
 class Image_Upload {
 

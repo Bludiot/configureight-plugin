@@ -41,6 +41,15 @@ use function CFE_Fonts\{
 	load_font_files
 };
 
+/**
+ * Core plugin class
+ *
+ * Extends the Bludit class for plugin functionality
+ * options form, and template hooks.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ */
 class configureight extends Plugin {
 
 	/**
@@ -115,10 +124,10 @@ class configureight extends Plugin {
 
 		// Array of namespaced classes & filenames.
 		$classes = [
-			'CFE_CLASS\Image_Upload'  => $path . 'includes/classes/class-image-upload.php',
-			'CFE_CLASS\Cover_Images'  => $path . 'includes/classes/class-cover-images.php',
-			'CFE_CLASS\Cover_Album'   => $path . 'includes/classes/class-cover-album.php',
-			'CFE_CLASS\Image_Gallery' => $path . 'includes/classes/class-image-gallery.php',
+			'CFE_Classes\Image_Upload'  => $path . 'includes/classes/class-image-upload.php',
+			'CFE_Classes\Cover_Images'  => $path . 'includes/classes/class-cover-images.php',
+			'CFE_Classes\Cover_Album'   => $path . 'includes/classes/class-cover-album.php',
+			'CFE_Classes\Image_Gallery' => $path . 'includes/classes/class-image-gallery.php',
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {
@@ -186,8 +195,11 @@ class configureight extends Plugin {
 			'main_nav_loop'          => 'none',
 			'main_nav_loop_label'    => '',
 			'main_nav_home'          => false,
-			'header_search'          => true,
+			'header_search'          => false,
 			'header_social'          => false,
+			'img_upload_quality'     => 90,
+			'thumb_width'            => 480,
+			'thumb_height'           => 360,
 			'site_favicon'           => '',
 			'modal_bg_color'         => $this->modal_bg_default(),
 			'default_cover'          => '',
@@ -197,19 +209,19 @@ class configureight extends Plugin {
 			'cover_large_width'      => 1920,
 			'cover_large_height'     => 1080,
 			'cover_large_quality'    => 90,
+			'cover_meta_width'       => 1280,
+			'cover_meta_height'      => 720,
+			'cover_meta_quality'     => 90,
 			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
 			'cover_style'            => 'overlay',
 			'cover_blend'            => $this->cover_blend_default(),
-			'cover_blend_use'        => [ 'covers', 'slider' ],
+			'cover_blend_use'        => [ '', 'covers', 'slider' ],
 			'cover_overlay'          => $this->cover_overlay_default(),
 			'cover_text_color'       => $this->cover_text_default(),
 			'cover_text_shadow'      => true,
 			'cover_desaturate'       => 0,
-			'cover_desaturate_use'   =>  [ 'none' ],
+			'cover_desaturate_use'   =>  [ '', 'none' ],
 			'cover_icon'             => 'angle-down-light',
-			'thumb_width'            => $this->thumb_width_default(),
-			'thumb_height'           => $this->thumb_height_default(),
-			'thumb_quality'          => $this->thumb_quality_default(),
 			'loop_title'             => $L->get( 'Blog' ),
 			'loop_description'       => '',
 			'loop_cover'             => 'full_first',
@@ -339,87 +351,26 @@ class configureight extends Plugin {
 		}
 	}
 
-	private function pluginUrl() {
+	/**
+	 * Plugin URL
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @return string
+	 */
+	protected function plugin_url() {
 		return HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className();
 	}
 
-	private function pluginSlug() {
+	/**
+	 * Plugin string
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @return string
+	 */
+	protected function plugin_slug() {
 		return 'configure-plugin/' . $this->className();
-	}
-
-	public function adminBodyBegin() {
-
-		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
-		$currentPath = strtok( $_SERVER["REQUEST_URI"], '?' );
-
-		if ( $currentPath == $imageGalleryAdminPath ) {
-			ob_start();
-		}
-	}
-
-	public function adminBodyEnd() {
-
-		// Access global variables.
-		global $url;
-
-		// Maybe get non-minified assets.
-		$suffix = '';
-		if ( ! $this->debug_mode() ) {
-			$suffix = '.min';
-		}
-
-		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
-		$currentPath = strtok( $_SERVER['REQUEST_URI'], '?' );
-
-		if ( $currentPath == $imageGalleryAdminPath ) {
-
-			 // Fetch content.
-			$content = ob_get_contents();
-			ob_end_clean();
-
-			// Load ImageGallery album admin.
-			$html = 'Cover Images';
-
-			$album = 'cover';
-			$domainPath = $this->domainPath();
-
-			// Get helper object.
-			require_once( 'includes/classes/class-cover-images-helper.php' );
-			$helper = new \CFE_CLASS\Cover_Images_Helper();
-
-			// Load required JS.
-			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
-			$html .= $helper->adminJSData( $domainPath );
-			if ( $album ) {
-				$html .= $helper->dropzoneJSData( $album );
-			}
-
-			// Remove old admin content (error message)
-			$regexp  = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
-			$content = preg_replace( $regexp, "$1{$html}$3", $content );
-			echo $content;
-
-			return;
-		}
-
-		if ( $url->slug() != $this->pluginSlug() ) {
-			return false;
-		}
-		$album = 'cover';
-		$domainPath = $this->domainPath();
-
-		// Get helper object.
-		require_once( 'includes/classes/class-cover-images-helper.php' );
-		$helper = new \CFE_CLASS\Cover_Images_Helper();
-
-		// Load required JS
-		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
-		$html .= $helper->adminJSData( $domainPath );
-		if ( $album ) {
-			$html .= $helper->dropzoneJSData( $album );
-		}
-
-		return $html;
 	}
 
 	/**
@@ -671,10 +622,17 @@ class configureight extends Plugin {
 	 * @global object $url Url class.
 	 * @return void
 	 */
-	public function xadminBodyBegin() {
+	public function adminBodyBegin() {
 
 		// Access global variables.
 		global $L, $url;
+
+		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$currentPath = strtok( $_SERVER["REQUEST_URI"], '?' );
+
+		if ( $currentPath == $imageGalleryAdminPath ) {
+			ob_start();
+		}
 
 		// Admin theme notice.
 		if ( 'themes' == $url->slug() && 'theme' == $this->admin_theme() ) {
@@ -725,6 +683,89 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin body end
+	 *
+	 * Used for adding scripts.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L Language class.
+	 * @global object $url Url class.
+	 * @return string
+	 */
+	public function adminBodyEnd() {
+
+		// Access global variables.
+		global $L, $url;
+
+		// Maybe get non-minified assets.
+		$suffix = '';
+		if ( ! $this->debug_mode() ) {
+			$suffix = '.min';
+		}
+
+		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$currentPath = strtok( $_SERVER['REQUEST_URI'], '?' );
+
+		if ( $currentPath == $imageGalleryAdminPath ) {
+
+			 // Fetch content.
+			$content = ob_get_contents();
+			ob_end_clean();
+
+			// Load ImageGallery album admin.
+			$html = 'Cover Images';
+
+			$album = 'cover';
+			$domainPath = $this->domainPath();
+
+			// Get helper object.
+			require_once( 'includes/classes/class-cover-images-helper.php' );
+			$helper = new \CFE_Classes\Cover_Images_Helper();
+
+			// Load required JS.
+			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+			$html .= $helper->adminJSData( $domainPath );
+			if ( $album ) {
+				$html .= $helper->dropzoneJSData( $album );
+			}
+
+			// Remove old admin content (error message)
+			$regexp  = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
+			$content = preg_replace( $regexp, "$1{$html}$3", $content );
+			echo $content;
+
+			return;
+		}
+
+		if ( $url->slug() != $this->plugin_slug() ) {
+			return false;
+		}
+		$album = 'cover';
+		$domainPath = $this->domainPath();
+
+		// Get helper object.
+		require_once( 'includes/classes/class-cover-images-helper.php' );
+		$helper = new \CFE_Classes\Cover_Images_Helper();
+
+		// Load required JS
+		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+		$html .= $helper->adminJSData( $domainPath );
+		if ( $album ) {
+			$html .= $helper->dropzoneJSData( $album );
+		}
+
+		// Content ID on page edit screen.
+		if ( ! getPlugin( 'pluginContentID' ) && str_contains( $url->slug(), 'edit-content' ) ) {
+			$html .= sprintf(
+				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
+				$L->get( 'Content ID:' )
+			);
+		}
+		return $html;
+	}
+
+	/**
 	 * Admin settings form
 	 *
 	 * @since  1.0.0
@@ -741,7 +782,7 @@ class configureight extends Plugin {
 
 		$album = 'cover';
 		$config['imagesSort'] = 'newest';
-		$gallery = new CFE_CLASS\Cover_Album( $config, true );
+		$gallery = new CFE_Classes\Cover_Album( $config, true );
 
 		$html = '';
 		// ob_start();
@@ -783,34 +824,6 @@ class configureight extends Plugin {
 
 		return $html;
 	}
-
-	/**
-	 * Admin body end
-	 *
-	 * Used for adding scripts.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global object $L Language class.
-	 * @global object $url Url class.
-	 * @return string
-	 */
-	public function xadminBodyEnd() {
-
-		// Access global variables.
-		global $L, $url;
-
-		$content = '';
-
-		// Content ID on page edit screen.
-		if ( ! getPlugin( 'pluginContentID' ) && str_contains( $url->slug(), 'edit-content' ) ) {
-			$content = sprintf(
-				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
-				$L->get( 'Content ID:' )
-			);
-		}
-		return $content;
-   }
 
 	/**
 	 * Dashboard hook
@@ -936,7 +949,7 @@ class configureight extends Plugin {
 
 		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
 		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
-		$args['thumbnailQuality'] = $this->getValue( 'thumb_quality' );
+		$args['thumbnailQuality'] = $this->getValue( 'img_upload_quality' );
 
 		// Return modified array.
 		return editSettings( $args );
@@ -1299,11 +1312,6 @@ class configureight extends Plugin {
 		return '360';
 	}
 
-	// @return string
-	public function thumb_quality_default() {
-		return '100';
-	}
-
 	/**
 	 * @global $site Site class.
 	 * @return string
@@ -1344,15 +1352,15 @@ class configureight extends Plugin {
 	 * @global $site Site class.
 	 * @return string
 	 */
-	public function thumb_quality() {
+	public function img_upload_quality() {
 
 		// Access global variables.
 		global $site;
 
-		$quality = $this->getValue( 'thumb_quality' );
+		$quality = $this->getValue( 'img_upload_quality' );
 		if ( empty( $site->thumbnailQuality() ) ) {
-			$quality = $this->thumb_quality_default();
-		} elseif ( $site->thumbnailQuality() != $this->getValue( 'thumb_quality' ) ) {
+			$quality = $this->dbFields['img_upload_quality'];
+		} elseif ( $site->thumbnailQuality() != $this->getValue( 'img_upload_quality' ) ) {
 			$quality = $site->thumbnailQuality();
 		}
 		return $quality;
@@ -2074,7 +2082,16 @@ class configureight extends Plugin {
 		$album  = PATH_CONTENT . $this->storageRoot . DS . 'cover' . DS . $cover;
 		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
 
-		if ( $cover && file_exists( $album ) ) {
+		if ( $cover && ! file_exists( $album ) ) {
+			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {
+				return DOMAIN_THEME . 'assets/images/' . $cover;
+
+			// Use cover.jpg file in theme assets/images if found.
+			} elseif ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
+				return DOMAIN_THEME . 'assets/images/cover.jpg';
+			}
+
+		} elseif ( $cover && file_exists( $album ) ) {
 			return $option;
 
 		// Use cover file in root content/uploads if found & set in options array.

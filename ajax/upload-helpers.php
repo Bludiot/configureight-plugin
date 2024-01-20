@@ -89,21 +89,28 @@ function uploadImage( $pluginPath, $albumDir, $config ) {
 			'width'     => $config->getField( 'cover_thumb_width' ),
 			'height'    => $config->getField( 'cover_thumb_height' ),
 			'format'    => 'crop',
-			'quality'   => $config->getField( 'cover_thumb_quality' )
+			'quality'   => $config->getField( 'img_upload_quality' )
 		],
 		'large' => [
 			'cacheName' => 'large',
 			'width'     => $config->getField( 'cover_large_width' ),
 			'height'    => $config->getField( 'cover_large_height' ),
 			'format'    => 'crop',
-			'quality'   => $config->getField( 'cover_large_quality' )
+			'quality'   => $config->getField( 'img_upload_quality' )
+		],
+		'meta' => [
+			'cacheName' => 'meta',
+			'width'     => $config->getField( 'cover_meta_width' ),
+			'height'    => $config->getField( 'cover_meta_height' ),
+			'format'    => 'crop',
+			'quality'   => $config->getField( 'img_upload_quality' )
 		]
 	];
 
 	$fileName = sanitizeFilename($_FILES['file']['name']);
 	$tempFile = $_FILES['file']['tmp_name'];
-	$file     = $albumDir.DS.$fileName;
-	$cache    = $albumDir.DS.'cache';
+	$file     = $albumDir . DS . $fileName;
+	$cache    = $albumDir . DS . 'cache';
 	$success  = false;
 
 	if ( ! file_exists( $albumDir ) ) {
@@ -133,7 +140,7 @@ function uploadImage( $pluginPath, $albumDir, $config ) {
 			mkdir( $cacheDir, 0755 );
 		}
 
-		$image = new \CFE_CLASS\Image_Upload( $file );
+		$image = new \CFE_Classes\Image_Upload( $file );
 		$image->resize( $value['width'], $value['height'], $value['format'] );
 		$image->toFile( $cacheFile, $value['quality'] );
 	}

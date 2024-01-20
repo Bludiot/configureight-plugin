@@ -2,14 +2,17 @@
 /**
  * Simple Image clone
  *
- * @link https://github.com/CFE_Images/Simple_Image
- *
  * @package    Configure 8 Options
  * @subpackage Classes
  * @since      1.0.0
  */
 
-namespace CFE_Images;
+namespace CFE_Classes;
+
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( 'You are not allowed direct access to this file.' );
+}
 
 class Simple_Image {
 
@@ -406,7 +409,7 @@ class Simple_Image {
 	 * @access public
 	 * @param  string $mimeType The image format to output as a mime type (defaults to the original mime type).
 	 * @param  integer $quality Image quality as a percentage (default 100).
-	 * @return \CFE_Images\Simple_Image
+	 * @return self
 	 */
 	public function toScreen( $mimeType = null, $quality = 100 ) {
 
@@ -588,7 +591,7 @@ class Simple_Image {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return \CFE_Images\Simple_Image
+	 * @return self
 	 */
 	public function autoOrient() {
 
@@ -959,7 +962,7 @@ class Simple_Image {
 	 * @access public
 	 * @param  integer $res_x The horizontal resolution in DPI.
 	 * @param  integer $res_y The vertical resolution in DPI
-	 * @return \CFE_Images\Simple_Image
+	 * @return self
 	 */
 	public function resolution( $res_x, $res_y = null ) {
 
@@ -1063,8 +1066,6 @@ class Simple_Image {
 		// To compensate for this, we created a temporary bounding box to measure the maximum height
 		// that the font used can occupy. Based on this, we can adjust the text vertically so that it
 		// appears inside the box with a good consistency.
-		//
-		// See: https://github.com/CFE_Images/Simple_Image/issues/165
 		//
 
 		$boxText = imagettfbbox( $size, $angle, $fontFile, $text );

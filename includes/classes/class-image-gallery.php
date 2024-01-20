@@ -1,14 +1,19 @@
 <?php
 /**
  * novaGallery - List Images and Albums
- * @author CFE_CLASS OÜ
- * @copyright Copyright (c) 2021 by CFE_CLASS OÜ
+ * @author CFE_Classes OÜ
+ * @copyright Copyright (c) 2021 by CFE_Classes OÜ
  * @license AGPL-3.0
  * @link https://novagallery.org
  * to disable cache just set maxCacheAge to 'false' on initialization
  */
 
-namespace CFE_CLASS;
+namespace CFE_Classes;
+
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( 'You are not allowed direct access to this file.' );
+}
 
 class Image_Gallery {
 

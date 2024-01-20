@@ -7,7 +7,12 @@
  * @since      1.0.0
  */
 
-namespace CFE_CLASS;
+namespace CFE_Classes;
+
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( 'You are not allowed direct access to this file.' );
+}
 
 class Cover_Images {
 
@@ -64,6 +69,15 @@ class Cover_Images {
 	 * @var    string
 	 */
 	protected $pathLarge = 'cache' . DS . 'large' . DS;
+
+	/**
+	 * Large image path
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
+	 */
+	protected $path_meta = 'cache' . DS . 'meta' . DS;
 
 	/**
 	 * Configuration

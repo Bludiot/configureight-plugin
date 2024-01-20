@@ -20,7 +20,56 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 ?>
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
 <fieldset>
-	<legend class="screen-reader-text"><?php $L->p( 'Media' ); ?></legend>
+	<legend class="screen-reader-text"><?php $L->p( 'Media Options' ); ?></legend>
+
+	<p><?php $L->p( 'Image width and height options are for images inserted into post & page content. This does not affect the original upload size. The quality option is for all image uploads.' ); ?></p>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="thumb_width"><?php $L->p( 'Image Width' ); ?></label>
+		<div class="col-sm-10">
+			<div class="field-has-buttons">
+				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_width').val('<?php echo $this->dbFields['thumb_width']; ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small class="form-text"><?php $L->p( 'Image width in pixels (px).' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="thumb_height"><?php $L->p( 'Image Height' ); ?></label>
+		<div class="col-sm-10">
+			<div class="field-has-buttons">
+				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_height').val('<?php echo $this->dbFields['thumb_height']; ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small class="form-text"><?php $L->p( 'Image height in pixels (px).' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="img_upload_quality"><?php $L->p( 'Image Quality' ); ?></label>
+		<div class="col-sm-10">
+			<div class="field-has-buttons">
+				<input type="text" id="img_upload_quality" name="img_upload_quality" value="<?php echo $this->img_upload_quality(); ?>" placeholder="0" />
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#img_upload_quality').val('<?php echo $this->dbFields['img_upload_quality']; ?>');"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small class="form-text"><?php $L->p( 'Image quality in percentage (%).' ); ?></small>
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="modal_bg_color"><?php $L->p( 'Modal Background' ); ?></label>
+		<div class="col-sm-10">
+			<div class="row color-picker-wrap">
+				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $this->modal_bg_color(); ?>" />
+				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['modal_bg_color']; ?>" />
+				<span class="btn btn-secondary btn-md hide-if-no-js" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<p><small class="form-text"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
+		</div>
+	</div>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Bookmark Icon' ); ?></label>
@@ -37,18 +86,6 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		<?php else : ?>
 		<p class=""><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
 		<?php endif; ?>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="modal_bg_color"><?php $L->p( 'Modal Background' ); ?></label>
-		<div class="col-sm-10">
-			<div class="row color-picker-wrap">
-				<input class="color-picker" id="modal_bg_color" name="modal_bg_color" value="<?php echo $this->modal_bg_color(); ?>" />
-				<input id="modal_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $this->dbFields['modal_bg_color']; ?>" />
-				<span class="btn btn-secondary btn-md hide-if-no-js" id="modal_bg_color_default"><?php $L->p( 'Default' ); ?></span>
-			</div>
-			<p><small class="form-text"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
-		</div>
 	</div>
 </fieldset>
 
@@ -236,48 +273,6 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			</small>
 		</div>
 	</div>
-</fieldset>
-
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Thumbnail Images' ) ] ); ?>
-<p><?php $L->p( 'Duplicate of the thumbnail options under Settings > Images.' ); ?></p>
-
-<fieldset>
-
-	<legend class="screen-reader-text"><?php $L->p( 'Thumbnail Images' ); ?></legend>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="thumb_width"><?php $L->p( 'Width' ); ?></label>
-		<div class="col-sm-10">
-			<div class="field-has-buttons">
-				<input type="text" id="thumb_width" name="thumb_width" value="<?php echo $this->thumb_width(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_width').val('<?php echo $this->dbFields['thumb_width']; ?>');"><?php $L->p( 'Default' ); ?></span>
-			</div>
-			<small class="form-text"><?php $L->p( 'Thumbnail width in pixels (px).' ); ?></small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="thumb_height"><?php $L->p( 'Height' ); ?></label>
-		<div class="col-sm-10">
-			<div class="field-has-buttons">
-				<input type="text" id="thumb_height" name="thumb_height" value="<?php echo $this->thumb_height(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_height').val('<?php echo $this->dbFields['thumb_height']; ?>');"><?php $L->p( 'Default' ); ?></span>
-			</div>
-			<small class="form-text"><?php $L->p( 'Thumbnail height in pixels (px).' ); ?></small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="thumb_quality"><?php $L->p( 'Quality' ); ?></label>
-		<div class="col-sm-10">
-			<div class="field-has-buttons">
-				<input type="text" id="thumb_quality" name="thumb_quality" value="<?php echo $this->thumb_quality(); ?>" placeholder="0" />
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#thumb_quality').val('<?php echo $this->dbFields['thumb_quality']; ?>');"><?php $L->p( 'Default' ); ?></span>
-			</div>
-			<small class="form-text"><?php $L->p( 'Thumbnail quality in percentage (%).' ); ?></small>
-		</div>
-	</div>
-
 </fieldset>
 
 <script>

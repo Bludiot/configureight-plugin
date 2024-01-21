@@ -95,7 +95,7 @@ $custom_from = $this->custom_scheme_from();
 				<option value="true" <?php echo ( $this->getValue( 'show_options' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'show_options' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Display a list of options and their values on the dashboard.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Display a list of theme options and their values on the dashboard.' ); ?></small>
 		</div>
 	</div>
 

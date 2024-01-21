@@ -9,16 +9,40 @@
 
 class AJAX {
 
-	static function setHeader() {
+	/**
+	 * Set header
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	public static function setHeader() {
 		header( 'Content-Type: application/json' );
 	}
 
-	static function auth() {
+	/**
+	 * Authorize request
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	public static function auth() {
 		self :: checkSession();
 		self :: checkRole();
 		self :: checkCSRF();
 	}
 
+	/**
+	 * Check session
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @static
+	 * @return void
+	 */
 	private static function checkSession() {
 		session_name( 'BLUDIT-KEY' );
 		session_start();
@@ -27,6 +51,14 @@ class AJAX {
 		}
 	}
 
+	/**
+	 * Check user role
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @static
+	 * @return void
+	 */
 	private static function checkRole() {
 		$role = $_SESSION['s_role'];
 		if ( $role !== 'admin' && $role != 'author' && $role != 'editor' ) {
@@ -34,7 +66,16 @@ class AJAX {
 		}
 	}
 
+	/**
+	 * Check security token
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @static
+	 * @return void
+	 */
 	public static function checkCSRF() {
+
 		if ( ! isset( $_SESSION['s_tokenCSRF'] ) || ! isset( $_POST['tokenCSRF'] ) ) {
 			self :: exit( 401 );
 		}
@@ -43,6 +84,14 @@ class AJAX {
 		}
 	}
 
+	/**
+	 * Exit request
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @static
+	 * @return void
+	 */
 	public static function exit( $statusCode = 403, $message = false ) {
 
 		switch ( $statusCode ) {

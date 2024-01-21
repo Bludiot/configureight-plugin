@@ -32,7 +32,7 @@ class Cover_Images_Helper {
 
 		return '
 		<script>
-			var imageGallery = {
+			var cover = {
 			config : {
 				ajaxUrl : "' . $domainPath . 'ajax/request-handler.php"
 			},
@@ -62,8 +62,8 @@ class Cover_Images_Helper {
 
 		return '
 		<script>
-		Dropzone.options.imagegalleryUpload = {
-			url : imageGallery.config.ajaxUrl,
+		Dropzone.options.coverUpload = {
+			url : cover.config.ajaxUrl,
 			params : {
 				tokenCSRF : "' . $security->getTokenCSRF() . '",
 				action : "uploadImage",

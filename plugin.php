@@ -203,6 +203,7 @@ class configureight extends Plugin {
 			'site_favicon'           => '',
 			'modal_bg_color'         => $this->modal_bg_default(),
 			'default_cover'          => '',
+			'cover_images'           => [],
 			'cover_thumb_width'      => 320,
 			'cover_thumb_height'     => 320,
 			'cover_thumb_quality'    => 90,
@@ -627,10 +628,10 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $url;
 
-		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$coverAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
 		$currentPath = strtok( $_SERVER["REQUEST_URI"], '?' );
 
-		if ( $currentPath == $imageGalleryAdminPath ) {
+		if ( $currentPath == $coverAdminPath ) {
 			ob_start();
 		}
 
@@ -704,16 +705,16 @@ class configureight extends Plugin {
 			$suffix = '.min';
 		}
 
-		$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$coverAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
 		$currentPath = strtok( $_SERVER['REQUEST_URI'], '?' );
 
-		if ( $currentPath == $imageGalleryAdminPath ) {
+		if ( $currentPath == $coverAdminPath ) {
 
 			 // Fetch content.
 			$content = ob_get_contents();
 			ob_end_clean();
 
-			// Load ImageGallery album admin.
+			// Load cover album admin.
 			$html = 'Cover Images';
 
 			$album = 'cover';
@@ -1240,6 +1241,11 @@ class configureight extends Plugin {
 	// @return string
 	public function default_cover() {
 		return $this->getValue( 'default_cover' );
+	}
+
+	// @return array
+	public function cover_images() {
+		return $this->getValue( 'cover_images' );
 	}
 
 	// @return string
@@ -2063,14 +2069,36 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Random cover image
+	 *
+	 * Get one random image from the array of selected
+	 * cover image uploads. If only one is selected then
+	 * the default cover will always be the same image.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns one filename or false.
+	 */
+	public function random_cover_image() {
+
+		$covers = $this->cover_images();
+		$image  = false;
+		if ( is_array( $covers ) && $covers ) {
+			$random = array_rand( $covers );
+			$image  = $covers[$random];
+		}
+		return $image;
+	}
+
+	/**
 	 * Cover SRC
 	 *
-	 * Gets the URL of the default cover image.
+	 * Gets the URL a default cover image.
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @global $site Site class.
-	 * @return mixed Returns the URL or null.
+	 * @return mixed Returns the URL or false.
 	 */
 	public function cover_src() {
 
@@ -2078,7 +2106,7 @@ class configureight extends Plugin {
 		global $site;
 
 		// Get cover field value.
-		$cover  = $this->default_cover();
+		$cover  = $this->random_cover_image();
 		$album  = PATH_CONTENT . $this->storageRoot . DS . 'cover' . DS . $cover;
 		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
 
@@ -2110,6 +2138,6 @@ class configureight extends Plugin {
 		} elseif ( ! $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
 			return DOMAIN_THEME . 'assets/images/cover.jpg';
 		}
-		return null;
+		return false;
 	}
 }

@@ -65,7 +65,7 @@
 						echo '';
 					} else {
 						printf(
-							'<label class="check-label-wrap form-tooltip" for="page-%s" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-%s" value="%s" %s> %s%s</label>',
+							'<label class="check-label-wrap form-tooltip" for="page-%s" title="%s"><input type="checkbox" name="main_nav_pages[]" id="page-%s" value="%s" %s /> %s%s</label>',
 							$page->key(),
 							$title,
 							$page->key(),

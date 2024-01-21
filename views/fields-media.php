@@ -97,7 +97,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for=""><?php $L->p( 'Default Covers' ); ?></label>
 
-		<div class="col-sm-10 imagegallery-form">
+		<div class="col-sm-10 cover-form">
 
 			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></p>
 
@@ -116,17 +116,20 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				</ul>
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
-					<div class="dropzone" id="imagegallery-upload"></div>
+					<div class="dropzone" id="cover-upload"></div>
 					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" />
 					<div class="refresh-after-upload" style="display: none;">
 						<small class="form-text"><?php $L->p( 'To manage new images, this page needs to be refreshed after upload.' ); ?></small><br />
 						<a href="<?php $_SERVER['REQUEST_URI']; ?>" class="button btn-primary"><?php $L->p( 'Refresh Page' ); ?></a>
 					</div>
 				</div>
-				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select"></div>
+				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select">
+					<p><?php $L->p( 'Select from uploaded cover images.' ); ?></p>
+					<?php echo $gallery->select_images( $album ); ?>
+				</div>
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
 					<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
-					<div id="cover-album-wrap"><?php echo $gallery->outputImagesAdmin( $album ); ?></div>
+					<div id="cover-album-wrap"><?php echo $gallery->manage_images( $album ); ?></div>
 				</div>
 			</div>
 		</div>
@@ -278,41 +281,29 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 <script>
 $( function() {
 
-	$( '.set-cover' ).bind( 'click', function() {
-		setCover(this);
-	});
-
 	$( '.delete-image' ).bind( 'click', function() {
 		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteImage(this);
 	});
 });
 
-function setCover(el) {
-
-	let selector = '#imagegallery-image-' + $(el).data( 'number' ) + ' .image-album-preview';
-	let others   = '.image-upload-item .image-album-preview';
-
-	$( others ).removeClass( 'cover-selected' );
-	$( selector ).addClass( 'cover-selected' );
-	$( '#default_cover' ).val( $(el).data( 'file' ) );
-}
-
 function deleteImage(el) {
-	$.post( imageGallery.config.ajaxUrl, {
+	$.post( cover.config.ajaxUrl, {
 		tokenCSRF : $( '#jstokenCSRF' ).val(),
 		action    : 'deleteImage',
 		album     : $(el).data( 'album' ),
 		file      : $(el).data( 'file' )
 	},
 	function() {
-		let selector = '#imagegallery-image-' + $(el).data( 'number' );
-		$( selector ).fadeOut( 450 );
+		let manage = '#cover-image-' + $(el).data( 'number' );
+		let select = '#cover-select-item-' + $(el).data( 'number' );
+		$( manage ).fadeOut( 450 );
+		$( select ).hide();
 
 	}).fail( function() {
 		$.alert({
-			title   : imageGallery.L.error,
-			content : imageGallery.L.deleteImageError
+			title   : cover.L.error,
+			content : cover.L.deleteImageError
 		});
 	});
 }
@@ -323,6 +314,9 @@ jQuery(document).ready( function($) {
 		delay : 150,
 		animationDuration : 150,
 		theme : 'cfe-tooltips'
+	});
+	$( '.image-select-label' ).click( function() {
+		$(this).toggleClass( 'selected' );
 	});
 });
 </script>

@@ -3001,18 +3001,55 @@ select option {
   font-weight: 700;
 }
 
+.refresh-after-upload {
+  margin: 1rem 0 0 0;
+}
+
 .tab-pane.tab-pane-image-upload p:first-of-type {
   margin: 0;
 }
 .tab-pane.tab-pane-image-upload .dropzone {
   margin: 1rem 0 0 0;
 }
-
-.refresh-after-upload {
+.tab-pane .image-select-list {
+  list-style: none;
+  width: 100%;
   margin: 1rem 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
-
-#image-upload-list {
+.tab-pane .image-select-list li {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.tab-pane .image-select-list li label {
+  cursor: pointer;
+}
+.tab-pane .image-select-list li label.selected {
+  box-shadow: 0 0 0 3px red;
+}
+.tab-pane .image-select-list li input {
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.tab-pane .image-select-list li img {
+  display: block;
+}
+.tab-pane .image-upload-list {
+  list-style: none;
   margin: 1rem 0 0 0;
   padding: 0;
   display: flex;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Cover images album
+ * Bookmark images album
  *
  * @package    Configure 8 Options
  * @subpackage Classes
@@ -19,10 +19,10 @@ use function CFE_Plugin\{
 	plugin
 };
 
-class Cover_Album extends Cover_Images {
+class Bookmark_Album extends Bookmark_Images {
 
 	/**
-	 * Select cover images
+	 * Select bookmark image
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -49,16 +49,16 @@ class Cover_Album extends Cover_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li id="cover-select-item-%s"><label for="cover-image-select-%s" class="%s"><img src="%s%s%s" /><input type="checkbox" name="cover_images[]" id="cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
+				'<li id="bookmark-select-item-%s"><label for="bookmark-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="site_favicon[]" id="bookmark-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
-				( in_array( $image, plugin()->cover_images() ) ? 'image-select-label selected' : 'image-select-label' ),
+				( in_array( $image, plugin()->site_favicon() ) ? 'image-select-label selected' : 'image-select-label' ),
 				$this->urlPath( $album ),
-				$this->pathThumbnail,
+				$this->path_icon,
 				$image,
 				$count,
 				$image,
-				( in_array( $image, plugin()->cover_images() ) ? 'checked' : '' ),
+				( in_array( $image, plugin()->site_favicon() ) ? 'checked' : '' ),
 				$image
 			);
 		}
@@ -75,7 +75,7 @@ class Cover_Album extends Cover_Images {
 	}
 
 	/**
-	 * Manage cover images
+	 * Manage bookmark images
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -102,28 +102,28 @@ class Cover_Album extends Cover_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li class="upload-form-album image-upload-item" id="cover-image-%s">',
+				'<li class="upload-form-album image-upload-item" id="bookmark-image-%s">',
 				$count
 			);
 
 			$html .= sprintf(
 				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox data-caption="%s">',
 				$this->urlPath( $album ),
-				$this->pathLarge,
+				$this->path_icon,
 				$image,
-				$L->get( 'View Full Size' ),
+				$L->get( 'Enlarge' ),
 				$image
 			);
 
 			$html .= sprintf(
 				'<img src="%s%s%s" width="80" height="80" />',
 				$this->urlPath( $album ),
-				$this->pathThumbnail,
+				$this->path_icon,
 				$image
 			);
 			$html .= '</a></div>';
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-bookmark" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
 				$album,
 				$image,

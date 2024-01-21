@@ -124,10 +124,12 @@ class configureight extends Plugin {
 
 		// Array of namespaced classes & filenames.
 		$classes = [
-			'CFE_Classes\Image_Upload'  => $path . 'includes/classes/class-image-upload.php',
-			'CFE_Classes\Cover_Images'  => $path . 'includes/classes/class-cover-images.php',
-			'CFE_Classes\Cover_Album'   => $path . 'includes/classes/class-cover-album.php',
-			'CFE_Classes\Image_Gallery' => $path . 'includes/classes/class-image-gallery.php',
+			'CFE_Classes\Image_Upload'    => $path . 'includes/classes/class-image-upload.php',
+			'CFE_Classes\Bookmark_Images' => $path . 'includes/classes/class-bookmark-images.php',
+			'CFE_Classes\Bookmark_Album'  => $path . 'includes/classes/class-bookmark-album.php',
+			'CFE_Classes\Cover_Images'    => $path . 'includes/classes/class-cover-images.php',
+			'CFE_Classes\Cover_Album'     => $path . 'includes/classes/class-cover-album.php',
+			'CFE_Classes\Image_Gallery'   => $path . 'includes/classes/class-image-gallery.php',
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {
@@ -200,9 +202,8 @@ class configureight extends Plugin {
 			'img_upload_quality'     => 90,
 			'thumb_width'            => 480,
 			'thumb_height'           => 360,
-			'site_favicon'           => '',
+			'site_favicon'           => [],
 			'modal_bg_color'         => $this->modal_bg_default(),
-			'default_cover'          => '',
 			'cover_images'           => [],
 			'cover_thumb_width'      => 320,
 			'cover_thumb_height'     => 320,
@@ -628,10 +629,10 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $url;
 
-		$coverAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
-		$currentPath = strtok( $_SERVER["REQUEST_URI"], '?' );
+		$upload_path = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$current_path = strtok( $_SERVER["REQUEST_URI"], '?' );
 
-		if ( $currentPath == $coverAdminPath ) {
+		if ( $current_path == $upload_path ) {
 			ob_start();
 		}
 
@@ -705,30 +706,37 @@ class configureight extends Plugin {
 			$suffix = '.min';
 		}
 
-		$coverAdminPath = HTML_PATH_ADMIN_ROOT . 'configureight';
-		$currentPath = strtok( $_SERVER['REQUEST_URI'], '?' );
+		// AJAX paths for uploads.
+		$upload_path  = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$current_path = strtok( $_SERVER['REQUEST_URI'], '?' );
 
-		if ( $currentPath == $coverAdminPath ) {
+		if ( $current_path == $upload_path ) {
 
 			 // Fetch content.
 			$content = ob_get_contents();
 			ob_end_clean();
+			$html = '';
 
-			// Load cover album admin.
-			$html = 'Cover Images';
+			$bookmark = 'bookmark';
+			$cover    = 'cover';
+			$domain   = $this->domainPath();
 
-			$album = 'cover';
-			$domainPath = $this->domainPath();
-
-			// Get helper object.
+			// Get helper objects.
+			require_once( 'includes/classes/class-bookmark-images-helper.php' );
 			require_once( 'includes/classes/class-cover-images-helper.php' );
-			$helper = new \CFE_Classes\Cover_Images_Helper();
+			$bookmark_helper = new \CFE_Classes\Bookmark_Images_Helper();
+			$cover_helper    = new \CFE_Classes\Cover_Images_Helper();
 
 			// Load required JS.
 			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
-			$html .= $helper->adminJSData( $domainPath );
-			if ( $album ) {
-				$html .= $helper->dropzoneJSData( $album );
+			$html .= $bookmark_helper->adminJSData( $domain );
+			$html .= $cover_helper->adminJSData( $domain );
+
+			if ( $bookmark ) {
+				$html .= $bookmark_helper->dropzoneJSData( $bookmark );
+			}
+			if ( $cover ) {
+				$html .= $cover_helper->dropzoneJSData( $cover );
 			}
 
 			// Remove old admin content (error message)
@@ -742,18 +750,27 @@ class configureight extends Plugin {
 		if ( $url->slug() != $this->plugin_slug() ) {
 			return false;
 		}
-		$album = 'cover';
-		$domainPath = $this->domainPath();
 
-		// Get helper object.
+		$bookmark = 'bookmark';
+		$cover    = 'cover';
+		$domain   = $this->domainPath();
+
+		// Get helper objects.
+		require_once( 'includes/classes/class-bookmark-images-helper.php' );
 		require_once( 'includes/classes/class-cover-images-helper.php' );
-		$helper = new \CFE_Classes\Cover_Images_Helper();
+		$bookmark_helper = new \CFE_Classes\Bookmark_Images_Helper();
+		$cover_helper    = new \CFE_Classes\Cover_Images_Helper();
 
 		// Load required JS
 		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
-		$html .= $helper->adminJSData( $domainPath );
-		if ( $album ) {
-			$html .= $helper->dropzoneJSData( $album );
+		$html .= $bookmark_helper->adminJSData( $domain );
+		$html .= $cover_helper->adminJSData( $domain );
+
+		if ( $bookmark ) {
+			$html .= $bookmark_helper->dropzoneJSData( $bookmark );
+		}
+		if ( $cover ) {
+			$html .= $cover_helper->dropzoneJSData( $cover );
 		}
 
 		// Content ID on page edit screen.
@@ -781,9 +798,11 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $plugin, $site;
 
-		$album = 'cover';
+		$bookmark = 'bookmark';
+		$cover    = 'cover';
 		$config['imagesSort'] = 'newest';
-		$gallery = new CFE_Classes\Cover_Album( $config, true );
+		$bookmarks = new CFE_Classes\Bookmark_Album( $config, true );
+		$covers    = new CFE_Classes\Cover_Album( $config, true );
 
 		$html = '';
 		// ob_start();
@@ -1223,7 +1242,7 @@ class configureight extends Plugin {
 	 * @access public
 	 */
 
-	// @return string
+	// @return array
 	public function site_favicon() {
 		return $this->getValue( 'site_favicon' );
 	}
@@ -1236,11 +1255,6 @@ class configureight extends Plugin {
 	// @return string
 	public function modal_bg_default() {
 		return 'rgba( 0, 0, 0, 0.625 )';
-	}
-
-	// @return string
-	public function default_cover() {
-		return $this->getValue( 'default_cover' );
 	}
 
 	// @return array
@@ -2047,25 +2061,36 @@ class configureight extends Plugin {
 		global $site;
 
 		// Get icon field value.
-		$icon = $this->site_favicon();
+		$icon   = $this->site_favicon();
+		$icon   = $icon[0];
+		$album  = PATH_CONTENT . $this->storageRoot . DS . 'bookmark' . DS . $icon;
+		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/bookmark/' . $icon;
+
+		if ( $icon && ! file_exists( $album ) ) {
+			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
+				return DOMAIN_THEME . 'assets/images/favicon.png';
+			}
+
+		} elseif ( $icon && file_exists( $album ) ) {
+			return $option;
 
 		// Use icon file in root content/uploads if found & set in options array.
-		if ( $icon && file_exists( PATH_UPLOADS . $icon ) ) {
+		} elseif ( $icon && file_exists( PATH_UPLOADS . $icon ) ) {
 			return DOMAIN_UPLOADS . $icon;
 
 		// Use the external URL.
-		} elseif ( filter_var( $cover, FILTER_VALIDATE_URL ) ) {
+		} elseif ( filter_var( $icon, FILTER_VALIDATE_URL ) ) {
 			return $icon;
 
 		// Use icon file in theme assets/images if found & set in options array.
 		} elseif ( $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $icon ) ) {
-			return DOMAIN_THEME . 'assets/images/' . $icon;
+			return DOMAIN_THEME . 'assets/images/favicon.png';
 
 		// Use favicon.png file in theme assets/images if found.
 		} elseif ( ! $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
 			return DOMAIN_THEME . 'assets/images/favicon.png';
 		}
-		return null;
+		return false;
 	}
 
 	/**
@@ -2111,11 +2136,7 @@ class configureight extends Plugin {
 		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
 
 		if ( $cover && ! file_exists( $album ) ) {
-			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {
-				return DOMAIN_THEME . 'assets/images/' . $cover;
-
-			// Use cover.jpg file in theme assets/images if found.
-			} elseif ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
+			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
 				return DOMAIN_THEME . 'assets/images/cover.jpg';
 			}
 

@@ -70,23 +70,6 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			<p><small class="form-text"><?php $L->p( 'Background color for modal (pop-up) windows.' ); ?></small></p>
 		</div>
 	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Bookmark Icon' ); ?></label>
-		<div class="col-sm-4">
-			<input type="text" id="site_favicon" name="site_favicon" value="<?php echo $this->getValue( 'site_favicon' ); ?>" placeholder="<?php $L->p( 'favicon.png;' ); ?>" />
-			<small class="form-text"><?php $L->p( 'The image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></small>
-		</div>
-		<?php if ( ! is_null( $this->favicon_src() ) ) : ?>
-		<div class="col-sm-2">
-			<a href="<?php echo $this->favicon_src(); ?>" target="_blank" rel="noopener noreferrer">
-				<img class="image-field-preview" src="<?php echo $this->favicon_src(); ?>" alt="Bookmark Icon" />
-			</a>
-		</div>
-		<?php else : ?>
-		<p class=""><strong><?php $L->p( 'Image file not found.' ); ?></strong></p>
-		<?php endif; ?>
-	</div>
 </fieldset>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Cover Images' ) ] ); ?>
@@ -117,19 +100,15 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
 					<div class="dropzone" id="cover-upload"></div>
-					<input type="hidden" id="default_cover" name="default_cover" value="<?php echo $this->getValue( 'default_cover' ); ?>" />
-					<div class="refresh-after-upload" style="display: none;">
-						<small class="form-text"><?php $L->p( 'To manage new images, this page needs to be refreshed after upload.' ); ?></small><br />
-						<a href="<?php $_SERVER['REQUEST_URI']; ?>" class="button btn-primary"><?php $L->p( 'Refresh Page' ); ?></a>
-					</div>
+					<p id="cover-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as cover images.' ); ?></p>
 				</div>
 				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select">
 					<p><?php $L->p( 'Select from uploaded cover images.' ); ?></p>
-					<?php echo $gallery->select_images( $album ); ?>
+					<?php echo $covers->select_images( $cover ); ?>
 				</div>
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
 					<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
-					<div id="cover-album-wrap"><?php echo $gallery->manage_images( $album ); ?></div>
+					<div id="cover-album-wrap"><?php echo $covers->manage_images( $cover ); ?></div>
 				</div>
 			</div>
 		</div>
@@ -281,31 +260,31 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 <script>
 $( function() {
 
-	$( '.delete-image' ).bind( 'click', function() {
-		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
-		deleteImage(this);
-	});
+$( '.delete-cover' ).bind( 'click', function() {
+	if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+	deleteCover(this);
+});
 });
 
-function deleteImage(el) {
-	$.post( cover.config.ajaxUrl, {
-		tokenCSRF : $( '#jstokenCSRF' ).val(),
-		action    : 'deleteImage',
-		album     : $(el).data( 'album' ),
-		file      : $(el).data( 'file' )
-	},
-	function() {
-		let manage = '#cover-image-' + $(el).data( 'number' );
-		let select = '#cover-select-item-' + $(el).data( 'number' );
-		$( manage ).fadeOut( 450 );
-		$( select ).hide();
+function deleteCover(el) {
+$.post( cover.config.ajaxUrl, {
+	tokenCSRF : $( '#jstokenCSRF' ).val(),
+	action    : 'deleteImage',
+	album     : $(el).data( 'album' ),
+	file      : $(el).data( 'file' )
+},
+function() {
+	let manage = '#cover-image-' + $(el).data( 'number' );
+	let select = '#cover-select-item-' + $(el).data( 'number' );
+	$( manage ).fadeOut( 450 );
+	$( select ).hide();
 
-	}).fail( function() {
-		$.alert({
-			title   : cover.L.error,
-			content : cover.L.deleteImageError
-		});
+}).fail( function() {
+	$.alert({
+		title   : cover.L.error,
+		content : cover.L.deleteImageError
 	});
+});
 }
 
 jQuery(document).ready( function($) {

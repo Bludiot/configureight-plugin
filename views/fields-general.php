@@ -17,10 +17,46 @@ $colors = color_schemes();
 $custom_from = $this->custom_scheme_from();
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Interface Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'General Options' ) ] ); ?>
 <fieldset>
 
-	<legend class="screen-reader-text"><?php $L->p( 'Interface' ); ?></legend>
+	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Site Icon' ); ?></label>
+		<div class="col-sm-10">
+			<p><?php $L->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>
+
+			<div id="bookmark-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+
+				<ul class="nav nav-tabs" id="bookmark-nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="bookmark-upload" aria-selected="false" href="#bookmark-upload"><?php $L->p( 'Upload' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="bookmark-select" aria-selected="false" href="#bookmark-select"><?php $L->p( 'Select' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="bookmark-album" aria-selected="false" href="#bookmark-album"><?php $L->p( 'Album' ); ?></a>
+					</li>
+				</ul>
+				<div id="bookmark-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-upload">
+					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
+					<div class="dropzone" id="bookmark-upload"></div>
+					<p id="bookmark-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as the site icon.' ); ?></p>
+
+				</div>
+				<div id="bookmark-select" role="tabpanel" aria-labelledby="bookmark-select">
+					<p><?php $L->p( 'Select one from uploaded bookmark images.' ); ?></p>
+					<?php echo $bookmarks->select_images( $bookmark ); ?>
+				</div>
+				<div id="bookmark-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-album">
+					<p><?php $L->p( 'Manage uploaded bookmark images.' ); ?></p>
+					<div id="bookmark-album-wrap"><?php echo $bookmarks->manage_images( $bookmark ); ?></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="user_toolbar"><?php $L->p( 'User Toolbar' ); ?></label>
@@ -192,3 +228,63 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 		</div>
 	</div>
 </fieldset>
+
+<script>
+$( function() {
+
+	$( '.delete-bookmark' ).bind( 'click', function() {
+		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		deleteBookmark(this);
+	});
+});
+
+function deleteBookmark(el) {
+	$.post( bookmark.config.ajaxUrl, {
+		tokenCSRF : $( '#jstokenCSRF' ).val(),
+		action    : 'deleteImage',
+		album     : $(el).data( 'album' ),
+		file      : $(el).data( 'file' )
+	},
+	function() {
+		let manage = '#bookmark-image-' + $(el).data( 'number' );
+		let select = '#bookmark-select-item-' + $(el).data( 'number' );
+		$( manage ).fadeOut( 450 );
+		$( select ).hide();
+
+	}).fail( function() {
+		$.alert({
+			title   : bookmark.L.error,
+			content : bookmark.L.deleteImageError
+		});
+	});
+}
+
+$( function() {
+
+	$( '.delete-cover' ).bind( 'click', function() {
+		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		deleteCover(this);
+	});
+});
+
+function deleteCover(el) {
+	$.post( cover.config.ajaxUrl, {
+		tokenCSRF : $( '#jstokenCSRF' ).val(),
+		action    : 'deleteImage',
+		album     : $(el).data( 'album' ),
+		file      : $(el).data( 'file' )
+	},
+	function() {
+		let manage = '#cover-image-' + $(el).data( 'number' );
+		let select = '#cover-select-item-' + $(el).data( 'number' );
+		$( manage ).fadeOut( 450 );
+		$( select ).hide();
+
+	}).fail( function() {
+		$.alert({
+			title   : cover.L.error,
+			content : cover.L.deleteImageError
+		});
+	});
+}
+</script>

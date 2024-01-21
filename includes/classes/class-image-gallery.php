@@ -1,11 +1,12 @@
 <?php
 /**
- * novaGallery - List Images and Albums
- * @author CFE_Classes OÜ
- * @copyright Copyright (c) 2021 by CFE_Classes OÜ
- * @license AGPL-3.0
+ * List images and albums
+ *
+ * @package    Configure 8 Options
+ * @subpackage Classes
+ * @since      1.0.0
+ *
  * @link https://novagallery.org
- * to disable cache just set maxCacheAge to 'false' on initialization
  */
 
 namespace CFE_Classes;

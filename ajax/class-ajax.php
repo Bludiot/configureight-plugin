@@ -17,7 +17,7 @@ class AJAX {
 	 * @static
 	 * @return void
 	 */
-	public static function setHeader() {
+	public static function set_header() {
 		header( 'Content-Type: application/json' );
 	}
 
@@ -30,9 +30,9 @@ class AJAX {
 	 * @return void
 	 */
 	public static function auth() {
-		self :: checkSession();
-		self :: checkRole();
-		self :: checkCSRF();
+		self :: check_session();
+		self :: check_role();
+		self :: check_CSRF();
 	}
 
 	/**
@@ -43,7 +43,7 @@ class AJAX {
 	 * @static
 	 * @return void
 	 */
-	private static function checkSession() {
+	private static function check_session() {
 		session_name( 'BLUDIT-KEY' );
 		session_start();
 		if ( ! isset( $_SESSION['s_role'] ) ) {
@@ -59,7 +59,7 @@ class AJAX {
 	 * @static
 	 * @return void
 	 */
-	private static function checkRole() {
+	private static function check_role() {
 		$role = $_SESSION['s_role'];
 		if ( $role !== 'admin' && $role != 'author' && $role != 'editor' ) {
 			self :: exit( 401 );
@@ -74,7 +74,7 @@ class AJAX {
 	 * @static
 	 * @return void
 	 */
-	public static function checkCSRF() {
+	public static function check_CSRF() {
 
 		if ( ! isset( $_SESSION['s_tokenCSRF'] ) || ! isset( $_POST['tokenCSRF'] ) ) {
 			self :: exit( 401 );

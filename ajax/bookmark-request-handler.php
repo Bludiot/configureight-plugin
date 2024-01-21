@@ -15,7 +15,7 @@ define( 'DS', DIRECTORY_SEPARATOR );
 // Load AJAX helper object.
 require 'class-ajax.php';
 
-AJAX :: setHeader();
+AJAX :: set_header();
 AJAX :: auth();
 
 // Check parameters.

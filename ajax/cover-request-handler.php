@@ -1,6 +1,8 @@
 <?php
 /**
- * AJAX request handler for image uploads
+ * AJAX request handler
+ *
+ * For cover image uploads.
  *
  * @package    Configure 8 Options
  * @subpackage AJAX
@@ -43,7 +45,7 @@ $configFile  = $basePath . DS . 'bl-content' . DS . 'databases' . DS . 'plugins'
 
 // load helpers.
 require 'class-plugin-config.php';
-require 'upload-helpers.php';
+require 'cover-upload-helpers.php';
 
 // Perform action.
 switch ( $action ) {

@@ -62,15 +62,6 @@ class configureight extends Plugin {
 	private $storageRoot = 'configureight';
 
 	/**
-	 * Gallery
-	 *
-	 * @since  1.0.0
-	 * @access private
-	 * @var    boolean
-	 */
-	private $gallery = false;
-
-	/**
 	 * Cache age
 	 *
 	 * @since  1.0.0
@@ -129,7 +120,7 @@ class configureight extends Plugin {
 			'CFE_Classes\Bookmark_Album'  => $path . 'includes/classes/class-bookmark-album.php',
 			'CFE_Classes\Cover_Images'    => $path . 'includes/classes/class-cover-images.php',
 			'CFE_Classes\Cover_Album'     => $path . 'includes/classes/class-cover-album.php',
-			'CFE_Classes\Image_Gallery'   => $path . 'includes/classes/class-image-gallery.php',
+			'CFE_Classes\Image_Album'   => $path . 'includes/classes/class-image-gallery.php',
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {

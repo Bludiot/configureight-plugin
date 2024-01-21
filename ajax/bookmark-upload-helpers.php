@@ -2,6 +2,8 @@
 /**
  * AJAX requests helper functions
  *
+ * For bookmark image uploads.
+ *
  * @package    Configure 8 Options
  * @subpackage AJAX
  * @since      1.0.0

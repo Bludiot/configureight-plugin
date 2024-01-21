@@ -34,7 +34,7 @@ class Cover_Images_Helper {
 		<script>
 			var cover = {
 			config : {
-				ajaxUrl : "' . $domainPath . 'ajax/request-handler.php"
+				ajaxUrl : "' . $domainPath . 'ajax/cover-request-handler.php"
 			},
 			L: {
 				deleteImageError : "' . $L->get( 'Error: Image could not be deleted.' ) . '"

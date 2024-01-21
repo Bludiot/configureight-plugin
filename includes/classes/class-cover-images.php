@@ -17,13 +17,13 @@ if ( ! defined( 'BLUDIT' ) ) {
 class Cover_Images {
 
 	/**
-	 * Gallery
+	 * Get album
 	 *
 	 * @since  1.0.0
 	 * @access protected
 	 * @var    mixed
 	 */
-	protected $gallery = null;
+	protected $get_album = null;
 
 	/**
 	 * Storage root
@@ -116,9 +116,9 @@ class Cover_Images {
 	 */
 	protected function loadGallery( $album = '' ) {
 
-		if ( is_null( $this->gallery ) ) {
+		if ( is_null( $this->get_album ) ) {
 			$storage = $this->storage( $album );
-			$this->gallery = new Image_Gallery( $storage, $this->onlyWithImages, $this->maxCacheAge );
+			$this->get_album = new Image_Album( $storage, $this->onlyWithImages, $this->maxCacheAge );
 		}
 	}
 
@@ -190,7 +190,7 @@ class Cover_Images {
 	public function images( $album, $sort = 'default' ) {
 
 		$this->loadGallery( $album );
-		$list   = $this->gallery->images( $sort );
+		$list   = $this->get_album->images( $sort );
 		$images = [];
 
 		foreach ( $list as $image => $timestamp ) {

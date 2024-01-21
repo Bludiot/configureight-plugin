@@ -1,6 +1,8 @@
 <?php
 /**
- * AJAX request handler for image uploads
+ * AJAX request handler
+ *
+ * For bookmark image uploads.
  *
  * @package    Configure 8 Options
  * @subpackage AJAX

@@ -15,7 +15,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 	die( 'You are not allowed direct access to this file.' );
 }
 
-class Image_Gallery {
+class Image_Album {
 
 	/**
 	 * Directory
@@ -335,7 +335,7 @@ class Image_Gallery {
 
 			if ( ! $this->hasImages( $album ) ) {
 
-				$subAlbum = new Image_Gallery( $this->dir . '/' . $album );
+				$subAlbum = new Image_Album( $this->dir . '/' . $album );
 				if ( ! $subAlbum->hasAlbums() ) {
 					unset( $albums[$album] );
 				}
@@ -477,7 +477,7 @@ class Image_Gallery {
 		}
 
 		// Get images of sub albums if exists (only for version with sub albums).
-		$subGallery = new Image_Gallery( $this->dir . '/' . $album );
+		$subGallery = new Image_Album( $this->dir . '/' . $album );
 
 		if ( $subGallery->hasAlbums() ) {
 			$albums     = $subGallery->albums( $order );

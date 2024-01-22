@@ -120,7 +120,7 @@ class configureight extends Plugin {
 			'CFE_Classes\Bookmark_Album'  => $path . 'includes/classes/class-bookmark-album.php',
 			'CFE_Classes\Cover_Images'    => $path . 'includes/classes/class-cover-images.php',
 			'CFE_Classes\Cover_Album'     => $path . 'includes/classes/class-cover-album.php',
-			'CFE_Classes\Image_Album'   => $path . 'includes/classes/class-image-gallery.php',
+			'CFE_Classes\Image_Album'   => $path . 'includes/classes/class-image-album.php',
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {

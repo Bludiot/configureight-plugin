@@ -94,7 +94,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<a class="nav-link" role="tab" aria-controls="cover-select" aria-selected="false" href="#cover-select"><?php $L->p( 'Select' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); echo ' (' . $covers->count_images() . ')'; ?></a>
 					</li>
 				</ul>
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
@@ -259,32 +259,33 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 <script>
 $( function() {
-
-$( '.delete-cover' ).bind( 'click', function() {
-	if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
-	deleteCover(this);
-});
+	$( '.delete-cover' ).bind( 'click', function() {
+		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		deleteCover(this);
+	});
 });
 
 function deleteCover(el) {
-$.post( cover.config.ajaxUrl, {
-	tokenCSRF : $( '#jstokenCSRF' ).val(),
-	action    : 'deleteImage',
-	album     : $(el).data( 'album' ),
-	file      : $(el).data( 'file' )
-},
-function() {
-	let manage = '#cover-image-' + $(el).data( 'number' );
-	let select = '#cover-select-item-' + $(el).data( 'number' );
-	$( manage ).fadeOut( 450 );
-	$( select ).hide();
+	$.post( cover.config.ajaxUrl, {
+		tokenCSRF : $( '#jstokenCSRF' ).val(),
+		action    : 'deleteImage',
+		album     : $(el).data( 'album' ),
+		file      : $(el).data( 'file' )
+	},
+	function() {
+		let manage = '#cover-image-' + $(el).data( 'number' );
+		let select = '#cover-select-item-' + $(el).data( 'number' );
+		let input  = '#cover-select-item-' + $(el).data( 'number' ) + ' input';
+		$( manage ).fadeOut( 450 );
+		$( select ).hide();
+		$( input ).removeAttr( 'checked' );
 
-}).fail( function() {
-	$.alert({
-		title   : cover.L.error,
-		content : cover.L.deleteImageError
+	}).fail( function() {
+		$.alert({
+			title   : cover.L.error,
+			content : cover.L.deleteImageError
+		});
 	});
-});
 }
 
 jQuery(document).ready( function($) {

@@ -22,6 +22,26 @@ use function CFE_Plugin\{
 class Bookmark_Album extends Bookmark_Images {
 
 	/**
+	 * Album name
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
+	 */
+	protected $album = 'bookmark';
+
+	/**
+	 * Count album images
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer
+	 */
+	public function count_images() {
+		return count( $this->images( $this->album ) );
+	}
+
+	/**
 	 * Select bookmark image
 	 *
 	 * @since  1.0.0

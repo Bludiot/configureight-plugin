@@ -231,7 +231,6 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 
 <script>
 $( function() {
-
 	$( '.delete-bookmark' ).bind( 'click', function() {
 		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteBookmark(this);
@@ -248,42 +247,15 @@ function deleteBookmark(el) {
 	function() {
 		let manage = '#bookmark-image-' + $(el).data( 'number' );
 		let select = '#bookmark-select-item-' + $(el).data( 'number' );
+		let input  = '#bookmark-select-item-' + $(el).data( 'number' ) + ' input';
 		$( manage ).fadeOut( 450 );
 		$( select ).hide();
+		$( input ).removeAttr( 'checked' );
 
 	}).fail( function() {
 		$.alert({
 			title   : bookmark.L.error,
 			content : bookmark.L.deleteImageError
-		});
-	});
-}
-
-$( function() {
-
-	$( '.delete-cover' ).bind( 'click', function() {
-		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
-		deleteCover(this);
-	});
-});
-
-function deleteCover(el) {
-	$.post( cover.config.ajaxUrl, {
-		tokenCSRF : $( '#jstokenCSRF' ).val(),
-		action    : 'deleteImage',
-		album     : $(el).data( 'album' ),
-		file      : $(el).data( 'file' )
-	},
-	function() {
-		let manage = '#cover-image-' + $(el).data( 'number' );
-		let select = '#cover-select-item-' + $(el).data( 'number' );
-		$( manage ).fadeOut( 450 );
-		$( select ).hide();
-
-	}).fail( function() {
-		$.alert({
-			title   : cover.L.error,
-			content : cover.L.deleteImageError
 		});
 	});
 }

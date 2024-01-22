@@ -22,6 +22,26 @@ use function CFE_Plugin\{
 class Cover_Album extends Cover_Images {
 
 	/**
+	 * Album name
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
+	 */
+	protected $album = 'cover';
+
+	/**
+	 * Count album images
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer
+	 */
+	public function count_images() {
+		return count( $this->images( $this->album ) );
+	}
+
+	/**
 	 * Select cover images
 	 *
 	 * @since  1.0.0
@@ -70,7 +90,6 @@ class Cover_Album extends Cover_Images {
 				$L->get( 'No images uploaded' )
 			);
 		}
-
 		return $html;
 	}
 
@@ -140,7 +159,6 @@ class Cover_Album extends Cover_Images {
 				$L->get( 'No images uploaded' )
 			);
 		}
-
 		return $html;
 	}
 }

@@ -120,6 +120,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
 						<div id="cover-album-wrap"><?php echo $covers->manage_images( $cover ); ?></div>
 					</div>
+					<div id="cover-album-empty" class="upload-album-empty" style="display: <?php echo ( $covers->count_images() > 0 ? 'none' : 'flex' ); ?>"><p><?php $L->p( 'No images uploaded' ) ?></p></div>
 				</div>
 			</div>
 		</div>
@@ -273,6 +274,7 @@ $( function() {
 	$( '.delete-cover' ).bind( 'click', function() {
 		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteCover(this);
+		$( "#cover-images-count" ).load( window.location.href + " #cover-images-count > span" );
 	});
 });
 
@@ -287,7 +289,9 @@ function deleteCover(el) {
 		let manage = '#cover-image-' + $(el).data( 'number' );
 		let select = '#cover-select-item-' + $(el).data( 'number' );
 		let input  = '#cover-select-item-' + $(el).data( 'number' ) + ' input';
-		$( manage ).fadeOut( 450 );
+		$( manage ).fadeOut( 450, function() {
+			$(this).remove();
+		} );
 		$( select ).hide();
 		$( input ).removeAttr( 'checked' );
 

@@ -85,6 +85,7 @@ class Cover_Images_Helper {
 					$( "#cover-upload-notice" ).fadeIn( 250 );
 					$( "#cover-images-count" ).load( window.location.href + " #cover-images-count > span" );
 					$( "#cover-album" ).load( window.location.href + " #cover-album > div" );
+					$( "#cover-album-empty" ).css( "display", "flex" );
 				});
 				this.on( "addedfile", function(file) {});
 			}

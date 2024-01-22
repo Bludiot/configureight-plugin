@@ -154,12 +154,6 @@ class Cover_Album extends Cover_Images {
 		}
 		$html .= '</ul>';
 
-		if ( 0 == $count ) {
-			$html = sprintf(
-				'<div class="upload-album-empty"><p>%s</p></div>',
-				$L->get( 'No images uploaded' )
-			);
-		}
 		return $html;
 	}
 }

@@ -83,6 +83,8 @@ class Cover_Images_Helper {
 			init : function() {
 				this.on( "queuecomplete", function() {
 					$( "#cover-upload-notice" ).fadeIn( 250 );
+					$( "#cover-images-count" ).load( window.location.href + " #cover-images-count > span" );
+					$( "#cover-album" ).load( window.location.href + " #cover-album > div" );
 				});
 				this.on( "addedfile", function(file) {});
 			}

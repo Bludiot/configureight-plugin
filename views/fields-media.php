@@ -94,21 +94,32 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<a class="nav-link" role="tab" aria-controls="cover-select" aria-selected="false" href="#cover-select"><?php $L->p( 'Select' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); echo ' (' . $covers->count_images() . ')'; ?></a>
+						<a id="cover-album-tab" class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?><span id="cover-images-count"><span><?php echo ' (' . $covers->count_images() . ')'; ?></span></span></a>
 					</li>
 				</ul>
+
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
+
 					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
+
 					<div class="dropzone" id="cover-upload"></div>
-					<p id="cover-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as cover images.' ); ?></p>
+
+					<div id="cover-upload-notice" style="display: none;">
+						<p><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as cover images.' ); ?></p>
+						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php $L->p( 'Refresh' ); ?></button></p>
+					</div>
 				</div>
+
 				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select">
 					<p><?php $L->p( 'Select from uploaded cover images.' ); ?></p>
 					<?php echo $covers->select_images( $cover ); ?>
 				</div>
+
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">
-					<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
-					<div id="cover-album-wrap"><?php echo $covers->manage_images( $cover ); ?></div>
+					<div>
+						<p><?php $L->p( 'Manage uploaded cover images.' ); ?></p>
+						<div id="cover-album-wrap"><?php echo $covers->manage_images( $cover ); ?></div>
+					</div>
 				</div>
 			</div>
 		</div>

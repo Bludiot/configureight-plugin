@@ -72,7 +72,7 @@ class Cover_Album extends Cover_Images {
 				'<li id="cover-select-item-%s"><label for="cover-image-select-%s" class="%s" title="%s"><img src="%s%s%s" /><input type="checkbox" name="cover_images[]" id="cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
-				( in_array( $image, plugin()->cover_images() ) ? 'image-select-label image-in-album selected' : 'image-select-label image-in-album' ),
+				( in_array( $image, plugin()->cover_images() ) ? 'image-select-label cover-select-label image-in-album selected' : 'image-select-label cover-select-label image-in-album' ),
 				$image,
 				$this->urlPath( $album ),
 				$this->pathThumbnail,
@@ -143,12 +143,13 @@ class Cover_Album extends Cover_Images {
 			);
 			$html .= '</a></div>';
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div> %s',
 				$image,
 				$album,
 				$image,
 				$count,
-				$L->get( 'Delete' )
+				$L->get( 'Delete' ),
+				var_dump( $image )
 			);
 			$html .= '</li>';
 		}

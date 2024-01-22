@@ -135,7 +135,11 @@ jQuery(document).ready( function($) {
 	$( '.custom-color' ).show();
 
 	// Selected class for image uploads.
-	$( '.image-select-label' ).click( function() {
+	$( '.bookmark-select-label' ).click( function() {
+		$( '.bookmark-select-label' ).removeClass( 'selected' );
+		$(this).addClass( 'selected' );
+	});
+	$( '.cover-select-label' ).click( function() {
 		$(this).toggleClass( 'selected' );
 	});
 });

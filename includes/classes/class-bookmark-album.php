@@ -72,7 +72,7 @@ class Bookmark_Album extends Bookmark_Images {
 				'<li id="bookmark-select-item-%s"><label for="bookmark-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="site_favicon[]" id="bookmark-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
-				( in_array( $image, plugin()->site_favicon() ) ? 'image-select-label selected' : 'image-select-label' ),
+				( in_array( $image, plugin()->site_favicon() ) ? 'image-select-label bookmark-select-label selected' : 'image-select-label bookmark-select-label' ),
 				$this->urlPath( $album ),
 				$this->path_icon,
 				$image,

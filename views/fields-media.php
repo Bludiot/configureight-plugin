@@ -287,16 +287,4 @@ function deleteCover(el) {
 		});
 	});
 }
-
-jQuery(document).ready( function($) {
-	$( '.image-in-album' ).tooltipster({
-		distance : 5,
-		delay : 150,
-		animationDuration : 150,
-		theme : 'cfe-tooltips'
-	});
-	$( '.image-select-label' ).click( function() {
-		$(this).toggleClass( 'selected' );
-	});
-});
 </script>

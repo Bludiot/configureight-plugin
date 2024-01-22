@@ -103,13 +103,22 @@ echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.clas
 
 <script>
 jQuery(document).ready( function($) {
+
+	// Tooltips.
 	$( '.form-tooltip' ).tooltipster({
 		distance : 5,
 		delay : 150,
 		animationDuration : 150,
 		theme : 'cfe-tooltips'
 	});
+	$( '.image-in-album' ).tooltipster({
+		distance : 5,
+		delay : 150,
+		animationDuration : 150,
+		theme : 'cfe-tooltips'
+	});
 
+	// General color picker.
 	$( '.custom-color' ).spectrum({
 		type            : "component",
 		showAlpha       : false,
@@ -124,5 +133,10 @@ jQuery(document).ready( function($) {
 		showSelectionPalette : true,
 	});
 	$( '.custom-color' ).show();
+
+	// Selected class for image uploads.
+	$( '.image-select-label' ).click( function() {
+		$(this).toggleClass( 'selected' );
+	});
 });
 </script>

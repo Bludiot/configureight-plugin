@@ -3123,6 +3123,33 @@ select option {
   font-weight: 600;
 }
 
+.dropzone {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dropzone .dz-preview {
+  margin: 0;
+}
+.dropzone .dz-preview .dz-progress {
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: none;
+  position: absolute;
+  height: 0.5rem;
+  left: 0.25rem;
+  right: 0.25rem;
+  top: calc(50% - 0.25rem);
+  width: calc(100% - 0.5rem);
+  border-radius: 0.25rem;
+  margin: 0;
+  background-color: transparent;
+  overflow: hidden;
+}
+.dropzone .dz-preview .dz-progress .dz-upload {
+  background: rgba(255, 255, 255, 0.8);
+}
+
 .btn-group {
   position: relative;
   display: inline-flex;

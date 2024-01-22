@@ -5212,6 +5212,17 @@ select option {
   }
 }
 
+.dz-image:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.325);
+}
 .dz-image img {
   border: var(--cfe-form-element--border);
 }

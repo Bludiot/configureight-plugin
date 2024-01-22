@@ -2177,6 +2177,19 @@ select {
 }
 
 .dz-image {
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		pointer-events: none;
+		background-color: rgba( $color: black, $alpha: 0.325 );
+	}
+
 	img {
 		border: var( --cfe-form-element--border );
 

@@ -127,7 +127,7 @@ class Cover_Album extends Cover_Images {
 			);
 
 			$html .= sprintf(
-				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox data-caption="%s">',
+				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="gallery" data-fancybox="cover-gallery" data-caption="%s">',
 				$this->urlPath( $album ),
 				$this->pathLarge,
 				$image,
@@ -143,13 +143,12 @@ class Cover_Album extends Cover_Images {
 			);
 			$html .= '</a></div>';
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div> %s',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
 				$album,
 				$image,
 				$count,
-				$L->get( 'Delete' ),
-				var_dump( $image )
+				$L->get( 'Delete' )
 			);
 			$html .= '</li>';
 		}

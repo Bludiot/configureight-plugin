@@ -64,6 +64,15 @@ jQuery(document).ready( function($) {
 		$( '#modal_bg_color' ).spectrum( 'set', $( '#modal_bg_default' ).val() );
 	});
 
+	// Cover album.
+	$( '.image-in-album[data-fancybox]' ).fancybox({
+		buttons: [
+			'zoom',
+			'thumbs',
+			'close'
+		  ],
+	});
+
 	// Cover image style.
 	$( '#cover_style' ).on( 'change', function() {
     	var show = $(this).val();

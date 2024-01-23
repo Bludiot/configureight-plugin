@@ -69,8 +69,10 @@ jQuery(document).ready( function($) {
 		buttons: [
 			'zoom',
 			'thumbs',
+			'download',
 			'close'
 		  ],
+
 	});
 
 	// Cover image style.

@@ -1147,3 +1147,56 @@ function error_tags_display() {
 	}
 	return $args;
 }
+
+/**
+ * File size format
+ *
+ * Converts a number of bytes to the largest unit the bytes will fit into.
+ * Taken from WordPress.
+ *
+ * It is easier to read 1 KB than 1024 bytes and 1 MB than 1048576 bytes. Converts
+ * number of bytes to human readable number by taking the number of that unit
+ * that the bytes will go into it. Supports YB value.
+ *
+ * Please note that integers in PHP are limited to 32 bits, unless they are on
+ * 64 bit architecture, then they have 64 bit size. If you need to place the
+ * larger size then what PHP integer type will hold, then use a string. It will
+ * be converted to a double, which should always have 64 bit length.
+ *
+ * Technically the correct unit names for powers of 1024 are KiB, MiB etc.
+ *
+ * @since  1.0.0
+ * @param  integer|string $bytes Number of bytes. Note max integer size for integers.
+ * @param  integer $decimals Optional. Precision of number of decimal places. Default 0.
+ * @return mixed Number string on success, false on failure.
+ */
+function size_format( $bytes, $decimals = 0 ) {
+
+	// Read bytes in chunks.
+	$KB = 1024;
+	$MB = 1024 * $KB;
+	$GB = 1024 * $MB;
+	$TB = 1024 * $GB;
+
+	// Assign relevant units.
+	$units = [
+		'TB' => $TB,
+		'GB' => $GB,
+		'MB' => $MB,
+		'KB' => $KB,
+		'B'  => 1,
+	];
+
+	// Return 0 bytes if so.
+	if ( 0 === $bytes ) {
+		return '0 B';
+	}
+
+	// Return the size in relevant units.
+	foreach ( $units as $unit => $mag ) {
+		if ( (float) $bytes >= $mag ) {
+			return number_format( $bytes / $mag, abs( (int) $decimals ) ) . ' ' . $unit;
+		}
+	}
+	return false;
+}

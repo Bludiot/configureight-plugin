@@ -16,7 +16,8 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	plugin
+	plugin,
+	size_format
 };
 
 class Cover_Album extends Cover_Images {
@@ -121,30 +122,55 @@ class Cover_Album extends Cover_Images {
 
 			$count++;
 
+			$cover = PATH_CONTENT . $this->storageRoot . DS . $album . DS . 'cache' . DS . 'large' . DS . $image;
+			$thumb = PATH_CONTENT . $this->storageRoot . DS . $album . DS . 'cache' . DS . 'thumb' . DS . $image;
+
 			$html .= sprintf(
 				'<li class="upload-form-album image-upload-item" id="cover-image-%s">',
 				$count
 			);
-
+			$html .= '<div class="image-album-preview">';
 			$html .= sprintf(
-				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="gallery" data-fancybox="cover-gallery" data-caption="%s">',
+				'<a href="%s%s%s" class="image-in-album" title="%s" rel="gallery" data-fancybox="cover-gallery" data-caption="%s">',
 				$this->urlPath( $album ),
 				$this->pathLarge,
 				$image,
-				$L->get( 'View Full Size' ),
-				$image
+				$L->get( 'View Cover Size' ),
+				$image . $L->get( ' — Cover Size' )
 			);
 
 			$html .= sprintf(
-				'<img src="%s%s%s" width="80" height="80" />',
+				'<img src="%s%s%s" width="213" height="120" />',
+				$this->urlPath( $album ),
+				$this->pathLarge,
+				$image
+			);
+			$html .= '</a>';
+
+			$html .= sprintf(
+				'<a href="%s%s%s" class="image-in-album" title="%s" rel="gallery" data-fancybox="cover-gallery-thumbs" data-caption="%s">',
+				$this->urlPath( $album ),
+				$this->pathThumbnail,
+				$image,
+				$L->get( 'View Thumbnail Size' ),
+				$image . $L->get( ' — Thumbnail Size' )
+			);
+
+			$html .= sprintf(
+				'<img src="%s%s%s" width="120" height="120" />',
 				$this->urlPath( $album ),
 				$this->pathThumbnail,
 				$image
 			);
 			$html .= '</a></div>';
+
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
+				'<div class="image-album-details"><p class="image-album-name">%s<br />%s %s<br />%s %s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
+				$L->get( 'Cover:' ),
+				size_format( filesize( $cover ), 2 ),
+				$L->get( 'Thumb:' ),
+				size_format( filesize( $thumb ), 2 ),
 				$album,
 				$image,
 				$count,

@@ -82,7 +82,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 		<div class="col-sm-10 cover-form">
 
-			<p><?php $L->p( 'The image used on loop pages and used when a page has no cover image set.' ); ?></p>
+			<p><?php $L->p( 'Images used on loop pages and used when a page has no cover image set.' ); ?></p>
 
 			<div id="cover-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 

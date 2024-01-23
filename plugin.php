@@ -595,6 +595,14 @@ class configureight extends Plugin {
 		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
 		$assets .= define_color_scheme();
 
+		// Modal background.
+		$assets .= '<style>';
+		$assets .= sprintf(
+			':root { --cfe-modal-overlay--bg-color: %s; }',
+			$this->modal_bg_color()
+		);
+		$assets .= '</style>';
+
 		// Custom admin CSS for default the with theme styles.
 		if ( ! empty( $this->admin_css() ) && 'css' == $this->admin_theme() ) {
 			$assets .= $this->admin_style_block();
@@ -1245,7 +1253,7 @@ class configureight extends Plugin {
 
 	// @return string
 	public function modal_bg_default() {
-		return 'rgba( 0, 0, 0, 0.625 )';
+		return 'rgba( 0, 0, 0, 0.8 )';
 	}
 
 	// @return array

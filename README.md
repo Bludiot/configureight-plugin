@@ -1,6 +1,6 @@
 # Configure 8 Options
 
-Bludit CMS plugin that provides a settings page for Configure 8 theme options.
+Bludit CMS plugin that provides options for the Configure 8 frontend theme and the Configure 8 admin theme.
 
 ![Tested on Bludit version 3.15.0](https://img.shields.io/badge/Bludit-3.15.0-42a5f5.svg?style=flat-square "Tested on Bludit version 3.15.0")
 ![Minimum PHP version is 7.4](https://img.shields.io/badge/PHP_Min-7.4-8892bf.svg?style=flat-square "Minimum PHP version is 7.4")

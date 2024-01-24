@@ -3173,6 +3173,9 @@ select option {
 #font-preview-list {
   padding: 0;
 }
+#font-preview-list svg {
+  fill: currentColor;
+}
 
 .btn-group {
   position: relative;

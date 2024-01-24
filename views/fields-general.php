@@ -41,7 +41,7 @@ $custom_from = $this->custom_scheme_from();
 					</li>
 				</ul>
 				<div id="bookmark-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-upload">
-					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
+					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .gif, .png, .ico' ); ?></p>
 					<div class="dropzone" id="bookmark-upload"></div>
 					<p id="bookmark-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as the site icon.' ); ?></p>
 

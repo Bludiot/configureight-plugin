@@ -70,7 +70,7 @@ class Cover_Images_Helper {
 				album : "' . $album . '"
 			},
 			addRemoveLinks : false,
-			acceptedFiles : ".jpg,.jpeg,.png,webp",
+			acceptedFiles : ".jpg,.jpeg,.png",
 			dictDefaultMessage : "' . $upload . '",
 			dictFileTooBig : "' . $L->get( 'File is too big. Max size:' ) . ' {{maxFilesize}} MiB",
 			dictInvalidFileType : "' . $L->get( 'File format not accepted' ) . '",

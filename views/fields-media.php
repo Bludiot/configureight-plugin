@@ -100,7 +100,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 
-					<p><?php $L->p( 'Drag & drop images or click to browse.' ); ?></p>
+					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .jpg, .jpeg, .png' ); ?></p>
 
 					<div class="dropzone" id="cover-upload"></div>
 

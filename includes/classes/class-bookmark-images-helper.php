@@ -70,7 +70,7 @@ class Bookmark_Images_Helper {
 				album : "' . $album . '"
 			},
 			addRemoveLinks : false,
-			acceptedFiles : ".jpg,.jpeg,.png,webp",
+			acceptedFiles : ".gif,.png,.ico",
 			// maxFiles : 1,
 			dictDefaultMessage : "' . $upload . '",
 			dictFileTooBig : "' . $L->get( 'File is too big. Max size:' ) . ' {{maxFilesize}} MiB",

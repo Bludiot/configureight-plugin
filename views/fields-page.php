@@ -81,10 +81,10 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 <fieldset>
 
-	<legend class="screen-reader-text"><?php $L->p( 'Posts Slider' ); ?></legend>
+	<legend class="screen-reader-text"><?php $L->p( 'Front Page Slider' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="posts_slider"><?php $L->p( 'Posts Slider' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="posts_slider"><?php $L->p( 'Display Slider' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="posts_slider" name="posts_slider">
 				<option value="true" <?php echo ( $this->getValue( 'posts_slider' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>

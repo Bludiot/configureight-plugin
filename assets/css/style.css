@@ -5295,6 +5295,10 @@ select option {
   background: rgba(255, 255, 255, 0.8);
 }
 
+#font-preview-list {
+  padding: 0;
+}
+
 .btn-group {
   position: relative;
   display: inline-flex;

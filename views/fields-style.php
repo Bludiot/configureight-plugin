@@ -461,6 +461,21 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				} ?>
 			</select>
 			<small class="form-text"><?php $L->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
+
+			<ul id="font-preview-list">
+			<?php foreach ( $fonts as $option => $name ) {
+
+				$preview = $this->phpPath() . "/assets/images/font-preview-{$option}.svg";
+				if ( file_exists( $preview ) ) {
+					printf(
+						'<li id="font-scheme-preview-%s" style="display: %s;">%s</li>',
+						$option,
+						( $this->getValue( 'font_scheme' ) === $option ? 'block' : 'none' ),
+						file_get_contents( $preview )
+					);
+				}
+			} ?>
+			</ul>
 		</div>
 	</div>
 
@@ -573,6 +588,18 @@ jQuery(document).ready( function($) {
 			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#dark_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
+		}
+		<?php endforeach; ?>
+	});
+
+	$( '#font_scheme' ).on( 'change', function() {
+		var show = $(this).val();
+
+		<?php foreach ( $fonts as $font => $name ) : ?>
+		if ( show == '<?php echo $font; ?>' ) {
+			$( '#font-scheme-preview-<?php echo $font; ?>' ).css( 'display', 'block' );
+		} else {
+			$( '#font-scheme-preview-<?php echo $font; ?>' ).css( 'display', 'none' );
 		}
 		<?php endforeach; ?>
 	});

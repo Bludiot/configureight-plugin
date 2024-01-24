@@ -456,7 +456,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						'<option value="%s" %s>%s</option>',
 						$option,
 						( $this->getValue( 'font_scheme' ) === $option ? 'selected' : '' ),
-						$name
+						ucwords( $name )
 					);
 				} ?>
 			</select>
@@ -468,7 +468,9 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				$preview = $this->phpPath() . "/assets/images/font-preview-{$option}.svg";
 				if ( file_exists( $preview ) ) {
 					printf(
-						'<li id="font-scheme-preview-%s" style="display: %s;">%s</li>',
+						'<!-- %s %s --><li id="font-scheme-preview-%s" style="display: %s;">%s</li>' . "\r",
+						$L->get( 'Font scheme preview:' ),
+						ucwords( $name ),
 						$option,
 						( $this->getValue( 'font_scheme' ) === $option ? 'block' : 'none' ),
 						file_get_contents( $preview )

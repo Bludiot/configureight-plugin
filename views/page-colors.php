@@ -172,7 +172,7 @@ foreach ( $schemes as $scheme => $option ) {
 	if ( $category != $option['category'] ) {
 		printf(
 			'<li><h3>%s</h3></li>',
-			$option['category']
+			ucwords( $option['category'] )
 		);
 	}
 

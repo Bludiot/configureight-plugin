@@ -1022,7 +1022,7 @@ function color_schemes() {
 				'two'   => '#dd00e5',
 				'three' => '#672178',
 				'four'  => '#8f2ea7',
-				'five'  => '#672178',
+				'five'  => '#005b0c',
 				'six'   => '#8f2ea7'
 			],
 			'dark' => [

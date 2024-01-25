@@ -162,22 +162,22 @@
 
 :root {
   --cfe-toolbar--bg-color: #ffffff;
-  --cfe-toolbar--bg-color--dark: var( --cfe-scheme-color--body--dark );
+  --cfe-toolbar--bg-color--dark: #ffffff;
   --cfe-toolbar--text-color: #212529;
-  --cfe-toolbar--text-color--dark: #ffffff;
+  --cfe-toolbar--text-color--dark: #212529;
   --cfe-toolbar--link--padding: 0 0.5em;
   --cfe-toolbar--link--bg-color: #ffffff;
   --cfe-toolbar--link--bg-color--dark: #ffffff;
   --cfe-toolbar--link--text-color: #0078D4;
-  --cfe-toolbar--link--text-color--dark: #ffffff;
+  --cfe-toolbar--link--text-color--dark: #0078D4;
   --cfe-toolbar--link--action--bg-color: #ffffff;
   --cfe-toolbar--link--action--bg-color--dark: #ffffff;
   --cfe-toolbar--link--action--text-color: #003f6f;
-  --cfe-toolbar--link--action--text-color--dark: #ffffff;
+  --cfe-toolbar--link--action--text-color--dark: #003f6f;
   --cfe-toolbar--submenu--link--action--bg-color: #ffffff;
   --cfe-toolbar--submenu--link--action--bg-color--dark: #ffffff;
   --cfe-toolbar--submenu--link--text-color: #0078D4;
-  --cfe-toolbar--submenu--link--text-color--dark: #ffffff;
+  --cfe-toolbar--submenu--link--text-color--dark: #0078D4;
 }
 
 .screen-reader-text {

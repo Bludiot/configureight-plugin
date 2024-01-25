@@ -409,10 +409,21 @@ use function CFE_Plugin\{
 	<div id="meta-tags">
 		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Meta Tag Options' ) ] ); ?>
 
-		<p><?php $L->p( 'Standard meta tags are always enabled.' ); ?></p>
-
 		<fieldset>
 			<legend class="screen-reader-text"><?php $L->p( 'Meta Tags' ); ?></legend>
+
+			<div class="form-field form-group row">
+				<label class="form-label col-sm-2 col-form-label" for="meta_noindex"><?php $L->p( 'No Index' ); ?></label>
+				<div class="col-sm-10">
+					<select class="form-select" id="meta_noindex" name="meta_noindex">
+						<option value="true" <?php echo ( $this->getValue( 'meta_noindex' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+						<option value="false" <?php echo ( $this->getValue( 'meta_noindex' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+					</select>
+					<small class="form-text"><?php $L->p( 'Add tag to discourage search engines indexing this site.' ); ?></small>
+				</div>
+			</div>
+
+			<p><?php $L->p( 'Standard meta tags are always enabled.' ); ?></p>
 
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>

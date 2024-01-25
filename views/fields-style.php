@@ -519,8 +519,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="custom_css"><?php $L->p( 'Frontend Style Block' ); ?></label>
 		<div class="col-sm-10">
-			<p><small class="form-text"><?php $L->p( 'This will be printed in the public &lt;head&gt; element, after enqueued stylesheets.' ); ?></small></p>
-			<textarea id="custom_css" name="custom_css" placeholder="<?php $L->p( 'CSS code only' ); ?>" cols="1" rows="10"><?php echo $this->getValue( 'custom_css' ) ?></textarea>
+			<p><small class="form-text"><?php $L->p( 'This will be printed in the public &lt;head&gt; element, after enqueued stylesheets. CSS code only.' ); ?></small></p>
+			<textarea id="custom_css" name="custom_css" placeholder=":root {}" cols="1" rows="10"><?php echo $this->getValue( 'custom_css' ) ?></textarea>
 		</div>
 	</div>
 
@@ -528,8 +528,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="admin_css"><?php $L->p( 'Backend Style Block' ); ?></label>
 		<div class="col-sm-10">
-			<p><small class="form-text"><?php $L->p( 'This will be printed in the admin &lt;head&gt; element, after enqueued stylesheets.' ); ?></small></p>
-			<textarea id="admin_css" name="admin_css" placeholder="<?php $L->p( 'CSS code only' ); ?>" cols="1" rows="10"><?php echo $this->getValue( 'admin_css' ) ?></textarea>
+			<p><small class="form-text"><?php $L->p( 'This will be printed in the admin &lt;head&gt; element, after enqueued stylesheets. CSS code only.' ); ?></small></p>
+			<textarea id="admin_css" name="admin_css" placeholder=":root {}" cols="1" rows="10"><?php echo $this->getValue( 'admin_css' ) ?></textarea>
 		</div>
 	</div>
 	<?php endif; ?>

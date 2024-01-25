@@ -31,6 +31,99 @@ function plugin() {
 }
 
 /**
+ * Plugin sidebars count
+ *
+ * This counts plugins with the `adminSidebar()`
+ * method implemented. Theme options plugin is
+ * excluded from the count because this theme
+ * adds a link for theme options if a theme plugin
+ * is available. So if the theme options plugin
+ * is the only plugin activated with a sidebar link
+ * then the plugin links section is not printed.
+ *
+ * @since  1.0.0
+ * @global array $plugins Array of active plugins.
+ * @return integer Returns a number of plugins.
+ */
+function plugin_sidebars_count() {
+
+	// Access global variables.
+	global $plugins;
+
+	if ( empty( $plugins['adminSidebar'] ) ) {
+		return 0;
+	}
+
+	$count = 0;
+	foreach ( $plugins['adminSidebar'] as $link ) {
+		if ( 'theme' != $link->type() ) {
+			$count++;
+		}
+	}
+	return $count;
+}
+
+/**
+ * Get SVG files
+ *
+ * @since  1.0.0
+ * @param  string $filename Name of the SVG file.
+ * @return mixed Returns the contents of the SVG file or
+ *               returns null if the filename is not found.
+ */
+function get_svg_icon( $filename = '' ) {
+
+	// Access global variables.
+	global $site;
+
+	$path = plugin()->phpPath() . 'assets' . DS . 'images' . DS . $filename . '.svg';
+	$args = [
+		'svg',
+		'g',
+		'path'
+	];
+
+	if ( is_file( $path ) && is_readable( $path ) ) {
+
+		$file = strip_tags( $path, $args );
+		return file_get_contents( $file );
+
+	} else {
+		return $path;
+	}
+}
+
+/**
+ * SVG icon
+ *
+ * Prints the contents of a given SVG file.
+ *
+ * @since  1.0.0
+ * @param  string $filename Name of the SVG file.
+ * @param  boolean $wrap Wraps the icon in HTML if true.
+ * @param  string $class Additional class names for the wrapper.
+ * @param  string $title Contents of the title attribute if
+ *                       $wrap is true.
+ * @return void
+ */
+function svg_icon( $filename, $wrap = true, $class = '' ) {
+
+	if ( ! empty( $class ) ) {
+		$class = ' ' . $class;
+	}
+
+	if ( true == $wrap ) {
+		printf(
+			'<span class="svg-icon%s">%s</span>',
+			$class,
+			get_svg_icon( $filename )
+		);
+	} else {
+		echo get_svg_icon( $filename );
+	}
+}
+
+/**
  * Asset file suffix
  *
  * Gets minified file if not in debug mode.

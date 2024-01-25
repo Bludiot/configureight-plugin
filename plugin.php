@@ -595,6 +595,14 @@ class configureight extends Plugin {
 		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
 		$assets .= define_color_scheme();
 
+		// User toolbar is active.
+		if (
+			'enabled' == $this->getValue( 'user_toolbar' ) ||
+			'backend' == $this->getValue( 'user_toolbar' )
+		) {
+			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); }</style>';
+		}
+
 		// Modal background.
 		$assets .= '<style>';
 		$assets .= sprintf(
@@ -620,19 +628,30 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $site Site class.
 	 * @global object $url Url class.
 	 * @return void
 	 */
 	public function adminBodyBegin() {
 
 		// Access global variables.
-		global $L, $url;
+		global $L, $login, $site, $url;
 
 		$upload_path = HTML_PATH_ADMIN_ROOT . 'configureight';
 		$current_path = strtok( $_SERVER["REQUEST_URI"], '?' );
 
 		if ( $current_path == $upload_path ) {
 			ob_start();
+		}
+
+		// User toolbar.
+		if ( 'theme' != $this->admin_theme() ) {
+			if (
+				'enabled' == $this->getValue( 'user_toolbar' ) ||
+				'backend' == $this->getValue( 'user_toolbar' )
+			) {
+				include( $this->phpPath() . '/views/user-toolbar.php' );
+			}
 		}
 
 		// Admin theme notice.

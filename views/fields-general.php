@@ -63,13 +63,10 @@ $custom_from = $this->custom_scheme_from();
 		<div class="col-sm-10">
 			<select class="form-select" id="user_toolbar" name="user_toolbar">
 				<option value="enabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'enabled' ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<?php
 
-				// Backend & frontend options only if Configure 8 is the admin theme.
-				if ( 'configureight' == $site->adminTheme() ) : ?>
 				<option value="backend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'backend' ? 'selected' : '' ); ?>><?php $L->p( 'Backend Only' ); ?></option>
+
 				<option value="frontend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
-				<?php endif; ?>
 
 				<option value="disabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>

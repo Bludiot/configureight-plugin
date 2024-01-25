@@ -112,7 +112,7 @@ if (
 	</div>
 </fieldset>
 
-<?php if ( admin_theme() && 'theme' == $this->admin_theme() ) : ?>
+<?php if ( admin_theme() && 'default' != $this->admin_theme() ) : ?>
 	<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
 <fieldset>
 

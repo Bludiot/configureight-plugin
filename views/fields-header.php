@@ -45,7 +45,10 @@ if ( $site->logo() ) {
 	<div class="form-field form-group row">
 		<div class="form-label col-sm-2 col-form-label"><?php $L->p( 'Logo Image' ); ?></div>
 		<div class="col-sm-10 row image-field-buttons">
-			<label id="logo_upload_button" for="logo_upload" class="btn <?php echo ( $site->logo() ? 'btn-light' : 'btn-primary' ) ?> btn-md button"><span id="logo_upload_button_text"><?php echo ( $site->logo() ? $logo_filename : $L->get( 'Upload&nbsp;Image' ) ); ?></span><input id="logo_upload" class="screen-reader-text" type="file" name="inputFile"></label>
+			<label id="logo_upload_button" for="logo_upload" class="btn <?php echo ( $site->logo() ? 'btn-light' : 'btn-primary' ) ?> btn-md button">
+				<span id="logo_upload_button_text"><?php echo ( $site->logo() ? $logo_filename : $L->get( 'Upload&nbsp;Image' ) ); ?></span>
+				<input id="logo_upload" class="screen-reader-text" type="file" name="inputFile" />
+			</label>
 			<button id="remove_logo" type="button" class="btn <?php echo ( $site->logo() ? 'btn-danger' : 'btn-light' ) ?> btn-md button" <?php echo ( $site->logo() ? '' : 'disabled' ); ?>><?php $L->p( 'Remove&nbsp;Image' ); ?></button>
 		</div>
 		<script>

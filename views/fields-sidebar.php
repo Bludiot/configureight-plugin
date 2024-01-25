@@ -112,8 +112,8 @@ if (
 	</div>
 </fieldset>
 
-<?php if ( admin_theme() && 'default' != $this->admin_theme() ) : ?>
-	<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Admin Sidebar' ); ?></legend>
@@ -129,4 +129,3 @@ if (
 		</div>
 	</div>
 </fieldset>
-<?php endif; ?>

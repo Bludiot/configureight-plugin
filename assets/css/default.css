@@ -247,7 +247,7 @@ code.select {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgba(255, 255, 255, 0.125);
-  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.325);
+  box-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 .admin-toolbar ul {
   list-style: none;
@@ -315,7 +315,7 @@ code.select {
   padding: 0.5rem 0;
   width: 160px;
   background-color: var(--cfe-toolbar--submenu--bg-color, inherit);
-  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.325);
+  box-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 .admin-toolbar ul ul.user-actions-sublist {
   left: auto;

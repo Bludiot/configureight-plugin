@@ -601,6 +601,11 @@ class configureight extends Plugin {
 			'backend' == $this->getValue( 'user_toolbar' )
 		) {
 			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); }</style>';
+
+			// Is admin menu hidden.
+			if ( ! $this->getValue( 'admin_menu' ) ) {
+				$assets .= '<style>.sidebar.d-lg-block { display: none !important; }</style>';
+			}
 		}
 
 		// Modal background.

@@ -228,6 +228,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 		<p><?php $L->p( 'Custom colors will override colors for basic elements in the default light and dark color schemes. If you wish to use these colors for further customization then a CSS variable is provided for each color. Simply add your CSS rules with these variables to the custom code fields below.' ); ?></p>
 
+		<p><?php $L->p( "Current custom colors originate from the previously set theme: <strong>{$colors[$custom_from]['name']}</strong>" ); ?></p>
+
 		<div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
 			<ul class="nav nav-tabs" id="nav-tabs" role="tablist">

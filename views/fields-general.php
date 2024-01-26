@@ -31,25 +31,27 @@ $custom_from = $this->custom_scheme_from();
 
 				<ul class="nav nav-tabs" id="bookmark-nav-tabs" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="bookmark-upload" aria-selected="false" href="#bookmark-upload"><?php $L->p( 'Upload' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="bookmark-select" aria-selected="false" href="#bookmark-select"><?php $L->p( 'Select' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="bookmark-select" aria-selected="false" href="#bookmark-select"><?php $L->p( 'Select' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="bookmark-upload" aria-selected="false" href="#bookmark-upload"><?php $L->p( 'Upload' ); ?></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" role="tab" aria-controls="bookmark-album" aria-selected="false" href="#bookmark-album"><?php $L->p( 'Album' ); ?></a>
 					</li>
 				</ul>
+				<div id="bookmark-select" role="tabpanel" aria-labelledby="bookmark-select">
+					<p><?php $L->p( 'Select one from uploaded bookmark images.' ); ?></p>
+					<?php echo $bookmarks->select_images( $bookmark ); ?>
+				</div>
+
 				<div id="bookmark-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-upload">
 					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .gif, .png, .ico' ); ?></p>
 					<div class="dropzone" id="bookmark-upload"></div>
 					<p id="bookmark-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as the site icon.' ); ?></p>
 
 				</div>
-				<div id="bookmark-select" role="tabpanel" aria-labelledby="bookmark-select">
-					<p><?php $L->p( 'Select one from uploaded bookmark images.' ); ?></p>
-					<?php echo $bookmarks->select_images( $bookmark ); ?>
-				</div>
+
 				<div id="bookmark-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-album">
 					<p><?php $L->p( 'Manage uploaded bookmark images.' ); ?></p>
 					<div id="bookmark-album-wrap"><?php echo $bookmarks->manage_images( $bookmark ); ?></div>

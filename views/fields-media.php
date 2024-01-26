@@ -88,15 +88,20 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 				<ul class="nav nav-tabs" id="cover-nav-tabs" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="cover-upload" aria-selected="false" href="#cover-upload"><?php $L->p( 'Upload' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="cover-select" aria-selected="false" href="#cover-select"><?php $L->p( 'Select' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="cover-select" aria-selected="false" href="#cover-select"><?php $L->p( 'Select' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="cover-upload" aria-selected="false" href="#cover-upload"><?php $L->p( 'Upload' ); ?></a>
 					</li>
 					<li class="nav-item">
 						<a id="cover-album-tab" class="nav-link" role="tab" aria-controls="cover-album" aria-selected="false" href="#cover-album"><?php $L->p( 'Album' ); ?><span id="cover-images-count"><span><?php echo ' (' . $covers->count_images() . ')'; ?></span></span></a>
 					</li>
 				</ul>
+
+				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select">
+					<p><?php $L->p( 'Select from uploaded cover images.' ); ?></p>
+					<?php echo $covers->select_images( $cover ); ?>
+				</div>
 
 				<div id="cover-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-upload">
 
@@ -108,11 +113,6 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 						<p><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as cover images.' ); ?></p>
 						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php $L->p( 'Refresh' ); ?></button></p>
 					</div>
-				</div>
-
-				<div id="cover-select" role="tabpanel" aria-labelledby="cover-select">
-					<p><?php $L->p( 'Select from uploaded cover images.' ); ?></p>
-					<?php echo $covers->select_images( $cover ); ?>
 				</div>
 
 				<div id="cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="cover-album">

@@ -127,6 +127,36 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cover_in_post"><?php $L->p( 'Cover in Posts' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cover_in_post" name="cover_in_post">
+
+				<option value="header" <?php echo ( $this->getValue( 'cover_in_post' ) === 'header' ? 'selected' : '' ); ?>><?php $L->p( 'Below Header' ); ?></option>
+
+				<option value="full" <?php echo ( $this->getValue( 'cover_in_post' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full Screen' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'cover_in_post' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'The default cover image template for pages. Cover templates can override this setting on a per-post basis.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cover_in_page"><?php $L->p( 'Cover in Pages' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cover_in_page" name="cover_in_page">
+
+				<option value="header" <?php echo ( $this->getValue( 'cover_in_page' ) === 'header' ? 'selected' : '' ); ?>><?php $L->p( 'Below Header' ); ?></option>
+
+				<option value="full" <?php echo ( $this->getValue( 'cover_in_page' ) === 'full' ? 'selected' : '' ); ?>><?php $L->p( 'Full Screen' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'cover_in_page' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'The default cover image template for pages. Cover templates can override this setting on a per-page basis.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_style"><?php $L->p( 'Cover Color Style' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="cover_style" name="cover_style">

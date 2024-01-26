@@ -8,6 +8,18 @@
  * @since      1.0.0
  */
 
+/**
+ * License & Warranty
+ *
+ * This product is free software. It can be redistributed and/or modified
+ * ad libidum. There is no license distributed with this product.
+ *
+ * This product is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * @see DISCLAIMER.md
+ */
+
 // Stop if accessed directly.
 if ( ! defined( 'BLUDIT' ) ) {
 	die( 'You are not allowed direct access to this file.' );
@@ -171,7 +183,7 @@ class configureight extends Plugin {
 			'loader_bg_color_dark'   => $this->loader_bg_default_dark(),
 			'loader_text_color'      => $this->loader_text_default(),
 			'loader_text_color_dark' => $this->loader_text_default_dark(),
-			'loader_text'            => $L->get( 'Loading&hellip;' ),
+			'loader_text'            => $L->get( 'Loading…' ),
 			'loader_icon'            => 'spinner-dots',
 			'search_icon'            => true,
 			'site_title'             => true,
@@ -206,6 +218,8 @@ class configureight extends Plugin {
 			'cover_meta_height'      => 720,
 			'cover_meta_quality'     => 90,
 			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
+			'cover_in_post'          => 'header',
+			'cover_in_page'          => 'header',
 			'cover_style'            => 'overlay',
 			'cover_blend'            => $this->cover_blend_default(),
 			'cover_blend_use'        => [ '', 'covers', 'slider' ],

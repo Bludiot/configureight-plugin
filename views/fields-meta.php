@@ -409,6 +409,8 @@ use function CFE_Plugin\{
 	<div id="meta-tags">
 		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Meta Tag Options' ) ] ); ?>
 
+		<p><?php $L->p( 'Standard meta tags are always enabled.' ); ?></p>
+
 		<fieldset>
 			<legend class="screen-reader-text"><?php $L->p( 'Meta Tags' ); ?></legend>
 
@@ -423,8 +425,6 @@ use function CFE_Plugin\{
 				</div>
 			</div>
 
-			<p><?php $L->p( 'Standard meta tags are always enabled.' ); ?></p>
-
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>
 				<div class="col-sm-10">
@@ -432,6 +432,8 @@ use function CFE_Plugin\{
 					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="4"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
 				</div>
 			</div>
+
+			<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Non-Standard Meta Tags' ) ] ); ?>
 
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_use_schema"><?php $L->p( 'Schema Data' ); ?></label>

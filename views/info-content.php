@@ -10,18 +10,36 @@
 
 ?>
 
-<p><?php $L->p( 'Image upload fields coming for bookmark icon (favicon) and default cover image. For now, the options require you to use complete URLs, such as to CDN images, add the images to the theme\'s assets/images directory, or add to the bl-content/uploads directory. The theme will look first in the bl-content/uploads directory if not using an external image.' ); ?></p>
+<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Fields' ) ] ); ?>
 
-<p><?php $L->p( 'For both the bookmark icon and the default cover fields, simply add the URL, or add filename & extension (e.g. favicon.png or cover.jpg).' ); ?></p>
+<p><?php $L->p( 'The Configure 8 theme is prepare to apply custom content fields for posts, pages, and various theme features. To take advantage of these fields simply copy the code into the text box in Settings > Custom Fields.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Content Loops' ) ] ); ?>
+<p><?php $L->p( 'Various options of custom fields may be modified, such as label, placeholder, location, but the field name must remain as listed here as these field names are hard-coded into the theme.' ); ?></p>
 
-<p><?php $L->p( '' ); ?></p>
-
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Singular Content' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Post/Page Subtitle' ) ] ); ?>
 
 <p><?php $L->p( '' ); ?></p>
 
+<pre>
+{
+    "subtitle" : {
+        "type" : "string",
+        "placeholder" : "Subtitle"
+    }
+}
+</pre>
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Post/Page Gallery' ) ] ); ?>
 
+<p><?php $L->p( '' ); ?></p>
+
+<pre></pre>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Slider More Link' ) ] ); ?>
+
+<p><?php $L->p( '' ); ?></p>
+
+<pre></pre>
+
+<p><?php $L->p( '' ); ?></p>
 <p><?php $L->p( '' ); ?></p>

@@ -589,6 +589,7 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   }
 }
 .tab-pane .image-select-list li label {
+  margin: 0 !important;
   cursor: pointer;
 }
 .tab-pane .image-select-list li label:before, .tab-pane .image-select-list li label:after {
@@ -625,6 +626,9 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
 }
 .tab-pane .image-select-list li img {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .tab-pane .image-upload-list {
   list-style: none;

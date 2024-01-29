@@ -523,6 +523,7 @@ form {
 			}
 ;
 			label {
+				margin: 0 !important;
 				cursor: pointer;
 
 				&:before,
@@ -565,6 +566,9 @@ form {
 
 			img {
 				display: block;
+				width: 100%;
+				max-width: 100%;
+				height: auto;
 			}
 		}
 	}

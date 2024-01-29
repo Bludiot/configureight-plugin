@@ -132,7 +132,7 @@ class configureight extends Plugin {
 			'CFE_Classes\Bookmark_Album'  => $path . 'includes/classes/class-bookmark-album.php',
 			'CFE_Classes\Cover_Images'    => $path . 'includes/classes/class-cover-images.php',
 			'CFE_Classes\Cover_Album'     => $path . 'includes/classes/class-cover-album.php',
-			'CFE_Classes\Image_Album'   => $path . 'includes/classes/class-image-album.php',
+			'CFE_Classes\Image_Album'     => $path . 'includes/classes/class-image-album.php'
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {
@@ -738,6 +738,15 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $url;
 
+		// Content ID on page edit screen.
+		if ( str_contains( $url->slug(), 'edit-content' ) ) {
+			return sprintf(
+				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<h2><span class=\'fa fa-pencil\' style=\'font-size: 0.9em;\'></span>%s</h2><p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
+				$L->get( 'Edit Content' ),
+				$L->get( 'Content ID:' )
+			);
+		}
+
 		// Maybe get non-minified assets.
 		$suffix = '';
 		if ( ! $this->debug_mode() ) {
@@ -785,10 +794,6 @@ class configureight extends Plugin {
 			return;
 		}
 
-		if ( $url->slug() != $this->plugin_slug() ) {
-			return false;
-		}
-
 		$bookmark = 'bookmark';
 		$cover    = 'cover';
 		$domain   = $this->domainPath();
@@ -809,14 +814,6 @@ class configureight extends Plugin {
 		}
 		if ( $cover ) {
 			$html .= $cover_helper->dropzoneJSData( $cover );
-		}
-
-		// Content ID on page edit screen.
-		if ( ! getPlugin( 'pluginContentID' ) && str_contains( $url->slug(), 'edit-content' ) ) {
-			$html .= sprintf(
-				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
-				$L->get( 'Content ID:' )
-			);
 		}
 		return $html;
 	}
@@ -994,12 +991,30 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @global object $site The Site class.
+	 * @global object $L The Language class.
 	 * @return function editSettings()
 	 */
 	public function edit_settings() {
 
 		// Access global variables.
-		global $site;
+		global $L, $site;
+
+		// Guide page URL.
+		$guide_page    = DOMAIN_ADMIN . 'plugin/' . $this->className();
+		$gallery_field = [
+			'page_gallery' => [
+				'type'  => 'bool',
+				'label' => $L->get( 'Gallery' ),
+				'tip'   => $L->get( "Add an image gallery for this page. <a href='{$guide_page}#content'>Read more in the guide</a>" )
+			]
+		];
+		$custom_fields = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
+		$decode_fields = json_decode( $custom_fields, true );
+
+		unset( $decode_fields['page_gallery'] );
+
+		$custom_fields = array_merge( $gallery_field, $decode_fields );
+		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
 		$args['homepage']     = $site->homepage();
 		$args['uriBlog']      = $site->getField( 'uriBlog' );

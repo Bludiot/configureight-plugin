@@ -46,9 +46,15 @@ $custom_from = $this->custom_scheme_from();
 				</div>
 
 				<div id="bookmark-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-upload">
+
 					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .gif, .png, .ico' ); ?></p>
+
 					<div class="dropzone" id="bookmark-upload"></div>
-					<p id="bookmark-upload-notice" style="display: none;"><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as the site icon.' ); ?></p>
+
+					<div id="bookmark-upload-notice" style="display: none;">
+						<p><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as a bookmark image.' ); ?></p>
+						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php $L->p( 'Refresh' ); ?></button></p>
+					</div>
 
 				</div>
 

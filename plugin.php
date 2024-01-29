@@ -157,6 +157,7 @@ class configureight extends Plugin {
 
 		// Get plugin functions.
 		require_once( $path . 'includes/functions.php' );
+		require_once( $path . 'includes/galleries.php' );
 		require_once( $path . 'includes/fonts.php' );
 		require_once( $path . 'includes/colors.php' );
 	}

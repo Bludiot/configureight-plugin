@@ -5927,14 +5927,14 @@ h2 .fa {
 #jseditorSidebar .nav-link {
   transform: translateY(1px);
 }
-#jseditorSidebar .tab-pane div:last-of-type {
+#jseditorSidebar #nav-general div:last-of-type {
   width: 100%;
   margin: 1rem 0 0 0;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 }
-#jseditorSidebar .tab-pane div:last-of-type button {
+#jseditorSidebar #nav-general div:last-of-type button {
   text-transform: capitalize;
 }
 
@@ -6106,54 +6106,6 @@ img.profilePicture {
   border: 1px solid #ced4da;
 }
 
-#jseditorSidebar {
-  display: none;
-  height: calc(100% - 7rem);
-  width: 50%;
-  width: 480px;
-  position: absolute;
-  z-index: 50;
-  top: 5rem;
-  left: 2rem;
-  padding: 0 1rem 1rem 1rem;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: 0.5s;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-}
-#jseditorSidebar label + * {
-  margin-top: 0.5rem;
-}
-#jseditorSidebar .nav-link {
-  transform: translateY(1px);
-}
-#jseditorSidebar .tab-pane div:last-of-type {
-  width: 100%;
-  margin: 1rem 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-#jseditorSidebar .tab-pane div:last-of-type button {
-  text-transform: capitalize;
-}
-
-@media (max-width: 575.98px) {
-  #jseditorSidebar {
-    width: 100%;
-    max-width: 100%;
-    right: 0;
-  }
-  .contentTools .btn {
-    font-size: 0px;
-    margin-right: 5px;
-  }
-  .contentTools .btn span {
-    font-size: 16px;
-  }
-}
 #jsshadow {
   z-index: 10;
   display: none;

@@ -53,7 +53,8 @@ use function CFE_Fonts\{
 	load_font_files
 };
 use function CFE_Galleries\{
-	basic_gallery
+	basic_gallery,
+	page_images
 };
 
 /**
@@ -1019,17 +1020,24 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $site;
 
-		// Guide page URL.
-		$guide_page    = DOMAIN_ADMIN . 'plugin/' . $this->className();
+		// Random cover checkbox field.
+		$cover_field = [
+			'random_cover' => [
+				'type'  => 'bool',
+				'label' => $L->get( 'Random Cover' ),
+				'tip'   => $L->get( 'Display a random cover image from images uploaded to this page.' )
+			]
+		];
 
-		//Custom gallery checkbox field.
+		// Page gallery checkbox field.
 		$gallery_field = [
 			'page_gallery' => [
 				'type'  => 'bool',
 				'label' => $L->get( 'Gallery' ),
-				'tip'   => $L->get( "Add a gallery of images uploaded to this page." )
+				'tip'   => $L->get( 'Add a gallery of images uploaded to this page.' )
 			]
 		];
+		$merged_fields = array_merge( $gallery_field, $cover_field );
 
 		// Get custom fields data.
 		$custom_fields = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
@@ -1039,7 +1047,7 @@ class configureight extends Plugin {
 		unset( $decode_fields['page_gallery'] );
 
 		// Set custom fields.
-		$custom_fields = array_merge( $gallery_field, $decode_fields );
+		$custom_fields = array_merge( $merged_fields, $decode_fields );
 		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
 		$args['homepage']     = $site->homepage();
@@ -2186,13 +2194,23 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @global object $page Page class.
+	 * @global object $url Url class.
 	 * @return mixed Returns one filename or false.
 	 */
 	public function random_cover_image() {
 
-		$covers = $this->cover_images();
-		$image  = false;
-		if ( is_array( $covers ) && $covers ) {
+		// Access global variables.
+		global $page, $url;
+
+		$covers    = $this->cover_images();
+		$from_page = page_images();
+		$image     = false;
+
+		if ( is_array( $from_page ) && $from_page ) {
+			$random = array_rand( $from_page );
+			$image  = $from_page[$random];
+		} elseif ( is_array( $covers ) && $covers ) {
 			$random = array_rand( $covers );
 			$image  = $covers[$random];
 		}
@@ -2206,20 +2224,25 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global $site Site class.
+	 * @global object $page The Page class.
+	 * @global object $site Site class.
+	 * @global object $url The Url class.
 	 * @return mixed Returns the URL or false.
 	 */
 	public function cover_src() {
 
 		// Access global variables.
-		global $site;
+		global $page, $site, $url;
 
 		// Get cover field value.
 		$cover  = $this->random_cover_image();
 		$album  = PATH_CONTENT . $this->storageRoot . DS . 'cover' . DS . $cover;
 		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
 
-		if ( $cover && ! file_exists( $album ) ) {
+		if ( $cover && ! file_exists( $album ) && 'page' == $url->whereAmI() ) {
+			return $cover;
+
+		} elseif ( $cover && ! file_exists( $album ) ) {
 			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
 				return DOMAIN_THEME . 'assets/images/cover.jpg';
 			}
@@ -2230,10 +2253,6 @@ class configureight extends Plugin {
 		// Use cover file in root content/uploads if found & set in options array.
 		} elseif ( $cover && file_exists( PATH_UPLOADS . $cover ) ) {
 			return DOMAIN_UPLOADS . $cover;
-
-		// Use the external URL.
-		} elseif ( filter_var( $cover, FILTER_VALIDATE_URL ) ) {
-			return $cover;
 
 		// Use cover file in theme assets/images if found & set in options array.
 		} elseif ( $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {

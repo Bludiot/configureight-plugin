@@ -18,6 +18,50 @@ use function CFE_Plugin\{
 };
 
 /**
+ * Uploaded images
+ *
+ * Gets full-size image files uploaded to a page.
+ *
+ * @since  1.0.0
+ * @global object $page The Page class.
+ * @global object $url The Url class.
+ * @return mixed Returns an array im images or false.
+ */
+function page_images() {
+
+	// Access global variables,
+	global $page, $url;
+
+	// False if not singular content.
+	if ( 'page' != $url->whereAmI() ) {
+		return false;
+	}
+
+	// Variables.
+	$build  = buildPage( $page->key() );
+	$uuid   = $build->uuid();
+	$dir    = PATH_UPLOADS_PAGES . $uuid . DS;
+	$files  = \Filesystem :: listFiles( $dir, '*', '*', true, 0 );
+	$images = [];
+
+	// False if no images uploaded to page.
+	if ( 0 == count( $files ) ) {
+		return false;
+	}
+
+	// False if the random cover field not checked.
+	if ( ! $build->custom( 'random_cover' ) ) {
+		return false;
+	}
+
+	// Get the URL for each full-size image.
+	foreach ( $files as $file ) {
+		$images[] = DOMAIN_UPLOADS_PAGES . $uuid . '/' . str_replace( $dir, '', $file );
+	}
+	return $images;
+}
+
+/**
  * Basic page gallery
  *
  * Displays a lightbox gallery of images uploaded to a page.

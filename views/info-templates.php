@@ -63,6 +63,12 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Default Cover' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">default-cover</code></p>
+
+<p><?php $L->p( 'The default cover template will display the cover image banner below the header of a post or a page when viewing the singular template. This can be used to override the default post/page cover option.' ); ?></p>
+
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'No Cover' ) ] ); ?>
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">no-cover</code></p>

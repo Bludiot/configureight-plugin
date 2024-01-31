@@ -52,6 +52,9 @@ use function CFE_Colors\{
 use function CFE_Fonts\{
 	load_font_files
 };
+use function CFE_Galleries\{
+	basic_gallery
+};
 
 /**
  * Core plugin class
@@ -349,6 +352,7 @@ class configureight extends Plugin {
 			'meta_tags',
 			'color_scheme_vars',
 			'url_not_found',
+			'page_gallery',
 			'front_page',
 			'comment_form'
 		];
@@ -985,12 +989,27 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Page gallery hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function page_gallery() {
+
+		if ( basic_gallery() ) {
+			echo basic_gallery();
+		}
+	}
+
+	/**
 	 * Edit settings
 	 *
 	 * Database settings for thumbnail images.
 	 * Hacky but working.
 	 *
 	 * @since  1.0.0
+	 * @access public
 	 * @global object $site The Site class.
 	 * @global object $L The Language class.
 	 * @return function editSettings()
@@ -1002,18 +1021,24 @@ class configureight extends Plugin {
 
 		// Guide page URL.
 		$guide_page    = DOMAIN_ADMIN . 'plugin/' . $this->className();
+
+		//Custom gallery checkbox field.
 		$gallery_field = [
 			'page_gallery' => [
 				'type'  => 'bool',
 				'label' => $L->get( 'Gallery' ),
-				'tip'   => $L->get( "Add an image gallery for this page. <a href='{$guide_page}#content'>Read more in the guide</a>" )
+				'tip'   => $L->get( "Add a gallery of images uploaded to this page." )
 			]
 		];
+
+		// Get custom fields data.
 		$custom_fields = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
 		$decode_fields = json_decode( $custom_fields, true );
 
+		// Unset custom fields to override if changes.
 		unset( $decode_fields['page_gallery'] );
 
+		// Set custom fields.
 		$custom_fields = array_merge( $gallery_field, $decode_fields );
 		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 

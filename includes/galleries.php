@@ -2,6 +2,9 @@
 /**
  * Gallery functions
  *
+ * @todo Explore adding an advanced gallery option
+ *       with custom captions and layout options.
+ *
  * @package    Configure 8 Options
  * @subpackage Includes
  * @since      1.0.0
@@ -13,3 +16,47 @@ namespace CFE_Galleries;
 use function CFE_Plugin\{
 	plugin
 };
+
+/**
+ * Basic page gallery
+ *
+ * Displays a lightbox gallery of images uploaded to a page.
+ *
+ * @since  1.0.0
+ * @global object $page The Page class.
+ * @global object $url The Url class.
+ * @return mixed Returns the gallery markup or false.
+ */
+function basic_gallery() {
+
+	// Access global variables,
+	global $page, $url;
+
+	// False if not singular content.
+	if ( 'page' != $url->whereAmI() ) {
+		return false;
+	}
+
+	// Variables.
+	$page  = buildPage( $page->key() );
+	$uuid  = $page->uuid();
+	$dir   = PATH_UPLOADS_PAGES . $uuid . DS . 'thumbnails' . DS;
+	$files = \Filesystem :: listFiles( $dir, '*', '*', true, 0 );
+
+	// False if no images uploaded to page.
+	if ( 0 == count( $files ) ) {
+		return false;
+	}
+
+	// Gallery markup.
+	$images = "<ul id='page-gallery-list-{$page->key()}' class='page-gallery-list'>";
+	foreach ( $files as $file ) {
+
+		$thumb = DOMAIN_UPLOADS_PAGES . $uuid . '/thumbnails/' . str_replace( $dir, '', $file );
+		$full  = DOMAIN_UPLOADS_PAGES . $uuid . '/' . str_replace( $dir, '', $file );
+
+		$images .= "<li class='page-gallery-item'><a class='page-gallery-link' href='{$full}'  rel='gallery' data-fancybox='{$page->key()}'><img class='page-gallery-thumb' src='{$thumb}' /></a></li>";
+	}
+	$images .= '</ul>';
+	return $images;
+}

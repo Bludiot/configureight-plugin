@@ -663,6 +663,11 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L, $login, $site, $url;
 
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
 		$upload_path = HTML_PATH_ADMIN_ROOT . 'configureight';
 		$current_path = strtok( $_SERVER["REQUEST_URI"], '?' );
 
@@ -736,13 +741,19 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $site Site class.
 	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function adminBodyEnd() {
 
 		// Access global variables.
-		global $L, $url;
+		global $L, $site, $url;
+
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
 
 		// Content ID on page edit screen.
 		if ( str_contains( $url->slug(), 'edit-content' ) ) {
@@ -1347,6 +1358,16 @@ class configureight extends Plugin {
 	// @return array
 	public function cover_images() {
 		return $this->getValue( 'cover_images' );
+	}
+
+	// @return string
+	public function cover_in_post() {
+		return $this->getValue( 'cover_in_post' );
+	}
+
+	// @return string
+	public function cover_in_page() {
+		return $this->getValue( 'cover_in_page' );
 	}
 
 	// @return string

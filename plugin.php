@@ -1055,6 +1055,7 @@ class configureight extends Plugin {
 		$decode_fields = json_decode( $custom_fields, true );
 
 		// Unset custom fields to override if changes.
+		unset( $decode_fields['random_cover'] );
 		unset( $decode_fields['page_gallery'] );
 
 		// Set custom fields.

@@ -58,3 +58,158 @@ function load_font_files() {
 	}
 	return $tags;
 }
+
+/**
+ * Basic font schemes
+ *
+ * Listed first in the option.
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array Returns array of font schemes data.
+ */
+function basic_font_schemes() {
+
+	// Access global variables.
+	global $L;
+
+	$schemes = [
+		'default' => [
+			'slug'     => 'default',
+			'name'     => $L->get( 'System Default' ),
+			'variable' => false,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '400',
+				'high'   => '700'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '400',
+				'high'   => '700'
+			]
+		],
+		'sans' => [
+			'slug'     => 'sans',
+			'name'     => $L->get( 'Sans Serif' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			]
+		],
+		'serif' => [
+			'slug'     => 'serif',
+			'name'     => $L->get( 'Serif' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '200',
+				'high'   => '900'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '200',
+				'high'   => '900'
+			]
+		]
+	];
+	return $schemes;
+}
+
+/**
+ * Style font schemes
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array Returns array of font schemes data.
+ */
+function style_font_schemes() {
+
+	// Access global variables.
+	global $L;
+
+	$schemes = [
+		'code' => [
+			'slug'     => 'code',
+			'name'     => $L->get( 'Code' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '200',
+				'high'   => '900'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '200',
+				'high'   => '900'
+			]
+		],
+		'cosmo' => [
+			'slug'     => 'cosmo',
+			'name'     => $L->get( 'Cosmopolitan' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			]
+		],
+		'modern' => [
+			'slug'     => 'modern',
+			'name'     => $L->get( 'Modern' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '200',
+				'high'   => '1000'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			]
+		],
+		'slab' => [
+			'slug'     => 'slab',
+			'name'     => $L->get( 'Slab Serif' ),
+			'variable' => true,
+			'text'     => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '400',
+				'high'   => '700'
+			],
+			'display' => [
+				'normal' => '400',
+				'bold'   => '700',
+				'low'    => '100',
+				'high'   => '900'
+			]
+		]
+	];
+	return $schemes;
+}

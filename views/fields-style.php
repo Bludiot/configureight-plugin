@@ -15,25 +15,20 @@ use function CFE_Colors\{
 	color_schemes,
 	hex_to_rgb
 };
+use function CFE_Fonts\{
+	basic_font_schemes,
+	style_font_schemes
+};
 
 // Color schemes.
 $colors = color_schemes();
 $custom_from = $this->custom_scheme_from();
 
 // Font schemes.
-$base_fonts = [
-	'default' => $L->get( 'System Default' ),
-	'sans'    => $L->get( 'Sans Serif' ),
-	'serif'   => $L->get( 'Serif' )
-];
-$more_fonts = [
-	'code'   => $L->get( 'Code' ),
-	'cosmo'  => $L->get( 'Cosmopolitan' ),
-	'modern' => $L->get( 'Modern' ),
-	'slab'   => $L->get( 'Slab Serif' )
-];
-ksort( $more_fonts );
-$fonts = array_merge( $base_fonts, $more_fonts );
+$basic_fonts = basic_font_schemes();
+$style_fonts = style_font_schemes();
+ksort( $style_fonts );
+$fonts = array_merge( $basic_fonts, $style_fonts );
 
 // Labels for admin theme options.
 $css_label = $L->get( 'Theme Styles' );
@@ -453,28 +448,28 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 		<div class="col-sm-10">
 			<select class="form-select" id="font_scheme" name="font_scheme">
-				<?php foreach ( $fonts as $option => $name ) {
+				<?php foreach ( $fonts as $option => $scheme ) {
 					printf(
 						'<option value="%s" %s>%s</option>',
-						$option,
-						( $this->getValue( 'font_scheme' ) === $option ? 'selected' : '' ),
-						ucwords( $name )
+						$scheme['slug'],
+						( $this->getValue( 'font_scheme' ) === $scheme['slug'] ? 'selected' : '' ),
+						ucwords( $scheme['name'] )
 					);
 				} ?>
 			</select>
 			<small class="form-text"><?php $L->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
 
 			<ul id="font-preview-list">
-			<?php foreach ( $fonts as $option => $name ) {
+			<?php foreach ( $fonts as $option => $scheme ) {
 
-				$preview = $this->phpPath() . "/assets/images/font-preview-{$option}.svg";
+				$preview = $this->phpPath() . "/assets/images/font-preview-{$scheme['slug']}.svg";
 				if ( file_exists( $preview ) ) {
 					printf(
 						'<!-- %s %s --><li id="font-scheme-preview-%s" style="display: %s;">%s</li>' . "\r",
 						$L->get( 'Font scheme preview:' ),
-						ucwords( $name ),
-						$option,
-						( $this->getValue( 'font_scheme' ) === $option ? 'block' : 'none' ),
+						ucwords( $scheme['name'] ),
+						$scheme['slug'],
+						( $this->getValue( 'font_scheme' ) === $scheme['slug'] ? 'block' : 'none' ),
 						file_get_contents( $preview )
 					);
 				}
@@ -599,11 +594,11 @@ jQuery(document).ready( function($) {
 	$( '#font_scheme' ).on( 'change', function() {
 		var show = $(this).val();
 
-		<?php foreach ( $fonts as $font => $name ) : ?>
-		if ( show == '<?php echo $font; ?>' ) {
-			$( '#font-scheme-preview-<?php echo $font; ?>' ).css( 'display', 'block' );
+		<?php foreach ( $fonts as $font => $scheme ) : ?>
+		if ( show == '<?php echo $scheme['slug']; ?>' ) {
+			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'block' );
 		} else {
-			$( '#font-scheme-preview-<?php echo $font; ?>' ).css( 'display', 'none' );
+			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'none' );
 		}
 		<?php endforeach; ?>
 	});

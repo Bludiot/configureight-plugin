@@ -77,52 +77,85 @@ function basic_font_schemes() {
 		'default' => [
 			'slug'     => 'default',
 			'name'     => $L->get( 'System Default' ),
-			'variable' => false,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '400',
-				'high'   => '700'
+				'var'    => false,
+				'weight' => '400',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '300',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '400',
-				'high'   => '700'
+			'primary' => [
+				'var'    => false,
+				'weight' => '700',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '300',
+				'space'  => '-0.015'
+			],
+			'secondary' => [
+				'var'    => false,
+				'weight' => '700',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '300',
+				'space'  => '0'
 			]
 		],
 		'sans' => [
 			'slug'     => 'sans',
 			'name'     => $L->get( 'Sans Serif' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+				'var'    => true,
+				'weight' => '400',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '800',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '-0.025'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '700',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		],
 		'serif' => [
 			'slug'     => 'serif',
 			'name'     => $L->get( 'Serif' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '200',
-				'high'   => '900'
+				'var'    => false,
+				'weight' => '400',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '300',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '200',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '550',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '-0.025'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '500',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		]
 	];
@@ -145,71 +178,158 @@ function style_font_schemes() {
 		'code' => [
 			'slug'     => 'code',
 			'name'     => $L->get( 'Code' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '200',
-				'high'   => '900'
+				'var'    => true,
+				'weight' => '400',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '200',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '700',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '700',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		],
 		'cosmo' => [
 			'slug'     => 'cosmo',
 			'name'     => $L->get( 'Cosmopolitan' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+				'var'    => true,
+				'weight' => '450',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '500',
+				'min'    => '400',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '550',
+				'min'    => '400',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		],
 		'modern' => [
 			'slug'     => 'modern',
 			'name'     => $L->get( 'Modern' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '200',
-				'high'   => '1000'
+				'var'    => true,
+				'weight' => '465',
+				'min'    => '200',
+				'max'    => '1000',
+				'step'   => '1',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '600',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0.013'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '600',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0.025'
 			]
 		],
 		'slab' => [
 			'slug'     => 'slab',
 			'name'     => $L->get( 'Slab Serif' ),
-			'variable' => true,
 			'text'     => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '400',
-				'high'   => '700'
+				'var'    => false,
+				'weight' => '400',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '300',
+				'space'  => '0'
 			],
-			'display' => [
-				'normal' => '400',
-				'bold'   => '700',
-				'low'    => '100',
-				'high'   => '900'
+			'primary' => [
+				'var'    => true,
+				'weight' => '750',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '-0.025'
+			],
+			'secondary' => [
+				'var'    => true,
+				'weight' => '800',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		]
 	];
 	return $schemes;
+}
+
+/**
+ * All font schemes
+ *
+ * Merges basic schemes and style schemes.
+ *
+ * @since  1.0.0
+ * @return array
+ */
+function font_schemes() {
+	return array_merge( basic_font_schemes(), style_font_schemes() );
+}
+
+/**
+ * Current font scheme
+ *
+ * Gets the data for the selected
+ * font scheme option value.
+ *
+ * Used to define font scheme variables.
+ *
+ * @since  1.0.0
+ * @return array Returns the font scheme data array.
+ */
+function current_font_scheme() {
+
+	// Option from database.
+	$slug = plugin()->font_scheme();
+
+	// Get font schemes.
+	$schemes = font_schemes();
+	$name    = false;
+
+	// Get all schemes.
+	foreach ( $schemes as $option => $scheme ) {
+
+		// Filter out all but the selected option.
+		if ( $slug == $scheme['slug'] ) {
+			$name = $scheme;
+		}
+	}
+	return $name;
 }

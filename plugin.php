@@ -319,6 +319,12 @@ class configureight extends Plugin {
 			'color_five_dark'        => '#888888',
 			'color_six_dark'         => '#cccccc',
 			'font_scheme'            => 'default',
+			'wght_text'              => '400',
+			'wght_primary'           => '700',
+			'wght_secondary'         => '700',
+			'space_text'             => '0',
+			'space_primary'          => '0',
+			'space_secondary'        => '0',
 			'admin_theme'            => 'css',
 			'custom_css'             => ':root {}',
 			'admin_css'              => ':root {}',
@@ -1994,6 +2000,36 @@ class configureight extends Plugin {
 	// @return string
 	public function font_scheme() {
 		return $this->getValue( 'font_scheme' );
+	}
+
+	// @return string
+	public function wght_text() {
+		return $this->getValue( 'wght_text' );
+	}
+
+	// @return string
+	public function wght_primary() {
+		return $this->getValue( 'wght_primary' );
+	}
+
+	// @return string
+	public function wght_secondary() {
+		return $this->getValue( 'wght_secondary' );
+	}
+
+	// @return string
+	public function space_text() {
+		return $this->getValue( 'space_text' );
+	}
+
+	// @return string
+	public function space_primary() {
+		return $this->getValue( 'space_primary' );
+	}
+
+	// @return string
+	public function space_secondary() {
+		return $this->getValue( 'space_secondary' );
 	}
 
 	// @return string

@@ -16,8 +16,8 @@ use function CFE_Colors\{
 	hex_to_rgb
 };
 use function CFE_Fonts\{
-	basic_font_schemes,
-	style_font_schemes
+	font_schemes,
+	current_font_scheme
 };
 
 // Color schemes.
@@ -25,10 +25,8 @@ $colors = color_schemes();
 $custom_from = $this->custom_scheme_from();
 
 // Font schemes.
-$basic_fonts = basic_font_schemes();
-$style_fonts = style_font_schemes();
-ksort( $style_fonts );
-$fonts = array_merge( $basic_fonts, $style_fonts );
+$fonts = font_schemes();
+$current_fonts = current_font_scheme();
 
 // Labels for admin theme options.
 $css_label = $L->get( 'Theme Styles' );
@@ -478,6 +476,112 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		</div>
 	</div>
 
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="wght_text"><?php $L->p( 'General Text' ); ?></label>
+		<div class="col-sm-10 row">
+
+			<p class="text-above-field"><?php $L->p( 'Font Weight' ); ?></p>
+			<div class="form-range-controls">
+
+				<span class="form-range-value rem-range-value"><span id="wght_text_value"><?php echo ( $this->getValue( 'wght_text' ) ? $this->getValue( 'wght_text' ) : $this->dbFields['wght_text'] ); ?></span></span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_text_value').html($(this).val())" id="wght_text" name="wght_text" value="<?php echo $this->getValue( 'wght_text' ); ?>" min="<?php echo $current_fonts['text']['min']; ?>" max="<?php echo $current_fonts['text']['max']; ?>" step="<?php echo $current_fonts['text']['step']; ?>" />
+
+				<input type="hidden" id="wght_text_default"  name="wght_text_default" value="<?php echo $current_fonts['text']['weight']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_text_value').text($('#wght_text_default').val() );$('#wght_text').val($('#wght_text_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small id="wght_text_desc" class="form-text">
+				<?php if ( ! $current_fonts['text']['var'] ) {
+					$L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' );
+				} else {
+					echo '';
+				} ?>
+			</small>
+
+			<p class="text-above-field"><?php $L->p( 'Letter Spacing' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="space_text_value"><?php echo ( $this->getValue( 'space_text' ) ? $this->getValue( 'space_text' ) : $current_fonts['text']['space'] ); ?></span>em</span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_text_value').html($(this).val())" id="space_text" name="space_text" value="<?php echo $this->getValue( 'space_text' ); ?>" min="-0.100" max="0.150" step="0.001" />
+
+				<input type="hidden" id="space_text_default"  name="space_text_default" value="<?php echo $current_fonts['text']['space']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_text_value').text($('#space_text_default').val() );$('#space_text').val($('#space_text_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="wght_primary"><?php $L->p( 'Primary Headings' ); ?></label>
+		<div class="col-sm-10 row">
+
+			<p class="text-above-field"><?php $L->p( 'Font Weight' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="wght_primary_value"><?php echo ( $this->getValue( 'wght_primary' ) ? $this->getValue( 'wght_primary' ) : $this->dbFields['wght_primary'] ); ?></span></span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_primary_value').html($(this).val())" id="wght_primary" name="wght_primary" value="<?php echo $this->getValue( 'wght_primary' ); ?>" min="<?php echo $current_fonts['primary']['min']; ?>" max="<?php echo $current_fonts['primary']['max']; ?>" step="<?php echo $current_fonts['primary']['step']; ?>" />
+
+				<input type="hidden" id="wght_primary_default"  name="wght_primary_default" value="<?php echo $current_fonts['primary']['weight']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_primary_value').text($('#wght_primary_default').val() );$('#wght_primary').val($('#wght_primary_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small id="wght_primary_desc" class="form-text">
+				<?php if ( ! $current_fonts['primary']['var'] ) {
+					$L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' );
+				} else {
+					echo '';
+				} ?>
+			</small>
+
+			<p class="text-above-field"><?php $L->p( 'Letter Spacing' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="space_primary_value"><?php echo ( $this->getValue( 'space_primary' ) ? $this->getValue( 'space_primary' ) : $current_fonts['primary']['space'] ); ?></span>em</span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_primary_value').html($(this).val())" id="space_primary" name="space_primary" value="<?php echo $this->getValue( 'space_primary' ); ?>" min="-0.100" max="0.150" step="0.001" />
+
+				<input type="hidden" id="space_primary_default"  name="space_primary_default" value="<?php echo $current_fonts['primary']['space']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_primary_value').text($('#space_primary_default').val() );$('#space_primary').val($('#space_primary_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="wght_secondary"><?php $L->p( 'Secondary Headings' ); ?></label>
+		<div class="col-sm-10 row">
+
+			<p class="text-above-field"><?php $L->p( 'Font Weight' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="wght_secondary_value"><?php echo ( $this->getValue( 'wght_secondary' ) ? $this->getValue( 'wght_secondary' ) : $this->dbFields['wght_secondary'] ); ?></span></span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_secondary_value').html($(this).val())" id="wght_secondary" name="wght_secondary" value="<?php echo $this->getValue( 'wght_secondary' ); ?>" min="<?php echo $current_fonts['secondary']['min']; ?>" max="<?php echo $current_fonts['secondary']['max']; ?>" step="<?php echo $current_fonts['secondary']['step']; ?>" />
+
+				<input type="hidden" id="wght_secondary_default"  name="wght_secondary_default" value="<?php echo $current_fonts['secondary']['weight']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_secondary_value').text($('#wght_secondary_default').val() );$('#wght_secondary').val($('#wght_secondary_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small id="wght_secondary_desc" class="form-text">
+				<?php if ( ! $current_fonts['secondary']['var'] ) {
+					$L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' );
+				} else {
+					echo '';
+				} ?>
+			</small>
+
+			<p class="text-above-field"><?php $L->p( 'Letter Spacing' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="space_secondary_value"><?php echo ( $this->getValue( 'space_secondary' ) ? $this->getValue( 'space_secondary' ) : $current_fonts['secondary']['space'] ); ?></span>em</span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_secondary_value').html($(this).val())" id="space_secondary" name="space_secondary" value="<?php echo $this->getValue( 'space_secondary' ); ?>" min="-0.100" max="0.150" step="0.001" />
+
+				<input type="hidden" id="space_secondary_default"  name="space_secondary_default" value="<?php echo $current_fonts['secondary']['space']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_secondary_value').text($('#space_secondary_default').val() );$('#space_secondary').val($('#space_secondary_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+		</div>
+	</div>
+
 	<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Theme' ) ] ); ?>
 
 	<div class="form-field form-group row">
@@ -535,23 +639,25 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 <script>
 jQuery(document).ready( function($) {
 	$( '#color_scheme' ).on( 'change', function() {
-		var show = $(this).val();
+		var scheme = $(this).val();
 
 		<?php foreach ( $colors as $color => $option ) :
 
 			$slug = $option['slug'];
 		?>
-		if ( show == '<?php echo $slug; ?>' ) {
+		if ( scheme == '<?php echo $slug; ?>' ) {
 
-			if ( 'custom' != show ) {
+			if ( 'custom' != scheme ) {
 				$( '#custom_scheme_from' ).val( '<?php echo $slug; ?>' );
 			}
 
+			// Custom scheme labels and color thumbnails.
 			$( '#light_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
 			$( '#dark_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
 			$( '#light_scheme_thumbs_<?php echo $slug; ?>' ).css( 'display', 'flex' );
 			$( '#dark_scheme_thumbs_<?php echo $slug; ?>' ).css( 'display', 'flex' );
 
+			// Custom scheme light colors.
 			$( '#color_body' ).val( '<?php echo $option['light']['body']; ?>' );
 			$( '#color_text' ).val( '<?php echo $option['light']['text']; ?>' );
 			$( '#color_one' ).val( '<?php echo $option['light']['one']; ?>' );
@@ -564,6 +670,7 @@ jQuery(document).ready( function($) {
 			$( '#loader_bg_color' ).val( '<?php echo $option['light']['body']; ?>' );
 			$( '#loader_text_color' ).val( '<?php echo $option['light']['text']; ?>' );
 
+			// Custom scheme dark colors.
 			$( '#color_body_dark' ).val( '<?php echo $option['dark']['body']; ?>' );
 			$( '#color_text_dark' ).val( '<?php echo $option['dark']['text']; ?>' );
 			$( '#color_one_dark' ).val( '<?php echo $option['dark']['one']; ?>' );
@@ -576,13 +683,15 @@ jQuery(document).ready( function($) {
 			$( '#loader_bg_color_dark' ).val( '<?php echo $option['dark']['body']; ?>' );
 			$( '#loader_text_color_dark' ).val( '<?php echo $option['dark']['text']; ?>' );
 
-			if ( 'default' != show ) {
+			if ( 'default' != scheme ) {
 				$( '#cover_blend' ).val( '<?php echo ( isset( $option['cover'] ) ? $option['cover'] : $option['light']['three'] ); ?>' );
 			} else {
 				$( '#cover_blend' ).val( '<?php echo $this->dbFields['cover_blend']; ?>' );
 			}
 
 		} else {
+
+			// Scheme labels and color thumbnails.
 			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
@@ -592,10 +701,68 @@ jQuery(document).ready( function($) {
 	});
 
 	$( '#font_scheme' ).on( 'change', function() {
-		var show = $(this).val();
+		var scheme = $(this).val();
 
 		<?php foreach ( $fonts as $font => $scheme ) : ?>
-		if ( show == '<?php echo $scheme['slug']; ?>' ) {
+		if ( scheme == '<?php echo $scheme['slug']; ?>' ) {
+
+			// General text weight.
+			$( '#wght_text' ).val( '<?php echo $scheme['text']['weight']; ?>' );
+			$( '#wght_text_default' ).val( '<?php echo $scheme['text']['weight']; ?>' );
+			$( '#wght_text_value' ).html( '<?php echo $scheme['text']['weight']; ?>' );
+			$( '#wght_text' ).attr( 'min', '<?php echo $scheme['text']['min']; ?>' );
+			$( '#wght_text' ).attr( 'max', '<?php echo $scheme['text']['max']; ?>' );
+			$( '#wght_text' ).attr( 'step', '<?php echo $scheme['text']['step']; ?>' );
+			if ( true == '<?php echo $scheme['text']['var']; ?>' ) {
+				$( '#wght_text_desc' ).html( '' );
+			} else {
+				$( '#wght_text_desc' ).html( '<?php $L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' ); ?>' );
+			}
+
+			// General text letter spacing.
+			$( '#space_text' ).val( '<?php echo $scheme['text']['space']; ?>' );
+			$( '#space_text_default' ).val( '<?php echo $scheme['text']['space']; ?>' );
+			$( '#space_text_value' ).html( '<?php echo $scheme['text']['space']; ?>' );
+
+			// Primary headings weight.
+			$( '#wght_primary' ).val( '<?php echo $scheme['primary']['weight']; ?>' );
+			$( '#wght_primary_default' ).val( '<?php echo $scheme['primary']['weight']; ?>' );
+			$( '#wght_primary_value' ).html( '<?php echo $scheme['primary']['weight']; ?>' );
+			$( '#wght_primary' ).attr( 'min', '<?php echo $scheme['primary']['min']; ?>' );
+			$( '#wght_primary' ).attr( 'max', '<?php echo $scheme['primary']['max']; ?>' );
+			$( '#wght_primary' ).attr( 'step', '<?php echo $scheme['primary']['step']; ?>' );
+			if ( true == '<?php echo $scheme['primary']['var']; ?>' ) {
+				$( '#wght_primary_desc' ).html( '' );
+			} else {
+				$( '#wght_primary_desc' ).html( '<?php $L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' ); ?>' );
+			}
+
+			// Primary headings letter spacing.
+			$( '#space_primary' ).val( '<?php echo $scheme['primary']['space']; ?>' );
+			$( '#space_primary_default' ).val( '<?php echo $scheme['primary']['space']; ?>' );
+			$( '#space_primary_value' ).html( '<?php echo $scheme['primary']['space']; ?>' );
+
+			// Secondary headings weight.
+			$( '#wght_secondary' ).val( '<?php echo $scheme['secondary']['weight']; ?>' );
+			$( '#wght_secondary_default' ).val( '<?php echo $scheme['secondary']['weight']; ?>' );
+			$( '#wght_secondary_value' ).html( '<?php echo $scheme['secondary']['weight']; ?>' );
+			$( '#wght_secondary' ).attr( 'min', '<?php echo $scheme['secondary']['min']; ?>' );
+			$( '#wght_secondary' ).attr( 'max', '<?php echo $scheme['secondary']['max']; ?>' );
+			$( '#wght_secondary' ).attr( 'step', '<?php echo $scheme['secondary']['step']; ?>' );
+			if ( true == '<?php echo $scheme['secondary']['var']; ?>' ) {
+				$( '#wght_secondary_desc' ).html( '' );
+			} else {
+				$( '#wght_secondary_desc' ).html( '<?php $L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' ); ?>' );
+			}
+
+			// Secondary headings letter spacing.
+			$( '#space_secondary' ).val( '<?php echo $scheme['secondary']['space']; ?>' );
+			$( '#space_secondary_default' ).val( '<?php echo $scheme['secondary']['space']; ?>' );
+			$( '#space_secondary_value' ).html( '<?php echo $scheme['secondary']['space']; ?>' );
+		}
+
+		// Scheme preview.
+		if ( scheme == '<?php echo $scheme['slug']; ?>' ) {
 			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'block' );
 		} else {
 			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'none' );

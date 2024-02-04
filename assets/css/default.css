@@ -538,6 +538,10 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   flex-wrap: nowrap;
 }
 
+.text-above-field {
+  margin: 0.5rem 0;
+}
+
 .upload-album-empty {
   width: 100%;
   min-height: 160px;

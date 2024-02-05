@@ -78,6 +78,7 @@ function basic_font_schemes() {
 			'slug'     => 'default',
 			'name'     => $L->get( 'System Default' ),
 			'text'     => [
+				'family' => $L->get( 'System sans-serif stack' ),
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -86,6 +87,7 @@ function basic_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => $L->get( 'System sans-serif stack' ),
 				'var'    => false,
 				'weight' => '700',
 				'min'    => '100',
@@ -94,6 +96,7 @@ function basic_font_schemes() {
 				'space'  => '-0.015'
 			],
 			'secondary' => [
+				'family' => $L->get( 'System sans-serif stack' ),
 				'var'    => false,
 				'weight' => '700',
 				'min'    => '100',
@@ -106,6 +109,7 @@ function basic_font_schemes() {
 			'slug'     => 'sans',
 			'name'     => $L->get( 'Sans Serif' ),
 			'text'     => [
+				'family' => 'Inter',
 				'var'    => true,
 				'weight' => '385',
 				'min'    => '100',
@@ -114,6 +118,7 @@ function basic_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Inter',
 				'var'    => true,
 				'weight' => '800',
 				'min'    => '100',
@@ -122,6 +127,7 @@ function basic_font_schemes() {
 				'space'  => '-0.025'
 			],
 			'secondary' => [
+				'family' => 'Inter',
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '100',
@@ -134,6 +140,7 @@ function basic_font_schemes() {
 			'slug'     => 'serif',
 			'name'     => $L->get( 'Serif' ),
 			'text'     => [
+				'family' => $L->get( 'System serif stack' ),
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -142,6 +149,7 @@ function basic_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Crimson Pro',
 				'var'    => true,
 				'weight' => '550',
 				'min'    => '200',
@@ -150,6 +158,7 @@ function basic_font_schemes() {
 				'space'  => '-0.025'
 			],
 			'secondary' => [
+				'family' => 'Crimson Pro',
 				'var'    => true,
 				'weight' => '500',
 				'min'    => '200',
@@ -179,6 +188,7 @@ function style_font_schemes() {
 			'slug'     => 'code',
 			'name'     => $L->get( 'Code' ),
 			'text'     => [
+				'family' => 'Source Code Pro',
 				'var'    => true,
 				'weight' => '400',
 				'min'    => '200',
@@ -187,6 +197,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Source Code Pro',
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '200',
@@ -195,6 +206,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'secondary' => [
+				'family' => 'Source Code Pro',
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '200',
@@ -207,6 +219,7 @@ function style_font_schemes() {
 			'slug'     => 'cosmo',
 			'name'     => $L->get( 'Cosmopolitan' ),
 			'text'     => [
+				'family' => 'Raleway',
 				'var'    => true,
 				'weight' => '450',
 				'min'    => '100',
@@ -215,6 +228,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Playfair',
 				'var'    => true,
 				'weight' => '500',
 				'min'    => '400',
@@ -223,6 +237,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'secondary' => [
+				'family' => 'Playfair',
 				'var'    => true,
 				'weight' => '550',
 				'min'    => '400',
@@ -235,6 +250,7 @@ function style_font_schemes() {
 			'slug'     => 'modern',
 			'name'     => $L->get( 'Modern' ),
 			'text'     => [
+				'family' => 'Nunito Sans',
 				'var'    => true,
 				'weight' => '465',
 				'min'    => '200',
@@ -243,6 +259,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Montserrat',
 				'var'    => true,
 				'weight' => '600',
 				'min'    => '100',
@@ -251,6 +268,7 @@ function style_font_schemes() {
 				'space'  => '0.013'
 			],
 			'secondary' => [
+				'family' => 'Montserrat',
 				'var'    => true,
 				'weight' => '600',
 				'min'    => '100',
@@ -263,6 +281,7 @@ function style_font_schemes() {
 			'slug'     => 'slab',
 			'name'     => $L->get( 'Slab Serif' ),
 			'text'     => [
+				'family' => $L->get( 'System sans-serif stack' ),
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -271,6 +290,7 @@ function style_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
+				'family' => 'Rokkitt',
 				'var'    => true,
 				'weight' => '750',
 				'min'    => '100',
@@ -279,6 +299,7 @@ function style_font_schemes() {
 				'space'  => '-0.025'
 			],
 			'secondary' => [
+				'family' => 'Rokkitt',
 				'var'    => true,
 				'weight' => '800',
 				'min'    => '100',

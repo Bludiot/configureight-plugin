@@ -461,16 +461,22 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			<?php foreach ( $fonts as $option => $scheme ) {
 
 				$preview = $this->phpPath() . "/assets/images/font-preview-{$scheme['slug']}.svg";
-				if ( file_exists( $preview ) ) {
-					printf(
-						'<!-- %s %s --><li id="font-scheme-preview-%s" style="display: %s;">%s</li>' . "\r",
-						$L->get( 'Font scheme preview:' ),
-						ucwords( $scheme['name'] ),
+				printf(
+					'<!-- %s %s --><li id="font-scheme-preview-%s" style="display: %s;">%s%s</li>' . "\r",
+					$L->get( 'Font scheme preview:' ),
+					ucwords( $scheme['name'] ),
+					$scheme['slug'],
+					( $this->getValue( 'font_scheme' ) === $scheme['slug'] ? 'block' : 'none' ),
+					( file_exists( $preview ) ? file_get_contents( $preview ) : '' ),
+					sprintf(
+						'<p id="font-preview-families-%s">%s %s<br />%s %s</p>',
 						$scheme['slug'],
-						( $this->getValue( 'font_scheme' ) === $scheme['slug'] ? 'block' : 'none' ),
-						file_get_contents( $preview )
-					);
-				}
+						$L->get( 'General font:' ),
+						$scheme['text']['family'],
+						$L->get( 'Display font:' ),
+						$scheme['primary']['family'],
+					)
+				);
 			} ?>
 			</ul>
 		</div>

@@ -37,6 +37,9 @@ if ( admin_theme() ) {
 // Color schemes page URL.
 $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
+// Font schemes page URL.
+$fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
+
 ?>
 
 <?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Layout Options' ) ] ); ?>
@@ -479,6 +482,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				);
 			} ?>
 			</ul>
+			<p class="m-0"><?php $L->p( "Go to the <a href='{$fonts_page}'>font scheme reference</a> page." ); ?></p>
 		</div>
 	</div>
 

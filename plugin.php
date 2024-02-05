@@ -895,6 +895,8 @@ class configureight extends Plugin {
 			include( $this->phpPath() . '/views/page-database.php' );
 		} elseif ( isset( $_GET['page'] ) && 'colors' == $_GET['page'] ) {
 			include( $this->phpPath() . '/views/page-colors.php' );
+		} elseif ( isset( $_GET['page'] ) && 'fonts' == $_GET['page'] ) {
+			include( $this->phpPath() . '/views/page-fonts.php' );
 		} else {
 			include( $this->phpPath() . '/views/page-guide.php' );
 		}

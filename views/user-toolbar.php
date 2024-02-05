@@ -23,6 +23,11 @@ if ( str_contains( $url->slug(), 'edit-content' ) ) {
 	$view_page = DOMAIN_BASE . $view_slug;
 }
 
+$view_text = '';
+if ( str_contains( $url->slug(), 'edit-content' ) ) {
+	$view_text = ( $page->isStatic() ? $L->get( 'View Page' ) : $L->get( 'View Post' ) );
+}
+
 // Get a username or fallback.
 $user = new User( Session :: get( 'username' ) );
 $name = $L->get( 'profile-link-default' );
@@ -109,7 +114,7 @@ if ( $user->profilePicture() ) {
 
 					<?php if ( str_contains( $url->slug(), 'edit-content' ) ) : ?>
 					<li class="top-level-item">
-						<a href="<?php echo $view_page; ?>"><?php $L->p( 'View Page ' ); ?></a>
+						<a href="<?php echo $view_page; ?>"><?php echo $view_text; ?></a>
 					</li>
 					<?php endif; ?>
 				</ul>
@@ -117,7 +122,7 @@ if ( $user->profilePicture() ) {
 
 			<?php if ( str_contains( $url->slug(), 'edit-content' ) ) : ?>
 			<li class="top-level-item">
-				<a href="<?php echo $view_page; ?>"><?php $L->p( 'View Page' ); ?></a>
+				<a href="<?php echo $view_page; ?>"><?php echo $view_text; ?></a>
 			</li>
 			<?php endif; ?>
 

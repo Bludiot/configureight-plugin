@@ -1058,6 +1058,16 @@ class configureight extends Plugin {
 		];
 		$merged_fields = array_merge( $gallery_field, $cover_field );
 
+		// Read more field.
+		$more_field = [
+			'read_more' => [
+				'type'  => 'string',
+				'label' => $L->get( 'Read More' ),
+				'tip'   => $L->get( 'Text used if this content is linked in the front page slider or when abbreviated in some contexts.' )
+			]
+		];
+		$merged_fields = array_merge( $merged_fields, $more_field );
+
 		// Get custom fields data.
 		$custom_fields = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
 		$decode_fields = json_decode( $custom_fields, true );
@@ -1065,6 +1075,7 @@ class configureight extends Plugin {
 		// Unset custom fields to override if changes.
 		unset( $decode_fields['random_cover'] );
 		unset( $decode_fields['page_gallery'] );
+		unset( $decode_fields['read_more'] );
 
 		// Set custom fields.
 		$custom_fields = array_merge( $merged_fields, $decode_fields );

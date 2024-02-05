@@ -107,7 +107,7 @@ function basic_font_schemes() {
 			'name'     => $L->get( 'Sans Serif' ),
 			'text'     => [
 				'var'    => true,
-				'weight' => '400',
+				'weight' => '385',
 				'min'    => '100',
 				'max'    => '900',
 				'step'   => '1',

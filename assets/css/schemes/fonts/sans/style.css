@@ -14,12 +14,14 @@
 }
 :root {
   --cfe-body--font-family: Inter, Helvetica Neue, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --cfe-body--font-weight: 385;
   --cfe-loader--text--font-size: 1.5rem;
   --cfe-loader--text--font-weight: 700;
   --cfe-heading-primary--font-family: Inter, Helvetica Neue, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-heading-primary--font-size: 2rem;
   --cfe-heading-primary--font-weight: 800;
   --cfe-heading-primary--letter-spacing: -0.025em;
+  --cfe-heading-secondary--letter-spacing: -0.02em;
   --cfe-site-title--font-size: 1.75rem;
   --cfe-site-title--font-weight: 800;
   --cfe-site-title--letter-spacing: normal;

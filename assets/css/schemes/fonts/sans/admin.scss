@@ -24,6 +24,7 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 
 	// Body & general text.
 	--cfe-body--font-family: #{$inter_stack};
+	--cfe-body--font-weight: 385;
 	--cfe-loader--text--font-size: 1.5rem;
 	--cfe-loader--text--font-weight: 700;
 
@@ -32,6 +33,7 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 800;
 	--cfe-heading-primary--letter-spacing: -0.025em;
+	--cfe-heading-secondary--letter-spacing: -0.02em;
 
 	// Tabbed content.
 	--cfe-tabs--list--link--font-size: 0.9375rem;

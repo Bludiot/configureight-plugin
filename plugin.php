@@ -126,17 +126,17 @@ class configureight extends Plugin {
 	 */
 	public function autoload() {
 
-		// Plugin path.
-		$path = PATH_PLUGINS . __CLASS__ . DS;
+		// Path to class files.
+		$path = PATH_PLUGINS . __CLASS__ . DS . 'includes/classes' . DS;
 
 		// Array of namespaced classes & filenames.
 		$classes = [
-			'CFE_Classes\Image_Upload'    => $path . 'includes/classes/class-image-upload.php',
-			'CFE_Classes\Bookmark_Images' => $path . 'includes/classes/class-bookmark-images.php',
-			'CFE_Classes\Bookmark_Album'  => $path . 'includes/classes/class-bookmark-album.php',
-			'CFE_Classes\Cover_Images'    => $path . 'includes/classes/class-cover-images.php',
-			'CFE_Classes\Cover_Album'     => $path . 'includes/classes/class-cover-album.php',
-			'CFE_Classes\Image_Album'     => $path . 'includes/classes/class-image-album.php'
+			'CFE_Classes\Image_Upload'    => $path . 'class-image-upload.php',
+			'CFE_Classes\Bookmark_Images' => $path . 'class-bookmark-images.php',
+			'CFE_Classes\Bookmark_Album'  => $path . 'class-bookmark-album.php',
+			'CFE_Classes\Cover_Images'    => $path . 'class-cover-images.php',
+			'CFE_Classes\Cover_Album'     => $path . 'class-cover-album.php',
+			'CFE_Classes\Image_Album'     => $path . 'class-image-album.php'
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {

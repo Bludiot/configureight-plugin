@@ -119,7 +119,7 @@ echo '<ul class="font-list">';
 		( '0' === plugin()->space_text() ? 'normal' : plugin()->space_text() )
 	);
 	printf(
-		'<li><span class="font-list-label">%s</span> %s</li>',
+		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 		$L->get( 'Font Stack:' ),
 		$current['text']['stack']
 	);
@@ -168,7 +168,7 @@ echo '<ul class="font-list">';
 		( '0' === plugin()->space_primary() ? 'normal' : plugin()->space_primary() )
 	);
 	printf(
-		'<li><span class="font-list-label">%s</span> %s</li>',
+		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 		$L->get( 'Font Stack:' ),
 		$current['primary']['stack']
 	);
@@ -217,7 +217,7 @@ echo '<ul class="font-list">';
 		( '0' === plugin()->space_secondary() ? 'normal' : plugin()->space_secondary() )
 	);
 	printf(
-		'<li><span class="font-list-label">%s</span> %s</li>',
+		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 		$L->get( 'Font Stack:' ),
 		$current['secondary']['stack']
 	);
@@ -272,7 +272,7 @@ foreach ( $schemes as $scheme => $option ) {
 			( '0' === $option['text']['space'] ? 'normal' : $option['text']['space'] )
 		);
 		printf(
-			'<li><span class="font-list-label">%s</span> %s</li>',
+			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
 			$option['text']['stack']
 		);
@@ -311,7 +311,7 @@ foreach ( $schemes as $scheme => $option ) {
 			( '0' === $option['primary']['space'] ? 'normal' : $option['primary']['space'] )
 		);
 		printf(
-			'<li><span class="font-list-label">%s</span> %s</li>',
+			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
 			$option['primary']['stack']
 		);
@@ -350,7 +350,7 @@ foreach ( $schemes as $scheme => $option ) {
 			( '0' === $option['secondary']['space'] ? 'normal' : $option['secondary']['space'] )
 		);
 		printf(
-			'<li><span class="font-list-label">%s</span> %s</li>',
+			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
 			$option['secondary']['stack']
 		);

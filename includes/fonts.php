@@ -78,7 +78,8 @@ function basic_font_schemes() {
 			'slug'     => 'default',
 			'name'     => $L->get( 'System Default' ),
 			'text'     => [
-				'family' => $L->get( 'System sans-serif stack' ),
+				'family' => $L->get( 'Sans-Serif' ),
+				'stack'  => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -87,7 +88,8 @@ function basic_font_schemes() {
 				'space'  => '0'
 			],
 			'primary' => [
-				'family' => $L->get( 'System sans-serif stack' ),
+				'family' => $L->get( 'Sans-Serif' ),
+				'stack'  => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '700',
 				'min'    => '100',
@@ -96,7 +98,8 @@ function basic_font_schemes() {
 				'space'  => '-0.015'
 			],
 			'secondary' => [
-				'family' => $L->get( 'System sans-serif stack' ),
+				'family' => $L->get( 'Sans-Serif' ),
+				'stack'  => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '700',
 				'min'    => '100',
@@ -110,6 +113,7 @@ function basic_font_schemes() {
 			'name'     => $L->get( 'Sans Serif' ),
 			'text'     => [
 				'family' => 'Inter',
+				'stack'  => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '385',
 				'min'    => '100',
@@ -119,6 +123,7 @@ function basic_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Inter',
+				'stack'  => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '800',
 				'min'    => '100',
@@ -128,6 +133,7 @@ function basic_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Inter',
+				'stack'  => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '100',
@@ -140,7 +146,8 @@ function basic_font_schemes() {
 			'slug'     => 'serif',
 			'name'     => $L->get( 'Serif' ),
 			'text'     => [
-				'family' => $L->get( 'System serif stack' ),
+				'family' => $L->get( 'Serif' ),
+				'stack'  => "Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -150,6 +157,7 @@ function basic_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Crimson Pro',
+				'stack'  => "'Crimson Pro', Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '550',
 				'min'    => '200',
@@ -159,6 +167,7 @@ function basic_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Crimson Pro',
+				'stack'  => "'Crimson Pro', Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '500',
 				'min'    => '200',
@@ -189,6 +198,7 @@ function style_font_schemes() {
 			'name'     => $L->get( 'Code' ),
 			'text'     => [
 				'family' => 'Source Code Pro',
+				'stack'  => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '400',
 				'min'    => '200',
@@ -198,6 +208,7 @@ function style_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Source Code Pro',
+				'stack'  => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '200',
@@ -207,6 +218,7 @@ function style_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Source Code Pro',
+				'stack'  => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '700',
 				'min'    => '200',
@@ -220,6 +232,7 @@ function style_font_schemes() {
 			'name'     => $L->get( 'Cosmopolitan' ),
 			'text'     => [
 				'family' => 'Raleway',
+				'stack'  => "'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '450',
 				'min'    => '100',
@@ -229,6 +242,7 @@ function style_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Playfair',
+				'stack'  => "'Playfair', 'Hoefler Text', 'Baskerville Old Face', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '500',
 				'min'    => '400',
@@ -238,6 +252,7 @@ function style_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Playfair',
+				'stack'  => "'Playfair', 'Hoefler Text', 'Baskerville Old Face', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '550',
 				'min'    => '400',
@@ -251,6 +266,7 @@ function style_font_schemes() {
 			'name'     => $L->get( 'Modern' ),
 			'text'     => [
 				'family' => 'Nunito Sans',
+				'stack'  => "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '465',
 				'min'    => '200',
@@ -260,6 +276,7 @@ function style_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Montserrat',
+				'stack'  => "'Montserrat', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '600',
 				'min'    => '100',
@@ -269,6 +286,7 @@ function style_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Montserrat',
+				'stack'  => "'Montserrat', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '600',
 				'min'    => '100',
@@ -281,7 +299,8 @@ function style_font_schemes() {
 			'slug'     => 'slab',
 			'name'     => $L->get( 'Slab Serif' ),
 			'text'     => [
-				'family' => $L->get( 'System sans-serif stack' ),
+				'family' => $L->get( 'Sans-Serif' ),
+				'stack'  => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '400',
 				'min'    => '100',
@@ -291,6 +310,7 @@ function style_font_schemes() {
 			],
 			'primary' => [
 				'family' => 'Rokkitt',
+				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '750',
 				'min'    => '100',
@@ -300,6 +320,7 @@ function style_font_schemes() {
 			],
 			'secondary' => [
 				'family' => 'Rokkitt',
+				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '800',
 				'min'    => '100',

@@ -232,7 +232,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			<label class="form-label col-sm-2 col-form-label" for="slider_link_text"><?php $L->p( 'Link Text' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="slider_link_text" name="slider_link_text" value="<?php echo $this->getValue( 'slider_link_text' ); ?>" placeholder="<?php $L->p( 'Read More' ); ?>" />
-				<small class="form-text"><?php $L->p( 'The slide text to display for the link to the content.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The slide text to display for the link to the content if not set in the content\'s custom field.' ); ?></small>
 			</div>
 		</div>
 	</div>

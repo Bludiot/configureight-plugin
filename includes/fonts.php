@@ -376,6 +376,12 @@ function current_font_scheme() {
 	return $name;
 }
 
+/**
+ * Admin font options
+ *
+ * @since  1.0.0
+ * @return string Returns a style block.
+ */
 function admin_font_options() {
 
 	$style  = "\n" . '<style>:root{';

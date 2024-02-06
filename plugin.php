@@ -1044,7 +1044,7 @@ class configureight extends Plugin {
 			'random_cover' => [
 				'type'  => 'bool',
 				'label' => $L->get( 'Random Cover' ),
-				'tip'   => $L->get( 'Display a random cover image from images uploaded to this page.' )
+				'tip'   => $L->get( 'Display a random cover image from images uploaded to this page. Requires no cover image set.' )
 			]
 		];
 

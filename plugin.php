@@ -76,7 +76,7 @@ class configureight extends Plugin {
 	 * @access private
 	 * @var    string
 	 */
-	private $storageRoot = 'configureight';
+	private $storage_root = 'configureight';
 
 	/**
 	 * Cache age
@@ -426,7 +426,7 @@ class configureight extends Plugin {
 			$this->db[$key] = $value;
 		}
 
-		$storage = PATH_CONTENT . $this->storageRoot . DS;
+		$storage = PATH_CONTENT . $this->storage_root . DS;
 		if ( ! file_exists( $storage ) ) {
 			Filesystem :: mkdir( $storage, true );
 		}
@@ -2228,8 +2228,8 @@ class configureight extends Plugin {
 		// Get icon field value.
 		$icon   = $this->site_favicon();
 		$icon   = $icon[0];
-		$album  = PATH_CONTENT . $this->storageRoot . DS . 'bookmark' . DS . $icon;
-		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/bookmark/' . $icon;
+		$album  = PATH_CONTENT . $this->storage_root . DS . 'bookmark' . DS . $icon;
+		$option = $site->url() . 'bl-content/' . $this->storage_root . '/bookmark/' . $icon;
 
 		if ( $icon && ! file_exists( $album ) ) {
 			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
@@ -2309,8 +2309,8 @@ class configureight extends Plugin {
 
 		// Get cover field value.
 		$cover  = $this->random_cover_image();
-		$album  = PATH_CONTENT . $this->storageRoot . DS . 'cover' . DS . $cover;
-		$option = $site->url() . 'bl-content/' . $this->storageRoot . '/cover/' . $cover;
+		$album  = PATH_CONTENT . $this->storage_root . DS . 'cover' . DS . $cover;
+		$option = $site->url() . 'bl-content/' . $this->storage_root . '/cover/' . $cover;
 
 		if ( $cover && ! file_exists( $album ) && 'page' == $url->whereAmI() ) {
 			return $cover;

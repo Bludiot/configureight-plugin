@@ -39,8 +39,8 @@ $action      = $_POST['action']; // @todo some protection.
 $success     = false;
 $pluginPath  = dirname( pathinfo( __FILE__, PATHINFO_DIRNAME ) );
 $basePath    = dirname( __FILE__, 4 ); // CMS base.
-$storageRoot = 'configureight';
-$storage     = $basePath . DS . 'bl-content' . DS . $storageRoot;
+$storage_root = 'configureight';
+$storage     = $basePath . DS . 'bl-content' . DS . $storage_root;
 $configFile  = $basePath . DS . 'bl-content' . DS . 'databases' . DS . 'plugins' . DS . 'configureight' . DS . 'db.php';
 
 // load helpers.

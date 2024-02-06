@@ -32,7 +32,7 @@ class Bookmark_Images {
 	 * @access protected
 	 * @var    string
 	 */
-	protected $storageRoot = 'configureight';
+	protected $storage_root = 'configureight';
 
 	/**
 	 * Cache age
@@ -119,7 +119,7 @@ class Bookmark_Images {
 		global $site;
 
 		$url = $this->addSlash( $site->url(), true );
-		$path = $url . 'bl-content/' . $this->storageRoot . '/' . $album;
+		$path = $url . 'bl-content/' . $this->storage_root . '/' . $album;
 
 		return $this->addSlash( $path, true );
 	}
@@ -133,7 +133,7 @@ class Bookmark_Images {
 	 * @return string
 	 */
 	protected function storage( $album ) {
-		$path = PATH_CONTENT . $this->storageRoot . DS . $album;
+		$path = PATH_CONTENT . $this->storage_root . DS . $album;
 		return $this->addSlash( $path );
 	}
 

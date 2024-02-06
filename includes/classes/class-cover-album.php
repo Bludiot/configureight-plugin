@@ -122,8 +122,8 @@ class Cover_Album extends Cover_Images {
 
 			$count++;
 
-			$cover = PATH_CONTENT . $this->storageRoot . DS . $album . DS . 'cache' . DS . 'large' . DS . $image;
-			$thumb = PATH_CONTENT . $this->storageRoot . DS . $album . DS . 'cache' . DS . 'thumb' . DS . $image;
+			$cover = PATH_CONTENT . $this->storage_root . DS . $album . DS . 'cache' . DS . 'large' . DS . $image;
+			$thumb = PATH_CONTENT . $this->storage_root . DS . $album . DS . 'cache' . DS . 'thumb' . DS . $image;
 
 			$html .= sprintf(
 				'<li class="upload-form-album image-upload-item" id="cover-image-%s">',

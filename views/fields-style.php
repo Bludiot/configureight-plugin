@@ -717,12 +717,12 @@ jQuery(document).ready( function($) {
 		if ( scheme == '<?php echo $scheme['slug']; ?>' ) {
 
 			// General text weight.
-			$( '#wght_text' ).val( '<?php echo $scheme['text']['weight']; ?>' );
 			$( '#wght_text_default' ).val( '<?php echo $scheme['text']['weight']; ?>' );
 			$( '#wght_text_value' ).html( '<?php echo $scheme['text']['weight']; ?>' );
 			$( '#wght_text' ).attr( 'min', '<?php echo $scheme['text']['min']; ?>' );
 			$( '#wght_text' ).attr( 'max', '<?php echo $scheme['text']['max']; ?>' );
 			$( '#wght_text' ).attr( 'step', '<?php echo $scheme['text']['step']; ?>' );
+			$( '#wght_text' ).val( '<?php echo $scheme['text']['weight']; ?>' );
 			if ( true == '<?php echo $scheme['text']['var']; ?>' ) {
 				$( '#wght_text_desc' ).html( '' );
 			} else {
@@ -735,12 +735,12 @@ jQuery(document).ready( function($) {
 			$( '#space_text_value' ).html( '<?php echo $scheme['text']['space']; ?>' );
 
 			// Primary headings weight.
-			$( '#wght_primary' ).val( '<?php echo $scheme['primary']['weight']; ?>' );
 			$( '#wght_primary_default' ).val( '<?php echo $scheme['primary']['weight']; ?>' );
 			$( '#wght_primary_value' ).html( '<?php echo $scheme['primary']['weight']; ?>' );
 			$( '#wght_primary' ).attr( 'min', '<?php echo $scheme['primary']['min']; ?>' );
 			$( '#wght_primary' ).attr( 'max', '<?php echo $scheme['primary']['max']; ?>' );
 			$( '#wght_primary' ).attr( 'step', '<?php echo $scheme['primary']['step']; ?>' );
+			$( '#wght_primary' ).val( '<?php echo $scheme['primary']['weight']; ?>' );
 			if ( true == '<?php echo $scheme['primary']['var']; ?>' ) {
 				$( '#wght_primary_desc' ).html( '' );
 			} else {
@@ -753,12 +753,12 @@ jQuery(document).ready( function($) {
 			$( '#space_primary_value' ).html( '<?php echo $scheme['primary']['space']; ?>' );
 
 			// Secondary headings weight.
-			$( '#wght_secondary' ).val( '<?php echo $scheme['secondary']['weight']; ?>' );
 			$( '#wght_secondary_default' ).val( '<?php echo $scheme['secondary']['weight']; ?>' );
 			$( '#wght_secondary_value' ).html( '<?php echo $scheme['secondary']['weight']; ?>' );
 			$( '#wght_secondary' ).attr( 'min', '<?php echo $scheme['secondary']['min']; ?>' );
 			$( '#wght_secondary' ).attr( 'max', '<?php echo $scheme['secondary']['max']; ?>' );
 			$( '#wght_secondary' ).attr( 'step', '<?php echo $scheme['secondary']['step']; ?>' );
+			$( '#wght_secondary' ).val( '<?php echo $scheme['secondary']['weight']; ?>' );
 			if ( true == '<?php echo $scheme['secondary']['var']; ?>' ) {
 				$( '#wght_secondary_desc' ).html( '' );
 			} else {

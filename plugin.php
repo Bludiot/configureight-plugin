@@ -50,7 +50,8 @@ use function CFE_Colors\{
 	default_color_scheme
 };
 use function CFE_Fonts\{
-	load_font_files
+	load_font_files,
+	admin_font_options
 };
 use function CFE_Galleries\{
 	basic_gallery,
@@ -621,6 +622,7 @@ class configureight extends Plugin {
 		$assets .= $this->scheme_stylesheet( 'colors', 'admin' );
 		$assets .= $this->scheme_stylesheet( 'fonts', 'admin' );
 		$assets .= define_color_scheme();
+		$assets .= admin_font_options();
 
 		// User toolbar is active.
 		if (

@@ -375,3 +375,35 @@ function current_font_scheme() {
 	}
 	return $name;
 }
+
+function admin_font_options() {
+
+	$style  = "\n" . '<style>:root{';
+	$style .= sprintf(
+		'--cfe-body--font-weight: %s;',
+		plugin()->wght_text()
+	);
+	$style .= sprintf(
+		'--cfe-heading-primary--font-weight: %s;',
+		plugin()->wght_primary()
+	);
+	$style .= sprintf(
+		'--cfe-heading-secondary--font-weight: %s;',
+		plugin()->wght_secondary()
+	);
+	$style .= sprintf(
+		'--cfe-body--letter-spacing: %sem;',
+		plugin()->space_text()
+	);
+	$style .= sprintf(
+		'--cfe-heading-primary--letter-spacing: %sem;',
+		plugin()->space_primary()
+	);
+	$style .= sprintf(
+		'--cfe-heading-secondary--letter-spacing: %sem;',
+		plugin()->space_secondary()
+	);
+	$style .= '}</style>' . "\n";
+
+	return $style;
+}

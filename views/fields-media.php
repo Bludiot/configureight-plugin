@@ -248,6 +248,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 					<label class="check-label-wrap" for="blend_search"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_search" value="search" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'search', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Search Loop' ); ?></label>
 
+					<label class="check-label-wrap" for="blend_galleries"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_galleries" value="galleries" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'galleries', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Gallery Thumbnails' ); ?></label>
+
 					<label class="check-label-wrap" for="blend_related"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_related" value="related" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'related', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
 				</div>
 				<small class="form-text"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>

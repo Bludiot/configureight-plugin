@@ -361,6 +361,12 @@ function current_font_scheme() {
 	// Option from database.
 	$slug = plugin()->font_scheme();
 
+	// Maybe get font scheme template.
+	$template = font_scheme_template();
+	if ( $template ) {
+		$slug = $template;
+	}
+
 	// Get font schemes.
 	$schemes = font_schemes();
 	$name    = false;
@@ -374,6 +380,37 @@ function current_font_scheme() {
 		}
 	}
 	return $name;
+}
+
+/**
+ * Font scheme template
+ *
+ * Gets the slug of the font scheme
+ * in the page template.
+ *
+ * @since  1.0.0
+ * @global object $page Page class.
+ * @global object $url Url class.
+ * @return mixed Returns the font scheme slug or false.
+ */
+function font_scheme_template() {
+
+	// Access global variables.
+	global $page, $url;
+
+	// Get font schemes.
+	$fonts  = font_schemes();
+	$scheme = false;
+
+	if ( 'page' == $url->whereAmI() ) {
+		foreach ( $fonts as $font => $key ) {
+			$template = 'font-scheme-' . $key['slug'];
+			if ( str_contains( $page->template(), $template ) ) {
+				$scheme = $key['slug'];
+			}
+		}
+	}
+	return $scheme;
 }
 
 /**

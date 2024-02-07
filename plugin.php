@@ -51,6 +51,7 @@ use function CFE_Colors\{
 };
 use function CFE_Fonts\{
 	load_font_files,
+	current_font_scheme,
 	admin_font_options
 };
 use function CFE_Galleries\{
@@ -1142,7 +1143,7 @@ class configureight extends Plugin {
 
 		// Get options from the theme plugin.
 		$colors = $this->color_scheme();
-		$fonts  = $this->font_scheme();
+		$fonts  = current_font_scheme();
 		$html   = '';
 
 		// Get minified if not in debug mode.
@@ -1157,8 +1158,8 @@ class configureight extends Plugin {
 
 		// Typography scheme stylesheet.
 		if ( 'fonts' == $type ) {
-			if ( 'default' != $fonts ) {
-				$html .= css( "assets/css/schemes/fonts/{$fonts}/{$filename}{$suffix}.css" );
+			if ( 'default' != $fonts['slug'] ) {
+				$html .= css( "assets/css/schemes/fonts/{$fonts['slug']}/{$filename}{$suffix}.css" );
 			}
 		}
 		return $html;

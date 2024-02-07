@@ -96,10 +96,12 @@ function basic_gallery() {
 	$images = "<ul id='page-gallery-list-{$page->key()}' class='page-gallery-list'>";
 	foreach ( $files as $file ) {
 
-		$thumb = DOMAIN_UPLOADS_PAGES . $uuid . '/thumbnails/' . str_replace( $dir, '', $file );
-		$full  = DOMAIN_UPLOADS_PAGES . $uuid . '/' . str_replace( $dir, '', $file );
+		$filename = str_replace( $dir, '', $file );
 
-		$images .= "<li class='page-gallery-item'><a class='page-gallery-link' href='{$full}'  rel='gallery' data-fancybox='{$page->key()}'><img class='page-gallery-thumb' src='{$thumb}' /></a></li>";
+		$thumb = DOMAIN_UPLOADS_PAGES . $uuid . '/thumbnails/' . $filename;
+		$full  = DOMAIN_UPLOADS_PAGES . $uuid . '/' . $filename;
+
+		$images .= "<li class='page-gallery-item'><a class='page-gallery-link' href='{$full}'  rel='gallery' data-fancybox='{$page->key()}'><figure class='page-gallery-thumb'><img class='page-gallery-thumb-image' src='{$thumb}' /><figcaption class='screen-reader-text'>{$filename}</figcaption></figure></a></li>";
 	}
 	$images .= '</ul>';
 	return $images;

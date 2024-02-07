@@ -86,6 +86,14 @@ function basic_gallery() {
 	$uuid  = $page->uuid();
 	$dir   = PATH_UPLOADS_PAGES . $uuid . DS . 'thumbnails' . DS;
 	$files = \Filesystem :: listFiles( $dir, '*', '*', true, 0 );
+	$class = 'page-gallery-list';
+	if (
+		'blend' == plugin()->cover_style() &&
+		is_array( plugin()->cover_blend_use() ) &&
+		in_array( 'galleries', plugin()->cover_blend_use() )
+	) {
+		$class = 'page-gallery-list cover-blend';
+	}
 
 	// False if no images uploaded to page.
 	if ( 0 == count( $files ) ) {
@@ -93,7 +101,7 @@ function basic_gallery() {
 	}
 
 	// Gallery markup.
-	$images = "<ul id='page-gallery-list-{$page->key()}' class='page-gallery-list'>";
+	$images = "<ul id='page-gallery-list-{$page->key()}' class='{$class}'>";
 	foreach ( $files as $file ) {
 
 		$filename = str_replace( $dir, '', $file );

@@ -381,7 +381,12 @@ class configureight extends Plugin {
 	 * @return string
 	 */
 	protected function plugin_url() {
-		return HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className();
+
+		$url = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className();
+		if ( BLUDIT_VERSION >= 4 ) {
+			$url = HTML_PATH_ADMIN_ROOT . 'plugin-settings/' . $this->className();
+		}
+		return $url;
 	}
 
 	/**
@@ -392,7 +397,12 @@ class configureight extends Plugin {
 	 * @return string
 	 */
 	protected function plugin_slug() {
-		return 'configure-plugin/' . $this->className();
+
+		$slug = 'configure-plugin/' . $this->className();
+		if ( BLUDIT_VERSION >= 4 ) {
+			$slug = 'plugin-settings/' . $this->className();
+		}
+		return $slug;
 	}
 
 	/**
@@ -726,17 +736,9 @@ class configureight extends Plugin {
 			return;
 		}
 
-		$name = strtolower( __CLASS__ );
-
-		// Theme plugin path is different in Bludit version 4.0.
-		$path = 'configure-plugin/';
-		if ( BLUDIT_VERSION >= 4 ) {
-			$path = 'plugin-settings/';
-		}
-		$url  = HTML_PATH_ADMIN_ROOT . $path . $name;
 		$html = sprintf(
 			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
-			$url,
+			$this->plugin_url(),
 			$L->get( 'Theme Options' )
 		);
 		return $html;
@@ -761,6 +763,11 @@ class configureight extends Plugin {
 
 		// Stop if Configure 8 is not the active theme.
 		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
+		// Stop if not on the options page.
+		if ( ! str_contains( $url->slug(), $this->plugin_url() ) ) {
 			return;
 		}
 

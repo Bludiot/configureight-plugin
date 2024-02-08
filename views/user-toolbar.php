@@ -161,7 +161,7 @@ if ( $user->profilePicture() ) {
 						plugin()
 					) : ?>
 					<li>
-						<a href="<?php echo DOMAIN_ADMIN . 'configure-plugin/' . plugin()->className(); ?>"><?php $L->p( 'Options' ); ?></a>
+						<a href="<?php echo plugin()->plugin_url(); ?>"><?php $L->p( 'Options' ); ?></a>
 					</li>
 					<?php endif; ?>
 				</ul>

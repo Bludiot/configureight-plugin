@@ -1260,7 +1260,7 @@ function define_color_scheme() {
 
 	// Variables for each light mode color.
 	foreach ( $current['light'] as $key => $value ) {
-		if ( ! empty( $value ) ) {
+		if ( ! empty( $value ) && ! plugin()->use_dark_scheme() ) {
 			$colors[] = sprintf(
 				'--cfe-scheme-color--%s: %s',
 				$key,
@@ -1272,6 +1272,14 @@ function define_color_scheme() {
 	// Variables for each dark mode color.
 	foreach ( $current['dark'] as $key => $value ) {
 		if ( ! empty( $value ) ) {
+
+			if ( plugin()->use_dark_scheme() ) {
+				$colors[] = sprintf(
+					'--cfe-scheme-color--%s: %s',
+					$key,
+					$value
+				);
+			}
 			$colors[] = sprintf(
 				'--cfe-scheme-color--%s--dark: %s',
 				$key,

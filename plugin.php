@@ -62,7 +62,7 @@ use function CFE_Galleries\{
 /**
  * Core plugin class
  *
- * Extends the Bludit class for plugin functionality
+ * Extends the Bludit class for plugin functionality,
  * options form, and template hooks.
  *
  * @since   1.0.0

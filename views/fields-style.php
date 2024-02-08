@@ -213,6 +213,17 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 		</div>
 	</div>
 
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="use_dark_scheme"><?php $L->p( 'Dark Version' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="use_dark_scheme" name="use_dark_scheme">
+				<option value="true" <?php echo ( $this->getValue( 'use_dark_scheme' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Use Always' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'use_dark_scheme' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Preference Only' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Use the dark version of the color scheme regardless of browser/device setting. Does not apply to a custom color scheme as this is done manually.' ); ?></small>
+		</div>
+	</div>
+
 	<?php
 	// Redefine `$colors` variable after sorting.
 	$colors = color_schemes();

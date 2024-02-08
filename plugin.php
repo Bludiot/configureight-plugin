@@ -34,6 +34,7 @@ use function CFE_Plugin\{
 	title_tag,
 	options_list,
 	search_form,
+	custom_fields,
 	static_list,
 	categories_list,
 	tags_list,
@@ -1036,46 +1037,17 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $site The Site class.
-	 * @global object $L The Language class.
-	 * @return function editSettings()
+	 * @return editSettings()
 	 */
 	public function edit_settings() {
 
 		// Access global variables.
-		global $L, $site;
+		global $site;
 
-		// Random cover checkbox field.
-		$cover_field = [
-			'random_cover' => [
-				'type'  => 'bool',
-				'label' => $L->get( 'Random Cover' ),
-				'tip'   => $L->get( 'Display a random cover image from images uploaded to this page. Requires no cover image set.' )
-			]
-		];
-
-		// Page gallery checkbox field.
-		$gallery_field = [
-			'page_gallery' => [
-				'type'  => 'bool',
-				'label' => $L->get( 'Gallery' ),
-				'tip'   => $L->get( 'Add a gallery of images uploaded to this page.' )
-			]
-		];
-		$merged_fields = array_merge( $gallery_field, $cover_field );
-
-		// Read more field.
-		$more_field = [
-			'read_more' => [
-				'type'  => 'string',
-				'label' => $L->get( 'Read More' ),
-				'tip'   => $L->get( 'Text used if this content is linked in the front page slider or when abbreviated in some contexts.' )
-			]
-		];
-		$merged_fields = array_merge( $merged_fields, $more_field );
-
-		// Get custom fields data.
-		$custom_fields = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
-		$decode_fields = json_decode( $custom_fields, true );
+		// Get custom fields.
+		$custom_fields = custom_fields();
+		$get_fields    = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
+		$decode_fields = json_decode( $get_fields, true );
 
 		// Unset custom fields to override if changes.
 		unset( $decode_fields['random_cover'] );
@@ -1083,7 +1055,7 @@ class configureight extends Plugin {
 		unset( $decode_fields['read_more'] );
 
 		// Set custom fields.
-		$custom_fields = array_merge( $merged_fields, $decode_fields );
+		$custom_fields = array_merge( $custom_fields, $decode_fields );
 		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
 		$args['homepage']     = $site->homepage();

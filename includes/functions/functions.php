@@ -622,6 +622,50 @@ function title_tag() {
 }
 
 /**
+ * Custom fields
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array Returns an array for JSON encoding.
+ */
+function custom_fields() {
+
+	// Access global variables.
+	global $L, $site;
+
+	// Random cover checkbox field.
+	$cover_field = [
+		'random_cover' => [
+			'type'  => 'bool',
+			'label' => $L->get( 'Random Cover' ),
+			'tip'   => $L->get( 'Display a random cover image from images uploaded to this page. Requires no cover image set.' )
+		]
+	];
+
+	// Page gallery checkbox field.
+	$gallery_field = [
+		'page_gallery' => [
+			'type'  => 'bool',
+			'label' => $L->get( 'Gallery' ),
+			'tip'   => $L->get( 'Add a gallery of images uploaded to this page.' )
+		]
+	];
+	$fields = array_merge( $gallery_field, $cover_field );
+
+	// Read more field.
+	$more_field = [
+		'read_more' => [
+			'type'  => 'string',
+			'label' => $L->get( 'Read More' ),
+			'tip'   => $L->get( 'Text used if this content is linked in the front page slider or when abbreviated in some contexts.' )
+		]
+	];
+	$fields = array_merge( $fields, $more_field );
+
+	return $fields;
+}
+
+/**
  * Options list
  *
  * Displays a list of options and their values for the dashboard.

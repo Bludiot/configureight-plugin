@@ -77,7 +77,7 @@ class configureight extends Plugin {
 	 * @access private
 	 * @var    string
 	 */
-	private $storage_root = 'configureight';
+	private $storage_root = __CLASS__;
 
 	/**
 	 * Cache age
@@ -766,11 +766,6 @@ class configureight extends Plugin {
 			return;
 		}
 
-		// Stop if not on the options page.
-		if ( ! str_contains( $url->slug(), $this->plugin_url() ) ) {
-			return;
-		}
-
 		// Content ID on page edit screen.
 		if ( str_contains( $url->slug(), 'edit-content' ) ) {
 			return sprintf(
@@ -787,7 +782,7 @@ class configureight extends Plugin {
 		}
 
 		// AJAX paths for uploads.
-		$upload_path  = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$upload_path  = HTML_PATH_ADMIN_ROOT . __CLASS__;
 		$current_path = strtok( $_SERVER['REQUEST_URI'], '?' );
 
 		if ( $current_path == $upload_path ) {

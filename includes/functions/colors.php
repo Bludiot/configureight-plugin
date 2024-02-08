@@ -1235,11 +1235,14 @@ function picker_colors_dark() {
  * color scheme values to color variables.
  *
  * @since  1.0.0
+ * @global object $page Page class.
  * @return mixed Returns a style block or null.
  */
 function define_color_scheme() {
 
-	// Get the scheme selected in the option.
+	// Access global variables.
+	global $page;
+
 	$current = current_color_scheme();
 
 	/**
@@ -1273,7 +1276,11 @@ function define_color_scheme() {
 	foreach ( $current['dark'] as $key => $value ) {
 		if ( ! empty( $value ) ) {
 
-			if ( plugin()->use_dark_scheme() ) {
+			if (
+				plugin()->use_dark_scheme() ||
+				( str_contains( $page->template(), 'color-scheme-' ) &&
+				str_contains( $page->template(), '-dark' ) )
+			) {
 				$colors[] = sprintf(
 					'--cfe-scheme-color--%s: %s',
 					$key,

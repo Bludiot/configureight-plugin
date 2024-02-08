@@ -399,7 +399,7 @@ function color_schemes() {
 				'six'   => '#ffb70b'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#1b1307',
 				'text'  => '#eeeeee',
 				'one'   => '#ffb70b',
 				'two'   => '#f99200',
@@ -426,7 +426,7 @@ function color_schemes() {
 				'six'   => '#64099e'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#170d1e',
 				'text'  => '#eeeeee',
 				'one'   => '#830cce',
 				'two'   => '#64099e',
@@ -453,7 +453,7 @@ function color_schemes() {
 				'six'   => '#6fcde5'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#0a1b20',
 				'text'  => '#eeeeee',
 				'one'   => '#2eb6d9',
 				'two'   => '#6fcde5',
@@ -480,7 +480,7 @@ function color_schemes() {
 				'six'   => '#00c62a'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#0d2412',
 				'text'  => '#eeeeee',
 				'one'   => '#00c62a',
 				'two'   => '#00a024',
@@ -507,7 +507,7 @@ function color_schemes() {
 				'six'   => '#ff0000'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#1b0505',
 				'text'  => '#eeeeee',
 				'one'   => '#ff2222',
 				'two'   => '#d40000',
@@ -534,7 +534,7 @@ function color_schemes() {
 				'six'   => '#0ce865'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#091c11',
 				'text'  => '#eeeeee',
 				'one'   => '#0ce865',
 				'two'   => '#09ba51',
@@ -561,7 +561,7 @@ function color_schemes() {
 				'six'   => '#ff1a40'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#1b070a',
 				'text'  => '#eeeeee',
 				'one'   => '#ff1a40',
 				'two'   => '#eb0027',
@@ -588,7 +588,7 @@ function color_schemes() {
 				'six'   => '#0c2d95'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#0a111b',
 				'text'  => '#eeeeee',
 				'one'   => '#103cc7',
 				'two'   => '#0c2d95',
@@ -615,7 +615,7 @@ function color_schemes() {
 				'six'   => '#e08022'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#1b130c',
 				'text'  => '#eeeeee',
 				'one'   => '#e08022',
 				'two'   => '#bb621a',
@@ -642,7 +642,7 @@ function color_schemes() {
 				'six'   => '#00d299'
 			],
 			'dark' => [
-				'body'  => '#111111',
+				'body'  => '#081915',
 				'text'  => '#eeeeee',
 				'one'   => '#00d299',
 				'two'   => '#00a77a',

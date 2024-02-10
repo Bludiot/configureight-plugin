@@ -14,9 +14,6 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 // Color schemes page URL.
 $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
-// Add class class to 'js' to `<body>` if JavaScript is enabled.
-echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
-
 ?>
 
 <?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>

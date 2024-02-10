@@ -19,9 +19,6 @@ $guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
 // Database page URL.
 $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
 
-// Add class class to 'js' to `<body>` if JavaScript is enabled.
-echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
-
 ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">

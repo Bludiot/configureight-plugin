@@ -106,6 +106,18 @@ div.sidebar {
 	}
 }
 
+.dark-mode div.sidebar {
+	background-color: var( --cfe-admin-menu--bg-color, $near_black );
+
+	ul .nav-item a {
+		&:hover,
+		&:focus {
+			background-color: var( --cfe-admin--menu--link--action--bg-color--dark );
+			color: var( --cfe-admin--menu--link--action--text-color--dark, #ffffff );
+		}
+	}
+}
+
 // Mobile menu.
 .navbar {
 	padding: 1rem 0;

@@ -978,6 +978,12 @@ code.select {
   }
 }
 
+.dark-mode .form-control {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+  border: var(--cfe-form-element--border--dark);
+}
+
 form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, form .col-sm-6, form .col-sm-7, form .col-sm-8, form .col-sm-9, form .col-sm-10, form .col-sm-11, form .col-sm-12 {
   max-width: 640px;
 }
@@ -1779,6 +1785,11 @@ textarea.form-control.is-invalid {
   }
 }
 
+.dark-mode .custom-select {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+}
+
 .custom-select[multiple], .custom-select[size]:not([size="1"]) {
   height: auto;
   padding-right: 0.75rem;
@@ -2170,6 +2181,14 @@ p + .multi-check-wrap {
   color: #6c757d;
 }
 
+.dark-mode .plugin-form input[type=text],
+.dark-mode .plugin-form textarea,
+.dark-mode .plugin-form select {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+  border: var(--cfe-form-element--border--dark);
+}
+
 .select2-container {
   box-sizing: border-box;
   display: inline-block;
@@ -2253,6 +2272,12 @@ p + .multi-check-wrap {
     background-color: var(--cfe-body--bg-color--dark);
     color: var(--cfe-body--text-color--dark);
   }
+}
+
+.dark-mode .select2-dropdown {
+  border: solid 1px var(--cfe-form-element--border-color--dark);
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
 }
 
 .select2-results {
@@ -2899,6 +2924,12 @@ p + .multi-check-wrap {
   }
 }
 
+.dark-mode .select2-container--bootstrap4 .select2-selection {
+  border: var(--cfe-form-element--border--dark);
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .select2-container--bootstrap4 .select2-selection {
     transition: none;
@@ -2989,6 +3020,12 @@ select option {
   }
 }
 
+.dark-mode select,
+.dark-mode optgroup,
+.dark-mode option {
+  background-color: var(--cfe-body--bg-color--dark) !important;
+}
+
 .field-has-buttons {
   display: flex;
   gap: 0 0.25rem;
@@ -3016,6 +3053,10 @@ select option {
 }
 .upload-album-empty p {
   font-weight: 700;
+}
+
+.dark-mode .upload-album-empty {
+  border: var(--cfe-form-element--border--dark);
 }
 
 .refresh-after-upload {
@@ -3108,6 +3149,13 @@ select option {
   }
 }
 
+.dark-mode .tab-pane .image-select-list li {
+  border: var(--cfe-form-element--border--dark);
+}
+.dark-mode .tab-pane .image-upload-list img {
+  border: var(--cfe-form-element--border--dark);
+}
+
 .dz-image:before {
   content: "";
   display: block;
@@ -3126,6 +3174,10 @@ select option {
   .dz-image img {
     border: var(--cfe-form-element--border--dark);
   }
+}
+
+.dark-mode .dz-image img {
+  border: var(--cfe-form-element--border--dark);
 }
 
 .upload-form-album {

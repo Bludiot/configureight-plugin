@@ -228,6 +228,10 @@
 	}
 }
 
+.dark-mode .dropzone {
+	background-color: var( --cfe-body--bg-color--dark );
+}
+
 .dropzone.dz-clickable {
 	cursor: pointer;
 }

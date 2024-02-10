@@ -16,9 +16,6 @@ use function CFE_Plugin\{
 // Settings page URL.
 $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
-// Add class class to 'js' to `<body>` if JavaScript is enabled.
-echo "<script>var bodyClass = document.body;bodyClass.classList ? bodyClass.classList.add('js') : bodyClass.className += ' js';</script>\n";
-
 ?>
 
 <?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Options Database' ), 'icon' => 'cog' ] ); ?>

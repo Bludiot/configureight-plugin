@@ -22,6 +22,12 @@
 	}
 }
 
+.dark-mode .form-control {
+	background-color: var( --cfe-body--bg-color--dark );
+	color: var( --cfe-body--text-color--dark );
+	border: var( --cfe-form-element--border--dark );
+}
+
 form {
 	.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
 		max-width: 640px;
@@ -913,6 +919,11 @@ border-bottom-right-radius: 0;
 	}
 }
 
+.dark-mode .custom-select {
+	background-color: var( --cfe-body--bg-color--dark );
+	color: var( --cfe-body--text-color--dark );
+}
+
 .custom-select[multiple], .custom-select[size]:not([size="1"]) {
 	height: auto;
 	padding-right: 0.75rem;
@@ -1339,6 +1350,16 @@ p + .multi-check-wrap {
 	}
 }
 
+.dark-mode .plugin-form {
+	input[type="text"],
+	textarea,
+	select {
+		background-color: var( --cfe-body--bg-color--dark );
+		color: var( --cfe-body--text-color--dark );
+		border: var( --cfe-form-element--border--dark );
+	}
+}
+
 ///
 /// Select2: jQuery select element
 ///
@@ -1419,6 +1440,13 @@ p + .multi-check-wrap {
 		color: var( --cfe-body--text-color--dark );
 	}
 }
+
+.dark-mode .select2-dropdown {
+	border: solid 1px var( --cfe-form-element--border-color--dark );
+	background-color: var( --cfe-body--bg-color--dark );
+	color: var( --cfe-body--text-color--dark );
+}
+
 .select2-results {
 	display: block;
 }
@@ -1971,6 +1999,13 @@ p + .multi-check-wrap {
 		color: var( --cfe-body--text-color--dark );
 	}
 }
+
+.dark-mode .select2-container--bootstrap4 .select2-selection {
+	border: var( --cfe-form-element--border--dark );
+	background-color: var( --cfe-body--bg-color--dark );
+	color: var( --cfe-body--text-color--dark );
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.select2-container--bootstrap4 .select2-selection {
 		-webkit-transition: none;
@@ -2054,6 +2089,14 @@ select {
 	}
 }
 
+.dark-mode {
+	select,
+	optgroup,
+	option {
+		background-color: var( --cfe-body--bg-color--dark ) !important;
+	}
+}
+
 .field-has-buttons {
 	display: flex;
 	gap: 0 0.25rem;
@@ -2086,6 +2129,10 @@ select {
 	p {
 		font-weight: 700;
 	}
+}
+
+.dark-mode .upload-album-empty {
+	border: var( --cfe-form-element--border--dark );
 }
 
 .refresh-after-upload {
@@ -2197,6 +2244,15 @@ select {
 	}
 }
 
+.dark-mode .tab-pane {
+	.image-select-list li {
+		border: var( --cfe-form-element--border--dark );
+	}
+	.image-upload-list img {
+		border: var( --cfe-form-element--border--dark );
+	}
+}
+
 .dz-image {
 
 	&:before {
@@ -2217,6 +2273,12 @@ select {
 		@media ( prefers-color-scheme: dark ) {
 			border: var( --cfe-form-element--border--dark );
 		}
+	}
+}
+
+.dark-mode .dz-image {
+	img {
+		border: var( --cfe-form-element--border--dark );
 	}
 }
 

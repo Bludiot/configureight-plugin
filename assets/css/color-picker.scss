@@ -621,6 +621,11 @@ Here are the basic themeable display options (colors, fonts, global widths)
 	}
 }
 
+.dark-mode .color-picker {
+	background-color: var( --cfe-scheme-color--body--dark );
+	color: var( --cfe-body--text-color--dark );
+}
+
 .sp-palette-row {
 	display: flex;
 	flex-wrap: wrap;

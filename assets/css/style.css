@@ -3103,6 +3103,12 @@ code.select {
   }
 }
 
+.dark-mode .form-control {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+  border: var(--cfe-form-element--border--dark);
+}
+
 form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, form .col-sm-6, form .col-sm-7, form .col-sm-8, form .col-sm-9, form .col-sm-10, form .col-sm-11, form .col-sm-12 {
   max-width: 640px;
 }
@@ -3904,6 +3910,11 @@ textarea.form-control.is-invalid {
   }
 }
 
+.dark-mode .custom-select {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+}
+
 .custom-select[multiple], .custom-select[size]:not([size="1"]) {
   height: auto;
   padding-right: 0.75rem;
@@ -4295,6 +4306,14 @@ p + .multi-check-wrap {
   color: #6c757d;
 }
 
+.dark-mode .plugin-form input[type=text],
+.dark-mode .plugin-form textarea,
+.dark-mode .plugin-form select {
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+  border: var(--cfe-form-element--border--dark);
+}
+
 .select2-container {
   box-sizing: border-box;
   display: inline-block;
@@ -4378,6 +4397,12 @@ p + .multi-check-wrap {
     background-color: var(--cfe-body--bg-color--dark);
     color: var(--cfe-body--text-color--dark);
   }
+}
+
+.dark-mode .select2-dropdown {
+  border: solid 1px var(--cfe-form-element--border-color--dark);
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
 }
 
 .select2-results {
@@ -5024,6 +5049,12 @@ p + .multi-check-wrap {
   }
 }
 
+.dark-mode .select2-container--bootstrap4 .select2-selection {
+  border: var(--cfe-form-element--border--dark);
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-body--text-color--dark);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .select2-container--bootstrap4 .select2-selection {
     transition: none;
@@ -5114,6 +5145,12 @@ select option {
   }
 }
 
+.dark-mode select,
+.dark-mode optgroup,
+.dark-mode option {
+  background-color: var(--cfe-body--bg-color--dark) !important;
+}
+
 .field-has-buttons {
   display: flex;
   gap: 0 0.25rem;
@@ -5141,6 +5178,10 @@ select option {
 }
 .upload-album-empty p {
   font-weight: 700;
+}
+
+.dark-mode .upload-album-empty {
+  border: var(--cfe-form-element--border--dark);
 }
 
 .refresh-after-upload {
@@ -5233,6 +5274,13 @@ select option {
   }
 }
 
+.dark-mode .tab-pane .image-select-list li {
+  border: var(--cfe-form-element--border--dark);
+}
+.dark-mode .tab-pane .image-upload-list img {
+  border: var(--cfe-form-element--border--dark);
+}
+
 .dz-image:before {
   content: "";
   display: block;
@@ -5251,6 +5299,10 @@ select option {
   .dz-image img {
     border: var(--cfe-form-element--border--dark);
   }
+}
+
+.dark-mode .dz-image img {
+  border: var(--cfe-form-element--border--dark);
 }
 
 .upload-form-album {
@@ -5522,6 +5574,14 @@ div.sidebar ul .nav-item hr {
 div.sidebar ul ul {
   margin: 0;
   padding: 0;
+}
+
+.dark-mode div.sidebar {
+  background-color: var(--cfe-admin-menu--bg-color, #1e1e1e);
+}
+.dark-mode div.sidebar ul .nav-item a:hover, .dark-mode div.sidebar ul .nav-item a:focus {
+  background-color: var(--cfe-admin--menu--link--action--bg-color--dark);
+  color: var(--cfe-admin--menu--link--action--text-color--dark, #ffffff);
 }
 
 .navbar {
@@ -6224,6 +6284,31 @@ img.profilePicture {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.dark-mode .nav-tabs {
+  border-color: var(--cfe-tabs--list--border-color--dark);
+  border-bottom-color: var(--cfe-tabs--list--border-bottom-color--dark);
+  background-color: var(--cfe-tabs--list--bg-color--dark);
+  color: var(--cfe-tabs--list--text-color--dark);
+}
+.dark-mode .nav-tabs .nav-link {
+  border-color: var(--cfe-tabs--list--link--border-color--dark);
+  background-color: var(--cfe-tabs--list--link--bg-color--dark, var(--cfe-body--bg-color--dark));
+  color: var(--cfe-tabs--list--link--text-color--dark);
+}
+.dark-mode .nav-tabs .nav-link:hover, .dark-mode .nav-tabs .nav-link:focus {
+  border-color: var(--cfe-tabs--list--link--action--border-color--dark, var(--cfe-tabs--list--link--border-color--dark));
+  background-color: var(--cfe-tabs--list--link--action--bg-color--dark);
+  color: var(--cfe-tabs--list--link--action--text-color--dark, var(--cfe-tabs--list--link--text-color--dark));
+}
+.dark-mode .nav-tabs .nav-link.active,
+.dark-mode .nav-tabs .nav-item.active .nav-link,
+.dark-mode .nav-tabs .nav-item.show .nav-link {
+  border: var(--cfe-tabs--list--link--border-style) var(--cfe-tabs--list--link--border-width) var(--cfe-tabs--list--link--border-color--dark);
+  border-bottom-color: var(--cfe-body--bg-color--dark);
+  background-color: var(--cfe-body--bg-color--dark);
+  color: var(--cfe-tabs--list--link--active--text-color--dark);
 }
 
 .tab-content .tab-pane {

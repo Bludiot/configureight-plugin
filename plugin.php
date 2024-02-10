@@ -579,6 +579,14 @@ class configureight extends Plugin {
 			return;
 		}
 
+		// Add class class to 'js' to `<body>`.
+		echo "<script>jQuery(document).ready( function($) { $('body').addClass('js') });</script>\n";
+
+		// Add dark mode class to `<body>`.
+		if ( $this->use_dark_scheme() ) {
+			echo "<script>jQuery(document).ready( function($) { $('body').addClass('dark-mode') });</script>\n";
+		}
+
 		// Maybe get non-minified assets.
 		$suffix = '';
 		if ( ! $this->debug_mode() ) {

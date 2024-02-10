@@ -652,6 +652,17 @@ function custom_fields() {
 	];
 	$fields = array_merge( $gallery_field, $cover_field );
 
+	// Gallery heading field.
+	$heading_field = [
+		'gallery_heading' => [
+			'type'        => 'string',
+			'label'       => $L->get( 'Gallery Heading' ),
+			'tip'         => $L->get( 'Text used above this page\'s image gallery.' ),
+			'placeholder' => $L->get( 'Image Gallery' )
+		]
+	];
+	$fields = array_merge( $fields, $heading_field );
+
 	// Read more field.
 	$more_field = [
 		'read_more' => [

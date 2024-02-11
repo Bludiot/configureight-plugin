@@ -208,7 +208,7 @@
 				<option value="true" <?php echo ( $this->getValue( 'loop_icons' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'loop_icons' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( '' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Display category and tags icons.' ); ?></small>
 		</div>
 	</div>
 

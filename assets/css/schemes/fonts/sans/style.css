@@ -23,6 +23,7 @@
   --cfe-heading-primary--letter-spacing: -0.025em;
   --cfe-heading-secondary--letter-spacing: -0.02em;
   --cfe-site-nav--item--font-weight: 550;
+  --cfe-cover--full--title--font-size: clamp( 2.375rem, 2.75vw + 1rem, 5vw );
   --cfe-page-header--heading--font-size: 2rem;
   --cfe-page-summary--page-header--heading--font-size: 1.75rem;
   --cfe-page-header--heading--link--font-weight: 800;

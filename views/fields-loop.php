@@ -81,7 +81,7 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Loop Style' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="loop_style"><?php $L->p( 'Posts Loop Style' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="loop_style" name="loop_style">
 
@@ -99,7 +99,7 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="cat_style"><?php $L->p( 'Category Style' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="cat_style"><?php $L->p( 'Category Loop Style' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="cat_style" name="cat_style">
 
@@ -118,7 +118,7 @@
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="tag_style"><?php $L->p( 'Tag Style' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="tag_style"><?php $L->p( 'Tag Loop Style' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="tag_style" name="tag_style">
 

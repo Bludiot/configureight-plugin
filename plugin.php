@@ -248,7 +248,7 @@ class configureight extends Plugin {
 			'loop_date'              => true,
 			'loop_word_count'        => true,
 			'loop_read_time'         => true,
-			'loop_icons'             => true,
+			'loop_icons'             => false,
 			'posts_nav'              => true,
 			'posts_nav_type'         => 'buttons',
 			'posts_nav_icon'         => 'arrow',
@@ -682,6 +682,7 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $L Language class.
+	 * @global object $page Page class.
 	 * @global object $site Site class.
 	 * @global object $url Url class.
 	 * @return void
@@ -689,7 +690,7 @@ class configureight extends Plugin {
 	public function adminBodyBegin() {
 
 		// Access global variables.
-		global $L, $login, $site, $url;
+		global $L, $login, $page, $site, $url;
 
 		// Stop if Configure 8 is not the active theme.
 		if ( 'configureight' != $site->theme() ) {

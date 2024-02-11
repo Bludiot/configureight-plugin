@@ -169,11 +169,11 @@ function basic_font_schemes() {
 				'family' => 'Crimson Pro',
 				'stack'  => "'Crimson Pro', Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '500',
+				'weight' => '550',
 				'min'    => '200',
 				'max'    => '900',
 				'step'   => '1',
-				'space'  => '0'
+				'space'  => '-0.025'
 			]
 		]
 	];
@@ -254,7 +254,7 @@ function style_font_schemes() {
 				'family' => 'Playfair',
 				'stack'  => "'Playfair', 'Hoefler Text', 'Baskerville Old Face', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '550',
+				'weight' => '570',
 				'min'    => '400',
 				'max'    => '900',
 				'step'   => '1',
@@ -322,7 +322,7 @@ function style_font_schemes() {
 				'family' => 'Rokkitt',
 				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '800',
+				'weight' => '750',
 				'min'    => '100',
 				'max'    => '900',
 				'step'   => '1',

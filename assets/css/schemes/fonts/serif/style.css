@@ -21,9 +21,10 @@
   --cfe-heading-primary--line-height: 1.1;
   --cfe-heading-primary--letter-spacing: -0.025em;
   --cfe-heading-secondary--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-heading-secondary--font-size: 1.625rem;
-  --cfe-heading-secondary--font-weight: 500;
+  --cfe-heading-secondary--font-size: 1.75rem;
+  --cfe-heading-secondary--font-weight: 550;
   --cfe-heading-secondary--line-height: 1.1;
+  --cfe-heading-secondary--letter-spacing: -0.025em;
   --cfe-loader--text--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-loader--text--font-size: 1.6875rem;
   --cfe-loader--text--font-weight: 600;
@@ -33,11 +34,13 @@
   --cfe-site-title--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-site-title--font-size: 1.875rem;
   --cfe-site-title--font-weight: 600;
+  --cfe-cover--full--title--font-size: clamp( 3rem, 4vw + 1rem, 5.5vw );
   --cfe-cover--title--font-size: clamp( 3rem, 4vw + 1rem, 5.5vw );
   --cfe-cover--title--font-weight: 500;
   --cfe-cover--description--font-size: 1.5rem;
-  --cfe-site-nav--item--font-size: 1rem;
-  --cfe-site-nav--item--font-weight: 500;
+  --cfe-site-nav--item--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --cfe-site-nav--item--font-size: 1.125rem;
+  --cfe-site-nav--item--font-weight: 550;
   --cfe-page-header--heading--font-size: 2.625rem;
   --cfe-page-summary--page-header--heading--font-size: 2rem;
   --cfe-page-summary--page-header--heading--font-weight: 600;
@@ -47,8 +50,6 @@
   --cfe-page-info--line-height: 1.1;
   --cfe-page-info-author--font-weight: 550;
   --cfe-page-info-date--font-weight: 550;
-  --cfe-tags-list--buttons--link--font-size: 0.8125rem;
-  --cfe-tags-list--buttons--link--font-weight: 550;
   --cfe-tabs--list--link--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-tabs--list--link--font-size: 1.125rem;
   --cfe-tabs--list--link--font-weight: 525;

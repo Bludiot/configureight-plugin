@@ -1264,7 +1264,7 @@ class configureight extends Plugin {
 
 	// @return integer
 	public function logo_width_std_default() {
-		return 60;
+		return 48;
 	}
 
 	// @return integer

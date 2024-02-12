@@ -69,7 +69,7 @@ class Logo_Cover_Album extends Logo_Cover_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li id="logo-cover-select-item-%s"><label for="logo-cover-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="cover_logo[]" id="logo-cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
+				'<li id="logo-cover-select-item-%s" style="background-color: #555"><label for="logo-cover-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="cover_logo[]" id="logo-cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
 				( in_array( $image, plugin()->cover_logo() ) ? 'image-select-label logo-cover-select-label selected' : 'image-select-label logo-cover-select-label' ),
@@ -127,9 +127,8 @@ class Logo_Cover_Album extends Logo_Cover_Images {
 			);
 
 			$html .= sprintf(
-				'<div class="image-album-preview"><a href="%s%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox data-caption="%s">',
+				'<div class="image-album-preview" style="background-color: #555"><a href="%s%s" class="image-in-album" title="%s" rel="lightbox" data-fancybox data-caption="%s">',
 				$this->urlPath( $album ),
-				$this->pathLarge,
 				$image,
 				$L->get( 'Enlarge' ),
 				$image
@@ -138,7 +137,7 @@ class Logo_Cover_Album extends Logo_Cover_Images {
 			$html .= sprintf(
 				'<img src="%s%s%s" width="80" height="80" />',
 				$this->urlPath( $album ),
-				$this->pathLarge,
+				$this->pathThumbnail,
 				$image
 			);
 			$html .= '</a></div>';

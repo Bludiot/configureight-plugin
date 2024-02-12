@@ -123,7 +123,7 @@ if ( $site->logo() ) {
 				</div>
 
 				<div id="logo-cover-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="logo-cover-album">
-					<p><?php $L->p( 'Manage uploaded logo images.' ); ?></p>
+					<p><?php $L->p( 'Manage uploaded logo images. Click image to view full size.' ); ?></p>
 					<div id="logo-cover-album-wrap"><?php echo $logos_cover->manage_images( $logo_cover ); ?></div>
 				</div>
 			</div>
@@ -135,7 +135,7 @@ if ( $site->logo() ) {
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
 			<div class="col-sm-10">
 				<figure>
-					<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
+					<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
 				</figure>
 				<div class="form-range-controls row">
 					<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo $this->getValue( 'logo_width_std' ); ?></span><span id="logo_width_std_units">px</span></span>
@@ -150,7 +150,7 @@ if ( $site->logo() ) {
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
 			<div class="col-sm-10">
 				<figure>
-					<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $site->logo() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $site->logo() ? DOMAIN_UPLOADS . $site->logo( false ) . '?version=' . time() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
+					<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
 				</figure>
 				<div class="form-range-controls row">
 					<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo $this->getValue( 'logo_width_mob' ); ?></span><span id="logo_width_mob_units">px</span></span>

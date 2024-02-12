@@ -1,6 +1,6 @@
 <?php
 /**
- * Logo images album
+ * Cover logo images album
  *
  * @package    Configure 8 Options
  * @subpackage Classes
@@ -19,7 +19,7 @@ use function CFE_Plugin\{
 	plugin
 };
 
-class Logo_Standard_Album extends Logo_Standard_Images {
+class Logo_Cover_Album extends Logo_Cover_Images {
 
 	/**
 	 * Album name
@@ -28,7 +28,7 @@ class Logo_Standard_Album extends Logo_Standard_Images {
 	 * @access protected
 	 * @var    string
 	 */
-	protected $album = 'logo_std';
+	protected $album = 'logo_cover';
 
 	/**
 	 * Count album images
@@ -69,16 +69,16 @@ class Logo_Standard_Album extends Logo_Standard_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li id="logo-standard-select-item-%s"><label for="logo-standard-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="standard_logo[]" id="logo-standard-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
+				'<li id="logo-cover-select-item-%s"><label for="logo-cover-image-select-%s" class="%s"><img src="%s%s%s" /><input type="radio" name="cover_logo[]" id="logo-cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
-				( in_array( $image, plugin()->standard_logo() ) ? 'image-select-label logo-standard-select-label selected' : 'image-select-label logo-standard-select-label' ),
+				( in_array( $image, plugin()->cover_logo() ) ? 'image-select-label logo-cover-select-label selected' : 'image-select-label logo-cover-select-label' ),
 				$this->urlPath( $album ),
 				$this->pathThumbnail,
 				$image,
 				$count,
 				$image,
-				( in_array( $image, plugin()->standard_logo() ) ? 'checked' : '' ),
+				( in_array( $image, plugin()->cover_logo() ) ? 'checked' : '' ),
 				$image
 			);
 		}
@@ -122,7 +122,7 @@ class Logo_Standard_Album extends Logo_Standard_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li class="upload-form-album image-upload-item" id="logo-standard-image-%s">',
+				'<li class="upload-form-album image-upload-item" id="logo-cover-image-%s">',
 				$count
 			);
 
@@ -143,7 +143,7 @@ class Logo_Standard_Album extends Logo_Standard_Images {
 			);
 			$html .= '</a></div>';
 			$html .= sprintf(
-				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-logo-standard" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
+				'<div class="image-album-details"><p class="image-album-name">%s</p><p class="image-album-buttons"><span class="button button-small btn btn-secondary btn-sm btn-danger delete-logo-cover" data-album="%s" data-file="%s" data-number="%s">%s</span></p></div>',
 				$image,
 				$album,
 				$image,

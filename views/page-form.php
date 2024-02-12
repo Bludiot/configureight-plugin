@@ -140,6 +140,10 @@ jQuery(document).ready( function($) {
 		$( '.logo-standard-select-label' ).removeClass( 'selected' );
 		$(this).addClass( 'selected' );
 	});
+	$( '.logo-cover-select-label' ).click( function() {
+		$( '.logo-cover-select-label' ).removeClass( 'selected' );
+		$(this).addClass( 'selected' );
+	});
 	$( '.cover-select-label' ).click( function() {
 		$(this).toggleClass( 'selected' );
 	});

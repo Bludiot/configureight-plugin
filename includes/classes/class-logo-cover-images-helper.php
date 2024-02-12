@@ -1,6 +1,6 @@
 <?php
 /**
- * Logo images helper
+ * Cover logo images helper
  *
  * @package    Configure 8 Options
  * @subpackage Classes
@@ -14,7 +14,7 @@ if ( ! defined( 'BLUDIT' ) ) {
 	die( 'You are not allowed direct access to this file.' );
 }
 
-class Logo_Standard_Images_Helper {
+class Logo_Cover_Images_Helper {
 
 	/**
 	 * Undocumented function
@@ -34,7 +34,7 @@ class Logo_Standard_Images_Helper {
 		<script>
 			var logo = {
 			config : {
-				ajaxUrl : "' . $domainPath . 'ajax/logo-standard-request-handler.php"
+				ajaxUrl : "' . $domainPath . 'ajax/logo-cover-request-handler.php"
 			},
 			L: {
 				deleteImageError : "' . $L->get( 'Error: Image could not be deleted.' ) . '"
@@ -62,7 +62,7 @@ class Logo_Standard_Images_Helper {
 
 		return '
 		<script>
-		Dropzone.options.logoStandardUpload = {
+		Dropzone.options.logoCoverUpload = {
 			url : logo.config.ajaxUrl,
 			params : {
 				tokenCSRF : "' . $security->getTokenCSRF() . '",
@@ -83,7 +83,7 @@ class Logo_Standard_Images_Helper {
 			previewTemplate : "' . $preview . '",
 			init : function() {
 				this.on( "queuecomplete", function() {
-					$( "#logo-standard-upload-notice" ).fadeIn( 250 );
+					$( "#logo-cover-upload-notice" ).fadeIn( 250 );
 				});
 				this.on( "addedfile", function(file) {});
 			}

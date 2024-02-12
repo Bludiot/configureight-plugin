@@ -2260,14 +2260,14 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global $site Site class.
-	 * @return mixed Returns the URL or null.
+	 * @return mixed Returns the URL or false.
 	 */
 	public function favicon_src() {
 
 		// Access global variables.
 		global $site;
 
-		// Get icon field value.
+		// Get icon field value & image URL.
 		$icon   = $this->site_favicon();
 		$icon   = $icon[0];
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'bookmark' . DS . $icon;
@@ -2296,6 +2296,56 @@ class configureight extends Plugin {
 		// Use favicon.png file in theme assets/images if found.
 		} elseif ( ! $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
 			return DOMAIN_THEME . 'assets/images/favicon.png';
+		}
+		return false;
+	}
+
+	/**
+	 * Standard logo src
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $site Sage class.
+	 * @return mixed Returns the URL or false.
+	 */
+	function standard_logo_src() {
+
+		// Access global variables.
+		global $site;
+
+		// Get logo field value & image URL.
+		$logo   = $this->standard_logo();
+		$logo   = $logo[0];
+		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_std' . DS . 'cache' . DS . 'large' . DS . $logo;
+		$option = $site->url() . 'bl-content/' . $this->storage_root . '/logo_std/cache/large/' . $logo;
+
+		if ( $logo && file_exists( $album ) ) {
+			return $option;
+		}
+		return false;
+	}
+
+	/**
+	 * Cover logo src
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $site Sage class.
+	 * @return mixed Returns the URL or false.
+	 */
+	function cover_logo_src() {
+
+		// Access global variables.
+		global $site;
+
+		// Get logo field value & image URL.
+		$logo   = $this->cover_logo();
+		$logo   = $logo[0];
+		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_cover' . DS . 'cache' . DS . 'large' . DS . $logo;
+		$option = $site->url() . 'bl-content/' . $this->storage_root . '/logo_cover/cache/large/' . $logo;
+
+		if ( $logo && file_exists( $album ) ) {
+			return $option;
 		}
 		return false;
 	}

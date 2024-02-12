@@ -136,6 +136,10 @@ jQuery(document).ready( function($) {
 		$( '.bookmark-select-label' ).removeClass( 'selected' );
 		$(this).addClass( 'selected' );
 	});
+	$( '.logo-standard-select-label' ).click( function() {
+		$( '.logo-standard-select-label' ).removeClass( 'selected' );
+		$(this).addClass( 'selected' );
+	});
 	$( '.cover-select-label' ).click( function() {
 		$(this).toggleClass( 'selected' );
 	});

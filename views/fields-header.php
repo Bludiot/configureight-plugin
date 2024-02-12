@@ -32,7 +32,7 @@ if ( $site->logo() ) {
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="site_slogan"><?php $L->p( 'Website Slogan' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="standard_logo"><?php $L->p( 'Website Slogan' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="site_slogan" name="site_slogan">
 				<option value="true" <?php echo ( $this->getValue( 'site_slogan' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
@@ -43,60 +43,47 @@ if ( $site->logo() ) {
 	</div>
 
 	<div class="form-field form-group row">
-		<div class="form-label col-sm-2 col-form-label"><?php $L->p( 'Logo Image' ); ?></div>
-		<div class="col-sm-10 row image-field-buttons">
-			<label id="logo_upload_button" for="logo_upload" class="btn <?php echo ( $site->logo() ? 'btn-light' : 'btn-primary' ) ?> btn-md button">
-				<span id="logo_upload_button_text"><?php echo ( $site->logo() ? $logo_filename : $L->get( 'Upload&nbsp;Image' ) ); ?></span>
-				<input id="logo_upload" class="screen-reader-text" type="file" name="inputFile" />
-			</label>
-			<button id="remove_logo" type="button" class="btn <?php echo ( $site->logo() ? 'btn-danger' : 'btn-light' ) ?> btn-md button" <?php echo ( $site->logo() ? '' : 'disabled' ); ?>><?php $L->p( 'Remove&nbsp;Image' ); ?></button>
+		<label class="form-label col-sm-2 col-form-label" for="logo-standard-select"><?php $L->p( 'Standard Logo' ); ?></label>
+		<div class="col-sm-10">
+			<p><?php $L->p( 'The standard logo image displays in the site header when it has a solid background.' ); ?></p>
+
+			<div id="logo-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+
+				<ul class="nav nav-tabs" id="logo-nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="logo-standard-select" aria-selected="false" href="#logo-standard-select"><?php $L->p( 'Select' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="logo-upload" aria-selected="false" href="#logo-upload"><?php $L->p( 'Upload' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="logo-standard-album" aria-selected="false" href="#logo-standard-album"><?php $L->p( 'Album' ); ?></a>
+					</li>
+				</ul>
+				<div id="logo-standard-select" role="tabpanel" aria-labelledby="logo-standard-select">
+					<p><?php $L->p( 'Select one from uploaded logo images.' ); ?></p>
+					<?php echo $logos_std->select_images( $logo_std ); ?>
+				</div>
+
+				<div id="logo-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="logo-upload">
+
+					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .png, .gif, .jpg, .jpeg' ); ?></p>
+
+					<div class="dropzone" id="logo-upload"></div>
+
+					<div id="logo-upload-notice" style="display: none;">
+						<p><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as a logo image.' ); ?></p>
+						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php $L->p( 'Refresh' ); ?></button></p>
+					</div>
+
+				</div>
+
+				<div id="logo-standard-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="logo-standard-album">
+					<p><?php $L->p( 'Manage uploaded logo images.' ); ?></p>
+					<div id="logo-standard-album-wrap"><?php echo $logos_std->manage_images( $logo_std ); ?></div>
+				</div>
+			</div>
 		</div>
-		<script>
-			$( '#remove_logo' ).on( 'click', function() {
-
-				// Stop if confirmation is cancelled.
-				if ( ! confirm( '<?php $L->p( 'Are you sure you want to remove the logo?' ); ?>' ) ) { return; };
-
-				// AJAX remove the image file and reset the database value.
-				bluditAjax.removeLogo();
-
-				// Modify field markup.
-				$(this).removeClass( 'btn-danger' ).addClass( 'btn-light' ).attr( 'disabled', 'disabled' );
-				$( '#logo_upload_button' ).removeClass( 'btn-light' ).addClass( 'btn-primary' );
-				$( '#logo_upload_button_text' ).html( '<?php $L->p( 'Upload&nbsp;Image' ); ?>' );
-				$( '#logo_fields' ).fadeOut( 250 );
-				$( '#logo_preview_desktop' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
-				$( '#logo_preview_mobile' ).attr( 'src', '' ).attr( 'alt', '<?php $L->p( 'No logo uploaded' ); ?>' );
-			});
-
-			$( '#logo_upload' ).on( 'change', function() {
-
-				var formData = new FormData();
-
-				formData.append( 'tokenCSRF', tokenCSRF );
-				formData.append( 'inputFile', $(this)[0] . files[0] );
-				$.ajax( {
-					url   : HTML_PATH_ADMIN_ROOT + "ajax/logo-upload",
-					type  : "POST",
-					data  : formData,
-					cache : false,
-					contentType : false,
-					processData : false
-				} ).done( function(data) {
-
-					if ( data.status == 0 ) {
-						$( '#remove_logo' ).removeClass( 'btn-light' ).addClass( 'btn-danger' ).removeAttr( 'disabled' );
-						$( '#logo_upload_button' ).removeClass( 'btn-primary' ).addClass( 'btn-light' );
-						$( '#logo_upload_button_text' ).html( data.filename );
-						$( '#logo_fields' ).fadeIn( 250 );
-						$( '#logo_preview_desktop' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Desktop logo preview' ); ?>' );
-						$( '#logo_preview_mobile' ).attr( 'src', data.absoluteURL + '?time=' + Math.random() ).attr( 'alt', '<?php $L->p( 'Mobile logo preview' ); ?>' );
-					} else {
-						showAlert( data.message );
-					}
-				});
-			});
-		</script>
 	</div>
 
 	<div id="logo_fields" style="display: <?php echo ( $site->logo() ? 'block' : 'none' ); ?>;">
@@ -156,3 +143,35 @@ if ( $site->logo() ) {
 		</div>
 	</div>
 </fieldset>
+
+<script>
+$( function() {
+	$( '.delete-logo' ).bind( 'click', function() {
+		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		deleteLogo(this);
+	});
+});
+
+function deleteLogo(el) {
+	$.post( logo.config.ajaxUrl, {
+		tokenCSRF : $( '#jstokenCSRF' ).val(),
+		action    : 'deleteImage',
+		album     : $(el).data( 'album' ),
+		file      : $(el).data( 'file' )
+	},
+	function() {
+		let manage = '#logo-standard-image-' + $(el).data( 'number' );
+		let select = '#logo-standard-select-item-' + $(el).data( 'number' );
+		let input  = '#logo-standard-select-item-' + $(el).data( 'number' ) + ' input';
+		$( manage ).fadeOut( 450 );
+		$( select ).hide();
+		$( input ).removeAttr( 'checked' );
+
+	}).fail( function() {
+		$.alert({
+			title   : logo.L.error,
+			content : logo.L.deleteImageError
+		});
+	});
+}
+</script>

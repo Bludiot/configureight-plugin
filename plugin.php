@@ -134,12 +134,14 @@ class configureight extends Plugin {
 
 		// Array of namespaced classes & filenames.
 		$classes = [
-			'CFE_Classes\Image_Upload'    => $path . 'class-image-upload.php',
-			'CFE_Classes\Bookmark_Images' => $path . 'class-bookmark-images.php',
-			'CFE_Classes\Bookmark_Album'  => $path . 'class-bookmark-album.php',
-			'CFE_Classes\Cover_Images'    => $path . 'class-cover-images.php',
-			'CFE_Classes\Cover_Album'     => $path . 'class-cover-album.php',
-			'CFE_Classes\Image_Album'     => $path . 'class-image-album.php'
+			'CFE_Classes\Image_Upload'         => $path . 'class-image-upload.php',
+			'CFE_Classes\Bookmark_Images'      => $path . 'class-bookmark-images.php',
+			'CFE_Classes\Bookmark_Album'       => $path . 'class-bookmark-album.php',
+			'CFE_Classes\Logo_Standard_Images' => $path . 'class-logo-standard-images.php',
+			'CFE_Classes\Logo_Standard_Album'  => $path . 'class-logo-standard-album.php',
+			'CFE_Classes\Cover_Images'         => $path . 'class-cover-images.php',
+			'CFE_Classes\Cover_Album'          => $path . 'class-cover-album.php',
+			'CFE_Classes\Image_Album'          => $path . 'class-image-album.php'
 		];
 		spl_autoload_register(
 			function ( string $class ) use ( $classes ) {
@@ -182,9 +184,10 @@ class configureight extends Plugin {
 		global $L;
 
 		$this->dbFields = [
+			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
-			'show_options'           => false,
 			'to_top_button'          => true,
+			'show_options'           => false,
 			'page_loader'            => false,
 			'loader_bg_color'        => $this->loader_bg_default(),
 			'loader_bg_color_dark'   => $this->loader_bg_default_dark(),
@@ -195,6 +198,12 @@ class configureight extends Plugin {
 			'search_icon'            => true,
 			'site_title'             => true,
 			'site_slogan'            => true,
+			'standard_logo'          => [],
+			'cover_logo'             => [],
+			'logo_thumb_width'       => 80,
+			'logo_thumb_height'      => 80,
+			'logo_large_width'       => 320,
+			'logo_large_height'      => 9999,
 			'logo_width_std'         => $this->logo_width_std_default(),
 			'logo_width_mob'         => $this->logo_width_mob_default(),
 			'logo_location'          => 'before',
@@ -212,7 +221,6 @@ class configureight extends Plugin {
 			'img_upload_quality'     => 90,
 			'thumb_width'            => 480,
 			'thumb_height'           => 360,
-			'site_favicon'           => [],
 			'modal_bg_color'         => $this->modal_bg_default(),
 			'cover_images'           => [],
 			'cover_thumb_width'      => 320,
@@ -803,22 +811,29 @@ class configureight extends Plugin {
 			$html = '';
 
 			$bookmark = 'bookmark';
+			$logo_std = 'logo_std';
 			$cover    = 'cover';
 			$domain   = $this->domainPath();
 
 			// Get helper objects.
 			require_once( 'includes/classes/class-bookmark-images-helper.php' );
+			require_once( 'includes/classes/class-logo-standard-images-helper.php' );
 			require_once( 'includes/classes/class-cover-images-helper.php' );
 			$bookmark_helper = new \CFE_Classes\Bookmark_Images_Helper();
+			$logo_std_helper = new \CFE_Classes\Logo_Standard_Images_Helper();
 			$cover_helper    = new \CFE_Classes\Cover_Images_Helper();
 
 			// Load required JS.
 			$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 			$html .= $bookmark_helper->adminJSData( $domain );
+			$html .= $logo_std_helper->adminJSData( $domain );
 			$html .= $cover_helper->adminJSData( $domain );
 
 			if ( $bookmark ) {
 				$html .= $bookmark_helper->dropzoneJSData( $bookmark );
+			}
+			if ( $logo_std ) {
+				$html .= $logo_std_helper->dropzoneJSData( $logo_std );
 			}
 			if ( $cover ) {
 				$html .= $cover_helper->dropzoneJSData( $cover );
@@ -833,22 +848,29 @@ class configureight extends Plugin {
 		}
 
 		$bookmark = 'bookmark';
+		$logo_std = 'logo_std';
 		$cover    = 'cover';
 		$domain   = $this->domainPath();
 
 		// Get helper objects.
 		require_once( 'includes/classes/class-bookmark-images-helper.php' );
+		require_once( 'includes/classes/class-logo-standard-images-helper.php' );
 		require_once( 'includes/classes/class-cover-images-helper.php' );
 		$bookmark_helper = new \CFE_Classes\Bookmark_Images_Helper();
+		$logo_std_helper     = new \CFE_Classes\Logo_Standard_Images_Helper();
 		$cover_helper    = new \CFE_Classes\Cover_Images_Helper();
 
 		// Load required JS
 		$html .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/jquery-confirm{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 		$html .= $bookmark_helper->adminJSData( $domain );
+		$html .= $logo_std_helper->adminJSData( $domain );
 		$html .= $cover_helper->adminJSData( $domain );
 
 		if ( $bookmark ) {
 			$html .= $bookmark_helper->dropzoneJSData( $bookmark );
+		}
+		if ( $logo_std ) {
+			$html .= $logo_std_helper->dropzoneJSData( $logo_std );
 		}
 		if ( $cover ) {
 			$html .= $cover_helper->dropzoneJSData( $cover );
@@ -872,9 +894,11 @@ class configureight extends Plugin {
 		global $L, $plugin, $site;
 
 		$bookmark = 'bookmark';
+		$logo_std = 'logo_std';
 		$cover    = 'cover';
 		$config['imagesSort'] = 'newest';
 		$bookmarks = new CFE_Classes\Bookmark_Album( $config, true );
+		$logos_std = new CFE_Classes\Logo_Standard_Album( $config, true );
 		$covers    = new CFE_Classes\Cover_Album( $config, true );
 
 		$html = '';
@@ -1251,6 +1275,16 @@ class configureight extends Plugin {
 	// @return boolean
 	public function site_slogan() {
 		return $this->getValue( 'site_slogan' );
+	}
+
+	// @return array
+	public function standard_logo() {
+		return $this->getValue( 'standard_logo' );
+	}
+
+	// @return array
+	public function cover_logo() {
+		return $this->getValue( 'cover_logo' );
 	}
 
 	// @return integer

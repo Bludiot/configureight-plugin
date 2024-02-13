@@ -183,7 +183,7 @@ if ( $site->logo() ) {
 				<option value="true" <?php echo ( $this->getValue( 'header_sticky' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'header_sticky' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Makes the branding and navigation stick to the top of the viewport.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Makes the branding and navigation stick to the top of the viewport. Not for mobile screens.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

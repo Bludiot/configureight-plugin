@@ -14,7 +14,7 @@ use function CFE_Plugin\{
 };
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Meta Data Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Meta Data Options' ) ] ); ?>
 
 <p><?php $L->p( 'Include detailed information about the website for search engines and for embedding URLs.' ); ?></p>
 
@@ -74,7 +74,7 @@ use function CFE_Plugin\{
 
 			<div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
-				<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Titles' ) ] ); ?>
+				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Titles' ) ] ); ?>
 
 				<p><?php $L->p( 'Custom title tag formats will override the title tag function for each case listed. If the field is left empty then the built-in title for that case is used.' ); ?></p>
 

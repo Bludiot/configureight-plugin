@@ -42,7 +42,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Layout Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Layout Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Layout' ); ?></legend>
@@ -84,7 +84,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Appearance Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Appearance Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Appearance' ); ?></legend>
@@ -668,7 +668,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Code' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Code' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Custom' ); ?></legend>

@@ -24,7 +24,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Post/Page Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Post/Page Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Post/Page Options' ); ?></legend>
@@ -75,7 +75,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 </fieldset>
 
 <?php if ( $site->homepage() ) : ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Front Page Slider' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Front Page Slider' ) ] ); ?>
 
 <p><?php $L->p( 'Display a slider/carousel of select posts at the top of the static front page.' ); ?></p>
 
@@ -239,7 +239,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 </fieldset>
 <?php endif; ?>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Related Posts' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Related Posts' ) ] ); ?>
 
 <p><?php $L->p( 'The related posts section is not displayed on static pages.' ); ?></p>
 
@@ -317,7 +317,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 if ( $site->pageNotFound() ) :
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( '404 Error Template' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( '404 Error Template' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( '404 Error' ); ?></legend>
@@ -337,7 +337,7 @@ if ( $site->pageNotFound() ) :
 
 	<div id="error_widget_options" style="display: <?php echo ( $this->getValue( 'error_widgets' ) != 'content' ? 'block' : 'none' ); ?>;">
 
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Error Page Options' ) ] ); ?>
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Error Page Options' ) ] ); ?>
 
 		<p><?php $L->p( 'Choose which widgets to display and how to display them.' ); ?></p>
 

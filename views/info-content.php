@@ -10,7 +10,7 @@
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Custom Fields' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Fields' ) ] ); ?>
 
 <p><?php $L->p( 'The Configure 8 theme is prepare to apply custom content fields for posts, pages, and various theme features. To take advantage of these fields simply copy the code into the text box in Settings > Custom Fields.' ); ?></p>
 

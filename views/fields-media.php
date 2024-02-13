@@ -18,7 +18,7 @@ use function CFE_Colors\{
 $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Media Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Media Options' ) ] ); ?>
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Media Options' ); ?></legend>
 
@@ -72,7 +72,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Cover Images' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Cover Images' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Cover Images' ); ?></legend>

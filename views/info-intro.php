@@ -19,7 +19,7 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Compatibility' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Compatibility' ) ] ); ?>
 
 <p><?php $L->p( "The {$theme} theme was designed with great extensibility by plugins. All of the core plugin hooks are included and placed in appropriate positions in the various template parts. That said, we cannot maintain compatibility for all plugins nor take responsibility for poorly developed plugins. If there is a plugin hook you would like to have us include, please see the support tab." ); ?></p>
 

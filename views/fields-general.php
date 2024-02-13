@@ -17,7 +17,7 @@ $colors = color_schemes();
 $custom_from = $this->custom_scheme_from();
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'General Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'General Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
@@ -106,7 +106,7 @@ $custom_from = $this->custom_scheme_from();
 
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Loading Screen' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Loading Screen' ) ] ); ?>
 
 <fieldset>
 
@@ -206,7 +206,7 @@ $custom_from = $this->custom_scheme_from();
 $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Search Forms' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Search Forms' ) ] ); ?>
 
 <?php if ( getPlugin( 'Search_Forms' ) ) : ?>
 <div class="form-field form-group row">

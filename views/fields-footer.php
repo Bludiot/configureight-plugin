@@ -20,7 +20,7 @@ $copy_text_placeholder = sprintf(
 );
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Footer Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Footer Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Footer' ); ?></legend>

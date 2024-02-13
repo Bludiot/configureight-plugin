@@ -22,7 +22,7 @@ if (
 }
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Sidebar Options' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sidebar Options' ) ] ); ?>
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Sidebar' ); ?></legend>
@@ -112,7 +112,7 @@ if (
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Sidebar' ) ] ); ?>
 
 <fieldset>
 

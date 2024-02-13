@@ -16,7 +16,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 ?>
 
-<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
+<?php echo Bootstrap :: pageTitle( [ 'element' => 'h1', 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page. Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
@@ -70,12 +70,12 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">
 
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Admin Themes' ) ] ); ?>
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Themes' ) ] ); ?>
 	</div>
 
 	<div id="support" class="tab-pane" role="tabpanel" aria-labelledby="support">
 
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Product Support' ) ] ); ?>
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Product Support' ) ] ); ?>
 
 		<p><?php $L->p( 'Please register errors, conflicts, or other problems with the Configure 8 suite of products under the Issues tab in the relevant GitHub repository.' ); ?></p>
 
@@ -87,7 +87,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 		<p><strong class="semi-bold"><?php $L->p( 'Search:' ); ?></strong> <a href="https://github.com/Bludiot/searchforms" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/searchforms</a></p>
 
-		<?php echo Bootstrap :: formTitle( [ 'title' => $L->g( 'Support Bludiot' ) ] ); ?>
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Support Bludiot' ) ] ); ?>
 
 		<p><?php $L->p( 'Let me know if you need me to develop a custom version of Configure 8 for you.' ); ?></p>
 

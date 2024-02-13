@@ -18,7 +18,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 ?>
 
-<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Theme Options Database' ), 'icon' => 'cog' ] ); ?>
+<?php echo Bootstrap :: pageTitle( [ 'element' => 'h1', 'title' => $L->g( 'Theme Options Database' ), 'icon' => 'cog' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>

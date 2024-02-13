@@ -25,8 +25,12 @@ $serif_stack: Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 
 :root {
 
 	// General.
+	--cfe-fonts--display-stack: #{$crimson_stack};
 	--cfe-body--font-family: #{$serif_stack};
 	--cfe-body--font-size: 1.0625rem;
+	--cfe-display--font-family: #{$crimson_stack};
+	--cfe-display--font-weight: 570;
+	--cfe-display--letter-spacing: normal;
 	--cfe-heading-primary--font-family: #{$crimson_stack};
 	--cfe-heading-primary--font-size: 2.5rem;
 	--cfe-heading-primary--font-weight: 550;
@@ -42,9 +46,7 @@ $serif_stack: Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 
 	--cfe-loader--text--font-size: 1.6875rem;
 	--cfe-loader--text--font-weight: 600;
 
-	--cfe-button--font-family: #{$crimson_stack};
-	--cfe-button--font-size: 1.125rem;
-	--cfe-button--font-weight: 600;
+	--cfe-button--font-size: 1.1875rem;
 
 	// Header.
 	--cfe-site-title--font-family: #{$crimson_stack};
@@ -56,9 +58,7 @@ $serif_stack: Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 
 	--cfe-cover--description--font-size: 1.5rem;
 
 	// Navigation.
-	--cfe-site-nav--item--font-family: #{$crimson_stack};
-	--cfe-site-nav--item--font-size: 1.125rem;
-	--cfe-site-nav--item--font-weight: 550;
+	--cfe-site-nav--item--font-size: 1.1875rem;
 
 	// Page content.
 	--cfe-page-header--heading--font-size: 2.625rem;
@@ -73,9 +73,7 @@ $serif_stack: Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 
 	--cfe-page-info-date--font-weight: 550;
 
 	// Tabbed content.
-	--cfe-tabs--list--link--font-family: #{$crimson_stack};
 	--cfe-tabs--list--link--font-size: 1.125rem;
-	--cfe-tabs--list--link--font-weight: 525;
 
 	// Aside.
 	--cfe-sidebar--heading--font-size: 1.625rem;

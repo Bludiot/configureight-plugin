@@ -155,7 +155,7 @@ function basic_font_schemes() {
 				'family' => 'Inter',
 				'stack'  => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '550',
+				'weight' => '600',
 				'min'    => '100',
 				'max'    => '900',
 				'step'   => '1',
@@ -199,7 +199,7 @@ function basic_font_schemes() {
 				'family' => 'Crimson Pro',
 				'stack'  => "'Crimson Pro', Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '550',
+				'weight' => '570',
 				'min'    => '200',
 				'max'    => '900',
 				'step'   => '1',
@@ -392,11 +392,11 @@ function style_font_schemes() {
 				'family' => 'Rokkitt',
 				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
-				'weight' => '535',
+				'weight' => '600',
 				'min'    => '100',
 				'max'    => '900',
 				'step'   => '1',
-				'space'  => '0'
+				'space'  => '-0.015'
 			]
 		]
 	];
@@ -492,9 +492,15 @@ function font_scheme_template() {
 function admin_font_options() {
 
 	$style  = "\n" . '<style>:root{';
+
+	// Font weight.
 	$style .= sprintf(
 		'--cfe-body--font-weight: %s;',
 		plugin()->wght_text()
+	);
+	$style .= sprintf(
+		'--cfe-display--font-weight: %s;',
+		plugin()->wght_display()
 	);
 	$style .= sprintf(
 		'--cfe-heading-primary--font-weight: %s;',
@@ -504,13 +510,15 @@ function admin_font_options() {
 		'--cfe-heading-secondary--font-weight: %s;',
 		plugin()->wght_secondary()
 	);
-	$style .= sprintf(
-		'--cfe-heading-secondary--font-weight: %s;',
-		plugin()->wght_display()
-	);
+
+	// Letter spacing.
 	$style .= sprintf(
 		'--cfe-body--letter-spacing: %sem;',
 		plugin()->space_text()
+	);
+	$style .= sprintf(
+		'--cfe-display--letter-spacing: %sem;',
+		plugin()->space_display()
 	);
 	$style .= sprintf(
 		'--cfe-heading-primary--letter-spacing: %sem;',
@@ -519,10 +527,6 @@ function admin_font_options() {
 	$style .= sprintf(
 		'--cfe-heading-secondary--letter-spacing: %sem;',
 		plugin()->space_secondary()
-	);
-	$style .= sprintf(
-		'--cfe-heading-secondary--letter-spacing: %sem;',
-		plugin()->space_display()
 	);
 	$style .= '}</style>' . "\n";
 

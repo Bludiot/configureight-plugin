@@ -41,9 +41,13 @@ $nunito_stack: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
 :root {
 
 	// General.
+	--cfe-fonts--display-stack: #{$montserrat_stack};
 	--cfe-body--font-family: #{$nunito_stack};
 	--cfe-body--font-size: 1.125rem;
-	--cfe-font-weight: 465;
+	--cfe-body--font-weight: 465;
+	--cfe-display--font-family: #{$montserrat_stack};
+	--cfe-display--font-weight: 550;
+	--cfe-display--letter-spacing: normal;
 	--cfe-heading-primary--font-family: #{$montserrat_stack};
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 600;
@@ -58,9 +62,7 @@ $nunito_stack: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
 	--cfe-loader--text--font-weight: 600;
 	--cfe-loader--text--font-variant: small-caps;
 
-	--cfe-button--font-family: #{$montserrat_stack};
 	--cfe-button--font-size: 1rem;
-	--cfe-button--font-weight: 600;
 
 	// Header.
 	--cfe-site-title--font-size: 1.625rem;
@@ -72,9 +74,7 @@ $nunito_stack: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
 	--cfe-cover--description--font-size: 1.325rem;
 
 	// Navigation.
-	--cfe-site-nav--item--font-family: #{$montserrat_stack};
 	--cfe-site-nav--item--font-size: 1rem;
-	--cfe-site-nav--item--font-weight: 550;
 
 	// Content.
 	--cfe-page-header--heading--font-size: 2rem;
@@ -84,9 +84,7 @@ $nunito_stack: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
 	--cfe-pagination-list--numeric--link--active--font-weight: 650;
 
 	// Tabbed content.
-	--cfe-tabs--list--link--font-family: #{$montserrat_stack};
 	--cfe-tabs--list--link--font-size: 1rem;
-	--cfe-tabs--list--link--font-weight: 600;
 
 	// Aside.
 	--cfe-sidebar--link--font-weight: 500;

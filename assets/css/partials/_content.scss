@@ -335,7 +335,7 @@ h2 {
 	margin: 0;
 	padding: 0.5rem 1rem;
 	font-size: var( --cfe-tabs--list--link--font-size );
-	font-weight: var( --cfe-tabs--list--link--font-weight, 600 );
+	font-weight: var( --cfe-tabs--list--link--font-weight, var( --cfe-display--font-weight ) );
 	text-decoration: var( --cfe-tabs--list--link--text-decoration, none );
 	text-decoration: none;
 	border: var( --cfe-tabs--border-style ) var( --cfe-tabs--border-width ) var( --cfe-tabs--border-color );

@@ -13,8 +13,12 @@
   src: url(../../../../fonts/serif/crimson-italic.woff2) format("woff2");
 }
 :root {
+  --cfe-fonts--display-stack: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-body--font-family: Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-body--font-size: 1.0625rem;
+  --cfe-display--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --cfe-display--font-weight: 570;
+  --cfe-display--letter-spacing: normal;
   --cfe-heading-primary--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-heading-primary--font-size: 2.5rem;
   --cfe-heading-primary--font-weight: 550;
@@ -24,10 +28,6 @@
   --cfe-heading-secondary--font-size: 1.625rem;
   --cfe-heading-secondary--font-weight: 500;
   --cfe-heading-secondary--line-height: 1.1;
-  --cfe-button--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-button--font-size: 1.125rem;
-  --cfe-button--font-weight: 600;
-  --cfe-tabs--list--link--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-tabs--list--link--font-size: 1.125rem;
-  --cfe-tabs--list--link--font-weight: 525;
 }

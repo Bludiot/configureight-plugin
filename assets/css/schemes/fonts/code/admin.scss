@@ -23,12 +23,14 @@ $code_stack: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', I
 :root {
 
 	// General.
+	--cfe-fonts--display-stack: #{$code_stack};
 	--cfe-body--font-family: #{$code_stack};
+	--cfe-display--font-family: #{$code_stack};
+	--cfe-display--font-weight: 600;
+	--cfe-display--letter-spacing: -0.0325em;
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 700;
 	--cfe-heading-primary--letter-spacing: normal;
 
-	--cfe-button--font-family: #{$code_stack};
 	--cfe-button--font-size: 1rem;
-	--cfe-button--font-weight: 600;
 }

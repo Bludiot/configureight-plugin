@@ -33,6 +33,7 @@
   --cfe-fonts--sans-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-fonts--serif-stack: NonBreakingSpaceOverride, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-fonts--monospace-stack: Source Code Pro, Roboto Mono, Fira Code, Liberation Mono, Inconsolata, Menlo, Monaco, Consolas, Cascadia Mono, Segoe UI Mono, Oxygen Mono, Ubuntu Monospace, Fira Mono, Droid Sans Mono, Courier New, Courier, ui-monospace, monospace, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --cfe-fonts--display-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-spacing--horz: 2rem;
   --cfe-spacing--vert: 2rem;
   --cfe-wrapper--general--max-width: 1280px;
@@ -92,7 +93,6 @@
   --cfe-select--margin: 1em 0 0;
   --cfe-select--padding: 0.5em 1em;
   --cfe-button--padding: 0.75rem 1rem;
-  --cfe-button--font-weight: 700;
   --cfe-button--bg-color: var( --cfe-scheme-color--three );
   --cfe-button--bg-color--dark: var( --cfe-scheme-color--three--dark );
   --cfe-button--action--bg-color: var( --cfe-scheme-color--four );
@@ -3260,9 +3260,9 @@ select option {
   margin: var(--cfe-button--margin);
   padding: var(--cfe-button--padding, 0.5rem);
   line-height: var(--cfe-button--line-height, 1);
-  font-family: var(--cfe-button--font-family, var(--cfe-body--font-family, var(--cfe-sans-stack, sans-serif)));
-  font-size: var(--cfe-button--font-size, 1rem);
-  font-weight: var(--cfe-button--font-weight, 600);
+  font-family: var(--cfe-button--font-family, var(--cfe-display--font-family));
+  font-size: var(--cfe-button--font-size);
+  font-weight: var(--cfe-button--font-weight, var(--cfe-display--font-weight));
   font-style: var(--cfe-button--font-style, normal);
   font-variant: var(--cfe-button--font-variant, normal);
   letter-spacing: var(--cfe-button--letter-spacing, normal);

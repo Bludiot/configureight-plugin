@@ -23,8 +23,12 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 :root {
 
 	// Body & general text.
+	--cfe-fonts--display-stack: #{$inter_stack};
 	--cfe-body--font-family: #{$inter_stack};
 	--cfe-body--font-weight: 385;
+	--cfe-display--font-family: #{$inter_stack};
+	--cfe-display--font-weight: 600;
+	--cfe-display--letter-spacing: normal;
 	--cfe-loader--text--font-size: 1.5rem;
 	--cfe-loader--text--font-weight: 700;
 
@@ -38,7 +42,6 @@ $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emo
 	// Header.
 
 	// Navigation.
-	--cfe-site-nav--item--font-weight: 550;
 
 	// Content.
 	--cfe-cover--full--title--font-size: clamp( 2.375rem, 2.75vw + 1rem, 5vw );

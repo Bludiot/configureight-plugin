@@ -534,6 +534,41 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	</div>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="wght_display"><?php $L->p( 'Display Text' ); ?></label>
+		<div class="col-sm-10 row">
+
+			<p class="text-above-field"><?php $L->p( 'Font Weight' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="wght_display_value"><?php echo ( $this->getValue( 'wght_display' ) ? $this->getValue( 'wght_display' ) : $this->dbFields['wght_display'] ); ?></span></span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_display_value').html($(this).val())" id="wght_display" name="wght_display" value="<?php echo $this->getValue( 'wght_display' ); ?>" min="<?php echo $current_fonts['display']['min']; ?>" max="<?php echo $current_fonts['display']['max']; ?>" step="<?php echo $current_fonts['display']['step']; ?>" />
+
+				<input type="hidden" id="wght_display_default"  name="wght_display_default" value="<?php echo $current_fonts['display']['weight']; ?>" />
+
+				<span class="btn btn-display btn-md form-range-button hide-if-no-js" onClick="$('#wght_display_value').text($('#wght_display_default').val() );$('#wght_display').val($('#wght_display_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+			<small id="wght_display_desc" class="form-text">
+				<?php if ( ! $current_fonts['display']['var'] ) {
+					$L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' );
+				} else {
+					echo '';
+				} ?>
+			</small>
+
+			<p class="text-above-field"><?php $L->p( 'Letter Spacing' ); ?></p>
+			<div class="form-range-controls">
+				<span class="form-range-value rem-range-value"><span id="space_display_value"><?php echo ( $this->getValue( 'space_display' ) ? $this->getValue( 'space_display' ) : $current_fonts['display']['space'] ); ?></span>em</span>
+
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_display_value').html($(this).val())" id="space_display" name="space_display" value="<?php echo $this->getValue( 'space_display' ); ?>" min="-0.100" max="0.150" step="0.001" />
+
+				<input type="hidden" id="space_display_default"  name="space_display_default" value="<?php echo $current_fonts['display']['space']; ?>" />
+
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_display_value').text($('#space_display_default').val() );$('#space_display').val($('#space_display_default').val());"><?php $L->p( 'Default' ); ?></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="wght_primary"><?php $L->p( 'Primary Headings' ); ?></label>
 		<div class="col-sm-10 row">
 
@@ -780,6 +815,24 @@ jQuery(document).ready( function($) {
 			$( '#space_secondary' ).val( '<?php echo $scheme['secondary']['space']; ?>' );
 			$( '#space_secondary_default' ).val( '<?php echo $scheme['secondary']['space']; ?>' );
 			$( '#space_secondary_value' ).html( '<?php echo $scheme['secondary']['space']; ?>' );
+
+			// Main navigation weight.
+			$( '#wght_display_default' ).val( '<?php echo $scheme['display']['weight']; ?>' );
+			$( '#wght_display_value' ).html( '<?php echo $scheme['display']['weight']; ?>' );
+			$( '#wght_display' ).attr( 'min', '<?php echo $scheme['display']['min']; ?>' );
+			$( '#wght_display' ).attr( 'max', '<?php echo $scheme['display']['max']; ?>' );
+			$( '#wght_display' ).attr( 'step', '<?php echo $scheme['display']['step']; ?>' );
+			$( '#wght_display' ).val( '<?php echo $scheme['display']['weight']; ?>' );
+			if ( true == '<?php echo $scheme['display']['var']; ?>' ) {
+				$( '#wght_display_desc' ).html( '' );
+			} else {
+				$( '#wght_display_desc' ).html( '<?php $L->p( 'This scheme is using a system font stack. Weights may vary by the font deployed by the user device.' ); ?>' );
+			}
+
+			// Main navigation letter spacing.
+			$( '#space_display' ).val( '<?php echo $scheme['display']['space']; ?>' );
+			$( '#space_display_default' ).val( '<?php echo $scheme['display']['space']; ?>' );
+			$( '#space_display_value' ).html( '<?php echo $scheme['display']['space']; ?>' );
 		}
 
 		// Scheme preview.

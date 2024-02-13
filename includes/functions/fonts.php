@@ -106,6 +106,16 @@ function basic_font_schemes() {
 				'max'    => '1000',
 				'step'   => '300',
 				'space'  => '0'
+			],
+			'display' => [
+				'family' => $L->get( 'Sans-Serif' ),
+				'stack'  => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => false,
+				'weight' => '600',
+				'min'    => '100',
+				'max'    => '1000',
+				'step'   => '100',
+				'space'  => '0'
 			]
 		],
 		'sans' => [
@@ -140,6 +150,16 @@ function basic_font_schemes() {
 				'max'    => '900',
 				'step'   => '1',
 				'space'  => '-0.02'
+			],
+			'display' => [
+				'family' => 'Inter',
+				'stack'  => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '550',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		],
 		'serif' => [
@@ -174,6 +194,16 @@ function basic_font_schemes() {
 				'max'    => '900',
 				'step'   => '1',
 				'space'  => '-0.025'
+			],
+			'display' => [
+				'family' => 'Crimson Pro',
+				'stack'  => "'Crimson Pro', Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '550',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		]
 	];
@@ -225,6 +255,16 @@ function style_font_schemes() {
 				'max'    => '900',
 				'step'   => '1',
 				'space'  => '0'
+			],
+			'display' => [
+				'family' => 'Source Code Pro',
+				'stack'  => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '600',
+				'min'    => '200',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '-0.0325'
 			]
 		],
 		'cosmo' => [
@@ -255,6 +295,16 @@ function style_font_schemes() {
 				'stack'  => "'Playfair', 'Hoefler Text', 'Baskerville Old Face', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '570',
+				'min'    => '400',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
+			],
+			'display' => [
+				'family' => 'Playfair',
+				'stack'  => "'Playfair', 'Hoefler Text', 'Baskerville Old Face', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '450',
 				'min'    => '400',
 				'max'    => '900',
 				'step'   => '1',
@@ -293,6 +343,16 @@ function style_font_schemes() {
 				'max'    => '900',
 				'step'   => '1',
 				'space'  => '0.025'
+			],
+			'display' => [
+				'family' => 'Montserrat',
+				'stack'  => "'Montserrat', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '550',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
 			]
 		],
 		'slab' => [
@@ -323,6 +383,16 @@ function style_font_schemes() {
 				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => true,
 				'weight' => '750',
+				'min'    => '100',
+				'max'    => '900',
+				'step'   => '1',
+				'space'  => '0'
+			],
+			'display' => [
+				'family' => 'Rokkitt',
+				'stack'  => "'Rokkitt', 'Hoefler Text', Garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'    => true,
+				'weight' => '535',
 				'min'    => '100',
 				'max'    => '900',
 				'step'   => '1',
@@ -435,6 +505,10 @@ function admin_font_options() {
 		plugin()->wght_secondary()
 	);
 	$style .= sprintf(
+		'--cfe-heading-secondary--font-weight: %s;',
+		plugin()->wght_display()
+	);
+	$style .= sprintf(
 		'--cfe-body--letter-spacing: %sem;',
 		plugin()->space_text()
 	);
@@ -445,6 +519,10 @@ function admin_font_options() {
 	$style .= sprintf(
 		'--cfe-heading-secondary--letter-spacing: %sem;',
 		plugin()->space_secondary()
+	);
+	$style .= sprintf(
+		'--cfe-heading-secondary--letter-spacing: %sem;',
+		plugin()->space_display()
 	);
 	$style .= '}</style>' . "\n";
 

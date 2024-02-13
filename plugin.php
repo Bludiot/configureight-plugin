@@ -335,9 +335,11 @@ class configureight extends Plugin {
 			'wght_text'              => '400',
 			'wght_primary'           => '700',
 			'wght_secondary'         => '700',
+			'wght_display'          => '600',
 			'space_text'             => '0',
 			'space_primary'          => '0',
 			'space_secondary'        => '0',
+			'space_display'         => '0',
 			'admin_theme'            => 'css',
 			'custom_css'             => ':root {}',
 			'admin_css'              => ':root {}',
@@ -2075,6 +2077,11 @@ class configureight extends Plugin {
 	}
 
 	// @return string
+	public function wght_display() {
+		return $this->getValue( 'wght_display' );
+	}
+
+	// @return string
 	public function space_text() {
 		return $this->getValue( 'space_text' );
 	}
@@ -2087,6 +2094,11 @@ class configureight extends Plugin {
 	// @return string
 	public function space_secondary() {
 		return $this->getValue( 'space_secondary' );
+	}
+
+	// @return string
+	public function space_display() {
+		return $this->getValue( 'space_display' );
 	}
 
 	// @return string

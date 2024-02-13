@@ -57,6 +57,8 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Full-Screen Cover' ) ] ); ?>
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sticky Header' ) ] ); ?>
+
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">full-cover</code></p>
 
 <p><?php $L->p( 'The full-screen cover template uses the page\'s cover image to fill the viewport at the top of the page as a background for the header, navigation, title & description. If a page does not have a cover image set then the default cover image is used. There is an option for the color and opacity of the image overlay.' ); ?></p>

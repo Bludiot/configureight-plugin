@@ -89,7 +89,7 @@ if ( $site->logo() ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo-cover-select"><?php $L->p( 'Cover Logo' ); ?></label>
 		<div class="col-sm-10">
-			<p><?php $L->p( 'The cover logo image displays in the site header when it has a full-screen cover image.' ); ?></p>
+			<p><?php $L->p( 'The cover logo image displays in the site header when it has a full-screen cover image. If no cover logo is selected then the standard logo will be used with full-screen covers.' ); ?></p>
 
 			<div id="logo-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 

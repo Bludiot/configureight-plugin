@@ -4499,7 +4499,7 @@ p + .multi-check-wrap {
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   color: #444;
-  line-height: 28px;
+  line-height: 100% !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__clear {
@@ -4968,6 +4968,10 @@ p + .multi-check-wrap {
   position: absolute;
 }
 
+.select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered {
+  line-height: 100% !important;
+}
+
 .select2-search--dropdown .select2-search__field {
   border: var(--cfe-form-element--border);
 }
@@ -5120,8 +5124,8 @@ p + .multi-check-wrap {
   width: 1em;
   height: 1em;
   line-height: 0.675em;
-  padding-left: 0.15em;
-  margin-top: 0.625em;
+  padding-left: 0.125rem;
+  margin-top: 0.125rem;
   font-weight: bold;
   border-radius: 100%;
   background-color: #cc0000;
@@ -5132,6 +5136,10 @@ p + .multi-check-wrap {
 
 .select2-container--bootstrap4 .select2-selection__clear:hover {
   background-color: #ff0000;
+}
+
+form label {
+  text-transform: capitalize;
 }
 
 select optgroup,
@@ -5553,12 +5561,12 @@ div.sidebar ul .nav-item:first-of-type {
 div.sidebar ul .nav-item a {
   width: 100%;
   max-width: 100%;
-  height: 2.5em;
+  height: 2.5rem;
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 0.5em;
-  padding: 0.5em 1em;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
   color: var(--cfe-admin--menu--link--text-color, #ffffff);
   text-decoration: none;
   transition: background-color 0.15s, color 0.15s;
@@ -5589,9 +5597,9 @@ div.sidebar ul .nav-item a .svg-icon {
 }
 div.sidebar ul .nav-item h4 {
   margin: 0.5rem 0 0 0;
-  padding: 0.5em 1em;
-  font-size: 1.125rem;
-  font-weight: 700;
+  padding: 0.5rem 1rem;
+  font-size: var(--cfe-heading-secondary--font-size);
+  font-weight: var(--cfe-heading-secondary--font-weight);
   text-transform: none;
   color: var(--cfe-admin--menu--link--text-color, #ffffff);
 }
@@ -5819,6 +5827,30 @@ h2 .fa {
   display: none;
 }
 
+h6 {
+  font-family: var(--cfe-heading-secondary--font-family, inherit);
+  font-size: var(--cfe-heading-secondary--font-size, 1.375rem);
+  font-weight: var(--cfe-heading-secondary--font-weight, 700);
+  font-style: var(--cfe-heading-secondary--font-style, inherit);
+  font-variant: var(--cfe-heading-secondary--font-variant, inherit);
+  line-height: var(--cfe-heading-secondary--line-height, inherit);
+  letter-spacing: var(--cfe-heading-secondary--letter-spacing, normal);
+  word-spacing: var(--cfe-heading-secondary--word-spacing, -0.0325em);
+  -webkit-text-decoration: var(--cfe-heading-secondary--text-decoration);
+          text-decoration: var(--cfe-heading-secondary--text-decoration);
+  text-transform: var(--cfe-heading-secondary--text-transform);
+  color: var(--cfe-heading-secondary--text-color, var(--cfe-body--text-color));
+  border: none !important;
+}
+@media (prefers-color-scheme: dark) {
+  h6 {
+    color: var(--cfe-heading-secondary--text-color--dark, var(--cfe-body--text-color--dark));
+  }
+}
+h6.border-bottom {
+  border: none !important;
+}
+
 .tab-content h4 {
   font-size: 1rem;
 }
@@ -5831,6 +5863,11 @@ h2 .fa {
 .rtl .tab-pane ul,
 .rtl .tab-pane ol {
   padding: 0 1em 0 0;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.25rem;
 }
 
 .search-suggestion {
@@ -5947,6 +5984,38 @@ h2 .fa {
   gap: 0.5em;
 }
 
+h1 + a,
+h2 + a,
+table a {
+  text-decoration: none;
+}
+
+.table thead th {
+  text-transform: capitalize !important;
+  font-family: var(--cfe-fonts--display-stack);
+  font-size: var(--cfe-tabs--list--link--font-size);
+  font-weight: var(--cfe-display--font-weight);
+  font-style: var(--cfe-tabs--list--link--font-style, normal);
+  font-variant: var(--cfe-tabs--list--link--font-variant);
+  line-height: var(--cfe-tabs--list--link--line-height, 1);
+  letter-spacing: var(--cfe-display--letter-spacing);
+  word-spacing: var(--cfe-tabs--list--link--word-spacing, normal);
+}
+
+#security .form-group .col-sm-10 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+#security .form-group .col-sm-10 button {
+  margin: 0 !important;
+}
+
+#picture .row {
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .admin-page-plugins-position .alert {
   padding: unset;
   background-color: unset;
@@ -5955,6 +6024,10 @@ h2 .fa {
 }
 .admin-page-plugins-position td.child {
   padding: 0 0 0 1rem;
+}
+
+.tox.tox-tinymce {
+  min-height: 400px !important;
 }
 
 #jseditorToolbar {
@@ -6028,15 +6101,18 @@ h2 .fa {
 #jseditorSidebar .nav-link {
   transform: translateY(1px);
 }
-#jseditorSidebar #nav-general div:last-of-type {
+#jseditorSidebar .tab-pane#nav-general div:last-of-type {
   width: 100%;
   margin: 1rem 0 0 0;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 }
-#jseditorSidebar #nav-general div:last-of-type button {
+#jseditorSidebar .tab-pane#nav-general div:last-of-type button {
   text-transform: capitalize;
+}
+#jseditorSidebar .tab-content.pr-3, #jseditorSidebar .tab-content.pl-3, #jseditorSidebar .tab-content.pb-3 {
+  padding: 0 !important;
 }
 
 @media (max-width: 575.98px) {
@@ -6116,25 +6192,31 @@ img.profilePicture {
 .switch-button {
   display: var(--cfe-button--display, inline-block);
   width: var(--cfe-button--width, auto);
-  margin: var(--cfe-button--margin, 0);
+  margin: var(--cfe-button--margin);
   margin-left: 0 !important;
   padding: var(--cfe-button--padding, 0.5rem);
   line-height: var(--cfe-button--line-height, 1);
-  font-family: var(--cfe-button--font-family, var(--cfe-body--font-family, var(--cfe-sans-stack, sans-serif)));
-  font-size: var(--cfe-button--font-size, 1rem);
-  font-weight: var(--cfe-button--font-weight, 600);
+  font-family: var(--cfe-button--font-family, var(--cfe-display--font-family));
+  font-size: var(--cfe-button--font-size);
+  font-weight: var(--cfe-button--font-weight, var(--cfe-display--font-weight));
   font-style: var(--cfe-button--font-style, normal);
   font-variant: var(--cfe-button--font-variant, normal);
-  text-transform: var(--cfe-button--text-transform, none);
   letter-spacing: var(--cfe-button--letter-spacing, normal);
   word-spacing: var(--cfe-button--word-spacing, normal);
   -webkit-text-decoration: var(--cfe-button--text-decoration, none);
-  text-decoration: var(--cfe-button--text-decoration, none);
+          text-decoration: var(--cfe-button--text-decoration, none);
+  text-transform: capitalize !important;
   background-color: var(--cfe-button--bg-color, var(--cfe-body--bg-color, inherit));
   border: solid 1px var(--cfe-button--border-color, #555555);
+  border-radius: var(--cfe-button--border-radius, 0px);
   color: var(--cfe-button--text-color, var(--cfe-text-color, #333333)) !important;
   transition: var(--cfe-button--transition, all 0.15s ease-in-out);
   cursor: var(--cfe-button--cursor, pointer);
+}
+@media (prefers-reduced-motion: reduce) {
+  .switch-button {
+    transition: none;
+  }
 }
 .switch-button:hover, .switch-button:focus {
   background-color: var(--cfe-button--action--bg-color, #333333);
@@ -6387,9 +6469,6 @@ img.profilePicture {
   margin: 0.5rem;
   pointer-events: none;
 }
-.modal-dialog .btn-link {
-  color: #000000;
-}
 
 .modal.fade .modal-dialog {
   transition: transform 0.3s ease-out;
@@ -6588,7 +6667,7 @@ img.profilePicture {
   top: 1rem;
 }
 #jsmediaManagerModal .progress {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 #jsmediaManagerModal td.information div:last-of-type a {
   display: inline-block;

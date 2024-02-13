@@ -43,7 +43,13 @@ $sans_stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
 	--cfe-button--font-size: 1.25rem;
 
 	// Tabbed content.
-	--cfe-tabs--list--link--font-size: 1.0625rem;
+	--cfe-tabs--list--link--font-size: 1.125rem;
 
 	--cfe-theme-icon--size: 0.825em;
+}
+
+.form-heading,
+.admin-menu .admin-menu-list li.menu-heading h3 {
+	font-size: var( --cfe-heading-secondary--font-size );
+	font-weight: var( --cfe-heading-secondary--font-weight );
 }

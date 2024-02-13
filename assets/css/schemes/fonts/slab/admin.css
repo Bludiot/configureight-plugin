@@ -28,6 +28,12 @@
   --cfe-heading-secondary--font-weight: 700;
   --cfe-heading-secondary--line-height: 1.1;
   --cfe-button--font-size: 1.25rem;
-  --cfe-tabs--list--link--font-size: 1.0625rem;
+  --cfe-tabs--list--link--font-size: 1.125rem;
   --cfe-theme-icon--size: 0.825em;
+}
+
+.form-heading,
+.admin-menu .admin-menu-list li.menu-heading h3 {
+  font-size: var(--cfe-heading-secondary--font-size);
+  font-weight: var(--cfe-heading-secondary--font-weight);
 }

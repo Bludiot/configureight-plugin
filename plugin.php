@@ -246,7 +246,7 @@ class configureight extends Plugin {
 			'cover_desaturate'       => 0,
 			'cover_desaturate_use'   =>  [ '', 'none' ],
 			'cover_icon'             => 'angle-down-light',
-			'loop_title'             => $L->get( 'Blog' ),
+			'loop_title'             => '',
 			'loop_description'       => '',
 			'loop_cover'             => 'full_first',
 			'loop_type'              => 'blog',

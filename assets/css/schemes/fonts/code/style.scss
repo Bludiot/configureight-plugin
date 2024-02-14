@@ -28,22 +28,13 @@ $code_stack: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', I
 	--cfe-display--font-family: #{$code_stack};
 	--cfe-display--font-weight: 600;
 	--cfe-display--letter-spacing: -0.0325em;
-	--cfe-heading-primary--font-family: #{$code_stack};
-	--cfe-heading-primary--font-size: 2rem;
-	--cfe-heading-primary--font-weight: 700;
-	--cfe-heading-primary--letter-spacing: normal;
-	--cfe-loader--text--font-family: #{$code_stack};
-	--cfe-loader--text--font-size: 1.5625rem;
-	--cfe-loader--text--font-weight: 600;
+	--cfe-heading-primary--line-height: 1.2;
 
 	--cfe-button--font-size: 1rem;
+	--cfe-cover--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.25vw );
+	--cfe-cover--full--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.25vw );
 
 	// Header.
-	--cfe-site-title--font-weight: 700;
-	--cfe-site-title--letter-spacing: normal;
-	--cfe-site-title--word-spacing: normal;
-	--cfe-site-title--letter-spacing: normal;
-	--cfe-cover--title--font-weight: 650;
 
 	// Navigation.
 	--cfe-site-nav--item--font-size: 1.0625rem;
@@ -51,7 +42,6 @@ $code_stack: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', I
 	// Content.
 	--cfe-page-summary--page-header--heading--font-size: 1.75rem;
 	--cfe-page-summary--page-header--heading--line-height: 1.1;
-	--cfe-page-header--heading--link--font-weight: 700;
 
 	// Aside.
 	--cfe-sidebar--link--font-weight: 500;

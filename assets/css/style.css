@@ -5554,6 +5554,18 @@ div.sidebar ul .nav-item {
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  padding: 0;
+  font-family: var(--cfe-admin-menu--item--font-family, inherit);
+  font-size: var(--cfe-admin-menu--item--font-size, 1rem);
+  font-weight: var(--cfe-admin-menu--item--font-weight);
+  font-style: var(--cfe-admin-menu--item--font-style, inherit);
+  font-variant: var(--cfe-admin-menu--item--font-variant, inherit);
+  line-height: var(--cfe-admin-menu--item--line-height, inherit);
+  letter-spacing: var(--cfe-admin-menu--item--letter-spacing, normal);
+  word-spacing: var(--cfe-admin-menu--item--word-spacing, normal);
+  -webkit-text-decoration: var(--cfe-admin-menu--item--text-decoration);
+          text-decoration: var(--cfe-admin-menu--item--text-decoration);
+  text-transform: var(--cfe-admin-menu--item--text-transform);
 }
 div.sidebar ul .nav-item:first-of-type {
   display: none;

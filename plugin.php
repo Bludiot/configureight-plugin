@@ -202,6 +202,8 @@ class configureight extends Plugin {
 			'site_slogan'            => true,
 			'standard_logo'          => [],
 			'cover_logo'             => [],
+			'logo_standard_svg'      => '',
+			'logo_cover_svg'         => '',
 			'logo_thumb_width'       => 80,
 			'logo_thumb_height'      => 80,
 			'logo_large_width'       => 320,
@@ -1305,6 +1307,16 @@ class configureight extends Plugin {
 	// @return array
 	public function cover_logo() {
 		return $this->getValue( 'cover_logo' );
+	}
+
+	// @return array
+	public function logo_standard_svg() {
+		return $this->getValue( 'logo_standard_svg' );
+	}
+
+	// @return array
+	public function logo_cover_svg() {
+		return $this->getValue( 'logo_cover_svg' );
 	}
 
 	// @return integer

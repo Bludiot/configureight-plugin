@@ -59,6 +59,9 @@ if ( $site->logo() ) {
 					<li class="nav-item">
 						<a class="nav-link" role="tab" aria-controls="logo-standard-album" aria-selected="false" href="#logo-standard-album"><?php $L->p( 'Album' ); ?></a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="logo-standard-code" aria-selected="false" href="#logo-standard-code"><?php $L->p( 'SVG' ); ?></a>
+					</li>
 				</ul>
 				<div id="logo-standard-select" role="tabpanel" aria-labelledby="logo-standard-select">
 					<p><?php $L->p( 'Select one from uploaded logo images.' ); ?></p>
@@ -82,6 +85,11 @@ if ( $site->logo() ) {
 					<p><?php $L->p( 'Manage uploaded logo images.' ); ?></p>
 					<div id="logo-standard-album-wrap"><?php echo $logos_std->manage_images( $logo_std ); ?></div>
 				</div>
+
+				<div id="logo-standard-code" role="tabpanel" aria-labelledby="logo-standard-code">
+					<p><?php $L->p( 'Paste in SVG code to override any upload selection. Be sure that the SVG you enter is safe, that there is no malicious code.' ); ?></p>
+					<textarea name="logo_standard_svg" id="logo-standard-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_standard_svg' ) ?></textarea>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -89,7 +97,7 @@ if ( $site->logo() ) {
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="logo-cover-select"><?php $L->p( 'Cover Logo' ); ?></label>
 		<div class="col-sm-10">
-			<p><?php $L->p( 'The cover logo image displays in the site header when it has a full-screen cover image. If no cover logo is selected then the standard logo will be used with full-screen covers.' ); ?></p>
+			<p><?php $L->p( 'Optional: the cover logo image displays in the site header when it has a full-screen cover image. If no cover logo is selected then the standard logo will be used with full-screen covers.' ); ?></p>
 
 			<div id="logo-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
@@ -102,6 +110,9 @@ if ( $site->logo() ) {
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" role="tab" aria-controls="logo-cover-album" aria-selected="false" href="#logo-cover-album"><?php $L->p( 'Album' ); ?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" role="tab" aria-controls="logo-cover-code" aria-selected="false" href="#logo-cover-code"><?php $L->p( 'SVG' ); ?></a>
 					</li>
 				</ul>
 				<div id="logo-cover-select" role="tabpanel" aria-labelledby="logo-cover-select">
@@ -126,11 +137,16 @@ if ( $site->logo() ) {
 					<p><?php $L->p( 'Manage uploaded logo images. Click image to view full size.' ); ?></p>
 					<div id="logo-cover-album-wrap"><?php echo $logos_cover->manage_images( $logo_cover ); ?></div>
 				</div>
+
+				<div id="logo-cover-code" role="tabpanel" aria-labelledby="logo-cover-code">
+					<p><?php $L->p( 'Paste in SVG code to override any upload selection. Be sure that the SVG you enter is safe, that there is no malicious code.' ); ?></p>
+					<textarea name="logo_cover_svg" id="logo-cover-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_cover_svg' ) ?></textarea>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="logo_fields" style="display: <?php echo ( $site->logo() ? 'block' : 'none' ); ?>;">
+	<div id="logo_fields">
 		<div id="logo_width_std_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
 			<div class="col-sm-10">

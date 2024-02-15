@@ -311,9 +311,6 @@ jQuery(document).ready( function($) {
 		var show = $(this).val();
 		if ( show == 'custom' ) {
 			$( "#custom_color_scheme_fields" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#color_scheme' ).offset().top
-			}, 1000 );
 		} else if ( show != 'custom' ) {
 			$( "#custom_color_scheme_fields" ).fadeOut( 250 );
 		}

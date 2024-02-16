@@ -805,6 +805,11 @@ class configureight extends Plugin {
 			$suffix = '.min';
 		}
 
+		$html = '';
+
+		// Load only for this plugin's settings page.
+		if ( str_contains( $url->slug(), $this->className() ) ) :
+
 		// AJAX paths for uploads.
 		$upload_path  = HTML_PATH_ADMIN_ROOT . __CLASS__;
 		$current_path = strtok( $_SERVER['REQUEST_URI'], '?' );
@@ -814,7 +819,6 @@ class configureight extends Plugin {
 			 // Fetch content.
 			$content = ob_get_contents();
 			ob_end_clean();
-			$html = '';
 
 			$bookmark   = 'bookmark';
 			$logo_std   = 'logo_std';
@@ -895,6 +899,8 @@ class configureight extends Plugin {
 		if ( $cover ) {
 			$html .= $cover_helper->dropzoneJSData( $cover );
 		}
+		endif;
+
 		return $html;
 	}
 
@@ -1182,7 +1188,7 @@ class configureight extends Plugin {
 
 		// Color scheme stylesheet.
 		if ( 'colors' === $type ) {
-			if ( 'default' != $colors ) {
+			if ( 'default' != $colors && 'custom' != $colors ) {
 				$html = css( "assets/css/schemes/colors/{$colors}/{$filename}{$suffix}.css" );
 			}
 		}

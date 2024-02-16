@@ -242,6 +242,32 @@ function is_rtl( $langs = null, $rtl = [] ) {
 }
 
 /**
+ * Is front page
+ *
+ * If the front page is not the loop.
+ *
+ * @since  1.0.0
+ * @global object $page The Page class.
+ * @global object $site The Site class.
+ * @global object $url The Url class.
+ * @return boolean
+ */
+function is_front_page() {
+
+	// Access global variables.
+	global $page, $site, $url;
+
+	if ( 'page' != $url->whereAmI() ) {
+		return false;
+	}
+
+	if ( $site->homepage() && $page->key() == $site->homepage() ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Is static loop
  *
  * If a static page has the same slug as the loop slug.
@@ -261,6 +287,7 @@ function is_static_loop() {
  * Static loop page
  *
  * @since  1.0.0
+ * @global object $site The Site class.
  * @return mixed Returns the static loop page object or
  *               returns false if the page doesn't exist.
  */
@@ -453,6 +480,23 @@ function title_tag() {
 					$loop_name
 				);
 			}
+		}
+
+	// Static home page.
+	} elseif ( is_front_page() ) {
+		$format = sprintf(
+			'%s %s %s',
+			$site->title(),
+			$sep,
+			$site->slogan()
+		);
+		if ( is_rtl() ) {
+			$format = sprintf(
+				'%s %s %s',
+				$site->slogan(),
+				$sep,
+				$site->title()
+			);
 		}
 
 	// Post or page.

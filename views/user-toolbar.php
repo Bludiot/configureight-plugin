@@ -59,17 +59,11 @@ if ( $user->profilePicture() ) {
 <section id="admin-toolbar" class="admin-toolbar" data-admin-user-toolbar>
 	<nav class="admin-toolbar-nav toolbar-user-action">
 		<ul class="admin-toolbar-nav-list">
-			<?php if ( $site->logo() ) : ?>
 			<li class="top-level-item">
-				<a class="admin-toolbar-logo-link" target="_blank" href="<?php echo DOMAIN_BASE; ?>" title="<?php $L->p( 'View Site' ); ?>">
-					<img class="admin-toolbar-logo" src="<?php echo $site->logo(); ?>" alt="<?php $L->p( 'View Site' ); ?>" />
+				<a target="_blank" href="<?php echo DOMAIN_BASE; ?>" title="<?php $L->p( 'View Site' ); ?>">
+					<?php svg_icon( 'home' ); ?><?php $L->p( 'Site' ); ?>
 				</a>
 			</li>
-			<?php else : ?>
-			<li class="top-level-item">
-				<a class="admin-toolbar-logo-link" target="_blank" href="<?php echo DOMAIN_BASE; ?>"><?php $L->p( 'View Site' ); ?></a>
-			</li>
-			<?php endif; ?>
 
 			<?php if ( checkRole( [ 'admin' ], false ) ) : ?>
 			<li class="top-level-item has-submenu">

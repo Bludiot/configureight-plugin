@@ -1506,8 +1506,11 @@ class configureight extends Plugin {
 		return '#ffffff';
 	}
 
-	// @return string
+	// @return mixed
 	public function cover_icon() {
+		if ( 'none' == $this->getValue( 'cover_icon' ) ) {
+			return false;
+		}
 		return $this->getValue( 'cover_icon' );
 	}
 

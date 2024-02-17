@@ -293,6 +293,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 				<option value="arrow-down" <?php echo ( $this->getValue( 'cover_icon' ) === 'arrow-down' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?></option>
 
 				<option value="arrow-down-light" <?php echo ( $this->getValue( 'cover_icon' ) === 'arrow-down-light' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow Light' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'cover_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
 			</select>
 			<small class="form-text">
 				<?php $L->p( 'Choose the style of icon to scroll to content. For full-screen covers only.' ); ?>

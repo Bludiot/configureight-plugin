@@ -368,7 +368,8 @@ class configureight extends Plugin {
 			'meta_use_schema'        => true,
 			'meta_use_og'            => true,
 			'meta_use_twitter'       => true,
-			'meta_use_dublin'        => false
+			'meta_use_dublin'        => false,
+			'meta_custom'            => ''
 		];
 
 		// Array of custom hooks.
@@ -1010,6 +1011,7 @@ class configureight extends Plugin {
 
 		$html  = '';
 		$html .= title_tag();
+		$html .= $this->meta_custom();
 
 		return $html;
 	}
@@ -2280,6 +2282,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function meta_use_dublin() {
 		return $this->getValue( 'meta_use_dublin' );
+	}
+
+	// @return string
+	public function meta_custom() {
+		return "\n" . htmlspecialchars_decode( $this->getValue( 'meta_custom' ) ) . "\n";
 	}
 
 	/**

@@ -429,7 +429,7 @@ use function CFE_Plugin\{
 				<label class="form-label col-sm-2 col-form-label" for="meta_keywords"><?php $L->p( 'Keywords' ); ?></label>
 				<div class="col-sm-10">
 					<p><small class="form-text"><?php $L->p( 'Add one keyword or phrase per line.' ); ?></small></p>
-					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="1" rows="4"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
+					<textarea id="meta_keywords" name="meta_keywords" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'meta_keywords' ) ?></textarea>
 				</div>
 			</div>
 
@@ -475,6 +475,16 @@ use function CFE_Plugin\{
 						<option value="true" <?php echo ( $this->getValue( 'meta_use_dublin' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 						<option value="false" <?php echo ( $this->getValue( 'meta_use_dublin' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 					</select>
+				</div>
+			</div>
+
+			<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Meta Tags' ) ] ); ?>
+
+			<div class="form-field form-group row">
+				<label class="form-label col-sm-2 col-form-label" for="meta_custom"><?php $L->p( 'Custom' ); ?></label>
+				<div class="col-sm-10">
+					<p><small class="form-text"><?php $L->p( '' ); ?></small></p>
+					<textarea id="meta_custom" name="meta_custom" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'meta_custom' ) ?></textarea>
 				</div>
 			</div>
 		</fieldset>

@@ -308,6 +308,7 @@ class configureight extends Plugin {
 			'footer_search'          => false,
 			'footer_social'          => true,
 			'ftr_social_heading'     => '',
+			'footer_text'            => true,
 			'copyright'              => true,
 			'copy_date'              => true,
 			'copy_text'              => '',
@@ -369,7 +370,8 @@ class configureight extends Plugin {
 			'meta_use_og'            => true,
 			'meta_use_twitter'       => true,
 			'meta_use_dublin'        => false,
-			'meta_custom'            => ''
+			'meta_custom'            => '',
+			'footer_scripts'         => ''
 		];
 
 		// Array of custom hooks.
@@ -379,7 +381,8 @@ class configureight extends Plugin {
 			'url_not_found',
 			'page_gallery',
 			'front_page',
-			'comment_form'
+			'comment_form',
+			'footer_code'
 		];
 
 		if ( ! $this->installed() ) {
@@ -1089,6 +1092,21 @@ class configureight extends Plugin {
 		if ( basic_gallery() ) {
 			echo basic_gallery();
 		}
+	}
+
+	/**
+	 * Footer scripts hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function footer_code() {
+
+		$code  = '';
+		$code .= $this->footer_scripts();
+
+		return $code;
 	}
 
 	/**
@@ -1927,6 +1945,12 @@ class configureight extends Plugin {
 		return $this->getValue( 'ftr__social_heading' );
 	}
 
+	// @return boolean
+	public function footer_text() {
+		return $this->getValue( 'footer_text' );
+	}
+
+	// @return boolean
 	public function copyright() {
 		return $this->getValue( 'copyright' );
 	}
@@ -2290,6 +2314,11 @@ class configureight extends Plugin {
 	// @return string
 	public function meta_custom() {
 		return "\n" . htmlspecialchars_decode( $this->getValue( 'meta_custom' ) ) . "\n";
+	}
+
+	// @return string
+	public function footer_scripts() {
+		return "\n" . htmlspecialchars_decode( $this->getValue( 'footer_scripts' ) ) . "\n";
 	}
 
 	/**

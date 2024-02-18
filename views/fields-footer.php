@@ -25,6 +25,17 @@ $copy_text_placeholder = sprintf(
 
 	<legend class="screen-reader-text"><?php $L->p( 'Footer' ); ?></legend>
 
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="footer_text"><?php $L->p( 'Footer Text' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="footer_text" name="footer_text">
+				<option value="true" <?php echo ( $this->getValue( 'footer_text' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'footer_text' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Hide' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Display the footer text from the CMS settings.' ); ?></small>
+		</div>
+	</div>
+
 	<?php if ( can_search() ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="footer_search"><?php $L->p( 'Search form' ); ?></label>

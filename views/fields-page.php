@@ -137,11 +137,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 							continue;
 						}
 
-						if ( $page->key() === $site->homepage() ) {
-							echo '';
-						} elseif ( $page->slug() === str_replace( '/', '', $site->getField( 'uriBlog' ) ) ) {
-							echo '';
-						} elseif ( $page->slug() === $site->pageNotFound() ) {
+						if ( $page->slug() === $site->pageNotFound() ) {
 							echo '';
 						} else {
 							printf(

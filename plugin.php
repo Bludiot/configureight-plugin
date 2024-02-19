@@ -189,6 +189,7 @@ class configureight extends Plugin {
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
 			'to_top_button'          => true,
+			'show_customize'         => true,
 			'show_options'           => false,
 			'page_loader'            => false,
 			'loader_bg_color'        => $this->loader_bg_default(),
@@ -764,6 +765,11 @@ class configureight extends Plugin {
 			return;
 		}
 
+		// Check user role.
+		if ( ! checkRole( [ 'admin' ], false ) ) {
+			return;
+		}
+
 		$html = sprintf(
 			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
 			$this->plugin_url(),
@@ -995,6 +1001,11 @@ class configureight extends Plugin {
 		// Stop if Configure 8 is not the active theme.
 		if ( 'configureight' != $site->theme() ) {
 			return;
+		}
+
+		// Show customize links on dashboard if enabled.
+		if ( $this->show_customize() && checkRole( [ 'admin' ], false ) ) {
+			include( $this->phpPath() . '/views/dash-widget-customize.php' );
 		}
 
 		// Show options on dashboard if enabled.
@@ -1232,6 +1243,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
+	}
+
+	// @return boolean
+	public function show_customize() {
+		return $this->getValue( 'show_customize' );
 	}
 
 	// @return boolean

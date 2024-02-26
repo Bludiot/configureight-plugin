@@ -397,6 +397,10 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   padding: 0;
 }
 
+.form-range-preview-image {
+  margin: 0 0 0.5rem 0;
+}
+
 .plugin-form .multi-check-wrap {
   margin-top: 1rem;
   display: flex;

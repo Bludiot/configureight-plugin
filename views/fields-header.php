@@ -150,7 +150,7 @@ if ( $site->logo() ) {
 		<div id="logo_width_std_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
 			<div class="col-sm-10">
-				<figure id="logo_preview_desktop" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
+				<figure id="logo_preview_desktop" class="form-range-preview-image" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
 					<?php
 					if ( $this->logo_standard_svg() ) :
 						echo htmlspecialchars_decode( $this->logo_standard_svg() );
@@ -170,7 +170,7 @@ if ( $site->logo() ) {
 		<div id="logo_width_mob_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
 			<div class="col-sm-10">
-				<figure id="logo_preview_mobile" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
+				<figure id="logo_preview_mobile" class="form-range-preview-image" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
 					<?php
 					if ( $this->logo_standard_svg() ) :
 						echo htmlspecialchars_decode( $this->logo_standard_svg() );

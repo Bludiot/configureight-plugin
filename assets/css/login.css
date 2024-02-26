@@ -2093,6 +2093,10 @@ select[disabled] {
   min-width: 10ch;
 }
 
+.form-range-preview-image {
+  margin: 0 0 0.5rem 0;
+}
+
 .plugin-form .multi-check-wrap {
   margin-top: 1rem;
   display: flex;

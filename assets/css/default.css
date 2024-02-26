@@ -60,6 +60,7 @@
   --cfe-box--border--dark: var( --cfe-box--border-style ) var( --cfe-box--border-width ) var( --cfe-box--border-color--dark );
   --cfe-body--font-family: var( --cfe-fonts--sans-stack );
   --cfe-body--font-size: 1rem;
+  --cfe-body--line-height: 1.5;
   --cfe-body--bg-color: var( --cfe-scheme-color--body );
   --cfe-body--bg-color--dark: var( --cfe-scheme-color--body--dark );
   --cfe-body--text-color: var( --cfe-scheme-color--text );
@@ -87,7 +88,9 @@
   --cfe-legend--padding: 0 0.5em;
   --cfe-legend-font-size: 1em;
   --cfe-legend-font-weight: 700;
-  --cfe-form-element--padding: 0.5em 1em;
+  --cfe-form-element--padding-x: 1em;
+  --cfe-form-element--padding-y: 0.5em;
+  --cfe-form-element--padding: var( --cfe-form-element--padding-y ) var( --cfe-form-element--padding-x );
   --cfe-form-element--border-style: solid;
   --cfe-form-element--border-width: 1px;
   --cfe-form-element--border-color: var( --cfe-box--border-color );
@@ -96,6 +99,7 @@
   --cfe-form-element--action--border-color--dark: var( --cfe-scheme-color--two--dark );
   --cfe-form-element--border: var( --cfe-form-element--border-style ) var( --cfe-form-element--border-width ) var( --cfe-form-element--border-color );
   --cfe-form-element--border--dark: var( --cfe-form-element--border-style ) var( --cfe-form-element--border-width ) var( --cfe-form-element--border-color--dark );
+  --cfe-form-element--font-size: var( --cfe-body--font-size );
   --cfe-form-element--font-weight: 400;
   --cfe-form--placeholder-color: #888888;
   --cfe-form--placeholder-color--dark: #888888;
@@ -540,6 +544,12 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
 
 .text-above-field {
   margin: 0.5rem 0;
+}
+
+.code-field {
+  font-family: var(--cfe-code-field--font-family, var(--cfe-fonts--monospace-stack));
+  font-size: var(--cfe-code-field--font-size, 1em);
+  font-weight: var(--cfe-code-field--font-weight, 500);
 }
 
 .upload-album-empty {

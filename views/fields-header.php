@@ -47,7 +47,7 @@ if ( $site->logo() ) {
 		<div class="col-sm-10">
 			<p><?php $L->p( 'The standard logo image displays in the site header when it has a solid background.' ); ?></p>
 
-			<div id="logo-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+			<div id="logo-tabs-std" class="tab-content">
 
 				<ul class="nav nav-tabs" id="logo-nav-tabs" role="tablist">
 					<li class="nav-item">
@@ -64,7 +64,7 @@ if ( $site->logo() ) {
 					</li>
 				</ul>
 				<div id="logo-standard-select" role="tabpanel" aria-labelledby="logo-standard-select">
-					<p><?php $L->p( 'Select one from uploaded logo images.' ); ?></p>
+					<p><?php $L->p( 'Select one from uploaded logo images. SVG logo will override this selection.' ); ?></p>
 					<?php echo $logos_std->select_images( $logo_std ); ?>
 				</div>
 
@@ -88,7 +88,7 @@ if ( $site->logo() ) {
 
 				<div id="logo-standard-code" role="tabpanel" aria-labelledby="logo-standard-code">
 					<p><?php $L->p( 'Paste in SVG code to override any upload selection. Be sure that the SVG you enter is safe, that there is no malicious code.' ); ?></p>
-					<textarea name="logo_standard_svg" id="logo-standard-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_standard_svg' ) ?></textarea>
+					<textarea class="code-field" name="logo_standard_svg" id="logo-standard-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_standard_svg' ) ?></textarea>
 				</div>
 			</div>
 		</div>
@@ -99,7 +99,7 @@ if ( $site->logo() ) {
 		<div class="col-sm-10">
 			<p><?php $L->p( 'Optional: the cover logo image displays in the site header when it has a full-screen cover image. If no cover logo is selected then the standard logo will be used with full-screen covers.' ); ?></p>
 
-			<div id="logo-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
+			<div id="logo-tabs-cover" class="tab-content">
 
 				<ul class="nav nav-tabs" id="logo-nav-tabs" role="tablist">
 					<li class="nav-item">
@@ -116,7 +116,7 @@ if ( $site->logo() ) {
 					</li>
 				</ul>
 				<div id="logo-cover-select" role="tabpanel" aria-labelledby="logo-cover-select">
-					<p><?php $L->p( 'Select one from uploaded logo images.' ); ?></p>
+					<p><?php $L->p( 'Select one from uploaded logo images. SVG logo will override this selection.' ); ?></p>
 					<?php echo $logos_cover->select_images( $logo_cover ); ?>
 				</div>
 
@@ -140,7 +140,7 @@ if ( $site->logo() ) {
 
 				<div id="logo-cover-code" role="tabpanel" aria-labelledby="logo-cover-code">
 					<p><?php $L->p( 'Paste in SVG code to override any upload selection. Be sure that the SVG you enter is safe, that there is no malicious code.' ); ?></p>
-					<textarea name="logo_cover_svg" id="logo-cover-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_cover_svg' ) ?></textarea>
+					<textarea class="code-field" name="logo_cover_svg" id="logo-cover-svg" cols="60" rows="6"><?php echo $this->getValue( 'logo_cover_svg' ) ?></textarea>
 				</div>
 			</div>
 		</div>
@@ -150,8 +150,13 @@ if ( $site->logo() ) {
 		<div id="logo_width_std_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php $L->p( 'Logo Width, Desktop' ); ?></label>
 			<div class="col-sm-10">
-				<figure>
-					<img id="logo_preview_desktop" class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" />
+				<figure id="logo_preview_desktop" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
+					<?php
+					if ( $this->logo_standard_svg() ) :
+						echo htmlspecialchars_decode( $this->logo_standard_svg() );
+					elseif ( $this->standard_logo_src() ) : ?>
+					<img class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Desktop logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_std' ); ?>" style="width: 100%;" />
+					<?php endif; ?>
 				</figure>
 				<div class="form-range-controls row">
 					<span class="form-range-value px-range-value"><span id="logo_width_std_value"><?php echo $this->getValue( 'logo_width_std' ); ?></span><span id="logo_width_std_units">px</span></span>
@@ -165,8 +170,13 @@ if ( $site->logo() ) {
 		<div id="logo_width_mob_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_mob"><?php $L->p( 'Logo Width, Mobile' ); ?></label>
 			<div class="col-sm-10">
-				<figure>
-					<img id="logo_preview_mobile" class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" />
+				<figure id="logo_preview_mobile" style="width: <?php echo $this->getValue( 'logo_width_std' ); ?>px">
+					<?php
+					if ( $this->logo_standard_svg() ) :
+						echo htmlspecialchars_decode( $this->logo_standard_svg() );
+					elseif ( $this->standard_logo_src() ) : ?>
+					<img class="img-fluid img-thumbnail" alt="<?php echo ( $this->standard_logo_src() ? $L->get( 'Mobile logo preview' ) : $L->get( 'No logo uploaded' ) ); ?>" src="<?php echo ( $this->standard_logo_src() ? $this->standard_logo_src() : '' ); ?>" width="<?php echo $this->getValue( 'logo_width_mob' ); ?>" style="width: 100%;" />
+					<?php endif; ?>
 				</figure>
 				<div class="form-range-controls row">
 					<span class="form-range-value px-range-value"><span id="logo_width_mob_value"><?php echo $this->getValue( 'logo_width_mob' ); ?></span><span id="logo_width_mob_units">px</span></span>
@@ -205,13 +215,22 @@ if ( $site->logo() ) {
 </fieldset>
 
 <script>
+jQuery(document).ready( function($) {
+	$( '#logo-tabs-std' ).tabslet({
+		active : <?php echo ( $this->logo_standard_svg() ? 4 : 1 ); ?>,
+		animation : true
+	});
+	$( '#logo-tabs-cover' ).tabslet({
+		active : <?php echo ( $this->logo_cover_svg() ? 4 : 1 ); ?>,
+		animation : true
+	});
+});
+
 $( function() {
 	$( '.delete-logo-standard' ).bind( 'click', function() {
 		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteStandardLogo(this);
 	});
-});
-$( function() {
 	$( '.delete-logo-cover' ).bind( 'click', function() {
 		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteCoverLogo(this);

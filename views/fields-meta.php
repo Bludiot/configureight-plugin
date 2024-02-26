@@ -484,7 +484,7 @@ use function CFE_Plugin\{
 				<label class="form-label col-sm-2 col-form-label" for="meta_custom"><?php $L->p( 'Custom Tags' ); ?></label>
 				<div class="col-sm-10">
 					<p><small class="form-text"><?php $L->p( 'Prints to the <code>&lt;head&gt;</code> with other meta tags.' ); ?></small></p>
-					<textarea id="meta_custom" name="meta_custom" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'meta_custom' ) ?></textarea>
+					<textarea class="code-field" id="meta_custom" name="meta_custom" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'meta_custom' ) ?></textarea>
 				</div>
 			</div>
 
@@ -492,7 +492,7 @@ use function CFE_Plugin\{
 				<label class="form-label col-sm-2 col-form-label" for="footer_scripts"><?php $L->p( 'Footer Scripts' ); ?></label>
 				<div class="col-sm-10">
 					<p><small class="form-text"><?php $L->p( 'Useful for analytics code.' ); ?></small></p>
-					<textarea id="footer_scripts" name="footer_scripts" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'footer_scripts' ) ?></textarea>
+					<textarea class="code-field" id="footer_scripts" name="footer_scripts" placeholder="" cols="60" rows="4"><?php echo $this->getValue( 'footer_scripts' ) ?></textarea>
 				</div>
 			</div>
 		</fieldset>

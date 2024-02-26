@@ -61,6 +61,7 @@
   --cfe-box--border--dark: var( --cfe-box--border-style ) var( --cfe-box--border-width ) var( --cfe-box--border-color--dark );
   --cfe-body--font-family: var( --cfe-fonts--sans-stack );
   --cfe-body--font-size: 1rem;
+  --cfe-body--line-height: 1.5;
   --cfe-body--bg-color: var( --cfe-scheme-color--body );
   --cfe-body--bg-color--dark: var( --cfe-scheme-color--body--dark );
   --cfe-body--text-color: var( --cfe-scheme-color--text );
@@ -88,7 +89,9 @@
   --cfe-legend--padding: 0 0.5em;
   --cfe-legend-font-size: 1em;
   --cfe-legend-font-weight: 700;
-  --cfe-form-element--padding: 0.5em 1em;
+  --cfe-form-element--padding-x: 1em;
+  --cfe-form-element--padding-y: 0.5em;
+  --cfe-form-element--padding: var( --cfe-form-element--padding-y ) var( --cfe-form-element--padding-x );
   --cfe-form-element--border-style: solid;
   --cfe-form-element--border-width: 1px;
   --cfe-form-element--border-color: var( --cfe-box--border-color );
@@ -97,6 +100,7 @@
   --cfe-form-element--action--border-color--dark: var( --cfe-scheme-color--two--dark );
   --cfe-form-element--border: var( --cfe-form-element--border-style ) var( --cfe-form-element--border-width ) var( --cfe-form-element--border-color );
   --cfe-form-element--border--dark: var( --cfe-form-element--border-style ) var( --cfe-form-element--border-width ) var( --cfe-form-element--border-color--dark );
+  --cfe-form-element--font-size: var( --cfe-body--font-size );
   --cfe-form-element--font-weight: 400;
   --cfe-form--placeholder-color: #888888;
   --cfe-form--placeholder-color--dark: #888888;
@@ -4298,6 +4302,13 @@ p + .multi-check-wrap {
 .plugin-form textarea {
   min-height: 120px;
 }
+.plugin-form textarea.code-field {
+  font-family: var(--cfe-code-field--font-family, var(--cfe-fonts--monospace-stack));
+  font-size: var(--cfe-code-field--font-size, 1em);
+  font-weight: var(--cfe-code-field--font-weight, 500);
+  background-color: var(--cfe-scheme-color--body--dark);
+  color: var(--cfe-scheme-color--text--dark);
+}
 .plugin-form span.tip {
   display: block;
   font-size: 80%;
@@ -4970,6 +4981,7 @@ p + .multi-check-wrap {
 
 .select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered {
   line-height: 100% !important;
+  min-height: calc(var(--cfe-form-element--font-size) + var(--cfe-form-element--padding-y) * 2 * var(--cfe-body--line-height));
 }
 
 .select2-search--dropdown .select2-search__field {
@@ -5136,6 +5148,11 @@ p + .multi-check-wrap {
 
 .select2-container--bootstrap4 .select2-selection__clear:hover {
   background-color: #ff0000;
+}
+
+.select2-container--bootstrap4.select2-container--focus .select2-selection {
+  border-color: #80bdff;
+  box-shadow: none !important;
 }
 
 form label {

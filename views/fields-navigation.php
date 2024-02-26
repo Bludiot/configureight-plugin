@@ -7,12 +7,12 @@
  * @since      1.0.0
  */
 
- use function CFE_Plugin\{
+use function CFE_Plugin\{
 	static_for_nav
- };
+};
 
- // Get static pages, not posts.
- $static = buildStaticPages();
+// Get static pages, not posts.
+$static = buildStaticPages();
 
 ?>
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Navigation Options' ) ] ); ?>
@@ -31,7 +31,14 @@
  				<?php
 				$count_p = 0;
 				$count_c = 0;
-				if ( $static ) : foreach ( $static as $page ) :
+				if ( $static ) :
+
+					// Sort by position.
+					usort( $static, function( $a, $b ) {
+						return $a->position() > $b->position();
+					} );
+
+					foreach ( $static as $page ) :
 
 					$relation = '';
 					$title    = $L->get( 'Standalone page' );

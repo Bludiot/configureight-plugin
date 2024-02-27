@@ -207,6 +207,11 @@ div.sidebar {
 	border-bottom-width: 1px;
 	border-bottom-color: rgba( $color: white, $alpha: 0.125 );
 
+	@media ( max-width: $break-max-md ) {
+		height: var( --cfe-toolbar--mobile--height );
+		line-height: var( --cfe-toolbar--mobile--height );
+	}
+
 	@media ( prefers-color-scheme: dark ) {}
 
 	ul {
@@ -228,6 +233,11 @@ div.sidebar {
 			font-weight: var( --cfe-toolbar--font-weight );
 			background-color: var( --cfe-toolbar--link--bg-color );
 			color: var( --cfe-toolbar--link--text-color );
+
+			@media ( max-width: $break-max-lg ) {
+				padding: var( --cfe-toolbar--link--mobile--padding );
+				max-height: var( --cfe-toolbar--mobile--height );
+			}
 
 			@media ( prefers-color-scheme: dark ) {}
 
@@ -262,6 +272,12 @@ div.sidebar {
 
 				&.svg-icon {
 					cursor: pointer;
+
+					svg {
+						@media ( max-width: $break-max-lg ) {
+							height: 1.25rem;
+						}
+					}
 				}
 			}
 
@@ -272,6 +288,10 @@ div.sidebar {
 				text-decoration: none;
 				white-space: var( --cfe-toolbar--link--white-space, nowrap );
 				color: var( --cfe-toolbar--link--text-color );
+
+				@media ( max-width: $break-max-md ) {
+					gap: 0 0.75em;
+				}
 
 				@media ( prefers-color-scheme: dark ) {}
 
@@ -286,6 +306,24 @@ div.sidebar {
 					height: var( --cfe-toolbar--height );
 					display: inline-flex;
 					align-items: center;
+				}
+
+				.top-level-text {
+					display: inline;
+
+					@media ( max-width: $break-max-md ) {
+						border: 0;
+						clip: rect( 1px, 1px, 1px, 1px );
+						-webkit-clip-path: inset(50%);
+								clip-path: inset(50%);
+						height: 1px;
+						margin: -1px;
+						overflow: hidden;
+						padding: 0;
+						position: absolute !important;
+						width: 1px;
+						word-wrap: normal !important;
+					}
 				}
 			}
 		}
@@ -312,6 +350,11 @@ div.sidebar {
 				padding: 0;
 				background-color: transparent;
 				color: transparent;
+
+				@media ( max-width: $break-max-md ) {
+					height: var( --cfe-toolbar--height );
+					line-height: var( --cfe-toolbar--height );
+				}
 
 				@media ( prefers-color-scheme: dark ) {}
 
@@ -344,6 +387,24 @@ div.sidebar {
 
 			&.toolbar-avatar {
 				margin: 0 0.5em;
+			}
+		}
+	}
+
+	#profile-link {
+		span {
+			@media ( max-width: $break-max-md ) {
+				border: 0;
+				clip: rect( 1px, 1px, 1px, 1px );
+				-webkit-clip-path: inset(50%);
+						clip-path: inset(50%);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute !important;
+				width: 1px;
+				word-wrap: normal !important;
 			}
 		}
 	}

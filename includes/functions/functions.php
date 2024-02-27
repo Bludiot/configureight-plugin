@@ -677,6 +677,15 @@ function custom_fields() {
 	// Access global variables.
 	global $L, $site;
 
+	// Menu label field.
+	$menu_field = [
+		'menu_label' => [
+			'type'  => 'string',
+			'label' => $L->get( 'Menu Label' ),
+			'tip'   => $L->get( 'Text used in the navigation menus.' )
+		]
+	];
+
 	// Random cover checkbox field.
 	$cover_field = [
 		'random_cover' => [
@@ -685,6 +694,7 @@ function custom_fields() {
 			'tip'   => $L->get( 'Display a random cover image from images uploaded to this page. Requires no cover image set.' )
 		]
 	];
+	$fields = array_merge( $menu_field, $cover_field );
 
 	// Page gallery checkbox field.
 	$gallery_field = [
@@ -694,7 +704,7 @@ function custom_fields() {
 			'tip'   => $L->get( 'Add a gallery of images uploaded to this page.' )
 		]
 	];
-	$fields = array_merge( $gallery_field, $cover_field );
+	$fields = array_merge( $fields, $gallery_field );
 
 	// Gallery heading field.
 	$heading_field = [

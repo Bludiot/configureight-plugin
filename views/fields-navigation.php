@@ -136,7 +136,7 @@ $static = buildStaticPages();
 
 				<option value="title" <?php echo ( $this->getValue( 'main_nav_labels' ) === 'title' ? 'selected' : '' ); ?>><?php $L->p( 'Page Title' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'The text to be displayed in the page links.<br />The Friendly URL, also referred to as the page slug, will display capitalized with dashes and underscores removed.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'The text to be displayed in the page links. May be overridden by custom field in the page options.<br />The Friendly URL, also referred to as the page slug, will display capitalized with dashes and underscores removed.' ); ?></small>
 		</div>
 	</div>
 

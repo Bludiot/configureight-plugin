@@ -33,14 +33,14 @@
   --cfe-body--font-weight: 450;
   --cfe-body--line-height: 1.6;
   --cfe-display--font-family: Playfair, Hoefler Text, Baskerville Old Face, Garamond, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-display--font-weight: 450;
+  --cfe-display--font-weight: 500;
   --cfe-display--letter-spacing: normal;
   --cfe-heading-primary--font-family: Playfair, Hoefler Text, Baskerville Old Face, Garamond, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-heading-primary--font-size: 2.5rem;
-  --cfe-heading-primary--font-weight: 500;
+  --cfe-heading-primary--font-weight: 550;
   --cfe-heading-primary--letter-spacing: normal;
   --cfe-heading-secondary--font-family: Playfair, Hoefler Text, Baskerville Old Face, Garamond, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-heading-secondary--font-weight: 550;
+  --cfe-heading-secondary--font-weight: 600;
   --cfe-button--font-size: 1.125rem;
   --cfe-tabs--list--link--font-size: 1rem;
 }

@@ -31,8 +31,9 @@ $code_stack: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', I
 	--cfe-heading-primary--line-height: 1.2;
 
 	--cfe-button--font-size: 1rem;
-	--cfe-cover--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.25vw );
-	--cfe-cover--full--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.25vw );
+	--cfe-cover--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.5vw );
+	--cfe-cover--full--title--font-size: clamp( 2.25rem, 3vw + 1rem, 3.5vw );
+	--cfe-cover--title--font-weight: 600;
 
 	// Header.
 

@@ -34,12 +34,13 @@
   --cfe-loader--text--font-weight: 600;
   --cfe-button--font-size: 1.1875rem;
   --cfe-site-title--font-family: Crimson Pro, Georgia, Hoefler Text, Baskerville Old Face, Garamond, Times, Times New Roman, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-site-title--font-size: 1.875rem;
+  --cfe-site-title--font-size: 1.625rem;
   --cfe-site-title--font-weight: 600;
-  --cfe-cover--full--title--font-size: clamp( 3rem, 4vw + 1rem, 5.5vw );
-  --cfe-cover--title--font-size: clamp( 3rem, 4vw + 1rem, 5.5vw );
+  --cfe-cover--full--title--font-size: clamp( 3rem, 4vw + 1rem, 5vw );
+  --cfe-cover--title--font-size: clamp( 3rem, 4vw + 1rem, 5vw );
   --cfe-cover--title--font-weight: 500;
-  --cfe-cover--description--font-size: 1.5rem;
+  --cfe-cover--title--line-height: 1.05;
+  --cfe-cover--description--font-size: 1.375rem;
   --cfe-site-nav--item--font-size: 1.1875rem;
   --cfe-page-header--heading--font-size: 2.625rem;
   --cfe-page-summary--page-header--heading--font-size: 2rem;

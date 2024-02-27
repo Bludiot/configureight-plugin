@@ -794,7 +794,7 @@ class configureight extends Plugin {
 	public function adminBodyEnd() {
 
 		// Access global variables.
-		global $L, $site, $url;
+		global $L, $page, $site, $url;
 
 		// Stop if Configure 8 is not the active theme.
 		if ( 'configureight' != $site->theme() ) {
@@ -804,9 +804,19 @@ class configureight extends Plugin {
 		// Content ID on page edit screen.
 		if ( str_contains( $url->slug(), 'edit-content' ) ) {
 			return sprintf(
-				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<h2><span class=\'fa fa-pencil\' style=\'font-size: 0.9em;\'></span>%s</h2><p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code></p>"); }</script>',
+				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<h2><span class=\'fa fa-pencil page-title-icon\' style=\'font-size: 0.9em;\'></span>%s</h2><p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code><br /><strong>%s</strong> <a href=\'%s\'  target=\'_blank\' rel=\'noopener noreferrer\'>%s</a></p>"); }</script>',
 				$L->get( 'Edit Content' ),
-				$L->get( 'Content ID:' )
+				$L->get( 'Content ID:' ),
+				$L->get( 'Permalink:' ),
+				$page->permalink(),
+				$page->permalink()
+			);
+		}
+
+		if ( str_contains( $url->slug(), 'new-content' ) ) {
+			return sprintf(
+				'<script>$( "#jsform" ).prepend( "<h2 style=\'margin-bottom: 1rem;\'><span class=\'fa fa-pencil page-title-icon\' style=\'font-size: 0.9em;\'></span>%s</h2>");</script>',
+				$L->get( 'New Content' )
 			);
 		}
 

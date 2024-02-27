@@ -721,7 +721,7 @@ function custom_fields() {
 	$more_field = [
 		'read_more' => [
 			'type'  => 'string',
-			'label' => $L->get( 'Read More' ),
+			'label' => $L->get( 'Read Link' ),
 			'tip'   => $L->get( 'Text used if this content is linked in the front page slider or when abbreviated in some contexts.' )
 		]
 	];

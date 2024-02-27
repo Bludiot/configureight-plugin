@@ -702,6 +702,7 @@ class configureight extends Plugin {
 	 * @access public
 	 * @global object $L Language class.
 	 * @global object $page Page class.
+	 * @global object $plugins Plugins class.
 	 * @global object $site Site class.
 	 * @global object $url Url class.
 	 * @return void
@@ -709,7 +710,7 @@ class configureight extends Plugin {
 	public function adminBodyBegin() {
 
 		// Access global variables.
-		global $L, $login, $page, $site, $url;
+		global $L, $login, $page, $plugins, $site, $url;
 
 		// Stop if Configure 8 is not the active theme.
 		if ( 'configureight' != $site->theme() ) {

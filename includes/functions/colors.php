@@ -947,7 +947,7 @@ function color_schemes() {
 			'dark' => [
 				'body'  => '#1e110a',
 				'text'  => '#eeeeee',
-				'one'   => '#55d400',
+				'one'   => '#4bda1f',
 				'two'   => '#46a109',
 				'three' => '#87551b',
 				'four'  => '#ff6600',

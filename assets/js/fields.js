@@ -9,6 +9,16 @@
 
 jQuery(document).ready( function($) {
 
+	// Mobile toolbar.
+	$( '#user_toolbar' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show != 'disabled' ) {
+			$( "#toolbar_mobile_wrap" ).fadeIn( 250 );
+		} else if ( show == 'disabled' ) {
+			$( "#toolbar_mobile_wrap" ).fadeOut( 250 );
+		}
+    });
+
 	// Page loader options.
 	$( '#page_loader' ).on( 'change', function() {
     	var show = $(this).val();

@@ -82,6 +82,17 @@ $custom_from = $this->custom_scheme_from();
 		</div>
 	</div>
 
+	<div id="toolbar_mobile_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'user_toolbar' ) != 'disabled' ? 'flex' : 'none' ); ?>;">
+		<label class="form-label col-sm-2 col-form-label" for="toolbar_mobile"><?php $L->p( 'Mobile Toolbar' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="toolbar_mobile" name="toolbar_mobile">
+				<option value="true" <?php echo ( $this->getValue( 'toolbar_mobile' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'toolbar_mobile' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Allow the toolbar on mobile screens.' ); ?></small>
+		</div>
+	</div>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="to_top_button"><?php $L->p( 'To Top Button' ); ?></label>
 		<div class="col-sm-10">

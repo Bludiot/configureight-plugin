@@ -188,6 +188,7 @@ class configureight extends Plugin {
 		$this->dbFields = [
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
+			'toolbar_mobile'         => false,
 			'to_top_button'          => true,
 			'show_customize'         => true,
 			'show_options'           => false,
@@ -1255,6 +1256,11 @@ class configureight extends Plugin {
 	// @return boolean
 	public function user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
+	}
+
+	// @return boolean
+	public function toolbar_mobile() {
+		return $this->getValue( 'toolbar_mobile' );
 	}
 
 	// @return boolean

@@ -13,7 +13,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Available Page Templates' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Available Page Templates' ) ] ); ?>
 
 <p><?php $L->p( 'Several template options are built into the theme, which can be employed in the page edit screen under Options > Advanced. These are available for posts in the loop as well as for static pages. More than one template may be used at once, with space between each template slug, depending on the template type.' ); ?></p>
 
@@ -89,7 +89,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <hr />
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sidebar Templates' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Sidebar Templates' ) ] ); ?>
 
 <p><?php $L->p( 'Sidebar templates are available to posts, sticky posts, and static pages on an individual basis. They have no associated file, using body classes and CSS to affect when and where to display the sidebar.' ); ?></p>
 
@@ -121,7 +121,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <hr />
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'About Page' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'About Page' ) ] ); ?>
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">about</code></p>
 
@@ -129,7 +129,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Contact Page' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Contact Page' ) ] ); ?>
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">contact</code></p>
 
@@ -137,7 +137,7 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( '404 Error Page' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( '404 Error Page' ) ] ); ?>
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">404</code></p>
 

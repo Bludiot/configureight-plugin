@@ -5403,6 +5403,15 @@ select option {
   fill: currentColor;
 }
 
+.EasyMDEContainer .editor-toolbar button {
+  height: auto;
+  line-height: 1;
+  padding: 0.5rem;
+}
+.EasyMDEContainer .editor-toolbar button .fa {
+  margin: 0;
+}
+
 .btn-group {
   position: relative;
   display: inline-flex;

@@ -251,7 +251,7 @@ if ( getPlugin( 'Search_Forms' ) ) :
 				<option value="true" <?php echo ( $this->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Replace the search form submit text with a search icon.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Replace the search form submit text with a search icon. Text will remain available to screen readers.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

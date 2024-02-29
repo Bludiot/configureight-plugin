@@ -1068,24 +1068,24 @@ function error_search_display() {
 	// Set up arguments array.
 	$args = [];
 
-	if ( ! plugin()->error_search_label() ) {
-		$args = array_merge( $args, [ 'label' => false ] );
-	} elseif ( plugin()->error_search_label() ) {
-		$args = array_merge( $args, [ 'label' => plugin()->error_search_label() ] );
+	if ( empty( plugin()->error_search_label() ) ) {
+		$args['label'] = false;
+	} else {
+		$args['label'] = plugin()->error_search_label();
 	}
-	if ( ! plugin()->error_search_heading() ) {
-		$args = array_merge( $args, [ 'label_wrap' => false ] );
+	if ( plugin()->error_search_heading() ) {
+		$args['label_el'] = plugin()->error_search_heading();
 	}
-	if ( plugin()->error_search_holder() ) {
-		$args = array_merge( $args, [ 'placeholder' => plugin()->error_search_holder() ] );
-	} elseif ( ! plugin()->error_search_holder() ) {
-		$args = array_merge( $args, [ 'placeholder' => false ] );
+	if ( empty( plugin()->error_search_holder() ) ) {
+		$args['placeholder'] = '';
+	} else {
+		$args['placeholder'] = plugin()->error_search_holder();
 	}
 	if ( ! plugin()->error_search_btn() ) {
-		$args = array_merge( $args, [ 'button' => false ] );
+		$args['button'] = false;
 	}
-	if ( plugin()->error_search_btn_text() ) {
-		$args = array_merge( $args, [ 'button_text' => plugin()->error_search_btn_text() ] );
+	if ( ! empty( plugin()->error_search_btn_text() ) ) {
+		$args['button_text'] = plugin()->error_search_btn_text();
 	}
 	return $args;
 }

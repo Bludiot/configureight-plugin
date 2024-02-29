@@ -425,6 +425,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 						<label class="form-label col-sm-2 col-form-label" for="error_search_btn_text"><?php $L->p( 'Button Text' ); ?></label>
 						<div class="col-sm-10">
 							<input type="text" id="error_search_btn_text" name="error_search_btn_text" value="<?php echo $this->getValue( 'error_search_btn_text' ); ?>" placeholder="<?php $L->p( 'Submit' ); ?>" />
+							<small class="form-text"><?php $L->p( 'Text will not display if replaced by a search icon in General options but will remain as screen reader text.' ); ?></small>
 						</div>
 					</div>
 				</div>

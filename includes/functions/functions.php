@@ -1029,199 +1029,26 @@ function static_list( $args = null, $defaults = [] ) {
 }
 
 /**
- * Categories list
+ * Has error widgets
+ *
+ * Returns true if at lease on of the
+ * dependant plugins for the error page
+ * hook is installed.
  *
  * @since  1.0.0
- * @param  mixed $args Arguments to be passed.
- * @param  array $defaults Default arguments.
- * @global object $categories The Categories class.
- * @return string Returns the list markup.
+ * @return boolean
  */
-function categories_list( $args = null, $defaults = [] ) {
+function has_error_widgets() {
 
-	// Access global variables.
-	global $categories;
-
-	// Default arguments.
-	$defaults = [
-		'wrap'      => false,
-		'direction' => 'horz',
-		'buttons'   => false,
-		'title'     => false,
-		'heading'   => 'h2',
-		'links'     => true,
-		'count'     => false
-	];
-
-	// Maybe override defaults.
-	if ( is_array( $args ) && $args ) {
-		$args = array_merge( $defaults, $args );
-	} else {
-		$args = $defaults;
+	if (
+		getPlugin( 'Search_Forms' ) ||
+		getPlugin( 'Pages_Lists' ) ||
+		getPlugin( 'Categories_Lists' ) ||
+		getPlugin( 'Tags_Lists' )
+	) {
+		return true;
 	}
-
-	// List classes.
-	$classes   = [];
-	$classes[] = 'categories-list';
-	if ( 'vert' == $args['direction'] ) {
-		$classes[] = 'categories-list-vertical';
-	} else {
-		$classes[] = 'categories-list-horizontal';
-	}
-	if ( $args['buttons'] ) {
-		$classes[] = 'categories-list-buttons';
-	}
-	$classes = implode( ' ', $classes );
-
-	// List markup.
-	$html = '';
-	if ( $args['wrap'] ) {
-		$html = '<div class="categories-list-wrap">';
-	}
-
-	if ( $args['title'] ) {
-		$html .= sprintf(
-			'<%s>%s</%s>',
-			$args['heading'],
-			$args['title'],
-			$args['heading']
-		);
-	}
-	$html .= sprintf(
-		'<ul class="%s">',
-		$classes
-	);
-
-	// By default the database of categories are alphanumeric sorted.
-	foreach ( $categories->db as $key => $fields ) {
-
-		$get_count = count( $fields['list'] );
-		$get_name  = $fields['name'];
-
-		$name = $get_name;
-		if ( $args['count'] ) {
-			$name = sprintf(
-				'%s (%s)',
-				$get_name,
-				$get_count
-			);
-		}
-
-		if ( $get_count > 0 ) {
-			$html .= '<li>';
-			if ( $args['links'] ) {
-				$html .= '<a href="' . DOMAIN_CATEGORIES . $key . '">';
-			}
-			$html .= $name;
-			if ( $args['links'] ) {
-				$html .= '</a>';
-			}
-			$html .= '</li>';
-		}
-	}
-	$html .= '</ul>';
-
-	if ( $args['wrap'] ) {
-		$html .= '</div>';
-	}
-
-	return $html;
-}
-
-/**
- * Tags list
- *
- * @since  1.0.0
- * @param  mixed $args Arguments to be passed.
- * @param  array $defaults Default arguments.
- * @global object $tags The Tags class.
- * @return string Returns the list markup.
- */
-function tags_list( $args = null, $defaults = [] ) {
-
-	// Access global variables.
-	global $tags;
-
-	// Default arguments.
-	$defaults = [
-		'wrap'      => false,
-		'direction' => 'horz',
-		'buttons'   => false,
-		'title'     => false,
-		'heading'   => 'h2',
-		'links'     => true,
-		'count'     => false
-	];
-
-	// Maybe override defaults.
-	if ( is_array( $args ) && $args ) {
-		$args = array_merge( $defaults, $args );
-	} else {
-		$args = $defaults;
-	}
-
-	// List classes.
-	$classes   = [];
-	$classes[] = 'tags-list';
-	if ( 'vert' == $args['direction'] ) {
-		$classes[] = 'tags-list-vertical';
-	} else {
-		$classes[] = 'tags-list-horizontal';
-	}
-	if ( $args['buttons'] ) {
-		$classes[] = 'tags-list-buttons';
-	}
-	$classes = implode( ' ', $classes );
-
-	// List markup.
-	$html = '';
-	if ( $args['wrap'] ) {
-		$html = '<div class="tags-list-wrap">';
-	}
-
-	if ( $args['title'] ) {
-		$html .= sprintf(
-			'<%s>%s</%s>',
-			$args['heading'],
-			$args['title'],
-			$args['heading']
-		);
-	}
-	$html .= sprintf(
-		'<ul class="%s">',
-		$classes
-	);
-
-	// By default the database of tags are alphanumeric sorted.
-	foreach ( $tags->db as $key => $fields ) {
-
-		$get_count = $tags->numberOfPages( $key );
-		$get_name  = $fields['name'];
-
-		$name = $get_name;
-		if ( $args['count'] ) {
-			$name = sprintf(
-				'%s (%s)',
-				$get_name,
-				$get_count
-			);
-		}
-		$html .= '<li>';
-		if ( $args['links'] ) {
-			$html .= '<a href="' . DOMAIN_TAGS . $key . '">';
-		}
-		$html .= $name;
-		if ( $args['links'] ) {
-			$html .= '</a>';
-		}
-		$html .= '</li>';
-	}
-	$html .= '</ul>';
-
-	if ( $args['wrap'] ) {
-		$html .= '</div>';
-	}
-	return $html;
+	return false;
 }
 
 /**
@@ -1306,18 +1133,20 @@ function error_cats_display() {
 
 	// List heading element.
 	if ( plugin()->error_cats_heading() ) {
-		$args['heading'] = plugin()->error_cats_heading();
+		$args['label_el'] = plugin()->error_cats_heading();
 	}
 
 	// List heading text.
 	if ( plugin()->error_cats_title() ) {
-		$args['title'] = plugin()->error_cats_title();
+		$args['label'] = plugin()->error_cats_title();
 	}
 
 	// List direction.
 	if ( plugin()->error_cats_dir() ) {
 		$args['direction'] = plugin()->error_cats_dir();
 	}
+	$args['show_count'] = true;
+
 	return $args;
 }
 
@@ -1335,18 +1164,20 @@ function error_tags_display() {
 
 	// List heading element.
 	if ( plugin()->error_tags_heading() ) {
-		$args['heading'] = plugin()->error_tags_heading();
+		$args['label_el'] = plugin()->error_tags_heading();
 	}
 
 	// List heading text.
 	if ( plugin()->error_tags_title() ) {
-		$args['title'] = plugin()->error_tags_title();
+		$args['label'] = plugin()->error_tags_title();
 	}
 
 	// List direction.
 	if ( plugin()->error_tags_dir() ) {
 		$args['direction'] = plugin()->error_tags_dir();
 	}
+	$args['show_count'] = true;
+
 	return $args;
 }
 

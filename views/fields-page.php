@@ -11,7 +11,8 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	plugin
+	plugin,
+	has_error_widgets
 };
 
 // Get the search plugin object.
@@ -310,7 +311,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 <?php
 
 // If a 404 page has been set in Settings > Advanced.
-if ( $site->pageNotFound() ) :
+if ( $site->pageNotFound() && has_error_widgets() ) :
 
 ?>
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( '404 Error Template' ) ] ); ?>
@@ -340,23 +341,31 @@ if ( $site->pageNotFound() ) :
 		<div class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
 			<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
+
+				<?php if ( getPLugin( 'Search_Forms' ) ) : ?>
 				<li class="nav-item">
 					<a class="nav-link" role="tab" aria-controls="search" aria-selected="false" href="#search"><?php $L->p( 'Search' ); ?></a>
 				</li>
+				<?php endif; ?>
 
 				<li class="nav-item">
 					<a class="nav-link" role="tab" aria-controls="pages" aria-selected="false" href="#pages"><?php $L->p( 'Pages' ); ?></a>
 				</li>
 
+				<?php if ( getPLugin( 'Categories_Lists' ) ) : ?>
 				<li class="nav-item">
 					<a class="nav-link" role="tab" aria-controls="categories" aria-selected="false" href="#categories"><?php $L->p( 'Categories' ); ?></a>
 				</li>
+				<?php endif; ?>
 
+				<?php if ( getPLugin( 'Tags_Lists' ) ) : ?>
 				<li class="nav-item">
 					<a class="nav-link" role="tab" aria-controls="tags" aria-selected="false" href="#tags"><?php $L->p( 'Tags' ); ?></a>
 				</li>
+				<?php endif; ?>
 			</ul>
 
+			<?php if ( getPLugin( 'Search_Forms' ) ) : ?>
 			<div id="search" class="tab-pane" role="tabpanel" aria-labelledby="search">
 
 				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Search Form' ) ] ); ?>
@@ -420,6 +429,7 @@ if ( $site->pageNotFound() ) :
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
 
 			<div id="pages" class="tab-pane" role="tabpanel" aria-labelledby="pages">
 
@@ -471,6 +481,7 @@ if ( $site->pageNotFound() ) :
 				</div>
 			</div>
 
+			<?php if ( getPLugin( 'Categories_Lists' ) ) : ?>
 			<div id="categories" class="tab-pane" role="tabpanel" aria-labelledby="categories">
 
 				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Categories List' ) ] ); ?>
@@ -520,7 +531,9 @@ if ( $site->pageNotFound() ) :
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
 
+			<?php if ( getPLugin( 'Tags_Lists' ) ) : ?>
 			<div id="tags" class="tab-pane" role="tabpanel" aria-labelledby="tags">
 
 				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Tags List' ) ] ); ?>
@@ -570,6 +583,7 @@ if ( $site->pageNotFound() ) :
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </fieldset>

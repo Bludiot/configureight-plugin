@@ -1078,12 +1078,10 @@ class configureight extends Plugin {
 		$html = '';
 
 		// Search form.
-		if (
-			getPlugin( 'Search_Forms' ) &&
-			$this->error_search() &&
-			is_array( error_search_display() )
-		) {
-			$html .= SearchForms\form( error_search_display() );
+		if ( is_array( error_search_display() ) && $this->error_search() ) {
+			if ( getPlugin( 'Search_Forms' ) ) {
+				$html .= SearchForms\form( error_search_display() );
+			}
 		}
 
 		// Static pages list.
@@ -1093,12 +1091,16 @@ class configureight extends Plugin {
 
 		// Categories list.
 		if ( is_array( error_cats_display() ) && $this->error_cats() ) {
-			$html .= categories_list( error_cats_display() );
+			if ( getPlugin( 'Categories_Lists' ) ) {
+				$html .= CatLists\cats_list( error_cats_display() );
+			}
 		}
 
 		// Tags list.
 		if ( is_array( error_tags_display() ) && $this->error_tags() ) {
-			$html .= tags_list( error_tags_display() );
+			if ( getPlugin( 'Tags_Lists' ) ) {
+				$html .= TagLists\tags_list( error_tags_display() );
+			}
 		}
 		return $html;
 	}

@@ -227,10 +227,11 @@ $custom_from = $this->custom_scheme_from();
 // Search settings page URL.
 $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 
+if ( getPlugin( 'Search_Forms' ) ) :
+
 ?>
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Search Forms' ) ] ); ?>
 
-<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
 <div class="form-field form-group row">
 	<label class="form-label col-sm-2 col-form-label" for="search_plugin_info"><?php $L->p( 'Search Plugin' ); ?></label>
 	<div id="search_plugin_info" class="col-sm-10">
@@ -239,7 +240,6 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 		<p><?php $L->p( 'The following options are specific to the Configure 8 theme so they are not part of the Search Form plugin.' ); ?></p>
 	</div>
 </div>
-<?php endif; ?>
 
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Search Options' ); ?></legend>
@@ -255,6 +255,7 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 		</div>
 	</div>
 </fieldset>
+<?php endif; ?>
 
 <script>
 $( function() {

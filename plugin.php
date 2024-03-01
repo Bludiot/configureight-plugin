@@ -1086,7 +1086,9 @@ class configureight extends Plugin {
 
 		// Static pages list.
 		if ( is_array( error_static_display() ) && $this->error_static() ) {
-			$html .= static_list( error_static_display() );
+			if ( getPlugin( 'Pages_Lists' ) ) {
+				$html .= PageLists\pages_list( error_static_display() );
+			}
 		}
 
 		// Categories list.

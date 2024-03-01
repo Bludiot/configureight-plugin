@@ -933,102 +933,6 @@ function admin_theme() {
 }
 
 /**
- * Static pages list
- *
- * @since  1.0.0
- * @param  mixed $args Arguments to be passed.
- * @param  array $defaults Default arguments.
- * @global object $site The Site class.
- * @return string Returns the list markup.
- */
-function static_list( $args = null, $defaults = [] ) {
-
-	// Access global variables.
-	global $site;
-
-	// Default arguments.
-	$defaults = [
-		'wrap'      => false,
-		'direction' => 'vert',
-		'title'     => false,
-		'heading'   => 'h2',
-		'links'     => true
-	];
-
-	// Maybe override defaults.
-	if ( is_array( $args ) && $args ) {
-		$args = array_merge( $defaults, $args );
-	} else {
-		$args = $defaults;
-	}
-
-	// List classes.
-	$classes   = [];
-	$classes[] = 'static-list';
-	if ( 'vert' == $args['direction'] ) {
-		$classes[] = 'static-list-vertical';
-	} else {
-		$classes[] = 'static-list-horizontal';
-	}
-	$classes = implode( ' ', $classes );
-
-	// List markup.
-	$html = '';
-	if ( $args['wrap'] ) {
-		$html = '<div class="static-list-wrap">';
-	}
-
-	if ( $args['title'] ) {
-		$html .= sprintf(
-			'<%s>%s</%s>',
-			$args['heading'],
-			$args['title'],
-			$args['heading']
-		);
-	}
-
-	$html .= sprintf(
-		'<ul class="%s">',
-		$classes
-	);
-
-	$static = buildStaticPages();
-	foreach ( $static as $page ) {
-
-		// Item class.
-		$classes = [ 'static-page' ];
-		if ( $page->hasChildren() ) {
-			$classes[] = 'parent-page';
-		} elseif ( $page->isChild() ) {
-			$classes[] = 'child-page';
-		}
-		$classes = implode( ' ', $classes );
-
-		if (
-			$page->key() != $site->homepage() &&
-			$page->key() != $site->pageNotFound()
-		) {
-			$html .= "<li class='{$classes}'>";
-
-			if ( $args['links'] ) {
-				$html .= '<a href="' . $page->permalink() . '">';
-			}
-			$html .= $page->title();
-			if ( $args['links'] ) {
-				$html .= '</a>';
-			}
-			$html .= '</li>';
-		}
-	}
-	$html .= '</ul>';
-
-	if ( $args['wrap'] ) {
-		$html .= '</div>';
-	}
-	return $html;
-}
-
-/**
  * Has error widgets
  *
  * Returns true if at lease on of the
@@ -1104,18 +1008,20 @@ function error_static_display() {
 
 	// List heading element.
 	if ( plugin()->error_static_heading() ) {
-		$args['heading'] = plugin()->error_static_heading();
+		$args['label_el'] = plugin()->error_static_heading();
 	}
 
 	// List heading text.
 	if ( plugin()->error_static_title() ) {
-		$args['title'] = plugin()->error_static_title();
+		$args['label'] = plugin()->error_static_title();
 	}
 
 	// List direction.
 	if ( plugin()->error_static_dir() ) {
 		$args['direction'] = plugin()->error_static_dir();
 	}
+	$args['pages_limit'] = 'all';
+
 	return $args;
 }
 

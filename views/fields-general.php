@@ -23,6 +23,17 @@ $custom_from = $this->custom_scheme_from();
 	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="keep_options"><?php $L->p( 'Save Options' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="keep_options" name="keep_options">
+				<option value="true" <?php echo ( $this->getValue( 'keep_options' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Save' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'keep_options' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Delete' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Keep these options in the database when deactivating this theme.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Site Icon' ); ?></label>
 		<div class="col-sm-10">
 			<p><?php $L->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>

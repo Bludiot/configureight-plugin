@@ -186,6 +186,7 @@ class configureight extends Plugin {
 		global $L;
 
 		$this->dbFields = [
+			'keep_options'           => true,
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
 			'toolbar_mobile'         => false,
@@ -438,6 +439,11 @@ class configureight extends Plugin {
 	 * @return boolean Return true if the installation is successful.
 	 */
 	public function install( $position = 1 ) {
+
+		// Stop if preserving options.
+		if ( $this->installed() && $this->keep_options() ) {
+			return;
+		}
 
 		// Create workspace.
 		$workspace = $this->workspace();
@@ -1183,15 +1189,20 @@ class configureight extends Plugin {
 	/**
 	 * Uninstall
 	 *
-	 * Return null to prevent database resetting
+	 * If set in the General options tab,
+	 * returns false to prevent database resetting
 	 * when theme is deactivated and plugin is
 	 * automatically uninstalled.
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return void
+	 * @return boolean
 	 */
 	public function uninstall() {
+
+		if ( $this->keep_options() ) {
+			return false;
+		}
 		return true;
 	}
 
@@ -1256,6 +1267,11 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return boolean
+	public function keep_options() {
+		return $this->getValue( 'keep_options' );
+	}
 
 	// @return boolean
 	public function user_toolbar() {

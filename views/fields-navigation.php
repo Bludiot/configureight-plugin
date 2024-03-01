@@ -7,10 +7,6 @@
  * @since      1.0.0
  */
 
-use function CFE_Plugin\{
-	static_for_nav
-};
-
 // Get static pages, not posts.
 $static = buildStaticPages();
 

@@ -178,7 +178,8 @@ foreach ( $schemes as $scheme => $option ) {
 	}
 
 	printf(
-		'<li><span class="color-list-label">%s:</span> <code class="select">%s</code></li>',
+		'<li><span class="color-list-label"><a href="#%s">%s</a>:</span> <code class="select">%s</code></li>',
+		$option['slug'],
 		ucwords( $option['name'] ),
 		$option['slug']
 	);
@@ -204,7 +205,8 @@ if ( 'custom' == $current['slug'] ) {
 	$scheme_from = plugin()->custom_scheme_from();
 	$original    = get_color_scheme( $scheme_from );
 	printf(
-		$L->get( '<p>Adapted from the %s scheme.</p>' ),
+		$L->get( '<p>Adapted from the <a href="#%s">%s</a> scheme.</p>' ),
+		$scheme_from,
 		$original['name']
 	);
 }
@@ -282,7 +284,8 @@ foreach ( $schemes as $scheme => $option ) {
 	echo '<hr />';
 
 	printf(
-		'<h2 class="color-heading">%s %s</h2>',
+		'<h2 id="%s" class="color-heading">%s %s</h2>',
+		$option['slug'],
 		$L->get( 'Scheme:' ),
 		$option['name']
 	);

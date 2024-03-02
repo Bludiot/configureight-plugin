@@ -1045,6 +1045,23 @@ function color_schemes() {
 }
 
 /**
+ * Get color scheme
+ *
+ * @since  1.0.0
+ * @param  string $key The key of the scheme.
+ * @return mixed Returns a color scheme array or null.
+ */
+function get_color_scheme( $key = '' ) {
+
+	// Get color schemes array.
+	$schemes = color_schemes();
+	if ( empty( $key ) ) {
+		return null;
+	}
+	return $schemes[$key];
+}
+
+/**
  * Default color scheme
  *
  * The array of data for the default color scheme.

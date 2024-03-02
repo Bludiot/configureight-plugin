@@ -11,9 +11,13 @@
 // Access namespaced functions.
 use function CFE_Colors\{
 	color_schemes,
+	get_color_scheme,
 	default_color_scheme,
 	current_color_scheme,
 	hex_to_rgb
+};
+use function CFE_Plugin\{
+	plugin
 };
 
 // Access global variables.
@@ -186,13 +190,25 @@ echo '</ul>';
 // Redefine after sorting;
 $schemes = color_schemes();
 
-echo '<hr />';
+echo '<hr />'; ?>
 
+<?php
 printf(
 	'<h2 class="color-heading">%s %s</h2>',
 	$L->get( 'Current Scheme:' ),
 	$current['name']
 ); ?>
+
+<?php
+if ( 'custom' == $current['slug'] ) {
+	$scheme_from = plugin()->custom_scheme_from();
+	$original    = get_color_scheme( $scheme_from );
+	printf(
+		$L->get( '<p>Adapted from the %s scheme.</p>' ),
+		$original['name']
+	);
+}
+?>
 
 <?php
 printf(

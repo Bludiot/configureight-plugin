@@ -153,6 +153,11 @@ printf(
 	$L->get( 'the template <code>color-scheme-forest</code> will apply the Forest color scheme to that page or post.' )
 );
 
+printf(
+	'<p>%s</p>',
+	$L->get( 'Slugs can also be used in the <code>get_color_scheme( $slug )</code> function to get an array of data about the scheme.' )
+);
+
 // Sort schemes alphabetically then by category.
 asort( $schemes );
 usort( $schemes, function( $one_thing, $another ) {

@@ -430,9 +430,6 @@ class configureight extends Plugin {
 	/**
 	 * Install plugin
 	 *
-	 * Essentially the same as the parent method
-	 * except that it allows for array field values.
-	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @param  integer $position

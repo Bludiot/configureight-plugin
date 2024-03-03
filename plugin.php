@@ -440,7 +440,19 @@ class configureight extends Plugin {
 	 */
 	public function install( $position = 1 ) {
 
-		// Stop if preserving options.
+		/**
+		 * Stop if preserving options and uploads.
+		 *
+		 * The `installed()` method in the parent class simply
+		 * checks for a database corresponding to this plugin.
+		 * If the `keep_options` setting is true then the database
+		 * was not deleted on uninstall. However, this `install()`
+		 * method is still run when the theme/plugin are reactivated
+		 * and will overwrite the saved database if not stopped here.
+		 *
+		 * The check for `keep_options` is not necessary but
+		 * included for completeness.
+		 */
 		if ( $this->installed() && $this->keep_options() ) {
 			return;
 		}
@@ -471,6 +483,40 @@ class configureight extends Plugin {
 
 		// Create the database.
 		return $this->save();
+	}
+
+	/**
+	 * Uninstall
+	 *
+	 * If set in the General options tab,
+	 * returns false to prevent database resetting
+	 * when the theme is deactivated and the plugin
+	 * is automatically uninstalled.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return boolean
+	 */
+	public function uninstall() {
+
+		// Stop if preserving options and uploads.
+		if ( $this->keep_options() ) {
+			return false;
+		}
+
+		// Delete database.
+		$path = PATH_PLUGINS_DATABASES . $this->directoryName;
+		Filesystem :: deleteRecursive( $path );
+
+		// Delete workspace.
+		$workspace = $this->workspace();
+		Filesystem :: deleteRecursive( $workspace );
+
+		// Delete image uploads.
+		$uploads = PATH_CONTENT . $this->directoryName;
+		Filesystem :: deleteRecursive( $uploads );
+
+		return true;
 	}
 
 	/**
@@ -648,7 +694,7 @@ class configureight extends Plugin {
 
 		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
-		} elseif ( 'default' == $this->admin_theme() ) {
+		} elseif ( 'default' == $this->admin_theme() || 'booty' == $site->adminTheme() || ! $site->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
@@ -1184,26 +1230,6 @@ class configureight extends Plugin {
 
 		// Return modified array.
 		return editSettings( $args );
-	}
-
-	/**
-	 * Uninstall
-	 *
-	 * If set in the General options tab,
-	 * returns false to prevent database resetting
-	 * when theme is deactivated and plugin is
-	 * automatically uninstalled.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return boolean
-	 */
-	public function uninstall() {
-
-		if ( $this->keep_options() ) {
-			return false;
-		}
-		return true;
 	}
 
 	/**

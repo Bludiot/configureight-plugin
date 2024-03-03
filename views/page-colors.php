@@ -209,13 +209,14 @@ printf(
 if ( 'custom' == $current['slug'] ) {
 	$scheme_from = plugin()->custom_scheme_from();
 	$original    = get_color_scheme( $scheme_from );
-	printf(
-		$L->get( '<p>Adapted from the <a href="#%s">%s</a> scheme.</p>' ),
-		$scheme_from,
-		$original['name']
-	);
-}
-?>
+	if ( is_array( $original ) ) {
+		printf(
+			$L->get( '<p>Adapted from the <a href="#%s">%s</a> scheme.</p>' ),
+			$scheme_from,
+			$original['name']
+		);
+	}
+} ?>
 
 <?php
 printf(

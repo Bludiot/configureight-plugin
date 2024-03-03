@@ -1055,7 +1055,7 @@ function get_color_scheme( $key = '' ) {
 
 	// Get color schemes array.
 	$schemes = color_schemes();
-	if ( empty( $key ) ) {
+	if ( empty( $key ) || ! array_key_exists( $key, $schemes ) ) {
 		return null;
 	}
 	return $schemes[$key];

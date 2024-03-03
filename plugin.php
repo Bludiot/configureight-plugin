@@ -718,7 +718,7 @@ class configureight extends Plugin {
 			'enabled' == $this->getValue( 'user_toolbar' ) ||
 			'backend' == $this->getValue( 'user_toolbar' )
 		) {
-			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); }</style>';
+			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); } nav.navbar.d-block { display: none !important; }</style>';
 
 			// Is admin menu hidden.
 			if ( ! $this->getValue( 'admin_menu' ) ) {

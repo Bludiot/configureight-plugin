@@ -964,6 +964,32 @@ code.select {
   text-shadow: none;
 }
 
+form div.align-middle:first-of-type {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--cfe-element--margin, calc(var(--cfe-spacing--vert) / 2) 0 0 0);
+}
+@media screen and (max-width: 768px) {
+  form div.align-middle:first-of-type {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+form div.align-middle:first-of-type .float-right {
+  float: none !important;
+}
+@media screen and (max-width: 576px) {
+  form div.align-middle:first-of-type .float-right {
+    align-self: flex-end;
+  }
+}
+form div.align-middle:first-of-type h2 {
+  margin: 0 !important;
+}
+
 .form-control {
   display: block;
   width: 100%;

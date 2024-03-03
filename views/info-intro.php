@@ -13,11 +13,29 @@
 // Theme name.
 $theme = 'Configure 8';
 
+// Color schemes page URL.
+$colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
+
+// Font schemes page URL.
+$fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
+
+// Database page URL.
+$database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
+
 //Search plugin URLs.
 $s_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 ?>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Reference Pages' ) ] ); ?>
+
+<p><?php $L->p( 'This theme guide includes several separate reference pages:' ); ?></p>
+<ul style="list-style: none; padding:0;">
+	<li><a href="<?php echo $colors_page; ?>"><strong><?php $L->p( 'Color Schemes' ); ?></strong></a></li>
+	<li><a href="<?php echo $fonts_page; ?>"><strong><?php $L->p( 'Font Schemes' ); ?></strong></a></li>
+	<li><a href="<?php echo $database_page; ?>"><strong><?php $L->p( 'Options Database' ); ?></strong></a></li>
+</ul>
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Compatibility' ) ] ); ?>
 

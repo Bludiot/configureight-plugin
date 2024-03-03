@@ -19,6 +19,10 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <hr />
 
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Page Type Templates' ) ] ); ?>
+
+<p><?php $L->p( 'These templates are for types of content or the role the page plays in the website.' ); ?></p>
+
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Front Page' ) ] ); ?>
 
 <p><?php $L->p( 'The front page template is used automatically when a page or post is set in Settings > Advanced > Homepage. So no template slug is needed for this template.' ); ?></p>
@@ -55,9 +59,41 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php $L->p( 'Static pages accept the template options for cover image and sidebar, as well as the content-based template options, on an individual basis.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Full-Screen Cover' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'About Page' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">about</code></p>
+
+<p><?php $L->p( 'Out of the box, this template is identical to the static page template. It is provided so that developers only need to edit one file to create a distinct layout for an about page.' ); ?></p>
+
+<p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Contact Page' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">contact</code></p>
+
+<p><?php $L->p( 'Out of the box, this template is identical to the static page template. It is provided so that developers only need to edit one file to create a distinct layout for a contact page.' ); ?></p>
+
+<p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( '404 Error Page' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">404</code></p>
+
+<p><?php $L->p( 'The 404 error template optionally displays a search form and navigation lists as suggested user actions. This template is available to a static page that has been set in Settings > Advanced > Page not found.' ); ?></p>
+
+<hr />
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Header Templates' ) ] ); ?>
+
+<p><?php $L->p( 'These templates apply to the site branding & navigation section, and to cover image headers.' ); ?></p>
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Sticky Header' ) ] ); ?>
+
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">sticky-header</code></p>
+
+<p><?php $L->p( 'The sticky header template will apply the sticky header option to the page when the option is disabled globally.' ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Full-Screen Cover' ) ] ); ?>
 
 <p><?php $L->p( 'Template slug:' ); ?> <code class="select">full-cover</code></p>
 
@@ -78,14 +114,6 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 <p><?php $L->p( 'The no cover template will hide the cover image of a post or a page when viewing the singular template. The cover image remains intact for loops and meta data.' ); ?></p>
 
 <p><?php $L->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
-
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Color Scheme' ) ] ); ?>
-
-<p><?php $L->p( 'Template slug:' ); ?> <code class="select">color-scheme-$slug</code></p>
-
-<p><?php $L->p( 'The color scheme template overrides the current color scheme to allow for color schemes on a per page basis. Simply add the template slug where <code>$slug</code> is the slug of the color scheme.' ); ?></p>
-
-<p><?php $L->p( 'Example: the template <code>color-scheme-forest</code> will apply the Forest color scheme to that page or post.' ); ?></p>
 
 <hr />
 
@@ -121,24 +149,22 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <hr />
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'About Page' ) ] ); ?>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Appearance Templates' ) ] ); ?>
 
-<p><?php $L->p( 'Template slug:' ); ?> <code class="select">about</code></p>
+<p><?php $L->p( 'These template apply color and font schemes to posts and pages.' ); ?></p>
 
-<p><?php $L->p( 'Out of the box, this template is identical to the static page template. It is provided so that developers only need to edit one file to create a distinct layout for an about page.' ); ?></p>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Color Scheme' ) ] ); ?>
 
-<p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">color-scheme-$slug</code></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Contact Page' ) ] ); ?>
+<p><?php $L->p( 'The color scheme template overrides the current color scheme to allow for color schemes on a per page basis. Simply add the template slug where <code>$slug</code> is the slug of the color scheme.' ); ?></p>
 
-<p><?php $L->p( 'Template slug:' ); ?> <code class="select">contact</code></p>
+<p><?php $L->p( 'Example: the template <code>color-scheme-forest</code> will apply the Forest color scheme to that page or post.' ); ?></p>
 
-<p><?php $L->p( 'Out of the box, this template is identical to the static page template. It is provided so that developers only need to edit one file to create a distinct layout for a contact page.' ); ?></p>
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Font Scheme' ) ] ); ?>
 
-<p><?php $L->p( 'This template is available to static pages only.' ); ?></p>
+<p><?php $L->p( 'Template slug:' ); ?> <code class="select">font-scheme-$slug</code></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( '404 Error Page' ) ] ); ?>
+<p><?php $L->p( 'The font scheme template overrides the current font scheme to allow for font schemes on a per page basis. Simply add the template slug where <code>$slug</code> is the slug of the font scheme.' ); ?></p>
 
-<p><?php $L->p( 'Template slug:' ); ?> <code class="select">404</code></p>
-
-<p><?php $L->p( 'The 404 error template optionally displays a search form and navigation lists as suggested user actions. This template is available to a static page that has been set in Settings > Advanced > Page not found.' ); ?></p>
+<p><?php $L->p( 'Example: the template <code>font-scheme-code</code> will apply the Code font scheme to that page or post.' ); ?></p>

@@ -385,7 +385,9 @@ class configureight extends Plugin {
 			'page_gallery',
 			'front_page',
 			'comment_form',
-			'footer_code'
+			'footer_code',
+			'site_sidebar_before',
+			'site_sidebar_after'
 		];
 
 		if ( ! $this->installed() ) {
@@ -466,7 +468,9 @@ class configureight extends Plugin {
 		// Sanitize default values to store in the file.
 		foreach ( $this->dbFields as $key => $value ) {
 
-			if ( ! is_array( $value ) ) {
+			if ( is_array( $value ) ) {
+				$final_value = $value;
+			} else {
 				$value = Sanitize :: html( $value );
 			}
 			settype( $value, gettype( $this->dbFields[$key] ) );

@@ -5776,6 +5776,7 @@ div.sidebar ul ul {
 }
 .admin-toolbar ul li {
   position: relative;
+  display: inline-flex;
   margin: 0;
   padding: var(--cfe-toolbar--link--padding);
   max-height: 2rem;

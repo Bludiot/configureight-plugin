@@ -255,6 +255,12 @@ code.select {
   border-bottom-color: rgba(255, 255, 255, 0.125);
   box-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 767.98px) {
+  .admin-toolbar {
+    height: var(--cfe-toolbar--mobile--height);
+    line-height: var(--cfe-toolbar--mobile--height);
+  }
+}
 .admin-toolbar ul {
   list-style: none;
   margin: 0;
@@ -266,6 +272,7 @@ code.select {
 }
 .admin-toolbar ul li {
   position: relative;
+  display: inline-flex;
   margin: 0;
   padding: var(--cfe-toolbar--link--padding);
   max-height: 2rem;
@@ -304,6 +311,11 @@ code.select {
   text-decoration: none;
   color: var(--cfe-toolbar--link--text-color);
 }
+@media (max-width: 767.98px) {
+  .admin-toolbar ul li a {
+    gap: 0 0.75em;
+  }
+}
 .admin-toolbar ul li a:hover {
   background-color: var(--cfe-toolbar--link--action--bg-color);
   color: var(--cfe-toolbar--link--action--text-color);
@@ -312,6 +324,24 @@ code.select {
   height: var(--cfe-toolbar--height);
   display: inline-flex;
   align-items: center;
+}
+.admin-toolbar ul li a .top-level-text {
+  display: inline;
+}
+@media (max-width: 767.98px) {
+  .admin-toolbar ul li a .top-level-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+  }
 }
 .admin-toolbar ul ul {
   display: block;
@@ -333,6 +363,12 @@ code.select {
   padding: 0;
   background-color: transparent;
   color: transparent;
+}
+@media (max-width: 767.98px) {
+  .admin-toolbar ul ul li {
+    height: var(--cfe-toolbar--height);
+    line-height: var(--cfe-toolbar--height);
+  }
 }
 .admin-toolbar ul ul li a {
   display: block;
@@ -360,6 +396,21 @@ code.select {
 }
 .admin-toolbar ul img.toolbar-avatar {
   margin: 0 0.5em;
+}
+@media (max-width: 767.98px) {
+  .admin-toolbar #profile-link span {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+  }
 }
 .admin-toolbar .admin-toolbar-logo {
   max-height: 24px;

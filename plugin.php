@@ -2421,7 +2421,7 @@ class configureight extends Plugin {
 		$icon   = $this->site_favicon();
 		$icon   = $icon[0];
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'bookmark' . DS . $icon;
-		$option = $site->url() . 'bl-content/' . $this->storage_root . '/bookmark/' . $icon;
+		$option = DOMAIN_CONTENT . $this->storage_root . '/bookmark/' . $icon;
 
 		if ( $icon && ! file_exists( $album ) ) {
 			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
@@ -2455,19 +2455,15 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site Sage class.
 	 * @return mixed Returns the URL or false.
 	 */
 	function standard_logo_src() {
-
-		// Access global variables.
-		global $site;
 
 		// Get logo field value & image URL.
 		$logo   = $this->standard_logo();
 		$logo   = $logo[0];
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_std' . DS . 'cache' . DS . 'large' . DS . $logo;
-		$option = $site->url() . 'bl-content/' . $this->storage_root . '/logo_std/cache/large/' . $logo;
+		$option = DOMAIN_CONTENT . $this->storage_root . '/logo_std/cache/large/' . $logo;
 
 		if ( $logo && file_exists( $album ) ) {
 			return $option;
@@ -2480,19 +2476,15 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site Sage class.
 	 * @return mixed Returns the URL or false.
 	 */
 	function cover_logo_src() {
-
-		// Access global variables.
-		global $site;
 
 		// Get logo field value & image URL.
 		$logo   = $this->cover_logo();
 		$logo   = $logo[0];
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_cover' . DS . 'cache' . DS . 'large' . DS . $logo;
-		$option = $site->url() . 'bl-content/' . $this->storage_root . '/logo_cover/cache/large/' . $logo;
+		$option = DOMAIN_CONTENT . $this->storage_root . '/logo_cover/cache/large/' . $logo;
 
 		if ( $logo && file_exists( $album ) ) {
 			return $option;
@@ -2552,7 +2544,7 @@ class configureight extends Plugin {
 		// Get cover field value.
 		$cover  = $this->random_cover_image();
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'cover' . DS . $cover;
-		$option = $site->url() . 'bl-content/' . $this->storage_root . '/cover/' . $cover;
+		$option = DOMAIN_CONTENT . $this->storage_root . '/cover/' . $cover;
 
 		if ( $cover && ! file_exists( $album ) && 'page' == $url->whereAmI() ) {
 			return $cover;

@@ -83,9 +83,10 @@ function custom_scheme() {
 
 	$scheme = [
 		'custom' => [
-			'slug'   => 'custom',
-			'name'   => $L->get( 'Custom' ),
-			'light'  => [
+			'slug'     => 'custom',
+			'name'     => $L->get( 'Custom' ),
+			'category' => 'none',
+			'light'    => [
 				'body'  => color( 'body' ),
 				'text'  => color( 'text' ),
 				'one'   => color( 'one' ),

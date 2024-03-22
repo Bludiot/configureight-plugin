@@ -617,6 +617,36 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Admin controller
+	 *
+	 * Change the text of the `<title>` tag.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L The Language class.
+	 * @global array $layout
+	 * @return string Returns the head content.
+	 */
+	public function adminController() {
+
+		// Access global variables.
+		global $L, $layout, $site;
+
+		// Title separator.
+		$sep = $this->title_sep();
+
+		if ( isset( $_GET['page'] ) && 'database' == $_GET['page'] ) {
+			$layout['title'] = $L->get( 'Theme Options Database' ) . " {$sep} " . $site->title();
+		} elseif ( isset( $_GET['page'] ) && 'colors' == $_GET['page'] ) {
+			$layout['title'] = $L->get( 'Color Schemes Reference' ) . " {$sep} " . $site->title();
+		} elseif ( isset( $_GET['page'] ) && 'fonts' == $_GET['page'] ) {
+			$layout['title'] = $L->get( 'Font Schemes Reference' ) . " {$sep} " . $site->title();
+		} else {
+			$layout['title'] = $L->get( 'Theme Guide' ) . " {$sep} " . $site->title();
+		}
+	}
+
+	/**
 	 * Admin style block
 	 *
 	 * Prints custom admin CSS in the admin head.
@@ -1217,14 +1247,14 @@ class configureight extends Plugin {
 		unset( $decode_fields['gallery_heading'] );
 		unset( $decode_fields['read_more'] );
 
-		// Set custom fields.
 		$custom_fields = array_merge( $custom_fields, $decode_fields );
-		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
-		$args['homepage']     = $site->homepage();
-		$args['uriBlog']      = $site->getField( 'uriBlog' );
-		$args['pageNotFound'] = $site->pageNotFound();
-
+		if ( isset( $args['customFields'] ) ) {
+			$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
+		}
+		$args['homepage']         = $site->homepage();
+		$args['uriBlog']          = $site->getField( 'uriBlog' );
+		$args['pageNotFound']     = $site->pageNotFound();
 		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
 		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
 		$args['thumbnailQuality'] = $this->getValue( 'img_upload_quality' );
@@ -2418,8 +2448,12 @@ class configureight extends Plugin {
 		global $site;
 
 		// Get icon field value & image URL.
-		$icon   = $this->site_favicon();
-		$icon   = $icon[0];
+		$icon = $this->site_favicon();
+		if ( isset( $icon[0] ) ) {
+			$icon = $icon[0];
+		} else {
+			$icon = '';
+		}
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'bookmark' . DS . $icon;
 		$option = DOMAIN_CONTENT . $this->storage_root . '/bookmark/' . $icon;
 
@@ -2461,7 +2495,11 @@ class configureight extends Plugin {
 
 		// Get logo field value & image URL.
 		$logo   = $this->standard_logo();
-		$logo   = $logo[0];
+		if ( isset( $logo[0] ) ) {
+			$logo = $logo[0];
+		} else {
+			$logo = '';
+		}
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_std' . DS . 'cache' . DS . 'large' . DS . $logo;
 		$option = DOMAIN_CONTENT . $this->storage_root . '/logo_std/cache/large/' . $logo;
 
@@ -2482,7 +2520,11 @@ class configureight extends Plugin {
 
 		// Get logo field value & image URL.
 		$logo   = $this->cover_logo();
-		$logo   = $logo[0];
+		if ( isset( $logo[0] ) ) {
+			$logo = $logo[0];
+		} else {
+			$logo = '';
+		}
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'logo_cover' . DS . 'cache' . DS . 'large' . DS . $logo;
 		$option = DOMAIN_CONTENT . $this->storage_root . '/logo_cover/cache/large/' . $logo;
 

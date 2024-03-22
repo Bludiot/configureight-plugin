@@ -70,7 +70,7 @@ class Cover_Album extends Cover_Images {
 			$count++;
 
 			$html .= sprintf(
-				'<li id="cover-select-item-%s"><label for="cover-image-select-%s" class="%s" title="%s"><img src="%s%s%s" /><input type="checkbox" name="cover_images[]" id="cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
+				'<li id="cover-select-item-%s"><label for="cover-image-select-%s" class="%s form-tooltip" title="%s"><img src="%s%s%s" /><input type="checkbox" name="cover_images[]" id="cover-image-select-%s" value="%s" %s /><span class="screen-reader-text">%s</span></label></li>',
 				$count,
 				$count,
 				( in_array( $image, plugin()->cover_images() ) ? 'image-select-label cover-select-label image-in-album selected' : 'image-select-label cover-select-label image-in-album' ),

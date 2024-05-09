@@ -68,3 +68,15 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 <p><?php $L->p( 'The public theme and the admin theme are both ready for RTL languages. Layout direction is automatically reversed where appropriate. Some are not flipped automatically due to layout options. For example, the main navigation position option includes left and right. Since this refers to the left and right sides of the screen, not the flow of the language, it is up to administrators to adjust the option for the target language.' ); ?></p>
 
 <p><?php $L->p( 'Translation of hard-coded text is not complete. We welcome the submission of translations.' ); ?></p>
+
+<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Product Support' ) ] ); ?>
+
+<p><?php $L->p( 'Please register errors, conflicts, or other problems with the Configure 8 suite of products under the Issues tab in the relevant GitHub repository.' ); ?></p>
+
+<p><strong class="semi-bold"><?php $L->p( 'Theme:' ); ?></strong> <a href="https://github.com/Bludiot/configureight" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight</a></p>
+
+<p><strong class="semi-bold"><?php $L->p( 'Plugin:' ); ?></strong> <a href="https://github.com/Bludiot/configureight-plugin" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight-plugin</a></p>
+
+<p><strong class="semi-bold"><?php $L->p( 'Admin:' ); ?></strong> <a href="https://github.com/Bludiot/configureight-admin" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight-admin</a></p>
+
+<p><strong class="semi-bold"><?php $L->p( 'Search:' ); ?></strong> <a href="https://github.com/Bludiot/searchforms" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/searchforms</a></p>

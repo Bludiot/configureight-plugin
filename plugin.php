@@ -32,7 +32,6 @@ use function CFE_Plugin\{
 	asset_min,
 	is_rtl,
 	title_tag,
-	options_list,
 	search_form,
 	custom_fields,
 	static_list,
@@ -242,6 +241,7 @@ class configureight extends Plugin {
 			'gallery_sort'           => 'newest', // 'newest', 'oldest', 'a-z'
 			'cover_in_post'          => 'header',
 			'cover_in_page'          => 'header',
+			'cover_in_profile'       => 'profile',
 			'cover_style'            => 'overlay',
 			'cover_blend'            => $this->cover_blend_default(),
 			'cover_blend_use'        => [ '', 'covers', 'slider' ],
@@ -406,15 +406,15 @@ class configureight extends Plugin {
 	 */
 	protected function plugin_url() {
 
-		$url = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $this->className();
+		$url = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . __CLASS__;
 		if ( BLUDIT_VERSION >= 4 ) {
-			$url = HTML_PATH_ADMIN_ROOT . 'plugin-settings/' . $this->className();
+			$url = HTML_PATH_ADMIN_ROOT . 'plugin-settings/' . __CLASS__;
 		}
 		return $url;
 	}
 
 	/**
-	 * Plugin string
+	 * Plugin slug
 	 *
 	 * @since  1.0.0
 	 * @access protected
@@ -422,9 +422,9 @@ class configureight extends Plugin {
 	 */
 	protected function plugin_slug() {
 
-		$slug = 'configure-plugin/' . $this->className();
+		$slug = 'configure-plugin/' . __CLASS__;
 		if ( BLUDIT_VERSION >= 4 ) {
-			$slug = 'plugin-settings/' . $this->className();
+			$slug = 'plugin-settings/' . __CLASS__;
 		}
 		return $slug;
 	}
@@ -469,7 +469,7 @@ class configureight extends Plugin {
 		foreach ( $this->dbFields as $key => $value ) {
 
 			if ( is_array( $value ) ) {
-				$final_value = $value;
+				$value = $value;
 			} else {
 				$value = Sanitize :: html( $value );
 			}
@@ -1101,11 +1101,6 @@ class configureight extends Plugin {
 		// Show customize links on dashboard if enabled.
 		if ( $this->show_customize() && checkRole( [ 'admin' ], false ) ) {
 			include( $this->phpPath() . '/views/dash-widget-customize.php' );
-		}
-
-		// Show options on dashboard if enabled.
-		if ( $this->show_options() ) {
-			echo options_list();
 		}
 	}
 
@@ -1982,6 +1977,18 @@ class configureight extends Plugin {
 	// @return string
 	public function error_tags_dir() {
 		return $this->getValue( 'error_tags_dir' );
+	}
+
+	/**
+	 * User options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 */
+
+	// @return string
+	public function cover_in_profile() {
+		return $this->getValue( 'cover_in_profile' );
 	}
 
 	/**

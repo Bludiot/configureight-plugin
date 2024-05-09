@@ -70,6 +70,6 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 		<?php if ( getPlugin( 'Pages_Lists' ) ) : ?>
 		<li><a href="<?php echo $pages_settings; ?>"><?php $L->p( 'Pages Options' ); ?></a></li>
 		<?php endif; ?>
-		<li><a href="<?php echo $database_page; ?>"><?php $L->p( 'Options Database' ); ?></a></li>
+		<li><a href="<?php echo $database_page; ?>"><?php $L->p( 'Options Databases' ); ?></a></li>
 	</ul>
 </div>

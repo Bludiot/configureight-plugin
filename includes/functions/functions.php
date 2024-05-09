@@ -733,29 +733,38 @@ function custom_fields() {
 /**
  * Options list
  *
- * Displays a list of options and their values for the dashboard.
+ * Displays a list of options and their values from
+ * a specific plugin..
  *
  * @since  1.0.0
- * @param  boolean $list_only Whether to only print the list markup.
+ * @param  mixed $plugin The class name of the plugin for which
+ *                       options are displayed.
  * @global object $L The Language class.
- * @return mixed Returns the widget markup or null.
+ * @return mixed Returns the list markup or false.
  */
-function options_list( $list_only = false ) {
+function options_list( $plugin = false ) {
 
 	// Access global variables.
 	global $L;
 
 	// Get the plugin database.
-	$db  = new \dbJSON( plugin()->filenameDb );
-	$get = $db->getDB();
+	$db = false;
+	if ( getPlugin( $plugin ) ) {
+		$options = new $plugin;
 
-	// Stop if the plugin database is empty.
-	if ( empty( $get ) ) {
-		return null;
+		if ( is_array( $options->dbFields ) ) {
+			$db = new \dbJSON( $options->filenameDb );
+		}
 	}
 
+	$get = '';
+	if ( ! $db ) {
+		return false;
+	}
+	$get = $db->getDB();
+
 	// Options list markup.
-	$options = '<ul class="dashboard-options-list">';
+	$list = '<ul class="dashboard-options-list">';
 	foreach ( $get as $key => $value ) {
 
 		// Convert boolean values to "true" or "false" text.
@@ -790,26 +799,15 @@ function options_list( $list_only = false ) {
 		}
 
 		// Option list item.
-		$options .= sprintf(
+		$list .= sprintf(
 			'<li><span class="option-name">%s:</span> <span class="option-value">%s</span></li>',
 			$key,
 			$value
 		);
 	}
-	$options .= '</ul>';
+	$list .= '</ul>';
 
-	// Widget markup.
-	if ( $list_only ) {
-		$html = $options;
-	} else {
-		$html = sprintf(
-			'<div id="dashboard-options"><h2>%s</h2><p>%s</p>%s</div>',
-			$L->get( 'Theme Options' ),
-			$L->get( 'List of current theme options and their values.' ),
-			$options
-		);
-	}
-	return $html;
+	return $list;
 }
 
 /**

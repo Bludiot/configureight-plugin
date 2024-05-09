@@ -156,6 +156,24 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		</div>
 	</div>
 
+	<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cover_in_profile"><?php $L->p( 'Cover in Profiles' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cover_in_profile" name="cover_in_profile">
+				<option value="profile" <?php echo ( $this->getValue( 'cover_in_profile' ) === 'profile' ? 'selected' : '' ); ?>><?php $L->p( 'Profile Only' ); ?></option>
+
+				<option value="header" <?php echo ( $this->getValue( 'cover_in_profile' ) === 'header' ? 'selected' : '' ); ?>><?php $L->p( 'Header Only' ); ?></option>
+
+				<option value="both" <?php echo ( $this->getValue( 'cover_in_profile' ) === 'both' ? 'selected' : '' ); ?>><?php $L->p( 'Header & Profile' ); ?></option>
+
+				<option value="none" <?php echo ( $this->getValue( 'cover_in_profile' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'User cover image display on profile pages.' ); ?></small>
+		</div>
+	</div>
+	<?php endif; ?>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="cover_style"><?php $L->p( 'Cover Color Style' ); ?></label>
 		<div class="col-sm-10">
@@ -202,6 +220,10 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<label class="check-label-wrap" for="desaturate_search"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_search" value="search" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'search', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Search Loop' ); ?></label>
 
 					<label class="check-label-wrap" for="desaturate_related"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_related" value="related" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'related', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
+
+					<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
+					<label class="check-label-wrap" for="desaturate_profile"><input class="cover-desaturate" type="checkbox" name="cover_desaturate_use[]" id="desaturate_profile" value="profile" <?php echo ( is_array( $this->cover_desaturate_use() ) && in_array( 'profile', $this->cover_desaturate_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'User Profiles' ); ?></label>
+					<?php endif; ?>
 				</div>
 				<small class="form-text"><?php $L->p( '' ); ?></small>
 			</div>
@@ -251,6 +273,10 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 					<label class="check-label-wrap" for="blend_galleries"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_galleries" value="galleries" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'galleries', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Gallery Thumbnails' ); ?></label>
 
 					<label class="check-label-wrap" for="blend_related"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_related" value="related" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'related', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'Related Posts' ); ?></label>
+
+					<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
+					<label class="check-label-wrap" for="blend_profile"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_profile" value="profile" <?php echo ( is_array( $this->cover_blend_use() ) && in_array( 'profile', $this->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php $L->p( 'User Profiles' ); ?></label>
+					<?php endif; ?>
 				</div>
 				<small class="form-text"><?php $L->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
 			</div>

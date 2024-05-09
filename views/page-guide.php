@@ -44,7 +44,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="support" aria-selected="false" href="#support"><?php $L->p( 'Support' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="plugins" aria-selected="false" href="#plugins"><?php $L->p( 'Plugins' ); ?></a>
 		</li>
 	</ul>
 
@@ -73,24 +73,8 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Themes' ) ] ); ?>
 	</div>
 
-	<div id="support" class="tab-pane" role="tabpanel" aria-labelledby="support">
+	<div id="plugins" class="tab-pane" role="tabpanel" aria-labelledby="plugins">
 
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Product Support' ) ] ); ?>
-
-		<p><?php $L->p( 'Please register errors, conflicts, or other problems with the Configure 8 suite of products under the Issues tab in the relevant GitHub repository.' ); ?></p>
-
-		<p><strong class="semi-bold"><?php $L->p( 'Theme:' ); ?></strong> <a href="https://github.com/Bludiot/configureight" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight</a></p>
-
-		<p><strong class="semi-bold"><?php $L->p( 'Plugin:' ); ?></strong> <a href="https://github.com/Bludiot/configureight-plugin" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight-plugin</a></p>
-
-		<p><strong class="semi-bold"><?php $L->p( 'Admin:' ); ?></strong> <a href="https://github.com/Bludiot/configureight-admin" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/configureight-admin</a></p>
-
-		<p><strong class="semi-bold"><?php $L->p( 'Search:' ); ?></strong> <a href="https://github.com/Bludiot/searchforms" target="_blank" rel="noopener noreferrer">https://github.com/Bludiot/searchforms</a></p>
-
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Support Bludiot' ) ] ); ?>
-
-		<p><?php $L->p( 'Let me know if you need me to develop a custom version of Configure 8 for you.' ); ?></p>
-
-		<p class="cite">Greg Sweet, Controlled Chaos Design/Bludiot</p>
+		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Companion Plugins' ) ] ); ?>
 	</div>
 </div>

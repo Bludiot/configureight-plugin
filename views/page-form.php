@@ -22,7 +22,7 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$database_page}'>options database</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$database_page}'>options databases</a> page." ); ?></p>
 </div>
 
 <div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="true" data-animation="true">
@@ -44,7 +44,7 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#page"><?php $L->p( 'Page' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="page" aria-selected="false" href="#page"><?php $L->p( 'Page' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="sidebar" aria-selected="false" href="#sidebar"><?php $L->p( 'Sidebar' ); ?></a>

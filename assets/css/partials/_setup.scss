@@ -11,6 +11,7 @@
 }
 
 html {
+	height: auto;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
@@ -55,10 +56,6 @@ body {
 
 	&.monospace:not( .serif ) {
 		font-family: var( --cfe-fonts--monospace-stack, monospace );
-	}
-
-	&.h-100 {
-		height: auto !important;
 	}
 
 	&.toolbar-active {

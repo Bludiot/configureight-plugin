@@ -188,4 +188,8 @@ $color_six_dark:   $medium_gray;
 	--cfe-tabs--list--link--border-color--dark: var( --cfe-box--border-color--dark );
 	--cfe-tabs--list--link--bg-color: #{rgba( $color: black, $alpha: 8% )};
 	--cfe-tabs--list--link--bg-color--dark: #{rgba( $color: white, $alpha: 8% )};
+
+	// User profiles plugin.
+	--upro-body--bg-color: var( --cfe-scheme-color--body );
+	--upro-body--bg-color--dark: var( --cfe-scheme-color--body--dark );
 }

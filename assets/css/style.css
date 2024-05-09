@@ -165,6 +165,8 @@
   --cfe-tabs--list--link--border-color--dark: var( --cfe-box--border-color--dark );
   --cfe-tabs--list--link--bg-color: rgba(0, 0, 0, 0.08);
   --cfe-tabs--list--link--bg-color--dark: rgba(255, 255, 255, 0.08);
+  --upro-body--bg-color: var( --cfe-scheme-color--body );
+  --upro-body--bg-color--dark: var( --cfe-scheme-color--body--dark );
 }
 
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
@@ -414,6 +416,7 @@ b, strong, optgroup {
 }
 
 html {
+  height: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -459,9 +462,6 @@ body.serif:not(.monospace) {
 }
 body.monospace:not(.serif) {
   font-family: var(--cfe-fonts--monospace-stack, monospace);
-}
-body.h-100 {
-  height: auto !important;
 }
 body.toolbar-active {
   padding-top: var(--cfe-toolbar--height);
@@ -6069,9 +6069,10 @@ h6.border-bottom {
   width: 100%;
 }
 
-#dashboard-options h2,
-#database-list h2 {
-  margin: 0;
+.database-list {
+  margin-top: 2rem;
+}
+.database-list h2 {
   font-family: var(--cfe-heading-secondary--font-family);
   font-size: var(--cfe-heading-secondary--font-size);
   font-weight: var(--cfe-heading-secondary--font-weight);
@@ -6085,35 +6086,26 @@ h6.border-bottom {
   text-transform: var(--cfe-heading-secondary--text-transform);
   color: var(--cfe-heading-secondary--text-color, var(--cfe-text-color));
 }
-#dashboard-options p,
-#database-list p {
+.database-list p {
   margin: 0;
 }
-#dashboard-options ul,
-#database-list ul {
+.database-list ul {
   list-style: none;
-  max-width: -moz-max-content;
-  max-width: max-content;
 }
-#dashboard-options ul li,
-#database-list ul li {
+.database-list ul li {
   padding: 0.25em 0.5em;
 }
-#dashboard-options ul li:nth-of-type(odd),
-#database-list ul li:nth-of-type(odd) {
+.database-list ul li:nth-of-type(odd) {
   background-color: #e8e8e8;
 }
-#dashboard-options ul span,
-#database-list ul span {
+.database-list ul span {
   display: inline-block;
 }
-#dashboard-options .option-name,
-#database-list .option-name {
+.database-list .option-name {
   font-family: var(--cfe-fonts--monospace-stack, monospace);
   font-weight: 500;
 }
-#dashboard-options .option-value,
-#database-list .option-value {
+.database-list .option-value {
   font-weight: 600;
 }
 

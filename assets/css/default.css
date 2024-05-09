@@ -164,6 +164,8 @@
   --cfe-tabs--list--link--border-color--dark: var( --cfe-box--border-color--dark );
   --cfe-tabs--list--link--bg-color: rgba(0, 0, 0, 0.08);
   --cfe-tabs--list--link--bg-color--dark: rgba(255, 255, 255, 0.08);
+  --upro-body--bg-color: var( --cfe-scheme-color--body );
+  --upro-body--bg-color--dark: var( --cfe-scheme-color--body--dark );
 }
 
 :root {
@@ -540,12 +542,10 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   width: 100%;
 }
 
-#dashboard-options,
-#database-list {
+.database-list {
   margin: 2rem 0;
 }
-#dashboard-options h2,
-#database-list h2 {
+.database-list h2 {
   margin: 0;
   font-family: var(--cfe-heading-secondary--font-family);
   font-size: var(--cfe-heading-secondary--font-size);
@@ -560,37 +560,30 @@ form .col-sm-1, form .col-sm-2, form .col-sm-3, form .col-sm-4, form .col-sm-5, 
   text-transform: var(--cfe-heading-secondary--text-transform);
   color: var(--cfe-heading-secondary--text-color, var(--cfe-text-color));
 }
-#dashboard-options p,
-#database-list p {
+.database-list p {
   margin: 0;
 }
-#dashboard-options ul,
-#database-list ul {
+.database-list ul {
   list-style: none;
   max-width: -moz-max-content;
   max-width: max-content;
   margin: 1em 0 0 0;
   padding: 0;
 }
-#dashboard-options ul li,
-#database-list ul li {
+.database-list ul li {
   padding: 0.25em 0.5em;
 }
-#dashboard-options ul li:nth-of-type(odd),
-#database-list ul li:nth-of-type(odd) {
+.database-list ul li:nth-of-type(odd) {
   background-color: #e8e8e8;
 }
-#dashboard-options ul span,
-#database-list ul span {
+.database-list ul span {
   display: inline-block;
 }
-#dashboard-options .option-name,
-#database-list .option-name {
+.database-list .option-name {
   font-family: var(--cfe-fonts--monospace-stack, monospace);
   font-weight: 500;
 }
-#dashboard-options .option-value,
-#database-list .option-value {
+.database-list .option-value {
   font-weight: 600;
 }
 

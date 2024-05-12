@@ -11,15 +11,12 @@
 // Settings page URL.
 $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
-// Color schemes page URL.
-$colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
-
 ?>
 
 <?php echo Bootstrap :: pageTitle( [ 'element' => 'h1', 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page. Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
 </div>
 
 <div class="tab-content" data-toggle="tabslet" data-deeplinking="true" data-animation="true">

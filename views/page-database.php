@@ -10,22 +10,12 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	suite_plugins,
 	options_list
 };
 
 // Settings page URL.
 $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
-
-// Suite plugins to list, plugin class name => list heading.
-$suite_plugins = [
-	$this->className() => $L->g( 'Configure 8 Theme' ),
-	'Search_Forms'     => $L->g( 'Search Forms Plugin' ),
-	'Pages_Lists'      => $L->g( 'Pages Lists Plugin' ),
-	'Posts_Lists'      => $L->g( 'Posts Lists Plugin' ),
-	'Categories_Lists' => $L->g( 'Categories Lists Plugin' ),
-	'Tags_Lists'       => $L->g( 'Tags Lists Plugin' ),
-	'User_Profiles'    => $L->g( 'User Profiles Plugin' )
-];
 
 ?>
 
@@ -38,7 +28,7 @@ $suite_plugins = [
 <?php $L->p( 'List of current Configure 8 Suite options and their values. Includes plugins that are bundled in the full suite, if installed and activated.' ); ?></p>
 
 <?php
-foreach ( $suite_plugins as $list => $heading ) :
+foreach ( suite_plugins() as $list => $heading ) :
 	if ( options_list( $list ) ) {
 		printf(
 			'<div class="database-list"><h2>%s</h2>%s</div>',

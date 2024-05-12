@@ -931,6 +931,50 @@ function admin_theme() {
 }
 
 /**
+ * Suite plugins
+ *
+ * Array theme suite plugins classes and name.
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array
+ */
+function suite_plugins() {
+
+	// Access global variables.
+	global $L;
+
+	$suite = [
+		plugin()->className() => $L->g( 'Configure 8 Theme Plugin' ),
+		'Search_Forms'     => $L->g( 'Search Forms Plugin' ),
+		'Pages_Lists'      => $L->g( 'Pages Lists Plugin' ),
+		'Posts_Lists'      => $L->g( 'Posts Lists Plugin' ),
+		'Categories_Lists' => $L->g( 'Categories Lists Plugin' ),
+		'Tags_Lists'       => $L->g( 'Tags Lists Plugin' ),
+		'User_Profiles'    => $L->g( 'User Profiles Plugin' )
+	];
+	return $suite;
+}
+
+/**
+ * Suite plugins active
+ *
+ * If any of the theme suite plugins are activated.
+ *
+ * @since  1.0.0
+ * @return boolean
+ */
+function suite_plugins_active() {
+
+	foreach ( suite_plugins() as $suite ) {
+		if ( getPlugin( $suite ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
  * Has error widgets
  *
  * Returns true if at lease on of the

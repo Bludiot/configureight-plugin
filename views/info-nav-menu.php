@@ -20,7 +20,7 @@
 
 <?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Menu Items' ) ] ); ?>
 
-<p><?php $L->p( 'Aside from the home and loop links, only public, static pages are available for inclusion in the menu. Blog/news posts cannot be selected as this is not a good user-experience practice.' ); ?></p>
+<p><?php $L->p( 'Aside from the home and loop links, only public, static pages are available for inclusion in the menu. Blog/news posts cannot be selected for inclusion in the menu.' ); ?></p>
 
 <p><?php $L->p( '' ); ?></p>
 

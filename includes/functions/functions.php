@@ -678,13 +678,18 @@ function custom_fields() {
 	global $L, $site;
 
 	// Menu label field.
-	$menu_field = [
-		'menu_label' => [
-			'type'  => 'string',
-			'label' => $L->get( 'Menu Label' ),
-			'tip'   => $L->get( 'Text used in the navigation menus.' )
-		]
-	];
+	if ( plugin()->cf_menu_label() ) {
+		$menu_field = [
+			'menu_label' => [
+				'type'  => 'string',
+				'label' => $L->get( 'Menu Label' ),
+				'tip'   => $L->get( 'Text used in the navigation menus.' )
+			]
+		];
+	} else {
+		$menu_field = [];
+	}
+	$fields = $menu_field;
 
 	// Random cover checkbox field.
 	$cover_field = [
@@ -694,7 +699,9 @@ function custom_fields() {
 			'tip'   => $L->get( 'Display a random cover image from images uploaded to this page. Requires no cover image set.' )
 		]
 	];
-	$fields = array_merge( $menu_field, $cover_field );
+	if ( plugin()->cf_random_cover() ) {
+		$fields = array_merge( $menu_field, $cover_field );
+	}
 
 	// Page gallery checkbox field.
 	$gallery_field = [
@@ -704,7 +711,9 @@ function custom_fields() {
 			'tip'   => $L->get( 'Add a gallery of images uploaded to this page.' )
 		]
 	];
-	$fields = array_merge( $fields, $gallery_field );
+	if ( plugin()->cf_page_gallery() ) {
+		$fields = array_merge( $fields, $gallery_field );
+	}
 
 	// Gallery heading field.
 	$heading_field = [
@@ -715,7 +724,9 @@ function custom_fields() {
 			'placeholder' => $L->get( 'Image Gallery' )
 		]
 	];
-	$fields = array_merge( $fields, $heading_field );
+	if ( plugin()->cf_gallery_heading() ) {
+		$fields = array_merge( $fields, $heading_field );
+	}
 
 	// Read more field.
 	$more_field = [
@@ -725,7 +736,9 @@ function custom_fields() {
 			'tip'   => $L->get( 'Text used if this content is linked in the front page slider or when abbreviated in some contexts.' )
 		]
 	];
-	$fields = array_merge( $fields, $more_field );
+	if ( plugin()->cf_read_more() ) {
+		$fields = array_merge( $fields, $more_field );
+	}
 
 	return $fields;
 }

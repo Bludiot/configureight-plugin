@@ -282,6 +282,11 @@ class configureight extends Plugin {
 			'related_heading'        => $L->get( 'Related Posts' ),
 			'related_heading_el'     => 'h3',
 			'related_style'          => 'list',
+			'cf_menu_label'          => true,
+			'cf_random_cover'        => true,
+			'cf_page_gallery'        => true,
+			'cf_gallery_heading'     => true,
+			'cf_read_more'           => true,
 			'error_widgets'          => 'content',
 			'error_search'           => true,
 			'error_static'           => true,
@@ -1217,9 +1222,6 @@ class configureight extends Plugin {
 	/**
 	 * Edit settings
 	 *
-	 * Database settings for thumbnail images.
-	 * Hacky but working.
-	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @global object $site The Site class.
@@ -1243,10 +1245,8 @@ class configureight extends Plugin {
 		unset( $decode_fields['read_more'] );
 
 		$custom_fields = array_merge( $custom_fields, $decode_fields );
+		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
-		if ( isset( $args['customFields'] ) ) {
-			$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
-		}
 		$args['homepage']         = $site->homepage();
 		$args['uriBlog']          = $site->getField( 'uriBlog' );
 		$args['pageNotFound']     = $site->pageNotFound();
@@ -1882,6 +1882,31 @@ class configureight extends Plugin {
 	// @return string
 	public function related_style() {
 		return $this->getValue( 'related_style' );
+	}
+
+	// @return boolean
+	public function cf_menu_label() {
+		return $this->getValue( 'cf_menu_label' );
+	}
+
+	// @return boolean
+	public function cf_random_cover() {
+		return $this->getValue( 'cf_random_cover' );
+	}
+
+	// @return boolean
+	public function cf_page_gallery() {
+		return $this->getValue( 'cf_page_gallery' );
+	}
+
+	// @return boolean
+	public function cf_gallery_heading() {
+		return $this->getValue( 'cf_gallery_heading' );
+	}
+
+	// @return boolean
+	public function cf_read_more() {
+		return $this->getValue( 'cf_read_more' );
 	}
 
 	// @return string

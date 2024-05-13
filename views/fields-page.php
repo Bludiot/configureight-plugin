@@ -305,7 +305,69 @@ if ( getPlugin( 'Search_Forms' ) ) {
 			</div>
 		</div>
 	</div>
+</fieldset>
 
+<h3 class="form-heading"><?php $L->p( 'Custom Fields' ); ?></h3>
+
+<p><?php $L->p( 'Select the custom fields to add to page/post edit screens. See the theme guide page, content tab, for the code the add fields manually.' ); ?></p>
+
+<fieldset>
+	<legend class="screen-reader-text"><?php $L->p( 'Custom Fields Options' ); ?></legend>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cf_menu_label"><?php $L->p( 'Menu Label' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cf_menu_label" name="cf_menu_label">
+				<option value="true" <?php echo ( $this->getValue( 'cf_menu_label' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'cf_menu_label' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Text for the page link in the navigation menus.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cf_random_cover"><?php $L->p( 'Random Cover' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cf_random_cover" name="cf_random_cover">
+				<option value="true" <?php echo ( $this->getValue( 'cf_random_cover' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'cf_random_cover' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Displays a random cover image from images uploaded to the post/page.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cf_page_gallery"><?php $L->p( 'Gallery' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cf_page_gallery" name="cf_page_gallery">
+				<option value="true" <?php echo ( $this->getValue( 'cf_page_gallery' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'cf_page_gallery' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Adds a gallery of images uploaded to the post/page.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cf_gallery_heading"><?php $L->p( 'Gallery Heading' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cf_gallery_heading" name="cf_gallery_heading">
+				<option value="true" <?php echo ( $this->getValue( 'cf_gallery_heading' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'cf_gallery_heading' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Text used above the post/page\'s image gallery.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cf_read_more"><?php $L->p( 'Read Link' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cf_read_more" name="cf_read_more">
+				<option value="true" <?php echo ( $this->getValue( 'cf_read_more' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'cf_read_more' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Text used if the content is linked in the front page slider or when abbreviated in some contexts.' ); ?></small>
+		</div>
+	</div>
 </fieldset>
 
 <?php

@@ -710,6 +710,23 @@ h6 {
   text-align: left;
 }
 
+pre {
+  white-space: pre-wrap;
+  white-space: break-spaces;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.0625);
+}
+@media (prefers-color-scheme: dark) {
+  pre {
+    background-color: rgba(255, 255, 255, 0.0625);
+  }
+}
+pre.select {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+}
+
 code {
   background-color: #e7e7e7;
 }
@@ -2079,10 +2096,10 @@ textarea.form-control.is-invalid {
     transition: none;
   }
 }
-.form-heading {
+*.form-heading {
   margin: 1rem 0;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: var(--cfe-heading-secondary--font-size);
+  font-weight: var(--cfe-heading-secondary--font-weight) !important;
 }
 
 select[disabled] {

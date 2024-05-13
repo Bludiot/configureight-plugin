@@ -48,8 +48,8 @@ $sans_stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
 	--cfe-theme-icon--size: 0.825em;
 }
 
-.form-heading,
+*.form-heading,
 .admin-menu .admin-menu-list li.menu-heading h3 {
 	font-size: var( --cfe-heading-secondary--font-size );
-	font-weight: var( --cfe-heading-secondary--font-weight );
+	font-weight: var( --cfe-heading-secondary--font-weight ) !important;
 }

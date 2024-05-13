@@ -13,6 +13,15 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 ?>
 
+<style>
+pre {
+	white-space: pre-wrap;
+	white-space: break-spaces;
+	user-select: all;
+	cursor: pointer;
+}
+</style>
+
 <?php echo Bootstrap :: pageTitle( [ 'element' => 'h1', 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">

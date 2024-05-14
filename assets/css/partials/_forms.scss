@@ -1229,10 +1229,10 @@ border-bottom-right-radius: 0;
 
 // End Bootstrap classes.
 
-*.form-heading {
+.form-heading {
 	margin: 1rem 0;
 	font-size: var( --cfe-heading-secondary--font-size );
-	font-weight: var( --cfe-heading-secondary--font-weight ) !important;
+	font-weight: var( --cfe-heading-secondary--font-weight );
 }
 
 select[disabled] {

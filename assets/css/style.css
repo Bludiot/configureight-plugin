@@ -4221,10 +4221,10 @@ textarea.form-control.is-invalid {
     transition: none;
   }
 }
-*.form-heading {
+.form-heading {
   margin: 1rem 0;
   font-size: var(--cfe-heading-secondary--font-size);
-  font-weight: var(--cfe-heading-secondary--font-weight) !important;
+  font-weight: var(--cfe-heading-secondary--font-weight);
 }
 
 select[disabled] {

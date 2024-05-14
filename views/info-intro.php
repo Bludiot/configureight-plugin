@@ -61,8 +61,6 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <?php endif; ?>
 
-<hr />
-
 <h2 class="form-heading"><?php $L->p( 'Languages' ); ?></h2>
 
 <p><?php $L->p( 'The public theme and the admin theme are both ready for RTL languages. Layout direction is automatically reversed where appropriate. Some are not flipped automatically due to layout options. For example, the main navigation position option includes left and right. Since this refers to the left and right sides of the screen, not the flow of the language, it is up to administrators to adjust the option for the target language.' ); ?></p>

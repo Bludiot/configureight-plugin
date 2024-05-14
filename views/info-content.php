@@ -35,6 +35,7 @@
 <h3 class="form-heading"><?php $L->p( 'Menu Label' ); ?></h3>
 
 <p><?php $L->p( 'This is a text field. Text for the page link in the navigation menus.' ); ?></p>
+<p><?php $L->p( 'This field, if it contains text, will supersede other menu label options.' ); ?></p>
 
 <pre>
 "menu_label": {
@@ -47,6 +48,7 @@
 <h3 class="form-heading"><?php $L->p( 'Image Gallery' ); ?></h3>
 
 <p><?php $L->p( 'This is a checkbox field. Adds a gallery of images uploaded to the post/page.' ); ?></p>
+<p><?php $L->p( 'The gallery is displayed below the post/page main content.' ); ?></p>
 
 <pre>
 "page_gallery": {

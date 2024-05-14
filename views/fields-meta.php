@@ -14,7 +14,8 @@ use function CFE_Plugin\{
 };
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Meta Data Options' ) ] ); ?>
+
+<h2 class="form-heading"><?php $L->p( 'Meta Data Options' ); ?></h2>
 
 <p><?php $L->p( 'Include detailed information about the website for search engines and for embedding URLs.' ); ?></p>
 
@@ -30,7 +31,8 @@ use function CFE_Plugin\{
 	</ul>
 
 	<div id="title-tags">
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Title Tag Options' ) ] ); ?>
+
+		<h3 class="form-heading"><?php $L->p( 'Title Tag Options' ); ?></h3>
 
 		<p><?php $L->p( 'Used by search engines as well as browser tabs.' ); ?></p>
 
@@ -74,7 +76,7 @@ use function CFE_Plugin\{
 
 			<div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
-				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Titles' ) ] ); ?>
+				<h3 class="form-heading"><?php $L->p( 'Custom Titles' ); ?></h3>
 
 				<p><?php $L->p( 'Custom title tag formats will override the title tag function for each case listed. If the field is left empty then the built-in title for that case is used.' ); ?></p>
 
@@ -407,7 +409,8 @@ use function CFE_Plugin\{
 	</div>
 
 	<div id="meta-tags">
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Meta Tag Options' ) ] ); ?>
+
+		<h3 class="form-heading"><?php $L->p( 'Meta Tag Options' ); ?></h3>
 
 		<p><?php $L->p( 'Standard meta tags are always enabled.' ); ?></p>
 
@@ -433,7 +436,7 @@ use function CFE_Plugin\{
 				</div>
 			</div>
 
-			<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Non-Standard Meta Tags' ) ] ); ?>
+			<h3 class="form-heading"><?php $L->p( 'Non-Standard Meta Tags' ); ?></h3>
 
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_use_schema"><?php $L->p( 'Schema Data' ); ?></label>
@@ -478,7 +481,7 @@ use function CFE_Plugin\{
 				</div>
 			</div>
 
-			<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Code' ) ] ); ?>
+			<h3 class="form-heading"><?php $L->p( 'Custom Code' ); ?></h3>
 
 			<div class="form-field form-group row">
 				<label class="form-label col-sm-2 col-form-label" for="meta_custom"><?php $L->p( 'Custom Tags' ); ?></label>

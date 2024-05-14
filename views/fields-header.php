@@ -15,7 +15,8 @@ if ( $site->logo() ) {
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Header Options' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Header Options' ); ?></h2>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Header' ); ?></legend>

@@ -10,11 +10,11 @@
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Color Schemes' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Color Schemes' ); ?></h2>
 
 <p><?php $L->p( '' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Font Schemes' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Font Schemes' ); ?></h2>
 
 <p><?php $L->p( '' ); ?></p>
 

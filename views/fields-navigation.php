@@ -11,7 +11,9 @@
 $static = buildStaticPages();
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Navigation Options' ) ] ); ?>
+
+<h2 class="form-heading"><?php $L->p( 'Navigation Options' ); ?></h2>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Navigation' ); ?></legend>

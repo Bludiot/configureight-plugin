@@ -28,7 +28,7 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Reference Pages' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Reference Pages' ); ?></h2>
 
 <p><?php $L->p( 'This theme guide includes several separate reference pages:' ); ?></p>
 <ul style="list-style: none; padding:0;">
@@ -37,13 +37,13 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 	<li><a href="<?php echo $database_page; ?>"><strong><?php $L->p( 'Options Database' ); ?></strong></a></li>
 </ul>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Compatibility' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Compatibility' ); ?></h2>
 
 <p><?php $L->p( "The {$theme} theme was designed with great extensibility by plugins. All of the core plugin hooks are included and placed in appropriate positions in the various template parts. That said, we cannot maintain compatibility for all plugins nor take responsibility for poorly developed plugins. If there is a plugin hook you would like to have us include, please see the support tab." ); ?></p>
 
 <p><?php $L->p( 'Custom plugin hooks have been created and are included included in various template locations, where features and supplemental content may be displayed.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Search Functionality' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Search Functionality' ); ?></h2>
 
 <p><?php $L->p( "The core search plugin, simply named 'Search', is supported and will display a search form in the site sidebar. However, to take full advantage of the search form options, we recommend using the 'Search Forms' plugin, developed by us for use in the {$theme} theme." ); ?></p>
 
@@ -63,13 +63,13 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <hr />
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Languages' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Languages' ); ?></h2>
 
 <p><?php $L->p( 'The public theme and the admin theme are both ready for RTL languages. Layout direction is automatically reversed where appropriate. Some are not flipped automatically due to layout options. For example, the main navigation position option includes left and right. Since this refers to the left and right sides of the screen, not the flow of the language, it is up to administrators to adjust the option for the target language.' ); ?></p>
 
 <p><?php $L->p( 'Translation of hard-coded text is not complete. We welcome the submission of translations.' ); ?></p>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h2', 'title' => $L->g( 'Product Support' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Product Support' ); ?></h2>
 
 <p><?php $L->p( 'Please register errors, conflicts, or other problems with the Configure 8 suite of products under the Issues tab in the relevant GitHub repository.' ); ?></p>
 

@@ -42,7 +42,8 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Layout Options' ) ] ); ?>
+<h3 class="form-heading"><?php $L->p( 'Layout Options' ); ?></h3>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Layout' ); ?></legend>
@@ -84,7 +85,8 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Appearance Options' ) ] ); ?>
+<h3 class="form-heading"><?php $L->p( 'Appearance Options' ); ?></h3>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Appearance' ); ?></legend>
@@ -231,7 +233,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	?>
 	<div id="custom_color_scheme_fields" style="display: <?php echo ( $this->getValue( 'color_scheme' ) === 'custom' ? 'block' : 'none' ); ?>;">
 
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Colors' ) ] ); ?>
+		<h3 class="form-heading"><?php $L->p( 'Custom Colors' ); ?></h3>
 
 		<p><?php $L->p( 'Custom colors will override colors for basic elements in the default light and dark color schemes. If you wish to use these colors for further customization then a CSS variable is provided for each color. Simply add your CSS rules with these variables to the custom code fields below.' ); ?></p>
 
@@ -452,7 +454,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 		</div>
 	</div>
 
-	<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Typography' ) ] ); ?>
+	<h3 class="form-heading"><?php $L->p( 'Typography' ); ?></h3>
 
 	<div class="form-field form-group row">
 
@@ -638,7 +640,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 		</div>
 	</div>
 
-	<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Theme' ) ] ); ?>
+	<h3 class="form-heading"><?php $L->p( 'Admin Theme' ); ?></h3>
 
 	<div class="form-field form-group row">
 
@@ -668,7 +670,8 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 	</div>
 </fieldset>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Custom Code' ) ] ); ?>
+<h3 class="form-heading"><?php $L->p( 'Custom Code' ); ?></h3>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Custom' ); ?></legend>

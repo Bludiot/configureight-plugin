@@ -67,7 +67,7 @@ code.select {
 }
 </style>
 
-<?php echo Bootstrap :: pageTitle( [ 'title' => $L->g( 'Color Schemes Reference' ), 'element' => 'h1', 'icon' => 'eyedropper' ] ); ?>
+<h1 class="page-title"><span class="page-title-icon fa fa-eyedropper"></span><span class="page-title-text"><?php $L->p( 'Color Schemes Reference' ); ?></span></h1>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$settings_page}#style'>theme options</a> page." ); ?></p>

@@ -22,7 +22,7 @@ pre {
 }
 </style>
 
-<?php echo Bootstrap :: pageTitle( [ 'element' => 'h1', 'title' => $L->g( 'Theme Guide' ), 'icon' => 'book' ] ); ?>
+<h1 class="page-title"><span class="page-title-icon fa fa-book"></span><span class="page-title-text"><?php $L->p( 'Theme Guide' ); ?></span></h1>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
 	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
@@ -76,11 +76,11 @@ pre {
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">
 
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Admin Themes' ) ] ); ?>
+		<h2 class="form-heading"><?php $L->p( 'Admin Themes' ); ?></h2>
 	</div>
 
 	<div id="plugins" class="tab-pane" role="tabpanel" aria-labelledby="plugins">
 
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Companion Plugins' ) ] ); ?>
+		<h2 class="form-heading"><?php $L->p( 'Companion Plugins' ); ?></h2>
 	</div>
 </div>

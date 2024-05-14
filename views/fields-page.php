@@ -25,7 +25,8 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Post/Page Options' ) ] ); ?>
+<h2 class="form-heading"><?php $L->p( 'Post/Page Options' ); ?></h2>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( 'Post/Page Options' ); ?></legend>
@@ -76,7 +77,8 @@ if ( getPlugin( 'Search_Forms' ) ) {
 </fieldset>
 
 <?php if ( $site->homepage() ) : ?>
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Front Page Slider' ) ] ); ?>
+
+<h3 class="form-heading"><?php $L->p( 'Front Page Slider' ); ?></h3>
 
 <p><?php $L->p( 'Display a slider/carousel of select posts at the top of the static front page.' ); ?></p>
 
@@ -236,7 +238,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 </fieldset>
 <?php endif; ?>
 
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Related Posts' ) ] ); ?>
+<h3 class="form-heading"><?php $L->p( 'Related Posts' ); ?></h3>
 
 <p><?php $L->p( 'The related posts section is not displayed on static pages.' ); ?></p>
 
@@ -376,7 +378,8 @@ if ( getPlugin( 'Search_Forms' ) ) {
 if ( $site->pageNotFound() && has_error_widgets() ) :
 
 ?>
-<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( '404 Error Template' ) ] ); ?>
+<h3 class="form-heading"><?php $L->p( '404 Error Template' ); ?></h3>
+
 <fieldset>
 
 	<legend class="screen-reader-text"><?php $L->p( '404 Error' ); ?></legend>
@@ -396,7 +399,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 
 	<div id="error_widget_options" style="display: <?php echo ( $this->getValue( 'error_widgets' ) != 'content' ? 'block' : 'none' ); ?>;">
 
-		<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Error Page Options' ) ] ); ?>
+		<h3 class="form-heading"><?php $L->p( 'Error Page Options' ); ?></h3>
 
 		<p><?php $L->p( 'Choose which widgets to display and how to display them.' ); ?></p>
 
@@ -430,7 +433,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 			<?php if ( getPLugin( 'Search_Forms' ) ) : ?>
 			<div id="search" class="tab-pane" role="tabpanel" aria-labelledby="search">
 
-				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Search Form' ) ] ); ?>
+				<h3 class="form-heading"><?php $L->p( 'Search Form' ); ?></h3>
 
 				<div class="form-field form-group row">
 					<label class="form-label col-sm-2 col-form-label" for="error_search"><?php $L->p( 'Display' ); ?></label>
@@ -496,7 +499,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 
 			<div id="pages" class="tab-pane" role="tabpanel" aria-labelledby="pages">
 
-				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Static Pages List' ) ] ); ?>
+				<h3 class="form-heading"><?php $L->p( 'Static Pages List' ); ?></h3>
 
 				<div class="form-field form-group row">
 					<label class="form-label col-sm-2 col-form-label" for="error_static"><?php $L->p( 'Display' ); ?></label>
@@ -547,7 +550,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 			<?php if ( getPLugin( 'Categories_Lists' ) ) : ?>
 			<div id="categories" class="tab-pane" role="tabpanel" aria-labelledby="categories">
 
-				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Categories List' ) ] ); ?>
+				<h3 class="form-heading"><?php $L->p( 'Categories List' ); ?></h3>
 
 				<div class="form-field form-group row">
 					<label class="form-label col-sm-2 col-form-label" for="error_cats"><?php $L->p( 'Display' ); ?></label>
@@ -599,7 +602,7 @@ if ( $site->pageNotFound() && has_error_widgets() ) :
 			<?php if ( getPLugin( 'Tags_Lists' ) ) : ?>
 			<div id="tags" class="tab-pane" role="tabpanel" aria-labelledby="tags">
 
-				<?php echo Bootstrap :: formTitle( [ 'element' => 'h3', 'title' => $L->g( 'Tags List' ) ] ); ?>
+				<h3 class="form-heading"><?php $L->p( 'Tags List' ); ?></h3>
 
 				<div class="form-field form-group row">
 					<label class="form-label col-sm-2 col-form-label" for="error_tags"><?php $L->p( 'Display' ); ?></label>

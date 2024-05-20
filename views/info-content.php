@@ -10,6 +10,10 @@
 
 ?>
 
+<h2 class="form-heading"><?php $L->p( 'Content Types' ); ?></h2>
+
+<p><?php $L->p( 'In keeping with common vernacular of other content management systems, we refer to non-static Bludit pages as posts, including those saved as sticky, and static pages remain as pages. Theme templates by content types. A primary example of the difference between the two is that post templates may display publish date, reading time, author, etc., whereas page templates are content only. See the templates tab of the guide for distinction of static template types.' ); ?></p>
+
 <h2 class="form-heading"><?php $L->p( 'Custom Fields for Templates' ); ?></h2>
 
 <p><?php $L->p( 'The Configure 8 theme provides custom content fields for posts, pages, and various theme features. These fields can be added via the options interface or added manually by copying the code into the text box in Settings > Custom Fields.' ); ?></p>
@@ -19,6 +23,10 @@
 <p><?php $L->p( 'When adding fields manually, the JSON code for each field must be separated by commas, and all fields must be inside curly ( <code>{}</code> ) braces. See example below of all Configure 8 custom fields.' ); ?></p>
 
 <p><?php $L->p( 'Note that Bludit only offers two types of custom fields: checkbox and text.' ); ?></p>
+
+<h3 class="form-heading"><?php $L->p( 'Utilizing Custom Fields' ); ?></h3>
+
+<p><?php $L->p( 'To apply custom field options to a post/page, find them in the standard page options interface, above the content editor, or below the content editor. Most or all of the Configure 8 custom fields are in the options interface, which is activated by the "Options" button on page add/edit screens; under the "Custom" tab of the pop-up window.' ); ?></p>
 
 <h3 class="form-heading"><?php $L->p( 'Random Cover Image' ); ?></h3>
 

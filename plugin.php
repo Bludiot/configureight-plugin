@@ -814,13 +814,11 @@ class configureight extends Plugin {
 		}
 
 		// User toolbar.
-		if ( 'theme' != $this->admin_theme() ) {
-			if (
-				'enabled' == $this->getValue( 'user_toolbar' ) ||
-				'backend' == $this->getValue( 'user_toolbar' )
-			) {
-				include( $this->phpPath() . '/views/user-toolbar.php' );
-			}
+		if (
+			'enabled' == $this->getValue( 'user_toolbar' ) ||
+			'backend' == $this->getValue( 'user_toolbar' )
+		) {
+			include( $this->phpPath() . '/views/user-toolbar.php' );
 		}
 
 		// Admin theme notice.
@@ -1311,6 +1309,37 @@ class configureight extends Plugin {
 			}
 		}
 		return $html;
+	}
+
+	/**
+	 * Frontend before body hook
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $L Language class.
+	 * @global object $page Page class.
+	 * @global object $plugins Plugins class.
+	 * @global object $site Site class.
+	 * @global object $url Url class.
+	 * @return void
+	 */
+	public function siteBodyEnd() {
+
+		// Access global variables.
+		global $L, $login, $page, $plugins, $site, $url;
+
+		// Stop if Configure 8 is not the active theme.
+		if ( 'configureight' != $site->theme() ) {
+			return;
+		}
+
+		// User toolbar.
+		if (
+			'enabled'  == $this->getValue( 'user_toolbar' ) ||
+			'frontend' == $this->getValue( 'user_toolbar' )
+		) {
+			include( $this->phpPath() . '/views/user-toolbar.php' );
+		}
 	}
 
 	/**

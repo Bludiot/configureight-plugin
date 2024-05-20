@@ -15,6 +15,24 @@ use function CFE_Plugin\{
 	plugin_sidebars_count
 };
 
+// Edit page link.
+$edit_link = '';
+if ( 'page' == $url->whereAmI() ) {
+
+	// Page slug.
+	$slug = $url->slug();
+	if ( $site->pageNotFound() ) {
+		$site_not_found = $site->pageNotFound();
+
+		// Error page if current URL is 404.
+		if ( $url->notFound() ) {
+			$error = buildPage( $site_not_found );
+			$slug  = $error->slug();
+		}
+	}
+	$edit_link = DOMAIN_ADMIN . 'edit-content/' . $slug;
+}
+
 // View page link.
 $view_slug = '';
 $view_page = '';
@@ -56,14 +74,16 @@ if ( $user->profilePicture() ) {
 }
 
 ?>
-<section id="admin-toolbar" class="admin-toolbar" data-admin-user-toolbar>
-	<nav class="admin-toolbar-nav toolbar-user-action">
-		<ul class="admin-toolbar-nav-list">
+<section id="user-toolbar" class="user-toolbar" data-admin-user-toolbar>
+	<nav class="user-toolbar-nav toolbar-user-action">
+		<ul class="user-toolbar-nav-list">
+			<?php if ( 'admin' == $url->whereAmI() ) : ?>
 			<li class="top-level-item">
 				<a target="_blank" href="<?php echo DOMAIN_BASE; ?>" title="<?php $L->p( 'View Site' ); ?>">
 					<?php svg_icon( 'home' ); ?><span class="top-level-text"><?php $L->p( 'Site' ); ?></span>
 				</a>
 			</li>
+			<?php endif; ?>
 
 			<?php if ( checkRole( [ 'admin' ], false ) ) : ?>
 			<li class="top-level-item has-submenu">
@@ -116,11 +136,17 @@ if ( $user->profilePicture() ) {
 
 			<?php if ( str_contains( $url->slug(), 'edit-content' ) ) : ?>
 			<li class="top-level-item">
-				<a href="<?php echo $view_page; ?>"><span class="top-level-text"><?php echo $view_text; ?></span></a>
+				<a href="<?php echo $view_page; ?>"><?php svg_icon( 'eye' ); ?><span class="top-level-text"><?php echo $view_text; ?></span></a>
 			</li>
 			<?php endif; ?>
 
-			<?php if ( checkRole( [ 'admin' ], false ) ) : ?>
+			<?php if ( 'page' == $url->whereAmI() ) : ?>
+			<li class="top-level-item">
+				<a href="<?php echo $edit_link; ?>"><?php svg_icon( 'pencil' ); ?><span class="top-level-text"><?php echo ( 'page' == $page->isStatic() ? $L->get( 'Edit Page' ) : $L->get( 'Edit Post' ) ); ?></span></a>
+			</li>
+			<?php endif; ?>
+
+			<?php if ( checkRole( [ 'admin' ], false ) && 'admin' == $url->whereAmI() ) : ?>
 			<li class="top-level-item has-submenu">
 				<a href="<?php echo DOMAIN_ADMIN . 'settings'; ?>"><?php svg_icon( 'gear' ); ?><span class="top-level-text"><?php $L->p( 'Manage' ); ?></span><?php svg_icon( 'angle-down' ); ?></a>
 
@@ -160,10 +186,15 @@ if ( $user->profilePicture() ) {
 					<?php endif; ?>
 				</ul>
 			</li>
+			<?php elseif ( checkRole( [ 'admin' ], false ) ) : ?>
+			<li class="top-level-item">
+				<a href="<?php echo plugin()->plugin_url(); ?>"><?php svg_icon( 'gear' ); ?><span class="top-level-text"><?php $L->p( 'Options' ); ?></span></a>
+			</li>
 			<?php endif; ?>
 			<?php
 			if (
 				checkRole( [ 'admin', 'editor' ], false ) &&
+				'admin' == $url->whereAmI() &&
 				plugin_sidebars_count() > 0
 			) : ?>
 			<li class="top-level-item has-submenu">
@@ -204,11 +235,11 @@ if ( $user->profilePicture() ) {
 			<?php endif; ?>
 		</ul>
 	</nav>
-	<nav class="admin-toolbar-nav toolbar-user-info">
-		<ul class="admin-toolbar-nav-list">
+	<nav class="user-toolbar-nav toolbar-user-info">
+		<ul class="user-toolbar-nav-list">
 			<li class="top-level-item has-submenu">
 				<a id="profile-link" href="<?php echo $profile; ?>">
-					<img class="avatar user-avatar user toolbar-avatar admin-toolbar-avatar" src="<?php echo $avatar; ?>" width="24"> <span><?php echo $name; ?></span>
+					<img class="avatar user-avatar user toolbar-avatar user-toolbar-avatar" src="<?php echo $avatar; ?>" width="24"> <span><?php echo $name; ?></span>
 				</a>
 
 				<ul class="user-actions-sublist">

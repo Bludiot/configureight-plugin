@@ -94,7 +94,7 @@ code.select {
 }
 
 // User toolbar.
-.admin-toolbar {
+.user-toolbar {
 	position: fixed;
 	top: 0;
 	z-index: 8888;
@@ -124,7 +124,7 @@ code.select {
 		list-style: none;
 		margin: 0;
 
-		&.admin-toolbar-nav-list {
+		&.user-toolbar-nav-list {
 			display: flex;
 			gap: 0;
 			padding: 0;
@@ -197,7 +197,7 @@ code.select {
 					@media ( prefers-color-scheme: dark ) {}
 				}
 
-				&.admin-toolbar-logo-link {
+				&.user-toolbar-logo-link {
 					height: var( --cfe-toolbar--height );
 					display: inline-flex;
 					align-items: center;
@@ -306,7 +306,7 @@ code.select {
 		}
 	}
 
-	.admin-toolbar-logo {
+	.user-toolbar-logo {
 		max-height: 24px;
 	}
 }

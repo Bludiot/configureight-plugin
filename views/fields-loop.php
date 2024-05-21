@@ -213,5 +213,4 @@
 			<small class="form-text"><?php $L->p( 'Display category and tags icons.' ); ?></small>
 		</div>
 	</div>
-
 </fieldset>

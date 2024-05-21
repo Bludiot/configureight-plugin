@@ -74,6 +74,18 @@ jQuery(document).ready( function($) {
 		$( '#modal_bg_color' ).spectrum( 'set', $( '#modal_bg_default' ).val() );
 	});
 
+	// Loop options.
+	$( '#loop_type' ).on( 'change', function() {
+    	var type = $(this).val();
+		if ( type == 'blog' ) {
+			$( "#loop_word_count" ).val( 'true' );
+			$( "#loop_read_time" ).val( 'true' );
+		} else if ( type == 'news' ) {
+			$( "#loop_word_count" ).val( 'false' );
+			$( "#loop_read_time" ).val( 'false' );
+		}
+    });
+
 	// Cover album.
 	$( '.image-in-album[data-fancybox]' ).fancybox({
 		buttons: [

@@ -1334,11 +1334,13 @@ class configureight extends Plugin {
 		}
 
 		// User toolbar.
-		if (
-			'enabled'  == $this->getValue( 'user_toolbar' ) ||
-			'frontend' == $this->getValue( 'user_toolbar' )
-		) {
-			include( $this->phpPath() . '/views/user-toolbar.php' );
+		if ( $login->isLogged() ) {
+			if (
+				'enabled'  == $this->getValue( 'user_toolbar' ) ||
+				'frontend' == $this->getValue( 'user_toolbar' )
+			) {
+				include( $this->phpPath() . '/views/user-toolbar.php' );
+			}
 		}
 	}
 

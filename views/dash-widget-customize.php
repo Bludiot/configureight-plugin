@@ -35,6 +35,9 @@ $pages_settings = DOMAIN_ADMIN . 'configure-plugin/Pages_Lists';
 // Search settings page URL.
 $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 
+// Profiles settings page URL.
+$profiles_settings = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
+
 ?>
 <style>
 .customize-links-list {
@@ -60,6 +63,9 @@ $search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
 		<li><a href="<?php echo $fonts_page; ?>"><?php $L->p( 'Fonts Reference' ); ?></a></li>
 		<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
 		<li><a href="<?php echo $search_settings; ?>"><?php $L->p( 'Search Options' ); ?></a></li>
+		<?php endif; ?>
+		<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
+		<li><a href="<?php echo $profiles_settings; ?>"><?php $L->p( 'User Profiles' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'Categories_Lists' ) ) : ?>
 		<li><a href="<?php echo $categories_settings; ?>"><?php $L->p( 'Categories Options' ); ?></a></li>

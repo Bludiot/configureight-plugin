@@ -964,6 +964,8 @@ function suite_plugins() {
 		'Posts_Lists'      => $L->g( 'Posts Lists Plugin' ),
 		'Categories_Lists' => $L->g( 'Categories Lists Plugin' ),
 		'Tags_Lists'       => $L->g( 'Tags Lists Plugin' ),
+		'Breadcrumbs'      => $L->g( 'Breadcrumbs Plugin' ),
+		'Post_Comments'    => $L->g( 'Post Comments Plugin' ),
 		'User_Profiles'    => $L->g( 'User Profiles Plugin' )
 	];
 	return $suite;

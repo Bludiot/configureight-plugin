@@ -4327,6 +4327,8 @@ p + .multi-check-wrap {
   margin: 0 !important;
 }
 .plugin-form input[type=text],
+.plugin-form input[type=email],
+.plugin-form input[type=url],
 .plugin-form textarea,
 .plugin-form select {
   display: block;
@@ -4341,6 +4343,8 @@ p + .multi-check-wrap {
 }
 @media (prefers-color-scheme: dark) {
   .plugin-form input[type=text],
+  .plugin-form input[type=email],
+  .plugin-form input[type=url],
   .plugin-form textarea,
   .plugin-form select {
     background-color: var(--cfe-body--bg-color--dark);
@@ -4367,6 +4371,8 @@ p + .multi-check-wrap {
 }
 
 .dark-mode .plugin-form input[type=text],
+.dark-mode .plugin-form input[type=email],
+.dark-mode .plugin-form input[type=url],
 .dark-mode .plugin-form textarea,
 .dark-mode .plugin-form select {
   background-color: var(--cfe-body--bg-color--dark);

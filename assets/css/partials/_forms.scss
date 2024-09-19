@@ -1349,6 +1349,8 @@ p + .multi-check-wrap {
 	}
 
 	input[type="text"],
+	input[type="email"],
+	input[type="url"],
 	textarea,
 	select {
 		display: block;
@@ -1392,6 +1394,8 @@ p + .multi-check-wrap {
 
 .dark-mode .plugin-form {
 	input[type="text"],
+	input[type="email"],
+	input[type="url"],
 	textarea,
 	select {
 		background-color: var( --cfe-body--bg-color--dark );

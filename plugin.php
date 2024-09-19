@@ -184,6 +184,7 @@ class configureight extends Plugin {
 		// Access global variables.
 		global $L;
 
+		// Plugin options for database.
 		$this->dbFields = [
 			'keep_options'           => true,
 			'site_favicon'           => [],
@@ -191,7 +192,6 @@ class configureight extends Plugin {
 			'toolbar_mobile'         => false,
 			'to_top_button'          => true,
 			'show_customize'         => true,
-			'show_options'           => false,
 			'page_loader'            => false,
 			'loader_bg_color'        => $this->loader_bg_default(),
 			'loader_bg_color_dark'   => $this->loader_bg_default_dark(),
@@ -1369,11 +1369,6 @@ class configureight extends Plugin {
 	// @return boolean
 	public function show_customize() {
 		return $this->getValue( 'show_customize' );
-	}
-
-	// @return boolean
-	public function show_options() {
-		return $this->getValue( 'show_options' );
 	}
 
 	// @return boolean

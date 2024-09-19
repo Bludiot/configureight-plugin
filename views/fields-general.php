@@ -127,18 +127,6 @@ $custom_from = $this->custom_scheme_from();
 			<small class="form-text"><?php $L->p( 'Links to help guides abd options on the dashboard.' ); ?></small>
 		</div>
 	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="show_options"><?php $L->p( 'Dashboard Options' ); ?></label>
-		<div class="col-sm-10">
-			<select class="form-select" id="show_options" name="show_options">
-				<option value="true" <?php echo ( $this->getValue( 'show_options' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'show_options' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-			</select>
-			<small class="form-text"><?php $L->p( 'Display a list of theme options and their values on the dashboard.' ); ?></small>
-		</div>
-	</div>
-
 </fieldset>
 
 <h3 class="form-heading"><?php $L->p( 'Loading Screen' ); ?></h3>

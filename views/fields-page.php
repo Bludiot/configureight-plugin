@@ -311,7 +311,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 <h3 class="form-heading"><?php $L->p( 'Custom Fields' ); ?></h3>
 
-<p><?php $L->p( 'Select the custom fields to add to page/post edit screens. See the theme guide page, content tab, for the code the add fields manually.' ); ?></p>
+<p><?php $L->p( 'Select the custom fields to add to page/post edit screens. See the options guide page, content tab, for the code the add fields manually.' ); ?></p>
 
 <fieldset>
 	<legend class="screen-reader-text"><?php $L->p( 'Custom Fields Options' ); ?></legend>

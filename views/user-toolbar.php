@@ -219,7 +219,7 @@ if ( $user->profilePicture() ) {
 
 				<ul>
 					<li>
-						<a href="<?php echo DOMAIN_ADMIN . 'plugin/' . plugin()->className(); ?>"><?php $L->p( 'Theme Guide' ); ?></a>
+						<a href="<?php echo DOMAIN_ADMIN . 'plugin/' . plugin()->className(); ?>"><?php $L->p( 'Options Guide' ); ?></a>
 					</li>
 					<li>
 						<a href="<?php echo DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=colors'; ?>"><?php $L->p( 'Colors Reference' ); ?></a>

@@ -30,7 +30,7 @@ $s_guide    = DOMAIN_ADMIN . 'plugin/Search_Forms';
 
 <h2 class="form-heading"><?php $L->p( 'Reference Pages' ); ?></h2>
 
-<p><?php $L->p( 'This theme guide includes several separate reference pages:' ); ?></p>
+<p><?php $L->p( 'This options guide includes several separate reference pages:' ); ?></p>
 <ul style="list-style: none; padding:0;">
 	<li><a href="<?php echo $colors_page; ?>"><strong><?php $L->p( 'Color Schemes' ); ?></strong></a></li>
 	<li><a href="<?php echo $fonts_page; ?>"><strong><?php $L->p( 'Font Schemes' ); ?></strong></a></li>

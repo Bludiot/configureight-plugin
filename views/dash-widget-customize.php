@@ -42,8 +42,8 @@ $profiles = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
 	<h2><?php $L->p( 'Customize This Website' ); ?></h2>
 
 	<ul class="customize-links-list">
-		<li><a href="<?php echo $settings; ?>"><?php $L->p( 'Theme Options' ); ?></a></li>
-		<li><a href="<?php echo $guide; ?>"><?php $L->p( 'Theme Guide' ); ?></a></li>
+		<li><a href="<?php echo $settings; ?>"><?php $L->p( 'Website Configuration' ); ?></a></li>
+		<li><a href="<?php echo $guide; ?>"><?php $L->p( 'Options Guide' ); ?></a></li>
 		<li><a href="<?php echo $colors; ?>"><?php $L->p( 'Colors Reference' ); ?></a></li>
 		<li><a href="<?php echo $fonts; ?>"><?php $L->p( 'Fonts Reference' ); ?></a></li>
 		<?php if ( getPlugin( 'Search_Forms' ) ) : ?>

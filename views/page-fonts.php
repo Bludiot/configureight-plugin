@@ -62,7 +62,7 @@ code.select {
 <h1 class="page-title"><span class="page-title-icon fa fa-bold"></span><span class="page-title-text"><?php $L->p( 'Font Schemes Reference' ); ?></span></h1>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>theme guide</a> page. Go to the <a href='{$settings_page}#style'>theme options</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>options guide</a> page. Go to the <a href='{$settings_page}#style'>website options</a> page." ); ?></p>
 </div>
 
 <?php

@@ -36,8 +36,8 @@ function plugin() {
  * This counts plugins with the `adminSidebar()`
  * method implemented. Theme options plugin is
  * excluded from the count because this theme
- * adds a link for theme options if a theme plugin
- * is available. So if the theme options plugin
+ * adds a link for configuration options if a theme plugin
+ * is available. So if the options configuration plugin
  * is the only plugin activated with a sidebar link
  * then the plugin links section is not printed.
  *

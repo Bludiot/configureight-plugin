@@ -1,6 +1,6 @@
 <?php
 /**
- * Configure 8 theme options plugin
+ * Configure 8 options configuration plugin
  *
  * @package    Configure 8 Options
  * @subpackage Theme Plugins
@@ -641,13 +641,13 @@ class configureight extends Plugin {
 		$sep = $this->title_sep();
 
 		if ( isset( $_GET['page'] ) && 'database' == $_GET['page'] ) {
-			$layout['title'] = $L->get( 'Theme Options Database' ) . " {$sep} " . $site->title();
+			$layout['title'] = $L->get( 'Website Options Database' ) . " {$sep} " . $site->title();
 		} elseif ( isset( $_GET['page'] ) && 'colors' == $_GET['page'] ) {
 			$layout['title'] = $L->get( 'Color Schemes Reference' ) . " {$sep} " . $site->title();
 		} elseif ( isset( $_GET['page'] ) && 'fonts' == $_GET['page'] ) {
 			$layout['title'] = $L->get( 'Font Schemes Reference' ) . " {$sep} " . $site->title();
 		} else {
-			$layout['title'] = $L->get( 'Theme Guide' ) . " {$sep} " . $site->title();
+			$layout['title'] = $L->get( 'Options Guide' ) . " {$sep} " . $site->title();
 		}
 	}
 
@@ -861,7 +861,7 @@ class configureight extends Plugin {
 		$html = sprintf(
 			'<a class="nav-link" href="%s"><span class="fa fa-gear theme-options-icon"></span>%s</a>',
 			$this->plugin_url(),
-			$L->get( 'Theme Options' )
+			$L->get( 'Options' )
 		);
 		return $html;
 	}

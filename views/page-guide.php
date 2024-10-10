@@ -22,10 +22,10 @@ pre {
 }
 </style>
 
-<h1 class="page-title"><span class="page-title-icon fa fa-book"></span><span class="page-title-text"><?php $L->p( 'Theme Guide' ); ?></span></h1>
+<h1 class="page-title"><span class="page-title-icon fa fa-book"></span><span class="page-title-text"><?php $L->p( 'Options Guide' ); ?></span></h1>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>theme options</a> page." ); ?></p>
+	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>website options</a> page." ); ?></p>
 </div>
 
 <div class="tab-content" data-toggle="tabslet" data-deeplinking="true" data-animation="true">

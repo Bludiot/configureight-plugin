@@ -28,7 +28,7 @@ $custom_from = $this->custom_scheme_from();
 $fonts = font_schemes();
 $current_fonts = current_font_scheme();
 
-// Labels for admin theme options.
+// Labels for admin configuration options.
 $css_label = $L->get( 'Theme Styles' );
 if ( admin_theme() ) {
 	$css_label = $L->get( 'Styles Only' );

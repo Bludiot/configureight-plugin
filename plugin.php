@@ -647,7 +647,7 @@ class configureight extends Plugin {
 		} elseif ( isset( $_GET['page'] ) && 'fonts' == $_GET['page'] ) {
 			$layout['title'] = $L->get( 'Font Schemes Reference' ) . " {$sep} " . $site->title();
 		} else {
-			$layout['title'] = $L->get( 'Options Guide' ) . " {$sep} " . $site->title();
+			$layout['title'] = $L->get( 'Website Options Guide' ) . " {$sep} " . $site->title();
 		}
 	}
 

@@ -19,7 +19,7 @@ $static = buildStaticPages();
 	<legend class="screen-reader-text"><?php $L->p( 'Navigation' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="main_nav_pages"><?php $L->p( 'Pages in Menu' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="main_nav_pages"><?php $L->p( 'Main Menu Links' ); ?></label>
 
 		<?php if ( isset( $static[0] ) ) : ?>
 		<div class="col-sm-10">

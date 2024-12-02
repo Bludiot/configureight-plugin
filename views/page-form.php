@@ -41,10 +41,10 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 			<a class="nav-link" role="tab" aria-controls="media" aria-selected="false" href="#media"><?php $L->p( 'Media' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loop' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loops' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="page" aria-selected="false" href="#page"><?php $L->p( 'Page' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="page" aria-selected="false" href="#page"><?php $L->p( 'Pages' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="sidebar" aria-selected="false" href="#sidebar"><?php $L->p( 'Sidebar' ); ?></a>

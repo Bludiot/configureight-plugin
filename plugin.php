@@ -309,7 +309,6 @@ class configureight extends Plugin {
 			'sidebar_in_page'        => 'side',
 			'sidebar_in_loop'        => 'side',
 			'sidebar_position'       => 'right',
-			'sidebar_sticky'         => false,
 			'sidebar_social'         => false,
 			'sb_social_heading'      => '',
 			'admin_menu'             => true,
@@ -2048,11 +2047,6 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
-
-	// @return boolean
-	public function sidebar_sticky() {
-		return $this->getValue( 'sidebar_sticky' );
-	}
 
 	// @return string
 	public function sidebar_in_page() {

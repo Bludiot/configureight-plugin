@@ -53,7 +53,7 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 			<a class="nav-link" role="tab" aria-controls="footer" aria-selected="false" href="#footer"><?php $L->p( 'Footer' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Style' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Styles' ); ?></a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="meta" aria-selected="false" href="#meta"><?php $L->p( 'Meta' ); ?></a>

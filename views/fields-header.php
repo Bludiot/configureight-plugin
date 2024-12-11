@@ -194,6 +194,8 @@ if ( $site->logo() ) {
 				<select class="form-select" id="logo_location" name="logo_location">
 					<option value="before" <?php echo ( $this->getValue( 'logo_location' ) === 'before' ? 'selected' : '' ); ?>><?php $L->p( 'Before Text' ); ?></option>
 
+					<option value="after" <?php echo ( $this->getValue( 'logo_location' ) === 'after' ? 'selected' : '' ); ?>><?php $L->p( 'After Text' ); ?></option>
+
 					<option value="above" <?php echo ( $this->getValue( 'logo_location' ) === 'above' ? 'selected' : '' ); ?>><?php $L->p( 'Above Text' ); ?></option>
 
 					<option value="below" <?php echo ( $this->getValue( 'logo_location' ) === 'below' ? 'selected' : '' ); ?>><?php $L->p( 'Below Text' ); ?></option>

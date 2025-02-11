@@ -220,7 +220,7 @@ class configureight extends Plugin {
 			'main_nav_pos'           => 'right',
 			'main_nav_icon'          => 'bars',
 			'main_nav_loop'          => 'none',
-			'main_nav_loop_label'    => '',
+			'main_nav_loop_label'    => $L->get( 'Blog' ),
 			'main_nav_home'          => false,
 			'header_search'          => false,
 			'header_social'          => false,

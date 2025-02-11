@@ -47,7 +47,7 @@ $profiles = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
 		<li><a href="<?php echo $colors; ?>"><?php $L->p( 'Colors Reference' ); ?></a></li>
 		<li><a href="<?php echo $fonts; ?>"><?php $L->p( 'Fonts Reference' ); ?></a></li>
 		<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
-		<li><a href="<?php echo $search; ?>"><?php $L->p( 'Search Options' ); ?></a></li>
+		<li><a href="<?php echo $search; ?>"><?php $L->p( 'Search Forms' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
 		<li><a href="<?php echo $profiles; ?>"><?php $L->p( 'User Profiles' ); ?></a></li>
@@ -59,16 +59,16 @@ $profiles = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
 		<li><a href="<?php echo $crumbs; ?>"><?php $L->p( 'Breadcrumbs' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'Categories_Lists' ) ) : ?>
-		<li><a href="<?php echo $cats; ?>"><?php $L->p( 'Categories Lists Options' ); ?></a></li>
+		<li><a href="<?php echo $cats; ?>"><?php $L->p( 'Categories Lists' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'Tags_Lists' ) ) : ?>
-		<li><a href="<?php echo $tags; ?>"><?php $L->p( 'Tags Lists Options' ); ?></a></li>
+		<li><a href="<?php echo $tags; ?>"><?php $L->p( 'Tags Lists' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'Posts_Lists' ) ) : ?>
-		<li><a href="<?php echo $posts; ?>"><?php $L->p( 'Posts Lists Options' ); ?></a></li>
+		<li><a href="<?php echo $posts; ?>"><?php $L->p( 'Posts Lists' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( getPlugin( 'Pages_Lists' ) ) : ?>
-		<li><a href="<?php echo $pages; ?>"><?php $L->p( 'Pages Lists Options' ); ?></a></li>
+		<li><a href="<?php echo $pages; ?>"><?php $L->p( 'Pages Lists' ); ?></a></li>
 		<?php endif; ?>
 		<li><a href="<?php echo $database; ?>"><?php $L->p( 'Options Databases' ); ?></a></li>
 	</ul>

@@ -140,7 +140,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 
 				<option value="none" <?php echo ( $this->getValue( 'cover_in_post' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Cover' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'The default cover image template for pages. Cover templates can override this setting on a per-post basis.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'The default cover image template for posts. Cover templates can override this setting on a per-post basis.' ); ?></small>
 		</div>
 	</div>
 

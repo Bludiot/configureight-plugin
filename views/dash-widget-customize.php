@@ -8,20 +8,18 @@
  * @since      1.0.0
  */
 
+// Access namespaced functions.
+use function CFE_Plugin\{
+	suite_plugins_active,
+	plugin_options_url
+};
+
 // Admin page links.
-$settings = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
+$settings = plugin_options_url( $this->className() );
 $guide    = DOMAIN_ADMIN . 'plugin/' . $this->className();
 $colors   = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=colors';
 $fonts    = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 $database = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
-$cats     = DOMAIN_ADMIN . 'configure-plugin/Categories_Lists';
-$tags     = DOMAIN_ADMIN . 'configure-plugin/Tags_Lists';
-$pages    = DOMAIN_ADMIN . 'configure-plugin/Pages_Lists';
-$posts    = DOMAIN_ADMIN . 'configure-plugin/Posts_Lists';
-$search   = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
-$comments = DOMAIN_ADMIN . 'configure-plugin/Post_Comments';
-$crumbs   = DOMAIN_ADMIN . 'configure-plugin/Breadcrumbs';
-$profiles = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
 
 ?>
 <style>
@@ -46,30 +44,17 @@ $profiles = DOMAIN_ADMIN . 'configure-plugin/User_Profiles';
 		<li><a href="<?php echo $guide; ?>"><?php $L->p( 'Options Guide' ); ?></a></li>
 		<li><a href="<?php echo $colors; ?>"><?php $L->p( 'Colors Reference' ); ?></a></li>
 		<li><a href="<?php echo $fonts; ?>"><?php $L->p( 'Fonts Reference' ); ?></a></li>
-		<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
-		<li><a href="<?php echo $search; ?>"><?php $L->p( 'Search Forms' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
-		<li><a href="<?php echo $profiles; ?>"><?php $L->p( 'User Profiles' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Post_Comments' ) ) : ?>
-		<li><a href="<?php echo $comments; ?>"><?php $L->p( 'Post Comments' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Breadcrumbs' ) ) : ?>
-		<li><a href="<?php echo $crumbs; ?>"><?php $L->p( 'Breadcrumbs' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Categories_Lists' ) ) : ?>
-		<li><a href="<?php echo $cats; ?>"><?php $L->p( 'Categories Lists' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Tags_Lists' ) ) : ?>
-		<li><a href="<?php echo $tags; ?>"><?php $L->p( 'Tags Lists' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Posts_Lists' ) ) : ?>
-		<li><a href="<?php echo $posts; ?>"><?php $L->p( 'Posts Lists' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( getPlugin( 'Pages_Lists' ) ) : ?>
-		<li><a href="<?php echo $pages; ?>"><?php $L->p( 'Pages Lists' ); ?></a></li>
-		<?php endif; ?>
+
+		<?php
+		foreach ( suite_plugins_active() as $plugin ) {
+			$plugin = getPlugin( $plugin );
+			printf(
+				'<li><a href="%s">%s</a></li>',
+				plugin_options_url( $plugin->className() ),
+				$plugin->name()
+			);
+		}
+		?>
 		<li><a href="<?php echo $database; ?>"><?php $L->p( 'Options Databases' ); ?></a></li>
 	</ul>
 </div>

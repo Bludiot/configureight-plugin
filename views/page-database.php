@@ -10,7 +10,8 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	suite_plugins,
+	plugin,
+	suite_plugins_active,
 	options_list
 };
 
@@ -28,12 +29,15 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 <?php $L->p( 'List of current Configure 8 Suite options and their values. Includes plugins that are bundled in the full suite, if installed and activated.' ); ?></p>
 
 <?php
-foreach ( suite_plugins() as $list => $heading ) :
-	if ( options_list( $list ) ) {
-		printf(
-			'<div class="database-list"><h2>%s</h2>%s</div>',
-			$heading,
-			options_list( $list )
-		);
+/**
+ * List options for Configure 8 suite plugins.
+ * The theme plugin options are printed outside
+ * of the foreach loop because it is excluded
+ * by the `suite_plugins_active()` function.
+ */
+echo options_list( plugin()->className() );
+foreach ( suite_plugins_active() as $plugin ) :
+	if ( options_list( $plugin ) ) {
+		echo options_list( $plugin );
 	}
 endforeach;

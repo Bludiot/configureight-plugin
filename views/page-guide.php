@@ -75,12 +75,10 @@ pre {
 	</div>
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">
-
-		<h2 class="form-heading"><?php $L->p( 'Admin Themes' ); ?></h2>
+		<?php include( $this->phpPath() . '/views/info-admin.php' ); ?>
 	</div>
 
 	<div id="plugins" class="tab-pane" role="tabpanel" aria-labelledby="plugins">
-
-		<h2 class="form-heading"><?php $L->p( 'Companion Plugins' ); ?></h2>
+		<?php include( $this->phpPath() . '/views/info-plugins.php' ); ?>
 	</div>
 </div>

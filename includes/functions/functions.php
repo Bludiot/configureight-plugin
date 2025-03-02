@@ -770,6 +770,9 @@ function options_list( $plugin = false ) {
 		}
 	}
 
+	// Get plugin object.
+	$get_plugin = getPlugin( $plugin );
+
 	$get = '';
 	if ( ! $db ) {
 		return false;
@@ -777,7 +780,11 @@ function options_list( $plugin = false ) {
 	$get = $db->getDB();
 
 	// Options list markup.
-	$list = '<ul class="dashboard-options-list">';
+	$list  = sprintf(
+		'<div class="database-list"><h2>%s</h2>',
+		$get_plugin->name()
+	);
+	$list .= '<ul class="dashboard-options-list">';
 	foreach ( $get as $key => $value ) {
 
 		// Convert boolean values to "true" or "false" text.
@@ -818,7 +825,7 @@ function options_list( $plugin = false ) {
 			$value
 		);
 	}
-	$list .= '</ul>';
+	$list .= '</ul></div>';
 
 	return $list;
 }
@@ -958,16 +965,18 @@ function suite_plugins() {
 	global $L;
 
 	$suite = [
-		plugin()->className() => $L->g( 'Configure 8 Options Plugin' ),
-		'Search_Forms'        => $L->g( 'Search Forms Plugin' ),
-		'Pages_Lists'         => $L->g( 'Pages Lists Plugin' ),
-		'Posts_Lists'         => $L->g( 'Posts Lists Plugin' ),
-		'Categories_Lists'    => $L->g( 'Categories Lists Plugin' ),
-		'Tags_Lists'          => $L->g( 'Tags Lists Plugin' ),
+		plugin()->className() => plugin()->name(),
 		'Breadcrumbs'         => $L->g( 'Breadcrumbs Plugin' ),
+		'Categories_Lists'    => $L->g( 'Categories Lists Plugin' ),
+		'Pages_Lists'         => $L->g( 'Pages Lists Plugin' ),
 		'Post_Comments'       => $L->g( 'Post Comments Plugin' ),
+		'Posts_Lists'         => $L->g( 'Posts Lists Plugin' ),
+		'Search_Forms'        => $L->g( 'Search Forms Plugin' ),
+		'Tags_Lists'          => $L->g( 'Tags Lists Plugin' ),
 		'User_Profiles'       => $L->g( 'User Profiles Plugin' )
+
 	];
+	asort( $suite );
 	return $suite;
 }
 
@@ -981,12 +990,87 @@ function suite_plugins() {
  */
 function suite_plugins_active() {
 
-	foreach ( suite_plugins() as $suite ) {
-		if ( getPlugin( $suite ) ) {
-			return true;
+	// Access global variables.
+	global $L, $pluginsInstalled;
+
+	$suite = [];
+	foreach ( $pluginsInstalled as $plugin ) {
+
+		if ( 'configureight' === $plugin->className() ) {
+			continue;
+		}
+
+		if ( isset( $plugin->metadata['theme_compat'] ) ) {
+			$suite[] = $plugin->className();
 		}
 	}
+	return $suite;
+}
+
+/**
+ * Suite plugins installed, not active
+ *
+ * If any of the theme suite plugins are activated.
+ *
+ * @since  1.0.0
+ * @return boolean
+ */
+function suite_plugins_inactive() {
+
+	// Access global variables.
+	global $plugins, $pluginsInstalled;
+
+	$inactive = array_diff_key( $plugins['all'], $pluginsInstalled );
+	$suite    = [];
+
+	foreach ( $inactive as $plugin ) {
+
+		if ( 'configureight' === $plugin->className() ) {
+			continue;
+		}
+
+		if ( isset( $plugin->metadata['theme_compat'] ) ) {
+			$suite[] = $plugin->className();
+		}
+	}
+	return $suite;
+}
+
+/**
+ * Suite plugin is active
+ *
+ * If a specific theme suite plugins is activated.
+ *
+ * @since  1.0.0
+ * @param  string $class Primary plugin class name.
+ * @return boolean
+ */
+function suite_plugin_active( $class = '' ) {
+
+	if ( getPlugin( $class ) ) {
+		return true;
+	}
 	return false;
+}
+
+/**
+ * Plugin options URL
+ *
+ * @since  1.0.0
+ * @param  string $class Primary plugin class name.
+ * @return mixed Returns the page URL or false.
+ */
+function plugin_options_url( $class = '' ) {
+
+	if ( empty( $class ) ) {
+		return false;
+	}
+
+	$url = HTML_PATH_ADMIN_ROOT . 'configure-plugin/' . $class;
+	if ( BLUDIT_VERSION >= 4 ) {
+		$url = HTML_PATH_ADMIN_ROOT . 'plugin-settings/' . $class;
+	}
+	return $url;
 }
 
 /**

@@ -35,4 +35,4 @@ $options_url = plugin_options_url( plugin()->className() );
 
 <p><?php $L->p( 'The Bludit site settings file needs to be modified to change from the active admin theme name to <code>configureight</code>. Configure 8 allows you to do this easily in the options style tab. However, you can do this manually by editing the PHP file at <code>bl-content/databases/site.php</code> where <code>"adminTheme"</code> is <code>"configureight"</code>' ); ?></p>
 
-<p><?php $L->p( 'Go to' ); ?> <a href="<?php echo $options_url ?>#style"><?php $L->p( 'style options' ); ?></a></p>
+<p><?php $L->p( 'Go to' ); ?> <strong><a href="<?php echo $options_url ?>#style"><?php $L->p( 'style options' ); ?></a></strong></p>

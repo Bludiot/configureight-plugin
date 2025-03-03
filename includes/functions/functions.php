@@ -965,15 +965,42 @@ function suite_plugins() {
 	global $L;
 
 	$suite = [
-		plugin()->className() => plugin()->name(),
-		'Breadcrumbs'         => $L->g( 'Breadcrumbs Plugin' ),
-		'Categories_Lists'    => $L->g( 'Categories Lists Plugin' ),
-		'Pages_Lists'         => $L->g( 'Pages Lists Plugin' ),
-		'Post_Comments'       => $L->g( 'Post Comments Plugin' ),
-		'Posts_Lists'         => $L->g( 'Posts Lists Plugin' ),
-		'Search_Forms'        => $L->g( 'Search Forms Plugin' ),
-		'Tags_Lists'          => $L->g( 'Tags Lists Plugin' ),
-		'User_Profiles'       => $L->g( 'User Profiles Plugin' )
+		plugin()->className() => [
+			'name' => plugin()->name(),
+			'url'  => plugin()->website()
+		],
+		'Breadcrumbs' => [
+			'name' => $L->g( 'Breadcrumbs' ),
+			'url'  => 'https://github.com/Bludiot/breadcrumbs'
+		],
+		'Categories_Lists' => [
+			'name' => $L->g( 'Categories Lists' ),
+			'url'  => 'https://github.com/Bludiot/categories-lists'
+		],
+		'Pages_Lists' => [
+			'name' => $L->g( 'Pages Lists' ),
+			'url'  => 'https://github.com/Bludiot/pages-lists'
+		],
+		'Post_Comments' => [
+			'name' => $L->g( 'Post Comments' ),
+			'url'  => 'https://github.com/Bludiot/post-comments'
+		],
+		'Posts_Lists' => [
+			'name' => $L->g( 'Posts Lists' ),
+			'url'  => 'https://github.com/Bludiot/posts-lists'
+		],
+		'Search_Forms' => [
+			'name' => $L->g( 'Search Forms' ),
+			'url'  => 'https://github.com/Bludiot/search-forms'
+		],
+		'Tags_Lists' => [
+			'name' => $L->g( 'Tags Lists' ),
+			'url'  => 'https://github.com/Bludiot/tags-lists'
+		],
+		'User_Profiles' => [
+			'name' => $L->g( 'User Profiles' ),
+			'url'  => 'https://github.com/Bludiot/user-profiles'
+		]
 
 	];
 	asort( $suite );
@@ -986,6 +1013,8 @@ function suite_plugins() {
  * If any of the theme suite plugins are activated.
  *
  * @since  1.0.0
+ * @global object $L The Language class.
+ * @global array $pluginsInstalled.
  * @return boolean
  */
 function suite_plugins_active() {
@@ -1013,6 +1042,8 @@ function suite_plugins_active() {
  * If any of the theme suite plugins are activated.
  *
  * @since  1.0.0
+ * @global array $plugins.
+ * @global array $pluginsInstalled.
  * @return boolean
  */
 function suite_plugins_inactive() {

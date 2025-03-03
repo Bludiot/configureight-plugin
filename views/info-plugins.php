@@ -10,6 +10,8 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	plugin,
+	suite_plugins,
 	suite_plugins_active,
 	suite_plugins_inactive,
 	plugin_options_url
@@ -28,6 +30,9 @@ use function CFE_Plugin\{
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="inactive" aria-selected="false" href="#inactive"><?php $L->p( 'Inactive' ); ?></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="downloads" aria-selected="false" href="#downloads"><?php $L->p( 'Downloads' ); ?></a>
 		</li>
 	</ul>
 	<div id="active" class="tab-pane" role="tabpanel" aria-labelledby="active">
@@ -61,7 +66,7 @@ use function CFE_Plugin\{
 			}
 
 			printf(
-				'<p><a href="%s" class="button btn btn-primary">%s</a></p>',
+				'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a></p>',
 				plugin_options_url( $plugin->className() ),
 				$L->get( 'Options' )
 			);
@@ -128,7 +133,7 @@ use function CFE_Plugin\{
 			}
 
 			printf(
-				'<p><a href="%sinstall-plugin/%s" class="button btn btn-primary">%s</a></p>',
+				'<p><a href="%sinstall-plugin/%s" class="button btn btn-primary btn-sm">%s</a></p>',
 				HTML_PATH_ADMIN_ROOT,
 				$plugin->className(),
 				$L->get( 'Activate' )
@@ -139,5 +144,49 @@ use function CFE_Plugin\{
 			}
 		}
 		?>
+	</div>
+	<div id="downloads" class="tab-pane" role="tabpanel" aria-labelledby="downloads">
+
+		<style>
+		.suite-links-entry h3 {
+			margin-bottom: 0;
+		}
+		.suite-links-entry p {
+			margin-top: 0;
+		}
+		</style>
+
+		<h2 class="form-heading"><?php $L->p( 'Companion Plugin Downloads' ); ?></h2>
+
+		<p><?php $L->p( 'Following are pages for all Configure 8 companion plugins, installed or not. Follow the links to read more and download.' ); ?></p>
+
+		<?php
+		/**
+		 * List all available suite plugins.
+		 */
+		$count = 1;
+		foreach ( suite_plugins() as $plugin => $data ) {
+
+			// Skip this plugin.
+			if ( $plugin == plugin()->className() ) {
+				continue;
+			}
+			$count++;
+
+			echo '<div class="suite-links-entry">';
+			printf(
+				'<h3 class="form-heading">%s</h3>',
+				$data['name']
+			);
+			printf(
+				'<p><a href="%s" target="_blank" rel="noopener nofollow">%s</a></p>',
+				$data['url'],
+				$data['url']
+			);
+			if ( $count < count( suite_plugins() ) ) {
+				echo '<hr />';
+			}
+			echo '</div>';
+		} ?>
 	</div>
 </div>

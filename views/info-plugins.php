@@ -179,7 +179,7 @@ use function CFE_Plugin\{
 				$data['name']
 			);
 			printf(
-				'<p><a href="%s" target="_blank" rel="noopener nofollow">%s</a></p>',
+				'<p><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></p>',
 				$data['url'],
 				$data['url']
 			);

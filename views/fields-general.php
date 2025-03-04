@@ -110,8 +110,13 @@ $custom_from = $this->custom_scheme_from();
 		<label class="form-label col-sm-2 col-form-label" for="to_top_button"><?php $L->p( 'To Top Button' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="to_top_button" name="to_top_button">
-				<option value="true" <?php echo ( $this->getValue( 'to_top_button' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'to_top_button' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="enabled" <?php echo ( $this->getValue( 'to_top_button' ) === 'enabled' ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+
+				<option value="backend" <?php echo ( $this->getValue( 'to_top_button' ) === 'backend' ? 'selected' : '' ); ?>><?php $L->p( 'Backend Only' ); ?></option>
+
+				<option value="frontend" <?php echo ( $this->getValue( 'to_top_button' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
+
+				<option value="disabled" <?php echo ( $this->getValue( 'to_top_button' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
 			</select>
 			<small class="form-text"><?php $L->p( 'Display a button to scroll to the top of the page.' ); ?></small>
 		</div>

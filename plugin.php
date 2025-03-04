@@ -43,7 +43,8 @@ use function CFE_Plugin\{
 	error_tags_display,
 	change_theme,
 	default_theme,
-	admin_theme
+	admin_theme,
+	svg_icon
 };
 use function CFE_Colors\{
 	define_color_scheme,
@@ -190,7 +191,7 @@ class configureight extends Plugin {
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
 			'toolbar_mobile'         => false,
-			'to_top_button'          => true,
+			'to_top_button'          => 'enabled',
 			'show_customize'         => true,
 			'page_loader'            => false,
 			'loader_bg_color'        => $this->loader_bg_default(),
@@ -887,6 +888,36 @@ class configureight extends Plugin {
 			return;
 		}
 
+		// Backend "to top" button.
+		if (
+			'enabled' == $this->to_top_button() ||
+			'backend' == $this->to_top_button() ) :
+		?>
+		<script>
+		( function ($) {
+			$(document).ready( function() {
+				$( '#to-top' ).click( function(e) {
+					e.preventDefault();
+					$( 'html, body' ).animate( { scrollTop : 0 }, 450 );
+				});
+
+				$(window).scroll( function() {
+					var scroll = $(window).scrollTop();
+
+					if ( scroll >= 450 ) {
+						$( '#to-top' ).addClass( 'scrolled' );
+					} else {
+						$( '#to-top' ).removeClass( 'scrolled' );
+					}
+				});
+			});
+		})(jQuery);
+		</script>
+		<a href="#" id="to-top" class="hide-if-no-js" title="<?php $L->p( 'Back to Top' ); ?>" data-tooltip>
+			<span class="screen-reader-text"><?php $L->p( 'Back to Top' ); ?></span><?php svg_icon( 'angle-up', false ); ?>
+		</a>
+		<?php endif;
+
 		// Content ID on page edit screen.
 		if ( str_contains( $url->slug(), 'edit-content' ) ) {
 			return sprintf(
@@ -1355,7 +1386,7 @@ class configureight extends Plugin {
 		return $this->getValue( 'keep_options' );
 	}
 
-	// @return boolean
+	// @return string
 	public function user_toolbar() {
 		return $this->getValue( 'user_toolbar' );
 	}
@@ -1370,9 +1401,9 @@ class configureight extends Plugin {
 		return $this->getValue( 'show_customize' );
 	}
 
-	// @return boolean
+	// @return string
 	public function to_top_button() {
-		return (bool) $this->getValue( 'to_top_button' );
+		return $this->getValue( 'to_top_button' );
 	}
 
 	// @return boolean

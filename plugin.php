@@ -257,6 +257,9 @@ class configureight extends Plugin {
 			'loop_cover'             => 'full_first',
 			'loop_type'              => 'blog',
 			'loop_style'             => 'list',
+			'loop_break'             => true,
+			'loop_break_text'        => $L->get( 'Read Full Article' ),
+			'loop_break_icon'        => 'arrow',
 			'cat_style'              => 'list',
 			'tag_style'              => 'list',
 			'loop_paged'             => 'numerical',
@@ -1788,6 +1791,26 @@ class configureight extends Plugin {
 	// @return string
 	public function loop_style() {
 		return $this->getValue( 'loop_style' );
+	}
+
+	// @return boolean
+	public function loop_break() {
+		return $this->getValue( 'loop_break' );
+	}
+
+	// @return string
+	public function loop_break_text() {
+		return $this->getValue( 'loop_break_text' );
+	}
+
+	// @return mixed
+	public function loop_break_icon() {
+
+		if ( 'none' == $this->getValue( 'loop_break_icon' ) ) {
+			return false;
+		} else {
+			return $this->getValue( 'loop_break_icon' );
+		}
 	}
 
 	// @return string

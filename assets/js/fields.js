@@ -48,7 +48,20 @@ jQuery(document).ready( function($) {
 		$( '#loader_text_color_dark' ).spectrum( 'set', $( '#loader_text_default_dark' ).val() );
 	});
 
-	// Loop nav label option..
+	// Posts navigation options.
+	$( '#loop_break' ).on( 'change', function() {
+    	var show = $(this).val();
+		if ( show == 'true' ) {
+			$( "#content-break-options" ).fadeIn( 250 );
+			$( 'html, body' ).animate( {
+				scrollTop: $( '#content-break-options' ).offset().top + -120
+			}, 1000 );
+		} else if ( show == 'false' ) {
+			$( "#content-break-options" ).fadeOut( 250 );
+		}
+    });
+
+	// Loop nav label option.
 	$( '#main_nav_loop' ).on( 'change', function() {
     	var show = $(this).val();
 		if ( show != 'none' ) {

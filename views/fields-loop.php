@@ -8,6 +8,7 @@
  */
 
  use function CFE_Plugin\{
+	is_rtl,
 	is_static_loop
 };
 
@@ -96,6 +97,46 @@
 				<?php $L->p( 'Choose the style of post content in the main loop.' ); ?>
 				<br /><?php $L->p( 'See Settings > General > Advanced in the admin menu to set the number pf articles per page.' ); ?>
 			</small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="loop_break"><?php $L->p( 'Post Content Breaks' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="loop_break" name="loop_break">
+				<option value="true" <?php echo ( $this->getValue( 'loop_break' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'loop_break' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Allow teaser text with a read more link. Does not apply to list and grid displays. Post needs a read more tag inserted by the content editor.' ); ?></small>
+		</div>
+	</div>
+
+	<div id="content-break-options">
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="loop_break_text"><?php $L->p( 'Content Break Text' ); ?></label>
+			<div class="col-sm-10">
+				<input type="text" id="loop_break_text" name="loop_break_text" value="<?php echo $this->getValue( 'loop_break_text' ); ?>" placeholder="<?php echo $this->dbFields['loop_break_text']; ?>" />
+				<small class="form-text"><?php $L->p( 'The read more link text.' ); ?></small>
+			</div>
+		</div>
+
+		<div class="form-field form-group row">
+			<label class="form-label col-sm-2 col-form-label" for="loop_break_icon"><?php $L->p( 'Content Break Icon' ); ?></label>
+			<div class="col-sm-10">
+				<div class="field-has-buttons">
+					<select class="form-select" id="loop_break_icon" name="loop_break_icon">
+
+						<option value="arrow" <?php echo ( $this->getValue( 'loop_break_icon' ) === 'arrow' ? 'selected' : '' ); ?>><?php $L->p( 'Arrow' ); ?> ( <?php echo ( is_rtl() ? '←' : '→' ); ?> )</option>
+
+						<option value="angle" <?php echo ( $this->getValue( 'loop_break_icon' ) === 'angle' ? 'selected' : '' ); ?>><?php $L->p( 'Angle' ); ?> ( &gt; )</option>
+
+						<option value="angles" <?php echo ( $this->getValue( 'loop_break_icon' ) === 'angles' ? 'selected' : '' ); ?>><?php $L->p( 'Double Angle' ); ?> ( &#8811; )</option>
+
+						<option value="none" <?php echo ( $this->getValue( 'loop_break_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None' ); ?></option>
+					</select>
+				</div>
+				<small class="form-text"><?php $L->p( 'Directional characters are adjusted for language direction.' ); ?></small>
+			</div>
 		</div>
 	</div>
 

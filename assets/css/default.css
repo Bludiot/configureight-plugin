@@ -171,7 +171,7 @@
   --cfe-admin-menu--bg-color: var( --cfe-body--bg-color--dark );
   --cfe-admin--menu--link--action--bg-color: var( --cfe-scheme-color--five );
   --cfe-admin--menu--link--action--bg-color--dark: var( --cfe-scheme-color--five--dark );
-  --cfe-tabs--list--gap: 0.5rem 0.25rem;
+  --cfe-tabs--list--gap: 0 0.25rem;
   --cfe-tabs--list--margin: 2rem 0 0 0;
   --cfe-tabs--list--padding: 0 0.5rem;
   --cfe-tabs--list--border-bottom-style: solid;

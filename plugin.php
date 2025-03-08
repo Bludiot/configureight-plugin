@@ -766,6 +766,11 @@ class configureight extends Plugin {
 			if ( ! $this->getValue( 'admin_menu' ) ) {
 				$assets .= '<style>.sidebar.d-lg-block { display: none !important; }</style>';
 			}
+
+			if ( ! $this->toolbar_mobile() ) {
+				$assets .= '<style>@media (max-width: 767.98px) { .user-toolbar { display: none; } body, body.toolbar-active { padding-top: 0 !important; } }</style>';
+				$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); } nav.navbar.d-block { display: block !important; }</style>';
+			}
 		}
 
 		// Modal background.

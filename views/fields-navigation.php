@@ -173,9 +173,11 @@ $static = buildStaticPages();
 		<div class="col-sm-10">
 			<select class="form-select" id="main_nav_icon" name="main_nav_icon">
 
-				<option value="bars" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'bars' ? 'selected' : '' ); ?>><?php $L->p( 'Bars' ); ?></option>
+				<option value="bars" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'bars' ? 'selected' : '' ); ?>><?php $L->p( 'Horizontal Bars' ); ?></option>
 
-				<option value="dots" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'dots' ? 'selected' : '' ); ?>><?php $L->p( 'Dots' ); ?></option>
+				<option value="dots-h" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'dots-h' ? 'selected' : '' ); ?>><?php $L->p( 'Horizontal Dots' ); ?></option>
+
+				<option value="dots-v" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'dots-v' ? 'selected' : '' ); ?>><?php $L->p( 'Vertical Dots' ); ?></option>
 
 				<option value="none" <?php echo ( $this->getValue( 'main_nav_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'None (Text)' ); ?></option>
 			</select>

@@ -142,6 +142,19 @@ $custom_from = $this->custom_scheme_from();
 		</div>
 	</div>
 
+	<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="search_icon"><?php $L->p( 'Search Icon' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="search_icon" name="search_icon">
+				<option value="true" <?php echo ( $this->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( $this->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Replace search form submit text with a search icon. Text will remain available to screen readers.' ); ?></small>
+		</div>
+	</div>
+	<?php endif; ?>
+
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="show_customize"><?php $L->p( 'Dashboard Customize' ); ?></label>
 		<div class="col-sm-10">
@@ -248,41 +261,6 @@ $custom_from = $this->custom_scheme_from();
 		</div>
 	</div>
 </fieldset>
-
-<?php
-// Search settings page URL.
-$search_settings = DOMAIN_ADMIN . 'configure-plugin/Search_Forms';
-
-if ( getPlugin( 'Search_Forms' ) ) :
-
-?>
-
-<h3 class="form-heading"><?php $L->p( 'Search Forms' ); ?></h3>
-
-<div class="form-field form-group row">
-	<label class="form-label col-sm-2 col-form-label" for="search_plugin_info"><?php $L->p( 'Search Plugin' ); ?></label>
-	<div id="search_plugin_info" class="col-sm-10">
-		<p><?php $L->p( "The Search Form plugin, developed for the Configure 8 theme, is installed. To manage the sidebar search form, go to the <a href='{$search_settings}'>search form settings</a> page." ); ?></p>
-
-		<p><?php $L->p( 'The following options are specific to the Configure 8 theme so they are not part of the Search Form plugin.' ); ?></p>
-	</div>
-</div>
-
-<fieldset>
-	<legend class="screen-reader-text"><?php $L->p( 'Search Options' ); ?></legend>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="search_icon"><?php $L->p( 'Search Icon' ); ?></label>
-		<div class="col-sm-10">
-			<select class="form-select" id="search_icon" name="search_icon">
-				<option value="true" <?php echo ( $this->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-			</select>
-			<small class="form-text"><?php $L->p( 'Replace the search form submit text with a search icon. Text will remain available to screen readers.' ); ?></small>
-		</div>
-	</div>
-</fieldset>
-<?php endif; ?>
 
 <script>
 $( function() {

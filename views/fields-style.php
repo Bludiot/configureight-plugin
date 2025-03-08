@@ -222,7 +222,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 				<option value="true" <?php echo ( $this->getValue( 'use_dark_scheme' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Use Always' ); ?></option>
 				<option value="false" <?php echo ( $this->getValue( 'use_dark_scheme' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Preference Only' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Use the dark version of the color scheme regardless of browser/device setting. Does not apply to a custom color scheme as this is done manually.' ); ?></small>
+			<small class="form-text"><?php $L->p( 'Use the dark version of the color scheme regardless of browser/device setting.' ); ?></small>
 		</div>
 	</div>
 

@@ -328,14 +328,20 @@ jQuery(document).ready( function($) {
 		}
 	});
 
+	$( '#copy_text' ).on( 'change', function() {
+		var show = $(this).val();
+		if ( show ) {
+			$( '#copyright-date' ).css( 'display', 'none' );
+		} else {
+			$( '#copyright-date' ).css( 'display', 'flex' );
+		}
+	});
+
 	// Copyright options.
 	$( '#copyright' ).on( 'change', function() {
 		var show = $(this).val();
 		if ( show == 'true' ) {
 			$( "#copyright_options" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#copy_date' ).offset().top
-			}, 1000 );
 		} else if ( show == 'false' ) {
 			$( "#copyright_options" ).fadeOut( 250 );
 		}

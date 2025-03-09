@@ -83,7 +83,7 @@ $copy_text_placeholder = sprintf(
 	</div>
 
 	<div id="copyright_options" style="display: <?php echo ( $this->getValue( 'copyright' ) === true ? 'block' : 'none' ); ?>;">
-		<div class="form-field form-group row">
+		<div id="copyright-date" class="form-field form-group row" style="display: <?php echo ( empty( $this->getValue( 'copy_text' ) ) ? 'flex' : 'none' ); ?>;">
 			<label class="form-label col-sm-2 col-form-label" for="copy_date"><?php $L->p( 'Copyright Date' ); ?></label>
 			<div class="col-sm-10">
 				<select class="form-select" id="copy_date" name="copy_date">

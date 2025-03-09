@@ -90,6 +90,7 @@ use function CFE_Plugin\{
 		<label class="form-label col-sm-2 col-form-label" for="sb_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="sb_social_heading" name="sb_social_heading" value="<?php echo $this->getValue( 'sb_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />
+			<small class="form-text"><?php $L->p( 'Leave blank for no heading.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

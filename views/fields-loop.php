@@ -22,6 +22,7 @@
 
 	<legend class="screen-reader-text"><?php $L->p( 'Posts Loop' ); ?></legend>
 
+	<?php if ( ! $site->getField( 'uriBlog' ) ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_title"><?php $L->p( 'Loop Title' ); ?></label>
 		<div class="col-sm-10">
@@ -45,6 +46,7 @@
 			</small>
 		</div>
 	</div>
+	<?php endif; ?>
 
 	<?php if ( ! is_static_loop() && $this->cover_src() ) : ?>
 	<div class="form-field form-group row">

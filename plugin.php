@@ -2162,9 +2162,9 @@ class configureight extends Plugin {
 		return $this->getValue( 'footer_social' );
 	}
 
-	// @return boolean
-	public function ftr__social_heading() {
-		return $this->getValue( 'ftr__social_heading' );
+	// @return string
+	public function ftr_social_heading() {
+		return $this->getValue( 'ftr_social_heading' );
 	}
 
 	// @return boolean

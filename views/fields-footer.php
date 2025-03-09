@@ -67,6 +67,7 @@ $copy_text_placeholder = sprintf(
 		<label class="form-label col-sm-2 col-form-label" for="ftr_social_heading"><?php $L->p( 'Social Heading Text' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="ftr_social_heading" name="ftr_social_heading" value="<?php echo $this->getValue( 'ftr_social_heading' ) ?>" placeholder="<?php $L->p( 'Social Links' ); ?>" />
+			<small class="form-text"><?php $L->p( 'Leave blank for no heading.' ); ?></small>
 		</div>
 	</div>
 	<?php endif; ?>

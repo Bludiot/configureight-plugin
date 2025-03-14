@@ -89,7 +89,12 @@ $static = buildStaticPages();
 						( is_array( $this->main_nav_pages() ) && in_array( 'home', $this->main_nav_pages() ) ? 'checked' : '' ),
 						$L->get( 'Home' )
 					);
-				} ?>
+				}
+				printf(
+					'<label class="check-label-wrap" for="foobar" style="display: none !important;"><input type="checkbox" name="main_nav_pages[]" id="foobar" value="foobar" checked /> %s</label>',
+					$L->get( 'Ignore This' )
+				);
+				?>
 			</div>
 			<?php if ( $count_p > 0 || $count_c > 0 ) : ?>
 			<small class="form-text"><?php $L->p( 'Hover parent pages (p) and child pages (c) to view the page relationship.' ); ?></small>

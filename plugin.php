@@ -215,7 +215,7 @@ class configureight extends Plugin {
 			'logo_width_mob'         => $this->logo_width_mob_default(),
 			'logo_location'          => 'before',
 			'header_sticky'          => false,
-			'main_nav_pages'         => [ '' ],
+			'main_nav_pages'         => [ 'foobar' ],
 			'main_nav_labels'        => 'slug',
 			'main_nav_children'      => 'secondary',
 			'main_nav_pos'           => 'right',

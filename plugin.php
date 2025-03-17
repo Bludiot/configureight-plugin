@@ -274,7 +274,7 @@ class configureight extends Plugin {
 			'posts_slider'           => false,
 			'slider_content'         => 'recent',
 			'slider_number'          => 5,
-			'slider_pages'           => [ '' ],
+			'slider_pages'           => [ 'foobar' ],
 			'slider_icon'            => 'spinner-dots',
 			'slider_arrows'          => 'none',
 			'slider_dots'            => false,

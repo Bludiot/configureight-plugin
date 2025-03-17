@@ -118,7 +118,7 @@
 			<label class="form-label col-sm-2 col-form-label" for="loop_break_text"><?php $L->p( 'Content Break Text' ); ?></label>
 			<div class="col-sm-10">
 				<input type="text" id="loop_break_text" name="loop_break_text" value="<?php echo $this->getValue( 'loop_break_text' ); ?>" placeholder="<?php echo $this->dbFields['loop_break_text']; ?>" />
-				<small class="form-text"><?php $L->p( 'The read more link text.' ); ?></small>
+				<small class="form-text"><?php $L->p( 'The read more link text. This can be overridden per post by the <code>read_more</code> custom text field.' ); ?></small>
 			</div>
 		</div>
 

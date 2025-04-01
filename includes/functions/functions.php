@@ -966,45 +966,72 @@ function suite_plugins() {
 
 	$suite = [
 		plugin()->className() => [
-			'name' => plugin()->name(),
-			'url'  => plugin()->website()
+			'name'  => plugin()->name(),
+			'url'   => plugin()->website(),
+			'guide' => true
 		],
 		'Breadcrumbs' => [
-			'name' => $L->g( 'Breadcrumbs' ),
-			'url'  => 'https://github.com/Bludiot/breadcrumbs'
+			'name'  => $L->g( 'Breadcrumbs' ),
+			'url'   => 'https://github.com/Bludiot/breadcrumbs',
+			'guide' => true
 		],
 		'Categories_Lists' => [
-			'name' => $L->g( 'Categories Lists' ),
-			'url'  => 'https://github.com/Bludiot/categories-lists'
+			'name'  => $L->g( 'Categories Lists' ),
+			'url'   => 'https://github.com/Bludiot/categories-lists',
+			'guide' => true
 		],
 		'Pages_Lists' => [
-			'name' => $L->g( 'Pages Lists' ),
-			'url'  => 'https://github.com/Bludiot/pages-lists'
+			'name'  => $L->g( 'Pages Lists' ),
+			'url'   => 'https://github.com/Bludiot/pages-lists',
+			'guide' => true
 		],
 		'Post_Comments' => [
-			'name' => $L->g( 'Post Comments' ),
-			'url'  => 'https://github.com/Bludiot/post-comments'
+			'name'  => $L->g( 'Post Comments' ),
+			'url'   => 'https://github.com/Bludiot/post-comments',
+			'guide' => '?page=guide'
 		],
 		'Posts_Lists' => [
-			'name' => $L->g( 'Posts Lists' ),
-			'url'  => 'https://github.com/Bludiot/posts-lists'
+			'name'  => $L->g( 'Posts Lists' ),
+			'url'   => 'https://github.com/Bludiot/posts-lists',
+			'guide' => true
 		],
 		'Search_Forms' => [
-			'name' => $L->g( 'Search Forms' ),
-			'url'  => 'https://github.com/Bludiot/search-forms'
+			'name'  => $L->g( 'Search Forms' ),
+			'url'   => 'https://github.com/Bludiot/search-forms',
+			'guide' => true
 		],
 		'Tags_Lists' => [
-			'name' => $L->g( 'Tags Lists' ),
-			'url'  => 'https://github.com/Bludiot/tags-lists'
+			'name'  => $L->g( 'Tags Lists' ),
+			'url'   => 'https://github.com/Bludiot/tags-lists',
+			'guide' => true
 		],
 		'User_Profiles' => [
-			'name' => $L->g( 'User Profiles' ),
-			'url'  => 'https://github.com/Bludiot/user-profiles'
+			'name'  => $L->g( 'User Profiles' ),
+			'url'   => 'https://github.com/Bludiot/user-profiles',
+			'guide' => true
 		]
 
 	];
 	asort( $suite );
 	return $suite;
+}
+
+/**
+ * Suite plugins
+ *
+ * Array theme suite plugins classes and name.
+ *
+ * @since  1.0.0
+ * @global object $L The Language class.
+ * @return array
+ */
+function suite_plugin_item( $class = false ) {
+
+	$suite = suite_plugins();
+	if ( $class && getPlugin( $class ) ) {
+		return $suite[$class];
+	}
+	return false;
 }
 
 /**
@@ -1102,6 +1129,21 @@ function plugin_options_url( $class = '' ) {
 		$url = HTML_PATH_ADMIN_ROOT . 'plugin-settings/' . $class;
 	}
 	return $url;
+}
+
+/**
+ * Plugin guide URL
+ *
+ * @since  1.0.0
+ * @param  string $class Primary plugin class name.
+ * @return mixed Returns the page URL or false.
+ */
+function plugin_guide_url( $class = '' ) {
+
+	if ( empty( $class ) ) {
+		return false;
+	}
+	return HTML_PATH_ADMIN_ROOT . 'plugin/' . $class;
 }
 
 /**

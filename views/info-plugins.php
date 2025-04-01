@@ -12,9 +12,11 @@
 use function CFE_Plugin\{
 	plugin,
 	suite_plugins,
+	suite_plugin_item,
 	suite_plugins_active,
 	suite_plugins_inactive,
-	plugin_options_url
+	plugin_options_url,
+	plugin_guide_url
 };
 
 ?>
@@ -54,6 +56,10 @@ use function CFE_Plugin\{
 			$count++;
 			$plugin = getPlugin( $plugin );
 
+			if ( ! $plugin ) {
+				continue;
+			}
+
 			printf(
 				'<h3 class="form-heading">%s</h3>',
 				$plugin->name()
@@ -65,11 +71,30 @@ use function CFE_Plugin\{
 				);
 			}
 
-			printf(
-				'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a></p>',
-				plugin_options_url( $plugin->className() ),
-				$L->get( 'Options' )
-			);
+			$suite_plugin = suite_plugin_item( $plugin->className() );
+			if ( $suite_plugin && is_string( $suite_plugin['guide'] ) ) {
+				printf(
+					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a> <a href="%s" class="button btn btn-secondary btn-sm">%s</a></p>',
+					plugin_options_url( $plugin->className() ),
+					$L->get( 'Options' ),
+					plugin_guide_url( $plugin->className() ) . $suite_plugin['guide'],
+					$L->get( 'Guide' )
+				);
+			} elseif ( $suite_plugin && $suite_plugin['guide'] ) {
+				printf(
+					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a> <a href="%s" class="button btn btn-secondary btn-sm">%s</a></p>',
+					plugin_options_url( $plugin->className() ),
+					$L->get( 'Options' ),
+					plugin_guide_url( $plugin->className() ),
+					$L->get( 'Guide' )
+				);
+			} else {
+				printf(
+					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a></p>',
+					plugin_options_url( $plugin->className() ),
+					$L->get( 'Options' )
+				);
+			}
 
 			if ( $count < count( suite_plugins_active() ) ) {
 				echo '<hr />';

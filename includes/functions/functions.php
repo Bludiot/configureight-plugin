@@ -1219,6 +1219,7 @@ function error_static_display() {
 	// Set up arguments array.
 	$args = [];
 	$args['wrap'] = true;
+	$args['separator'] = ' | ';
 
 	// List heading element.
 	if ( plugin()->error_static_heading() ) {

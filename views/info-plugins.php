@@ -72,20 +72,17 @@ use function CFE_Plugin\{
 			}
 
 			$suite_plugin = suite_plugin_item( $plugin->className() );
-			if ( $suite_plugin && is_string( $suite_plugin['guide'] ) ) {
+			if ( $suite_plugin['guide'] ) {
+
+				$guide_url = plugin_guide_url( $plugin->className() );
+				if ( is_string( $suite_plugin['guide'] ) ) {
+					$guide_url = plugin_guide_url( $plugin->className() ) . $suite_plugin['guide'];
+				}
 				printf(
 					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a> <a href="%s" class="button btn btn-secondary btn-sm">%s</a></p>',
 					plugin_options_url( $plugin->className() ),
 					$L->get( 'Options' ),
-					plugin_guide_url( $plugin->className() ) . $suite_plugin['guide'],
-					$L->get( 'Guide' )
-				);
-			} elseif ( $suite_plugin && $suite_plugin['guide'] ) {
-				printf(
-					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a> <a href="%s" class="button btn btn-secondary btn-sm">%s</a></p>',
-					plugin_options_url( $plugin->className() ),
-					$L->get( 'Options' ),
-					plugin_guide_url( $plugin->className() ),
+					$guide_url,
 					$L->get( 'Guide' )
 				);
 			} else {

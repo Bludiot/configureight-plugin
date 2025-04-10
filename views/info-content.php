@@ -93,7 +93,7 @@
 
 <h3 class="form-heading"><?php $L->p( 'All Configure 8 Custom Fields' ); ?></h3>
 
-<p><?php $L->p( 'The following is all theme fields as in the Bludit setting text area, including necessary braces around them.' ); ?></p>
+<p><?php $L->p( 'The following is all theme fields as they should be entered into the Bludit setting text area, including necessary braces around them. To use all just copy & paste into the custom fields setting.' ); ?></p>
 
 <pre>
 {

@@ -166,7 +166,7 @@ function basic_font_schemes() {
 			'slug'     => 'serif',
 			'name'     => $L->get( 'Serif' ),
 			'text'     => [
-				'family' => $L->get( 'Serif' ),
+				'family' => $L->get( 'Georgia' ),
 				'stack'  => "Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'    => false,
 				'weight' => '400',

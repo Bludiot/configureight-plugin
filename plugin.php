@@ -72,6 +72,15 @@ use function CFE_Galleries\{
 class configureight extends Plugin {
 
 	/**
+	 * Plugin root
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
+	 */
+	public $directoryName = __CLASS__;
+
+	/**
 	 * Storage root
 	 *
 	 * @since  1.0.0
@@ -130,7 +139,7 @@ class configureight extends Plugin {
 	public function autoload() {
 
 		// Path to class files.
-		$path = PATH_PLUGINS . __CLASS__ . DS . 'includes/classes' . DS;
+		$path = PATH_PLUGINS . $this->directoryName . DS . 'includes/classes' . DS;
 
 		// Array of namespaced classes & filenames.
 		$classes = [
@@ -164,7 +173,7 @@ class configureight extends Plugin {
 	public function get_files() {
 
 		// Plugin path.
-		$path = PATH_PLUGINS . __CLASS__ . DS;
+		$path = PATH_PLUGINS . $this->directoryName . DS;
 
 		// Get plugin functions.
 		foreach ( glob( $path . 'includes/functions/*.php' ) as $filename ) {

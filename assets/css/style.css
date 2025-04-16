@@ -3530,6 +3530,12 @@ form div.align-middle:first-of-type .float-right {
 form div.align-middle:first-of-type h2 {
   margin: 0 !important;
 }
+form div.align-middle:first-of-type h2 {
+  width: 100%;
+}
+form div.align-middle:first-of-type div + h2 {
+  width: auto;
+}
 
 .form-control {
   display: block;

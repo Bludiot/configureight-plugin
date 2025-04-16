@@ -27,6 +27,16 @@ form {
 		h2 {
 			margin: 0 !important;
 		}
+
+		// If no form buttons.
+		h2 {
+			width: 100%;
+		}
+
+		// If form buttons.
+		div + h2 {
+			width: auto;
+		}
 	}
 }
 

@@ -718,15 +718,16 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 				<option value="default" <?php echo ( $this->admin_theme() === 'default' ? 'selected' : '' ); ?>><?php $L->p( 'Default Theme' ); ?></option>
 			</select>
-			<?php if ( ! admin_theme() ) {
+			<?php if ( ! admin_theme() ) :
 				printf(
 					'<small class="form-text">%s<br /><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></small>',
 					$L->get( 'Download the Configure 8 admin theme for added features:' ),
-					'https://github.com/Bludiot/configureight-admin',
-					'https://github.com/Bludiot/configureight-admin'
+					$this->website(),
+					$this->website()
 				);
-			} ?>
-			<small class="form-text"><span style="color: #d00; font-weight: bold;"><?php $L->p( 'Note:' ); ?></span> <?php $L->p( 'This option edits the site database. In testing this option has always worked as intended but for the odd chance that something goes wrong when saving this form, you may want to first copy the site database before changing this setting. Find the database where your Bludit installation is in <code>bl-content/databases/site.php</code>' ); ?></small>
+			else : ?>
+			<small class="form-text"><?php $L->p( 'This option edits the site database where your Bludit installation is in <code>bl-content/databases/site.php</code>. It changes the <code>adminTheme</code> setting to <code>configureight</code>.' ); ?></small>
+			<?php endif; ?>
 		</div>
 	</div>
 </fieldset>

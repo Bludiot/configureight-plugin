@@ -510,23 +510,25 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 					// Primary heading preview.
 					sprintf(
-						'<h2 id="primary-%s" class="primary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</h2>',
+						'<h2 id="primary-%s" class="primary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s; font-variant: %s; text-transform: none;">%s</h2>',
 						$slug,
 						"var( --cfe-fpv--{$slug}--display--font-family )",
 						$weight_p,
 						"var( --cfe-fpv--{$slug}--primary--font-size, 2rem )",
 						$space_p,
+						"var( --cfe-fpv--{$slug}--primary--font-variant, normal )",
 						$L->get( 'Primary Heading' )
 					),
 
 					// Secondary heading preview.
 					sprintf(
-						'<h3 id="secondary-%s" class="secondary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</h3>',
+						'<h3 id="secondary-%s" class="secondary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s; font-variant: %s; text-transform: none;">%s</h3>',
 						$slug,
 						"var( --cfe-fpv--{$slug}--display--font-family )",
 						$weight_s,
 						"var( --cfe-fpv--{$slug}--secondary--font-size, 1.375rem )",
 						$space_s,
+						"var( --cfe-fpv--{$slug}--secondary--font-variant, normal )",
 						$L->get( 'Secondary Heading' )
 					),
 
@@ -543,12 +545,13 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 					// Display text preview.
 					sprintf(
-						'<p><button id="display-%s" class="button btn display-sample" style="cursor: not-allowed; margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</button></p>',
+						'<p><button id="display-%s" class="button btn btn-secondary btn-md display-sample" style="cursor: not-allowed; margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s; font-variant: %s; text-transform: none;">%s</button></p>',
 						$slug,
 						"var( --cfe-fpv--{$slug}--display--font-family )",
 						$weight_d,
 						"var( --cfe-fpv--{$slug}--display--font-size, 1rem )",
 						$space_d,
+						"var( --cfe-fpv--{$slug}--display--font-variant, normal )",
 						$L->get( 'Display Text' )
 					)
 				);

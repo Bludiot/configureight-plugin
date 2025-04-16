@@ -33,7 +33,7 @@ $static = buildStaticPages();
 
 					// Sort by position.
 					usort( $static, function( $a, $b ) {
-						return $a->position() > $b->position();
+						return $a->position() <=> $b->position();
 					} );
 
 					foreach ( $static as $page ) :

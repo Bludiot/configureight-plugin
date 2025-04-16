@@ -74,7 +74,11 @@ printf(
 
 echo '<ul class="font-list">';
 	printf(
-		'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		$current['text']['family'],
+		$current['text']['weight'],
+		$current['text']['space'],
+		$current['text']['variant'],
 		$L->get( 'General Text' )
 	);
 	printf(
@@ -86,6 +90,11 @@ echo '<ul class="font-list">';
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Variable Weight:' ),
 		( $current['text']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Size:' ),
+		$current['text']['size']
 	);
 	if ( $current['text']['var'] ) {
 		printf(
@@ -107,6 +116,11 @@ echo '<ul class="font-list">';
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Variant:' ),
+		$current['text']['variant']
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
 		( '0' === $current['text']['space'] ? 'normal' : $current['text']['space'] )
 	);
@@ -123,7 +137,12 @@ echo '<ul class="font-list">';
 	echo '</ul></li>';
 
 	printf(
-		'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		$current['primary']['family'],
+		$current['primary']['size'],
+		$current['primary']['weight'],
+		$current['primary']['space'],
+		$current['primary']['variant'],
 		$L->get( 'Primary Headings' )
 	);
 	printf(
@@ -135,6 +154,11 @@ echo '<ul class="font-list">';
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Variable Weight:' ),
 		( $current['primary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Size:' ),
+		$current['primary']['size']
 	);
 	if ( $current['primary']['var'] ) {
 		printf(
@@ -156,6 +180,11 @@ echo '<ul class="font-list">';
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Variant:' ),
+		$current['primary']['variant']
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
 		( '0' === $current['primary']['space'] ? 'normal' : $current['primary']['space'] )
 	);
@@ -172,7 +201,12 @@ echo '<ul class="font-list">';
 	echo '</ul></li>';
 
 	printf(
-		'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		$current['secondary']['family'],
+		$current['secondary']['size'],
+		$current['secondary']['weight'],
+		$current['secondary']['space'],
+		$current['secondary']['variant'],
 		$L->get( 'Secondary Headings' )
 	);
 	printf(
@@ -184,6 +218,11 @@ echo '<ul class="font-list">';
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Variable Weight:' ),
 		( $current['secondary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Size:' ),
+		$current['secondary']['size']
 	);
 	if ( $current['secondary']['var'] ) {
 		printf(
@@ -205,6 +244,11 @@ echo '<ul class="font-list">';
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
+		$L->get( 'Font Variant:' ),
+		$current['secondary']['variant']
+	);
+	printf(
+		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
 		( '0' === $current['secondary']['space'] ? 'normal' : $current['secondary']['space'] )
 	);
@@ -221,9 +265,9 @@ echo '<ul class="font-list">';
 	echo '</ul></li>';
 echo '</ul>';
 
-foreach ( $schemes as $scheme => $option ) {
+foreach ( $schemes as $scheme => $font ) {
 
-	if ( $this->font_scheme() == $option['slug'] ) {
+	if ( $this->font_scheme() == $font['slug'] ) {
 		continue;
 	}
 
@@ -232,124 +276,168 @@ foreach ( $schemes as $scheme => $option ) {
 	printf(
 		'<h2 class="font-heading">%s %s</h2>',
 		$L->get( 'Scheme:' ),
-		$option['name']
+		$font['name']
 	);
 
 	echo '<ul class="font-list">';
 		printf(
-			'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			$font['text']['family'],
+			$font['text']['weight'],
+			$font['text']['space'],
+			$font['text']['variant'],
 			$L->get( 'General Text' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Font Family:' ),
-			$option['text']['family']
+			$font['text']['family']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Variable Weight:' ),
-			( $option['text']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+			( $font['text']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
 		);
-		if ( $option['text']['var'] ) {
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Size:' ),
+			$font['text']['size']
+		);
+		if ( $font['text']['var'] ) {
 			printf(
 				'<li><span class="font-list-label">%s</span> %s-%s</li>',
 				$L->get( 'Weight Range:' ),
-				$option['text']['min'],
-				$option['text']['max']
+				$font['text']['min'],
+				$font['text']['max']
 			);
 		}
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Weight Default:' ),
-			$option['text']['weight']
+			$font['text']['weight']
+		);
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Variant:' ),
+			$font['text']['variant']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $option['text']['space'] ? 'normal' : $option['text']['space'] )
+			( '0' === $font['text']['space'] ? 'normal' : $font['text']['space'] )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
-			$option['text']['stack']
+			$font['text']['stack']
 		);
 		echo '</ul></li>';
 
 		printf(
-			'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			$font['primary']['family'],
+			$font['primary']['size'],
+			$font['primary']['weight'],
+			$font['primary']['space'],
+			$font['primary']['variant'],
 			$L->get( 'Primary Headings' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Font Family:' ),
-			$option['primary']['family']
+			$font['primary']['family']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Variable Weight:' ),
-			( $option['primary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+			( $font['primary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
 		);
-		if ( $option['primary']['var'] ) {
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Size:' ),
+			$font['primary']['size']
+		);
+		if ( $font['primary']['var'] ) {
 			printf(
 				'<li><span class="font-list-label">%s</span> %s-%s</li>',
 				$L->get( 'Weight Range:' ),
-				$option['primary']['min'],
-				$option['primary']['max']
+				$font['primary']['min'],
+				$font['primary']['max']
 			);
 		}
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Weight Default:' ),
-			$option['primary']['weight']
+			$font['primary']['weight']
+		);
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Variant:' ),
+			$font['primary']['variant']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $option['primary']['space'] ? 'normal' : $option['primary']['space'] )
+			( '0' === $font['primary']['space'] ? 'normal' : $font['primary']['space'] )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
-			$option['primary']['stack']
+			$font['primary']['stack']
 		);
 		echo '</ul></li>';
 
 		printf(
-			'<li><h3 class="font-list-heading">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			$font['secondary']['family'],
+			$font['secondary']['size'],
+			$font['secondary']['weight'],
+			$font['secondary']['space'],
+			$font['secondary']['variant'],
 			$L->get( 'Secondary Headings' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Font Family:' ),
-			$option['secondary']['family']
+			$font['secondary']['family']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Variable Weight:' ),
-			( $option['secondary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
+			( $font['secondary']['var'] ? $L->get( 'Yes' ) : $L->get( 'No' ) )
 		);
-		if ( $option['secondary']['var'] ) {
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Size:' ),
+			$font['secondary']['size']
+		);
+		if ( $font['secondary']['var'] ) {
 			printf(
 				'<li><span class="font-list-label">%s</span> %s-%s</li>',
 				$L->get( 'Weight Range:' ),
-				$option['secondary']['min'],
-				$option['secondary']['max']
+				$font['secondary']['min'],
+				$font['secondary']['max']
 			);
 		}
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Weight Default:' ),
-			$option['secondary']['weight']
+			$font['secondary']['weight']
+		);
+		printf(
+			'<li><span class="font-list-label">%s</span> %s</li>',
+			$L->get( 'Font Variant:' ),
+			$font['secondary']['variant']
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $option['secondary']['space'] ? 'normal' : $option['secondary']['space'] )
+			( '0' === $font['secondary']['space'] ? 'normal' : $font['secondary']['space'] )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
 			$L->get( 'Font Stack:' ),
-			$option['secondary']['stack']
+			$font['secondary']['stack']
 		);
 		echo '</ul></li>';
 	echo '</ul>';

@@ -52,6 +52,7 @@ use function CFE_Colors\{
 };
 use function CFE_Fonts\{
 	load_font_files,
+	font_schemes,
 	current_font_scheme,
 	admin_font_options
 };
@@ -736,6 +737,17 @@ class configureight extends Plugin {
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/lightbox{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
 
 		$assets .= '<script type="text/javascript" src="' . $this->domainPath() . "assets/js/fields{$suffix}.js?version=" . $this->getMetadata( 'version' ) . '"></script>' . PHP_EOL;
+
+		// Get all font stylesheets for font preview feature.
+		foreach ( font_schemes() as $scheme ) {
+			$slug = $scheme['slug'];
+
+			// Skip current font scheme. It is fetched below.
+			if ( $slug == $this->font_scheme() ) {
+				continue;
+			}
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/schemes/fonts/{$slug}/admin{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+		}
 
 		// End plugin page.
 		endif;

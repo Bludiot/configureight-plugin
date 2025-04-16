@@ -211,7 +211,6 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 				echo '</ul>';
 			} ?>
 			</ul>
-			<p class="m-0"><?php $L->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page." ); ?></p>
 		</div>
 	</div>
 
@@ -476,26 +475,85 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<ul id="font-preview-list">
 			<?php foreach ( $fonts as $option => $scheme ) {
 
-				$preview = $this->phpPath() . "/assets/images/font-preview-{$scheme['slug']}.svg";
+				$slug = $scheme['slug'];
+
+				// Font weights & letter spacing.
+				$weight_p = $scheme['primary']['weight'];
+				$weight_s = $scheme['secondary']['weight'];
+				$weight_d = $scheme['display']['weight'];
+				$weight_t = $scheme['text']['weight'];
+				$space_p  = $scheme['primary']['space'];
+				$space_s  = $scheme['secondary']['space'];
+				$space_d  = $scheme['display']['space'];
+				$space_t  = $scheme['text']['space'];
+
+				if ( $slug == $this->font_scheme() ) {
+					$weight_p = $this->wght_primary();
+					$weight_s = $this->wght_secondary();
+					$weight_d = $this->wght_display();
+					$weight_t = $this->wght_text();
+					$space_p  = $this->space_primary();
+					$space_s  = $this->space_secondary();
+					$space_d  = $this->space_display();
+					$space_t  = $this->space_text();
+				}
+
 				printf(
-					'<!-- %s %s --><li id="font-scheme-preview-%s" style="display: %s;">%s%s</li>' . "\r",
+					'<!-- %1s %2s -->',
 					$L->get( 'Font scheme preview:' ),
-					ucwords( $scheme['name'] ),
-					$scheme['slug'],
-					( $this->getValue( 'font_scheme' ) === $scheme['slug'] ? 'block' : 'none' ),
-					( file_exists( $preview ) ? file_get_contents( $preview ) : '' ),
+					ucwords( $scheme['name'] )
+				);
+				printf(
+					'<li id="font-scheme-preview-%1s" style="display: %2s; ">%3s %4s %5s %6s</li>' . "\r",
+					$slug,
+					( $this->getValue( 'font_scheme' ) === $slug ? 'block' : 'none' ),
+
+					// Primary heading preview.
 					sprintf(
-						'<p id="font-preview-families-%s">%s %s<br />%s %s</p>',
-						$scheme['slug'],
-						$L->get( 'General font:' ),
-						$scheme['text']['family'],
-						$L->get( 'Display font:' ),
-						$scheme['primary']['family'],
+						'<h2 id="primary-%s" class="primary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</h2>',
+						$slug,
+						"var( --cfe-fpv--{$slug}--display--font-family )",
+						$weight_p,
+						"var( --cfe-fpv--{$slug}--primary--font-size, 2rem )",
+						$space_p,
+						$L->get( 'Primary Heading' )
+					),
+
+					// Secondary heading preview.
+					sprintf(
+						'<h3 id="secondary-%s" class="secondary-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</h3>',
+						$slug,
+						"var( --cfe-fpv--{$slug}--display--font-family )",
+						$weight_s,
+						"var( --cfe-fpv--{$slug}--secondary--font-size, 1.375rem )",
+						$space_s,
+						$L->get( 'Secondary Heading' )
+					),
+
+					// General text preview.
+					sprintf(
+						'<p id="text-%s" class="text-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</p>',
+						$slug,
+						"var( --cfe-fpv--{$slug}--general--family )",
+						$weight_t,
+						"var( --cfe-fpv--{$slug}--general--font-size, 1rem )",
+						$space_t,
+						$L->get( 'Sample paragraph demonstrating the general text.' )
+					),
+
+					// Display text preview.
+					sprintf(
+						'<p><button id="display-%s" class="button btn display-sample" style="cursor: not-allowed; margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</button></p>',
+						$slug,
+						"var( --cfe-fpv--{$slug}--display--font-family )",
+						$weight_d,
+						"var( --cfe-fpv--{$slug}--display--font-size, 1rem )",
+						$space_d,
+						$L->get( 'Display Text' )
 					)
 				);
 			} ?>
 			</ul>
-			<p class="m-0"><?php $L->p( "Go to the <a href='{$fonts_page}'>font scheme reference</a> page." ); ?></p>
 		</div>
 	</div>
 
@@ -508,11 +566,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 				<span class="form-range-value rem-range-value"><span id="wght_text_value"><?php echo ( $this->getValue( 'wght_text' ) ? $this->getValue( 'wght_text' ) : $this->dbFields['wght_text'] ); ?></span></span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#wght_text_value').html($(this).val())" id="wght_text" name="wght_text" value="<?php echo $this->getValue( 'wght_text' ); ?>" min="<?php echo $current_fonts['text']['min']; ?>" max="<?php echo $current_fonts['text']['max']; ?>" step="<?php echo $current_fonts['text']['step']; ?>" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_text_value').html($(this).val());$('.text-sample').css('font-weight',$(this).val());" id="wght_text" name="wght_text" value="<?php echo $this->getValue( 'wght_text' ); ?>" min="<?php echo $current_fonts['text']['min']; ?>" max="<?php echo $current_fonts['text']['max']; ?>" step="<?php echo $current_fonts['text']['step']; ?>" />
 
 				<input type="hidden" id="wght_text_default"  name="wght_text_default" value="<?php echo $current_fonts['text']['weight']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_text_value').text($('#wght_text_default').val() );$('#wght_text').val($('#wght_text_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_text_value').text($('#wght_text_default').val() );$('#wght_text').val($('#wght_text_default').val());$('.text-sample').css('font-weight', $('#wght_text_default').val());"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small id="wght_text_desc" class="form-text">
 				<?php if ( ! $current_fonts['text']['var'] ) {
@@ -526,11 +584,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="space_text_value"><?php echo ( $this->getValue( 'space_text' ) ? $this->getValue( 'space_text' ) : $current_fonts['text']['space'] ); ?></span>em</span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#space_text_value').html($(this).val())" id="space_text" name="space_text" value="<?php echo $this->getValue( 'space_text' ); ?>" min="-0.100" max="0.150" step="0.001" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_text_value').html($(this).val());$('.text-sample').css('letter-spacing',$(this).val()+'em');" id="space_text" name="space_text" value="<?php echo $this->getValue( 'space_text' ); ?>" min="-0.100" max="0.150" step="0.001" />
 
 				<input type="hidden" id="space_text_default"  name="space_text_default" value="<?php echo $current_fonts['text']['space']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_text_value').text($('#space_text_default').val() );$('#space_text').val($('#space_text_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_text_value').text($('#space_text_default').val() );$('#space_text').val($('#space_text_default').val());$('.text-sample').css('letter-spacing', $('#space_text_default').val()+'em');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 	</div>
@@ -543,11 +601,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="wght_display_value"><?php echo ( $this->getValue( 'wght_display' ) ? $this->getValue( 'wght_display' ) : $this->dbFields['wght_display'] ); ?></span></span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#wght_display_value').html($(this).val())" id="wght_display" name="wght_display" value="<?php echo $this->getValue( 'wght_display' ); ?>" min="<?php echo $current_fonts['display']['min']; ?>" max="<?php echo $current_fonts['display']['max']; ?>" step="<?php echo $current_fonts['display']['step']; ?>" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_display_value').html($(this).val());$('.display-sample').css('font-weight',$(this).val());" id="wght_display" name="wght_display" value="<?php echo $this->getValue( 'wght_display' ); ?>" min="<?php echo $current_fonts['display']['min']; ?>" max="<?php echo $current_fonts['display']['max']; ?>" step="<?php echo $current_fonts['display']['step']; ?>" />
 
 				<input type="hidden" id="wght_display_default"  name="wght_display_default" value="<?php echo $current_fonts['display']['weight']; ?>" />
 
-				<span class="btn btn-display btn-md form-range-button hide-if-no-js" onClick="$('#wght_display_value').text($('#wght_display_default').val() );$('#wght_display').val($('#wght_display_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-display btn-md form-range-button hide-if-no-js" onClick="$('#wght_display_value').text($('#wght_display_default').val() );$('#wght_display').val($('#wght_display_default').val());$('.display-sample').css('font-weight', $('#wght_display_default').val());"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small id="wght_display_desc" class="form-text">
 				<?php if ( ! $current_fonts['display']['var'] ) {
@@ -561,11 +619,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="space_display_value"><?php echo ( $this->getValue( 'space_display' ) ? $this->getValue( 'space_display' ) : $current_fonts['display']['space'] ); ?></span>em</span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#space_display_value').html($(this).val())" id="space_display" name="space_display" value="<?php echo $this->getValue( 'space_display' ); ?>" min="-0.100" max="0.150" step="0.001" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_display_value').html($(this).val());$('.display-sample').css('letter-spacing',$(this).val()+'em');" id="space_display" name="space_display" value="<?php echo $this->getValue( 'space_display' ); ?>" min="-0.100" max="0.150" step="0.001" />
 
 				<input type="hidden" id="space_display_default"  name="space_display_default" value="<?php echo $current_fonts['display']['space']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_display_value').text($('#space_display_default').val() );$('#space_display').val($('#space_display_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_display_value').text($('#space_display_default').val() );$('#space_display').val($('#space_display_default').val());$('.display-sample').css('letter-spacing', $('#space_display_default').val()+'em');"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 	</div>
@@ -578,11 +636,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="wght_primary_value"><?php echo ( $this->getValue( 'wght_primary' ) ? $this->getValue( 'wght_primary' ) : $this->dbFields['wght_primary'] ); ?></span></span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#wght_primary_value').html($(this).val())" id="wght_primary" name="wght_primary" value="<?php echo $this->getValue( 'wght_primary' ); ?>" min="<?php echo $current_fonts['primary']['min']; ?>" max="<?php echo $current_fonts['primary']['max']; ?>" step="<?php echo $current_fonts['primary']['step']; ?>" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_primary_value').html($(this).val());$('.primary-sample').css('font-weight',$(this).val());" id="wght_primary" name="wght_primary" value="<?php echo $this->getValue( 'wght_primary' ); ?>" min="<?php echo $current_fonts['primary']['min']; ?>" max="<?php echo $current_fonts['primary']['max']; ?>" step="<?php echo $current_fonts['primary']['step']; ?>" />
 
 				<input type="hidden" id="wght_primary_default"  name="wght_primary_default" value="<?php echo $current_fonts['primary']['weight']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_primary_value').text($('#wght_primary_default').val() );$('#wght_primary').val($('#wght_primary_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_primary_value').text($('#wght_primary_default').val() );$('#wght_primary').val($('#wght_primary_default').val());$('.primary-sample').css('font-weight', $('#wght_primary_default').val());"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small id="wght_primary_desc" class="form-text">
 				<?php if ( ! $current_fonts['primary']['var'] ) {
@@ -596,11 +654,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="space_primary_value"><?php echo ( $this->getValue( 'space_primary' ) ? $this->getValue( 'space_primary' ) : $current_fonts['primary']['space'] ); ?></span>em</span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#space_primary_value').html($(this).val())" id="space_primary" name="space_primary" value="<?php echo $this->getValue( 'space_primary' ); ?>" min="-0.100" max="0.150" step="0.001" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_primary_value').html($(this).val());$('.primary-sample').css('letter-spacing',$(this).val()+'em')" id="space_primary" name="space_primary" value="<?php echo $this->getValue( 'space_primary' ); ?>" min="-0.100" max="0.150" step="0.001" />
 
 				<input type="hidden" id="space_primary_default"  name="space_primary_default" value="<?php echo $current_fonts['primary']['space']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_primary_value').text($('#space_primary_default').val() );$('#space_primary').val($('#space_primary_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_primary_value').text($('#space_primary_default').val() );$('#space_primary').val($('#space_primary_default').val());$('.primary-sample').css('letter-spacing', $('#space_primary_default').val()+'em')"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 	</div>
@@ -613,11 +671,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="wght_secondary_value"><?php echo ( $this->getValue( 'wght_secondary' ) ? $this->getValue( 'wght_secondary' ) : $this->dbFields['wght_secondary'] ); ?></span></span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#wght_secondary_value').html($(this).val())" id="wght_secondary" name="wght_secondary" value="<?php echo $this->getValue( 'wght_secondary' ); ?>" min="<?php echo $current_fonts['secondary']['min']; ?>" max="<?php echo $current_fonts['secondary']['max']; ?>" step="<?php echo $current_fonts['secondary']['step']; ?>" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#wght_secondary_value').html($(this).val());$('.secondary-sample').css('font-weight',$(this).val());" id="wght_secondary" name="wght_secondary" value="<?php echo $this->getValue( 'wght_secondary' ); ?>" min="<?php echo $current_fonts['secondary']['min']; ?>" max="<?php echo $current_fonts['secondary']['max']; ?>" step="<?php echo $current_fonts['secondary']['step']; ?>" />
 
 				<input type="hidden" id="wght_secondary_default"  name="wght_secondary_default" value="<?php echo $current_fonts['secondary']['weight']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_secondary_value').text($('#wght_secondary_default').val() );$('#wght_secondary').val($('#wght_secondary_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#wght_secondary_value').text($('#wght_secondary_default').val() );$('#wght_secondary').val($('#wght_secondary_default').val());$('.secondary-sample').css('font-weight', $('#wght_secondary_default').val());"><?php $L->p( 'Default' ); ?></span>
 			</div>
 			<small id="wght_secondary_desc" class="form-text">
 				<?php if ( ! $current_fonts['secondary']['var'] ) {
@@ -631,11 +689,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 			<div class="form-range-controls">
 				<span class="form-range-value rem-range-value"><span id="space_secondary_value"><?php echo ( $this->getValue( 'space_secondary' ) ? $this->getValue( 'space_secondary' ) : $current_fonts['secondary']['space'] ); ?></span>em</span>
 
-				<input type="range" class="form-control-range custom-range" onInput="$('#space_secondary_value').html($(this).val())" id="space_secondary" name="space_secondary" value="<?php echo $this->getValue( 'space_secondary' ); ?>" min="-0.100" max="0.150" step="0.001" />
+				<input type="range" class="form-control-range custom-range" onInput="$('#space_secondary_value').html($(this).val());$('.secondary-sample').css('letter-spacing',$(this).val()+'em')" id="space_secondary" name="space_secondary" value="<?php echo $this->getValue( 'space_secondary' ); ?>" min="-0.100" max="0.150" step="0.001" />
 
 				<input type="hidden" id="space_secondary_default"  name="space_secondary_default" value="<?php echo $current_fonts['secondary']['space']; ?>" />
 
-				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_secondary_value').text($('#space_secondary_default').val() );$('#space_secondary').val($('#space_secondary_default').val());"><?php $L->p( 'Default' ); ?></span>
+				<span class="btn btn-secondary btn-md form-range-button hide-if-no-js" onClick="$('#space_secondary_value').text($('#space_secondary_default').val() );$('#space_secondary').val($('#space_secondary_default').val());$('.secondary-sample').css('letter-spacing', $('#space_secondary_default').val()+'em')"><?php $L->p( 'Default' ); ?></span>
 			</div>
 		</div>
 	</div>
@@ -845,6 +903,9 @@ jQuery(document).ready( function($) {
 			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'none' );
 		}
 		<?php endforeach; ?>
+	});
+	$( '.display-sample' ).click( function(e) {
+		e.preventDefault();
 	});
 });
 </script>

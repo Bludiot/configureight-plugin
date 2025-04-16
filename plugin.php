@@ -744,9 +744,9 @@ class configureight extends Plugin {
 
 			// Skip current font scheme. It is fetched below.
 			if ( $slug == $this->font_scheme() ) {
-				continue;
+				// continue;
 			}
-			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/schemes/fonts/{$slug}/admin{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
+			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/schemes/fonts/{$slug}/font-preview{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		// End plugin page.

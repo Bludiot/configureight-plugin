@@ -197,7 +197,6 @@ class configureight extends Plugin {
 
 		// Plugin options for database.
 		$this->dbFields = [
-			'keep_options'           => true,
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
 			'toolbar_mobile'         => false,
@@ -457,28 +456,7 @@ class configureight extends Plugin {
 	 */
 	public function install( $position = 1 ) {
 
-		/**
-		 * Stop if preserving options and uploads.
-		 *
-		 * The `installed()` method in the parent class simply
-		 * checks for a database corresponding to this plugin.
-		 * If the `keep_options` setting is true then the database
-		 * was not deleted on uninstall. However, this `install()`
-		 * method is still run when the theme/plugin are reactivated
-		 * and will overwrite the saved database if not stopped here.
-		 *
-		 * The check for `keep_options` is not necessary but
-		 * included for completeness.
-		 */
-		if ( $this->installed() && $this->keep_options() ) {
-			return;
-		}
-
-		// Create workspace.
-		$workspace = $this->workspace();
-		mkdir( $workspace, DIR_PERMISSIONS, true );
-
-		// Create plugin directory for the database
+		// Create plugin directory for the database.
 		mkdir( PATH_PLUGINS_DATABASES . $this->directoryName, DIR_PERMISSIONS, true );
 
 		$this->dbFields['position'] = $position;
@@ -507,29 +485,15 @@ class configureight extends Plugin {
 	/**
 	 * Uninstall
 	 *
-	 * If set in the General options tab,
-	 * returns false to prevent database resetting
-	 * when the theme is deactivated and the plugin
-	 * is automatically uninstalled.
-	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return boolean
 	 */
 	public function uninstall() {
 
-		// Stop if preserving options and uploads.
-		if ( $this->keep_options() ) {
-			return false;
-		}
-
 		// Delete database.
 		$path = PATH_PLUGINS_DATABASES . $this->directoryName;
 		Filesystem :: deleteRecursive( $path );
-
-		// Delete workspace.
-		$workspace = $this->workspace();
-		Filesystem :: deleteRecursive( $workspace );
 
 		// Delete image uploads.
 		$uploads = PATH_CONTENT . $this->directoryName;
@@ -1409,11 +1373,6 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
-
-	// @return boolean
-	public function keep_options() {
-		return $this->getValue( 'keep_options' );
-	}
 
 	// @return string
 	public function user_toolbar() {

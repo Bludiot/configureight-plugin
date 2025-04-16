@@ -34,17 +34,6 @@ $custom_from = $this->custom_scheme_from();
 	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="keep_options"><?php $L->p( 'Save Options' ); ?></label>
-		<div class="col-sm-10">
-			<select class="form-select" id="keep_options" name="keep_options">
-				<option value="true" <?php echo ( $this->getValue( 'keep_options' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Save All' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'keep_options' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Delete All' ); ?></option>
-			</select>
-			<small class="form-text"><?php $L->p( 'Save these options and image uploads when deactivating this theme. Options and images will be restored when reactivating the theme if set to save all. Delete all will reset the theme on reactivation.' ); ?></small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Site Icon' ); ?></label>
 		<div class="col-sm-10">
 			<p><?php $L->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>

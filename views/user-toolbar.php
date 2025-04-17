@@ -203,7 +203,7 @@ if ( $user->profilePicture() ) {
 					<?php
 					foreach ( $plugins['adminSidebar'] as $link ) {
 						if ( 'theme' == $link->type() ) {
-							// continue;
+							continue;
 						}
 						printf(
 							'<li>%s</li>',

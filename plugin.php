@@ -119,6 +119,17 @@ class configureight extends Plugin {
 	}
 
 	/**
+	 * Class instance
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object Returns the instance.
+	 */
+	public static function instance() {
+		return new self;
+	}
+
+	/**
 	 * Prepare plugin for installation
 	 *
 	 * @since  1.0.0
@@ -197,6 +208,7 @@ class configureight extends Plugin {
 
 		// Plugin options for database.
 		$this->dbFields = [
+			'keep_uploads'           => true,
 			'site_favicon'           => [],
 			'user_toolbar'           => 'enabled',
 			'toolbar_mobile'         => false,
@@ -495,9 +507,11 @@ class configureight extends Plugin {
 		$path = PATH_PLUGINS_DATABASES . $this->directoryName;
 		Filesystem :: deleteRecursive( $path );
 
-		// Delete image uploads.
-		$uploads = PATH_CONTENT . $this->directoryName;
-		Filesystem :: deleteRecursive( $uploads );
+		// Delete image uploads if opted in.
+		if ( ! $this->keep_uploads() ) {
+			$uploads = PATH_CONTENT . $this->directoryName;
+			Filesystem :: deleteRecursive( $uploads );
+		}
 
 		return true;
 	}
@@ -1373,6 +1387,11 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
+
+	// @return boolean
+	public function keep_uploads() {
+		return $this->getValue( 'keep_uploads' );
+	}
 
 	// @return string
 	public function user_toolbar() {

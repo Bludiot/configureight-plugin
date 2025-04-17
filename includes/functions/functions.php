@@ -15,19 +15,10 @@ namespace CFE_Plugin;
  * Gets this plugin's core class.
  *
  * @since  1.0.0
- * @global object $site The Site class.
  * @return mixed Returns the class object or false.
  */
 function plugin() {
-
-	// Access global variables.
-	global $site;
-
-	if ( getPlugin( $site->theme() ) ) {
-		return getPlugin( $site->theme() );
-	} else {
-		return false;
-	}
+	return \configureight :: instance();
 }
 
 /**

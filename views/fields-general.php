@@ -34,6 +34,17 @@ $custom_from = $this->custom_scheme_from();
 	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
 
 	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="keep_uploads"><?php $L->p( ' Image Uploads' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="keep_uploads" name="keep_uploads">
+				<option value="true" <?php echo ( $this->keep_uploads() === true ? 'selected' : '' ); ?>><?php $L->p( 'Save Uploads' ); ?></option>
+				<option value="false" <?php echo ( $this->keep_uploads() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Delete Uploads' ); ?></option>
+			</select>
+			<small class="form-text"><?php $L->p( 'Choose whether to save or delete this plugin\'s upload directory when deactivating.' ); ?></small>
+		</div>
+	</div>
+
+	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Site Icon' ); ?></label>
 		<div class="col-sm-10">
 			<p><?php $L->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>

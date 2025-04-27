@@ -137,6 +137,7 @@ use function CFE_Plugin\{
 				'configureight' === $plugin->className() ||
 				! isset( $plugin->metadata['theme_compat'] ) ||
 				( isset( $plugin->metadata['theme_compat'] ) &&
+				is_array( $plugin->metadata['theme_compat'] ) &&
 				! in_array( 'configureight', $plugin->metadata['theme_compat'] ) )
 			) {
 				continue;

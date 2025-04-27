@@ -1047,7 +1047,11 @@ function suite_plugins_active() {
 			continue;
 		}
 
-		if ( isset( $plugin->metadata['theme_compat'] ) ) {
+		if (
+			isset( $plugin->metadata['theme_compat'] ) &&
+			is_array( $plugin->metadata['theme_compat'] ) &&
+			in_array( 'configureight', $plugin->metadata['theme_compat'] )
+		) {
 			$suite[] = $plugin->className();
 		}
 	}

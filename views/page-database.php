@@ -28,6 +28,20 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <?php $L->p( 'List of current Configure 8 Suite options and their values. Includes plugins that are bundled in the full suite, if installed and activated.' ); ?></p>
 
+<ul>
+	<li><a href="#<?php echo plugin()->className(); ?>"><?php echo plugin()->name(); ?></a></li>
+	<?php
+	foreach ( suite_plugins_active() as $plugin ) {
+
+		$get = getPlugin( $plugin );
+		printf(
+			'<li><a href="#%s">%s</a></li>',
+			$get->className(),
+			$get->name()
+		);
+	} ?>
+</ul>
+
 <?php
 /**
  * List options for Configure 8 suite plugins.

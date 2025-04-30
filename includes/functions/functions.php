@@ -772,7 +772,8 @@ function options_list( $plugin = false ) {
 
 	// Options list markup.
 	$list  = sprintf(
-		'<div class="database-list"><h2>%s</h2>',
+		'<a name="%s"></a><div class="database-list"><h2>%s</h2>',
+		$get_plugin->className(),
 		$get_plugin->name()
 	);
 	$list .= '<ul class="dashboard-options-list">';

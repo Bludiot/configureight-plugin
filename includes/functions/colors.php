@@ -134,12 +134,7 @@ function color_schemes() {
 			'slug'     => 'default',
 			'name'     => $L->get( 'Default' ),
 			'category' => 'basic',
-			'fonts'    => [
-				$L->get( 'Default' ),
-				$L->get( 'Sans-Serif' ),
-				$L->get( 'Serif' )
-			],
-			'cover' => '#355e9a',
+			'cover'    => '#355e9a',
 			'light' => [
 				'body'  => '#ffffff',
 				'text'  => '#333333',
@@ -165,10 +160,7 @@ function color_schemes() {
 			'slug'     => 'dark',
 			'name'     => $L->get( 'Dark' ),
 			'category' => 'basic',
-			'fonts'    => [
-				$L->get( 'Default' )
-			],
-			'cover' => '#355e9a',
+			'cover'    => '#355e9a',
 			'light' => [
 				'body'  => '#1e1e1e',
 				'text'  => '#eeeeee',
@@ -196,7 +188,6 @@ function color_schemes() {
 			'slug'     => 'club',
 			'name'     => $L->get( '1930s Club' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#2ea65e',
 			'light' => [
 				'body'  => '#ffffff',
@@ -223,7 +214,6 @@ function color_schemes() {
 			'slug'     => 'deco',
 			'name'     => $L->get( '1940s Hotel' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#1d683b',
 			'light' => [
 				'body'  => '#ffffff',
@@ -250,7 +240,6 @@ function color_schemes() {
 			'slug'     => 'diner',
 			'name'     => $L->get( '1950s Diner' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#cc0000',
 			'light' => [
 				'body'  => '#ffffff',
@@ -277,7 +266,6 @@ function color_schemes() {
 			'slug'     => 'dress',
 			'name'     => $L->get( '1960s Dress' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#0d3b85',
 			'light' => [
 				'body'  => '#ffffff',
@@ -304,7 +292,6 @@ function color_schemes() {
 			'slug'     => 'kitchen',
 			'name'     => $L->get( '1970s Kitchen' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#536212',
 			'light' => [
 				'body'  => '#ffffff',
@@ -331,7 +318,6 @@ function color_schemes() {
 			'slug'     => 'video',
 			'name'     => $L->get( '1980s Video' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#58146a',
 			'light' => [
 				'body'  => '#ffffff',
@@ -358,7 +344,6 @@ function color_schemes() {
 			'slug'     => 'wedding',
 			'name'     => $L->get( '1990s Wedding' ),
 			'category' => 'design',
-			'fonts'    => '',
 			'cover'    => '#0b687f',
 			'light' => [
 				'body'  => '#ffffff',
@@ -387,7 +372,6 @@ function color_schemes() {
 			'slug'     => 'amber',
 			'name'     => $L->get( 'Amber' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#e58700',
 			'light' => [
 				'body'  => '#ffffff',
@@ -414,7 +398,6 @@ function color_schemes() {
 			'slug'     => 'amethyst',
 			'name'     => $L->get( 'Amethyst' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#4b0776',
 			'light' => [
 				'body'  => '#ffffff',
@@ -441,7 +424,6 @@ function color_schemes() {
 			'slug'     => 'aquamarine',
 			'name'     => $L->get( 'Aquamarine' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#2996b2',
 			'light' => [
 				'body'  => '#ffffff',
@@ -468,7 +450,6 @@ function color_schemes() {
 			'slug'     => 'emerald',
 			'name'     => $L->get( 'Emerald' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#11892c',
 			'light' => [
 				'body'  => '#ffffff',
@@ -495,7 +476,6 @@ function color_schemes() {
 			'slug'     => 'garnet',
 			'name'     => $L->get( 'Garnet' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#c10909',
 			'light' => [
 				'body'  => '#ffffff',
@@ -522,7 +502,6 @@ function color_schemes() {
 			'slug'     => 'jade',
 			'name'     => $L->get( 'Jade' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#0baf4d',
 			'light' => [
 				'body'  => '#ffffff',
@@ -549,7 +528,6 @@ function color_schemes() {
 			'slug'     => 'ruby',
 			'name'     => $L->get( 'Ruby' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#eb0027',
 			'light' => [
 				'body'  => '#ffffff',
@@ -576,7 +554,6 @@ function color_schemes() {
 			'slug'     => 'sapphire',
 			'name'     => $L->get( 'Sapphire' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#0c2d95',
 			'light' => [
 				'body'  => '#ffffff',
@@ -603,7 +580,6 @@ function color_schemes() {
 			'slug'     => 'topaz',
 			'name'     => $L->get( 'Topaz' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#bb621a',
 			'light' => [
 				'body'  => '#ffffff',
@@ -630,7 +606,6 @@ function color_schemes() {
 			'slug'     => 'turquoise',
 			'name'     => $L->get( 'Turquoise' ),
 			'category' => 'gemstones',
-			'fonts'    => '',
 			'cover'    => '#00a77a',
 			'light' => [
 				'body'  => '#ffffff',
@@ -659,7 +634,6 @@ function color_schemes() {
 			'slug'     => 'bamboo',
 			'name'     => $L->get( 'Bamboo' ),
 			'category' => 'materials',
-			'fonts'    => '',
 			'cover'    => '#607414',
 			'light' => [
 				'body'  => '#ffffff',
@@ -686,7 +660,6 @@ function color_schemes() {
 			'slug'     => 'brick',
 			'name'     => $L->get( 'Brick' ),
 			'category' => 'materials',
-			'fonts'    => '',
 			'cover'    => '#bc3a24',
 			'light' => [
 				'body'  => '#fdfcf3',
@@ -713,7 +686,6 @@ function color_schemes() {
 			'slug'     => 'concrete',
 			'name'     => $L->get( 'Concrete' ),
 			'category' => 'materials',
-			'fonts'    => '',
 			'cover'    => '#808fa1',
 			'light' => [
 				'body'  => '#f3f3f3',
@@ -740,7 +712,6 @@ function color_schemes() {
 			'slug'     => 'wood',
 			'name'     => $L->get( 'Wood' ),
 			'category' => 'materials',
-			'fonts'    => '',
 			'cover'    => '#733c18',
 			'light' => [
 				'body'  => '#fcfcf6',
@@ -769,7 +740,6 @@ function color_schemes() {
 			'slug'     => 'bronze',
 			'name'     => $L->get( 'Bronze' ),
 			'category' => 'metallic',
-			'fonts'    => '',
 			'cover'    => '#765824',
 			'light' => [
 				'body'  => '#ffffff',
@@ -796,7 +766,6 @@ function color_schemes() {
 			'slug'     => 'copper',
 			'name'     => $L->get( 'Copper' ),
 			'category' => 'metallic',
-			'fonts'    => '',
 			'cover'    => '#ac5f0d',
 			'light' => [
 				'body'  => '#ffffff',
@@ -823,7 +792,6 @@ function color_schemes() {
 			'slug'     => 'gold',
 			'name'     => $L->get( 'Gold' ),
 			'category' => 'metallic',
-			'fonts'    => '',
 			'cover'    => '#a37110',
 			'light' => [
 				'body'  => '#ffffff',
@@ -850,7 +818,6 @@ function color_schemes() {
 			'slug'     => 'pewter',
 			'name'     => $L->get( 'Pewter' ),
 			'category' => 'metallic',
-			'fonts'    => '',
 			'cover'    => '#625a5a',
 			'light' => [
 				'body'  => '#ffffff',
@@ -879,7 +846,6 @@ function color_schemes() {
 			'slug'     => 'beach',
 			'name'     => $L->get( 'Beach' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#254d88',
 			'light' => [
 				'body'  => '#ffffff',
@@ -906,7 +872,6 @@ function color_schemes() {
 			'slug'     => 'citrus',
 			'name'     => $L->get( 'Citrus' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#ebad03',
 			'light' => [
 				'body'  => '#fffffe',
@@ -933,7 +898,6 @@ function color_schemes() {
 			'slug'     => 'forest',
 			'name'     => $L->get( 'Forest' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#3e721a',
 			'light' => [
 				'body'  => '#ffffff',
@@ -960,7 +924,6 @@ function color_schemes() {
 			'slug'     => 'orchid',
 			'name'     => $L->get( 'Orchid' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#b91881',
 			'light' => [
 				'body'  => '#ffffff',
@@ -987,7 +950,6 @@ function color_schemes() {
 			'slug'     => 'rose',
 			'name'     => $L->get( 'Rose' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#dd3e71',
 			'light' => [
 				'body'  => '#ffffff',
@@ -1014,7 +976,6 @@ function color_schemes() {
 			'slug'     => 'violet',
 			'name'     => $L->get( 'Violet' ),
 			'category' => 'nature',
-			'fonts'    => '',
 			'cover'    => '#672178',
 			'light' => [
 				'body'  => '#ffffff',

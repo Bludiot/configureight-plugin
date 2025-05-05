@@ -1166,29 +1166,83 @@ function current_cover_color() {
 }
 
 /**
+ * Current color group
+ *
+ * Returns the color name as array key and
+ * color hex as key value.
+ *
+ * @since  1.0.0
+ * @param  string $group `light` or `dark`
+ * @return array
+ */
+function current_color_group( $group = 'light' ) {
+
+	$current = current_color_scheme();
+	$colors  = [];
+
+	if ( 'dark' == $group ) {
+		$colors[] = $current['dark'];
+	} else {
+		$colors[] = $current['light'];
+	}
+	return $colors;
+}
+
+/**
+ * Current color group colors
+ *
+ * Returns the color hex values in simple array.
+ *
+ * @since  1.0.0
+ * @param  string $group `light` or `dark`
+ * @return array
+ */
+function current_color_group_hex( $group = 'light' ) {
+
+	$current = current_color_scheme();
+	$colors  = [];
+
+	if ( 'dark' == $group ) {
+		foreach ( $current['dark'] as $name => $color ) {
+			$colors[] = $color;
+		}
+	} else {
+		foreach ( $current['light'] as $name => $color ) {
+			$colors[] = $color;
+		}
+	}
+	return $colors;
+}
+
+/**
  * All current colors
  *
  * Returns a simple array of all colors,
  * light and dark, in the current scheme.
  *
+ * If the `$repeat` parameter is false then
+ * duplicate colors will be filtered out.
+ *
  * @since  1.0.0
+ * @param  boolean $repeat
  * @return array
  */
-function all_current_colors() {
+function all_current_colors( $repeat = true ) {
 
-	$current = current_color_scheme();
-	$light   = [];
-	$dark    = [];
+	$colors  = [];
+	foreach ( current_color_group_hex() as $group => $color ) {
+		$colors[] = $color;
+	}
+	foreach ( current_color_group_hex( 'dark' ) as $group => $color ) {
+		$colors[] = $color;
+	}
+	if ( current_cover_color() ) {
+		$colors[] = current_cover_color();
+	}
 
-	foreach ( $current['light'] as $name => $color ) {
-		$light[] = $color;
-	}
-	foreach ( $current['dark'] as $name => $color ) {
-		$dark[] = $color;
-	}
-	$colors = array_merge( $light, $dark );
-	if ( isset( $current['cover'] ) ) {
-		$colors = array_merge( $current['cover'], $colors );
+	// Filter duplicates.
+	if ( ! $repeat ) {
+		$colors = array_unique( $colors );
 	}
 	return $colors;
 }

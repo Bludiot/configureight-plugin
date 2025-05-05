@@ -62,6 +62,13 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 	height: 1em;
 	border: var( --cfe-form-element--border );
 }
+pre {
+	user-select: all;
+	cursor: pointer;
+	max-width: 720px;
+	margin: 1rem 0;
+	white-space: pre-wrap;
+}
 code.select {
 	cursor: pointer;
 }
@@ -281,6 +288,25 @@ foreach ( $current['dark'] as $name => $color ) {
 }
 echo '</ul>';
 
+// Copy custom colors as text.
+if ( 'custom' == plugin()->color_scheme() ) :
+printf(
+	'<h3 class="form-heading" style="text-transform: none;">%s</h3>',
+	$L->get( 'Copy Custom Colors for Records' )
+);
+echo '<pre>';
+echo $L->get( 'Light' ) . '<br />';
+foreach ( $current['light'] as $name => $color ) {
+	echo ucwords( $name ) . ' &mdash; ' . $color . '<br />';
+}
+echo '<br />' . $L->get( 'Dark' ) . '<br />';
+foreach ( $current['dark'] as $name => $color ) {
+	echo ucwords( $name ) . ' &mdash; ' . $color . '<br />';
+}
+echo '</pre>';
+endif;
+
+// List color schemes.
 foreach ( $schemes as $scheme => $option ) {
 
 	if ( $this->color_scheme() == $option['slug'] ) {

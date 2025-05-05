@@ -121,6 +121,11 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 
 				foreach ( $colors as $color => $option ) {
 
+					// Skip custom scheme, added after.
+					if ( 'none' == $option['category'] ) {
+						continue;
+					}
+
 					if ( $category != $option['category'] && 'basic' != $option['category'] ) {
 						if ( $category != '' ) {
 							echo '</optgroup>';

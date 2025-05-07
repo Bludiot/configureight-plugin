@@ -759,7 +759,7 @@ class configureight extends Plugin {
 			'enabled' == $this->getValue( 'user_toolbar' ) ||
 			'backend' == $this->getValue( 'user_toolbar' )
 		) {
-			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); } nav.navbar.d-block { display: none !important; }</style>';
+			$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); } nav.navbar { display: none !important; }</style>';
 
 			// Is admin menu hidden.
 			if ( ! $this->getValue( 'admin_menu' ) ) {
@@ -767,8 +767,8 @@ class configureight extends Plugin {
 			}
 
 			if ( ! $this->toolbar_mobile() ) {
-				$assets .= '<style>@media (max-width: 767.98px) { .user-toolbar { display: none; } body, body.toolbar-active { padding-top: 0 !important; } }</style>';
-				$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); } nav.navbar.d-block { display: block !important; }</style>';
+				$assets .= '<style>@media (max-width: 767.98px) { .user-toolbar { display: none; } body, body.toolbar-active { padding-top: 0 !important; } nav.navbar { display: block !important; } }</style>';
+				$assets .= '<style>body { padding-top: var( --cfe-toolbar--height ); }</style>';
 			}
 		}
 

@@ -133,6 +133,7 @@ function color_schemes() {
 		'default' => [
 			'slug'     => 'default',
 			'name'     => $L->get( 'Default' ),
+			'about'    => $L->get( 'A plain and simple color scheme.' ),
 			'category' => 'basic',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -159,6 +160,7 @@ function color_schemes() {
 		'dark' => [
 			'slug'     => 'dark',
 			'name'     => $L->get( 'Dark' ),
+			'about'    => $L->get( 'A plain and simple dark color scheme.' ),
 			'category' => 'basic',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -183,10 +185,94 @@ function color_schemes() {
 			]
 		],
 
+		// Business.
+		'corporate' => [
+			'slug'     => 'corporate',
+			'name'     => $L->get( 'Corporate' ),
+			'about'    => $L->get( 'Clean & blue for a standard business look.' ),
+			'category' => 'scope',
+			'cover'    => '#185d89',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#2c3e50',
+				'one'   => '#2779ae',
+				'two'   => '#34495e',
+				'three' => '#34495e',
+				'four'  => '#547190',
+				'five'  => '#34495e',
+				'six'   => '#547190'
+			],
+			'dark' => [
+				'body'  => '#1d2934',
+				'text'  => '#ecf0f1',
+				'one'   => '#3498db',
+				'two'   => '#2980b9',
+				'three' => '#2980b9',
+				'four'  => '#3498db',
+				'five'  => '#34495e',
+				'six'   => '#2980b9'
+			]
+		],
+		'portfolio' => [
+			'slug'     => 'portfolio',
+			'name'     => $L->get( 'Portfolio' ),
+			'about'    => $L->get( 'A clean and unobtrusive look for portfolios & artwork.' ),
+			'category' => 'scope',
+			'cover'    => '#355e9a',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#444444',
+				'one'   => '#555555',
+				'two'   => '#666666',
+				'three' => '#777777',
+				'four'  => '#555555',
+				'five'  => '#222222',
+				'six'   => '#444444'
+			],
+			'dark' => [
+				'body'  => '#222222',
+				'text'  => '#f7f7f7',
+				'one'   => '#ffffff',
+				'two'   => '#cccccc',
+				'three' => '#555555',
+				'four'  => '#777777',
+				'five'  => '#444444',
+				'six'   => '#333333'
+			]
+		],
+		'videos' => [
+			'slug'     => 'videos',
+			'name'     => $L->get( 'Video' ),
+			'about'    => $L->get( 'A dark theme for showcasing embedded videos.' ),
+			'category' => 'scope',
+			'cover'    => '#355e9a',
+			'light' => [
+				'body'  => '#070707',
+				'text'  => '#f7f7f7',
+				'one'   => '#ffffff',
+				'two'   => '#ff0000',
+				'three' => '#ff0000',
+				'four'  => '#dd0000',
+				'five'  => '#1e1e1e',
+				'six'   => '#ff0000'
+			],
+			'dark' => [
+				'body'  => '#070707',
+				'text'  => '#f7f7f7',
+				'one'   => '#ffffff',
+				'two'   => '#ff0000',
+				'three' => '#ff0000',
+				'four'  => '#dd0000',
+				'five'  => '#1e1e1e',
+				'six'   => '#ff0000'
+			]
+		],
+
 		// Design.
 		'club' => [
 			'slug'     => 'club',
 			'name'     => $L->get( '1930s Club' ),
+			'about'    => $L->get( 'Inspired by the early, colorful jazz & big-band nightclubs.' ),
 			'category' => 'design',
 			'cover'    => '#2ea65e',
 			'light' => [
@@ -213,6 +299,7 @@ function color_schemes() {
 		'deco' => [
 			'slug'     => 'deco',
 			'name'     => $L->get( '1940s Hotel' ),
+			'about'    => $L->get( 'Those nostalgic Art Deco colors that define the period.' ),
 			'category' => 'design',
 			'cover'    => '#1d683b',
 			'light' => [
@@ -239,6 +326,7 @@ function color_schemes() {
 		'diner' => [
 			'slug'     => 'diner',
 			'name'     => $L->get( '1950s Diner' ),
+			'about'    => $L->get( 'Hotrods, black & white checkers, chrome, and neon.' ),
 			'category' => 'design',
 			'cover'    => '#cc0000',
 			'light' => [
@@ -265,6 +353,7 @@ function color_schemes() {
 		'dress' => [
 			'slug'     => 'dress',
 			'name'     => $L->get( '1960s Dress' ),
+			'about'    => $L->get( 'Those bright colors of mid-century ladies fashion.' ),
 			'category' => 'design',
 			'cover'    => '#0d3b85',
 			'light' => [
@@ -291,6 +380,7 @@ function color_schemes() {
 		'kitchen' => [
 			'slug'     => 'kitchen',
 			'name'     => $L->get( '1970s Kitchen' ),
+			'about'    => $L->get( 'Those Earthy tones that defined a moment in time.' ),
 			'category' => 'design',
 			'cover'    => '#536212',
 			'light' => [
@@ -317,6 +407,7 @@ function color_schemes() {
 		'video' => [
 			'slug'     => 'video',
 			'name'     => $L->get( '1980s Video' ),
+			'about'    => $L->get( 'When everything was going vibrant and digital.' ),
 			'category' => 'design',
 			'cover'    => '#58146a',
 			'light' => [
@@ -343,6 +434,7 @@ function color_schemes() {
 		'wedding' => [
 			'slug'     => 'wedding',
 			'name'     => $L->get( '1990s Wedding' ),
+			'about'    => $L->get( 'Those soft, muted tones as we moved away from hot colors.' ),
 			'category' => 'design',
 			'cover'    => '#0b687f',
 			'light' => [

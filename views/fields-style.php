@@ -157,12 +157,19 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 				); ?>
 			</select>
 			<input type="hidden" id="custom_scheme_from" name="custom_scheme_from" value="<?php echo $this->custom_scheme_from(); ?>" />
-			<small class="form-text"><?php $L->p( 'Each color scheme, except for "Dark", has a dark version for devices with a dark user preference.' ); ?></small>
 
 			<ul id="form-color-thumbs-list">
 			<?php foreach ( $colors as $color => $option ) {
+				if ( isset( $option['about'] ) && ! empty( $option['about'] ) ) {
+					printf(
+						'<li id="scheme_desc_%s" style="display: %s;"><p>%s</p></li>',
+						$option['slug'],
+						( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' ),
+						$option['about']
+					);
+				}
 				printf(
-					'<p id="light_scheme_label_%s" style="display: %s;">%s</p>',
+					'<li id="light_scheme_label_%s" style="margin-top: 1em; display: %s;">%s</li>',
 					$option['slug'],
 					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' ),
 					$L->get( 'Light mode colors:' )
@@ -189,7 +196,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 				echo '</ul>';
 
 				printf(
-					'<p id="dark_scheme_label_%s" style="display: %s;">%s</p>',
+					'<li id="dark_scheme_label_%s" style="margin-top: 1em; display: %s;">%s</li>',
 					$option['slug'],
 					( $this->getValue( 'color_scheme' ) === $option['slug'] ? 'flex' : 'none' ),
 					$L->get( 'Dark mode colors:' )
@@ -476,6 +483,8 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=fonts';
 				} ?>
 			</select>
 			<small class="form-text"><?php $L->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
+
+			<p><?php $L->p( 'The sliders below will adjust the following preview so that you can see how elements will look when you save this form.' ); ?></p>
 
 			<ul id="font-preview-list">
 			<?php foreach ( $fonts as $option => $scheme ) {
@@ -777,7 +786,8 @@ jQuery(document).ready( function($) {
 				$( '#custom_scheme_from' ).val( '<?php echo $slug; ?>' );
 			}
 
-			// Custom scheme labels and color thumbnails.
+			// Custom scheme descriptions, labels, and color thumbnails.
+			$( '#scheme_desc_<?php echo $slug; ?>' ).css( 'display', 'block' );
 			$( '#light_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
 			$( '#dark_scheme_label_<?php echo $slug; ?>' ).css( 'display', 'block' );
 			$( '#light_scheme_thumbs_<?php echo $slug; ?>' ).css( 'display', 'flex' );
@@ -817,7 +827,8 @@ jQuery(document).ready( function($) {
 
 		} else {
 
-			// Scheme labels and color thumbnails.
+			// Scheme descriptions, labels, and color thumbnails.
+			$( '#scheme_desc_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#light_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#dark_scheme_label_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );
 			$( '#light_scheme_thumbs_<?php echo $option['slug']; ?>' ).css( 'display', 'none' );

@@ -165,8 +165,7 @@ printf(
 	$L->get( 'Slugs can also be used in the <code>get_color_scheme( $slug )</code> function to get an array of data about the scheme.' )
 );
 
-// Sort schemes alphabetically then by category.
-asort( $schemes );
+// Sort schemes by category.
 usort( $schemes, function( $one_thing, $another ) {
 	return strcmp( $one_thing['category'], $another['category'] );
 } );
@@ -200,17 +199,22 @@ foreach ( $schemes as $scheme => $option ) {
 }
 echo '</ul>';
 
-// Redefine after sorting;
-$schemes = color_schemes();
+// If current exists.
+if ( false !== $current ) :
 
-echo '<hr />'; ?>
-
-<?php
+echo '<hr />';
 printf(
 	'<h2 class="color-heading">%s %s</h2>',
 	$L->get( 'Current Scheme:' ),
 	$current['name']
-); ?>
+);
+
+if ( isset( $current['about'] ) && ! empty( $current['about'] ) ) {
+	printf(
+		'<p>%s</p>',
+		$current['about']
+	);
+} ?>
 
 <?php
 if ( 'custom' == $current['slug'] ) {
@@ -306,6 +310,9 @@ foreach ( $current['dark'] as $name => $color ) {
 echo '</pre>';
 endif;
 
+// If current exists.
+endif;
+
 // List color schemes.
 foreach ( $schemes as $scheme => $option ) {
 
@@ -321,6 +328,13 @@ foreach ( $schemes as $scheme => $option ) {
 		$L->get( 'Scheme:' ),
 		$option['name']
 	);
+
+	if ( isset( $option['about'] ) && ! empty( $option['about'] ) ) {
+		printf(
+			'<p>%s</p>',
+			$option['about']
+		);
+	}
 
 	printf(
 		'<h3 class="color-list-heading">%s</h3>',

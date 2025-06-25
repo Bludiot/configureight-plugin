@@ -351,6 +351,110 @@ function style_font_schemes() {
 				'variant' => 'normal'
 			]
 		],
+		'hand' => [
+			'slug'     => 'hand',
+			'name'     => $L->get( 'Handwritten' ),
+			'text'     => [
+				'family'  => $L->get( 'Sans-Serif' ),
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => false,
+				'size'    => '1rem',
+				'weight'  => '400',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '300',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'primary' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '2.5rem',
+				'weight'  => '600',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'secondary' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1.625rem',
+				'weight'  => '550',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'display' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => 'inherit',
+				'weight'  => '500',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			]
+		],
+		'marker' => [
+			'slug'     => 'marker',
+			'name'     => $L->get( 'Marker' ),
+			'text'     => [
+				'family'  => $L->get( 'Sans-Serif' ),
+				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => false,
+				'size'    => '1rem',
+				'weight'  => '400',
+				'min'     => '100',
+				'max'     => '1000',
+				'step'    => '300',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'primary' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '2rem',
+				'weight'  => '700',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.025',
+				'variant' => 'normal'
+			],
+			'secondary' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1.375rem',
+				'weight'  => '600',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'display' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => 'inherit',
+				'weight'  => '550',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.025',
+				'variant' => 'normal'
+			]
+		],
 		'modern' => [
 			'slug'     => 'modern',
 			'name'     => $L->get( 'Modern' ),

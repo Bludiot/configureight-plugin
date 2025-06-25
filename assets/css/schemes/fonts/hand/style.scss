@@ -1,0 +1,57 @@
+///
+/// Sans serif typography scheme
+///
+
+@font-face {
+	font-family: 'Shantell Sans';
+	font-weight: 300 800;
+	font-style: normal;
+	font-display: swap;
+	src: url( ../../../../fonts/hand/hand.woff2 ) format( 'woff2' );
+}
+
+@font-face {
+	font-family: 'Shantell Sans';
+	font-weight: 300 800;
+	font-style: italic;
+	font-display: swap;
+	src: url( ../../../../fonts/hand/hand-italic.woff2 ) format( 'woff2' );
+}
+
+$hand_stack: 'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+:root {
+
+	// Body & general text.
+	--cfe-fonts--display-stack: #{$hand_stack};
+	--cfe-body--font-family: #{$hand_stack};
+	--cfe-body--font-size: 1.125rem;
+	--cfe-body--font-weight: 400;
+	--cfe-display--font-family: #{$hand_stack};
+	--cfe-display--font-weight: 500;
+	--cfe-display--letter-spacing: normal;
+	--cfe-loader--text--font-size: 1.5rem;
+	--cfe-loader--text--font-weight: 700;
+
+	// Headings.
+	--cfe-heading-primary--font-family: #{$hand_stack};
+	--cfe-heading-primary--font-size: 2rem;
+	--cfe-heading-primary--font-weight: 600;
+	--cfe-heading-primary--letter-spacing: normal;
+	--cfe-heading-secondary--letter-spacing: normal;
+
+	// Header.
+
+	// Navigation.
+
+	// Content.
+	--cfe-cover--full--title--font-size: clamp( 2.375rem, 2.75vw + 1rem, 5vw );
+	--cfe-page-header--heading--font-size: 2rem;
+	--cfe-page-summary--page-header--heading--font-size: 1.75rem;
+	--cfe-page-header--heading--link--font-weight: 600;
+	--cfe-pagination-list--numeric--link--font-weight: 500;
+	--cfe-pagination-list--numeric--link--active--font-weight: 600;
+
+	// Aside.
+	--cfe-sidebar--link--font-weight: 500
+}

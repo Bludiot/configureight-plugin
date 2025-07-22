@@ -27,34 +27,34 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	css,
-	js,
+	admin_theme,
 	asset_min,
-	is_rtl,
-	title_tag,
-	search_form,
-	custom_fields,
-	static_list,
 	categories_list,
-	tags_list,
+	change_theme,
+	custom_fields,
+	css,
+	default_theme,
 	error_search_display,
 	error_static_display,
 	error_cats_display,
 	error_tags_display,
-	change_theme,
-	default_theme,
-	admin_theme,
-	svg_icon
+	is_rtl,
+	js,
+	search_form,
+	static_list,
+	svg_icon,
+	tags_list,
+	title_tag
 };
 use function CFE_Colors\{
-	define_color_scheme,
-	default_color_scheme
+	default_color_scheme,
+	define_color_scheme
 };
 use function CFE_Fonts\{
-	load_font_files,
-	font_schemes,
+	admin_font_options,
 	current_font_scheme,
-	admin_font_options
+	font_schemes,
+	load_font_files
 };
 use function CFE_Galleries\{
 	basic_gallery,

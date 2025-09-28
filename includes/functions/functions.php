@@ -9,6 +9,11 @@
 
 namespace CFE_Plugin;
 
+// Stop if accessed directly.
+if ( ! defined( 'BLUDIT' ) ) {
+	die( 'You are not allowed direct access to this file.' );
+}
+
 /**
  * Plugin object
  *

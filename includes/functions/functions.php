@@ -27,6 +27,21 @@ function plugin() {
 }
 
 /**
+ * Language class object
+ *
+ * Function to use inside other functions and
+ * methods rather than calling the global.
+ *
+ * @since  1.0.0
+ * @global object $L Language class
+ * @return object
+ */
+function lang() {
+	global $L;
+	return $L;
+}
+
+/**
  * Plugin sidebars count
  *
  * This counts plugins with the `adminSidebar()`

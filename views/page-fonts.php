@@ -34,6 +34,11 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 	margin: 1rem 0 0 0 !important;
 	font-size: var( --cfe-admin--font-heading--font-size, 1.625rem );
 }
+.font-slug {
+	margin: 0 !important;
+	font-size: var( --cfe-admin--font-slug--font-size, 1.125rem );
+	font-weight: var( --cfe-admin--font-slug--font-weight, 700 );
+}
 .font-list-heading {
 	margin: 1rem 0 0 0 !important;
 	font-size: var( --cfe-admin--font-list-heading--font-size, 1.25rem );
@@ -70,6 +75,11 @@ printf(
 	'<h2 class="font-heading">%s %s</h2>',
 	$L->get( 'Current Scheme:' ),
 	$current['name']
+);
+printf(
+	'<p class="font-slug">%s %s</p>',
+	$L->get( 'Template Slug:' ),
+	$current['slug']
 );
 
 echo '<ul class="font-list">';
@@ -278,6 +288,11 @@ foreach ( $schemes as $scheme => $font ) {
 		$L->get( 'Scheme:' ),
 		$font['name']
 	);
+	printf(
+	'<p class="font-slug">%s %s</p>',
+	$L->get( 'Template Slug:' ),
+	$font['slug']
+);
 
 	echo '<ul class="font-list">';
 		printf(

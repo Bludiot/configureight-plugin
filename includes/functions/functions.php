@@ -992,6 +992,11 @@ function suite_plugins() {
 			'url'   => 'https://github.com/Bludiot/categories-lists',
 			'guide' => true
 		],
+		'Meta_Data' => [
+			'name'  => $L->g( 'Meta Data' ),
+			'url'   => 'https://github.com/Bludiot/meta-data',
+			'guide' => true
+		],
 		'Pages_Lists' => [
 			'name'  => $L->g( 'Pages Lists' ),
 			'url'   => 'https://github.com/Bludiot/pages-lists',

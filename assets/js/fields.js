@@ -481,19 +481,6 @@ jQuery(document).ready( function($) {
 		$( '#custom_thumb_8_dark' ).css( 'background-color', $( '#color_six_dark_default' ).val() );
 	});
 
-	// Meta options.
-	$( '#title_sep' ).on( 'change', function() {
-		var show = $(this).val();
-		if ( show == 'custom' ) {
-			$( "#custom_sep_wrap" ).fadeIn( 250 );
-			$( 'html, body' ).animate( {
-				scrollTop: $( '#title_sep' ).offset().top
-			}, 1000 );
-		} else if ( show != 'custom' ) {
-			$( "#custom_sep_wrap" ).fadeOut( 250 );
-		}
-	});
-
 	// Admin options.
 	$( '#admin_menu' ).on( 'change', function() {
 		var show = $(this).val();

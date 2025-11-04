@@ -55,9 +55,6 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Styles' ); ?></a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="meta" aria-selected="false" href="#meta"><?php $L->p( 'Meta' ); ?></a>
-		</li>
 	</ul>
 
 	<div id="general" class="tab-pane" role="tabpanel" aria-labelledby="general">
@@ -86,9 +83,6 @@ $database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database
 	</div>
 	<div id="style" class="tab-pane" role="tabpanel" aria-labelledby="style">
 		<?php include( $this->phpPath() . '/views/fields-style.php' ); ?>
-	</div>
-	<div id="meta" class="tab-pane" role="tabpanel" aria-labelledby="meta">
-		<?php include( $this->phpPath() . '/views/fields-meta.php' ); ?>
 	</div>
 </div>
 <?php if ( 'default' != $this->admin_theme() ) : ?>

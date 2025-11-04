@@ -47,6 +47,9 @@ pre {
 			<a class="nav-link" role="tab" aria-controls="admin" aria-selected="false" href="#admin"><?php $L->p( 'Admin' ); ?></a>
 		</li>
 		<li class="nav-item">
+			<a class="nav-link" role="tab" aria-controls="css" aria-selected="false" href="#css"><?php $L->p( 'CSS' ); ?></a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" role="tab" aria-controls="plugins" aria-selected="false" href="#plugins"><?php $L->p( 'Plugins' ); ?></a>
 		</li>
 	</ul>
@@ -69,6 +72,10 @@ pre {
 
 	<div id="admin" class="tab-pane" role="tabpanel" aria-labelledby="admin">
 		<?php include( $this->phpPath() . '/views/info-admin.php' ); ?>
+	</div>
+
+	<div id="css" class="tab-pane" role="tabpanel" aria-labelledby="css">
+		<?php include( $this->phpPath() . '/views/info-css.php' ); ?>
 	</div>
 
 	<div id="plugins" class="tab-pane" role="tabpanel" aria-labelledby="plugins">

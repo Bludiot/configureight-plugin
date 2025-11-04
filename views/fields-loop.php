@@ -22,32 +22,6 @@
 
 	<legend class="screen-reader-text"><?php $L->p( 'Posts Loop' ); ?></legend>
 
-	<?php if ( ! $site->getField( 'uriBlog' ) ) : ?>
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_title"><?php $L->p( 'Loop Title' ); ?></label>
-		<div class="col-sm-10">
-			<input type="text" id="loop_title" name="loop_title" value="<?php echo $this->getValue( 'loop_title' ); ?>" placeholder="<?php echo ( $this->getValue( 'loop_type' ) === 'news' ? $L->get( 'News' ) : $L->get( 'Blog' ) ); ?>" />
-			<small class="form-text">
-				<?php $L->p( 'The title of posts loop pages. Defaults to the type of loop, Blog or News.' ); ?>
-				<br />
-				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
-			</small>
-		</div>
-	</div>
-
-	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="loop_description"><?php $L->p( 'Loop Description' ); ?></label>
-		<div class="col-sm-10">
-			<input type="text" id="loop_description" name="loop_description" value="<?php echo $this->getValue( 'loop_description' ); ?>" placeholder="" />
-			<small class="form-text">
-				<?php $L->p( 'The description of posts loop pages.' ); ?>
-				<br />
-				<?php $L->p( 'This setting is overridden if a static page is used for the loop (not home page).' ); ?>
-			</small>
-		</div>
-	</div>
-	<?php endif; ?>
-
 	<?php if ( ! is_static_loop() && $this->cover_src() ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="loop_cover"><?php $L->p( 'Cover Image' ); ?></label>

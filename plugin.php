@@ -273,8 +273,6 @@ class configureight extends Plugin {
 			'cover_desaturate'       => 0,
 			'cover_desaturate_use'   =>  [ '', 'none' ],
 			'cover_icon'             => 'angle-down-light',
-			'loop_title'             => '',
-			'loop_description'       => '',
 			'loop_cover'             => 'full_first',
 			'loop_type'              => 'blog',
 			'loop_style'             => 'list',
@@ -1771,16 +1769,6 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 */
-
-	// @return string
-	public function loop_title() {
-		return $this->getValue( 'loop_title' );
-	}
-
-	// @return string
-	public function loop_description() {
-		return $this->getValue( 'loop_description' );
-	}
 
 	// @return string
 	public function loop_cover() {

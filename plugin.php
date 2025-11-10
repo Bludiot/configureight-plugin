@@ -406,7 +406,6 @@ class configureight extends Plugin {
 
 		// Array of custom hooks.
 		$this->customHooks = [
-			'meta_tags',
 			'color_scheme_vars',
 			'url_not_found',
 			'page_gallery',
@@ -1140,22 +1139,6 @@ class configureight extends Plugin {
 		if ( $this->show_customize() && checkRole( [ 'admin' ], false ) ) {
 			include( $this->phpPath() . '/views/dash-widget-customize.php' );
 		}
-	}
-
-	/**
-	 * Meta tags hook
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function meta_tags() {
-
-		$html  = '';
-		$html .= title_tag();
-		$html .= $this->meta_custom();
-
-		return $html;
 	}
 
 	/**

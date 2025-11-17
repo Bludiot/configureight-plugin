@@ -84,7 +84,7 @@ printf(
 
 echo '<ul class="font-list">';
 	printf(
-		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 		$current['text']['family'],
 		$current['text']['weight'],
 		$current['text']['space'],
@@ -132,12 +132,12 @@ echo '<ul class="font-list">';
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
-		( '0' === $current['text']['space'] ? 'normal' : $current['text']['space'] )
+		( '0' === $current['text']['space'] ? 'normal' : $current['text']['space'] . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Option:' ),
-		( '0' === plugin()->space_text() ? 'normal' : plugin()->space_text() )
+		( '0' === plugin()->space_text() ? 'normal' : plugin()->space_text() . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
@@ -147,7 +147,7 @@ echo '<ul class="font-list">';
 	echo '</ul></li>';
 
 	printf(
-		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 		$current['primary']['family'],
 		$current['primary']['size'],
 		$current['primary']['weight'],
@@ -196,12 +196,12 @@ echo '<ul class="font-list">';
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
-		( '0' === $current['primary']['space'] ? 'normal' : $current['primary']['space'] )
+		( '0' === $current['primary']['space'] ? 'normal' : $current['primary']['space'] . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Option:' ),
-		( '0' === plugin()->space_primary() ? 'normal' : plugin()->space_primary() )
+		( '0' === plugin()->space_primary() ? 'normal' : plugin()->space_primary() . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
@@ -211,7 +211,7 @@ echo '<ul class="font-list">';
 	echo '</ul></li>';
 
 	printf(
-		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+		'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 		$current['secondary']['family'],
 		$current['secondary']['size'],
 		$current['secondary']['weight'],
@@ -260,12 +260,12 @@ echo '<ul class="font-list">';
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Default:' ),
-		( '0' === $current['secondary']['space'] ? 'normal' : $current['secondary']['space'] )
+		( '0' === $current['secondary']['space'] ? 'normal' : $current['secondary']['space'] . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> %s</li>',
 		$L->get( 'Spacing Option:' ),
-		( '0' === plugin()->space_secondary() ? 'normal' : plugin()->space_secondary() )
+		( '0' === plugin()->space_secondary() ? 'normal' : plugin()->space_secondary() . 'em' )
 	);
 	printf(
 		'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
@@ -296,7 +296,7 @@ foreach ( $schemes as $scheme => $font ) {
 
 	echo '<ul class="font-list">';
 		printf(
-			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: 1.5rem; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 			$font['text']['family'],
 			$font['text']['weight'],
 			$font['text']['space'],
@@ -339,7 +339,7 @@ foreach ( $schemes as $scheme => $font ) {
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $font['text']['space'] ? 'normal' : $font['text']['space'] )
+			( '0' === $font['text']['space'] ? 'normal' : $font['text']['space'] . 'em' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
@@ -349,7 +349,7 @@ foreach ( $schemes as $scheme => $font ) {
 		echo '</ul></li>';
 
 		printf(
-			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 			$font['primary']['family'],
 			$font['primary']['size'],
 			$font['primary']['weight'],
@@ -393,7 +393,7 @@ foreach ( $schemes as $scheme => $font ) {
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $font['primary']['space'] ? 'normal' : $font['primary']['space'] )
+			( '0' === $font['primary']['space'] ? 'normal' : $font['primary']['space'] . 'em' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',
@@ -403,7 +403,7 @@ foreach ( $schemes as $scheme => $font ) {
 		echo '</ul></li>';
 
 		printf(
-			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %s; font-variant: %s;">%s</h3><ul class="font-sublist">',
+			'<li><h3 class="font-list-heading" style="font-family: %s; font-size: %s; font-weight: %s; letter-spacing: %sem; font-variant: %s;">%s</h3><ul class="font-sublist">',
 			$font['secondary']['family'],
 			$font['secondary']['size'],
 			$font['secondary']['weight'],
@@ -447,7 +447,7 @@ foreach ( $schemes as $scheme => $font ) {
 		printf(
 			'<li><span class="font-list-label">%s</span> %s</li>',
 			$L->get( 'Spacing Default:' ),
-			( '0' === $font['secondary']['space'] ? 'normal' : $font['secondary']['space'] )
+			( '0' === $font['secondary']['space'] ? 'normal' : $font['secondary']['space'] . 'em' )
 		);
 		printf(
 			'<li><span class="font-list-label">%s</span> <code class="select">%s</code></li>',

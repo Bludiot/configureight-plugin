@@ -51,6 +51,10 @@ function page_images() {
 
 	// False if the random cover field not checked.
 	if ( ! $build->custom( 'random_cover' ) ) {
+		if ( $build->coverImage() ) {
+			$images[] = $build->coverImage();
+			return $images;
+		}
 		return false;
 	}
 

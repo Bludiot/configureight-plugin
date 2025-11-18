@@ -897,7 +897,7 @@ class configureight extends Plugin {
 		})(jQuery);
 		</script>
 		<a href="#" id="to-top" class="hide-if-no-js" title="<?php lang()->p( 'Back to Top' ); ?>" data-tooltip>
-			<span class="screen-reader-text"><?php $L->p( 'Back to Top' ); ?></span><?php svg_icon( 'angle-up', false ); ?>
+			<span class="screen-reader-text"><?php lang()->p( 'Back to Top' ); ?></span><?php svg_icon( 'angle-up', false ); ?>
 		</a>
 		<?php endif;
 

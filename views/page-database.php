@@ -11,22 +11,23 @@
 // Access namespaced functions.
 use function CFE_Plugin\{
 	plugin,
+	lang,
 	suite_plugins_active,
 	options_list
 };
 
 // Settings page URL.
-$settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
+$settings_page = DOMAIN_ADMIN . 'configure-plugin/' . plugin()->className();
 
 ?>
 
-<h1 class="page-title"><span class="page-title-icon fa fa-server"></span><span class="page-title-text"><?php $L->p( 'Options Databases' ); ?></span></h1>
+<h1 class="page-title"><span class="page-title-icon fa fa-server"></span><span class="page-title-text"><?php lang()->p( 'Options Databases' ); ?></span></h1>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$settings_page}'>website options</a> page." ); ?></p>
+	<p class="m-0"><?php lang()->p( "Go to the <a href='{$settings_page}'>website options</a> page." ); ?></p>
 </div>
 
-<?php $L->p( 'List of current Configure 8 Suite options and their values. Includes plugins that are bundled in the full suite, if installed and activated.' ); ?></p>
+<?php lang()->p( 'List of current Configure 8 Suite options and their values. Includes plugins that are bundled in the full suite, if installed and activated.' ); ?></p>
 
 <ul>
 	<li><a href="#<?php echo plugin()->className(); ?>"><?php echo plugin()->name(); ?></a></li>

@@ -27,6 +27,51 @@ function plugin() {
 }
 
 /**
+ * Site class object
+ *
+ * Function to use inside other functions and
+ * methods rather than calling the global.
+ *
+ * @since  1.0.0
+ * @global object $site Site class
+ * @return object
+ */
+function site() {
+	global $site;
+	return $site;
+}
+
+/**
+ * Login class object
+ *
+ * Function to use inside other functions and
+ * methods rather than calling the global.
+ *
+ * @since  1.0.0
+ * @global object $login Login class
+ * @return object
+ */
+function login() {
+	global $login;
+	return $login;
+}
+
+/**
+ * Url class object
+ *
+ * Function to use inside other functions and
+ * methods rather than calling the global.
+ *
+ * @since  1.0.0
+ * @global object $url Url class
+ * @return object
+ */
+function url() {
+	global $url;
+	return $url;
+}
+
+/**
  * Language class object
  *
  * Function to use inside other functions and
@@ -39,6 +84,21 @@ function plugin() {
 function lang() {
 	global $L;
 	return $L;
+}
+
+/**
+ * Page class object
+ *
+ * Function to use inside other functions and
+ * methods rather than calling the global.
+ *
+ * @since  1.0.0
+ * @global object $page Page class
+ * @return object
+ */
+function page() {
+	global $page;
+	return $page;
 }
 
 /**

@@ -27,6 +27,11 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	site,
+	login,
+	lang,
+	url,
+	page,
 	admin_theme,
 	asset_min,
 	categories_list,
@@ -587,14 +592,9 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site Site class.
-	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function loginHead() {
-
-		// Access global variables.
-		global $site, $url;
 
 		// Maybe get non-minified assets.
 		$suffix = '';
@@ -603,7 +603,7 @@ class configureight extends Plugin {
 		}
 		$assets = '';
 
-		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
+		if ( 'css' == $this->admin_theme() && 'configureight' != site()->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/login{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 		return $assets;
@@ -616,26 +616,25 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L The Language class.
 	 * @global array $layout
 	 * @return string Returns the head content.
 	 */
 	public function adminController() {
 
 		// Access global variables.
-		global $L, $layout, $site;
+		global $layout;
 
 		// Title separator.
 		$sep = $this->title_sep();
 
 		if ( isset( $_GET['page'] ) && 'database' == $_GET['page'] ) {
-			$layout['title'] = $L->get( 'Website Options Database' ) . " {$sep} " . $site->title();
+			$layout['title'] = lang()->get( 'Website Options Database' ) . " {$sep} " . site()->title();
 		} elseif ( isset( $_GET['page'] ) && 'colors' == $_GET['page'] ) {
-			$layout['title'] = $L->get( 'Color Schemes Reference' ) . " {$sep} " . $site->title();
+			$layout['title'] = lang()->get( 'Color Schemes Reference' ) . " {$sep} " . site()->title();
 		} elseif ( isset( $_GET['page'] ) && 'fonts' == $_GET['page'] ) {
-			$layout['title'] = $L->get( 'Font Schemes Reference' ) . " {$sep} " . $site->title();
+			$layout['title'] = lang()->get( 'Font Schemes Reference' ) . " {$sep} " . site()->title();
 		} else {
-			$layout['title'] = $L->get( 'Website Options Guide' ) . " {$sep} " . $site->title();
+			$layout['title'] = lang()->get( 'Website Options Guide' ) . " {$sep} " . site()->title();
 		}
 	}
 
@@ -662,16 +661,11 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site Site class.
-	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function adminHead() {
 
-		// Access global variables.
-		global $site, $url;
-
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
@@ -691,7 +685,7 @@ class configureight extends Plugin {
 		$assets = '';
 
 		// Load only for this plugin's settings page.
-		if ( str_contains( $url->slug(), $this->className() ) ) :
+		if ( str_contains( url()->slug(), $this->className() ) ) :
 
 		$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/dropzone.min.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 
@@ -727,14 +721,14 @@ class configureight extends Plugin {
 		// End plugin page.
 		endif;
 
-		if ( 'css' == $this->admin_theme() && 'configureight' != $site->adminTheme() ) {
+		if ( 'css' == $this->admin_theme() && 'configureight' != site()->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/style{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
-		} elseif ( 'default' == $this->admin_theme() || 'booty' == $site->adminTheme() || ! $site->adminTheme() ) {
+		} elseif ( 'default' == $this->admin_theme() || 'booty' == site()->adminTheme() || ! site()->adminTheme() ) {
 			$assets .= '<link rel="stylesheet" type="text/css" href="' . $this->domainPath() . "assets/css/default{$suffix}.css?version=" . $this->getMetadata( 'version' ) . '" />' . PHP_EOL;
 		}
 
 		// Style block for settings screen.
-		if ( str_contains( $url->slug(), 'settings' ) ) :
+		if ( str_contains( url()->slug(), 'settings' ) ) :
 		$assets .= '<style>';
 		$assets .= '#seo.tab-pane h2:not( :first-of-type ) { display: none !important; }';
 		$assets .= '#seo.tab-pane div:not( :first-of-type ) { display: none !important; }';
@@ -793,20 +787,16 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $page Page class.
 	 * @global object $plugins Plugins class.
-	 * @global object $site Site class.
-	 * @global object $url Url class.
 	 * @return void
 	 */
 	public function adminBodyBegin() {
 
 		// Access global variables.
-		global $L, $login, $page, $plugins, $site, $url;
+		global $plugins;
 
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
@@ -826,7 +816,7 @@ class configureight extends Plugin {
 		}
 
 		// Admin theme notice.
-		if ( 'themes' == $url->slug() && 'theme' == $this->admin_theme() ) {
+		if ( 'themes' == url()->slug() && 'theme' == $this->admin_theme() ) {
 			include( $this->phpPath() . '/views/notice-admin-theme.php' );
 		}
 	}
@@ -838,22 +828,17 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $site Site class.
 	 * @return mixed
 	 */
 	public function adminSidebar() {
 
-		// Access global variables.
-		global $L, $site;
-
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
 		// Configure 8 admin theme has the options link.
-		if ( 'configureight' === $site->adminTheme() ) {
+		if ( 'configureight' === site()->adminTheme() ) {
 			return;
 		}
 
@@ -877,18 +862,12 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $site Site class.
-	 * @global object $url Url class.
 	 * @return string
 	 */
 	public function adminBodyEnd() {
 
-		// Access global variables.
-		global $L, $page, $site, $url;
-
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
@@ -917,27 +896,27 @@ class configureight extends Plugin {
 			});
 		})(jQuery);
 		</script>
-		<a href="#" id="to-top" class="hide-if-no-js" title="<?php $L->p( 'Back to Top' ); ?>" data-tooltip>
+		<a href="#" id="to-top" class="hide-if-no-js" title="<?php lang()->p( 'Back to Top' ); ?>" data-tooltip>
 			<span class="screen-reader-text"><?php $L->p( 'Back to Top' ); ?></span><?php svg_icon( 'angle-up', false ); ?>
 		</a>
 		<?php endif;
 
 		// Content ID on page edit screen.
-		if ( str_contains( $url->slug(), 'edit-content' ) ) {
+		if ( str_contains( url()->slug(), 'edit-content' ) ) {
 			return sprintf(
 				'<script>var uuid = $("#jsuuid").val(); $uuid = uuid; if ( $uuid != "" ) { $( "#jsform" ).prepend( "<h2><span class=\'fa fa-pencil page-title-icon\' style=\'font-size: 0.9em;\'></span>%s</h2><p style=\'margin-bottom: 1rem;\'><strong>%s</strong> <code class=\'select\'>" + $uuid + "</code><br /><strong>%s</strong> <a href=\'%s\'  target=\'_blank\' rel=\'noopener noreferrer\'>%s</a></p>"); }</script>',
-				$L->get( 'Edit Content' ),
-				$L->get( 'Content ID:' ),
-				$L->get( 'Permalink:' ),
-				$page->permalink(),
-				$page->permalink()
+				lang()->get( 'Edit Content' ),
+				lang()->get( 'Content ID:' ),
+				lang()->get( 'Permalink:' ),
+				page()->permalink(),
+				page()->permalink()
 			);
 		}
 
-		if ( str_contains( $url->slug(), 'new-content' ) ) {
+		if ( str_contains( url()->slug(), 'new-content' ) ) {
 			return sprintf(
 				'<script>$( "#jsform" ).prepend( "<h2 style=\'margin-bottom: 1rem;\'><span class=\'fa fa-pencil page-title-icon\' style=\'font-size: 0.9em;\'></span>%s</h2>");</script>',
-				$L->get( 'New Content' )
+				lang()->get( 'New Content' )
 			);
 		}
 
@@ -950,7 +929,7 @@ class configureight extends Plugin {
 		$html = '';
 
 		// Load only for this plugin's settings page.
-		if ( str_contains( $url->slug(), $this->className() ) ) :
+		if ( str_contains( url()->slug(), $this->className() ) ) :
 
 		// AJAX paths for uploads.
 		$upload_path  = HTML_PATH_ADMIN_ROOT . __CLASS__;
@@ -1051,15 +1030,9 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $plugin Plugin class.
-	 * @global object $site Site class.
 	 * @return string Returns the markup of the form.
 	 */
 	public function form() {
-
-		// Access global variables.
-		global $L, $plugin, $site;
 
 		$bookmark   = 'bookmark';
 		$logo_std   = 'logo_std';
@@ -1072,9 +1045,9 @@ class configureight extends Plugin {
 		$covers      = new CFE_Classes\Cover_Album( $config, true );
 
 		$html = '';
-		// ob_start();
+		ob_start();
 		include( $this->phpPath() . '/views/page-form.php' );
-		// $html .= ob_get_clean();
+		$html .= ob_get_clean();
 
 		return $html;
 	}
@@ -1084,17 +1057,12 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $site Site class.
 	 * @return string Returns the markup of the page.
 	 */
 	public function adminView() {
 
-		// Access global variables.
-		global $L, $site;
-
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
@@ -1121,17 +1089,12 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $site Site class.
 	 * @return void
 	 */
 	public function dashboard() {
 
-		// Access global variables.
-		global $L, $site;
-
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
@@ -1157,19 +1120,15 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site The Site class.
 	 * @return mixed Returns the widgets markup or null.
 	 */
 	public function url_not_found() {
-
-		// Access global variables.
-		global $site;
 
 		/**
 		 * Stop if no error page is set or error widgets
 		 * are disabled (content only).
 		 */
-		if ( ! $site->pageNotFound() || 'content' == $this->error_widgets() ) {
+		if ( ! site()->pageNotFound() || 'content' == $this->error_widgets() ) {
 			return null;
 		}
 
@@ -1240,17 +1199,13 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $site The Site class.
 	 * @return editSettings()
 	 */
 	public function edit_settings() {
 
-		// Access global variables.
-		global $site;
-
 		// Get custom fields.
 		$custom_fields = custom_fields();
-		$get_fields    = Sanitize :: htmlDecode( $site->getField( 'customFields' ) );
+		$get_fields    = Sanitize :: htmlDecode( site()->getField( 'customFields' ) );
 		$decode_fields = json_decode( $get_fields, true );
 
 		// Unset custom fields to override if changes.
@@ -1263,9 +1218,9 @@ class configureight extends Plugin {
 		$custom_fields = array_merge( $custom_fields, $decode_fields );
 		$args['customFields'] = json_encode( $custom_fields, JSON_PRETTY_PRINT );
 
-		$args['homepage']         = $site->homepage();
-		$args['uriBlog']          = $site->getField( 'uriBlog' );
-		$args['pageNotFound']     = $site->pageNotFound();
+		$args['homepage']         = site()->homepage();
+		$args['uriBlog']          = site()->getField( 'uriBlog' );
+		$args['pageNotFound']     = site()->pageNotFound();
 		$args['thumbnailWidth']   = $this->getValue( 'thumb_width' );
 		$args['thumbnailHeight']  = $this->getValue( 'thumb_height' );
 		$args['thumbnailQuality'] = $this->getValue( 'img_upload_quality' );
@@ -1334,25 +1289,21 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $L Language class.
-	 * @global object $page Page class.
 	 * @global object $plugins Plugins class.
-	 * @global object $site Site class.
-	 * @global object $url Url class.
 	 * @return void
 	 */
 	public function siteBodyEnd() {
 
 		// Access global variables.
-		global $L, $login, $page, $plugins, $site, $url;
+		global $plugins;
 
 		// Stop if Configure 8 is not the active theme.
-		if ( 'configureight' != $site->theme() ) {
+		if ( 'configureight' != site()->theme() ) {
 			return;
 		}
 
 		// User toolbar.
-		if ( $login->isLogged() ) {
+		if ( login()->isLogged() ) {
 			if (
 				'enabled'  == $this->getValue( 'user_toolbar' ) ||
 				'frontend' == $this->getValue( 'user_toolbar' )
@@ -1693,55 +1644,52 @@ class configureight extends Plugin {
 	}
 
 	/**
-	 * @global $site Site class.
+	 * Thumbnail width
+	 *
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function thumb_width() {
 
-		// Access global variables.
-		global $site;
-
 		$width = $this->getValue( 'thumb_width' );
-		if ( empty( $site->thumbnailWidth() ) ) {
+		if ( empty( site()->thumbnailWidth() ) ) {
 			$width = $this->thumb_width_default();
-		} elseif ( $site->thumbnailWidth() != $this->getValue( 'thumb_width' ) ) {
-			$width = $site->thumbnailWidth();
+		} elseif ( site()->thumbnailWidth() != $this->getValue( 'thumb_width' ) ) {
+			$width = site()->thumbnailWidth();
 		}
 		return $width;
 	}
 
 	/**
-	 * @global $site Site class.
+	 * Thumbnail height
+	 *
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function thumb_height() {
 
-		// Access global variables.
-		global $site;
-
 		$height = $this->getValue( 'thumb_height' );
-		if ( empty( $site->thumbnailHeight() ) ) {
+		if ( empty( site()->thumbnailHeight() ) ) {
 			$height = $this->thumb_height_default();
-		} elseif ( $site->thumbnailHeight() != $this->getValue( 'thumb_height' ) ) {
-			$height = $site->thumbnailHeight();
+		} elseif ( site()->thumbnailHeight() != $this->getValue( 'thumb_height' ) ) {
+			$height = site()->thumbnailHeight();
 		}
 		return $height;
 	}
 
 	/**
-	 * @global $site Site class.
+	 * Image quality
+	 *
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function img_upload_quality() {
 
-		// Access global variables.
-		global $site;
-
 		$quality = $this->getValue( 'img_upload_quality' );
-		if ( empty( $site->thumbnailQuality() ) ) {
+		if ( empty( site()->thumbnailQuality() ) ) {
 			$quality = $this->dbFields['img_upload_quality'];
-		} elseif ( $site->thumbnailQuality() != $this->getValue( 'img_upload_quality' ) ) {
-			$quality = $site->thumbnailQuality();
+		} elseif ( site()->thumbnailQuality() != $this->getValue( 'img_upload_quality' ) ) {
+			$quality = site()->thumbnailQuality();
 		}
 		return $quality;
 	}
@@ -2520,13 +2468,9 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global $site Site class.
 	 * @return mixed Returns the URL or false.
 	 */
 	public function favicon_src() {
-
-		// Access global variables.
-		global $site;
 
 		// Get icon field value & image URL.
 		$icon = $this->site_favicon();
@@ -2539,7 +2483,7 @@ class configureight extends Plugin {
 		$option = DOMAIN_CONTENT . $this->storage_root . '/bookmark/' . $icon;
 
 		if ( $icon && ! file_exists( $album ) ) {
-			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
+			if ( file_exists( PATH_THEMES . site()->theme() . '/assets/images/favicon.png' ) ) {
 				return DOMAIN_THEME . 'assets/images/favicon.png';
 			}
 
@@ -2555,11 +2499,11 @@ class configureight extends Plugin {
 			return $icon;
 
 		// Use icon file in theme assets/images if found & set in options array.
-		} elseif ( $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $icon ) ) {
+		} elseif ( $icon && file_exists( PATH_THEMES . site()->theme() . '/assets/images/' . $icon ) ) {
 			return DOMAIN_THEME . 'assets/images/favicon.png';
 
 		// Use favicon.png file in theme assets/images if found.
-		} elseif ( ! $icon && file_exists( PATH_THEMES . $site->theme() . '/assets/images/favicon.png' ) ) {
+		} elseif ( ! $icon && file_exists( PATH_THEMES . site()->theme() . '/assets/images/favicon.png' ) ) {
 			return DOMAIN_THEME . 'assets/images/favicon.png';
 		}
 		return false;
@@ -2624,14 +2568,9 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $page Page class.
-	 * @global object $url Url class.
 	 * @return mixed Returns one filename or false.
 	 */
 	public function random_cover_image() {
-
-		// Access global variables.
-		global $page, $url;
 
 		$covers    = $this->cover_images();
 		$from_page = page_images();
@@ -2654,26 +2593,20 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $page The Page class.
-	 * @global object $site Site class.
-	 * @global object $url The Url class.
 	 * @return mixed Returns the URL or false.
 	 */
 	public function cover_src() {
-
-		// Access global variables.
-		global $page, $site, $url;
 
 		// Get cover field value.
 		$cover  = $this->random_cover_image();
 		$album  = PATH_CONTENT . $this->storage_root . DS . 'cover' . DS . $cover;
 		$option = DOMAIN_CONTENT . $this->storage_root . '/cover/' . $cover;
 
-		if ( $cover && ! file_exists( $album ) && 'page' == $url->whereAmI() ) {
+		if ( $cover && ! file_exists( $album ) && 'page' == url()->whereAmI() ) {
 			return $cover;
 
 		} elseif ( $cover && ! file_exists( $album ) ) {
-			if ( file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
+			if ( file_exists( PATH_THEMES . site()->theme() . '/assets/images/cover.jpg' ) ) {
 				return DOMAIN_THEME . 'assets/images/cover.jpg';
 			}
 
@@ -2685,11 +2618,11 @@ class configureight extends Plugin {
 			return DOMAIN_UPLOADS . $cover;
 
 		// Use cover file in theme assets/images if found & set in options array.
-		} elseif ( $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/' . $cover ) ) {
+		} elseif ( $cover && file_exists( PATH_THEMES . site()->theme() . '/assets/images/' . $cover ) ) {
 			return DOMAIN_THEME . 'assets/images/' . $cover;
 
 		// Use cover.jpg file in theme assets/images if found.
-		} elseif ( ! $cover && file_exists( PATH_THEMES . $site->theme() . '/assets/images/cover.jpg' ) ) {
+		} elseif ( ! $cover && file_exists( PATH_THEMES . site()->theme() . '/assets/images/cover.jpg' ) ) {
 			return DOMAIN_THEME . 'assets/images/cover.jpg';
 		}
 		return false;

@@ -10,6 +10,7 @@
 
 // Access namespaced functions.
 use function CFE_Plugin\{
+	lang,
 	suite_plugins_active,
 	plugin_options_url
 };
@@ -37,13 +38,13 @@ $database = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
 </style>
 <div id="dashboard-customize-links">
 
-	<h2><?php $L->p( 'Customize This Website' ); ?></h2>
+	<h2><?php lang()->p( 'Customize This Website' ); ?></h2>
 
 	<ul class="customize-links-list">
-		<li><a href="<?php echo $settings; ?>"><?php $L->p( 'Website Configuration' ); ?></a></li>
-		<li><a href="<?php echo $guide; ?>"><?php $L->p( 'Options Guide' ); ?></a></li>
-		<li><a href="<?php echo $colors; ?>"><?php $L->p( 'Colors Reference' ); ?></a></li>
-		<li><a href="<?php echo $fonts; ?>"><?php $L->p( 'Fonts Reference' ); ?></a></li>
+		<li><a href="<?php echo $settings; ?>"><?php lang()->p( 'Website Configuration' ); ?></a></li>
+		<li><a href="<?php echo $guide; ?>"><?php lang()->p( 'Options Guide' ); ?></a></li>
+		<li><a href="<?php echo $colors; ?>"><?php lang()->p( 'Colors Reference' ); ?></a></li>
+		<li><a href="<?php echo $fonts; ?>"><?php lang()->p( 'Fonts Reference' ); ?></a></li>
 
 		<?php
 		foreach ( suite_plugins_active() as $plugin ) {
@@ -55,6 +56,6 @@ $database = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
 			);
 		}
 		?>
-		<li><a href="<?php echo $database; ?>"><?php $L->p( 'Options Databases' ); ?></a></li>
+		<li><a href="<?php echo $database; ?>"><?php lang()->p( 'Options Databases' ); ?></a></li>
 	</ul>
 </div>

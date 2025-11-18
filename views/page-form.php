@@ -8,87 +8,91 @@
  */
 
 // Access namespaced functions.
+use function CFE_Plugin\{
+	plugin,
+	lang
+};
 use function CFE_Colors\{
 	picker_colors_light,
 	picker_colors_dark
 };
 
 // Guide page URL.
-$guide_page = DOMAIN_ADMIN . 'plugin/' . $this->className();
+$guide_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className();
 
 // Database page URL.
-$database_page = DOMAIN_ADMIN . 'plugin/' . $this->className() . '?page=database';
+$database_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=database';
 
 ?>
 
 <div class="alert alert-primary alert-search-forms" role="alert">
-	<p class="m-0"><?php $L->p( "Go to the <a href='{$guide_page}'>options guide</a> page. Go to the <a href='{$database_page}'>options databases</a> page." ); ?></p>
+	<p class="m-0"><?php lang()->p( "Go to the <a href='{$guide_page}'>options guide</a> page. Go to the <a href='{$database_page}'>options databases</a> page." ); ?></p>
 </div>
 
 <div class="tab-content hide-if-no-js" data-toggle="tabslet" data-deeplinking="true" data-animation="true">
 
 	<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="general" aria-selected="false" href="#general"><?php $L->p( 'General' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="general" aria-selected="false" href="#general"><?php lang()->p( 'General' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="header" aria-selected="false" href="#header"><?php $L->p( 'Header' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="header" aria-selected="false" href="#header"><?php lang()->p( 'Header' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="nav" aria-selected="false" href="#nav"><?php $L->p( 'Menu' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="nav" aria-selected="false" href="#nav"><?php lang()->p( 'Menu' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="media" aria-selected="false" href="#media"><?php $L->p( 'Media' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="media" aria-selected="false" href="#media"><?php lang()->p( 'Media' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php $L->p( 'Loops' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="loop" aria-selected="false" href="#loop"><?php lang()->p( 'Loops' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="page" aria-selected="false" href="#page"><?php $L->p( 'Pages' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="page" aria-selected="false" href="#page"><?php lang()->p( 'Pages' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="sidebar" aria-selected="false" href="#sidebar"><?php $L->p( 'Sidebar' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="sidebar" aria-selected="false" href="#sidebar"><?php lang()->p( 'Sidebar' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="footer" aria-selected="false" href="#footer"><?php $L->p( 'Footer' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="footer" aria-selected="false" href="#footer"><?php lang()->p( 'Footer' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php $L->p( 'Styles' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="style" aria-selected="false" href="#style"><?php lang()->p( 'Styles' ); ?></a>
 		</li>
 	</ul>
 
 	<div id="general" class="tab-pane" role="tabpanel" aria-labelledby="general">
-		<?php include( $this->phpPath() . '/views/fields-general.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-general.php' ); ?>
 	</div>
 	<div id="header" class="tab-pane" role="tabpanel" aria-labelledby="header">
-		<?php include( $this->phpPath() . '/views/fields-header.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-header.php' ); ?>
 	</div>
 	<div id="nav" class="tab-pane" role="tabpanel" aria-labelledby="nav">
-		<?php include( $this->phpPath() . '/views/fields-navigation.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-navigation.php' ); ?>
 	</div>
 	<div id="media" class="tab-pane" role="tabpanel" aria-labelledby="media">
-		<?php include( $this->phpPath() . '/views/fields-media.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-media.php' ); ?>
 	</div>
 	<div id="loop" class="tab-pane" role="tabpanel" aria-labelledby="loop">
-		<?php include( $this->phpPath() . '/views/fields-loop.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-loop.php' ); ?>
 	</div>
 	<div id="page" class="tab-pane" role="tabpanel" aria-labelledby="page">
-		<?php include( $this->phpPath() . '/views/fields-page.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-page.php' ); ?>
 	</div>
 	<div id="sidebar" class="tab-pane" role="tabpanel" aria-labelledby="sidebar">
-		<?php include( $this->phpPath() . '/views/fields-sidebar.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-sidebar.php' ); ?>
 	</div>
 	<div id="footer" class="tab-pane" role="tabpanel" aria-labelledby="footer">
-		<?php include( $this->phpPath() . '/views/fields-footer.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-footer.php' ); ?>
 	</div>
 	<div id="style" class="tab-pane" role="tabpanel" aria-labelledby="style">
-		<?php include( $this->phpPath() . '/views/fields-style.php' ); ?>
+		<?php include( plugin()->phpPath() . '/views/fields-style.php' ); ?>
 	</div>
 </div>
-<?php if ( 'default' != $this->admin_theme() ) : ?>
+<?php if ( 'default' != plugin()->admin_theme() ) : ?>
 <div class="hide-if-js no-js-message" style="padding-top: 2rem;">
-	<h3><?php $L->p( 'Action Required!' ); ?></h3>
-	<p><?php $L->p( 'Please enable JavaScript to display the options form.' ); ?></p>
+	<h3><?php lang()->p( 'Action Required!' ); ?></h3>
+	<p><?php lang()->p( 'Please enable JavaScript to display the options form.' ); ?></p>
 </div>
 <?php endif; ?>
 

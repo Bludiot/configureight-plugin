@@ -11,6 +11,7 @@
 // Access namespaced functions.
 use function CFE_Plugin\{
 	plugin,
+	lang,
 	suite_plugins,
 	suite_plugin_item,
 	suite_plugins_active,
@@ -20,28 +21,28 @@ use function CFE_Plugin\{
 };
 
 ?>
-<h2 class="form-heading"><?php $L->p( 'Companion Plugins' ); ?></h2>
+<h2 class="form-heading"><?php lang()->p( 'Companion Plugins' ); ?></h2>
 
-<p><?php $L->p( 'The following are plugins that have been designed to enhance the Configure 8 theme, not including the theme options plugin. They should work with most other themes and custom themes, although in some cases code development is necessary.' ); ?></p>
+<p><?php lang()->p( 'The following are plugins that have been designed to enhance the Configure 8 theme, not including the theme options plugin. They should work with most other themes and custom themes, although in some cases code development is necessary.' ); ?></p>
 
 <div class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
 	<ul class="nav nav-tabs" id="nav-tabs" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="active" aria-selected="false" href="#active"><?php $L->p( 'Active' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="active" aria-selected="false" href="#active"><?php lang()->p( 'Active' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="inactive" aria-selected="false" href="#inactive"><?php $L->p( 'Inactive' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="inactive" aria-selected="false" href="#inactive"><?php lang()->p( 'Inactive' ); ?></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" role="tab" aria-controls="downloads" aria-selected="false" href="#downloads"><?php $L->p( 'Downloads' ); ?></a>
+			<a class="nav-link" role="tab" aria-controls="downloads" aria-selected="false" href="#downloads"><?php lang()->p( 'Downloads' ); ?></a>
 		</li>
 	</ul>
 	<div id="active" class="tab-pane" role="tabpanel" aria-labelledby="active">
 
-		<h2 class="form-heading"><?php $L->p( 'Active Companion Plugins' ); ?></h2>
+		<h2 class="form-heading"><?php lang()->p( 'Active Companion Plugins' ); ?></h2>
 
-		<p><?php $L->p( 'The following Configure 8 companion plugins are installed and activated.' ); ?></p>
+		<p><?php lang()->p( 'The following Configure 8 companion plugins are installed and activated.' ); ?></p>
 
 		<?php
 		/**
@@ -81,15 +82,15 @@ use function CFE_Plugin\{
 				printf(
 					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a> <a href="%s" class="button btn btn-secondary btn-sm">%s</a></p>',
 					plugin_options_url( $plugin->className() ),
-					$L->get( 'Options' ),
+					lang()->get( 'Options' ),
 					$guide_url,
-					$L->get( 'Guide' )
+					lang()->get( 'Guide' )
 				);
 			} else {
 				printf(
 					'<p><a href="%s" class="button btn btn-primary btn-sm">%s</a></p>',
 					plugin_options_url( $plugin->className() ),
-					$L->get( 'Options' )
+					lang()->get( 'Options' )
 				);
 			}
 
@@ -101,18 +102,18 @@ use function CFE_Plugin\{
 	</div>
 	<div id="inactive" class="tab-pane" role="tabpanel" aria-labelledby="inactive">
 
-		<h2 class="form-heading"><?php $L->p( 'Inactive Companion Plugins' ); ?></h2>
+		<h2 class="form-heading"><?php lang()->p( 'Inactive Companion Plugins' ); ?></h2>
 
 		<?php
 		if ( count( suite_plugins_inactive() ) > 0 ) {
 			printf(
 				'<p>%s</p>',
-				$L->get( 'The following Configure 8 companion plugins are installed but not activated.' )
+				lang()->get( 'The following Configure 8 companion plugins are installed but not activated.' )
 			);
 		} else {
 			printf(
 				'<p>%s</p>',
-				$L->get( 'There are no Configure 8 companion plugins installed but not activated.' )
+				lang()->get( 'There are no Configure 8 companion plugins installed but not activated.' )
 			);
 		}
 		?>
@@ -159,7 +160,7 @@ use function CFE_Plugin\{
 				'<p><a href="%sinstall-plugin/%s" class="button btn btn-primary btn-sm">%s</a></p>',
 				HTML_PATH_ADMIN_ROOT,
 				$plugin->className(),
-				$L->get( 'Activate' )
+				lang()->get( 'Activate' )
 			);
 
 			if ( $count < count( suite_plugins_inactive() ) ) {
@@ -179,9 +180,9 @@ use function CFE_Plugin\{
 		}
 		</style>
 
-		<h2 class="form-heading"><?php $L->p( 'Companion Plugin Downloads' ); ?></h2>
+		<h2 class="form-heading"><?php lang()->p( 'Companion Plugin Downloads' ); ?></h2>
 
-		<p><?php $L->p( 'Following are pages for all Configure 8 companion plugins, installed or not. Follow the links to read more and download.' ); ?></p>
+		<p><?php lang()->p( 'Following are pages for all Configure 8 companion plugins, installed or not. Follow the links to read more and download.' ); ?></p>
 
 		<?php
 		/**

@@ -8,6 +8,10 @@
  */
 
 // Access namespaced functions.
+use function CFE_Plugin\{
+	plugin,
+	lang
+};
 use function CFE_Colors\{
 	color_schemes
 };
@@ -15,73 +19,73 @@ use function CFE_Colors\{
 // User toolbar option.
 $show_toolbar = true;
 if (
-	'frontend' == $this->user_toolbar() ||
-	'disabled' == $this->user_toolbar()
+	'frontend' == plugin()->user_toolbar() ||
+	'disabled' == plugin()->user_toolbar()
 ) {
 	$show_toolbar = false;
 }
 
 // Color schemes.
 $colors = color_schemes();
-$custom_from = $this->custom_scheme_from();
+$custom_from = plugin()->custom_scheme_from();
 
 ?>
 
-<h2 class="form-heading"><?php $L->p( 'General Options' ); ?></h2>
+<h2 class="form-heading"><?php lang()->p( 'General Options' ); ?></h2>
 
 <fieldset>
 
-	<legend class="screen-reader-text"><?php $L->p( 'General' ); ?></legend>
+	<legend class="screen-reader-text"><?php lang()->p( 'General' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="keep_uploads"><?php $L->p( ' Image Uploads' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="keep_uploads"><?php lang()->p( ' Image Uploads' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="keep_uploads" name="keep_uploads">
-				<option value="true" <?php echo ( $this->keep_uploads() === true ? 'selected' : '' ); ?>><?php $L->p( 'Save Uploads' ); ?></option>
-				<option value="false" <?php echo ( $this->keep_uploads() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Delete Uploads' ); ?></option>
+				<option value="true" <?php echo ( plugin()->keep_uploads() === true ? 'selected' : '' ); ?>><?php lang()->p( 'Save Uploads' ); ?></option>
+				<option value="false" <?php echo ( plugin()->keep_uploads() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php lang()->p( 'Delete Uploads' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Choose whether to save or delete this plugin\'s upload directory when deactivating.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Choose whether to save or delete this plugin\'s upload directory when deactivating.' ); ?></small>
 		</div>
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php $L->p( 'Site Icon' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="site_favicon"><?php lang()->p( 'Site Icon' ); ?></label>
 		<div class="col-sm-10">
-			<p><?php $L->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>
+			<p><?php lang()->p( 'The bookmark image that appears in browser tabs and that is used when saving a page to a mobile screen.' ); ?></p>
 
 			<div id="bookmark-tabs" class="tab-content" data-toggle="tabslet" data-deeplinking="false" data-animation="true">
 
 				<ul class="nav nav-tabs" id="bookmark-nav-tabs" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="bookmark-select" aria-selected="false" href="#bookmark-select"><?php $L->p( 'Select' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="bookmark-select" aria-selected="false" href="#bookmark-select"><?php lang()->p( 'Select' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="bookmark-upload" aria-selected="false" href="#bookmark-upload"><?php $L->p( 'Upload' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="bookmark-upload" aria-selected="false" href="#bookmark-upload"><?php lang()->p( 'Upload' ); ?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" role="tab" aria-controls="bookmark-album" aria-selected="false" href="#bookmark-album"><?php $L->p( 'Album' ); ?></a>
+						<a class="nav-link" role="tab" aria-controls="bookmark-album" aria-selected="false" href="#bookmark-album"><?php lang()->p( 'Album' ); ?></a>
 					</li>
 				</ul>
 				<div id="bookmark-select" role="tabpanel" aria-labelledby="bookmark-select">
-					<p><?php $L->p( 'Select one from uploaded bookmark images.' ); ?></p>
+					<p><?php lang()->p( 'Select one from uploaded bookmark images.' ); ?></p>
 					<?php echo $bookmarks->select_images( $bookmark ); ?>
 				</div>
 
 				<div id="bookmark-upload" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-upload">
 
-					<p><?php $L->p( 'Drag & drop images or click to browse. Allowed file types: .gif, .png, .ico' ); ?></p>
+					<p><?php lang()->p( 'Drag & drop images or click to browse. Allowed file types: .gif, .png, .ico' ); ?></p>
 
 					<div class="dropzone" id="bookmark-upload"></div>
 
 					<div id="bookmark-upload-notice" style="display: none;">
-						<p><?php $L->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as a bookmark image.' ); ?></p>
-						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php $L->p( 'Refresh' ); ?></button></p>
+						<p><?php lang()->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as a bookmark image.' ); ?></p>
+						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php lang()->p( 'Refresh' ); ?></button></p>
 					</div>
 
 				</div>
 
 				<div id="bookmark-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-album">
-					<p><?php $L->p( 'Manage uploaded bookmark images.' ); ?></p>
+					<p><?php lang()->p( 'Manage uploaded bookmark images.' ); ?></p>
 					<div id="bookmark-album-wrap"><?php echo $bookmarks->manage_images( $bookmark ); ?></div>
 				</div>
 			</div>
@@ -89,174 +93,174 @@ $custom_from = $this->custom_scheme_from();
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="user_toolbar"><?php $L->p( 'User Toolbar' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="user_toolbar"><?php lang()->p( 'User Toolbar' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="user_toolbar" name="user_toolbar">
-				<option value="enabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'enabled' ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="enabled" <?php echo ( plugin()->getValue( 'user_toolbar' ) === 'enabled' ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
 
-				<option value="backend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'backend' ? 'selected' : '' ); ?>><?php $L->p( 'Backend Only' ); ?></option>
+				<option value="backend" <?php echo ( plugin()->getValue( 'user_toolbar' ) === 'backend' ? 'selected' : '' ); ?>><?php lang()->p( 'Backend Only' ); ?></option>
 
-				<option value="frontend" <?php echo ( $this->getValue( 'user_toolbar' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
+				<option value="frontend" <?php echo ( plugin()->getValue( 'user_toolbar' ) === 'frontend' ? 'selected' : '' ); ?>><?php lang()->p( 'Frontend Only' ); ?></option>
 
-				<option value="disabled" <?php echo ( $this->getValue( 'user_toolbar' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="disabled" <?php echo ( plugin()->getValue( 'user_toolbar' ) === 'disabled' ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Displayed only to logged-in users.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Displayed only to logged-in users.' ); ?></small>
 		</div>
 	</div>
 
-	<div id="toolbar_mobile_wrap" class="form-field form-group row" style="display: <?php echo ( $this->getValue( 'user_toolbar' ) != 'disabled' ? 'flex' : 'none' ); ?>;">
-		<label class="form-label col-sm-2 col-form-label" for="toolbar_mobile"><?php $L->p( 'Mobile Toolbar' ); ?></label>
+	<div id="toolbar_mobile_wrap" class="form-field form-group row" style="display: <?php echo ( plugin()->getValue( 'user_toolbar' ) != 'disabled' ? 'flex' : 'none' ); ?>;">
+		<label class="form-label col-sm-2 col-form-label" for="toolbar_mobile"><?php lang()->p( 'Mobile Toolbar' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="toolbar_mobile" name="toolbar_mobile">
-				<option value="true" <?php echo ( $this->getValue( 'toolbar_mobile' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'toolbar_mobile' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( plugin()->getValue( 'toolbar_mobile' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( plugin()->getValue( 'toolbar_mobile' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Allow the toolbar on mobile screens.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Allow the toolbar on mobile screens.' ); ?></small>
 		</div>
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="admin_menu"><?php $L->p( ' Admin Menu' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="admin_menu"><?php lang()->p( ' Admin Menu' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="admin_menu" name="admin_menu">
-				<option value="true" <?php echo ( $this->admin_menu() === true ? 'selected' : '' ); ?>><?php $L->p( 'Show' ); ?></option>
-				<option value="false" <?php echo ( $this->admin_menu() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php $L->p( 'Hide' ); ?></option>
+				<option value="true" <?php echo ( plugin()->admin_menu() === true ? 'selected' : '' ); ?>><?php lang()->p( 'Show' ); ?></option>
+				<option value="false" <?php echo ( plugin()->admin_menu() === false ? 'selected' : '' ); ?> <?php echo ( $show_toolbar ? '' : 'disabled' ); ?>><?php lang()->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Menu can only be disabled if the user toolbar is enabled on the back end.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Menu can only be disabled if the user toolbar is enabled on the back end.' ); ?></small>
 		</div>
 	</div>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="to_top_button"><?php $L->p( 'To Top Button' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="to_top_button"><?php lang()->p( 'To Top Button' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="to_top_button" name="to_top_button">
-				<option value="enabled" <?php echo ( $this->getValue( 'to_top_button' ) === 'enabled' ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+				<option value="enabled" <?php echo ( plugin()->getValue( 'to_top_button' ) === 'enabled' ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
 
-				<option value="backend" <?php echo ( $this->getValue( 'to_top_button' ) === 'backend' ? 'selected' : '' ); ?>><?php $L->p( 'Backend Only' ); ?></option>
+				<option value="backend" <?php echo ( plugin()->getValue( 'to_top_button' ) === 'backend' ? 'selected' : '' ); ?>><?php lang()->p( 'Backend Only' ); ?></option>
 
-				<option value="frontend" <?php echo ( $this->getValue( 'to_top_button' ) === 'frontend' ? 'selected' : '' ); ?>><?php $L->p( 'Frontend Only' ); ?></option>
+				<option value="frontend" <?php echo ( plugin()->getValue( 'to_top_button' ) === 'frontend' ? 'selected' : '' ); ?>><?php lang()->p( 'Frontend Only' ); ?></option>
 
-				<option value="disabled" <?php echo ( $this->getValue( 'to_top_button' ) === 'disabled' ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="disabled" <?php echo ( plugin()->getValue( 'to_top_button' ) === 'disabled' ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Display a button to scroll to the top of the page.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Display a button to scroll to the top of the page.' ); ?></small>
 		</div>
 	</div>
 
 	<?php if ( getPlugin( 'Search_Forms' ) ) : ?>
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="search_icon"><?php $L->p( 'Search Icon' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="search_icon"><?php lang()->p( 'Search Icon' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="search_icon" name="search_icon">
-				<option value="true" <?php echo ( $this->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( plugin()->getValue( 'search_icon' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( plugin()->getValue( 'search_icon' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Replace search form submit text with a search icon. Text will remain available to screen readers.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Replace search form submit text with a search icon. Text will remain available to screen readers.' ); ?></small>
 		</div>
 	</div>
 	<?php endif; ?>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="show_customize"><?php $L->p( 'Dashboard Customize' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="show_customize"><?php lang()->p( 'Dashboard Customize' ); ?></label>
 		<div class="col-sm-10">
 			<select class="form-select" id="show_customize" name="show_customize">
-				<option value="true" <?php echo ( $this->getValue( 'show_customize' ) === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
-				<option value="false" <?php echo ( $this->getValue( 'show_customize' ) === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( plugin()->getValue( 'show_customize' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
+				<option value="false" <?php echo ( plugin()->getValue( 'show_customize' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php $L->p( 'Links to help guides abd options on the dashboard.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Links to help guides abd options on the dashboard.' ); ?></small>
 		</div>
 	</div>
 </fieldset>
 
-<h3 class="form-heading"><?php $L->p( 'Loading Screen' ); ?></h3>
+<h3 class="form-heading"><?php lang()->p( 'Loading Screen' ); ?></h3>
 
 <fieldset>
 
-	<legend class="screen-reader-text"><?php $L->p( 'Loader' ); ?></legend>
+	<legend class="screen-reader-text"><?php lang()->p( 'Loader' ); ?></legend>
 
 	<div class="form-field form-group row">
-		<label class="form-label col-sm-2 col-form-label" for="page_loader"><?php $L->p( 'Loading Screen' ); ?></label>
+		<label class="form-label col-sm-2 col-form-label" for="page_loader"><?php lang()->p( 'Loading Screen' ); ?></label>
 		<div class="col-sm-10">
-			<select class="form-select" id="page_loader" name="page_loader" <?php echo ( $this->debug_mode() ? 'disabled' : '' ); ?>>
-				<option value="false" <?php echo ( $this->page_loader() === false ? 'selected' : '' ); ?>><?php $L->p( 'Disabled' ); ?></option>
-				<option value="true" <?php echo ( $this->page_loader() === true ? 'selected' : '' ); ?>><?php $L->p( 'Enabled' ); ?></option>
+			<select class="form-select" id="page_loader" name="page_loader" <?php echo ( plugin()->debug_mode() ? 'disabled' : '' ); ?>>
+				<option value="false" <?php echo ( plugin()->page_loader() === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
+				<option value="true" <?php echo ( plugin()->page_loader() === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
 			</select>
-			<?php if ( $this->debug_mode() ) : ?>
-			<small class="form-text text-danger"><?php $L->p( 'Option disabled while site is in debug mode.' ); ?></small>
+			<?php if ( plugin()->debug_mode() ) : ?>
+			<small class="form-text text-danger"><?php lang()->p( 'Option disabled while site is in debug mode.' ); ?></small>
 			<?php else : ?>
-			<small class="form-text"><?php $L->p( 'A full-screen display that hides the web page until it is fully loaded. Disabled when site is in debug mode.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'A full-screen display that hides the web page until it is fully loaded. Disabled when site is in debug mode.' ); ?></small>
 			<?php endif; ?>
 		</div>
 	</div>
 
-	<div id="loader_options" style="display: <?php echo ( $this->getValue( 'page_loader' ) === true ? 'block' : 'none' ); ?>;">
+	<div id="loader_options" style="display: <?php echo ( plugin()->getValue( 'page_loader' ) === true ? 'block' : 'none' ); ?>;">
 		<div class="form-field form-group row">
-			<label class="form-label col-sm-2 col-form-label" for="loader_text"><?php $L->p( 'Loading Text' ); ?></label>
+			<label class="form-label col-sm-2 col-form-label" for="loader_text"><?php lang()->p( 'Loading Text' ); ?></label>
 			<div class="col-sm-10">
-				<input type="text" id="loader_text" name="loader_text" value="<?php echo $this->getValue( 'loader_text' ); ?>" placeholder="<?php echo $this->dbFields['loader_text']; ?>" />
-				<small class="form-text"><?php $L->p( 'The text to display on the loading screen.' ); ?></small>
+				<input type="text" id="loader_text" name="loader_text" value="<?php echo plugin()->getValue( 'loader_text' ); ?>" placeholder="<?php echo plugin()->dbFields['loader_text']; ?>" />
+				<small class="form-text"><?php lang()->p( 'The text to display on the loading screen.' ); ?></small>
 			</div>
 		</div>
 
 		<div class="form-field form-group row">
-			<label class="form-label col-sm-2 col-form-label" for="loader_icon"><?php $L->p( 'Loading Icon' ); ?></label>
+			<label class="form-label col-sm-2 col-form-label" for="loader_icon"><?php lang()->p( 'Loading Icon' ); ?></label>
 			<div class="col-sm-10">
 				<select class="form-select" id="loader_icon" name="loader_icon">
 
-					<option value="spinner-dots" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-dots' ? 'selected' : '' ); ?>><?php $L->p( 'Dots Circle' ); ?></option>
+					<option value="spinner-dots" <?php echo ( plugin()->getValue( 'loader_icon' ) === 'spinner-dots' ? 'selected' : '' ); ?>><?php lang()->p( 'Dots Circle' ); ?></option>
 
-					<option value="spinner-dashes" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-dashes' ? 'selected' : '' ); ?>><?php $L->p( 'Dashes Circle' ); ?></option>
+					<option value="spinner-dashes" <?php echo ( plugin()->getValue( 'loader_icon' ) === 'spinner-dashes' ? 'selected' : '' ); ?>><?php lang()->p( 'Dashes Circle' ); ?></option>
 
-					<option value="spinner-third" <?php echo ( $this->getValue( 'loader_icon' ) === 'spinner-third' ? 'selected' : '' ); ?>><?php $L->p( 'Third Circle' ); ?></option>
+					<option value="spinner-third" <?php echo ( plugin()->getValue( 'loader_icon' ) === 'spinner-third' ? 'selected' : '' ); ?>><?php lang()->p( 'Third Circle' ); ?></option>
 
-					<option value="none" <?php echo ( $this->getValue( 'loader_icon' ) === 'none' ? 'selected' : '' ); ?>><?php $L->p( 'No Icon' ); ?></option>
+					<option value="none" <?php echo ( plugin()->getValue( 'loader_icon' ) === 'none' ? 'selected' : '' ); ?>><?php lang()->p( 'No Icon' ); ?></option>
 				</select>
 				<small class="form-text">
-					<?php $L->p( 'Choose the style of icon to display below the text.' ); ?>
+					<?php lang()->p( 'Choose the style of icon to display below the text.' ); ?>
 				</small>
 			</div>
 		</div>
 
 		<div class="form-field form-group row">
-			<label class="form-label col-sm-2 col-form-label" for="loader-background-colors"><?php $L->p( 'Background' ); ?></label>
+			<label class="form-label col-sm-2 col-form-label" for="loader-background-colors"><?php lang()->p( 'Background' ); ?></label>
 			<div id="loader-background-colors" class="col-sm-10">
 
-				<p><?php $L->p( 'Light Mode Background' ); ?></p>
+				<p><?php lang()->p( 'Light Mode Background' ); ?></p>
 				<div class="row color-picker-wrap">
-					<input class="color-picker custom-color" id="loader_bg_color" name="loader_bg_color" value="<?php echo $this->loader_bg_color(); ?>" />
+					<input class="color-picker custom-color" id="loader_bg_color" name="loader_bg_color" value="<?php echo plugin()->loader_bg_color(); ?>" />
 					<input id="loader_bg_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['body']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default"><?php $L->p( 'Reset' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default"><?php lang()->p( 'Reset' ); ?></span>
 				</div>
-				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
+				<p><small class="form-text"><?php lang()->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
-				<p><?php $L->p( 'Dark Mode Background' ); ?></p>
+				<p><?php lang()->p( 'Dark Mode Background' ); ?></p>
 				<div class="row color-picker-wrap">
-					<input class="color-picker custom-color" id="loader_bg_color_dark" name="loader_bg_color_dark" value="<?php echo $this->loader_bg_color_dark(); ?>" />
+					<input class="color-picker custom-color" id="loader_bg_color_dark" name="loader_bg_color_dark" value="<?php echo plugin()->loader_bg_color_dark(); ?>" />
 					<input id="loader_bg_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['body']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default_dark"><?php $L->p( 'Reset' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_bg_color_default_dark"><?php lang()->p( 'Reset' ); ?></span>
 				</div>
-				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>
+				<p><small class="form-text"><?php lang()->p( 'For devices with a dark user preference.' ); ?></small></p>
 			</div>
 		</div>
 
 		<div class="form-field form-group row">
-			<label class="form-label col-sm-2 col-form-label" for="loader-text-colors"><?php $L->p( 'Text Color' ); ?></label>
+			<label class="form-label col-sm-2 col-form-label" for="loader-text-colors"><?php lang()->p( 'Text Color' ); ?></label>
 			<div id="loader-text-colors" class="col-sm-10">
 
-				<p><?php $L->p( 'Light Mode Text Color' ); ?></p>
+				<p><?php lang()->p( 'Light Mode Text Color' ); ?></p>
 				<div class="row color-picker-wrap">
-					<input class="color-picker custom-color" id="loader_text_color" name="loader_text_color" value="<?php echo $this->loader_text_color(); ?>" />
+					<input class="color-picker custom-color" id="loader_text_color" name="loader_text_color" value="<?php echo plugin()->loader_text_color(); ?>" />
 					<input id="loader_text_default" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['light']['text']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default"><?php $L->p( 'Reset' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default"><?php lang()->p( 'Reset' ); ?></span>
 				</div>
-				<p><small class="form-text"><?php $L->p( 'For devices with automatic or light user preference.' ); ?></small></p>
+				<p><small class="form-text"><?php lang()->p( 'For devices with automatic or light user preference.' ); ?></small></p>
 
-				<p><?php $L->p( 'Dark Mode Text Color' ); ?></p>
+				<p><?php lang()->p( 'Dark Mode Text Color' ); ?></p>
 				<div class="row color-picker-wrap">
-					<input class="color-picker custom-color" id="loader_text_color_dark" name="loader_text_color_dark" value="<?php echo $this->loader_text_color_dark(); ?>" />
+					<input class="color-picker custom-color" id="loader_text_color_dark" name="loader_text_color_dark" value="<?php echo plugin()->loader_text_color_dark(); ?>" />
 					<input id="loader_text_default_dark" class="screen-reader-text" type="hidden" value="<?php echo $colors[$custom_from]['dark']['text']; ?>" />
-					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default_dark"><?php $L->p( 'Reset' ); ?></span>
+					<span class="btn btn-secondary btn-md hide-if-no-js" id="loader_text_color_default_dark"><?php lang()->p( 'Reset' ); ?></span>
 				</div>
-				<p><small class="form-text"><?php $L->p( 'For devices with a dark user preference.' ); ?></small></p>
+				<p><small class="form-text"><?php lang()->p( 'For devices with a dark user preference.' ); ?></small></p>
 			</div>
 		</div>
 	</div>
@@ -265,7 +269,7 @@ $custom_from = $this->custom_scheme_from();
 <script>
 $( function() {
 	$( '.delete-bookmark' ).bind( 'click', function() {
-		if ( ! confirm( '<?php $L->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
+		if ( ! confirm( '<?php lang()->p( 'Are you sure you want to delete this image?' ); ?>' ) ) { return; }
 		deleteBookmark(this);
 	});
 });

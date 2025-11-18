@@ -132,7 +132,7 @@ $static = buildStaticPages();
 		<label class="form-label col-sm-2 col-form-label" for="main_nav_loop_label"><?php lang()->p( 'Loop Link Label' ); ?></label>
 		<div class="col-sm-10">
 			<input type="text" id="main_nav_loop_label" name="main_nav_loop_label" value="<?php echo plugin()->getValue( 'main_nav_loop_label' ); ?>" placeholder="<?php echo plugin()->dbFields['main_nav_loop_label']; ?>" />
-			<small class="form-text"><?php lang()->p( 'The label for the loop link in the main navigation.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'The label for the posts loop link in the main navigation.' ); ?></small>
 		</div>
 	</div>
 

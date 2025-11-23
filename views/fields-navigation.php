@@ -225,7 +225,7 @@ $static = buildStaticPages();
 				<?php printf(
 					'<p class="form-text">%s<br /><a href="%s">%s</a></p>',
 					lang()->get( 'Please download, install, and activate the Search Forms plugin:' ),
-					'https://github.com/Bludiot/searchforms',
+					'https://github.com/Bludiot/search-forms',
 					lang()->get( 'GitHub Repository' )
 				); ?>
 			<?php endif; ?>

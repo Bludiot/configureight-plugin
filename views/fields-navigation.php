@@ -29,7 +29,7 @@ $static = buildStaticPages();
 
 		<?php if ( isset( $static[0] ) ) : ?>
 		<div class="col-sm-10">
-			<small class="form-text"><?php lang()->p( 'Which static pages shall display in the main navigation menu. Use the page position feature on page edit screens to set the menu order. At least one page is required.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Which static pages shall display in the main navigation menu. Use the page position feature on page edit screens to set the menu order.' ); ?></small>
 
 			<div id="main-nav-pages-wrap" class="multi-check-wrap">
  				<?php

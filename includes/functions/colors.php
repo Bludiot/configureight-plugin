@@ -85,6 +85,7 @@ function custom_scheme() {
 		'custom' => [
 			'slug'     => 'custom',
 			'name'     => $L->get( 'Custom' ),
+			'about'    => $L->get( 'Custom scheme colors begin with the previously set scheme. To change the starting colors, first save a different scheme then select custom.' ),
 			'category' => 'none',
 			'light'    => [
 				'body'  => color( 'body' ),

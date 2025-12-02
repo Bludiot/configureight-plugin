@@ -156,7 +156,7 @@ class configureight extends Plugin {
 	public function autoload() {
 
 		// Path to class files.
-		$path = PATH_PLUGINS . $this->directoryName . DS . 'includes/classes' . DS;
+		$path = $this->phpPath() . 'includes/classes' . DS;
 
 		// Array of namespaced classes & filenames.
 		$classes = [
@@ -189,11 +189,7 @@ class configureight extends Plugin {
 	 */
 	public function get_files() {
 
-		// Plugin path.
-		$path = PATH_PLUGINS . $this->directoryName . DS;
-
-		// Get plugin functions.
-		foreach ( glob( $path . 'includes/functions/*.php' ) as $filename ) {
+		foreach ( glob( $this->phpPath() . 'includes/functions/*.php' ) as $filename ) {
 			require_once $filename;
 		}
 	}

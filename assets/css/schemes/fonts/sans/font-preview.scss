@@ -21,7 +21,7 @@
 $inter_stack: 'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 :root {
-	--cfe-fpv--sans--general--family: #{$inter_stack};
+	--cfe-fpv--sans--general--font-family: #{$inter_stack};
 	--cfe-fpv--sans--display--font-family: #{$inter_stack};
 	--cfe-fpv--modern--primary--font-size: 2rem;
 	--cfe-fpv--modern--secondary--font-size: 1.375rem;

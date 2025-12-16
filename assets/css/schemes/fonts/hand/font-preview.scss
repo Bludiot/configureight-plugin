@@ -21,7 +21,7 @@
 $hand_stack: 'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 :root {
-	--cfe-fpv--hand--general--family: #{$hand_stack};
+	--cfe-fpv--hand--general--font-family: #{$hand_stack};
 	--cfe-fpv--hand--display--font-family: #{$hand_stack};
 	--cfe-fpv--modern--primary--font-size: 2rem;
 	--cfe-fpv--modern--secondary--font-size: 1.375rem;

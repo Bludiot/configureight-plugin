@@ -24,6 +24,6 @@ $sans_stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
 
 :root {
 	// General.
-	--cfe-fpv--marker--general--family: #{$sans_stack};
+	--cfe-fpv--marker--general--font-family: #{$sans_stack};
 	--cfe-fpv--marker--display--font-family: #{$marker_stack};
 }

@@ -40,8 +40,8 @@ $display_stack: 'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-se
 
 :root {
 	--cfe-fpv--condensed--fonts--display-stack: #{$display_stack};
-	--cfe-fpv--condensed--body--font-family: #{$text_stack};
-	--cfe-fpv--condensed--body--letter-spacing: -0.02em;
+	--cfe-fpv--condensed--general--font-family: #{$text_stack};
+	--cfe-fpv--condensed--general--letter-spacing: -0.02em;
 	--cfe-fpv--condensed--display--font-family: #{$display_stack};
 	--cfe-fpv--condensed--display--font-weight: 700;
 	--cfe-fpv--condensed--display--letter-spacing: -0.03em;

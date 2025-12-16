@@ -553,7 +553,7 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=fonts';
 					sprintf(
 						'<p id="text-%s" class="text-sample" style="margin-top: 0; font-family: %s; font-weight: %s; font-size: %s; letter-spacing: %s;">%s</p>',
 						$slug,
-						"var( --cfe-fpv--{$slug}--general--font-family )",
+						"var( --cfe-fpv--{$slug}--general--family )",
 						$weight_t,
 						"var( --cfe-fpv--{$slug}--general--font-size, 1rem )",
 						$space_t,

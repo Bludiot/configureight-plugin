@@ -23,7 +23,7 @@ $rokkitt_stack: 'Rokkitt', 'Hoefler Text', Garamond, slab, 'Apple Color Emoji', 
 $sans_stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 :root {
-	--cfe-fpv--slab--general--font-family: #{$sans_stack};
+	--cfe-fpv--slab--general--family: #{$sans_stack};
 	--cfe-fpv--slab--display--font-family: #{$rokkitt_stack};
 	--cfe-fpv--slab--primary--font-size: 2.5rem;
 	--cfe-fpv--slab--secondary--font-size: 1.625rem;

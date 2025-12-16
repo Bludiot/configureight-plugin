@@ -39,7 +39,7 @@ $montserrat_stack: 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif, 'Apple
 $nunito_stack: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 :root {
-	--cfe-fpv--modern--general--font-family: #{$nunito_stack};
+	--cfe-fpv--modern--general--family: #{$nunito_stack};
 	--cfe-fpv--modern--display--font-family: #{$montserrat_stack};
 	--cfe-fpv--modern--primary--font-size: 2rem;
 	--cfe-fpv--modern--secondary--font-size: 1.375rem;

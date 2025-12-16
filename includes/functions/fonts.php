@@ -12,7 +12,8 @@ namespace CFE_Fonts;
 // Access namespaced functions.
 use function CFE_Plugin\{
 	plugin,
-	domain
+	domain,
+	lang
 };
 
 /**
@@ -65,21 +66,17 @@ function load_font_files() {
  * Listed first in the option.
  *
  * @since  1.0.0
- * @global object $L The Language class.
  * @return array Returns array of font schemes data.
  */
 function basic_font_schemes() {
 
-	// Access global variables.
-	global $L;
-
 	$schemes = [
 		'default' => [
 			'slug'     => 'default',
-			'name'     => $L->get( 'System Default' ),
+			'name'     => lang()->get( 'System Default' ),
 			'text'     => [
-				'family'  => $L->get( 'Sans-Serif' ),
-				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1rem',
 				'weight'  => '400',
@@ -90,8 +87,8 @@ function basic_font_schemes() {
 				'variant' => 'normal'
 			],
 			'primary' => [
-				'family'  => $L->get( 'Sans-Serif' ),
-				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '2rem',
 				'weight'  => '700',
@@ -102,8 +99,8 @@ function basic_font_schemes() {
 				'variant' => 'normal'
 			],
 			'secondary' => [
-				'family'  => $L->get( 'Sans-Serif' ),
-				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1.375rem',
 				'weight'  => '700',
@@ -114,8 +111,8 @@ function basic_font_schemes() {
 				'variant' => 'normal'
 			],
 			'display' => [
-				'family'  => $L->get( 'Sans-Serif' ),
-				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => 'inherit',
 				'weight'  => '600',
@@ -128,7 +125,7 @@ function basic_font_schemes() {
 		],
 		'sans' => [
 			'slug'     => 'sans',
-			'name'     => $L->get( 'Sans Serif' ),
+			'name'     => lang()->get( 'Sans Serif' ),
 			'text'     => [
 				'family'  => 'Inter',
 				'stack'   => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -180,9 +177,9 @@ function basic_font_schemes() {
 		],
 		'serif' => [
 			'slug'     => 'serif',
-			'name'     => $L->get( 'Serif' ),
+			'name'     => lang()->get( 'Serif' ),
 			'text'     => [
-				'family'  => $L->get( 'Georgia' ),
+				'family'  => lang()->get( 'Georgia' ),
 				'stack'   => "Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1.0625rem',
@@ -238,18 +235,14 @@ function basic_font_schemes() {
  * Style font schemes
  *
  * @since  1.0.0
- * @global object $L The Language class.
  * @return array Returns array of font schemes data.
  */
 function style_font_schemes() {
 
-	// Access global variables.
-	global $L;
-
 	$schemes = [
 		'code' => [
 			'slug'     => 'code',
-			'name'     => $L->get( 'Code' ),
+			'name'     => lang()->get( 'Code' ),
 			'text'     => [
 				'family'  => 'Source Code Pro',
 				'stack'   => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -299,9 +292,61 @@ function style_font_schemes() {
 				'variant' => 'normal'
 			]
 		],
+		'condensed' => [
+			'slug'     => 'condensed',
+			'name'     => lang()->get( 'Condensed' ),
+			'text'     => [
+				'family'  => 'Roboto',
+				'stack'   => "'Roboto', 'Franklin Gothic Medium', 'Franklin Gothic', 'Open Sans', Tahoma, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1rem',
+				'weight'  => '400',
+				'min'     => '200',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '-0.02',
+				'variant' => 'normal'
+			],
+			'primary' => [
+				'family'  => 'Roboto Condensed',
+				'stack'   => "'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '2rem',
+				'weight'  => '700',
+				'min'     => '300',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.03',
+				'variant' => 'normal'
+			],
+			'secondary' => [
+				'family' => 'Roboto Condensed',
+				'stack'  => "'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1.375rem',
+				'weight'  => '700',
+				'min'     => '300',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.03',
+				'variant' => 'normal'
+			],
+			'display' => [
+				'family'  => 'Roboto Condensed',
+				'stack'   => "'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => 'inherit',
+				'weight'  => '600',
+				'min'     => '300',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.03',
+				'variant' => 'normal'
+			]
+		],
 		'cosmo' => [
 			'slug'     => 'cosmo',
-			'name'     => $L->get( 'Cosmopolitan' ),
+			'name'     => lang()->get( 'Cosmopolitan' ),
 			'text'     => [
 				'family'  => 'Raleway',
 				'stack'   => "'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -353,9 +398,9 @@ function style_font_schemes() {
 		],
 		'hand' => [
 			'slug'     => 'hand',
-			'name'     => $L->get( 'Handwritten' ),
+			'name'     => lang()->get( 'Handwritten' ),
 			'text'     => [
-				'family'  => $L->get( 'Sans-Serif' ),
+				'family'  => lang()->get( 'Sans-Serif' ),
 				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1rem',
@@ -405,9 +450,9 @@ function style_font_schemes() {
 		],
 		'marker' => [
 			'slug'     => 'marker',
-			'name'     => $L->get( 'Marker' ),
+			'name'     => lang()->get( 'Marker' ),
 			'text'     => [
-				'family'  => $L->get( 'Sans-Serif' ),
+				'family'  => lang()->get( 'Sans-Serif' ),
 				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1rem',
@@ -457,7 +502,7 @@ function style_font_schemes() {
 		],
 		'modern' => [
 			'slug'     => 'modern',
-			'name'     => $L->get( 'Modern' ),
+			'name'     => lang()->get( 'Modern' ),
 			'text'     => [
 				'family'  => 'Nunito Sans',
 				'stack'   => "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -509,9 +554,9 @@ function style_font_schemes() {
 		],
 		'slab' => [
 			'slug'     => 'slab',
-			'name'     => $L->get( 'Slab Serif' ),
+			'name'     => lang()->get( 'Slab Serif' ),
 			'text'     => [
-				'family'  => $L->get( 'Sans-Serif' ),
+				'family'  => lang()->get( 'Sans-Serif' ),
 				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
 				'size'    => '1rem',

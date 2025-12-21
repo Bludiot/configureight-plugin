@@ -35,8 +35,12 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . plugin()->className();
 	margin: 1rem 0 0 0 !important;
 	font-size: var( --cfe-admin--font-heading--font-size, 1.625rem );
 }
+.font-about,
 .font-slug {
 	margin: 0 !important;
+}
+.font-about span,
+.font-slug span {
 	font-size: var( --cfe-admin--font-slug--font-size, 1.125rem );
 	font-weight: var( --cfe-admin--font-slug--font-weight, 700 );
 }
@@ -77,8 +81,17 @@ printf(
 	lang()->get( 'Current Scheme:' ),
 	$current['name']
 );
+if ( array_key_exists( 'about', $current ) ) {
+	if ( ! empty( $current['about'] ) ) {
+		printf(
+			'<p class="font-about"><span>%s</span> %s</p>',
+			lang()->get( 'About:' ),
+			$current['about']
+		);
+	}
+}
 printf(
-	'<p class="font-slug">%s %s</p>',
+	'<p class="font-slug"><span>%s</span> %s</p>',
 	lang()->get( 'Template Slug:' ),
 	$current['slug']
 );
@@ -289,8 +302,17 @@ foreach ( $schemes as $scheme => $font ) {
 		lang()->get( 'Scheme:' ),
 		$font['name']
 	);
+	if ( array_key_exists( 'about', $font ) ) {
+		if ( ! empty( $font['about'] ) ) {
+			printf(
+				'<p class="font-about"><span>%s</span> %s</p>',
+				lang()->get( 'About:' ),
+				$font['about']
+			);
+		}
+	}
 	printf(
-	'<p class="font-slug">%s %s</p>',
+	'<p class="font-slug"><span>%s</span> %s</p>',
 	lang()->get( 'Template Slug:' ),
 	$font['slug']
 );

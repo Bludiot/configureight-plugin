@@ -43,7 +43,8 @@ $display_stack: 'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-se
 	// General.
 	--cfe-fonts--display-stack: #{$display_stack};
 	--cfe-body--font-family: #{$text_stack};
-	--cfe-body--letter-spacing: -0.02em;
+	--cfe-body--letter-spacing: -0.01em;
+	--cfe-body--font-stretch: semi-condensed;
 	--cfe-display--font-family: #{$display_stack};
 	--cfe-display--font-weight: 700;
 	--cfe-display--letter-spacing: -0.03em;

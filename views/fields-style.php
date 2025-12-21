@@ -485,9 +485,33 @@ $fonts_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=fonts';
 					);
 				} ?>
 			</select>
-			<small class="form-text"><?php lang()->p( 'Each font scheme, except for "System Default", uses variable-weight fonts.' ); ?></small>
-
-			<p><?php lang()->p( 'The sliders below will adjust the following preview so that you can see how elements will look when you save this form.' ); ?></p>
+			<?php foreach ( $fonts as $option => $scheme ) {
+				$slug = $scheme['slug'];
+				if ( array_key_exists( 'about', $scheme ) ) {
+					if ( ! empty( $scheme['about'] ) ) {
+						printf(
+							'<small id="font-scheme-about-%s" class="form-text" style="display: %s;">%s</small>',
+							$slug,
+							( plugin()->getValue( 'font_scheme' ) === $slug ? 'block' : 'none' ),
+							$scheme['about']
+						);
+					} else {
+						printf(
+						'<small id="font-scheme-about-%s" class="form-text" style="display: %s;">%s</small>',
+						$slug,
+						( plugin()->getValue( 'font_scheme' ) === $slug ? 'block' : 'none' ),
+						lang()->get( 'See preview below.' )
+					);
+					}
+				} else {
+					printf(
+						'<small id="font-scheme-about-%s" class="form-text" style="display: %s;">%s</small>',
+						$slug,
+						( plugin()->getValue( 'font_scheme' ) === $slug ? 'block' : 'none' ),
+						lang()->get( 'See preview below.' )
+					);
+				}
+			} ?>
 
 			<ul id="font-preview-list">
 			<?php foreach ( $fonts as $option => $scheme ) {
@@ -922,8 +946,10 @@ jQuery(document).ready( function($) {
 		// Scheme preview.
 		if ( scheme == '<?php echo $scheme['slug']; ?>' ) {
 			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'block' );
+			$( '#font-scheme-about-<?php echo $scheme['slug']; ?>' ).css( 'display', 'block' );
 		} else {
 			$( '#font-scheme-preview-<?php echo $scheme['slug']; ?>' ).css( 'display', 'none' );
+			$( '#font-scheme-about-<?php echo $scheme['slug']; ?>' ).css( 'display', 'none' );
 		}
 		<?php endforeach; ?>
 	});

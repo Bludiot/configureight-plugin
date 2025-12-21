@@ -7,7 +7,7 @@
 	font-weight: 300 800;
 	font-style: normal;
 	font-display: swap;
-	src: url( ../../../../fonts/hand/hand.woff2 ) format( 'woff2' );
+	src: url( ../../../../fonts/notepad/shantell-sans.woff2 ) format( 'woff2' );
 }
 
 @font-face {
@@ -15,26 +15,26 @@
 	font-weight: 300 800;
 	font-style: italic;
 	font-display: swap;
-	src: url( ../../../../fonts/hand/hand-italic.woff2 ) format( 'woff2' );
+	src: url( ../../../../fonts/notepad/shantell-sans-italic.woff2 ) format( 'woff2' );
 }
 
-$hand_stack: 'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$display_stack: 'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 :root {
 
 	// Body & general text.
-	--cfe-fonts--display-stack: #{$hand_stack};
-	--cfe-body--font-family: #{$hand_stack};
+	--cfe-fonts--display-stack: #{$display_stack};
+	--cfe-body--font-family: #{$display_stack};
 	--cfe-body--font-size: 1.125rem;
 	--cfe-body--font-weight: 400;
-	--cfe-display--font-family: #{$hand_stack};
+	--cfe-display--font-family: #{$display_stack};
 	--cfe-display--font-weight: 500;
 	--cfe-display--letter-spacing: normal;
 	--cfe-loader--text--font-size: 1.5rem;
 	--cfe-loader--text--font-weight: 700;
 
 	// Headings.
-	--cfe-heading-primary--font-family: #{$hand_stack};
+	--cfe-heading-primary--font-family: #{$display_stack};
 	--cfe-heading-primary--font-size: 2rem;
 	--cfe-heading-primary--font-weight: 600;
 	--cfe-heading-primary--letter-spacing: normal;

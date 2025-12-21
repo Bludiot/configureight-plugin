@@ -72,9 +72,10 @@ function basic_font_schemes() {
 
 	$schemes = [
 		'default' => [
-			'slug'     => 'default',
-			'name'     => lang()->get( 'System Default' ),
-			'text'     => [
+			'slug'  => 'default',
+			'name'  => lang()->get( 'Default' ),
+			'about' => lang()->get( 'Uses the default system sans-serif font.' ),
+			'text'  => [
 				'family'  => lang()->get( 'Sans-Serif' ),
 				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 				'var'     => false,
@@ -126,6 +127,7 @@ function basic_font_schemes() {
 		'sans' => [
 			'slug'     => 'sans',
 			'name'     => lang()->get( 'Sans Serif' ),
+			'about'    => lang()->get( 'An easy to read sans-serif scheme.' ),
 			'text'     => [
 				'family'  => 'Inter',
 				'stack'   => "'Inter', 'Helvetica Neue', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -178,6 +180,7 @@ function basic_font_schemes() {
 		'serif' => [
 			'slug'     => 'serif',
 			'name'     => lang()->get( 'Serif' ),
+			'about'    => lang()->get( 'An easy to read serif scheme.' ),
 			'text'     => [
 				'family'  => lang()->get( 'Georgia' ),
 				'stack'   => "Georgia, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -243,6 +246,7 @@ function style_font_schemes() {
 		'code' => [
 			'slug'     => 'code',
 			'name'     => lang()->get( 'Code' ),
+			'about'    => lang()->get( 'A multi-weight monospace scheme.' ),
 			'text'     => [
 				'family'  => 'Source Code Pro',
 				'stack'   => "'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -295,6 +299,7 @@ function style_font_schemes() {
 		'condensed' => [
 			'slug'     => 'condensed',
 			'name'     => lang()->get( 'Condensed' ),
+			'about'    => lang()->get( '' ),
 			'text'     => [
 				'family'  => 'Roboto',
 				'stack'   => "'Roboto', 'Franklin Gothic Medium', 'Franklin Gothic', 'Open Sans', Tahoma, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -304,7 +309,7 @@ function style_font_schemes() {
 				'min'     => '200',
 				'max'     => '800',
 				'step'    => '1',
-				'space'   => '-0.02',
+				'space'   => '-0.01',
 				'variant' => 'normal'
 			],
 			'primary' => [
@@ -347,6 +352,7 @@ function style_font_schemes() {
 		'cosmo' => [
 			'slug'     => 'cosmo',
 			'name'     => lang()->get( 'Cosmopolitan' ),
+			'about'    => lang()->get( '' ),
 			'text'     => [
 				'family'  => 'Raleway',
 				'stack'   => "'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -396,113 +402,10 @@ function style_font_schemes() {
 				'variant' => 'normal'
 			]
 		],
-		'hand' => [
-			'slug'     => 'hand',
-			'name'     => lang()->get( 'Handwritten' ),
-			'text'     => [
-				'family'  => lang()->get( 'Sans-Serif' ),
-				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => false,
-				'size'    => '1rem',
-				'weight'  => '400',
-				'min'     => '300',
-				'max'     => '800',
-				'step'    => '300',
-				'space'   => '0',
-				'variant' => 'normal'
-			],
-			'primary' => [
-				'family'  => 'Shantell Sans',
-				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => '2.5rem',
-				'weight'  => '600',
-				'min'     => '300',
-				'max'     => '800',
-				'step'    => '1',
-				'space'   => '0',
-				'variant' => 'normal'
-			],
-			'secondary' => [
-				'family'  => 'Shantell Sans',
-				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => '1.625rem',
-				'weight'  => '550',
-				'min'     => '300',
-				'max'     => '800',
-				'step'    => '1',
-				'space'   => '0',
-				'variant' => 'normal'
-			],
-			'display' => [
-				'family'  => 'Shantell Sans',
-				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => 'inherit',
-				'weight'  => '500',
-				'min'     => '300',
-				'max'     => '800',
-				'step'    => '1',
-				'space'   => '0',
-				'variant' => 'normal'
-			]
-		],
-		'marker' => [
-			'slug'     => 'marker',
-			'name'     => lang()->get( 'Marker' ),
-			'text'     => [
-				'family'  => lang()->get( 'Sans-Serif' ),
-				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => false,
-				'size'    => '1rem',
-				'weight'  => '400',
-				'min'     => '100',
-				'max'     => '1000',
-				'step'    => '300',
-				'space'   => '0',
-				'variant' => 'normal'
-			],
-			'primary' => [
-				'family'  => 'Alkatra',
-				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => '2rem',
-				'weight'  => '700',
-				'min'     => '400',
-				'max'     => '700',
-				'step'    => '1',
-				'space'   => '-0.025',
-				'variant' => 'normal'
-			],
-			'secondary' => [
-				'family'  => 'Alkatra',
-				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => '1.375rem',
-				'weight'  => '600',
-				'min'     => '400',
-				'max'     => '700',
-				'step'    => '1',
-				'space'   => '0',
-				'variant' => 'normal'
-			],
-			'display' => [
-				'family'  => 'Alkatra',
-				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-				'var'     => true,
-				'size'    => 'inherit',
-				'weight'  => '550',
-				'min'     => '400',
-				'max'     => '700',
-				'step'    => '1',
-				'space'   => '-0.025',
-				'variant' => 'normal'
-			]
-		],
 		'modern' => [
 			'slug'     => 'modern',
 			'name'     => lang()->get( 'Modern' ),
+			'about'    => lang()->get( '' ),
 			'text'     => [
 				'family'  => 'Nunito Sans',
 				'stack'   => "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -552,9 +455,116 @@ function style_font_schemes() {
 				'variant' => 'small-caps'
 			]
 		],
+		'notepad' => [
+			'slug'     => 'notepad',
+			'name'     => lang()->get( 'Notepad' ),
+			'about'    => lang()->get( 'A casual, hand-printed scheme.' ),
+			'text'     => [
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => false,
+				'size'    => '1rem',
+				'weight'  => '400',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '300',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'primary' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '2.5rem',
+				'weight'  => '600',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'secondary' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1.625rem',
+				'weight'  => '550',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'display' => [
+				'family'  => 'Shantell Sans',
+				'stack'   => "'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => 'inherit',
+				'weight'  => '500',
+				'min'     => '300',
+				'max'     => '800',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			]
+		],
+		'signage' => [
+			'slug'     => 'signage',
+			'name'     => lang()->get( 'Signage' ),
+			'about'    => lang()->get( '' ),
+			'text'     => [
+				'family'  => lang()->get( 'Sans-Serif' ),
+				'stack'   => " -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => false,
+				'size'    => '1rem',
+				'weight'  => '400',
+				'min'     => '100',
+				'max'     => '1000',
+				'step'    => '300',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'primary' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '2rem',
+				'weight'  => '700',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.025',
+				'variant' => 'normal'
+			],
+			'secondary' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => '1.375rem',
+				'weight'  => '600',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '0',
+				'variant' => 'normal'
+			],
+			'display' => [
+				'family'  => 'Alkatra',
+				'stack'   => "'Alkatra', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+				'var'     => true,
+				'size'    => 'inherit',
+				'weight'  => '550',
+				'min'     => '400',
+				'max'     => '700',
+				'step'    => '1',
+				'space'   => '-0.025',
+				'variant' => 'normal'
+			]
+		],
 		'slab' => [
 			'slug'     => 'slab',
 			'name'     => lang()->get( 'Slab Serif' ),
+			'about'    => lang()->get( '' ),
 			'text'     => [
 				'family'  => lang()->get( 'Sans-Serif' ),
 				'stack'   => "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",

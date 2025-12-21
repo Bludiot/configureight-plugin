@@ -29,7 +29,8 @@
 :root {
   --cfe-fonts--display-stack: Roboto Condensed, Oswald, Impact, Franklin Gothic, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-body--font-family: Roboto, Franklin Gothic Medium, Franklin Gothic, Open Sans, Tahoma, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  --cfe-body--letter-spacing: -0.02em;
+  --cfe-body--letter-spacing: -0.01em;
+  --cfe-body--font-stretch: semi-condensed;
   --cfe-display--font-family: Roboto Condensed, Oswald, Impact, Franklin Gothic, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-display--font-weight: 700;
   --cfe-display--letter-spacing: -0.03em;

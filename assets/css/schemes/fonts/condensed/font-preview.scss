@@ -41,7 +41,8 @@ $display_stack: 'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-se
 :root {
 	--cfe-fpv--condensed--fonts--display-stack: #{$display_stack};
 	--cfe-fpv--condensed--general--family: #{$text_stack};
-	--cfe-fpv--condensed--general--letter-spacing: -0.02em;
+	--cfe-fpv--condensed--general--letter-spacing: -0.01em;
+	--cfe-body--font-stretch: semi-condensed;
 	--cfe-fpv--condensed--display--font-family: #{$display_stack};
 	--cfe-fpv--condensed--display--font-weight: 700;
 	--cfe-fpv--condensed--display--letter-spacing: -0.03em;

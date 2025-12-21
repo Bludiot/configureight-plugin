@@ -196,7 +196,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 					<option value="none" <?php echo ( plugin()->getValue( 'slider_icon' ) === 'none' ? 'selected' : '' ); ?>><?php lang()->p( 'No Icon' ); ?></option>
 				</select>
 				<small class="form-text">
-					<?php lang()->p( 'Choose the style of icon to display below the text.' ); ?>
+					<?php lang()->p( 'Choose the style of icon to display before slides are loaded.' ); ?>
 				</small>
 			</div>
 		</div>

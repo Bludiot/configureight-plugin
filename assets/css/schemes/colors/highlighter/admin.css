@@ -46,4 +46,6 @@
 :root {
   --cfe-toolbar--submenu--link--action--text-color: #555555;
   --cfe-button--primary--action--text-color: #555555;
+  --cfe-toolbar--submenu--link--action--text-color--dark: #555555;
+  --cfe-button--primary--action--text-color--dark: #555555;
 }

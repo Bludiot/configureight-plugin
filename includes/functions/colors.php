@@ -11,7 +11,8 @@ namespace CFE_Colors;
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	plugin
+	plugin,
+	lang
 };
 
 /**
@@ -73,19 +74,15 @@ function color( $color ) {
  * array of color schemes.
  *
  * @since  1.0.0
- * @global object $L The Language class.
  * @return array
  */
 function custom_scheme() {
 
-	// Access global variables.
-	global $L;
-
 	$scheme = [
 		'custom' => [
 			'slug'     => 'custom',
-			'name'     => $L->get( 'Custom' ),
-			'about'    => $L->get( 'Custom scheme colors begin with the previously set scheme. To change the starting colors, first save a different scheme then select custom.' ),
+			'name'     => lang()->get( 'Custom' ),
+			'about'    => lang()->get( 'Custom scheme colors begin with the previously set scheme. To change the starting colors, first save a different scheme then select custom.' ),
 			'category' => 'none',
 			'light'    => [
 				'body'  => color( 'body' ),
@@ -121,20 +118,16 @@ function custom_scheme() {
  * variable in the relevant file.
  *
  * @since  1.0.0
- * @global object $L The Language class.
  * @return array Returns array of color schemes data.
  */
 function color_schemes() {
-
-	// Access global variables.
-	global $L;
 
 	// Built-in color schemes.
 	$schemes = [
 		'default' => [
 			'slug'     => 'default',
-			'name'     => $L->get( 'Default' ),
-			'about'    => $L->get( 'A plain and simple color scheme.' ),
+			'name'     => lang()->get( 'Default' ),
+			'about'    => lang()->get( 'A plain and simple color scheme.' ),
 			'category' => 'basic',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -160,8 +153,8 @@ function color_schemes() {
 		],
 		'dark' => [
 			'slug'     => 'dark',
-			'name'     => $L->get( 'Dark' ),
-			'about'    => $L->get( 'A plain and simple dark color scheme.' ),
+			'name'     => lang()->get( 'Dark' ),
+			'about'    => lang()->get( 'A plain and simple dark color scheme.' ),
 			'category' => 'basic',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -189,8 +182,8 @@ function color_schemes() {
 		// Business.
 		'corporate' => [
 			'slug'     => 'corporate',
-			'name'     => $L->get( 'Corporate' ),
-			'about'    => $L->get( 'Clean & blue for a standard business look.' ),
+			'name'     => lang()->get( 'Corporate' ),
+			'about'    => lang()->get( 'Clean & blue for a standard business look.' ),
 			'category' => 'scope',
 			'cover'    => '#185d89',
 			'light' => [
@@ -216,8 +209,8 @@ function color_schemes() {
 		],
 		'portfolio' => [
 			'slug'     => 'portfolio',
-			'name'     => $L->get( 'Portfolio' ),
-			'about'    => $L->get( 'A clean and unobtrusive look for portfolios & artwork.' ),
+			'name'     => lang()->get( 'Portfolio' ),
+			'about'    => lang()->get( 'A clean and unobtrusive look for portfolios & artwork.' ),
 			'category' => 'scope',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -243,8 +236,8 @@ function color_schemes() {
 		],
 		'videos' => [
 			'slug'     => 'videos',
-			'name'     => $L->get( 'Video' ),
-			'about'    => $L->get( 'A dark theme for showcasing embedded videos.' ),
+			'name'     => lang()->get( 'Video' ),
+			'about'    => lang()->get( 'A dark theme for showcasing embedded videos.' ),
 			'category' => 'scope',
 			'cover'    => '#355e9a',
 			'light' => [
@@ -272,8 +265,8 @@ function color_schemes() {
 		// Design.
 		'club' => [
 			'slug'     => 'club',
-			'name'     => $L->get( '1930s Club' ),
-			'about'    => $L->get( 'Inspired by the early, colorful jazz & big-band nightclubs.' ),
+			'name'     => lang()->get( '1930s Club' ),
+			'about'    => lang()->get( 'Inspired by the early, colorful jazz & big-band nightclubs.' ),
 			'category' => 'design',
 			'cover'    => '#2ea65e',
 			'light' => [
@@ -299,8 +292,8 @@ function color_schemes() {
 		],
 		'deco' => [
 			'slug'     => 'deco',
-			'name'     => $L->get( '1940s Hotel' ),
-			'about'    => $L->get( 'Those nostalgic Art Deco colors that define the period.' ),
+			'name'     => lang()->get( '1940s Hotel' ),
+			'about'    => lang()->get( 'Those nostalgic Art Deco colors that define the period.' ),
 			'category' => 'design',
 			'cover'    => '#1d683b',
 			'light' => [
@@ -326,8 +319,8 @@ function color_schemes() {
 		],
 		'diner' => [
 			'slug'     => 'diner',
-			'name'     => $L->get( '1950s Diner' ),
-			'about'    => $L->get( 'Hotrods, black & white checkers, chrome, and neon.' ),
+			'name'     => lang()->get( '1950s Diner' ),
+			'about'    => lang()->get( 'Hotrods, black & white checkers, chrome, and neon.' ),
 			'category' => 'design',
 			'cover'    => '#cc0000',
 			'light' => [
@@ -353,8 +346,8 @@ function color_schemes() {
 		],
 		'dress' => [
 			'slug'     => 'dress',
-			'name'     => $L->get( '1960s Dress' ),
-			'about'    => $L->get( 'Those bright colors of mid-century ladies fashion.' ),
+			'name'     => lang()->get( '1960s Dress' ),
+			'about'    => lang()->get( 'Those bright colors of mid-century ladies fashion.' ),
 			'category' => 'design',
 			'cover'    => '#0d3b85',
 			'light' => [
@@ -380,8 +373,8 @@ function color_schemes() {
 		],
 		'kitchen' => [
 			'slug'     => 'kitchen',
-			'name'     => $L->get( '1970s Kitchen' ),
-			'about'    => $L->get( 'Those Earthy tones that defined a moment in time.' ),
+			'name'     => lang()->get( '1970s Kitchen' ),
+			'about'    => lang()->get( 'Those Earthy tones that defined a moment in time.' ),
 			'category' => 'design',
 			'cover'    => '#536212',
 			'light' => [
@@ -407,8 +400,8 @@ function color_schemes() {
 		],
 		'video' => [
 			'slug'     => 'video',
-			'name'     => $L->get( '1980s Video' ),
-			'about'    => $L->get( 'When everything was going vibrant and digital.' ),
+			'name'     => lang()->get( '1980s Video' ),
+			'about'    => lang()->get( 'When everything was going vibrant and digital.' ),
 			'category' => 'design',
 			'cover'    => '#58146a',
 			'light' => [
@@ -434,8 +427,8 @@ function color_schemes() {
 		],
 		'wedding' => [
 			'slug'     => 'wedding',
-			'name'     => $L->get( '1990s Wedding' ),
-			'about'    => $L->get( 'Those soft, muted tones as we moved away from hot colors.' ),
+			'name'     => lang()->get( '1990s Wedding' ),
+			'about'    => lang()->get( 'Those soft, muted tones as we moved away from hot colors.' ),
 			'category' => 'design',
 			'cover'    => '#0b687f',
 			'light' => [
@@ -460,10 +453,90 @@ function color_schemes() {
 			]
 		],
 
+		// Color palettes.
+		'highlighter' => [
+			'slug'     => 'highlighter',
+			'name'     => lang()->get( 'Highlighter' ),
+			'category' => 'palettes',
+			'cover'    => '#ab7bf9',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#1bfc06',
+				'two'   => '#fdff32',
+				'three' => '#3aafdc',
+				'four'  => '#ff8c00',
+				'five'  => '#b41fff',
+				'six'   => '#faff46'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#1bfc06',
+				'two'   => '#fdff32',
+				'three' => '#3aafdc',
+				'four'  => '#ff8c00',
+				'five'  => '#b41fff',
+				'six'   => '#faff46'
+			]
+		],
+		'pastel' => [
+			'slug'     => 'pastel',
+			'name'     => lang()->get( 'Pastel' ),
+			'category' => 'palettes',
+			'cover'    => '#ab7bf9',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#ab7bf9',
+				'two'   => '#f18ebf',
+				'three' => '#44d2a8',
+				'four'  => '#63dded',
+				'five'  => '#feb486',
+				'six'   => '#ffe47a'
+			],
+			'dark' => [
+				'body'  => '#111111',
+				'text'  => '#eeeeee',
+				'one'   => '#ab7bf9',
+				'two'   => '#f18ebf',
+				'three' => '#44d2a8',
+				'four'  => '#63dded',
+				'five'  => '#feb486',
+				'six'   => '#ffe47a'
+			]
+		],
+		'primary' => [
+			'slug'     => 'primary',
+			'name'     => lang()->get( 'Primary' ),
+			'category' => 'palettes',
+			'cover'    => '#0000cc',
+			'light' => [
+				'body'  => '#ffffff',
+				'text'  => '#333333',
+				'one'   => '#0000cc',
+				'two'   => '#ff9922',
+				'three' => '#0cc800',
+				'four'  => '#ee0000',
+				'five'  => '#8800aa',
+				'six'   => '#ffdd00'
+			],
+			'dark' => [
+				'body'  => '#1e1e1e',
+				'text'  => '#eeeeee',
+				'one'   => '#ff9922',
+				'two'   => '#0000cc',
+				'three' => '#0cc800',
+				'four'  => '#ee0000',
+				'five'  => '#ffdd00',
+				'six'   => '#8800aa'
+			]
+		],
+
 		// Gemstones.
 		'amber' => [
 			'slug'     => 'amber',
-			'name'     => $L->get( 'Amber' ),
+			'name'     => lang()->get( 'Amber' ),
 			'category' => 'gemstones',
 			'cover'    => '#e58700',
 			'light' => [
@@ -489,7 +562,7 @@ function color_schemes() {
 		],
 		'amethyst' => [
 			'slug'     => 'amethyst',
-			'name'     => $L->get( 'Amethyst' ),
+			'name'     => lang()->get( 'Amethyst' ),
 			'category' => 'gemstones',
 			'cover'    => '#4b0776',
 			'light' => [
@@ -515,7 +588,7 @@ function color_schemes() {
 		],
 		'aquamarine' => [
 			'slug'     => 'aquamarine',
-			'name'     => $L->get( 'Aquamarine' ),
+			'name'     => lang()->get( 'Aquamarine' ),
 			'category' => 'gemstones',
 			'cover'    => '#2996b2',
 			'light' => [
@@ -541,7 +614,7 @@ function color_schemes() {
 		],
 		'emerald' => [
 			'slug'     => 'emerald',
-			'name'     => $L->get( 'Emerald' ),
+			'name'     => lang()->get( 'Emerald' ),
 			'category' => 'gemstones',
 			'cover'    => '#11892c',
 			'light' => [
@@ -567,7 +640,7 @@ function color_schemes() {
 		],
 		'garnet' => [
 			'slug'     => 'garnet',
-			'name'     => $L->get( 'Garnet' ),
+			'name'     => lang()->get( 'Garnet' ),
 			'category' => 'gemstones',
 			'cover'    => '#c10909',
 			'light' => [
@@ -593,7 +666,7 @@ function color_schemes() {
 		],
 		'jade' => [
 			'slug'     => 'jade',
-			'name'     => $L->get( 'Jade' ),
+			'name'     => lang()->get( 'Jade' ),
 			'category' => 'gemstones',
 			'cover'    => '#0baf4d',
 			'light' => [
@@ -619,7 +692,7 @@ function color_schemes() {
 		],
 		'ruby' => [
 			'slug'     => 'ruby',
-			'name'     => $L->get( 'Ruby' ),
+			'name'     => lang()->get( 'Ruby' ),
 			'category' => 'gemstones',
 			'cover'    => '#eb0027',
 			'light' => [
@@ -645,7 +718,7 @@ function color_schemes() {
 		],
 		'sapphire' => [
 			'slug'     => 'sapphire',
-			'name'     => $L->get( 'Sapphire' ),
+			'name'     => lang()->get( 'Sapphire' ),
 			'category' => 'gemstones',
 			'cover'    => '#0c2d95',
 			'light' => [
@@ -671,7 +744,7 @@ function color_schemes() {
 		],
 		'topaz' => [
 			'slug'     => 'topaz',
-			'name'     => $L->get( 'Topaz' ),
+			'name'     => lang()->get( 'Topaz' ),
 			'category' => 'gemstones',
 			'cover'    => '#bb621a',
 			'light' => [
@@ -697,7 +770,7 @@ function color_schemes() {
 		],
 		'turquoise' => [
 			'slug'     => 'turquoise',
-			'name'     => $L->get( 'Turquoise' ),
+			'name'     => lang()->get( 'Turquoise' ),
 			'category' => 'gemstones',
 			'cover'    => '#00a77a',
 			'light' => [
@@ -725,7 +798,7 @@ function color_schemes() {
 		// Materials.
 		'bamboo' => [
 			'slug'     => 'bamboo',
-			'name'     => $L->get( 'Bamboo' ),
+			'name'     => lang()->get( 'Bamboo' ),
 			'category' => 'materials',
 			'cover'    => '#607414',
 			'light' => [
@@ -751,7 +824,7 @@ function color_schemes() {
 		],
 		'brick' => [
 			'slug'     => 'brick',
-			'name'     => $L->get( 'Brick' ),
+			'name'     => lang()->get( 'Brick' ),
 			'category' => 'materials',
 			'cover'    => '#bc3a24',
 			'light' => [
@@ -777,7 +850,7 @@ function color_schemes() {
 		],
 		'concrete' => [
 			'slug'     => 'concrete',
-			'name'     => $L->get( 'Concrete' ),
+			'name'     => lang()->get( 'Concrete' ),
 			'category' => 'materials',
 			'cover'    => '#808fa1',
 			'light' => [
@@ -803,7 +876,7 @@ function color_schemes() {
 		],
 		'wood' => [
 			'slug'     => 'wood',
-			'name'     => $L->get( 'Wood' ),
+			'name'     => lang()->get( 'Wood' ),
 			'category' => 'materials',
 			'cover'    => '#733c18',
 			'light' => [
@@ -831,7 +904,7 @@ function color_schemes() {
 		// Metallic.
 		'bronze' => [
 			'slug'     => 'bronze',
-			'name'     => $L->get( 'Bronze' ),
+			'name'     => lang()->get( 'Bronze' ),
 			'category' => 'metallic',
 			'cover'    => '#765824',
 			'light' => [
@@ -857,7 +930,7 @@ function color_schemes() {
 		],
 		'copper' => [
 			'slug'     => 'copper',
-			'name'     => $L->get( 'Copper' ),
+			'name'     => lang()->get( 'Copper' ),
 			'category' => 'metallic',
 			'cover'    => '#ac5f0d',
 			'light' => [
@@ -883,7 +956,7 @@ function color_schemes() {
 		],
 		'gold' => [
 			'slug'     => 'gold',
-			'name'     => $L->get( 'Gold' ),
+			'name'     => lang()->get( 'Gold' ),
 			'category' => 'metallic',
 			'cover'    => '#a37110',
 			'light' => [
@@ -909,7 +982,7 @@ function color_schemes() {
 		],
 		'pewter' => [
 			'slug'     => 'pewter',
-			'name'     => $L->get( 'Pewter' ),
+			'name'     => lang()->get( 'Pewter' ),
 			'category' => 'metallic',
 			'cover'    => '#625a5a',
 			'light' => [
@@ -937,7 +1010,7 @@ function color_schemes() {
 		// Nature.
 		'beach' => [
 			'slug'     => 'beach',
-			'name'     => $L->get( 'Beach' ),
+			'name'     => lang()->get( 'Beach' ),
 			'category' => 'nature',
 			'cover'    => '#254d88',
 			'light' => [
@@ -963,7 +1036,7 @@ function color_schemes() {
 		],
 		'citrus' => [
 			'slug'     => 'citrus',
-			'name'     => $L->get( 'Citrus' ),
+			'name'     => lang()->get( 'Citrus' ),
 			'category' => 'nature',
 			'cover'    => '#ebad03',
 			'light' => [
@@ -989,7 +1062,7 @@ function color_schemes() {
 		],
 		'forest' => [
 			'slug'     => 'forest',
-			'name'     => $L->get( 'Forest' ),
+			'name'     => lang()->get( 'Forest' ),
 			'category' => 'nature',
 			'cover'    => '#3e721a',
 			'light' => [
@@ -1015,7 +1088,7 @@ function color_schemes() {
 		],
 		'orchid' => [
 			'slug'     => 'orchid',
-			'name'     => $L->get( 'Orchid' ),
+			'name'     => lang()->get( 'Orchid' ),
 			'category' => 'nature',
 			'cover'    => '#b91881',
 			'light' => [
@@ -1041,7 +1114,7 @@ function color_schemes() {
 		],
 		'rose' => [
 			'slug'     => 'rose',
-			'name'     => $L->get( 'Rose' ),
+			'name'     => lang()->get( 'Rose' ),
 			'category' => 'nature',
 			'cover'    => '#dd3e71',
 			'light' => [
@@ -1067,7 +1140,7 @@ function color_schemes() {
 		],
 		'violet' => [
 			'slug'     => 'violet',
-			'name'     => $L->get( 'Violet' ),
+			'name'     => lang()->get( 'Violet' ),
 			'category' => 'nature',
 			'cover'    => '#672178',
 			'light' => [

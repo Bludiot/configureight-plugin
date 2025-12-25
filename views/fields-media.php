@@ -19,9 +19,6 @@ use function CFE_Colors\{
 	hex_to_rgb
 };
 
-// Color schemes page URL.
-$colors_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=colors';
-
 ?>
 
 <h2 class="form-heading"><?php lang()->p( 'Media Options' ); ?></h2>
@@ -256,7 +253,7 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=colors'
 					<input id="cover_blend_default" class="screen-reader-text" type="hidden" value="<?php echo ( current_cover_color() ? current_cover_color() : $this-dbFields['cover_blend'] ); ?>" />
 					<span class="btn btn-secondary btn-md hide-if-no-js" id="cover_blend_default_button"><?php lang()->p( 'Reset' ); ?></span>
 				</div>
-				<p class="m-0"><?php lang()->p( "Go to the <a href='{$colors_page}'>color scheme reference</a> page for more colors from the current scheme." ); ?></p>
+				<small class="form-text"><?php lang()->p( 'Save new color scheme setting to get colors from that scheme.' ); ?></small>
 			</div>
 		</div>
 
@@ -284,9 +281,19 @@ $colors_page = DOMAIN_ADMIN . 'plugin/' . plugin()->className() . '?page=colors'
 
 					<?php if ( getPlugin( 'User_Profiles' ) ) : ?>
 					<label class="check-label-wrap" for="blend_profile"><input class="cover-blend" type="checkbox" name="cover_blend_use[]" id="blend_profile" value="profile" <?php echo ( is_array( plugin()->cover_blend_use() ) && in_array( 'profile', plugin()->cover_blend_use() ) ? 'checked' : '' ); ?>> <?php lang()->p( 'User Profiles' ); ?></label>
-					<?php endif; ?>
+					<?php
+					endif;
+
+					// Never empty array.
+					printf(
+						'<label class="check-label-wrap" for="blend_foobar" style="display: none !important;"><input type="checkbox" name="cover_blend_use[]" id="blend_foobar" value="foobar" checked /> %s</label>',
+						lang()->get( 'Ignore This' )
+					);
+					?>
+
+
 				</div>
-				<small class="form-text"><?php lang()->p( 'At least one option is required. Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
+				<small class="form-text"><?php lang()->p( 'Select "Color Overlay" style above to fully disable color blend.' ); ?></small>
 			</div>
 		</div>
 	</div>

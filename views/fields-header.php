@@ -153,6 +153,17 @@ if ( site()->logo() ) {
 		</div>
 	</div>
 
+	<div class="form-field form-group row">
+		<label class="form-label col-sm-2 col-form-label" for="cover_logo_dark_mode"><?php lang()->p( 'Dark Mode Logo' ); ?></label>
+		<div class="col-sm-10">
+			<select class="form-select" id="cover_logo_dark_mode" name="cover_logo_dark_mode">
+				<option value="true" <?php echo ( plugin()->getValue( 'cover_logo_dark_mode' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Cover Logo' ); ?></option>
+				<option value="false" <?php echo ( plugin()->getValue( 'cover_logo_dark_mode' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Standard Logo' ); ?></option>
+			</select>
+			<small class="form-text"><?php lang()->p( 'The logo to use when in dark mode.' ); ?></small>
+		</div>
+	</div>
+
 	<div id="logo_fields">
 		<div id="logo_width_std_wrap" class="form-field form-group row">
 			<label class="form-label col-sm-2 col-form-label" for="logo_width_std"><?php lang()->p( 'Logo Width, Desktop' ); ?></label>

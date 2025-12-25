@@ -227,6 +227,7 @@ class configureight extends Plugin {
 			'site_slogan'            => true,
 			'standard_logo'          => [],
 			'cover_logo'             => [],
+			'cover_logo_dark_mode'   => true,
 			'logo_standard_svg'      => '',
 			'logo_cover_svg'         => '',
 			'logo_thumb_width'       => 80,
@@ -1430,6 +1431,11 @@ class configureight extends Plugin {
 	// @return array
 	public function cover_logo() {
 		return $this->getValue( 'cover_logo' );
+	}
+
+	// @return boolean
+	public function cover_logo_dark_mode() {
+		return $this->getValue( 'cover_logo_dark_mode' );
 	}
 
 	// @return array

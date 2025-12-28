@@ -239,7 +239,7 @@ $static = buildStaticPages();
 				<option value="true" <?php echo ( plugin()->getValue( 'header_social' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Show' ); ?></option>
 				<option value="false" <?php echo ( plugin()->getValue( 'header_social' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Hide' ); ?></option>
 			</select>
-			<small class="form-text"><?php lang()->p( 'Display links to social media sites. See Settings > General > Social Networks in the admin menu to enter links.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Display links to social media sites. See Settings > Social Networks in the admin menu to enter links.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

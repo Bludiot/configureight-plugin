@@ -95,7 +95,6 @@ if ( getPlugin( 'Search_Forms' ) ) {
 				<option value="true" <?php echo ( plugin()->getValue( 'posts_slider' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( plugin()->getValue( 'posts_slider' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php lang()->p( 'Content without a cover image will be skipped.' ); ?></small>
 		</div>
 	</div>
 
@@ -110,6 +109,7 @@ if ( getPlugin( 'Search_Forms' ) ) {
 
 					<option value="static" <?php echo ( plugin()->getValue( 'slider_content' ) === 'static' ? 'selected' : '' ); ?>><?php lang()->p( 'Static Pages' ); ?></option>
 				</select>
+				<small class="form-text"><?php lang()->p( 'Content without a cover image will be skipped.' ); ?></small>
 			</div>
 		</div>
 

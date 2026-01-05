@@ -476,10 +476,22 @@ class configureight extends Plugin {
 		foreach ( $this->dbFields as $key => $value ) {
 
 			if ( is_array( $value ) ) {
-				$value = $value;
+				$array_fields = [];
+				foreach ( $value as $array_field ) {
+					if ( is_int( $array_field ) ) {
+						$array_field = Sanitize :: int( $array_field );
+					} elseif ( is_string( $array_field ) ) {
+						$array_field = Sanitize :: html( $array_field );
+					}
+					$array_fields[] = $array_field;
+				}
+				$value = $array_fields;
+			} elseif ( is_int( $value ) ) {
+				$value = Sanitize :: int( $value );
 			} else {
 				$value = Sanitize :: html( $value );
 			}
+
 			settype( $value, gettype( $this->dbFields[$key] ) );
 			$this->db[$key] = $value;
 		}
@@ -564,21 +576,31 @@ class configureight extends Plugin {
 
 			if ( isset( $args[$field] ) ) {
 
-				// @todo Look into sanitizing array values.
 				if ( is_array( $args[$field] ) ) {
-					$final_value = $args[$field];
+					$array_fields = [];
+					foreach ( $args[$field] as $array_field ) {
+						if ( is_int( $array_field ) ) {
+							$array_field = Sanitize :: int( $array_field );
+						} elseif ( is_string( $array_field ) ) {
+							$array_field = Sanitize :: html( $array_field );
+						}
+						$array_fields[] = $array_field;
+					}
+					$value = $array_fields;
+				} elseif ( is_int( $args[$field] ) ) {
+					$value = Sanitize :: int( $args[$field] );
 				} else {
-					$final_value = Sanitize :: html( $args[$field] );
+					$value = Sanitize :: html( $args[$field] );
 				}
 
-				if ( $final_value === 'false' ) {
-					$final_value = false;
-				} elseif ( $final_value === 'true' ) {
-					$final_value = true;
+				if ( 'false' === $value ) {
+					$value = false;
+				} elseif ( 'true' === $value ) {
+					$value = true;
 				}
 
-				settype( $final_value, gettype( $value ) );
-				$this->db[$field] = $final_value;
+				settype( $value, gettype( $value ) );
+				$this->db[$field] = $value;
 			}
 		}
 		return $this->save();

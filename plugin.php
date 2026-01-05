@@ -27,11 +27,6 @@ if ( ! defined( 'BLUDIT' ) ) {
 
 // Access namespaced functions.
 use function CFE_Plugin\{
-	site,
-	login,
-	lang,
-	url,
-	page,
 	admin_theme,
 	asset_min,
 	categories_list,
@@ -39,17 +34,22 @@ use function CFE_Plugin\{
 	custom_fields,
 	css,
 	default_theme,
+	error_cats_display,
 	error_search_display,
 	error_static_display,
-	error_cats_display,
 	error_tags_display,
 	is_rtl,
 	js,
+	login,
+	lang,
+	page,
 	search_form,
+	site,
 	static_list,
 	svg_icon,
 	tags_list,
-	title_tag
+	title_tag,
+	url
 };
 use function CFE_Colors\{
 	default_color_scheme,
@@ -409,13 +409,13 @@ class configureight extends Plugin {
 		// Array of custom hooks.
 		$this->customHooks = [
 			'color_scheme_vars',
-			'url_not_found',
-			'page_gallery',
-			'front_page',
 			'comment_form',
 			'footer_code',
+			'front_page',
+			'page_gallery',
 			'site_sidebar_before',
-			'site_sidebar_after'
+			'site_sidebar_after',
+			'url_not_found'
 		];
 
 		if ( ! $this->installed() ) {

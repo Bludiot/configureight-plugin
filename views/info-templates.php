@@ -119,6 +119,12 @@ $settings_page = DOMAIN_ADMIN . 'configure-plugin/' . $this->className();
 
 <p><?php lang()->p( 'This template is available to posts, sticky posts, and static pages on an individual basis.' ); ?></p>
 
+<h3 class="form-heading"><?php lang()->p( 'Cover Blend' ); ?></h3>
+
+<p><?php lang()->p( 'Template slug:' ); ?> <code class="select">cover-blend</code></p>
+
+<p><?php lang()->p( 'The cover blend template adds the color blend to the header image.' ); ?></p>
+
 <hr />
 
 <h2 class="form-heading"><?php lang()->p( 'Sidebar Templates' ); ?></h2>

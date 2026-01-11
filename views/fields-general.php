@@ -166,7 +166,7 @@ $custom_from = plugin()->custom_scheme_from();
 				<option value="true" <?php echo ( plugin()->getValue( 'show_customize' ) === true ? 'selected' : '' ); ?>><?php lang()->p( 'Enabled' ); ?></option>
 				<option value="false" <?php echo ( plugin()->getValue( 'show_customize' ) === false ? 'selected' : '' ); ?>><?php lang()->p( 'Disabled' ); ?></option>
 			</select>
-			<small class="form-text"><?php lang()->p( 'Links to help guides abd options on the dashboard.' ); ?></small>
+			<small class="form-text"><?php lang()->p( 'Links to help guides and options on the dashboard.' ); ?></small>
 		</div>
 	</div>
 </fieldset>

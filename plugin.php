@@ -636,7 +636,7 @@ class configureight extends Plugin {
 	 * @since  1.0.0
 	 * @access public
 	 * @global array $layout
-	 * @return string Returns the head content.
+	 * @return void
 	 */
 	public function adminController() {
 
@@ -680,7 +680,8 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @return mixed Returns script and stylesheet tags
+	 *               or null.
 	 */
 	public function adminHead() {
 
@@ -819,7 +820,7 @@ class configureight extends Plugin {
 			return;
 		}
 
-		$upload_path = HTML_PATH_ADMIN_ROOT . 'configureight';
+		$upload_path  = HTML_PATH_ADMIN_ROOT . 'configureight';
 		$current_path = strtok( $_SERVER["REQUEST_URI"], '?' );
 
 		if ( $current_path == $upload_path ) {
@@ -881,7 +882,7 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @return mixed Returns markup or null.
 	 */
 	public function adminBodyEnd() {
 
@@ -1076,7 +1077,7 @@ class configureight extends Plugin {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the markup of the page.
+	 * @return mixed Returns the markup of the page or null.
 	 */
 	public function adminView() {
 

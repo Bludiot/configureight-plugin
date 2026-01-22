@@ -560,9 +560,7 @@ class configureight extends Plugin {
 	 * except that it allows for array field values.
 	 *
 	 * This was implemented to handle multi-checkbox
-	 * and radio button fields. If strings are used
-	 * in an array option then be sure to sanitize
-	 * the string values.
+	 * and radio button fields.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -573,9 +571,9 @@ class configureight extends Plugin {
 		$args = $_POST;
 
 		foreach ( $this->dbFields as $field => $value ) {
-
 			if ( isset( $args[$field] ) ) {
 
+				// Array fields.
 				if ( is_array( $args[$field] ) ) {
 					$array_fields = [];
 					foreach ( $args[$field] as $array_field ) {
@@ -587,12 +585,17 @@ class configureight extends Plugin {
 						$array_fields[] = $array_field;
 					}
 					$value = $array_fields;
+
+				// Integer fields.
 				} elseif ( is_int( $args[$field] ) ) {
 					$value = Sanitize :: int( $args[$field] );
+
+				// String fields.
 				} else {
 					$value = Sanitize :: html( $args[$field] );
 				}
 
+				// Convert true/false strings to boolean.
 				if ( 'false' === $value ) {
 					$value = false;
 				} elseif ( 'true' === $value ) {

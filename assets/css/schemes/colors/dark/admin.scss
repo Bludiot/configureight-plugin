@@ -2,6 +2,8 @@
 /// Color Scheme: Dark
 ///
 
+@use '../../../modules/utility' as c;
+
 // Scheme colors.
 $color_body: #1e1e1e;
 $color_text: #eeeeee;
@@ -23,8 +25,8 @@ $color_six_dark: #555555;
 
 :root {
 	--cfe-box--border-color: #{rgba( $color: $color_text_dark, $alpha: 0.5 )};
-	--cfe-button--primary--bg-color: #{$blue};
-	--cfe-button--primary--bg-color--dark: #{$blue};
-	--cfe-button--primary--border-color: #{$blue};
-	--cfe-button--primary--border-color--dark: #{$blue};
+	--cfe-button--primary--bg-color: #{c.$blue};
+	--cfe-button--primary--bg-color--dark: #{c.$blue};
+	--cfe-button--primary--border-color: #{c.$blue};
+	--cfe-button--primary--border-color--dark: #{c.$blue};
 }

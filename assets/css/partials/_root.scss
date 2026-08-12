@@ -2,53 +2,53 @@
 /// Root variables
 ///
 
-@use '../modules/utility' as u;
+@use '../modules/utility' as c;
 
 // Scheme colors.
-$color_body:  $white;
-$color_text:  $dark_gray;
+$color_body:  c.$white;
+$color_text:  c.$dark_gray;
 $color_one:   #0044aa;
 $color_two:   #0066cc;
-$color_three: $medium_gray;
-$color_four:  $light_gray;
-$color_five:  $dark_gray;
-$color_six:   $medium_gray;
+$color_three: c.$medium_gray;
+$color_four:  c.$light_gray;
+$color_five:  c.$dark_gray;
+$color_six:   c.$medium_gray;
 
-$color_body_dark:  $near_black;
-$color_text_dark:  $off_white;
-$color_one_dark:   $white;
-$color_two_dark:   $yellow;
-$color_three_dark: $dark_gray;
-$color_four_dark:  $medium_gray;
-$color_five_dark:  $dark_gray;
-$color_six_dark:   $medium_gray;
+$color_body_dark:  c.$near_black;
+$color_text_dark:  c.$off_white;
+$color_one_dark:   c.$white;
+$color_two_dark:   c.$yellow;
+$color_three_dark: c.$dark_gray;
+$color_four_dark:  c.$medium_gray;
+$color_five_dark:  c.$dark_gray;
+$color_six_dark:   c.$medium_gray;
 
 :root {
 
 	// Color schemes.
-	--cfe-scheme-color--body:  #{u.$color_body};
-	--cfe-scheme-color--text:  #{u.$color_text};
-	--cfe-scheme-color--one:   #{u.$color_one};
-	--cfe-scheme-color--two:   #{u.$color_two};
-	--cfe-scheme-color--three: #{u.$color_three};
-	--cfe-scheme-color--four:  #{u.$color_four};
-	--cfe-scheme-color--five:  #{u.$color_five};
-	--cfe-scheme-color--six:   #{u.$color_six};
+	--cfe-scheme-color--body:  #{$color_body};
+	--cfe-scheme-color--text:  #{$color_text};
+	--cfe-scheme-color--one:   #{$color_one};
+	--cfe-scheme-color--two:   #{$color_two};
+	--cfe-scheme-color--three: #{$color_three};
+	--cfe-scheme-color--four:  #{$color_four};
+	--cfe-scheme-color--five:  #{$color_five};
+	--cfe-scheme-color--six:   #{$color_six};
 
-	--cfe-scheme-color--body--dark:  #{u.$color_body_dark};
-	--cfe-scheme-color--text--dark:  #{u.$color_text_dark};
-	--cfe-scheme-color--one--dark:   #{u.$color_one_dark};
-	--cfe-scheme-color--two--dark:   #{u.$color_two_dark};
-	--cfe-scheme-color--three--dark: #{u.$color_three_dark};
-	--cfe-scheme-color--four--dark:  #{u.$color_four_dark};
-	--cfe-scheme-color--five--dark:  #{u.$color_five_dark};
-	--cfe-scheme-color--six--dark:   #{u.$color_six_dark};
+	--cfe-scheme-color--body--dark:  #{$color_body_dark};
+	--cfe-scheme-color--text--dark:  #{$color_text_dark};
+	--cfe-scheme-color--one--dark:   #{$color_one_dark};
+	--cfe-scheme-color--two--dark:   #{$color_two_dark};
+	--cfe-scheme-color--three--dark: #{$color_three_dark};
+	--cfe-scheme-color--four--dark:  #{$color_four_dark};
+	--cfe-scheme-color--five--dark:  #{$color_five_dark};
+	--cfe-scheme-color--six--dark:   #{$color_six_dark};
 
 	// Font stacks.
-	--cfe-fonts--sans-stack: #{u.$fonts_sans};
-	--cfe-fonts--serif-stack: #{u.$fonts_serif};
-	--cfe-fonts--monospace-stack: #{u.$fonts_monospace};
-	--cfe-fonts--display-stack: #{u.$fonts_sans};
+	--cfe-fonts--sans-stack: #{c.$fonts_sans};
+	--cfe-fonts--serif-stack: #{c.$fonts_serif};
+	--cfe-fonts--monospace-stack: #{c.$fonts_monospace};
+	--cfe-fonts--display-stack: #{c.$fonts_sans};
 
 	// Layout general.
 	--cfe-spacing--horz: 2rem;
@@ -60,8 +60,8 @@ $color_six_dark:   $medium_gray;
 	// Layout elements.
 	--cfe-box--border-style: solid;
 	--cfe-box--border-width: 1px;
-	--cfe-box--border-color: #{rgba( $color: u.$color_text, $alpha: 0.5 )};
-	--cfe-box--border-color--dark: #{rgba( $color: u.$color_text_dark, $alpha: 0.5 )};
+	--cfe-box--border-color: #{rgba( $color: $color_text, $alpha: 0.5 )};
+	--cfe-box--border-color--dark: #{rgba( $color: $color_text_dark, $alpha: 0.5 )};
 	--cfe-box--border: var( --cfe-box--border-style ) var( --cfe-box--border-width ) var( --cfe-box--border-color );
 	--cfe-box--border--dark: var( --cfe-box--border-style ) var( --cfe-box--border-width ) var( --cfe-box--border-color--dark );
 
@@ -116,8 +116,8 @@ $color_six_dark:   $medium_gray;
 	--cfe-form-element--border--dark: var( --cfe-form-element--border-style ) var( --cfe-form-element--border-width ) var( --cfe-form-element--border-color--dark );
 	--cfe-form-element--font-size: var( --cfe-body--font-size );
 	--cfe-form-element--font-weight: 400;
-	--cfe-form--placeholder-color: #{u.$light_gray};
-	--cfe-form--placeholder-color--dark: #{u.$light_gray};
+	--cfe-form--placeholder-color: #{c.$light_gray};
+	--cfe-form--placeholder-color--dark: #{c.$light_gray};
 	--cfe-label-field--margin: 0;
 
 	--cfe-textarea--min-height: 200px;
@@ -135,10 +135,10 @@ $color_six_dark:   $medium_gray;
 	--cfe-button--border-color--dark: var( --cfe-form-element--border-color--dark );
 	--cfe-button--action--border-color: var( --cfe-form-element--border-color );
 	--cfe-button--action--border-color--dark: var( --cfe-form-element--border-color--dark );
-	--cfe-button--text-color: #{u.$white};
-	--cfe-button--text-color--dark: #{u.$white};
-	--cfe-button--action--text-color: #{u.$white};
-	--cfe-button--action--text-color--dark: #{u.$white};
+	--cfe-button--text-color: #{c.$white};
+	--cfe-button--text-color--dark: #{c.$white};
+	--cfe-button--action--text-color: #{c.$white};
+	--cfe-button--action--text-color--dark: #{c.$white};
 	--cfe-button--svg-icon--width: 1em;
 	--cfe-button--svg-icon--height: 1em;
 
@@ -152,22 +152,22 @@ $color_six_dark:   $medium_gray;
 	--cfe-toolbar--font-size: 0.875rem;
 	--cfe-toolbar--bg-color: var( --cfe-scheme-color--body--dark );
 	--cfe-toolbar--bg-color--dark: var( --cfe-scheme-color--body--dark );
-	--cfe-toolbar--text-color: #{u.$white};
-	--cfe-toolbar--text-color--dark: #{u.$white};
+	--cfe-toolbar--text-color: #{c.$white};
+	--cfe-toolbar--text-color--dark: #{c.$white};
 	--cfe-toolbar--link--padding: 0 0.5em;
 	--cfe-toolbar--link--mobile--padding: 0 0.75em;
 	--cfe-toolbar--link--bg-color: inherit;
 	--cfe-toolbar--link--bg-color--dark: inherit;
-	--cfe-toolbar--link--text-color: #{u.$white};
-	--cfe-toolbar--link--text-color--dark: #{u.$white};
+	--cfe-toolbar--link--text-color: #{c.$white};
+	--cfe-toolbar--link--text-color--dark: #{c.$white};
 	--cfe-toolbar--link--action--bg-color: var( --cfe-scheme-color--five );
 	--cfe-toolbar--link--action--bg-color--dark: var( --cfe-scheme-color--five--dark );
-	--cfe-toolbar--link--action--text-color: #{u.$white};
-	--cfe-toolbar--link--action--text-color--dark: #{u.$white};
+	--cfe-toolbar--link--action--text-color: #{c.$white};
+	--cfe-toolbar--link--action--text-color--dark: #{c.$white};
 	--cfe-toolbar--submenu--link--action--bg-color: var( --cfe-scheme-color--six );
 	--cfe-toolbar--submenu--link--action--bg-color--dark: var( --cfe-scheme-color--six--dark );
-	--cfe-toolbar--submenu--link--text-color: #{u.$white};
-	--cfe-toolbar--submenu--link--text-color--dark: #{u.$white};
+	--cfe-toolbar--submenu--link--text-color: #{c.$white};
+	--cfe-toolbar--submenu--link--text-color--dark: #{c.$white};
 
 	// Admin menu.
 	--cfe-admin-menu--bg-color: var( --cfe-body--bg-color--dark );

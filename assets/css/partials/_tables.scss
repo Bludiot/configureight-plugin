@@ -2,6 +2,8 @@
 /// Table styles
 ///
 
+@use '../modules/utility' as l;
+
 .table {
 	width: 100%;
 	margin-bottom: 1rem;
@@ -285,7 +287,7 @@
 	background-color: rgba( 255, 255, 255, 0.075 );
 }
 
-@media ( max-width: $break-max-sm ) {
+@media ( max-width: l.$break-max-sm ) {
 
 	.table-responsive-sm {
 		display: block;
@@ -299,7 +301,7 @@
 	}
 }
 
-@media ( max-width: $break-max_md ) {
+@media ( max-width: l.$break-max_md ) {
 
 	.table-responsive-md {
 		display: block;
@@ -313,7 +315,7 @@
 	}
 }
 
-@media ( max-width: $break-max_lg ) {
+@media ( max-width: l.$break-max_lg ) {
 
 	.table-responsive-lg {
 		display: block;
@@ -327,7 +329,7 @@
 	}
 }
 
-@media ( max-width: $break-max-xl ) {
+@media ( max-width: l.$break-max-xl ) {
 
 	.table-responsive-xl {
 		display: block;

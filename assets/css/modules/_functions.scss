@@ -1,0 +1,27 @@
+///
+/// SCSS functions
+///
+
+@use 'sass:meta';
+@use 'sass:string';
+@use 'sass:color';
+
+// SVG icon colors.
+@function svg_bg_color( $color ) {
+	@if meta.type-of( $color ) == 'color' {
+		$hex: string.slice( color.ie-hex-str( $color ), 4 );
+		$color: string.unquote( '#{$hex}' );
+
+		@return '%23' + string.to-lower-case( $color );
+	}
+	@return '%23ffffff';
+}
+@function svg_bg_action_color( $color ) {
+	@if meta.type-of( $color ) == 'color' {
+		$hex: string.slice( color.ie-hex-str( $color ), 4 );
+		$color: string.unquote( '#{$hex}' );
+
+		@return '%23' + string.to-lower-case( $color );
+	}
+	@return '%23ffffff';
+}

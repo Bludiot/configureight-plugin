@@ -2,12 +2,14 @@
 /// General styles
 ///
 
+@use 'sass:string';
+
 // SVG icon functions.
 @function svg_navbar_icon_color() {
-	@return '%23' + str-slice( '#ffffff', 2, -1 );
+	@return '%23' + string.slice( '#ffffff', 2, -1 );
 }
 @function svg_navbar_icon_action_color() {
-	@return '%23' + str-slice( '#cccccc', 2, -1 );
+	@return '%23' + string.slice( '#cccccc', 2, -1 );
 }
 
 html {

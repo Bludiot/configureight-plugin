@@ -1110,6 +1110,8 @@ class configureight extends Plugin {
 	 *
 	 * Uses the core hook to add content to the dashboard.
 	 *
+	 * This hook is removed in  Bludit version 3.17+.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void

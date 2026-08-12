@@ -2,6 +2,8 @@
 /// Color Scheme: Rose
 ///
 
+@use 'sass:string';
+
 // Get general colors.
 @import '../../../modules/_utility';
 
@@ -26,10 +28,10 @@ $color_six_dark: #ff6797;
 
 // SVG icon colors.
 @function svg_icon_color() {
-	@return '%23' + str-slice( '#{$white}', 2, -1 );
+	@return '%23' + string.slice( '#{$white}', 2, -1 );
 }
 @function svg_icon_action_color() {
-	@return '%23' + str-slice( '#{$white}', 2, -1 );
+	@return '%23' + string.slice( '#{$white}', 2, -1 );
 }
 
 // Search icons.

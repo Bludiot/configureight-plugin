@@ -2,6 +2,8 @@
 /// Color Scheme: Dark
 ///
 
+@use 'sass:string';
+
 @import '../../../modules/_utility';
 
 // Scheme colors.
@@ -25,10 +27,10 @@ $color_six_dark: #555555;
 
 // SVG icon colors.
 @function svg_icon_color() {
-	@return '%23' + str-slice( '#{$off_white}', 2, -1 );
+	@return '%23' + string.slice( '#{$off_white}', 2, -1 );
 }
 @function svg_icon_action_color() {
-	@return '%23' + str-slice( '#{$off_white}', 2, -1 );
+	@return '%23' + string.slice( '#{$off_white}', 2, -1 );
 }
 
 // Search icons.

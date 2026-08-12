@@ -22,6 +22,10 @@ div.sidebar {
 		margin: 0;
 		padding: 0;
 
+		li.mb-4:first-of-type {
+			display: none !important;
+		}
+
 		.nav-item {
 			display: flex;
 			justify-content: space-between;
@@ -73,6 +77,7 @@ div.sidebar {
 				&:focus {
 					background-color: var( --cfe-admin--menu--link--action--bg-color );
 					color: var( --cfe-admin--menu--link--action--text-color, #ffffff );
+					transform: unset;
 
 					@media ( prefers-color-scheme: dark ) {
 						background-color: var( --cfe-admin--menu--link--action--bg-color--dark );
@@ -89,8 +94,10 @@ div.sidebar {
 			h4 {
 				margin: 0.5rem 0 0 0;
 				padding: 0.5rem 1rem;
+				font-family: var( --cfe-heading-secondary--font-family );
 				font-size: var( --cfe-heading-secondary--font-size );
 				font-weight: var( --cfe-heading-secondary--font-weight );
+				letter-spacing: var( --cfe-heading-secondary--letter-spacing);
 				text-transform: none;
 				color: var( --cfe-admin--menu--link--text-color, #ffffff );
 

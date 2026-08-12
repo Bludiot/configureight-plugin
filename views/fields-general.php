@@ -81,7 +81,6 @@ $custom_from = plugin()->custom_scheme_from();
 						<p><?php lang()->p( '<strong>Note:</strong> this page needs to be refreshed before new images can be managed or selected as a bookmark image.' ); ?></p>
 						<p><button class="button button-small btn btn-sm btn-primary" onClick="location.reload();"><?php lang()->p( 'Refresh' ); ?></button></p>
 					</div>
-
 				</div>
 
 				<div id="bookmark-album" class="tab-pane tab-pane-image-upload" role="tabpanel" aria-labelledby="bookmark-album">
@@ -159,6 +158,7 @@ $custom_from = plugin()->custom_scheme_from();
 	</div>
 	<?php endif; ?>
 
+	<?php if ( BLUDIT_VERSION <= '3.17.2' ) : ?>
 	<div class="form-field form-group row">
 		<label class="form-label col-sm-2 col-form-label" for="show_customize"><?php lang()->p( 'Dashboard Customize' ); ?></label>
 		<div class="col-sm-10">
@@ -169,6 +169,7 @@ $custom_from = plugin()->custom_scheme_from();
 			<small class="form-text"><?php lang()->p( 'Links to help guides and options on the dashboard.' ); ?></small>
 		</div>
 	</div>
+	<?php endif; ?>
 </fieldset>
 
 <h3 class="form-heading"><?php lang()->p( 'Loading Screen' ); ?></h3>

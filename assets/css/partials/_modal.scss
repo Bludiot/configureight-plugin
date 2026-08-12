@@ -2,6 +2,8 @@
 /// Modal window styles
 ///
 
+@use '../modules/utility' as u;
+
 .modal-open {
 	overflow: hidden;
 }
@@ -201,7 +203,7 @@
 	overflow: scroll;
 }
 
-@media ( min-width: $break-min_sm ) {
+@media ( min-width: u.$break-min_sm ) {
 
 	.modal-dialog {
 		max-width: 500px;
@@ -232,14 +234,14 @@
 	}
 }
 
-@media ( min-width: $break-min_lg ) {
+@media ( min-width: u.$break-min_lg ) {
 	.modal-lg,
 	.modal-xl {
 		max-width: 800px;
 	}
 }
 
-@media ( min-width: $break-min_xl ) {
+@media ( min-width: u.$break-min_xl ) {
 	.modal-xl {
 		max-width: 1140px;
 	}
@@ -286,7 +288,7 @@
 					}
 
 					&:last-of-type {
-						color: $danger;
+						color: u.$danger;
 					}
 				}
 			}

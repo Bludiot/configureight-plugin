@@ -2,6 +2,8 @@
 /// Button styles
 ///
 
+@use '../modules/utility' as u;
+
 .btn-group {
 	position: relative;
 	display: -ms-inline-flexbox;
@@ -138,7 +140,7 @@ fieldset:disabled a.btn {
 }
 
 // For small devices.
-@media ( max-width: $break-max-sm ) {
+@media ( max-width: u.$break-max-sm ) {
 
 	#jsmediaManagerButton,
 	#jscategoryButton,

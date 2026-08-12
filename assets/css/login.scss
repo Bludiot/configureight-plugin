@@ -2,9 +2,9 @@
 /// Login page styles
 ///
 
-@import 'partials/_root';
-@import 'modules/_reset';
-@import 'partials/_setup';
-@import 'partials/_forms';
-@import 'partials/_buttons';
-@import 'partials/_login';
+@use 'partials/_root';
+@use 'modules/_reset';
+@use 'partials/_setup';
+@use 'partials/_forms';
+@use 'partials/_buttons';
+@use 'partials/_login';

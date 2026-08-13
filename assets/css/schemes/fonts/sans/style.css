@@ -12,6 +12,7 @@
   font-display: swap;
   src: url(../../../../fonts/sans/inter-italic.woff2) format("woff2");
 }
+:host,
 :root {
   --cfe-fonts--display-stack: Inter, Helvetica Neue, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-body--font-family: Inter, Helvetica Neue, Helvetica, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;

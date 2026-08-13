@@ -26,6 +26,7 @@
   font-display: swap;
   src: url(../../../../fonts/condensed/roboto-condensed-italic.woff2) format("truetype");
 }
+:host,
 :root {
   --cfe-fpv--condensed--fonts--display-stack: Roboto Condensed, Oswald, Impact, Franklin Gothic, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --cfe-fpv--condensed--general--family: Roboto, Franklin Gothic Medium, Franklin Gothic, Open Sans, Tahoma, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;

@@ -23,6 +23,7 @@ $color_four_dark: #555555;
 $color_five_dark: #333333;
 $color_six_dark: #555555;
 
+:host,
 :root {
 	--cfe-box--border-color: #{rgba( $color: $color_text_dark, $alpha: 0.5 )};
 	--cfe-button--primary--bg-color: #{c.$blue};

@@ -1,3 +1,4 @@
+:host,
 :root {
   --cfe-heading-primary--link--text-color: var( --cfe-scheme-color--three );
   --cfe-heading-primary--link--action--text-color: var( --cfe-scheme-color--four );

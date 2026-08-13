@@ -21,6 +21,7 @@ $color_four_dark: #502d16;
 $color_five_dark: #894229;
 $color_six_dark: #743020;
 
+:host,
 :root {
 	--cfe-button--primary--text-color--dark: #{$color_four_dark};
 }

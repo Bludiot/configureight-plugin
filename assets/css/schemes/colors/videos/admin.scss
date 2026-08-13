@@ -21,6 +21,7 @@ $color_four_dark: #dd0000;
 $color_five_dark: #1e1e1e;
 $color_six_dark: #ff0000;
 
+:host,
 :root {
 	--cfe-admin--menu--link--action--bg-color: #{$color_six};
 	--cfe-admin--menu--link--action--bg-color--dark: #{$color_six};

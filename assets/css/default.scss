@@ -6,6 +6,7 @@
 @use 'partials/root';
 
 // Default has no dark user preference styles.
+:host,
 :root {
 
 	// User toolbar.

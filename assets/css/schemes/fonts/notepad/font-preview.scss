@@ -20,6 +20,7 @@
 
 $display_stack: 'Shantell Sans', 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
+:host,
 :root {
 	--cfe-fpv--notepad--general--family: #{$display_stack};
 	--cfe-fpv--notepad--display--font-family: #{$display_stack};

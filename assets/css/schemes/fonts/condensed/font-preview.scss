@@ -38,6 +38,7 @@ $text_stack: 'Roboto', 'Franklin Gothic Medium', 'Franklin Gothic', 'Open Sans',
 
 $display_stack: 'Roboto Condensed', 'Oswald', Impact, 'Franklin Gothic', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
+:host,
 :root {
 	--cfe-fpv--condensed--fonts--display-stack: #{$display_stack};
 	--cfe-fpv--condensed--general--family: #{$text_stack};

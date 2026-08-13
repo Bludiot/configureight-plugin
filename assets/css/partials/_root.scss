@@ -8,29 +8,23 @@
 :root {
 
 	// Color schemes.
-	--cfe-scheme-color--body:  #{c.$color_body};
-	--cfe-scheme-color--text:  #{c.$color_text};
-	--cfe-scheme-color--one:   #{c.$color_one};
-	--cfe-scheme-color--two:   #{c.$color_two};
-	--cfe-scheme-color--three: #{c.$color_three};
-	--cfe-scheme-color--four:  #{c.$color_four};
-	--cfe-scheme-color--five:  #{c.$color_five};
-	--cfe-scheme-color--six:   #{c.$color_six};
-
-	--cfe-scheme-color--body--dark:  #{c.$color_body_dark};
-	--cfe-scheme-color--text--dark:  #{c.$color_text_dark};
-	--cfe-scheme-color--one--dark:   #{c.$color_one_dark};
-	--cfe-scheme-color--two--dark:   #{c.$color_two_dark};
-	--cfe-scheme-color--three--dark: #{c.$color_three_dark};
-	--cfe-scheme-color--four--dark:  #{c.$color_four_dark};
-	--cfe-scheme-color--five--dark:  #{c.$color_five_dark};
-	--cfe-scheme-color--six--dark:   #{c.$color_six_dark};
+	@each $scheme, $colors in c.$schemes {
+		@if $scheme == 'light' {
+			@each $name, $value in $colors {
+				--cfe-scheme-color--#{$name}: #{$value};
+			}
+		}
+		@if $scheme == 'dark' {
+			@each $name, $value in $colors {
+				--cfe-scheme-color--#{$name}--dark: #{$value};
+			}
+		}
+	}
 
 	// Font stacks.
-	--cfe-fonts--sans-stack: #{c.$fonts_sans};
-	--cfe-fonts--serif-stack: #{c.$fonts_serif};
-	--cfe-fonts--monospace-stack: #{c.$fonts_monospace};
-	--cfe-fonts--display-stack: #{c.$fonts_sans};
+	@each $stack, $fonts in c.$stacks {
+		--cfe-fonts--#{$stack}-stack: #{$fonts};
+	}
 
 	// Layout general.
 	--cfe-spacing--horz: 2rem;

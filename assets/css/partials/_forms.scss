@@ -1391,7 +1391,7 @@ p + .multi-check-wrap {
 		min-height: 120px;
 
 		&.code-field {
-			font-family: var( --cfe-code-field--font-family, var( --cfe-fonts--monospace-stack ) );
+			font-family: var( --cfe-code-field--font-family, var( --cfe-fonts--mono-stack ) );
 			font-size: var( --cfe-code-field--font-size, 1em );
 			font-weight: var( --cfe-code-field--font-weight, 500 );
 			background-color: var( --cfe-scheme-color--body--dark );

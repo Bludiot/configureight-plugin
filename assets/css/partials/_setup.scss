@@ -57,7 +57,7 @@ body {
 	}
 
 	&.monospace:not( .serif ) {
-		font-family: var( --cfe-fonts--monospace-stack, monospace );
+		font-family: var( --cfe-fonts--mono-stack, monospace );
 	}
 
 	&.toolbar-active {

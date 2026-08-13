@@ -502,7 +502,7 @@ form {
 	}
 
 	.option-name {
-		font-family: var( --cfe-fonts--monospace-stack, monospace );
+		font-family: var( --cfe-fonts--mono-stack, monospace );
 		font-weight: 500;
 	}
 
@@ -522,7 +522,7 @@ form {
 }
 
 .code-field {
-	font-family: var( --cfe-code-field--font-family, var( --cfe-fonts--monospace-stack ) );
+	font-family: var( --cfe-code-field--font-family, var( --cfe-fonts--mono-stack ) );
 	font-size: var( --cfe-code-field--font-size, 1em );
 	font-weight: var( --cfe-code-field--font-weight, 500 );
 }

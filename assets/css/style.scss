@@ -6,13 +6,13 @@
 
 @use 'modules/utility';
 @use 'partials/root';
-@use 'modules/_reset';
-@use 'partials/_setup';
-@use 'partials/_layout';
-@use 'partials/_tables';
-@use 'partials/_forms';
-@use 'partials/_buttons';
-@use 'partials/_menus';
-@use 'partials/_content';
-@use 'partials/_tabs';
-@use 'partials/_modal';
+@use 'modules/reset';
+@use 'partials/setup';
+@use 'partials/layout';
+@use 'partials/tables';
+@use 'partials/forms';
+@use 'partials/buttons';
+@use 'partials/menus';
+@use 'partials/content';
+@use 'partials/tabs';
+@use 'partials/modal';

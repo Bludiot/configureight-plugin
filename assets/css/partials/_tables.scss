@@ -287,7 +287,7 @@
 	background-color: rgba( 255, 255, 255, 0.075 );
 }
 
-@media ( max-width: l.$break-max-sm ) {
+@media ( max-width: l.$break_max_sm ) {
 
 	.table-responsive-sm {
 		display: block;
@@ -301,7 +301,7 @@
 	}
 }
 
-@media ( max-width: l.$break-max_md ) {
+@media ( max-width: l.$break_max_md ) {
 
 	.table-responsive-md {
 		display: block;
@@ -315,7 +315,7 @@
 	}
 }
 
-@media ( max-width: l.$break-max_lg ) {
+@media ( max-width: l.$break_max_lg ) {
 
 	.table-responsive-lg {
 		display: block;
@@ -329,7 +329,7 @@
 	}
 }
 
-@media ( max-width: l.$break-max-xl ) {
+@media ( max-width: l.$break_max_xl ) {
 
 	.table-responsive-xl {
 		display: block;

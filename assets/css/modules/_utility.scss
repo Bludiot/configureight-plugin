@@ -6,18 +6,29 @@
 @use 'functions' as f;
 
 // Media queries.
-$break_tablet : 960px !default;
-$break_phone  : 640px !default;
-$break_small  : 480px !default;
-$break-min-xs: 0;
-$break-min-sm: 576px;
-$break-min_md: 768px;
-$break-min_lg: 992px;
-$break-min-xl: 1200px;
-$break-max-sm: 575.98px;
-$break-max_md: 767.98px;
-$break-max_lg: 991.98px;
-$break-max-xl: 1199.98px;
+$break_min_xs : 0px !default;
+$break_min_sm : 576px  !default;
+$break_min_md : 768px  !default;
+$break_min_lg : 992px  !default;
+$break_min_xl : 1200px !default;
+$break_max_xs : 480px  !default;
+$break_max_sm : 575.98px  !default;
+$break_max_md : 767.98px  !default;
+$break_max_lg : 991.98px  !default;
+$break_max_xl : 1199.98px !default;
+
+$break: (
+	'min-xs' : $break_min_xs,
+	'min-sm' : $break_min_sm,
+	'min-md' : $break_min_md,
+	'min-lg' : $break_min_lg,
+	'min-xl' : $break_min_xl,
+	'max-xs' : $break_max_xs,
+	'max-sm' : $break_max_sm,
+	'max-md' : $break_max_md,
+	'max-lg' : $break_max_lg,
+	'max-xl' : $break_max_xl
+) !default;
 
 // General colors.
 $white       : #ffffff !default;
@@ -33,52 +44,105 @@ $orange      : #ee6600 !default;
 $yellow      : #ffdd00 !default;
 $green       : #00aa00 !default;
 $blue        : #0044aa !default;
+$purple      : #bb00aa !default;
 $violet      : #551188 !default;
-$error       : $red !default;
-$danger      : $red !default;
+$error       : $red    !default;
+$danger      : $red    !default;
 $notify      : $orange !default;
 $warning     : $yellow !default;
-$success     : $green !default;
+$success     : $green  !default;
 
 // Color types.
 $body_color: $white !default;
 $text_color: $dark_gray !default;
+$body_color_dark: $near_black !default;
+$text_color_dark: $off_white !default;
+
+$colors: (
+	'white'       : $white,
+	'off_white'   : $off_white,
+	'black'       : $black,
+	'near_black'  : $near_black,
+	'dark_gray'   : $dark_gray,
+	'medium_gray' : $medium_gray,
+	'light_gray'  : $light_gray,
+	'pale_gray'   : $pale_gray,
+	'red'         : $red,
+	'orange'      : $orange,
+	'yellow'      : $yellow,
+	'green'       : $green,
+	'blue'        : $blue,
+	'purple'      : $purple,
+	'violet'      : $violet,
+	'error'       : $error,
+	'danger'      : $danger,
+	'notify'      : $notify,
+	'warning'     : $warning,
+	'success'     : $success,
+	'body_color'  : $body_color,
+	'text_color'  : $text_color,
+	'body_color_dark' : $body_color_dark,
+	'text_color_dark' : $text_color_dark
+) !default;
 
 // Scheme colors.
-$color_body:  $white;
-$color_text:  $dark_gray;
-$color_one:   #0044aa;
-$color_two:   #0066cc;
-$color_three: $medium_gray;
-$color_four:  $light_gray;
-$color_five:  $dark_gray;
-$color_six:   $medium_gray;
+$color_body:  $body_color !default;
+$color_text:  $text_color !default;
+$color_one:   $blue !default;
+$color_two:   $violet !default;
+$color_three: $medium_gray !default;
+$color_four:  $light_gray !default;
+$color_five:  $dark_gray !default;
+$color_six:   $medium_gray !default;
 
-$color_body_dark:  $near_black;
-$color_text_dark:  $off_white;
-$color_one_dark:   $white;
-$color_two_dark:   $yellow;
-$color_three_dark: $dark_gray;
-$color_four_dark:  $medium_gray;
-$color_five_dark:  $dark_gray;
-$color_six_dark:   $medium_gray;
+$color_body_dark:  $body_color_dark !default;
+$color_text_dark:  $text_color_dark !default;
+$color_one_dark:   $white !default;
+$color_two_dark:   $yellow !default;
+$color_three_dark: $dark_gray !default;
+$color_four_dark:  $medium_gray !default;
+$color_five_dark:  $dark_gray !default;
+$color_six_dark:   $medium_gray !default;
+
+$scheme: (
+	'light' : (
+		'body'  : $color_body,
+		'text'  : $color_text,
+		'one'   : $color_one,
+		'two'   : $color_two,
+		'three' : $color_three,
+		'four'  : $color_four,
+		'five'  : $color_five,
+		'six'   : $color_six
+	),
+	'dark' : (
+		'body'  : $color_body_dark,
+		'text'  : $color_text_dark,
+		'one'   : $color_one_dark,
+		'two'   : $color_two_dark,
+		'three' : $color_three_dark,
+		'four'  : $color_four_dark,
+		'five'  : $color_five_dark,
+		'six'   : $color_six_dark
+	)
+) !default;
 
 // Font stacks.
-$fonts_sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$fonts_sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 
-$fonts_serif: NonBreakingSpaceOverride, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$fonts_serif: NonBreakingSpaceOverride, 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 
-$fonts_monospace: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$fonts_monospace: 'Source Code Pro', 'Roboto Mono', 'Fira Code', 'Liberation Mono', Inconsolata, Menlo, Monaco, Consolas, 'Cascadia Mono', 'Segoe UI Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Fira Mono', 'Droid Sans Mono', 'Courier New', Courier, ui-monospace, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 
 // Search icons.
-$search_icon_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z'/></svg>";
+$search_icon_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z'/></svg>" !default;
 
-$search_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $pale_gray )}' d='M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z'/></svg>";
+$search_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $pale_gray )}' d='M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z'/></svg>" !default;
 
 // Close icon.
-$close_icon_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z'/></svg>";
+$close_icon_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z'/></svg>" !default;
 
-$close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z'/></svg>";
+$close_icon_action_bg: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='#{f.svg_bg_color( $white )}' d='M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z'/></svg>" !default;
 
 ///
 /// Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
